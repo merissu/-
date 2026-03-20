@@ -1571,7 +1571,7 @@
 		<ingestible>
 			<baseIngestTicks>1</baseIngestTicks>
 			<chairSearchRadius>0</chairSearchRadius>
-			<drugCategory>Social</drugCategory>
+			<drugCategory>Hard</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
 			<foodType>Fluid</foodType>
 			<ingestCommandString>喝下{0}</ingestCommandString>
