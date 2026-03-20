@@ -22,6 +22,27 @@
 	</SoundDef>
 
     <SoundDef>
+        <defName>MagicPotion</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MagicPotion</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
         <defName>MagicKnockback</defName>
         <context>MapOnly</context>
 		<maxSimultaneous>10</maxSimultaneous>
