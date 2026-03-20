@@ -1,0 +1,14 @@
+{
+  "TextureModID": "touhou.merissu",
+  "ItemDefName": "BailouSword",
+  "ItemType": "ThingDef",
+  "ItemTypeNamespace": "Verse",
+  "OffX": 0.408309162,
+  "OffY": -0.0227198172,
+  "Rotation": 53.0,
+  "ScaleX": 1.5,
+  "ScaleY": 1.5,
+  "BladeStart": 0.08373904,
+  "BladeEnd": 1.24180472,
+  "MeleeWeaponType": 6
+}

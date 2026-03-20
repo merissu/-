@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+<packageId>touhou.merissu</packageId>
+  <name>东方秘星异闻 ～ the Paranormal in RimWorld</name>
+  <author>merissu</author>
+  <supportedVersions>
+	  <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+	</modDependencies>
+  <description>添加了来自东方Project的建筑,材料,药物,武器和装备,并且添加了全新的灵力系统和符卡系统,大大扩展了战斗内容,总体上偏正义
+
+    本mod为东方星缘纪的二次改版,原mod:https://steamcommunity.com/sharedfiles/filedetails/?id=3085256867.
+    对于原mod的改动部分:重置了所有贴图(因为我的绘画水平有限所以使用了ai).
+    修复了原mod大部分的报错和bug
+    重置了大部分研究界面和介绍词
+    重置了所有材料和药物的数值,效果和数值,添加了使用道具和药物的音效和音乐,部分药物有全新的效果
+    重置了所有建筑物的数值和效果,给几个建筑物添加了全新的功能
+    重置了所有武器的攻击方式和数值,部分武器有了独特的近战音效和远程音效,并且有了独特的攻击模式
+    重置了所有装备的数值和效果,装备现在有新的装备栏并且会显示在身上,装备添加了全新的功能
+    添加了灵力系统,添加了五十多张不同的符卡,现在每个武器和装备都可以消耗灵力发动符卡,并且添加了四十几首对应的音乐
+兼容近战动画,兼容战斗扩展(ce)</description>
+</ModMetaData>

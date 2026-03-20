@@ -1,0 +1,11 @@
+{
+  "TextureModID": "touhou.merissu",
+  "ItemDefName": "Laevatain",
+  "ItemType": "ThingDef",
+  "ItemTypeNamespace": "Verse",
+  "OffX": -0.0188249778,
+  "OffY": 0.06426485,
+  "Rotation": -20.0,
+  "BladeStart": 0.240831062,
+  "MeleeWeaponType": 6
+}

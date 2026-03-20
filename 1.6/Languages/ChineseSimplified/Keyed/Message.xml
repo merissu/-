@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <merissu_BayonetCooldown>刺刀冲锋冷却中：还剩余{0}秒。</merissu_BayonetCooldown>
+  <MR_BayonetDowned>单位倒地。</MR_BayonetDowned>
+  <MR.BayonetCry.A>为了月之都！</MR.BayonetCry.A>
+  <MR.BayonetCry.B>为了依姬大人！</MR.BayonetCry.B>
+  <MR.BayonetCry.C>哇呀啊啊啊啊啊！</MR.BayonetCry.C>
+  <MR.BayonetCry.D>咿呀啊啊啊啊啊！</MR.BayonetCry.D>
+  <MR.BayonetCry.E>呃啊啊啊啊啊！</MR.BayonetCry.E>
+  <MR.BayonetLabel>刺刀冲锋</MR.BayonetLabel>
+  <MR.BayonetDescription>向敌人发起冲锋并将刺刀捅进敌人最薄弱的部位,即使是懦弱的月兔,也会在绝望时进行这样的殊死一搏,所谓"兔子急了会咬人"描述的大概就是这样的事情.</MR.BayonetDescription>
+</LanguageData>

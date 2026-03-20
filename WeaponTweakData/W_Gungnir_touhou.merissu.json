@@ -1,0 +1,14 @@
+{
+  "TextureModID": "touhou.merissu",
+  "ItemDefName": "W_Gungnir",
+  "ItemType": "ThingDef",
+  "ItemTypeNamespace": "Verse",
+  "OffX": 0.0824408457,
+  "OffY": 0.03829941,
+  "Rotation": 45.0,
+  "ScaleX": 2.4,
+  "ScaleY": 2.4,
+  "BladeStart": 0.370658964,
+  "BladeEnd": 1.043168,
+  "MeleeWeaponType": 4
+}
