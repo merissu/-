@@ -934,6 +934,51 @@
 		</comps>
 	</ThingDef>
 
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_LevelUpText</defName>
+		<graphicData>
+			<texPath>Other/LEVEL001</texPath>
+			<shaderType>Mote</shaderType>
+			<drawSize>(1.5, 0.34)</drawSize>
+		</graphicData>
+		<mote>
+			<fadeInTime>0.1</fadeInTime>  
+			<solidTime>1</solidTime>   
+			<fadeOutTime>0.5</fadeOutTime> 
+		</mote>
+		<altitudeLayer>MetaOverlays</altitudeLayer>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_LevelUpTwoDef</defName> <graphicData>
+			<texPath>Other/LEVEL002</texPath>
+			<shaderType>Mote</shaderType>
+			<drawSize>(1.5, 0.34)</drawSize>
+		</graphicData>
+		<mote><fadeInTime>0.1</fadeInTime><solidTime>1</solidTime><fadeOutTime>0.5</fadeOutTime></mote>
+		<altitudeLayer>MetaOverlays</altitudeLayer>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_LevelUpThreeDef</defName> <graphicData>
+			<texPath>Other/LEVEL003</texPath>
+			<shaderType>Mote</shaderType>
+			<drawSize>(1.5, 0.34)</drawSize>
+		</graphicData>
+		<mote><fadeInTime>0.1</fadeInTime><solidTime>1</solidTime><fadeOutTime>0.5</fadeOutTime></mote>
+		<altitudeLayer>MetaOverlays</altitudeLayer>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_LevelUpMaxDef</defName> <graphicData>
+			<texPath>Other/LEVELMAX</texPath>
+			<shaderType>Mote</shaderType>
+			<drawSize>(1.5, 0.34)</drawSize>
+		</graphicData>
+		<mote><fadeInTime>0.1</fadeInTime><solidTime>1</solidTime><fadeOutTime>0.5</fadeOutTime></mote>
+		<altitudeLayer>MetaOverlays</altitudeLayer>
+	</ThingDef>
+
 	<HediffDef>
 		<defName>MightierThanThousands</defName>
 		<label>生药「国士无双之药」</label>
@@ -946,6 +991,7 @@
 			<li Class="HediffCompProperties_SeverityPerDay">
 				<severityPerDay>-1</severityPerDay>
 			</li>
+			<li Class="merissu.HediffCompProperties_LevelUpVisuals" />
 		</comps>
 		<stages>
 			<li>
@@ -1274,7 +1320,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.5,0.5)</drawSize>
 		</graphicData>
-		<description>操纵风的天狗所使用的团扇,使用后身体会在风中变轻,永久增加移动速度,多次使用效果会累积,最多累计五次</description>
+		<description>操纵风的天狗所使用的团扇,使用后身体会在风中变轻,永久增加移动速度,多次使用效果会累积,最多累计四次</description>
 		<tradeTags>
   			<li>ExoticMisc</li> 
 			<li>Medicine</li>   
@@ -1314,7 +1360,7 @@
 			<outcomeDoers>
 				<li Class="IngestionOutcomeDoer_GiveHediff">
 					<hediffDef>TenguFan</hediffDef>
-					<severity>0.2</severity>
+					<severity>0.25</severity>
 				</li>
 			</outcomeDoers>
 		</ingestible>
@@ -1346,44 +1392,42 @@
 		<defaultLabelColor>(204,153,102)</defaultLabelColor>
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
+		<comps>
+			<li Class="merissu.HediffCompProperties_LevelUpVisuals" />
+		</comps>
 		<stages>
 			<li>
-				<minSeverity>0.2</minSeverity>
+			    <label>白狼天狗</label>
+				<minSeverity>0.25</minSeverity>
 				<capMods>
 					<li>
 						<capacity>Moving</capacity>
-						<offset>0.2</offset>
+						<offset>0.25</offset>
 					</li>
 				</capMods>
 			</li>
 			<li>
-				<minSeverity>0.4</minSeverity>
+				<label>鸦天狗</label>
+				<minSeverity>0.5</minSeverity>
 				<capMods>
 					<li>
 						<capacity>Moving</capacity>
-						<offset>0.4</offset>
+						<offset>0.5</offset>
 					</li>
 				</capMods>
 			</li>
 			<li>
-				<minSeverity>0.6</minSeverity>
+				<label>大天狗</label>
+				<minSeverity>0.75</minSeverity>
 				<capMods>
 					<li>
 						<capacity>Moving</capacity>
-						<offset>0.6</offset>
+						<offset>0.75</offset>
 					</li>
 				</capMods>
 			</li>
 			<li>
-				<minSeverity>0.8</minSeverity>
-				<capMods>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>0.8</offset>
-					</li>
-				</capMods>
-			</li>
-			<li>
+				<label>天魔</label>
 				<minSeverity>1</minSeverity>
 				<capMods>
 					<li>

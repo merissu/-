@@ -90,6 +90,7 @@
     <Compile Include="DoremySleepingPillow\PlaceWorker_OnBed.cs" />
     <Compile Include="HediffComp_MagicKnockback.cs" />
     <Compile Include="HediffComp_MagicPotionVisuals.cs" />
+    <Compile Include="HediffCompProperties_LevelUpVisuals.cs" />
     <Compile Include="tengufan.cs" />
     <Compile Include="utsuhocard\NuclearControlRod.cs" />
     <Compile Include="utsuhocard\NuclearWeaponLogic.cs" />
