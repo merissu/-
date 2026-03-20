@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+              <!-- 幻绮绢 -->
+  <Operation Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="MakaiShinkiCloth"]/statBases</xpath>
+      <value>
+        <Bulk>0.02</Bulk>
+      </value>
+    </Operation>
+
+  <Operation Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="MakaiShinkiCloth"]/stuffProps/categories</xpath>
+      <value>
+        <li>SoftArmor</li>
+      </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="MakaiShinkiCloth"]/statBases/StuffPower_Armor_Sharp</xpath>
+      <value>
+        <StuffPower_Armor_Sharp>0.5</StuffPower_Armor_Sharp>
+      </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="MakaiShinkiCloth"]/statBases/StuffPower_Armor_Blunt</xpath>
+      <value>
+        <StuffPower_Armor_Blunt>0.75</StuffPower_Armor_Blunt>
+      </value>
+    </Operation>
+
+              <!-- 绯绯色金 -->
+
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Crimsongold"]/statBases</xpath>
+        <value>
+          <Bulk>0.05</Bulk> 
+        </value>
+      </Operation>
+
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="Crimsongold"]/statBases/StuffPower_Armor_Sharp</xpath>
+        <value>
+          <StuffPower_Armor_Sharp>5.4</StuffPower_Armor_Sharp>
+        </value>
+      </Operation>
+
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="Crimsongold"]/statBases/StuffPower_Armor_Blunt</xpath>
+        <value>
+          <StuffPower_Armor_Blunt>10.6</StuffPower_Armor_Blunt>
+        </value>
+      </Operation>
+
+      <Operation Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Crimsongold"]/statBases</xpath>
+          <value>
+              <StuffEffectMultiplierArmor>1.2</StuffEffectMultiplierArmor>
+          </value>
+      </Operation>
+
+              <!-- 栖灵木 -->
+      <Operation Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="SpiritualWood"]/statBases</xpath>
+          <value>
+            <Bulk>0.02</Bulk> 
+          </value>
+        </Operation>
+
+        <Operation Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="SpiritualWood"]/statBases/StuffPower_Armor_Sharp</xpath>
+          <value>
+            <StuffPower_Armor_Sharp>0.1</StuffPower_Armor_Sharp>
+          </value>
+        </Operation>
+
+        <Operation Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="SpiritualWood"]/statBases/StuffPower_Armor_Blunt</xpath>
+          <value>
+            <StuffPower_Armor_Blunt>0.15</StuffPower_Armor_Blunt>
+          </value>
+        </Operation>
+
+        <Operation Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="SpiritualWood"]/tools</xpath>
+          <value>
+            <tools>
+              <li Class="CombatExtended.ToolCE">
+                <label>栖灵木</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>5</power> 
+                <cooldownTime>1.6</cooldownTime>
+                <armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+                <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+              </li>
+            </tools>
+          </value>
+        </Operation>
+
+        <Operation Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SpiritualWood"]/statBases</xpath>
+            <value>
+                <StuffEffectMultiplierArmor>0.5</StuffEffectMultiplierArmor>
+            </value>
+        </Operation>
+
+              <!-- 博丽御守 -->
+  <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="HakureiAmulet"]/comps/li[@Class="merissu.CompProperties_HakureiShield"]</xpath>
+        <value>
+            <li Class="merissu.CompProperties_HakureiShield">
+                <startingTicksToReset>1200</startingTicksToReset>
+                <minDrawSize>2</minDrawSize>
+                <maxDrawSize>2.1</maxDrawSize>
+                <energyLossPerDamage>0.001</energyLossPerDamage>
+                <energyOnReset>1</energyOnReset>
+                <blocksRangedWeapons>false</blocksRangedWeapons>
+                <fullPowerHediff>FullPower</fullPowerHediff>
+                <maxSeverity>10</maxSeverity>
+            </li>
+        </value>
+    </Operation>
+
+              <!-- 药品 -->
+
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="FullPower"]/statBases</xpath>
+        <value>
+          <statBases>
+            <MarketValue>50</MarketValue>
+            <Mass>0.01</Mass>
+            <Bulk>0.01</Bulk> 
+          </statBases>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="E_HiPotion"]/statBases</xpath>
+        <value>
+            <Bulk>0.01</Bulk> 
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="UniversalInjection"]/statBases</xpath>
+        <value>
+            <Bulk>0.01</Bulk> 
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="E_LargeHiPotion"]/statBases</xpath>
+        <value>
+            <Bulk>0.01</Bulk> 
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="ReturnFromDeath"]/statBases</xpath>
+        <value>
+            <Bulk>0.01</Bulk> 
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="HighlyToxicBody"]/statBases</xpath>
+        <value>
+            <Bulk>0.01</Bulk> 
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MightierThanThousands"]/statBases</xpath>
+        <value>
+            <Bulk>0.01</Bulk> 
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="ButterflyDreamPill"]/statBases</xpath>
+        <value>
+            <Bulk>0.01</Bulk> 
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="OgenticJadeRabbit"]/statBases</xpath>
+        <value>
+            <Bulk>0.01</Bulk> 
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Energizer"]/statBases</xpath>
+        <value>
+            <Bulk>0.01</Bulk> 
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MeteorStreamX"]/statBases</xpath>
+        <value>
+            <Bulk>0.01</Bulk> 
+        </value>
+    </Operation>
+</Patch>

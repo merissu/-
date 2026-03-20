@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+              <!-- 御币 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Gohei"]/verbs</xpath>
+    <value>
+      <verbs>
+        <li Class="CombatExtended.VerbPropertiesCE">
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <defaultProjectile>HakureiTalisman</defaultProjectile>
+          <warmupTime>0.01</warmupTime>
+          <range>30</range>
+          <soundCast>gohei</soundCast>
+          <muzzleFlashScale>0</muzzleFlashScale>
+          <burstShotCount>3</burstShotCount> 
+          <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+        </li>
+      </verbs>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Gohei"]/statBases</xpath>
+    <value>
+      <statBases>
+        <WorkToMake>5000</WorkToMake>
+        <MarketValue>17600</MarketValue>
+        <SellPriceFactor>0.1</SellPriceFactor>
+        <Mass>1.0</Mass>
+        <Bulk>1.0</Bulk>
+        <AccuracyTouch>5</AccuracyTouch>
+        <AccuracyShort>5</AccuracyShort>
+        <AccuracyMedium>5</AccuracyMedium>
+        <AccuracyLong>5</AccuracyLong>
+        <RangedWeapon_Cooldown>0.05</RangedWeapon_Cooldown>
+        <SightsEfficiency>1.2</SightsEfficiency> 
+        <ShotSpread>0.01</ShotSpread> 
+        <SwayFactor>0.3</SwayFactor> 
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="HakureiTalisman"]</xpath>
+    <value>
+      <thingClass>CombatExtended.BulletCE</thingClass>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="HakureiTalisman"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>hakurei</damageDef>
+        <damageAmountBase>4</damageAmountBase>
+        <speed>30</speed>
+  			<stoppingPower>0.2</stoppingPower>
+        <armorPenetrationSharp>6</armorPenetrationSharp> 
+        <armorPenetrationBlunt>21</armorPenetrationBlunt>
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Gohei"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>御币</label>
+          <capacities>
+            <li>Blunt</li>
+  					<li>Poke</li>
+          </capacities>
+          <power>8</power>
+          <cooldownTime>1</cooldownTime>
+          <armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+          <armorPenetrationSharp>10</armorPenetrationSharp>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+              <!-- 月兔制式步枪 -->
+
+<Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+		<defName>LunaRabbitGun</defName>
+		<statBases>
+			<WorkToMake>5000</WorkToMake>
+			<Mass>1.0</Mass>
+			<AccuracyTouch>0.7</AccuracyTouch>
+			<AccuracyShort>0.8</AccuracyShort>
+			<AccuracyMedium>0.9</AccuracyMedium>
+			<AccuracyLong>1</AccuracyLong>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.3</SightsEfficiency> 
+      <ShotSpread>0.02</ShotSpread>
+			<SwayFactor>1.2</SwayFactor>
+			<Bulk>4.0</Bulk> 
+		</statBases>
+		<Properties>
+			<recoilAmount>1.2</recoilAmount>
+			<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+			<hasStandardCommand>true</hasStandardCommand>
+			<defaultProjectile>LunaRabbitBullet</defaultProjectile> 
+      <warmupTime>0.5</warmupTime>
+			<range>48</range> 
+      <ticksBetweenBurstShots>60</ticksBetweenBurstShots>
+			<burstShotCount>1</burstShotCount> 
+      <soundCast>Shot_Revolver</soundCast>
+			<soundCastTail>GunTail_Light</soundCastTail>
+			<muzzleFlashScale>9</muzzleFlashScale>
+		</Properties>
+		<FireModes>
+			<aiAimMode>AimedShot</aiAimMode>
+		</FireModes>
+		<weaponTags>
+			<li>CE_AI_Rifle</li>
+		</weaponTags>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="LunaRabbitGun"]/tools</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>刺刀</label>
+					<capacities>
+						<li>Stab</li>
+					</capacities>
+					<power>18</power>
+					<cooldownTime>1.5</cooldownTime>
+					<armorPenetrationSharp>2</armorPenetrationSharp> 
+          <armorPenetrationBlunt>1</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>枪托</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>8</power>
+					<cooldownTime>1.55</cooldownTime>
+					<armorPenetrationBlunt>2.75</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="LunaRabbitBullet"]</xpath>
+		<value>
+			<ThingDef ParentName="BaseBulletCE"> 
+        <defName>LunaRabbitBullet</defName>
+				<label>月兔制式子弹 (无限)</label>
+				<graphicData>
+					<texPath>Weapons/Bullet/GunBullet</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+				</graphicData>
+				<projectile Class="CombatExtended.ProjectilePropertiesCE">
+					<damageDef>Bullet</damageDef>
+					<damageAmountBase>36</damageAmountBase>
+					<armorPenetrationSharp>25</armorPenetrationSharp> 
+          <armorPenetrationBlunt>100</armorPenetrationBlunt>
+					<speed>120</speed>
+				</projectile>
+			</ThingDef>
+		</value>
+	</Operation>
+
+              <!-- 八卦炉 -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>Hakkero</defName>
+      <statBases>
+		  	<WorkToMake>10000</WorkToMake>
+        <MarketValue>37000</MarketValue> 
+        <SellPriceFactor>0.1</SellPriceFactor>
+        <Mass>1.0</Mass>
+        <AccuracyTouch>0.9</AccuracyTouch>
+        <AccuracyShort>0.9</AccuracyShort>
+        <AccuracyMedium>0.9</AccuracyMedium>
+        <Flammability>0</Flammability>
+        <AccuracyLong>0.9</AccuracyLong>
+        <RangedWeapon_Cooldown>2</RangedWeapon_Cooldown> 
+        <SightsEfficiency>1.0</SightsEfficiency>
+        <ShotSpread>0.15</ShotSpread>
+        <SwayFactor>0.8</SwayFactor>
+        <Bulk>2.5</Bulk> 
+      </statBases>
+    <Properties>
+      <verbClass>merissu.Verb_HakkeroFlameArc</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Projectile_HakkeroFlame</defaultProjectile>
+      <warmupTime>0.5</warmupTime>
+      <range>20</range> 
+      <burstShotCount>60</burstShotCount>
+      <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+      <soundCast>gohei</soundCast>
+      <muzzleFlashScale>5</muzzleFlashScale>
+    </Properties>
+    <FireModes>
+			<aiAimMode>AimedShot</aiAimMode>
+		</FireModes>
+    <weaponTags>
+      <li>CE_OneHandedWeapon</li>
+    </weaponTags>
+  </Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Hakkero"]/tools</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>八卦炉</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>6</power> 
+          <cooldownTime>1</cooldownTime>
+					<armorPenetrationBlunt>4.5</armorPenetrationBlunt> 
+          <linkedBodyPartsGroup>Base</linkedBodyPartsGroup>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Projectile_HakkeroFlame"]</xpath>
+		<value>
+			<ThingDef ParentName="BaseBulletCE"> 
+        <defName>Projectile_HakkeroFlame</defName>
+				<label>火焰</label>
+        <thingClass>merissu.Projectile_HakkeroFlame</thingClass>
+				<graphicData>
+					<texPath>Projectiles/FlameShot</texPath>
+					<graphicClass>Graphic_Random</graphicClass>
+					<drawSize>(1,1)</drawSize>
+				</graphicData>
+				<projectile Class="CombatExtended.ProjectilePropertiesCE">
+					<damageDef>Flame</damageDef>
+					<damageAmountBase>4</damageAmountBase> 
+          <armorPenetrationSharp>12</armorPenetrationSharp>
+					<armorPenetrationBlunt>50</armorPenetrationBlunt>
+					<speed>20</speed> 
+				</projectile>
+			</ThingDef>
+		</value>
+	</Operation>
+
+              <!-- 月兔波动枪 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MoonRabbitWaveGun"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>枪托</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>8</power>
+          <cooldownTime>1.55</cooldownTime>
+          <armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <label>枪管</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>5</power>
+          <cooldownTime>2.02</cooldownTime>
+          <armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>MoonRabbitWaveGun</defName>
+    <statBases>
+			<WorkToMake>10000</WorkToMake>
+			<MarketValue>37000</MarketValue> 
+      <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1.0</Mass>
+			<AccuracyTouch>0.8</AccuracyTouch>
+			<AccuracyShort>0.9</AccuracyShort>
+			<AccuracyMedium>0.9</AccuracyMedium>
+			<AccuracyLong>0.9</AccuracyLong>
+			<RangedWeapon_Cooldown>0.75</RangedWeapon_Cooldown>
+      <Bulk>3.50</Bulk>
+      <SightsEfficiency>1.10</SightsEfficiency>
+      <ShotSpread>0.07</ShotSpread>
+      <SwayFactor>0.85</SwayFactor>
+    </statBases>
+    <Properties>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>MindStarMine</defaultProjectile>
+      <warmupTime>0.5</warmupTime>
+      <range>20</range>
+      <burstShotCount>1</burstShotCount>
+      <soundCast>udongegun</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>0</muzzleFlashScale>
+      <burstShotCount>3</burstShotCount> 
+      <ticksBetweenBurstShots>5</ticksBetweenBurstShots> 
+    </Properties>
+    <FireModes>
+      <aiAimMode>Snapshot</aiAimMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_OneHandedWeapon</li>
+    </weaponTags>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs</xpath>
+    <value>
+      <ThingDef ParentName="BaseBulletCE">
+        <defName>MindStarMine</defName>
+        <label>月之波纹</label>
+        <graphicData>
+          <texPath>Weapons/Bullet/GunBullet</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(0.5,0.5)</drawSize>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+          <damageDef>LunaticRedEyes</damageDef>
+          <damageAmountBase>8</damageAmountBase> 
+          <armorPenetrationSharp>999</armorPenetrationSharp> 
+          <armorPenetrationBlunt>0</armorPenetrationBlunt>
+          <speed>50</speed>
+        </projectile>
+      </ThingDef>
+    </value>
+  </Operation>            
+
+              <!-- 绯想之剑 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ScarletRhapsodySword"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>斩击</label>
+          <capacities>
+            <li>TheSwordOfNaivasamjnanasamjnayatana</li>
+          </capacities>
+          <power>20</power> 
+          <cooldownTime>1.2</cooldownTime> 
+          <armorPenetrationSharp>12</armorPenetrationSharp> 
+          <armorPenetrationBlunt>6</armorPenetrationBlunt>
+          <soundMeleeHit>hitG</soundMeleeHit>
+          <soundMeleeMiss>MissedG</soundMeleeMiss>
+          <linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="ScarletRhapsodySword"]/statBases</xpath>
+    <value>
+      <Bulk>3.5</Bulk> 
+      <MeleeCounterParryBonus>1.5</MeleeCounterParryBonus> 
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="ScarletRhapsodySword"]</xpath>
+    <value>
+      <equippedStatOffsets>
+        <MeleeCritChance>1.2</MeleeCritChance> 
+        <MeleeParryChance>0.40</MeleeParryChance> 
+        <MeleeDodgeChance>0.2</MeleeDodgeChance>
+      </equippedStatOffsets>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="ScarletRhapsodySword"]</xpath>
+    <value>
+      <weaponTags>
+        <li>CE_Sidearm_Melee</li>
+      </weaponTags>
+    </value>
+  </Operation>
+
+              <!-- 花田阳伞 -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>YuukaUmbrella</defName>
+    <statBases>
+      <WorkToMake>10000</WorkToMake>
+			<MarketValue>27000</MarketValue> 
+      <SellPriceFactor>0.1</SellPriceFactor>
+      <Mass>2.5</Mass>
+      <Bulk>5.0</Bulk>
+      <SightsEfficiency>0.8</SightsEfficiency> 
+      <ShotSpread>0.02</ShotSpread>
+      <SwayFactor>1.2</SwayFactor>
+      <RangedWeapon_Cooldown>0.4</RangedWeapon_Cooldown>
+    </statBases>
+    <FireModes>
+      <aiAimMode>Snapshot</aiAimMode>
+    </FireModes>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="YuukaUmbrella"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>伞尖</label>
+          <capacities><li>Stab</li></capacities>
+          <power>18</power>
+          <cooldownTime>1</cooldownTime>
+          <armorPenetrationSharp>3</armorPenetrationSharp> 
+          <armorPenetrationBlunt>4.5</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+  
+              <!-- 制御棒 -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>NuclearControlRod</defName>
+    <statBases>
+      <Mass>5.0</Mass>
+      <Bulk>7.0</Bulk>
+      <WorkToMake>20000</WorkToMake>
+			<MarketValue>62100</MarketValue> 
+      <SellPriceFactor>0.1</SellPriceFactor>
+      <SightsEfficiency>1.5</SightsEfficiency> 
+      <ShotSpread>0.01</ShotSpread>
+      <SwayFactor>1.8</SwayFactor>
+      <RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+    </statBases>
+    <FireModes>
+      <aiAimMode>AimedShot</aiAimMode>
+    </FireModes>
+  </Operation>
+  
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="NuclearControlRod"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>重击</label>
+          <capacities><li>Blunt</li></capacities>
+          <power>25</power>
+          <cooldownTime>1.8</cooldownTime>
+          <armorPenetrationBlunt>35.0</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+              <!-- 楼观剑 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="BailouSword"]/statBases</xpath>
+    <value>
+      <statBases>
+        <WorkToMake>30000</WorkToMake>
+        <MarketValue>50000</MarketValue> 
+        <SellPriceFactor>0.1</SellPriceFactor>
+        <Mass>3</Mass>
+        <Flammability>0</Flammability>
+        <Bulk>6</Bulk> 
+        <MeleeCounterParryBonus>1.0</MeleeCounterParryBonus> 
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="BailouSword"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>生死流转斩</label>
+          <capacities>
+            <li>EvilWindIncredibleInstantaneouslySlash</li>
+          </capacities>
+          <power>12</power> 
+          <cooldownTime>0.3</cooldownTime> 
+          <armorPenetrationSharp>100</armorPenetrationSharp> 
+          <armorPenetrationBlunt>50</armorPenetrationBlunt>
+          <soundMeleeHit>hitH</soundMeleeHit>
+  				<soundMeleeMiss>MissedG</soundMeleeMiss>
+          <extraMeleeDamages>
+            <li>
+              <def>EternalMoments</def>
+              <amount>1</amount>
+            </li>
+            <li>
+              <def>EternalMoments</def>
+              <amount>1</amount>
+            </li>
+            <li>
+              <def>EternalMoments</def>
+              <amount>1</amount>
+            </li>
+            <li>
+              <def>EternalMoments</def>
+              <amount>1</amount>
+            </li>
+            <li>
+              <def>EternalMoments</def>
+              <amount>1</amount>
+            </li>
+          </extraMeleeDamages>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+              <!-- 蝶舞幽冥扇 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="DeathButterfliesFan"]/statBases</xpath>
+    <value>
+      <statBases>
+        <WorkToMake>30000</WorkToMake>
+        <MarketValue>50000</MarketValue>
+        <SellPriceFactor>0.1</SellPriceFactor>
+        <Mass>1</Mass>
+        <Bulk>2</Bulk>
+        <SightsEfficiency>1.2</SightsEfficiency> 
+        <ShotSpread>0.05</ShotSpread>
+        <SwayFactor>0.5</SwayFactor>
+        <RangedWeapon_Cooldown>0.6</RangedWeapon_Cooldown>
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="DeathButterfliesFan"]/verbs</xpath>
+    <value>
+      <verbs>
+        <li Class="CombatExtended.VerbPropertiesCE">
+          <verbClass>merissu.Verb_DeathButterfliesVolley</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <defaultProjectile>Butterfly_RowA</defaultProjectile>
+          <warmupTime>0.5</warmupTime>
+          <range>32</range>
+          <burstShotCount>4</burstShotCount>
+          <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+          <soundCast>yuyukoshot</soundCast>
+          <muzzleFlashScale>0</muzzleFlashScale> 
+          <targetParams>
+            <canTargetLocations>true</canTargetLocations>
+            <canTargetPawns>true</canTargetPawns>
+          </targetParams>
+        </li>
+      </verbs>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Butterfly_RowA" or defName="Butterfly_RowB" or defName="Butterfly_RowC" or defName="Butterfly_RowD"]</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>DeathButterflyFloatingMoon</damageDef>
+        <damageAmountBase>1</damageAmountBase>
+        <armorPenetrationSharp>999</armorPenetrationSharp>
+        <armorPenetrationBlunt>999</armorPenetrationBlunt> 
+        <speed>20</speed> 
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/DamageDef[defName="DeathButterflyFloatingMoon"]/additionalHediffs/li[hediff="EternalSleepInFantasy"]/severityPerDamageDealt</xpath>
+    <value>
+      <severityPerDamageDealt>1.0</severityPerDamageDealt>
+    </value>
+  </Operation>
+
+<Operation Class="PatchOperationReplace">
+  <xpath>Defs/ThingDef[defName="DeathButterfliesFan"]/tools</xpath>
+  <value>
+    <tools>
+      <li Class="CombatExtended.ToolCE">
+        <label>扇柄</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>3</power> 
+        <cooldownTime>1.2</cooldownTime>
+        <armorPenetrationBlunt>2.5</armorPenetrationBlunt> 
+        <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+      </li>
+    </tools>
+  </value>
+</Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="DeathButterfliesFan"]/statBases</xpath>
+    <value>
+      <MeleeCritChance>0.1</MeleeCritChance>
+      <MeleeParryChance>0.25</MeleeParryChance> 
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="DeathButterfliesFan"]/weaponTags</xpath>
+    <value>
+      <li>CE_Sidearm</li> 
+      <li>CE_OneHandedWeapon</li> 
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="DeathButterfliesFan"]/statBases</xpath>
+    <value>
+      <SwayFactor>0.5</SwayFactor>
+    </value>
+  </Operation>
+
+              <!-- 隙间的折叠伞 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GapUmbrella"]/statBases</xpath>
+    <value>
+      <statBases>
+        <WorkToMake>30000</WorkToMake>
+        <MarketValue>50000</MarketValue> 
+        <SellPriceFactor>0.1</SellPriceFactor>
+        <Mass>1</Mass>
+        <Bulk>3</Bulk>
+        <MeleeCritChance>0.15</MeleeCritChance>
+        <MeleeParryChance>0.60</MeleeParryChance> 
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GapUmbrella"]/weaponTags</xpath>
+    <value>
+      <li>CE_Sidearm</li>
+      <li>CE_OneHandedWeapon</li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GapUmbrella"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>伞骨</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>12</power>
+          <cooldownTime>1.1</cooldownTime>
+          <armorPenetrationBlunt>8.5</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+              <!-- 掌中的破坏者 -->
+
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="Laevatain"]/statBases</xpath>
+        <value>
+          <statBases>
+            <WorkToMake>30000</WorkToMake>
+            <MarketValue>50000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+            <Mass>3</Mass>
+            <Flammability>0</Flammability>
+            <Bulk>5</Bulk> 
+            <MeleeCritChance>0.5</MeleeCritChance> 
+            <MeleeParryChance>0.15</MeleeParryChance> 
+          </statBases>
+        </value>
+      </li>
+
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Laevatain"]/weaponTags</xpath>
+      <value>
+        <li>CE_HeavyWeapon</li> 
+      </value>
+    </li>
+
+    <li Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="Laevatain"]/tools</xpath>
+      <value>
+        <tools>
+          <li Class="CombatExtended.ToolCE">
+            <label>莱瓦汀</label>
+            <capacities>
+              <li>KagomeKagome</li>
+            </capacities>
+            <power>495</power>
+            <cooldownTime>2.0</cooldownTime>
+            <armorPenetrationSharp>999</armorPenetrationSharp> 
+            <armorPenetrationBlunt>999</armorPenetrationBlunt>
+            <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+          </li>
+        </tools>
+      </value>
+    </li>
+  </operations>
+</Operation>
+
+              <!-- 冈格尼尔之枪 -->
+
+  <Operation Class="PatchOperationSequence">
+    
+    <operations>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="W_Gungnir"]/statBases</xpath>
+        <value>
+          <statBases>
+            <WorkToMake>30000</WorkToMake>
+            <MarketValue>50000</MarketValue>
+            <SellPriceFactor>0.1</SellPriceFactor>
+            <Mass>3</Mass>
+            <Bulk>4</Bulk> 
+            <Flammability>0</Flammability>
+            <MeleeCritChance>0.6</MeleeCritChance> 
+            <MeleeParryChance>0.3</MeleeParryChance> 
+          </statBases>
+        </value>
+      </li>
+
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="W_Gungnir"]/weaponTags</xpath>
+        <value>
+          <li>CE_Sidearm</li>
+        </value>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="W_Gungnir"]/tools</xpath>
+        <value>
+          <tools>
+            <li Class="CombatExtended.ToolCE">
+              <label>枪尖</label>
+              <capacities>
+                <li>Stab</li>
+              </capacities>
+              <power>40</power>
+              <cooldownTime>1.0</cooldownTime>
+              <armorPenetrationSharp>24</armorPenetrationSharp> 
+              <armorPenetrationBlunt>12</armorPenetrationBlunt>
+              <linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+            </li>
+          </tools>
+        </value>
+      </li>
+    </operations>
+
+  </Operation>
+
+</Patch>

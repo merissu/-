@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+              <!-- 梦想天生 -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="DreamHeavenlyHakureiTalisman"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>hakurei</damageDef>
+        <damageAmountBase>100</damageAmountBase>
+        <speed>40</speed>
+  			<stoppingPower>1</stoppingPower>
+        <armorPenetrationSharp>500</armorPenetrationSharp> 
+        <armorPenetrationBlunt>500</armorPenetrationBlunt>
+        <alwaysFreeIntercept>true</alwaysFreeIntercept>
+      </projectile>
+    </value>
+  </Operation>
+
+              <!-- 土水符「诺亚的大洪水」 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Projectile_NoachianDeluge"]/projectile</xpath>
+      <value>
+          <projectile Class="CombatExtended.ProjectilePropertiesCE">
+              <damageDef>Blunt</damageDef>
+              <damageAmountBase>10</damageAmountBase> 
+              <armorPenetrationSharp>26</armorPenetrationSharp> 
+              <armorPenetrationBlunt>93</armorPenetrationBlunt> 
+              <stoppingPower>1.5</stoppingPower> 
+              <speed>60</speed> 
+            </projectile>
+      </value>
+  </Operation>
+
+              <!-- 月木符「卫星向日葵」 -->
+  <Operation Class="PatchOperationReplace">
+      <xpath>
+        Defs/ThingDef[
+          defName="SatelliteThingtrue" or 
+          defName="twoSatelliteThingtrue" or 
+          defName="threeSatelliteThingtrue" or 
+          defName="greenSatelliteThingtrue"
+        ]/projectile
+      </xpath>
+      <value>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+          <damageDef>Blunt</damageDef>
+          <damageAmountBase>30</damageAmountBase>
+          <armorPenetrationSharp>45</armorPenetrationSharp>
+          <armorPenetrationBlunt>120</armorPenetrationBlunt> 
+          <stoppingPower>0.5</stoppingPower>
+          <speed>30</speed> 
+        </projectile>
+      </value>
+    </Operation>
+
+  <Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="twoSatelliteThingtrue"]/projectile/speed</xpath>
+		<value><speed>20</speed></value>
+	</Operation>
+	
+  <Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="threeSatelliteThingtrue"]/projectile/speed</xpath>
+		<value><speed>10</speed></value>
+	</Operation>
+
+              <!-- 剑伎「反射下界斩」 -->
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/HediffDef[defName="Youmuparry"]</xpath>
+    <value>
+      <stages>
+        <li>
+          <statFactors>
+            <Suppressability>0</Suppressability>
+          </statFactors>
+        </li>
+      </stages>
+    </value>
+  </Operation>
+
+</Patch>

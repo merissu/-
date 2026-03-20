@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationReplace">
+      <xpath>
+      Defs/HediffDef[defName="KasenArm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>掌掴</label>
+          <capacities>
+            <li>BandageStrike</li>
+          </capacities>
+          <power>8</power>
+          <linkedBodyPartsGroup>Hands</linkedBodyPartsGroup>
+          <cooldownTime>0.3</cooldownTime>
+          <armorPenetrationSharp>0</armorPenetrationSharp>
+          <armorPenetrationBlunt>10</armorPenetrationBlunt>
+          <chanceFactor>1.1</chanceFactor>
+          <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          <soundMeleeHit>hitA</soundMeleeHit>
+          <soundMeleeMiss>MissedA</soundMeleeMiss>
+        </li>
+
+        <li Class="CombatExtended.ToolCE">
+          <label>勾拳</label>
+          <capacities>
+            <li>BandageStrike</li>
+          </capacities>
+          <power>16</power>
+          <linkedBodyPartsGroup>Hands</linkedBodyPartsGroup>
+          <cooldownTime>0.7</cooldownTime>
+          <armorPenetrationSharp>0</armorPenetrationSharp>
+          <armorPenetrationBlunt>15</armorPenetrationBlunt>
+          <chanceFactor>1</chanceFactor>
+          <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          <soundMeleeHit>hitB</soundMeleeHit>
+          <soundMeleeMiss>MissedB</soundMeleeMiss>
+        </li>
+
+        <li Class="CombatExtended.ToolCE">
+          <label>推掌</label>
+          <capacities>
+            <li>BandageStrike</li>
+          </capacities>
+          <power>16</power>
+          <linkedBodyPartsGroup>Hands</linkedBodyPartsGroup>
+          <cooldownTime>0.6</cooldownTime>
+          <armorPenetrationSharp>0</armorPenetrationSharp>
+          <armorPenetrationBlunt>12</armorPenetrationBlunt>
+          <chanceFactor>1</chanceFactor>
+          <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          <soundMeleeHit>hitC</soundMeleeHit>
+          <soundMeleeMiss>MissedC</soundMeleeMiss>
+        </li>
+
+        <li Class="CombatExtended.ToolCE">
+          <label>绷带抽打</label>
+          <capacities>
+            <li>BandageStrike</li>
+          </capacities>
+          <power>17</power>
+          <linkedBodyPartsGroup>Arms</linkedBodyPartsGroup>
+          <cooldownTime>0.8</cooldownTime>
+          <armorPenetrationSharp>0</armorPenetrationSharp>
+          <armorPenetrationBlunt>15</armorPenetrationBlunt>
+          <chanceFactor>1</chanceFactor>
+          <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          <soundMeleeHit>hitD</soundMeleeHit>
+          <soundMeleeMiss>MissedD</soundMeleeMiss>
+        </li>
+
+        <li Class="CombatExtended.ToolCE">
+          <label>绷带突刺</label>
+          <capacities>
+            <li>BandageStab</li>
+          </capacities>
+          <power>16</power>
+          <linkedBodyPartsGroup>Arms</linkedBodyPartsGroup>
+          <cooldownTime>0.6</cooldownTime>
+          <armorPenetrationSharp>10</armorPenetrationSharp>
+          <armorPenetrationBlunt>0</armorPenetrationBlunt>
+          <chanceFactor>0.8</chanceFactor>
+          <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          <soundMeleeHit>hitE</soundMeleeHit>
+          <soundMeleeMiss>MissedE</soundMeleeMiss>
+        </li>
+
+        <li Class="CombatExtended.ToolCE">
+          <label>绷带缠绕</label>
+          <capacities>
+            <li>BandageEntanglement</li>
+          </capacities>
+          <power>20</power>
+          <linkedBodyPartsGroup>Arms</linkedBodyPartsGroup>
+          <cooldownTime>0.7</cooldownTime>
+          <armorPenetrationSharp>0</armorPenetrationSharp>
+          <armorPenetrationBlunt>20</armorPenetrationBlunt>
+          <chanceFactor>0.6</chanceFactor>
+          <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          <soundMeleeHit>hitF</soundMeleeHit>
+          <soundMeleeMiss>MissedD</soundMeleeMiss>
+        </li>
+
+        <li Class="CombatExtended.ToolCE">
+          <label>绷带龙咬</label>
+          <capacities>
+            <li>BandageBite</li>
+          </capacities>
+          <power>20</power>
+          <linkedBodyPartsGroup>Arms</linkedBodyPartsGroup>
+          <cooldownTime>1</cooldownTime>
+          <armorPenetrationSharp>5</armorPenetrationSharp>
+          <armorPenetrationBlunt>15</armorPenetrationBlunt>
+          <chanceFactor>0.8</chanceFactor>
+          <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+					<soundMeleeHit>hitC</soundMeleeHit>
+					<soundMeleeMiss>MissedB</soundMeleeMiss>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="KasenArm"]/stages/li/statFactors</xpath>
+      <value>
+          <CarryBulk>1.5</CarryBulk>
+          <CarryWeight>1.5</CarryWeight>
+      </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/HediffDef[defName="KasenArm"]/stages/li/statOffsets</xpath>
+    <value>
+      <MeleeParryChance>0.9</MeleeParryChance>
+      <MeleeCritChance>0.75</MeleeCritChance>
+    </value>
+  </Operation>
+
+              <!-- 恋之瞳 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/HediffDef[defName="KoishisEye"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>超反应知觉</label>
+          <capacities>
+            <li>SubterraneanRose</li>
+          </capacities>
+          <power>10</power> 
+          <cooldownTime>0.8</cooldownTime>
+          <armorPenetrationSharp>12</armorPenetrationSharp> 
+          <armorPenetrationBlunt>18</armorPenetrationBlunt>
+          <soundMeleeHit>hitA</soundMeleeHit>
+          <soundMeleeMiss>MissedA</soundMeleeMiss>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/HediffDef[defName="TheLiberationOfTheId" or defName="SuperEgo"]/stages/li/statFactors</xpath>
+    <value>
+      <statFactors>
+        <IncomingDamageFactor>0.8</IncomingDamageFactor>
+        <MeleeCritChance>1.2</MeleeCritChance>
+        <MeleeParryChance>1.2</MeleeParryChance>
+        <MeleeDodgeChance>1.5</MeleeDodgeChance>
+        <MeleeHitChance>1.5</MeleeHitChance>
+        <Suppressability>0</Suppressability> 
+      </statFactors>
+    </value>
+  </Operation>
+
+</Patch>
