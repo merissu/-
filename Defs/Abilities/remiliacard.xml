@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>remiliacard</defName>
+        <label>符卡宣言</label>
+        <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
+
+进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张蕾米莉亚的强力符卡和极其强大的Last Word</description>
+        <abilityClass>merissu.remiliacard</abilityClass>
+        <iconPath>Abilities/remiliacard</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+	<AbilityDef>
+		<defName>BreakHeart</defName>
+		<label>必杀「碎心」</label>
+		<description>凭借命运的力量，这一枪将必定贯穿目标的心脏。</description>
+		<iconPath>Weapons/Bullet/Gungnir</iconPath>
+		<cooldownTicksRange>0</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>72</range>
+			<warmupTime>4.5</warmupTime>
+			<soundCast>PiercingSpine_Launch</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<thingCategory>Item</thingCategory>
+				<canTargetLocations>False</canTargetLocations>
+			</targetParams>
+			<defaultCooldownTime>1.5</defaultCooldownTime>
+		</verbProperties>
+		<comps>
+			<li Class="U.N.Owen.CompProperties_AbilityLaunchProjectileAuto">
+				<projectileDef>BreakHeart</projectileDef>
+				<requireDrafted>true</requireDrafted>
+				<stopWhenTargetInvalid>true</stopWhenTargetInvalid>
+			</li>
+		</comps>
+	</AbilityDef>
+    <HediffDef>
+        <defName>remiliacard</defName>
+        <label>符卡宣言</label>
+		<defaultLabelColor>(204,204,255)</defaultLabelColor>
+        <description>已进行符卡宣言,在音乐结束前释放符卡吧</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>SpeartheGungnir</li>
+			<li>ScarletDevil</li>
+			<li>vampire</li>
+			<li>RedMagic</li>
+		</abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-4.926</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Remilia1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>SpeartheGungnir</defName>
+		<label>神枪「冈格尼尔之枪」</label>
+        <abilityClass>merissu.Ability_SpeartheGungnir</abilityClass>
+		<description>向前方将灵气收束成枪状投掷而出。贯通力和威力极高,会毫无阻碍的贯穿路径上的任何东西。花样繁多的枪状灵气系技能之一
+	
+使用需要消耗一层灵力,被击中时与其说是被弹幕打中,还不如说是被枪扎了一般。以强大的力量将弹幕投掷而出就能达到这种效果。</description>
+		<iconPath>Abilities/SpeartheGungnir</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>999</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>Spear</soundCast>
+			<requireLineOfSight>false</requireLineOfSight>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>Thing_GungnirProjectile</defName>
+		<label>冈格尼尔</label>
+		<thingClass>merissu.Thing_GungnirProjectile</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Projectiles/Gungnir/spellBulletBa000</texPath>
+			<drawSize>(20,20)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+    <AbilityDef>
+		<defName>ScarletDevil</defName>
+		<label>红符「红色不夜城」</label>
+        <abilityClass>merissu.Ability_ScarletDevil</abilityClass>
+		<description>用和弹幕一样的什么东西来制造巨大的十字架的符卡。红色的灵气看起来如同在燃烧一般，不过那似乎并不是火。
+
+极限火花是利用迷你八卦炉的火焰发动的,这招则是暗夜力量汇聚后的产物,据说如果盯着看的话就会两眼充血辗转难眠。
+
+使用时需要消耗一层灵力,发动后放出烧尽周围一切的红色灵气。</description>
+		<iconPath>Abilities/ScarletDevil</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>ScarletDevil</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>ScarletDevilAnimation</defName>
+		<label>红色不夜城动画</label>
+		<thingClass>merissu.Thing_ScarletDevilAnimation</thingClass>
+		<category>None</category>
+		<tickerType>Normal</tickerType>
+		<drawOffscreen>true</drawOffscreen>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>ScarletDevil</defName>
+		<label>红色不夜城</label>
+		<defaultLabelColor>(204,204,255)</defaultLabelColor>
+		<description>放出烧尽周围一切的红色灵气。迎击能力高,可作为反攻的关键。垂直方向射程很长的缘故,也是对空的强力Spell</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+    <AbilityDef>
+        <defName>vampire</defName>
+        <label>「千年吸血鬼」</label>
+        <description>在一定时间将使用者体质变为吸血鬼体质,不仅防御力大大体升,还会获得自愈能力
+           
+使用需要消耗一层灵力,持续时间为三小时</description>
+        <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/vampire</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>vampire</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>vampire</defName>
+		<label>「千年吸血鬼」</label>
+		<defaultLabelColor>(204,204,255)</defaultLabelColor>
+		<description>给自己附加能够夺取对手生命力的魔力,一定时间内造成的伤害的一部分将变为自己的体力。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-8</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+			<li Class="merissu.HediffCompProperties_SpawningMote">
+				<moteDef>Mote_VampireSpell</moteDef>
+				<intervalTicks>0</intervalTicks>
+			</li>
+        	<li Class="merissu.HediffCompProperties_Vampire"/>
+		</comps>
+		<stages>
+			<li>
+				<statFactors>
+					<IncomingDamageFactor>0.4</IncomingDamageFactor>
+				    <MeleeDamageFactor>3</MeleeDamageFactor>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>3</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_VampireSpell</defName>
+		<graphicData>
+			<texPath>Other/vampire</texPath>
+			<graphicClass>merissu.Graphic_AnimatedMote</graphicClass>
+			<shaderType>Mote</shaderType>
+			<drawSize>3</drawSize>
+			<color>(255, 0, 0, 20)</color>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<fadeInTime>0.05</fadeInTime>
+			<solidTime>0.05</solidTime>
+			<fadeOutTime>0.05</fadeOutTime>
+		</mote>
+	</ThingDef>
+
+    <AbilityDef>
+        <defName>RedMagic</defName>
+        <label>「红色的幻想乡」</label>
+        <description>放出遮天蔽日的红雾,将整个地图笼罩在红雾之中
+
+殖民者吸入红雾则会变成吸血鬼,敌人吸入红雾则变得难以呼吸,身体也会变差
+
+需要消耗五层灵力,红雾会持续存在一天</description>
+        <abilityClass>merissu.RedMagic</abilityClass>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/RedMagic</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>RedMagic</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>RedMagic</defName>
+		<label>「红色的幻想乡」</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+		<description>所谓红雾异变,如各位所知,是整个幻想乡被非常浓厚的雾包围着,致使日光无法照射到地表,截至当前,仍在发展中的奇怪现象。因为那雾略呈红色,所以一般称作红雾异变</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-24</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Remilia2</songDef>
+            </li>
+		</comps>
+		<stages>
+			<li>
+             	<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<WeatherDef>
+		<defName>RedMagicFog</defName>
+		<label>红雾异变</label>
+		<description>红雾笼罩了殖民地,导致日照受阻,也会对呼吸造成影响。
+殖民者会受到红雾的影响,体质会暂时变得同吸血鬼一般强大			
+对于敌人来说,吸入红雾则会使其呼吸受阻,身体也会变差</description>
+		<isBad>true</isBad>
+		<canOccurAsRandomForcedEvent>false</canOccurAsRandomForcedEvent>
+		<favorability>VeryBad</favorability>
+		<perceivePriority>3</perceivePriority>
+		<ambientSounds>
+			<li>Ambient_Wind_Fog</li>
+		</ambientSounds>
+		<overlayClasses>
+			<li>WeatherOverlay_BloodFog</li>
+		</overlayClasses>
+		<skyColorsDay>
+            <sky>(0.6, 0.35, 0.35)</sky> <shadow>(0.8, 0.8, 0.8)</shadow>
+            <overlay>(0.2, 0.1, 0.1)</overlay>
+            <saturation>1.0</saturation> 
+		</skyColorsDay>
+        <skyColorsDusk>
+            <sky>(0.5, 0.3, 0.3)</sky>
+            <shadow>(0.8, 0.8, 0.8)</shadow>
+            <overlay>(0.15, 0.08, 0.08)</overlay>
+            <saturation>0.9</saturation>
+        </skyColorsDusk>
+        <skyColorsNightEdge>
+            <sky>(0.3, 0.15, 0.15)</sky>
+            <shadow>(0.8, 0.8, 0.8)</shadow>
+            <overlay>(0.1, 0.05, 0.05)</overlay>
+            <saturation>0.8</saturation>
+        </skyColorsNightEdge>
+        <skyColorsNightMid>
+            <sky>(0.2, 0.1, 0.1)</sky>
+            <shadow>(0.8, 0.8, 0.8)</shadow>
+            <overlay>(0.05, 0.02, 0.02)</overlay>
+            <saturation>0.8</saturation>
+        </skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+        <defName>RedMagicFog</defName>
+        <conditionClass>merissu.GameCondition_RedMagicFog</conditionClass>
+		<label>红雾异变</label>
+		<description>遮天蔽日的红雾笼罩了殖民地。殖民者吸入会变为吸血鬼,而敌人则会感到窒息。</description>
+		<weatherDef>RedMagicFog</weatherDef> 
+		<preventNeutralVisitors>true</preventNeutralVisitors>
+		<canBePermanent>false</canBePermanent>
+		<natural>false</natural>
+		<letterText>红雾笼罩了这片区域。空气中弥漫着血腥的气味。</letterText>
+		<endMessage>红雾消散了,殖民地恢复了往日的宁静。</endMessage>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<HediffDef>
+		<defName>RedMagicEnemyOrganic</defName>
+		<label>红雾</label>
+		<defaultLabelColor>(255,0,0)</defaultLabelColor>
+		<description>吸入了红雾,呼吸能力和视野受到严重影响</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<stages>
+			<li>
+			<capMods>
+				<li>
+					<capacity>Breathing</capacity>
+					<offset>-0.9</offset>
+				</li>
+				<li>
+					<capacity>Sight</capacity>
+					<offset>-0.9</offset>
+				</li>
+			</capMods>
+			<statOffsets>
+				<MoveSpeed>-1.5</MoveSpeed>
+				<ShootingAccuracyPawn>-0.8</ShootingAccuracyPawn>
+			</statOffsets>
+			<painFactor>1.2</painFactor>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>RedMagicEnemyMech</defName>
+		<label>红雾</label>
+		<defaultLabelColor>(255,0,0)</defaultLabelColor>
+		<description>红雾干扰了视觉传感器,导致视野受到严重影响</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>true</isBad>
+		<stages>
+			<li>
+			<capMods>
+				<li>
+				<capacity>Sight</capacity>
+				<offset>-0.9</offset>
+				</li>
+			</capMods>
+			<statOffsets>
+				<MoveSpeed>-1.5</MoveSpeed>
+				<ShootingAccuracyPawn>-0.8</ShootingAccuracyPawn>
+			</statOffsets>
+			<painFactor>1.2</painFactor>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>	

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="HatMakeableBase">
+		<defName>Zuibag</defName>
+		<label>罪袋</label>
+		<description>套在头上的白色袋子，似乎会产生一种神秘力量抑制佩戴者的反抗意识。</description>
+		<graphicData>
+			<texPath>Apparel/ZuiBag/ZuiBag</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+		</graphicData>
+		<costStuffCount>50</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>80</MaxHitPoints>
+			<WorkToMake>1800</WorkToMake>
+			<Mass>0.14</Mass>
+			<StuffEffectMultiplierArmor>0.10</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.20</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.20</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>1.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<SlaveSuppressionOffset>0.45</SlaveSuppressionOffset>
+		</equippedStatOffsets>
+		<apparel>
+			<slaveApparel>true</slaveApparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<developmentalStageFilter>Adult</developmentalStageFilter>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+				<li>FullHead</li>
+				<li>Neck</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Apparel/ZuiBag/ZuiBag</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<renderSkipFlags>
+				<li>None</li>
+			</renderSkipFlags>
+			<canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+			<canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+			<canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
+			<defaultOutfitTags>
+				<li>Slave</li>
+			</defaultOutfitTags>
+			<drawData>
+				<defaultData>
+					<layer>100</layer>
+				</defaultData>
+				<dataNorth>
+					<layer>100</layer>
+				</dataNorth>
+			</drawData>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_StandardApparel" />
+		<recipeMaker>
+			<displayPriority>175</displayPriority>
+		</recipeMaker>
+	</ThingDef>
+</Defs>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<ThingCategoryDef>
+	<defName>TouhouMaterial</defName>
+	<label>东方材料</label>
+	<parent>Root</parent>
+	<resourceReadoutRoot>false</resourceReadoutRoot>
+	<iconPath>UI/Icons/ThingCategories/Foods</iconPath>
+</ThingCategoryDef>
+	<StuffCategoryDef>
+		<defName>TouhouMaterial</defName>
+		<label>东方材料</label>
+		<noun>TouhouMaterial</noun>
+		<destroySoundSmall>BuildingDestroyed_Soft_Small</destroySoundSmall>
+		<destroySoundMedium>BuildingDestroyed_Soft_Medium</destroySoundMedium>
+	</StuffCategoryDef>
+<ThingCategoryDef>
+	<defName>TouhouWoody</defName>
+	<label>东方木材</label>
+	<parent>TouhouMaterial</parent>
+	<resourceReadoutRoot>True</resourceReadoutRoot>
+	<iconPath>UI/Icons/ThingCategories/Foods</iconPath>
+</ThingCategoryDef>
+	<StuffCategoryDef>
+		<defName>TouhouWoody</defName>
+		<label>东方木材</label>
+		<noun>TouhouWoody</noun>
+		<destroySoundSmall>BuildingDestroyed_Soft_Small</destroySoundSmall>
+		<destroySoundMedium>BuildingDestroyed_Soft_Medium</destroySoundMedium>
+	</StuffCategoryDef>
+<ThingCategoryDef>
+	<defName>TouhouFabric</defName>
+	<label>东方布料</label>
+	<parent>TouhouMaterial</parent>
+	<resourceReadoutRoot>True</resourceReadoutRoot>
+	<iconPath>UI/Icons/ThingCategories/Foods</iconPath>
+</ThingCategoryDef>
+	<StuffCategoryDef>
+		<defName>TouhouFabric</defName>
+		<label>东方布料</label>
+		<noun>TouhouFabric</noun>
+		<destroySoundSmall>BuildingDestroyed_Soft_Small</destroySoundSmall>
+		<destroySoundMedium>BuildingDestroyed_Soft_Medium</destroySoundMedium>
+	</StuffCategoryDef>
+</Defs>

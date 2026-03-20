@@ -1,0 +1,2006 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<SoundDef>
+		<defName>MR_BayonetSound</defName>  
+		<context>MapOnly</context>  
+		<maxSimultaneous>5</maxSimultaneous>
+		<maxVoices>5</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MR_Bayonet</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.75</min>
+				<max>1.25</max>
+			</pitchRange>
+			<volumeRange>20</volumeRange>
+		  </li>
+		</subSounds>
+	</SoundDef>
+
+    <SoundDef>
+        <defName>MagicKnockback</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MagicKnockback</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>TenguFan</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>TenguFan</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Merissu_DrinkHighlyToxicBody</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>HighlyToxicBody_Drink</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>30</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>utsuhoshot2</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>utsuhoshot2</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>biu</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>biu</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>30</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>fly</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>fly</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>30</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>power</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>power</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>20</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>HakureiAmulet</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>HakureiAmulet</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>ShinkiRecitation</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>ShinkiRecitation</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>udongegun</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>udongegun</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>CorollaVision</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>CorollaVision</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>XWave</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>XWave</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>MasterSpark</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MasterSpark</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>IWillCallYouNow</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>IWillCallYouNow</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Ego</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Ego</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Id</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Id</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>AbyssNova2</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>AbyssNova2</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>200</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>FinalMasterSpark</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>FinalMasterSpark</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>MilkyWay_AB_Fire</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MilkyWay_AB_Fire</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>StarlightTyphoon</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>StarlightTyphoon</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>utsuhoshot</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>utsuhoshot</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>gohei</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>gohei</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>MegaFlare2</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MegaFlare2</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>FixedStar</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>FixedStar</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>AbyssNova</defName>
+        <context>Any</context>
+    	<sustain>true</sustain>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+		  <li>
+			<onCamera>true</onCamera>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>AbyssNova</clipPath>
+			  </li>
+			</grains>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>MegaFlare1</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MegaFlare1</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>WildlyStrikesA</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>WildlyStrikesA</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>WildlyStrikesB</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>WildlyStrikesB</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>knife</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>knife</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>theworld</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>theworld</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>UniverseQuake</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>UniverseQuake</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>90</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>ScarletDevil</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>ScarletDevil</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>powerup</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>powerup</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>EightDragonCasterLock</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>EightDragonCasterLock</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>DreamHeavenly</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>DreamHeavenly</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+		<defName>TrainMoving</defName>
+		<context>MapOnly</context>
+		<sustain>true</sustain> 
+		<maxSimultaneous>1</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>TrainMoving</clipPath>
+					</li>
+				</grains>
+				<pitchRange>
+					<min>1</min>
+					<max>1</max>
+				</pitchRange>
+				<volumeRange>90~90</volumeRange> 
+				<distRange>15~40</distRange> 
+			</li>
+		</subSounds>
+	</SoundDef>
+
+    <SoundDef>
+        <defName>Train</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Train</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>fourfoldbarrier</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>fourfoldbarrier</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>gotodie</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>gotodie</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>GhostButterfly</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>GhostButterfly</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>spell</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>spell</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Gungnir</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Gungnir</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Spear</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Spear</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Hisouten</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Hisouten</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>youmuClone</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>youmuClone</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>yuyukolazer</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>yuyukolazer</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>yuyukoResurrectionButterfly</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>yuyukoResurrectionButterfly</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>gapone</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>gapone</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>30</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>gaptwo</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>gaptwo</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>30</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>gapkill</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>gapkill</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>sakuraflash</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>sakuraflash</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>80</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>RoyalFlareShockwave</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>RoyalFlareShockwave</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>yuyukoshot</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>2</maxSimultaneous>
+		<maxVoices>2</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>yuyukoshot</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>RoyalFlare</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>RoyalFlare</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>ElementalHarvester</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>ElementalHarvester</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>NoachianDeluge</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>NoachianDeluge</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Inspiration</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Inspiration</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>penglai</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>penglai</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>20</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>gowork</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>gowork</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>30</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>up</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>up</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>30</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>MR_ButterflyDreamPill</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MR_ButterflyDreamPill</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>MR_OgenticJadeRabbit</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MR_OgenticJadeRabbit</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>BAKA</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>BAKA</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Merissu_E_HiPotion</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Merissu_E_HiPotion</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>Merissu_MightierThanThousands</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Merissu_MightierThanThousands</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>30</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>MissedA</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MissedA</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>hitA</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>hitA</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>MissedB</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MissedB</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>hitB</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>hitB</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>MissedC</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MissedC</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>hitC</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>hitC</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>MissedD</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MissedD</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>hitD</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>hitD</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>MissedE</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MissedE</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>MissedG</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>MissedG</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>hitE</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>hitE</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>hitF</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>hitF</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>hitG</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>hitG</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SoundDef>
+        <defName>hitH</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>hitH</clipPath>
+			  </li>
+			</grains>
+			<volumeRange>30</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+	<SongDef>
+		<defName>MightierThanThousands_Music</defName>
+		<clipPath>Songs/MightierThanThousands_Music</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>HighlyToxicBody_Music</defName>
+		<clipPath>Songs/HighlyToxicBody_Music</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>BAKA_Music</defName>
+		<clipPath>Songs/BAKA_Music</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>marisa1</defName>
+		<clipPath>Songs/marisa1</clipPath>
+        <volume>0.7</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>reimu1</defName>
+		<clipPath>Songs/reimu1</clipPath>
+        <volume>0.7</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>reimu2</defName>
+		<clipPath>Songs/reimu2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>reimu3</defName>
+		<clipPath>Songs/reimu3</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>reimu4</defName>
+		<clipPath>Songs/reimu4</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>reimu5</defName>
+		<clipPath>Songs/reimu5</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Patchouli1</defName>
+		<clipPath>Songs/Patchouli1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Patchouli2</defName>
+		<clipPath>Songs/Patchouli2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>hijiri2</defName>
+		<clipPath>Songs/hijiri2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>hijiri1</defName>
+		<clipPath>Songs/hijiri1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Marisa2</defName>
+		<clipPath>Songs/Marisa2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Marisa3</defName>
+		<clipPath>Songs/Marisa3</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Marisa4</defName>
+		<clipPath>Songs/Marisa4</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Marisa5</defName>
+		<clipPath>Songs/Marisa5</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>udonge1</defName>
+		<clipPath>Songs/udonge1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>udonge2</defName>
+		<clipPath>Songs/udonge2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>sakuya1</defName>
+		<clipPath>Songs/sakuya1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>sakuya2</defName>
+		<clipPath>Songs/sakuya2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>sakuya3</defName>
+		<clipPath>Songs/sakuya3</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Tenshi1</defName>
+		<clipPath>Songs/Tenshi1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Tenshi2</defName>
+		<clipPath>Songs/Tenshi2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Yuka1</defName>
+		<clipPath>Songs/Yuka1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Yuka2</defName>
+		<clipPath>Songs/Yuka2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Yuka3</defName>
+		<clipPath>Songs/Yuka3</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>utsuho1</defName>
+		<clipPath>Songs/utsuho1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>utsuho2</defName>
+		<clipPath>Songs/utsuho2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>koishi1</defName>
+		<clipPath>Songs/koishi1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>satori</defName>
+		<clipPath>Songs/satori</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Youmu1</defName>
+		<clipPath>Songs/Youmu1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Youmu2</defName>
+		<clipPath>Songs/Youmu2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>yuyuko1</defName>
+		<clipPath>Songs/yuyuko1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>yuyuko2</defName>
+		<clipPath>Songs/yuyuko2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Mokou</defName>
+		<clipPath>Songs/Mokou</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>yukari1</defName>
+		<clipPath>Songs/yukari1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>yukari2</defName>
+		<clipPath>Songs/yukari2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Remilia1</defName>
+		<clipPath>Songs/Remilia1</clipPath>
+        <volume>2</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Remilia2</defName>
+		<clipPath>Songs/Remilia2</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Flandre1</defName>
+		<clipPath>Songs/Flandre1</clipPath>
+        <volume>1</volume>
+		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+</Defs>

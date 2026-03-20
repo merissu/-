@@ -1,0 +1,1337 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HediffDef ParentName="AddedBodyPartBase">
+		<defName>KasenArm</defName>
+		<label>茨木童子之臂</label>
+		<defaultLabelColor>(255,153,153)</defaultLabelColor>
+		<labelNoun>茨木童子之臂</labelNoun>
+		<description>手臂被替换成了完全绷带缠成的空壳,可以变成各种形状进行攻击,而且拥有接近鬼的力量</description>
+		<descriptionHyperlinks>
+			<ThingDef>KasenArm</ThingDef>
+		</descriptionHyperlinks>
+		<comps>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li>
+						<label>掌掴</label>
+						<capacities>
+							<li>BandageStrike</li>
+						</capacities>
+						<power>8</power>
+						<cooldownTime>0.3</cooldownTime>
+						<armorPenetration>0.5</armorPenetration>
+                        <chanceFactor>1.1</chanceFactor>
+						<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						<soundMeleeHit>hitA</soundMeleeHit>
+						<soundMeleeMiss>MissedA</soundMeleeMiss>
+					</li>
+					<li>
+						<label>勾拳</label>
+						<capacities>
+							<li>BandageStrike</li>
+						</capacities>
+						<power>16</power>
+						<cooldownTime>0.7</cooldownTime>
+						<armorPenetration>0.8</armorPenetration>
+                        <chanceFactor>1</chanceFactor>
+						<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						<soundMeleeHit>hitB</soundMeleeHit>
+						<soundMeleeMiss>MissedB</soundMeleeMiss>
+					</li>
+					<li>
+						<label>推掌</label>
+						<capacities>
+							<li>BandageStrike</li>
+						</capacities>
+						<power>16</power>
+						<cooldownTime>0.6</cooldownTime>
+						<armorPenetration>0.8</armorPenetration>
+                        <chanceFactor>1</chanceFactor>
+						<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						<soundMeleeHit>hitC</soundMeleeHit>
+						<soundMeleeMiss>MissedC</soundMeleeMiss>
+					</li>
+					<li>
+						<label>绷带抽打</label>
+						<capacities>
+							<li>BandageStrike</li>
+						</capacities>
+						<power>17</power>
+						<cooldownTime>0.8</cooldownTime>
+						<armorPenetration>0</armorPenetration>
+                        <chanceFactor>1</chanceFactor>
+						<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						<soundMeleeHit>hitD</soundMeleeHit>
+						<soundMeleeMiss>MissedD</soundMeleeMiss>
+					</li>
+					<li>
+						<label>绷带突刺</label>
+						<capacities>
+							<li>BandageStab</li>
+						</capacities>
+						<power>16</power>
+						<cooldownTime>0.6</cooldownTime>
+						<armorPenetration>1</armorPenetration>
+                        <chanceFactor>0.8</chanceFactor>
+						<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						<soundMeleeHit>hitE</soundMeleeHit>
+						<soundMeleeMiss>MissedE</soundMeleeMiss>
+					</li>
+					<li>
+						<label>绷带缠绕</label>
+						<capacities>
+							<li>BandageEntanglement</li>
+						</capacities>
+						<power>20</power>
+						<cooldownTime>0.7</cooldownTime>
+						<armorPenetration>0.4</armorPenetration>
+					    <chanceFactor>0.6</chanceFactor>
+						<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						<soundMeleeHit>hitF</soundMeleeHit>
+						<soundMeleeMiss>MissedD</soundMeleeMiss>
+					</li>
+					<li>
+						<label>绷带龙咬</label>
+						<capacities>
+							<li>BandageBite</li>
+						</capacities>
+						<power>20</power>
+						<cooldownTime>1</cooldownTime>
+						<armorPenetration>0.5</armorPenetration>
+					    <chanceFactor>0.8</chanceFactor>
+						<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						<soundMeleeHit>hitC</soundMeleeHit>
+						<soundMeleeMiss>MissedB</soundMeleeMiss>
+					</li>
+				</tools>
+			</li>
+		</comps>
+		<spawnThingOnRemoved>KasenArm</spawnThingOnRemoved>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>2</partEfficiency>
+			<betterThanNatural>true</betterThanNatural>
+		</addedPartProps>
+		<stages>
+			<li>
+				<statFactors>
+					<CarryingCapacity>1.5</CarryingCapacity>
+					<IncomingDamageFactor>0.9</IncomingDamageFactor>
+				</statFactors>
+				<statOffsets>
+					<MeleeHitChance>5.0</MeleeHitChance>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ToolCapacityDef>
+		<defName>BandageStrike</defName>
+		<label>钝击</label>
+	</ToolCapacityDef>
+
+	<ToolCapacityDef>
+		<defName>BandageEntanglement</defName>
+		<label>绷带缠绕</label>
+	</ToolCapacityDef>
+
+	<ToolCapacityDef>
+		<defName>BandageBite</defName>
+		<label>绷带龙咬</label>
+	</ToolCapacityDef>
+
+	<ToolCapacityDef>
+		<defName>BandageStab</defName>
+		<label>绷带突刺</label>
+	</ToolCapacityDef>
+
+	<ManeuverDef>
+		<defName>BandageBite_A</defName>
+		<requiredCapacity>BandageBite</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>BandageBitehit</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Bite_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Bite_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Bite_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Bite_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<ManeuverDef>
+		<defName>BandageStab_A</defName>
+		<requiredCapacity>BandageStab</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>Bandagestabhit</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Stab_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Stab_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Stab_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<ManeuverDef>
+		<defName>BandageEntanglement_A</defName>
+		<requiredCapacity>BandageEntanglement</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>BandageEntanglementhit</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<ManeuverDef>
+		<defName>BandageStrike_A</defName>
+		<requiredCapacity>BandageStrike</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>BandageCompression</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<DamageDef Name="BiteBase">
+		<defName>BandageBitehit</defName>
+		<label>咬伤</label>
+		<workerClass>DamageWorker_Bite</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被咬掉。</deathMessage>
+		<hediff>BandageBitehit</hediff>
+		<hediffSkin>BandageBitehit</hediffSkin>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>false</harmAllLayersUntilOutside>
+		<impactSoundType>Slice</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.1</overkillPctToDestroyPart>
+		<additionalHediffs>
+			<li>
+                <hediff>touhoudie</hediff>
+                <severityPerDamageDealt>1</severityPerDamageDealt>
+                <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+            </li>
+		</additionalHediffs>
+	</DamageDef>
+
+	<DamageDef Name="EntanglementtBase">
+		<defName>BandageEntanglementhit</defName>
+		<label>压伤</label>
+		<workerClass>DamageWorker_Blunt</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被压碎。</deathMessage>
+		<hediff>BandageEntanglementhit</hediff>
+		<hediffSkin>BandageEntanglementhit</hediffSkin>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Blunt</impactSoundType>
+		<armorCategory>Blunt</armorCategory>
+		<overkillPctToDestroyPart>0~0.5</overkillPctToDestroyPart>
+		<cutExtraTargetsCurve>
+			<points>
+				<li>0, 0</li>
+				<li>0.6, 3</li>
+				<li>0.9, 5</li>
+				<li>1, 10</li>
+			</points>
+		</cutExtraTargetsCurve>
+		<cutCleaveBonus>1</cutCleaveBonus>
+		<additionalHediffs>
+			<li>
+				<hediff>TH_Choke</hediff>
+				<severityPerDamageDealt>0.1</severityPerDamageDealt>
+				<victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+			</li>
+			<li>
+                <hediff>touhoudie</hediff>
+                <severityPerDamageDealt>1</severityPerDamageDealt>
+                <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+            </li>
+		</additionalHediffs>
+	</DamageDef>
+
+	<DamageDef Name="StabBase">
+		<defName>Bandagestabhit</defName>
+		<label>贯穿伤</label>
+		<workerClass>DamageWorker_Stab</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被刺穿。</deathMessage>
+		<hediff>Bandagestabhit</hediff>
+		<hediffSkin>Bandagestabhit</hediffSkin>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>false</harmAllLayersUntilOutside>
+		<impactSoundType>Slice</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.4</overkillPctToDestroyPart>
+		<cutExtraTargetsCurve>
+			<points>
+				<li>0, 0</li>
+				<li>0.6, 1</li>
+				<li>0.9, 2</li>
+				<li>1, 3</li>
+			</points>
+		</cutExtraTargetsCurve>
+		<cutCleaveBonus>0.5</cutCleaveBonus>
+		<additionalHediffs>
+			<li>
+                <hediff>touhoudie</hediff>
+                <severityPerDamageDealt>1</severityPerDamageDealt>
+                <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+            </li>
+		</additionalHediffs>
+	</DamageDef>
+
+	<DamageDef Name="BluntBase">
+		<defName>BandageCompression</defName>
+		<label>瘀伤</label>
+		<workerClass>DamageWorker_Blunt</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被击碎。</deathMessage>
+		<hediff>BandageCompression</hediff>
+		<hediffSkin>BandageCompression</hediffSkin>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Blunt</impactSoundType>
+		<armorCategory>Blunt</armorCategory>
+		<overkillPctToDestroyPart>0~0.5</overkillPctToDestroyPart>
+		<cutExtraTargetsCurve>
+			<points>
+				<li>0, 0</li>
+				<li>0.6, 1</li>
+				<li>0.9, 2</li>
+				<li>1, 3</li>
+			</points>
+		</cutExtraTargetsCurve>
+		<cutCleaveBonus>0.8</cutCleaveBonus>
+		<additionalHediffs>
+			<li>
+                <hediff>touhoudie</hediff>
+                <severityPerDamageDealt>1</severityPerDamageDealt>
+                <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+            </li>
+		</additionalHediffs>
+	</DamageDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>BandageBitehit</defName>
+		<label>咬伤</label>
+		<labelNoun>咬伤</labelNoun>
+		<description>被绷带形成的龙咬了一大口所造成的伤害。</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0.5</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>咬伤疤痕</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.05</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.02</averagePainPerSeverityPermanent>
+			<bleedRate>1</bleedRate>
+			<canMerge>true</canMerge>
+			<destroyedLabel>咬掉</destroyedLabel>
+			<destroyedOutLabel>咬掉</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>BandageEntanglementhit</defName>
+		<label>压伤</label>
+		<labelNoun>压伤</labelNoun>
+		<description>被绷带缠绕所造成的伤害。</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>压伤疤痕</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.03</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.0125</averagePainPerSeverityPermanent>
+			<bleedRate>0.0</bleedRate>
+			<canMerge>true</canMerge>
+			<destroyedLabel>压碎</destroyedLabel>
+			<destroyedOutLabel>压碎</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>Bandagestabhit</defName>
+		<label>贯穿伤</label>
+		<labelNoun>贯穿伤</labelNoun>
+		<description>被由绷带形成的螺旋贯穿所造成的伤害。</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0.2</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>贯穿伤空腔</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.02</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.0125</averagePainPerSeverityPermanent>
+			<bleedRate>1.5</bleedRate>
+			<canMerge>true</canMerge>
+			<destroyedLabel>捅烂</destroyedLabel>
+			<destroyedOutLabel>捅烂</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>BandageCompression</defName>
+		<label>瘀伤</label>
+		<labelNoun>瘀伤</labelNoun>
+		<description>被展开的绷带抽打所造成的伤害。</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>瘀伤疤痕</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.0125</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+			<bleedRate>0.0</bleedRate>
+			<canMerge>false</canMerge>
+			<destroyedLabel>击碎</destroyedLabel>
+			<destroyedOutLabel>击碎</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>TH_Choke</defName>
+		<label>窒息</label>
+		<description>这个人被绷带缠住了全身,很难呼吸并且很难做出动作。</description>
+		<hediffClass>Hediff_High</hediffClass>
+		<isBad>true</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-24</severityPerDay>
+			</li>
+		</comps>
+		<maxSeverity>1</maxSeverity>
+		<stages>
+			<li>
+				<label>轻</label>
+				<minSeverity>0.01</minSeverity>
+				<capMods>
+				<li>
+					<capacity>Breathing</capacity>
+					<offset>-0.2</offset>
+				</li>
+				<li>
+                    <capacity>Manipulation</capacity>
+				    <offset>-0.2</offset>
+                </li>
+				</capMods>
+			</li>
+			<li>
+				<label>中</label>
+				<minSeverity>0.26</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.4</offset>
+					</li>
+				    <li>
+                        <capacity>Manipulation</capacity>
+				        <offset>-0.4</offset>
+                    </li>
+				</capMods>
+			</li>
+			<li>
+				<label>重</label>
+				<minSeverity>0.51</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.6</offset>
+					</li>
+				    <li>
+                        <capacity>Manipulation</capacity>
+				        <offset>-0.6</offset>
+                    </li>
+				</capMods>
+			</li>
+			<li>
+				<label>极重</label>
+				<minSeverity>0.76</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.8</offset>
+					</li>
+				    <li>
+                        <capacity>Manipulation</capacity>
+				        <offset>-0.8</offset>
+                    </li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThingDef ParentName="BodyPartArchotechBase">
+		<defName>KasenArm</defName>
+		<label>茨木童子之臂</label>
+		<description>完全由绷带制成的假臂,可以按操纵者的想法变成各种形状进行攻击,也可以用绷带缠住敌人使其窒息。
+
+替换手臂后击杀敌人可获取p点。</description>
+		<descriptionHyperlinks>
+			<RecipeDef>InstallKasenArm</RecipeDef>
+		</descriptionHyperlinks>
+		<statBases>
+			<MarketValue>4500</MarketValue>
+			<Mass>4</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>5</FullPower>
+			<MakaiShinkiCloth>200</MakaiShinkiCloth>
+	</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+				<Intellectual>6</Intellectual>
+			</skillRequirements>
+			<workAmount>13500</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>PenglaiPharmaceuticalTable</li>
+			</recipeUsers>
+			<researchPrerequisites>
+				<li>ReturningFromTheHell</li>
+			</researchPrerequisites>
+		</recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardCore</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+		<defName>InstallKasenArm</defName>
+		<label>安装茨木童子之臂</label>
+		<description>安装茨木童子之臂</description>
+		<descriptionHyperlinks>
+			<ThingDef>KasenArm</ThingDef>
+			<HediffDef>KasenArm</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing KasenArm.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>KasenArm</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>KasenArm</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Shoulder</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>KasenArm</addsHediff>
+	</RecipeDef>
+
+	<HediffDef ParentName="ImplantHediffBase">
+		<defName>Omoikane</defName>
+		<label>神脑「思兼的头脑」</label>
+		<defaultLabelColor>(102,51,153)</defaultLabelColor>
+		<labelNoun>神脑「思兼的头脑」</labelNoun>
+		<description>八意思兼神，是日本神话中掌管智慧的神，八意思兼神经常授予众神绝妙的主意。</description>
+		<descriptionHyperlinks>
+			<ThingDef>Omoikane</ThingDef>
+		</descriptionHyperlinks>
+		<abilities>
+			<li>GiveRandomInspiration</li>
+		</abilities>
+		<comps>
+			<li Class="HediffCompProperties_GiveHediffsInRange">
+				<range>10</range>
+				<targetingParameters>
+					<canTargetBuildings>false</canTargetBuildings>
+					<canTargetAnimals>false</canTargetAnimals>
+					<canTargetMechs>false</canTargetMechs>
+					<onlyTargetColonists>false</onlyTargetColonists>
+				</targetingParameters>
+				<hediff>Omoikane_C</hediff>
+			</li>
+		</comps>
+		<spawnThingOnRemoved>Omoikane</spawnThingOnRemoved>
+		<stages>
+			<li>
+				<statFactors>
+					<ResearchSpeed>2</ResearchSpeed>
+					<GlobalLearningFactor>2</GlobalLearningFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+    <AbilityDef>
+        <defName>GiveRandomInspiration</defName>
+        <label>月之睿智</label>
+        <description>俺寻思这样能行,获得随机灵感,只有在没有灵感的情况下才可以再次获得灵感</description>
+        <cooldownTicksRange>18000</cooldownTicksRange>
+        <iconPath>Abilities/RandomInspiration</iconPath>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>Inspiration</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="merissu.AbilityCompProperties_GiveRandomInspiration"/>
+        </comps>
+    </AbilityDef>
+
+	<HediffDef ParentName="WorkRoleAuraBuffHediffBase">
+		<defName>Omoikane_C</defName>
+		<label>思兼</label>
+		<description>有个人正在帮助他们解决问题</description>
+		<stages>
+			<li>
+				<statFactors>
+					<ResearchSpeed>1.5</ResearchSpeed>
+					<GlobalLearningFactor>1.5</GlobalLearningFactor>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.20</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThingDef ParentName="BodyPartArchotechBase">
+		<defName>Omoikane</defName>
+		<label>思兼装置</label>
+		<description>月之都研发的脑内微型计算机,不仅能提升自己的思维能力,还能提升一定范围内其他人的计算力。
+
+安装后可主动获得灵感。</description>
+		<descriptionHyperlinks>
+			<RecipeDef>InstallOmoikane</RecipeDef>
+		</descriptionHyperlinks>
+		<statBases>
+			<MarketValue>3500</MarketValue>
+			<Mass>4</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>5</FullPower>
+			<MedicineOfTheLunarCapital>2</MedicineOfTheLunarCapital>
+			<ComponentSpacer>8</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>18</Crafting>
+				<Intellectual>12</Intellectual>
+			</skillRequirements>
+			<workAmount>10500</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>PenglaiPharmaceuticalTable</li>
+			</recipeUsers>
+			<researchPrerequisites>
+				<li>TheDarkSideOfTheMoon</li>
+			</researchPrerequisites>
+		</recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardCore</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<RecipeDef ParentName="SurgeryInstallImplantBase">
+		<defName>InstallOmoikane</defName>
+		<label>安装思兼装置</label>
+		<description>安装思兼装置</description>
+		<descriptionHyperlinks>
+			<ThingDef>Omoikane</ThingDef>
+			<HediffDef>Omoikane</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing Omoikane.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Omoikane</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Omoikane</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Brain</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>Omoikane</addsHediff>
+	</RecipeDef>
+
+	<HediffDef ParentName="ImplantHediffBase">
+		<defName>SatorisEye</defName>
+		<label>觉之瞳</label>
+        <defaultLabelColor>(204,153,153)</defaultLabelColor>
+		<labelNoun>觉之瞳</labelNoun>
+		<description>这只眼睛拥有读心的能力,可以轻松读出别人心中所想乃至他们的记忆。但也会因此成为最被惧怕,最被讨厌的家伙。</description>
+		<descriptionHyperlinks>
+			<ThingDef>SatorisEye</ThingDef>
+		</descriptionHyperlinks>
+		<abilities>
+			<li>TerribleHypnosis</li>
+		</abilities>
+		<spawnThingOnRemoved>SatorisEye</spawnThingOnRemoved>
+		<stages>
+			<li>
+				<statOffsets>
+					<SocialImpact>4</SocialImpact>
+					<NegotiationAbility>2</NegotiationAbility>
+					<TradePriceImprovement>0.4</TradePriceImprovement>
+					<ArrestSuccessChance>1</ArrestSuccessChance>
+					<SuppressionPower>2</SuppressionPower>
+					<ConversionPower MayRequire="Ludeon.RimWorld.Ideology">4</ConversionPower>
+					<PsychicSensitivity>1</PsychicSensitivity>
+					<MeleeDodgeChance>3</MeleeDodgeChance>
+				</statOffsets>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.2</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<comps>
+			<li Class="merissu.HediffCompsProperties_MindReading">
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>MindReading</defName>
+		<hediffClass>Hediff_High</hediffClass>
+		<label>读心</label>
+		<description>读心中</description>
+		<everCurableByItem>false</everCurableByItem>
+		<comps>
+			<li Class="merissu.HediffCompsProperties_MindReading">
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<AbilityDef>
+		<defName>TerribleHypnosis</defName>
+		<label>想起「恐怖催眠术」</label>
+        <abilityClass>merissu.TerribleHypnosis</abilityClass>
+		<description>引发对方的心理创伤，使目标所看见的任何人都变成他内心最恐惧的东西。</description>
+		<iconPath>Abilities/TerribleHypnosis</iconPath>
+		<cooldownTicksRange>2500</cooldownTicksRange>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<statBases>
+			<Ability_EffectRadius>6</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>0.5</warmupTime>
+			<range>31.9</range>
+			<drawAimPie>true</drawAimPie>
+			<requireLineOfSight>true</requireLineOfSight>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetAnimals>false</canTargetAnimals>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+				<canTargetSelf>false</canTargetSelf>
+				<neverTargetIncapacitated>true</neverTargetIncapacitated>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveMentalState">
+				<compClass>CompAbilityEffect_GiveMentalState</compClass>
+				<stateDef>TerrifyingHallucinations</stateDef>
+				<goodwillImpact>-25</goodwillImpact>
+				<forced>true</forced>
+			</li>
+			<li Class="CompProperties_AbilityConnectingFleckLine">
+				<fleckDef>PsycastPsychicLine</fleckDef>
+			</li>
+			<li Class="CompProperties_AbilityEffecterOnTarget">
+				<effecterDef>VoidTerror_Target</effecterDef>
+			</li>
+		</comps>
+	</AbilityDef>
+
+    <HediffDef>
+        <defName>TerribleHypnosis</defName>
+        <label>恐怖催眠术</label>
+        <defaultLabelColor>(204,153,153)</defaultLabelColor>
+        <description>催眠术、纯粹的压迫类,唤起了对手的精神创伤</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-4</severityPerDay>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>satori</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+	<ThoughtDef>
+		<defName>SatorisEye_Master</defName>
+		<thoughtClass>Thought_SituationalSocial</thoughtClass>
+		<workerClass>merissu.ThoughtWorker_SatoriEye</workerClass>
+		<hediff>SatorisEye</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>读心</label>
+				<description>这个人把我的秘密扒得一干二净！</description>
+				<baseOpinionOffset>-50</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThingDef ParentName="BodyPartArchotechBase">
+		<defName>SatorisEye</defName>
+		<label>觉之瞳</label>
+		<description>古明地觉的觉之瞳，能够窥探他人的内心，但是同样也会招致他人的厌恶。</description>
+		<descriptionHyperlinks>
+			<RecipeDef>InstallSatorisEye</RecipeDef>
+		</descriptionHyperlinks>
+		<statBases>
+			<WorkToMake>20000</WorkToMake>
+			<MarketValue>40000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>2</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>5</FullPower>
+			<MedicineOfTheLunarCapital>2</MedicineOfTheLunarCapital>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>PenglaiPharmaceuticalTable</li>
+			</recipeUsers>
+			<researchPrerequisites>
+				<li>EarthSpiritsPalace</li>
+			</researchPrerequisites>
+		</recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardCore</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<RecipeDef ParentName="SurgeryInstallImplantBase">
+		<defName>InstallSatorisEye</defName>
+		<label>安装觉之瞳</label>
+		<description>安装觉之瞳</description>
+		<descriptionHyperlinks>
+			<ThingDef>SatorisEye</ThingDef>
+			<HediffDef>SatorisEye</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing SatorisEye.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SatorisEye</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SatorisEye</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Heart</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>SatorisEye</addsHediff>
+	</RecipeDef>
+
+	<HediffDef ParentName="ImplantHediffBase">
+		<defName>KoishisEye</defName>
+		<label>恋之瞳</label>
+        <defaultLabelColor>(102,204,153)</defaultLabelColor>
+		<labelNoun>恋之瞳</labelNoun>
+		<description>装上这只眼睛后,可以最大化的压抑或者开放自己的精神。</description>
+		<descriptionHyperlinks>
+			<ThingDef>KoishisEye</ThingDef>
+		</descriptionHyperlinks>
+		<abilities>
+			<li>TheLiberationOfTheId</li>
+			<li>SuperEgo</li>
+		</abilities>
+		<comps>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li>
+						<label>超反应知觉</label>
+						<capacities>
+							<li>SubterraneanRose</li>
+						</capacities>
+						<power>10</power>
+						<cooldownTime>0.8</cooldownTime>
+						<armorPenetration>0.64</armorPenetration>
+						<soundMeleeHit>hitA</soundMeleeHit>
+						<soundMeleeMiss>MissedA</soundMeleeMiss>
+					</li>
+				</tools>
+			</li>
+		</comps>
+		<spawnThingOnRemoved>KoishisEye</spawnThingOnRemoved>
+	</HediffDef>
+
+	<AbilityDef>
+		<defName>TheLiberationOfTheId</defName>
+		<label>本能「本我的解放」</label>
+		<description>将开放的精神最大化释放,在无意识的状态下行动,这种状态下自身几乎不会被任何人察觉,但是也会容易失去对自身行为的控制。</description>
+        <abilityClass>merissu.Id</abilityClass>
+		<iconPath>Abilities/TheLiberationOfTheId</iconPath>
+		<cooldownTicksRange>100</cooldownTicksRange>
+		<writeCombatLog>True</writeCombatLog>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<warmupTime>1</warmupTime>
+			<range>51.4</range>
+			<soundCast>Id</soundCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>TheLiberationOfTheId</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+    <HediffDef>
+        <defName>Id</defName>
+        <label>本能</label>
+        <defaultLabelColor>(102,204,153)</defaultLabelColor>
+        <description>心中的某些东西被解放了</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-4</severityPerDay>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>koishi1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+	<HediffDef>
+		<defName>TheLiberationOfTheId</defName>
+		<label>本我的解放</label>
+        <defaultLabelColor>(102,204,153)</defaultLabelColor>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>完全凭借着内心深处的本能行动,这种状态下会出各种无法预料的事情,不过在无意识状态下行动也很难被察觉到</description>
+		<isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<abilities>
+			<li>IWillCallYouNow</li>
+		</abilities>
+		<stages>
+			<li>
+				<painFactor>0</painFactor>
+				<mentalStateGivers>
+					<li>
+						<mentalState>SocialFighting</mentalState>
+						<mtbDays>0.8</mtbDays>
+					</li>
+					<li>
+						<mentalState>InsultingSpree</mentalState>
+						<mtbDays>0.8</mtbDays>
+					</li>
+					<li>
+						<mentalState>Jailbreaker</mentalState>
+						<mtbDays>0.8</mtbDays>
+					</li>
+					<li>
+						<mentalState>Binging_Food</mentalState>
+						<mtbDays>0.8</mtbDays>
+					</li>
+					<li>
+						<mentalState>Binging_DrugMajor</mentalState>
+						<mtbDays>0.8</mtbDays>
+					</li>
+					<li>
+						<mentalState>FireStartingSpree</mentalState>
+						<mtbDays>0.8</mtbDays>
+					</li>
+					<li>
+						<mentalState>Wander_OwnRoom</mentalState>
+						<mtbDays>0.8</mtbDays>
+					</li>
+				</mentalStateGivers>
+				<statFactors>
+					<IncomingDamageFactor>0.8</IncomingDamageFactor>
+					<MeleeHitChance>0.8</MeleeHitChance>
+					<MeleeDodgeChance>0.8</MeleeDodgeChance>
+					<SocialImpact>0</SocialImpact>
+					<NegotiationAbility>0</NegotiationAbility>
+					<TradePriceImprovement>0</TradePriceImprovement>
+					<PsychicSensitivity>0</PsychicSensitivity>
+					<ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0</ConversionPower>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>1.5</offset>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.7</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_Invisibility">
+				<visibleToPlayer>true</visibleToPlayer>
+			</li>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>0</severityPerDay>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<ThoughtDef>
+		<defName>happykoishi</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>TheLiberationOfTheId</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>无意识</label>
+				<description>脑袋空空好舒服</description>
+				<baseMoodEffect>999</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<AbilityDef>
+		<defName>SuperEgo</defName>
+		<label>抑制「超我」</label>
+		<description>最大化地压抑精神,克制自己的行为,同时也不再会不被他人察觉</description>
+        <abilityClass>merissu.SuperEgo</abilityClass>
+		<iconPath>Abilities/Superego</iconPath>
+		<cooldownTicksRange>100</cooldownTicksRange>
+		<writeCombatLog>True</writeCombatLog>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<warmupTime>1</warmupTime>
+			<range>51.4</range>
+			<soundCast>Ego</soundCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>SuperEgo</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>SuperEgo</defName>
+		<label>超我</label>
+        <defaultLabelColor>(102,204,153)</defaultLabelColor>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>压抑了自己的精神,不再做出无意识的行为,同时也失去了不会被他人察觉的能力</description>
+		<isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<stages>
+			<li>
+				<painFactor>0.8</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0.8</IncomingDamageFactor>
+					<MeleeHitChance>1.5</MeleeHitChance>
+					<MeleeDodgeChance>1.5</MeleeDodgeChance>
+					<SocialImpact>0.5</SocialImpact>
+					<NegotiationAbility>0.5</NegotiationAbility>
+					<TradePriceImprovement>0.5</TradePriceImprovement>
+					<PsychicSensitivity>0.5</PsychicSensitivity>
+					<ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.5</ConversionPower>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.7</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>0</severityPerDay>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<AbilityDef>
+		<defName>IWillCallYouNow</defName>
+		<label>＊现在就给你打电话别忘了接哦＊</label>
+		<description>我是恋恋,现在在,你的背后。</description>
+		<category>Skip</category>
+		<iconPath>Abilities/IWillCallYouNow</iconPath>
+		<writeCombatLog>False</writeCombatLog>
+		<showPsycastEffects>False</showPsycastEffects>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<cooldownTicksRange>300</cooldownTicksRange>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<requireLineOfSight>False</requireLineOfSight>
+			<warmupTime>0</warmupTime>
+			<range>99999</range>
+			<soundCast>IWillCallYouNow</soundCast>
+			<targetParams>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<thingCategory>Item</thingCategory>
+				<canTargetLocations>False</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="merissu.CompProperties_AbilityTeleportBackstab"/>
+		</comps>
+	</AbilityDef>
+
+	
+	<ToolCapacityDef>
+		<defName>SubterraneanRose</defName>
+		<label>超反应知觉</label>
+	</ToolCapacityDef>
+	<ManeuverDef>
+		<defName>SubterraneanRose_A</defName>
+		<requiredCapacity>SubterraneanRose</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>SubterraneanRose</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<DamageDef>
+		<defName>SubterraneanRose</defName>
+		<label>超反应知觉</label>
+		<workerClass>DamageWorker_Stab</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被触手刺穿了。</deathMessage>
+		<hediff>SubterraneanRose</hediff>
+		<hediffSkin>SubterraneanRose</hediffSkin>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Slice</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.1</overkillPctToDestroyPart>
+		<cutExtraTargetsCurve>
+			<points>
+				<li>0, 0</li>
+				<li>0.6, 1</li>
+				<li>0.9, 2</li>
+				<li>1, 3</li>
+			</points>
+		</cutExtraTargetsCurve>
+		<cutCleaveBonus>1.4</cutCleaveBonus>
+	</DamageDef>
+	
+	<HediffDef ParentName="InjuryBase">
+		<defName>SubterraneanRose</defName>
+		<label>超反应知觉</label>
+		<labelNoun>超反应知觉</labelNoun>
+		<description>被恋之瞳上的触手所穿刺。</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0.15</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>切口疤痕</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.0125</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+			<bleedRate>0.06</bleedRate>
+			<canMerge>false</canMerge>
+			<destroyedLabel>切下</destroyedLabel>
+			<destroyedOutLabel>切下</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+	
+	<ThingDef ParentName="BodyPartArchotechBase">
+		<defName>KoishisEye</defName>
+		<label>恋之瞳</label>
+		<description>古明地恋的觉之瞳,闭上了眼睛,不再能够窥探他人的内心,不再被他人厌恶,但是也失去了一般来说的意识,失去了存在感。</description>
+		<descriptionHyperlinks>
+			<RecipeDef>InstallKoishisEye</RecipeDef>
+		</descriptionHyperlinks>
+		<statBases>
+			<WorkToMake>20000</WorkToMake>
+			<MarketValue>40000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>2</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>5</FullPower>
+			<MedicineOfTheLunarCapital>2</MedicineOfTheLunarCapital>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>PenglaiPharmaceuticalTable</li>
+			</recipeUsers>
+			<researchPrerequisites>
+				<li>EarthSpiritsPalace</li>
+			</researchPrerequisites>
+		</recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardCore</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<RecipeDef ParentName="SurgeryInstallImplantBase">
+		<defName>InstallKoishisEye</defName>
+		<label>安装恋之瞳</label>
+		<description>安装恋之瞳</description>
+		<descriptionHyperlinks>
+			<ThingDef>KoishisEye</ThingDef>
+			<HediffDef>KoishisEye</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>正在安装恋之瞳</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>KoishisEye</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>KoishisEye</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Heart</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>KoishisEye</addsHediff>
+	</RecipeDef>
+</Defs>

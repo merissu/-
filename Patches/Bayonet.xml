@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationTest">
+			<xpath>/Defs/ThingDef[@Name="BasePawn"]/comps</xpath>
+			<success>Invert</success>
+		</li>
+		<li Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="BasePawn"]</xpath>
+			<value>
+			<comps />
+			</value>
+		</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[@Name="BasePawn"]/comps</xpath>
+		<value>
+			<li Class="merissu.CompProperties_GetGizmo"/>
+		</value>
+	</Operation>
+	
+	<!-- 添加comps -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="LunaRabbitGun"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="LunaRabbitGun"]</xpath>
+			<value>
+				<comps />
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[defName="LunaRabbitGun"]/comps</xpath>
+		<value>
+			<li Class="merissu.CompProperties_Bayonet">
+				<cooldown>1800</cooldown>
+				<radius>14.9</radius>
+				<label>MR.BayonetLabel</label>
+				<description>MR.BayonetDescription</description>
+				<icon>Abilities/MR_Bayonet</icon>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<FleckDef ParentName="FleckBase">
+		<defName>MRS_Tail</defName>
+		<graphicData>
+			<texPath>Weapons/Bullet/TailRaeiiy</texPath>
+			<shaderType>TransparentPostLight</shaderType>
+			<renderInstanced>true</renderInstanced>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<solidTime>0</solidTime>
+		<fadeOutTime>0.1</fadeOutTime>
+	</FleckDef>
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_StarTail</defName>
+		<thingClass>MoteThrown</thingClass>
+		<mote>
+			<fadeInTime>0</fadeInTime>
+			<fadeOutTime>1.3</fadeOutTime>
+			<solidTime>0</solidTime>
+		</mote>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData>
+			<texPath>Weapons/Bullet/Bullet_MagicBlast</texPath>
+			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_StarTaila</defName>
+		<thingClass>MoteThrown</thingClass>
+		<mote>
+			<fadeInTime>0</fadeInTime>
+			<fadeOutTime>1.3</fadeOutTime>
+			<solidTime>0</solidTime>
+		</mote>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData>
+			<texPath>Weapons/Bullet/Bullet_MagicBlast3</texPath>
+			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_StarTailb</defName>
+		<thingClass>MoteThrown</thingClass>
+		<mote>
+			<fadeInTime>0</fadeInTime>
+			<fadeOutTime>1.3</fadeOutTime>
+			<solidTime>0</solidTime>
+		</mote>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData>
+			<texPath>Weapons/Bullet/Bullet_MagicBlast2</texPath>
+			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+		</graphicData>
+	</ThingDef>
+</Defs>

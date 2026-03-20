@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>MR_BayonetAttack</defName>
+    <driverClass>merissu.JobDriver_Bayonet</driverClass>
+    <reportString>Charge TargetA with a bayonet.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    <carryThingAfterJob>true</carryThingAfterJob>
+    <dropThingBeforeJob>true</dropThingBeforeJob>
+  </JobDef>
+</Defs>

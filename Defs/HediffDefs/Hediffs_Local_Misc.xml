@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- 刺刀 -->
+  <HediffDef>
+    <defName>MR_BayonetCharge</defName>
+    <label>bayonet charge</label>
+    <description>...</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0, 0, 0)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>300</disappearsAfterTicks>
+        <showRemainingTime>false</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+      <li Class="merissu.HediffCompProperties_Bayonet"/>
+      <li Class="HediffCompProperties_Effecter">
+        <stateEffecter>Berserk</stateEffecter>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+        <statFactors>
+          <MoveSpeed>1.50</MoveSpeed>
+          <StaggerDurationFactor MayRequire="Ludeon.RimWorld.Biotech">0.25</StaggerDurationFactor>
+        </statFactors>
+      </li>
+    </stages>
+    <isBad>false</isBad>
+  </HediffDef>
+</Defs>

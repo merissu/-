@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>udongecard</defName>
+        <label>符卡宣言</label>
+        <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
+
+进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张铃仙的强力符卡和极其强大的Last Word</description>
+        <abilityClass>merissu.Ability_udongecard</abilityClass>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/udongecard</iconPath>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>udongecard</defName>
+        <label>符卡宣言</label>
+        <defaultLabelColor>(204,153,204)</defaultLabelColor>
+        <description>已进行符卡宣言,在音乐结束前释放符卡吧</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>InfraredMoon</li>
+			<li>Ability_XWave</li>
+			<li>CorollaVision</li>
+			<li>LunaticRedEyes</li>
+		</abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-12</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>udonge1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+        <defName>InfraredMoon</defName>
+        <label>长视「赤月下」</label>
+        <description>大幅解放疯狂视线的能力,变为四处散发混乱波长的状态,暂时无法为周围所认知。
+
+需要消耗一层灵力,使用后使用者会处于一段时间的隐形,并且无法被攻击到。
+
+似乎是铃仙并不怎么想和他人接触的缘故，日常生活中也偶尔会用到。</description>
+        <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/InfraredMoon</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Hediff_InfraredMoon</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>Hediff_InfraredMoon</defName>
+		<label>红外线之月</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+		<description>处于混乱波长干扰中,暂时无法为周围所认知。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_Invisibility">
+				<visibleToPlayer>true</visibleToPlayer>
+			</li>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-12</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+    <AbilityDef>
+		<defName>Ability_XWave</defName>
+		<label>短视「超短脑波」</label>
+        <abilityClass>merissu.Ability_XWave</abilityClass>
+		<description>发射搅乱敌人认知的波长。命中时敌人将处于幻象,完全失去行动能力。
+
+需要消耗一层灵力</description>
+		<iconPath>Abilities/XWave</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>12</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>XWaveEffect</defName>
+		<label>超短脑波</label>
+		<thingClass>merissu.Thing_XWaveEffect</thingClass>
+		<category>Ethereal</category>
+		<tickerType>Normal</tickerType>
+		<selectable>false</selectable>
+		<graphicData>
+			<texPath>Other/Wave/bulletFa000</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.5,1.5)</drawSize>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>XWaveRing</defName>
+		<label>圆环</label>
+		<thingClass>merissu.Thing_XWaveRing</thingClass>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Other/bulletCd000</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>XWaveLaser</defName>
+		<label>波</label>
+		<thingClass>merissu.Thing_XWaveLaser</thingClass>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MetaOverlays</altitudeLayer>
+		<selectable>false</selectable>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>XWave</defName>
+		<label>超短脑波</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>深陷幻象之中,无法行动...</description>
+		<defaultLabelColor>(255,51,51)</defaultLabelColor>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-4</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <setMax>0.01</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+	</HediffDef>
+
+    <AbilityDef>
+		<defName>CorollaVision</defName>
+		<label>幻惑「花冠视线」</label>
+        <abilityClass>merissu.Ability_CorollaVision</abilityClass>
+		<description>高速连射出会随飞行距离而变大的环形弹幕,弹幕不会和任何障碍发生碰撞,并且会使穿过的敌人发狂
+	
+使用需要消耗一层灵力,环状弹幕最大尺寸三格,会飞行25格并穿透途径的所有物体,可隔墙使用。</description>
+		<iconPath>Abilities/CrownVision</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>25</range>
+			<requireLineOfSight>false</requireLineOfSight>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <ThingDef>
+        <defName>CorollaVisionRing</defName>
+        <label>花冠视线发射器</label>
+        <thingClass>merissu.Thing_CorollaVisionRing</thingClass>
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <drawGUIOverlay>false</drawGUIOverlay>
+        <tickerType>Normal</tickerType>
+        <passability>Standable</passability>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Projectiles/CorollaVision</texPath>
+			<drawSize>(50,50)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+        <useHitPoints>false</useHitPoints>
+        <destroyable>true</destroyable>
+    </ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>CorollaVisionTrail</defName>
+		<label>波</label>
+		<thingClass>merissu.Thing_CorollaVisionTrail</thingClass>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Projectiles/Vision</texPath>
+			<drawSize>(1.5,1.5)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<tickerType>Normal</tickerType>
+	</ThingDef>
+
+    <AbilityDef>
+		<defName>LunaticRedEyes</defName>
+		<label>「幻胧月睨」</label>
+        <abilityClass>merissu.Ability_LunaticRedEyes</abilityClass>
+		<description>广范围释放令敌人陷入疯狂的波长漩涡。威力、范围都极其优秀,发动的消耗也因此略大
+
+使用时需要消耗五层灵力,发动后会释放半径为40格的波长漩涡,令陷入其中的所有敌人陷入疯狂。</description>
+		<iconPath>Abilities/LunaticRedEyes</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>40</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>LunaticRedEyesEmitter</defName>
+		<label>幻胧月睨控制器</label>
+		<thingClass>merissu.Thing_LunaticRedEyesEmitter</thingClass>
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <drawGUIOverlay>false</drawGUIOverlay>
+        <tickerType>Normal</tickerType>
+        <passability>Standable</passability>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <useHitPoints>false</useHitPoints>
+        <destroyable>true</destroyable>
+        <graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/null</texPath>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>LunaticRedEyesWave</defName>
+		<label>幻胧月睨</label>
+		<thingClass>merissu.Thing_LunaticRedEyesWave</thingClass>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Projectiles/RedEyes</texPath>
+			<drawSize>(1.5,1.5)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<tickerType>Normal</tickerType>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>LunaticRedEyes</defName>
+        <label>幻胧月睨</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+        <description>总是被起一些奇怪外号的外星兔。因此干脆就把她的符卡的汉字也一并注上了奇怪的读音。她似乎很喜欢卡名。</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>udonge2</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+</Defs>

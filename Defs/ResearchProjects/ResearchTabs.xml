@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <ResearchTabDef>
+    <defName>TouhouWeapons</defName>
+    <label>燕石博物志</label>
+  </ResearchTabDef>
+
+</Defs>

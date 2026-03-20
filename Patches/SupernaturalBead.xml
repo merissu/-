@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/StorytellerDef[@Name='BaseStoryteller']/comps</xpath>
+		<value>
+			<li Class="U.N.Owen.SupernaturalBead.StorytellerCompProperties_EnemyShrineSite">
+				<incident>GiveQuest_SupernaturalBeadShrineFortress</incident>
+				<baseMtbDays>30</baseMtbDays>
+				<minDaysPassed>20</minDaysPassed>
+				<allowedTargetTags>
+					<li>World</li>
+				</allowedTargetTags>
+			</li>
+		</value>
+	</Operation>
+</Patch>

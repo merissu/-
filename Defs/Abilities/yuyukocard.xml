@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>yuyukocard</defName>
+        <label>符卡宣言</label>
+        <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
+
+进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张幽幽子的强力符卡和极其强大的Last Word</description>
+        <abilityClass>merissu.yuyukocard</abilityClass>
+        <iconPath>Abilities/yuyukocard</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>yuyukocard</defName>
+        <label>符卡宣言</label>
+		<defaultLabelColor>(255,153,204)</defaultLabelColor>
+        <description>已进行符卡宣言,在音乐结束前释放符卡吧</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>gotodie</li>
+			<li>DeadButterfly</li>
+			<li>GhostButterfly</li>
+			<li>ResurrectionButterfly</li>
+		</abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-8</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>yuyuko1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+	<AbilityDef>
+		<defName>gotodie</defName>
+		<label>寿命「通向无寿国的期票」</label>
+        <abilityClass>merissu.gotodie</abilityClass>
+		<description>放出幽灵凭依在敌人身上,幽灵会邀请敌人前往冥界。
+
+使用需要消耗一层灵力,幽灵全部消失的瞬间,敌人就会死亡</description>
+		<iconPath>Abilities/gotodie</iconPath>
+		<cooldownTicksRange>2500</cooldownTicksRange>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<statBases>
+			<Ability_EffectRadius>10</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>0.5</warmupTime>
+			<range>99</range>
+			<drawAimPie>true</drawAimPie>
+			<requireLineOfSight>true</requireLineOfSight>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+				<canTargetSelf>false</canTargetSelf>
+				<neverTargetIncapacitated>true</neverTargetIncapacitated>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>gotodie</hediffDef> 
+				<severity>1.0</severity> 
+				<applyToTarget>true</applyToTarget>
+  			  	<ignoreSelf>true</ignoreSelf>
+			</li>
+			<li Class="CompProperties_AbilityConnectingFleckLine">
+				<fleckDef>PsycastPsychicLine</fleckDef>
+			</li>
+			<li Class="CompProperties_AbilityEffecterOnTarget">
+				<effecterDef>VoidTerror_Target</effecterDef>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>gotodie</defName>
+		<label>通向无寿国的期票</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(255,153,204)</defaultLabelColor>
+		<description>幽灵消失时,我就会死</description>
+		<maxSeverity>1.0</maxSeverity>
+      	<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.5</setMax>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-0.2</offset> 
+					</li>
+				</capMods>
+			</li>
+        </stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+			<li Class="merissu.HediffCompProperties_GhostCountdown"/>
+		</comps>
+	</HediffDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_GhostAnimated</defName>
+		<thingClass>merissu.Mote_GhostAnimated</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Other/ghost/473</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_GhostPetal</defName>
+		<thingClass>merissu.Mote_GhostPetal</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Other/spellBulletDa000</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>GhostOrbitController</defName>
+		<label>控制器</label> 
+		<thingClass>merissu.Thing_GhostOrbitController</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawOffscreen>true</drawOffscreen>
+		<selectable>false</selectable>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Other/null</texPath>
+			<drawSize>(0.1,0.1)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+    <AbilityDef>
+		<defName>DeadButterfly</defName>
+		<label>死蝶「华胥的永眠」</label>
+        <abilityClass>merissu.Ability_DeadButterfly</abilityClass>
+		<description>以圆形发射大量蝴蝶弹。完全掩护住周围且有无敌,让人永眠并看到蝴蝶之梦的符卡。
+
+需要消耗一层灵力,使用期间带有无敌</description>
+		<iconPath>Abilities/DeadButterfly</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>25</range>
+			<warmupTime>0</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>DeadButterflyA</defName>
+		<label>butterflyA</label>
+		<thingClass>merissu.Thing_DeadButterflyBullet</thingClass>
+		<category>Ethereal</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+		<selectable>false</selectable>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Projectiles/yuyukoBullet/ButterflyBulletA</texPath>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>DeadButterflyB</defName>
+		<label>butterflyB</label>
+		<thingClass>merissu.Thing_DeadButterflyBullet</thingClass>
+		<category>Ethereal</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+		<selectable>false</selectable>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Projectiles/yuyukoBullet/ButterflyBulletC</texPath>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>DeadButterflyController</defName>
+		<thingClass>merissu.Thing_DeadButterflyController</thingClass>
+		<category>Ethereal</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+		<selectable>false</selectable>
+			<graphicData>
+				<graphicClass>Graphic_Single</graphicClass>
+				<texPath>Other/null</texPath>
+				<drawSize>(0.1,0.1)</drawSize>
+			</graphicData>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>DeadButterflyInvincible</defName>
+		<label>华胥的永眠</label>
+		<defaultLabelColor>(255,153,204)</defaultLabelColor>
+		<description>此符卡似乎正好和「反魂蝶」互为表里关系,反正我看不出这两者之间的区别。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<tendable>false</tendable>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<stages>
+			<li>
+			<statFactors>
+				<IncomingDamageFactor>0</IncomingDamageFactor>
+			</statFactors>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+	</HediffDef>
+
+    <AbilityDef>
+        <defName>GhostButterfly</defName>
+        <label>华灵「亡灵蝶」</label>
+        <description>使自身幽灵化,在持续时间内不受到任何伤害,并且移动时大部分碰撞和阻碍
+
+使用需要消耗一次灵力,持续一小时</description>
+        <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>GhostButterfly</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/GhostButterfly</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Hediff_GhostButterfly</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>Hediff_GhostButterfly</defName>
+		<label>亡灵蝶</label>
+		<defaultLabelColor>(255,153,204)</defaultLabelColor>
+		<description>暂时化作了幽灵,不会受到伤害,会无视大部分障碍</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_Invisibility">
+				<visibleToPlayer>true</visibleToPlayer>
+			</li>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-24</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		    <li Class="merissu.HediffCompProperties_GhostSafety"/>
+		</comps>
+		<stages>
+			<li>
+				<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+    <AbilityDef>
+		<defName>ResurrectionButterfly</defName>
+		<label>「西行寺无余涅槃」</label>
+        <abilityClass>merissu.Ability_ResurrectionButterfly</abilityClass>
+		<description>幽幽子最大的奥义,她的死。在游戏中几乎没什么机会展现她的能力让人很头疼啊。被那东西给砰砰地杀掉比较那个呢。
+
+使用需要消耗一层灵力,发动后会在背后张开扇子,在音乐结束前释放Last Word。</description>
+		<iconPath>Abilities/ResurrectionButterfly</iconPath>
+		<cooldownTicksRange>800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>99</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>ResurrectionButterfly</defName>
+		<label>「反魂蝶」</label>
+		<defaultLabelColor>(255,153,204)</defaultLabelColor>
+		<description>我曾做过一个我长眠后化作蝴蝶的梦。人类从化作蝴蝶的梦境中苏醒，又是否能回到平日的生活中呢？
+
+还是说，觉得自己变为蝴蝶的一场梦的自己原本就是一只已然长眠的蝴蝶，不过是做了一个人类一辈子的梦呢？</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>5.0</maxSeverity>
+        <abilities>
+			<li>yuyukoResurrectionButterfly</li>
+        </abilities>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>7200</disappearsAfterTicks>
+				<showRemainingTime>true</showRemainingTime>
+			</li>            
+			<li Class="HediffCompProperties_Invisibility">
+				<visibleToPlayer>true</visibleToPlayer>
+			</li>
+			<li Class="merissu.HediffCompProperties_PlayMusicOnce">
+				<songDef>yuyuko2</songDef>
+			</li>
+			<li Class="merissu.HediffCompProperties_ResurrectionFan">
+				<moteDef>Mote_ResurrectionFan</moteDef>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>一分咲</label>
+				<minSeverity>2</minSeverity>
+             	<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+			<li>
+				<label>参分咲</label>
+				<minSeverity>3</minSeverity>
+             	<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+			<li>
+				<label>伍分咲</label>
+				<minSeverity>4</minSeverity>
+             	<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+			<li>
+				<label>八分咲</label>
+				<minSeverity>5</minSeverity>
+             	<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ResurrectionFan</defName>
+		<graphicData>
+			<texPath>Other/fan</texPath>
+			<graphicClass>merissu.Graphic_ResurrectionFan</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>(20,20)</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<fadeInTime>0</fadeInTime>
+			<solidTime>9999999</solidTime>
+			<fadeOutTime>0</fadeOutTime>
+		</mote>
+	</ThingDef>
+
+    <AbilityDef>
+		<defName>yuyukoResurrectionButterfly</defName>
+		<label>「反魂蝶」</label>
+        <abilityClass>merissu.yuyukoResurrectionButterfly</abilityClass>
+		<description>在周围延伸出光带以及飞舞而上的蝶弹。开始性能较弱,但随着多次使用会变得愈加强力的Spell Card。
+
+使用需要消耗一层灵力,发动四次后则不再消耗灵力</description>
+		<iconPath>Abilities/yuyukoResurrectionButterfly</iconPath>
+		<cooldownTicksRange>300</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>99</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Butterfly_dayu</defName>
+		<label>大玉</label>
+		<thingClass>merissu.yuyukobullets</thingClass>
+		<graphicData>
+			<texPath>Projectiles/Butterfly_dayu</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>DeathButterflyFloatingMoon</damageDef>
+			<damageAmountBase>1</damageAmountBase>
+			<stoppingPower>1</stoppingPower>
+			<speed>15</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>ResurrectionButterflyOrb</defName>
+		<label>反魂蝶光球</label>
+		<thingClass>merissu.Thing_ResurrectionButterflyOrb</thingClass>
+		<category>Ethereal</category>
+		<selectable>false</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+		<destroyable>true</destroyable>
+		<passability>Standable</passability>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Other/spellBulletDc000</texPath>
+			<drawSize>(1.2,1.2)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+</Defs>	

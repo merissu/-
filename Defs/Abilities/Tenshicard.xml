@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>Tenshicard</defName>
+        <label>符卡宣言</label>
+        <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
+
+进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张天子的强力符卡和极其强大的Last Word</description>
+        <abilityClass>merissu.Tenshicard</abilityClass>
+        <iconPath>Abilities/Tenshicard</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>Tenshicard</defName>
+        <label>符卡宣言</label>
+        <defaultLabelColor>(0,102,204)</defaultLabelColor>
+        <description>已进行符卡宣言,在音乐结束前释放符卡吧</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>UniverseQuake</li>
+			<li>masochists</li>
+			<li>WildlyStrikes</li>
+			<li>TenshiLastSpell</li>
+        </abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-4</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Tenshi1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>UniverseQuake</defName>
+		<label>要石「天地开辟之挤压」</label>
+        <abilityClass>merissu.Ability_UniverseQuake</abilityClass>
+		<description>向目标发射一颗要石用于定位,之后召唤一颗巨大化的要石一口气落下压向对手的乱来技能
+	
+落下的要石会砸碎目标以及附近10格以内的敌人和建筑,使用需要消耗一层灵力。</description>
+		<iconPath>Abilities/UniverseQuake</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>35</range>
+			<warmupTime>0.5</warmupTime>
+			<ai_AvoidFriendlyFireRadius>8</ai_AvoidFriendlyFireRadius>
+			<soundCast>spell</soundCast>
+        	<muzzleFlashScale>14</muzzleFlashScale>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <ThingDef ParentName="BaseBullet">
+		<defName>UniverseQuake</defName>
+		<label>要石</label>
+		<graphicData>
+			<texPath>Weapons/Bullet/Keystone</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<damageDef>Bomb</damageDef>
+			<explosionRadius>0</explosionRadius>
+			<speed>40</speed>
+			<damageAmountBase>10</damageAmountBase>
+			<screenShakeFactor>1</screenShakeFactor>
+			<preExplosionSpawnThingDef>TenshiStone</preExplosionSpawnThingDef>
+			<preExplosionSpawnChance>1</preExplosionSpawnChance>
+		</projectile>
+	</ThingDef>
+
+    <ThingDef Name="TenshiStone" ParentName="SkyfallerBase">
+        <defName>TenshiStone</defName>
+        <label>要石</label>
+        <size>(1, 1)</size>
+        <graphicData>
+            <texPath>Projectiles/TenshiStone</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Transparent</shaderType>
+            <drawSize>(20, 20)</drawSize>
+        </graphicData>
+        <skyfaller>
+            <shadowSize>(14, 14)</shadowSize>
+            <explosionRadius>10</explosionRadius>
+            <cameraShake>10</cameraShake>
+            <explosionDamage>UniverseQuake</explosionDamage>
+            <rotateGraphicTowardsDirection>true</rotateGraphicTowardsDirection>
+            <speed>1</speed>
+        </skyfaller>
+    </ThingDef>
+
+	<DamageDef ParentName="Bomb">
+		<defName>UniverseQuake</defName>
+		<label>压伤</label>
+		<workerClass>DamageWorker_AddInjury</workerClass>
+		<externalViolence>true</externalViolence>
+		<isExplosive>true</isExplosive>
+		<deathMessage>{0} 被压碎了。</deathMessage>
+		<hediff>Shredded</hediff>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Blunt</impactSoundType>
+		<armorCategory>Blunt</armorCategory>
+		<minDamageToFragment>15</minDamageToFragment>
+		<defaultDamage>300</defaultDamage>
+		<defaultStoppingPower>4</defaultStoppingPower>
+		<defaultArmorPenetration>1</defaultArmorPenetration>
+		<buildingDamageFactorImpassable>10</buildingDamageFactorImpassable>
+		<buildingDamageFactorPassable>10</buildingDamageFactorPassable>
+		<plantDamageFactor>1</plantDamageFactor>
+		<corpseDamageFactor>0.5</corpseDamageFactor>
+		<explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+		<explosionHeatEnergyPerCell>0</explosionHeatEnergyPerCell>
+		<explosionCellFleck>BlastDry</explosionCellFleck>
+		<explosionColorCenter>(1, 0.5, 0.3)</explosionColorCenter>
+		<explosionColorEdge>(0.6, 0.5, 0.4)</explosionColorEdge>
+		<soundExplosion>UniverseQuake</soundExplosion>
+		<combatLogRules>Damage_Bomb</combatLogRules>
+	</DamageDef>
+
+    <AbilityDef>
+        <defName>masochists</defName>
+        <label>气符「无念无想的境界」</label>
+        <description>在一定时间提升自身的强度。持续时间内抗打击能力大大提升,也不会感到疼痛(其实据说只不过是憋住气强忍住不喊痛罢了)
+           
+发动后使用者会感受不到任何痛楚,是一张相当特殊的符卡。使用需要消耗一层灵力,持续时间为三小时</description>
+        <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/masochists</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>masochists</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>masochists</defName>
+		<label>气符「无念无想的境界」</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+		<description>虽然这张符卡很特殊,但也让人觉得相当便利。冬季来临就不会感受到寒风的刺骨,长时间劳动也不会觉得腰酸背痛。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-8</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_SpawningMote">
+                <moteDef>Mote_MasochistSpell</moteDef>
+                <intervalTicks>30</intervalTicks> 
+            </li>
+		</comps>
+		<stages>
+			<li>
+				<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0.1</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>Mote_MasochistSpell</defName>
+        <graphicData>
+            <texPath>Other/masochists</texPath>
+            <graphicClass>merissu.Graphic_AnimatedMote</graphicClass>
+            <shaderType>MoteGlow</shaderType> 
+            <drawSize>3</drawSize>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0.05</fadeInTime>
+            <solidTime>0.05</solidTime> 
+            <fadeOutTime>0.05</fadeOutTime>
+        </mote>
+    </ThingDef>
+
+    <AbilityDef>
+        <defName>WildlyStrikes</defName>
+        <label>剑技「气焰万丈之剑」</label>
+        <description>绯想之剑来回挥舞将对手大卸八块的打击技。由于只是乱砍一通,能不能叫做技能还值得商榷。
+
+发动时会先靠近目标,然后在极短的时间内挥出十几刀将对手肢解,使用需要消耗一层灵力。</description>
+        <abilityClass>merissu.WildlyStrikes</abilityClass>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>true</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>true</requireLineOfSight>
+            <warmupTime>0</warmupTime>
+            <soundCast>spell</soundCast>
+			<range>5</range>
+            <targetParams>
+                <canTargetSelf>false</canTargetSelf>
+             	<canTargetAnimals>true</canTargetAnimals>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetMechs>true</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/WildlyStrikes</iconPath>
+    </AbilityDef>
+
+    <JobDef>
+        <defName>Job_WildlyStrikes</defName>
+        <driverClass>merissu.JobDriver_WildlyStrikes</driverClass>
+        <reportString>正在施展气焰万丈之剑。</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <AbilityDef>
+        <defName>TenshiLastSpell</defName>
+        <label>Last Word</label>
+        <description>消耗五层灵力发动天子的LastSpell,在音乐结束前可以尽情地释放极其强大的符卡</description>
+        <abilityClass>merissu.Ability_TenshiLastSpell</abilityClass>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/TenshiLastSpell</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Hediff_TenshiLastSpell</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>Hediff_TenshiLastSpell</defName>
+		<label>「全人类的绯想天」</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+		<description>以天制大地
+以地除要枢
+照映出人绯色之内心</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>Hisouten</li>
+        </abilities>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-8.33</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Tenshi2</songDef>
+            </li>
+		</comps>
+		<stages>
+			<li>
+             	<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+    <AbilityDef>
+		<defName>Hisouten</defName>
+		<label>「全人类的绯想天」</label>
+        <abilityClass>merissu.Ability_Hisouten</abilityClass>
+		<description>将周围的气质凝缩在绯想之剑上,并向下方一口气放出的超大技,符卡发动效果为以无比彪悍的威力将对手打飞的极大激光束。
+	
+尽管这张符卡的效果和极限火花看起来差不多,看起来是激光,但其实这并不是激光,而是超高速、超高密度的气弹的集合。
+
+换句话说，被打中肯定痛得要命。</description>
+		<iconPath>Abilities/Hisouten</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>250</range>
+			<warmupTime>0.5</warmupTime>
+			<requireLineOfSight>false</requireLineOfSight>
+			<soundCast>Hisouten</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>true</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>HisoutenLaser</defName>
+		<label>全人类的绯想天</label>
+		<thingClass>merissu.Thing_HisoutenLaser</thingClass>
+		<selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <destroyable>true</destroyable>
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <drawGUIOverlay>false</drawGUIOverlay>
+        <tickerType>Normal</tickerType>
+        <passability>Standable</passability>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<graphicClass>Graphic_Random</graphicClass>
+			<texPath>Other/Hisouten</texPath>
+			<drawSize>(555,555)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>Hisouten</defName>
+		<label>全人类的绯想天</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+		<description>溢出的气质化作了弹幕</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-12</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statFactors>
+					<IncomingDamageFactor>3</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_HisoutenGrain</defName>
+		<label>气质</label>
+        <thingClass>merissu.Mote_HisoutenAnimated</thingClass>
+		<graphicData>
+			<texPath>Projectiles/Hisouten</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+        <mote>
+            <fadeInTime>0.5</fadeInTime>
+            <solidTime>2</solidTime>  
+            <fadeOutTime>0.5</fadeOutTime> 
+        </mote>	
+    </ThingDef>
+
+</Defs>	

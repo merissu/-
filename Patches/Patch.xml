@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/BiomeDef[defName="BorealForest"]/wildPlants</xpath>
+    <value>
+		<Plant_SpiritualFloweringBush>0.04</Plant_SpiritualFloweringBush>
+		<MakaiShinkiVine>0.04</MakaiShinkiVine>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/BiomeDef[defName="Tundra"]/wildPlants</xpath>
+    <value>
+		<MakaiShinkiVine>0.03</MakaiShinkiVine>
+		<Plant_SpiritualFloweringBush>0.05</Plant_SpiritualFloweringBush>
+    </value>
+  </Operation>  
+	  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/BiomeDef[defName="TemperateForest"]/wildPlants</xpath>
+    <value>
+		<Plant_SpiritualFloweringBush>0.02</Plant_SpiritualFloweringBush>
+		<MakaiShinkiVine>0.06</MakaiShinkiVine>
+    </value>
+  </Operation>
+	  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/BiomeDef[defName="TemperateSwamp"]/wildPlants</xpath>
+    <value>
+		<Plant_SpiritualFloweringBush>0.06</Plant_SpiritualFloweringBush>
+		<MakaiShinkiVine>0.04</MakaiShinkiVine>
+    </value>
+  </Operation>  
+	  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/BiomeDef[defName="TropicalRainforest"]/wildPlants</xpath>
+    <value>
+		<Plant_SpiritualFloweringBush>0.02</Plant_SpiritualFloweringBush>
+		<MakaiShinkiVine>0.06</MakaiShinkiVine>
+    </value>
+  </Operation>  
+	  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/BiomeDef[defName="TropicalSwamp"]/wildPlants</xpath>
+    <value>
+		<Plant_SpiritualFloweringBush>0.06</Plant_SpiritualFloweringBush>
+		<MakaiShinkiVine>0.04</MakaiShinkiVine>
+    </value>
+  </Operation>  
+	  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/BiomeDef[defName="AridShrubland"]/wildPlants</xpath>
+    <value>
+		<Plant_SpiritualFloweringBush>0.04</Plant_SpiritualFloweringBush>
+		<MakaiShinkiVine>0.04</MakaiShinkiVine>
+    </value>
+  </Operation>
+	  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/BiomeDef[defName="Desert"]/wildPlants</xpath>
+    <value>
+		<Plant_SpiritualFloweringBush>0.05</Plant_SpiritualFloweringBush>
+		<MakaiShinkiVine>0.03</MakaiShinkiVine>
+    </value>
+  </Operation>
+	  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/BiomeDef[defName="ExtremeDesert"]/wildPlants</xpath>
+    <value>
+		<Plant_SpiritualFloweringBush>0.05</Plant_SpiritualFloweringBush>
+		<MakaiShinkiVine>0.03</MakaiShinkiVine>
+    </value>
+  </Operation>
+	  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/GenStepDef[defName="PreciousLump"]/genStep/mineables</xpath>
+    <value>
+		<li>MineableCrimsongold</li>
+    </value>
+  </Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/StorytellerDef[@Name="BaseStoryteller"]/comps</xpath>
+		<value>
+			<li Class="StorytellerCompProperties_OnOffCycle">
+				<incident>JadeBranchSpawn</incident>
+				<onDays>15</onDays>
+				<offDays>15</offDays>
+				<numIncidentsRange>1</numIncidentsRange>
+				<allowedTargetTags>
+					<li>Map_PlayerHome</li>
+				</allowedTargetTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[@Name="BedBase"]/building</xpath>
+		<value>
+			<relatedBuildCommands>
+				<li>DoremySleepingPillow</li>
+			</relatedBuildCommands>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[@Name="BasicBedBase"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+		<value>
+			<li>DoremySleepingPillow</li>
+		</value>
+	</Operation>
+</Patch>

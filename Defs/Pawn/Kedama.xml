@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="AnimalThingBase" Name="BoomalopeThingBase">
+		<defName>Kedama</defName>
+		<label>毛玉</label>
+		<devNote>Kedama-1</devNote>
+		<description>一个毛茸茸的球状物，其中中心部分是约5cm的一个较软的核心，外部包着的是约5cm厚或更厚的细密绒毛。是一种有攻击性的生物，绒毛是它的武器，可以像针刺一样攻击敌人。没有符卡，主要攻击方式是以针刺一样的绒毛攻击。部分高级的毛玉可以发射子弹攻击。</description>
+		<statBases>
+			<MoveSpeed>6.4</MoveSpeed>
+			<MarketValue>350</MarketValue>
+			<ComfyTemperatureMin>-85</ComfyTemperatureMin>
+			<FilthRate>3</FilthRate>
+			<ToxicEnvironmentResistance>0.2</ToxicEnvironmentResistance>
+			<Wildness>0.2</Wildness>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Milkable">
+				<milkDef>PowerPoint</milkDef>
+				<milkIntervalDays>4</milkIntervalDays>
+				<milkAmount>16</milkAmount>
+				<milkFemaleOnly>false</milkFemaleOnly>
+			</li>
+		</comps>
+		<race>
+			<body>Kedama</body>
+			<deathAction>
+				<workerClass>U.N.Owen.DeathActionWorker_SpawnP</workerClass>
+			</deathAction>
+			<executionRange>6</executionRange>
+			<herdAnimal>true</herdAnimal>
+			<baseBodySize>0.4</baseBodySize>
+			<baseHungerRate>0.4</baseHungerRate>
+			<baseHealthScale>0.65</baseHealthScale>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<leatherDef>Leather_Plain</leatherDef>
+			<roamMtbDays>4</roamMtbDays>
+			<canBePredatorPrey>false</canBePredatorPrey>
+			<gestationPeriodDays>0.01</gestationPeriodDays>
+			<trainability>Advanced</trainability>
+			<manhunterOnDamageChance>0.8</manhunterOnDamageChance>
+			<manhunterOnTameFailChance>0.1</manhunterOnTameFailChance>
+			<lifeExpectancy>150</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.2</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.3</minAge>
+					<soundWounded>se_damage00</soundWounded>
+					<soundDeath>se_cat00</soundDeath>
+					<soundCall>se_damage00</soundCall>
+					<soundAngry>se_tan00</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>se_tan00</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>se_tan00</soundMeleeHitBuilding>
+			<soundMeleeMiss>se_graze</soundMeleeMiss>
+			<soundEating>se_bonus2</soundEating>
+			<headPosPerRotation>
+				<li>(0.0, 0, 0.22)</li>
+				<li>(0.38, 0, 0.01)</li>
+				<li>(0.0, 0, -0.165)</li>
+				<li>(-0.38, 0, 0.01)</li>
+			</headPosPerRotation>
+		</race>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+			<li>AnimalFighter</li>
+		</tradeTags>
+		<tools>
+			<li>
+				<label>绒毛</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>22</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Kedama</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>false</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>1</chanceFactor>
+			</li>
+		</tools>
+		<comps>
+		<li Class="CompProperties_TurretGun">
+			<turretDef>KedamaLauncher</turretDef>
+			<angleOffset>-90</angleOffset>
+			<renderNodeProperties>
+				<li>
+					<nodeClass>PawnRenderNode_TurretGun</nodeClass>
+					<workerClass>PawnRenderNodeWorker_TurretGun</workerClass>
+					<parentTagDef>Body</parentTagDef>
+					<overrideMeshSize>(1, 1)</overrideMeshSize>
+					<baseLayer>20</baseLayer>
+					<pawnType>Any</pawnType>
+					<drawData>
+						<dataWest>
+							<rotationOffset>180</rotationOffset>
+						</dataWest>
+					</drawData>
+				</li>
+			</renderNodeProperties>
+		</li>
+	    </comps>
+	</ThingDef>
+	<ThingDef ParentName="EtherealThingBase">
+		<defName>SmallShoot</defName>
+		<label>小玉</label>
+		<thingClass>U.N.Owen.DanmakuProjectileBase</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<drawOffscreen>true</drawOffscreen>
+		<seeThroughFog>true</seeThroughFog>
+		<alwaysFlee>true</alwaysFlee>
+		<comps>
+			<li Class="U.N.Owen.CompProperties_DanmakuSource" />
+			<li Class="U.N.Owen.CompProperties_DanmakuProjectile">
+				<startSpeedMax>0.3</startSpeedMax>
+				<startSpeedMin>0.3</startSpeedMin>
+				<speedAccelerationPerTick>0</speedAccelerationPerTick>
+				<maxSpeed>0.8</maxSpeed>
+				<maxDistance>13</maxDistance>
+				<angleOffsetRange>15</angleOffsetRange>
+
+				<damageDef>MagicalR360</damageDef>
+				<damageAmount>14</damageAmount>
+				<destroyOnPawnHit>true</destroyOnPawnHit>
+
+				<passThroughWalls>false</passThroughWalls>
+				<passThroughBarriers>false</passThroughBarriers>
+
+				<useMoteTrail>true</useMoteTrail>
+				<LineTrailDefs>
+					<li>MRS_Tail</li>
+				</LineTrailDefs>
+				<useLineTrail>true</useLineTrail>
+				<trailMoteDefs>
+					<li>Mote_StarTail</li>
+					<li>Mote_StarTaila</li>
+					<li>Mote_StarTailb</li>
+				</trailMoteDefs>
+
+				<splitOnEnd>false</splitOnEnd>
+				<splitProjectileDef>TH_Comet_b</splitProjectileDef>
+				<splitCount>6</splitCount>
+				<splitAngleOffsetRange>15</splitAngleOffsetRange>
+
+				<materialPath>Weapons/Bullet/Bullet_MagicBlast7</materialPath>
+				<drawMeshSize>(2,2)</drawMeshSize>
+				<drawY>15</drawY>
+				<rotationPerTick>30</rotationPerTick>
+
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>KedamaLauncher</defName>
+		<label>毛玉弹幕发射器</label>
+		<description>毛玉发射弹幕所用</description>
+		<tradeability>None</tradeability>
+		<destroyOnDrop>TRUE</destroyOnDrop>
+		<graphicData>
+			<texPath>Weapons/Empty</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>2.6</Mass>
+			<AccuracyTouch>0.30</AccuracyTouch>
+			<AccuracyShort>0.30</AccuracyShort>
+			<AccuracyMedium>0.30</AccuracyMedium>
+			<AccuracyLong>0.30</AccuracyLong>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>U.N.Owen.Verb_SpawnDanmaku_Kedama</verbClass>
+				<defaultProjectile>HakureiTalisman</defaultProjectile>
+				<range>18</range>
+				<soundCast>Shot_ChargeBlaster</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<defaultCooldownTime>3</defaultCooldownTime>
+				<linkedBodyPartsGroup>Kedama</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>false</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+				<burstShotCount>1</burstShotCount>
+			</li>
+		</verbs>
+	</ThingDef>
+	<BodyPartGroupDef>
+		<defName>Kedama</defName>
+		<label>毛玉</label>
+		<labelShort>毛玉</labelShort>
+	</BodyPartGroupDef>
+	<BodyPartDef>
+		<defName>Kedama</defName>
+		<label>毛玉</label>
+		<labelShort>core</labelShort>
+
+		<!-- 基础耐久 -->
+		<hitPoints>120</hitPoints>
+		<bleedRate>0</bleedRate>
+		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+
+		<!-- BodyDef 会检查是否有可冻伤部位，>0 可避免 config error -->
+		<frostbiteVulnerability>0.1</frostbiteVulnerability>
+
+		<!-- 常用属性 -->
+		<alive>true</alive>
+		<skinCovered>true</skinCovered>
+		<canScarify>true</canScarify>
+		<canSuggestAmputation>false</canSuggestAmputation>
+		<pawnGeneratorCanAmputate>false</pawnGeneratorCanAmputate>
+		<executionPartPriority>500</executionPartPriority>
+
+		<!-- 关键：把常见容量相关 tag 都挂在这一个部位上 -->
+		<tags>
+			<li>ConsciousnessSource</li>
+
+			<li>BloodPumpingSource</li>
+			<li>BloodFiltrationSource</li>
+			<li>BloodFiltrationKidney</li>
+			<li>BloodFiltrationLiver</li>
+
+			<li>BreathingSource</li>
+			<li>BreathingSourceCage</li>
+			<li>BreathingPathway</li>
+
+			<li>EatingSource</li>
+			<li>EatingPathway</li>
+			<li>TalkingSource</li>
+			<li>TalkingPathway</li>
+			<li>Tongue</li>
+
+			<li>SightSource</li>
+			<li>HearingSource</li>
+			<li>MetabolismSource</li>
+
+			<li>ManipulationLimbCore</li>
+			<li>ManipulationLimbSegment</li>
+			<li>ManipulationLimbDigit</li>
+
+			<li>MovingLimbCore</li>
+			<li>MovingLimbSegment</li>
+			<li>MovingLimbDigit</li>
+
+			<li>Pelvis</li>
+			<li>Spine</li>
+		</tags>
+	</BodyPartDef>
+
+	<!-- 2) 只有这一个 BodyPart 的 BodyDef -->
+	<BodyDef>
+		<defName>Kedama</defName>
+		<label>毛玉</label>
+		<corePart>
+			<def>Kedama</def>
+			<height>Middle</height>
+			<depth>Outside</depth>
+			<groups>
+				<li>Torso</li>
+				<li>Kedama</li>
+			</groups>
+			<!-- 不写 parts，即没有任何子部位 -->
+		</corePart>
+	</BodyDef>
+
+	<PawnKindDef ParentName="AnimalKindBase" Name="BoomalopeKindBase">
+		<defName>Kedama</defName>
+		<label>毛玉</label>
+		<race>Kedama</race>
+		<combatPower>150</combatPower>
+		<ecoSystemWeight>1.0</ecoSystemWeight>
+		<wildGroupSize>3~6</wildGroupSize>
+		<lifeStages>
+			<li>
+				<label>毛玉</label>
+				<labelPlural>毛玉</labelPlural>
+				<bodyGraphicData>
+					<texPath>Pawn/Kedama/maoyu1</texPath>
+					<color>(176,150,106)</color>
+					<drawSize>1.0</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Pawn/Kedama/maoyu1</texPath>
+					<drawSize>1.0</drawSize>
+				</dessicatedBodyGraphicData>
+				<corpseGraphicData>
+					<texPath>Pawn/Kedama/maoyu1</texPath>
+					<drawSize>1.0</drawSize>
+				</corpseGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Pawn/Kedama/maoyu1</texPath>
+					<color>(176,150,106)</color>
+					<drawSize>1.0</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Pawn/Kedama/maoyu1</texPath>
+					<drawSize>1.0</drawSize>
+				</dessicatedBodyGraphicData>
+				<corpseGraphicData>
+					<texPath>Pawn/Kedama/maoyu1</texPath>
+					<drawSize>1.0</drawSize>
+				</corpseGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Pawn/Kedama/maoyu1</texPath>
+					<color>(176,150,106)</color>
+					<drawSize>1.0</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Pawn/Kedama/maoyu1</texPath>
+					<drawSize>1.0</drawSize>
+				</dessicatedBodyGraphicData>
+				<corpseGraphicData>
+					<texPath>Pawn/Kedama/maoyu1</texPath>
+					<drawSize>1.0</drawSize>
+				</corpseGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+</Defs>

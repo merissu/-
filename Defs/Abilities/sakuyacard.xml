@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <HediffDef>
+        <defName>sakuyacard</defName>
+        <label>怀表装备中</label>
+        <defaultLabelColor>(204,204,204)</defaultLabelColor>
+        <description>装备了这块怀表,你感到时间的流逝变慢了</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>sakuyaspell</li>
+			<li>SakuyaTheWorld</li>
+		</abilities>
+    </HediffDef>
+
+    <AbilityDef>
+        <defName>sakuyaspell</defName>
+        <label>符卡宣言</label>
+        <description>进行符卡宣言,宣言后可以使用三张咲夜的强力符卡</description>
+        <abilityClass>merissu.SakuyaCard</abilityClass>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/sakuyacard</iconPath>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>SakuyaCard</defName>
+        <label>符卡宣言</label>
+        <defaultLabelColor>(204,204,204)</defaultLabelColor>
+        <description>已进行符卡宣言,在音乐结束前释放符卡吧。</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>EternalMeek</li>
+            <li>NightFogPhantomKiller</li>
+            <li>SakuyaPrivateSquare</li>
+		</abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-6</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>sakuya1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+        <defName>SakuyaPrivateSquare</defName>
+        <label>时符「个人空间」</label>
+        <description>咲夜得意的时间操作符卡之一，这张卡的作用是延缓周围的时间，减慢对手的速度从而达到攻防方面的绝对优势
+
+使用需要消耗一层灵力,发动后,让时间减缓五倍,持续时间一小时,使用者不会受到影响</description>
+        <abilityClass>merissu.SakuyaPrivateSquare</abilityClass>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+        <iconPath>Abilities/PrivateSquare</iconPath> 
+        <cooldownTicksRange>2500</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>0.9</range>
+            <warmupTime>0</warmupTime>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+            <soundCast>spell</soundCast>
+        </verbProperties>
+    </AbilityDef>
+
+    <ThingDef>
+        <defName>Sakuya_PrivateSquare</defName>
+        <thingClass>merissu.PrivateSquareVisual</thingClass>
+        <label>个人空间</label>
+        <category>Ethereal</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Floor</altitudeLayer> 
+        <selectable>false</selectable>
+        <graphicData>
+            <texPath>Other/objectDa000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Mote</shaderType>
+            <drawSize>(500,500)</drawSize> 
+        </graphicData>
+    </ThingDef>
+
+    <HediffDef>
+        <defName>Private</defName>
+        <label>个人空间</label>
+        <defaultLabelColor>(204,204,204)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>让周围时间的流速长时间减缓，接近停止。</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>2500</disappearsAfterTicks>
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+        </comps>
+        <stages>
+            <li>
+                <statOffsets>
+                    <ShootingAccuracyPawn>50</ShootingAccuracyPawn>
+                    <MeleeHitChance>50</MeleeHitChance>
+                    <MeleeDodgeChance>50</MeleeDodgeChance>
+				    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Sight</capacity>
+                        <offset>0.5</offset> </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.1</offset> </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>Square</defName>
+        <label>女仆与血之怀表</label>
+        <defaultLabelColor>(204,204,204)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>红魔馆的女仆</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>10800</disappearsAfterTicks>
+			</li>
+			<li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>sakuya3</songDef>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <AbilityDef>
+        <defName>SakuyaTheWorld</defName>
+        <label>「咲夜的世界」</label>
+        <description>操作时间的顶峰Spell之一。令周围的时间完全停止,从而进行单方面攻击的犯规级Spell。
+
+使用需要消耗两层灵力,持续时间大概一小时,需要注意的是,时停期间其他符卡基本上无法使用,但是远程武器与近战武器依然是可以使用的</description>
+        <abilityClass>merissu.SakuyaTheWorld</abilityClass>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <stunTargetWhileCasting>True</stunTargetWhileCasting>
+        <showPsycastEffects>False</showPsycastEffects>
+        <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+        <iconPath>Abilities/theworld</iconPath>
+        <cooldownTicksRange>2500</cooldownTicksRange> 
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>0.9</range>
+            <warmupTime>0</warmupTime> 
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+            <soundCast>spell</soundCast> 
+        </verbProperties>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>the</defName>
+        <label>咲夜的世界</label>
+        <defaultLabelColor>(204,204,204)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>让周围时间的流速长时间减缓，甚至停止。</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>2500</disappearsAfterTicks>
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+        </comps>
+        <stages>
+            <li>
+                <statOffsets>
+                    <ShootingAccuracyPawn>100</ShootingAccuracyPawn>
+                    <MeleeHitChance>100</MeleeHitChance>
+                    <MeleeDodgeChance>100</MeleeDodgeChance>
+				    <MeleeDamageFactor>2</MeleeDamageFactor>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Sight</capacity>
+                        <offset>1</offset> </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.2</offset> </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThingDef>
+        <defName>Sakuya_TimeStopVisual</defName>
+        <thingClass>merissu.TimeStopVisual</thingClass>
+        <label>时间停止</label>
+        <category>Ethereal</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Floor</altitudeLayer> 
+        <selectable>false</selectable>
+        <graphicData>
+            <texPath>Other/objectDb000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Mote</shaderType>
+            <drawSize>(500,500)</drawSize> 
+        </graphicData>
+    </ThingDef>
+
+    <HediffDef>
+        <defName>world</defName>
+        <label>完美潇洒</label>
+        <defaultLabelColor>(204,204,204)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>完美而潇洒的从者</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>10800</disappearsAfterTicks>
+			</li>
+			<li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>sakuya2</songDef>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>NightFogPhantomKiller</defName>
+		<label>幻符「杀人玩偶」</label>
+        <abilityClass>merissu.Ability_NightFogPhantomKiller</abilityClass>
+		<description>向周围撒开匕首并向敌人蜂拥而去的攻击,对单一目标造成极高的伤害。
+	
+向周围放出的小刀能准确地朝对手袭击,不仅威力高,准度也很优秀。使用需要消耗一层灵力。</description>
+		<iconPath>Abilities/sakuyaKiller</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>30</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>False</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <ThingDef>
+        <defName>NightFogKnifeBlade</defName>
+        <label>飞刀</label>
+        <thingClass>merissu.Thing_NightFogKnifeBlade</thingClass>
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Projectiles/knife/knife_1</texPath>
+            <drawSize>(0.8,0.8)</drawSize>
+        </graphicData>
+        <destroyable>true</destroyable>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>NightFogKnifeController</defName>
+        <label>杀人玩偶</label>
+        <thingClass>merissu.Thing_NightFogKnifeController</thingClass>
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/null</texPath>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+        <destroyable>true</destroyable>
+    </ThingDef>
+
+    <AbilityDef>
+		<defName>EternalMeek</defName>
+		<label>奇术「永恒的温柔」</label>
+        <abilityClass>merissu.Ability_EternalMeek</abilityClass>
+		<description>向前方连射大量飞刀。据说没有瞄准而是随意乱扔,可惜真伪还没人能确定。
+	
+散射的弹道适合清理正前方的杂兵,在近距离时会有极大的威力,使用需要消耗一层灵力。</description>
+		<iconPath>Abilities/EternalMeek</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>30</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <ThingDef>
+        <defName>EternalMeekEmitter</defName>
+        <label>永恒的温柔发射器</label>
+        <thingClass>merissu.Thing_EternalMeekEmitter</thingClass>
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <drawGUIOverlay>false</drawGUIOverlay>
+        <tickerType>Normal</tickerType>
+        <passability>Standable</passability>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/null</texPath>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+        <useHitPoints>false</useHitPoints>
+        <destroyable>true</destroyable>
+    </ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>knife</defName>
+		<label>飞刀</label>
+		<thingClass>merissu.DanmakuBullet</thingClass>
+		<graphicData>
+			<texPath>Projectiles/knife</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Arrow</damageDef>
+			<damageAmountBase>10</damageAmountBase>
+			<stoppingPower>0.4</stoppingPower>
+			<speed>40</speed>
+		</projectile>
+	</ThingDef>
+
+</Defs>	

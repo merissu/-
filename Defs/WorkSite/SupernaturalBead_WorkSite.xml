@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<SitePartDef ParentName="Outpost">
+		<defName>SupernaturalBeadShrineFortress</defName>
+		<label>散发灵力的据点</label>
+		<description>一个被严密把守的据点，我们不知道他们从哪里得到的这个灵异珠，但是很明显他们同样明白它的价值。</description>
+		<minThreatPoints>800</minThreatPoints>
+		<minMapSize>(250,0,250)</minMapSize>
+		<tags Inherit="False">
+			<li>SupernaturalBeadShrineFortress</li>
+		</tags>
+	</SitePartDef>
+
+	<GenStepDef>
+		<defName>SupernaturalBeadShrineFortress_Base</defName>
+		<linkWithSite>SupernaturalBeadShrineFortress</linkWithSite>
+		<order>400</order>
+		<genStep Class="U.N.Owen.SupernaturalBead.GenStep_OutpostRobust">
+			<size>220</size>
+			<allowGeneratingFarms>false</allowGeneratingFarms>
+			<allowGeneratingThronerooms>false</allowGeneratingThronerooms>
+			<pawnGroupKindDef>Settlement</pawnGroupKindDef>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>SupernaturalBeadShrineFortress_Power</defName>
+		<linkWithSite>SupernaturalBeadShrineFortress</linkWithSite>
+		<order>401</order>
+		<genStep Class="GenStep_Power"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>SupernaturalBeadShrineFortress_CentralShrine</defName>
+		<linkWithSite>SupernaturalBeadShrineFortress</linkWithSite>
+		<order>402</order>
+		<genStep Class="U.N.Owen.SupernaturalBead.GenStep_CentralShrineTemple">
+			<rewardThingDef>SupernaturalBead</rewardThingDef>
+			<templeSize>(17,17)</templeSize>
+		</genStep>
+	</GenStepDef>
+</Defs>

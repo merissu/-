@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <HediffDef>
+        <defName>SevenElementalGrimoire_Worn</defName>
+        <label>魔导书装备中</label>
+        <defaultLabelColor>(102,51,102)</defaultLabelColor>
+        <description>现在可以咏唱魔法了,并且每天都会获得一层灵力。</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>SevenElementalMagic</li>
+			<li>Ability_SagesStone</li>
+		</abilities>
+        <comps>
+            <li Class="merissu.HediffCompProperties_AddSeverityToOther">
+                <targetHediff>FullPower</targetHediff>
+                <severityPerDay>1.0</severityPerDay>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <AbilityDef>
+        <defName>SevenElementalMagic</defName>
+        <label>符卡宣言</label>
+        <description>进行符卡宣言,在一段时间内可以咏唱各种魔法。</description>
+        <abilityClass>merissu.Ability_SevenElementalMagic</abilityClass>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/SevenElementalMagic</iconPath>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>SevenElementalMagicHediff</defName>
+        <label>符卡宣言</label>
+        <defaultLabelColor>(102,51,102)</defaultLabelColor>
+        <description>已进行符卡宣言,在音乐结束前释放符卡吧。</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>ElementalHarvester</li>
+			<li>NoachianDeluge</li>
+			<li>StElmoPillar</li>
+			<li>Ability_RoyalFlare</li>
+			<li>SatelliteHimawari</li>
+		</abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-6</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Patchouli1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>Ability_SagesStone</defName>
+		<label>火水木金土符「贤者之石」</label>
+        <abilityClass>merissu.Ability_SagesStone</abilityClass>
+		<description>帕秋莉的Last Word,将魔法的五大基本要素各自结晶化,并使用生成的石头发动魔法攻击的符卡。
+
+发动需要消耗五层灵力,发动后会在自身周围凝聚五颗魔力结晶,结晶会不断对周围敌人释放强化的元素弹幕,造成各种类型的伤害。
+
+关于贤者之石,遍历文献后我明白的只是这种石头能让卑金属变成贵金属,能瞬间回复众人的体力,撒进饭菜里还能让饭菜变得美味可口,诸如此类而已。哎呀,我好想用它来做一份贤者之石盖浇五色便当。</description>
+		<iconPath>Abilities/SagesStone</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>30</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <HediffDef>
+        <defName>SagesStone</defName>
+        <label>贤者之石</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>利用元素炼成的结晶正在持续释放弹幕,魔力可以支持结晶存在三小时</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>7500</disappearsAfterTicks>
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Patchouli2</songDef>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <ThingDef>
+        <defName>SagesStoneOrbitController</defName>
+        <label>贤者之石控制器</label>
+        <thingClass>merissu.Thing_SagesStoneOrbitController</thingClass>
+            <graphicData>
+                <graphicClass>Graphic_Single</graphicClass>
+                <texPath>Other/null</texPath>
+                <drawSize>(0,0)</drawSize>
+            </graphicData>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>SagesStone_Fire</defName>
+        <label>火</label>
+        <thingClass>merissu.Thing_SagesStone</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <graphicData>
+            <texPath>Other/stone/spellBulletFa000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.8,0.8)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>SagesStoneBullet_Fire</defName>
+        <label>火弹幕</label>
+        <thingClass>merissu.DanmakuBullet</thingClass>
+        <graphicData>
+            <texPath>Projectiles/bulletLa000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>Flame</damageDef>
+            <damageAmountBase>25</damageAmountBase>
+ 	        <stoppingPower>0.2</stoppingPower>
+            <speed>20</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>SagesStone_Water</defName>
+        <label>水</label>
+        <thingClass>merissu.Thing_SagesStone</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <graphicData>
+            <texPath>Other/stone/spellBulletFb000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.8,0.8)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>SagesStoneBullet_Water</defName>
+        <label>水弹幕</label>
+        <thingClass>merissu.DanmakuBullet</thingClass>
+        <graphicData>
+            <texPath>Projectiles/bulletLa001</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>Frostbite</damageDef>
+            <damageAmountBase>25</damageAmountBase>
+            <stoppingPower>0.2</stoppingPower>
+            <speed>20</speed>
+        </projectile>
+    </ThingDef>
+    
+    <ThingDef>
+        <defName>SagesStone_Wood</defName>
+        <label>木</label>
+        <thingClass>merissu.Thing_SagesStone</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <graphicData>
+            <texPath>Other/stone/spellBulletFc000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.8,0.8)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>SagesStoneBullet_Wood</defName>
+        <label>木弹幕</label>
+        <thingClass>merissu.DanmakuBullet</thingClass>
+        <graphicData>
+            <texPath>Projectiles/bulletLa002</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>AcidBurn</damageDef>
+            <damageAmountBase>25</damageAmountBase>
+            <stoppingPower>0.2</stoppingPower>
+            <speed>20</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>SagesStone_Metal</defName>
+        <label>金</label>
+        <thingClass>merissu.Thing_SagesStone</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <graphicData>
+            <texPath>Other/stone/spellBulletFd000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.8,0.8)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>SagesStoneBullet_Metal</defName>
+        <label>金弹幕</label>
+        <thingClass>merissu.DanmakuBullet</thingClass>
+        <graphicData>
+            <texPath>Projectiles/bulletLa003</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>EMP</damageDef>
+            <damageAmountBase>25</damageAmountBase>
+            <stoppingPower>0.2</stoppingPower>
+            <speed>20</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>SagesStone_Earth</defName>
+        <label>土</label>
+        <thingClass>merissu.Thing_SagesStone</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <graphicData>
+            <texPath>Other/stone/spellBulletFe000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.8,0.8)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>SagesStoneBullet_Earth</defName>
+        <label>土弹幕</label>
+        <thingClass>merissu.DanmakuBullet</thingClass>
+        <graphicData>
+            <texPath>Projectiles/bulletLa004</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>Crush</damageDef>
+            <damageAmountBase>25</damageAmountBase>
+            <stoppingPower>0.2</stoppingPower>
+            <speed>20</speed>
+        </projectile>
+    </ThingDef>
+
+    <AbilityDef>
+		<defName>Ability_RoyalFlare</defName>
+		<label>日符「皇家烈焰」</label>
+        <abilityClass>merissu.Ability_RoyalFlare</abilityClass>
+		<description>生成小型太阳以光芒烧尽一切，帕秋莉的最高峰魔法之一。住在吸血鬼家里还使用这样的魔法，其中必然有些因缘。
+
+使用时会有两秒的预热时间,需要消耗两层灵力</description>
+		<iconPath>Abilities/RoyalFlare</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>25</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>RoyalFlare</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <ThingDef>
+        <defName>RoyalFlareSun</defName>
+        <label>太阳</label>
+        <thingClass>merissu.Thing_RoyalFlareSun</thingClass>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>RoyalFlareSunParticle</defName>
+        <label>太阳粒子</label>
+        <thingClass>merissu.Thing_RoyalFlareSunParticle</thingClass>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MetaOverlays</altitudeLayer>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <graphicData>
+            <texPath>Other/SunParticle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>(0.6,0.6)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>RoyalFlareShockwaveParticle</defName>
+        <label>皇家烈焰冲击粒子</label>
+        <thingClass>merissu.Thing_RoyalFlareShockwaveParticle</thingClass>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <graphicData>
+            <texPath>Projectiles/StElmoFireball</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>RoyalFlareShockwave</defName>
+        <label>冲击波</label>
+        <thingClass>merissu.Thing_RoyalFlareShockwave</thingClass>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>RoyalFlareConeLight</defName>
+        <label>皇家烈焰光锥</label>
+        <thingClass>merissu.Thing_RoyalFlareConeLight</thingClass>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MetaOverlays</altitudeLayer>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <graphicData>
+            <texPath>Other/RoyalFlareCone</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>(6,6)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+	<HediffDef>
+        <defName>RoyalFlareConeLight</defName>
+		<label>皇家烈焰</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <description>用从高举至头顶的双手中喷出的烈焰烧尽一切。</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <comps>
+            <li Class="merissu.HediffCompProperties_DisableMove"/>
+        </comps>
+    </HediffDef>
+
+    <ThingDef>
+        <defName>RoyalFlareConeLightReverse</defName>
+        <label>皇家烈焰光锥·反向</label>
+        <thingClass>merissu.Thing_RoyalFlareConeLightReverse</thingClass>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MetaOverlays</altitudeLayer>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <graphicData>
+            <texPath>Other/RoyalFlareConeReverse</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>(6,6)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>RoyalFlareRangeIndicator</defName>
+        <label>阳光</label>
+        <category>Mote</category>
+        <thingClass>merissu.Thing_RoyalFlareRangeIndicator</thingClass>
+        <graphicData>
+            <texPath>Other/RoyalFlareRange</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <tickerType>Normal</tickerType>
+        <useHitPoints>false</useHitPoints>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <drawGUIOverlay>false</drawGUIOverlay>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>RoyalFlareController</defName>    
+        <label>控制器</label>
+        <thingClass>merissu.Thing_RoyalFlareController</thingClass>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/null</texPath>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>RoyalFlareShockwaveEmitter</defName>
+        <label>冲击波控制器</label>
+        <thingClass>merissu.Thing_RoyalFlareShockwaveEmitter</thingClass>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/null</texPath>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+        <altitudeLayer>MetaOverlays</altitudeLayer>
+    </ThingDef>
+
+    <AbilityDef>
+		<defName>StElmoPillar</defName>
+		<label>火金符「圣爱尔摩火柱」</label>
+        <abilityClass>merissu.Ability_StElmoPillar</abilityClass>
+		<description>火、金属性的合成符。创造出高密度的热块炸向地面产生出火柱。由于射出时是打向对手脚底，所以若是对手在移动中容易打偏
+	
+造成大范围爆炸,产生极高的温度融化敌人,使用需要消耗一层灵力。</description>
+		<iconPath>Abilities/StElmoPillar</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>30</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Projectile_StElmoFireball</defName>
+        <label>火球</label>
+        <thingClass>merissu.Projectile_StElmoFireball</thingClass>
+        <graphicData>
+            <texPath>Projectiles/StElmoFireball</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1.2,1.2)</drawSize>
+        </graphicData>
+        <projectile>
+            <speed>20</speed>
+            <damageDef>Flame</damageDef>
+            <damageAmountBase>40</damageAmountBase>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_StElmoFireTrail</defName>
+        <label>火焰粒子</label>
+        <thingClass>MoteThrown</thingClass>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>Other/StElmoFireTrail</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0.05</fadeInTime>
+            <solidTime>0</solidTime>
+            <fadeOutTime>0.2</fadeOutTime>
+        </mote>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>StElmoFirePillar</defName>
+        <label>圣爱尔摩火柱</label>
+        <thingClass>merissu.Thing_StElmoFirePillar</thingClass>
+        <tickerType>Normal</tickerType>
+        <useHitPoints>false</useHitPoints>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/StElmoFirePillar/pillar_1</texPath>
+            <drawSize>(4,8)</drawSize>
+            <shaderType>Transparent</shaderType>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+    </ThingDef>
+
+    <AbilityDef>
+		<defName>NoachianDeluge</defName>
+		<label>土水符「诺亚的大洪水」</label>
+        <abilityClass>merissu.Ability_NoachianDeluge</abilityClass>
+		<description>土、水属性的合成符。将大量压缩的水向前方散射吹出。不仅消费量低,弹速跟密度也很好,对射时能发挥出很好的效果
+	
+散射的弹道适合清理正前方的杂兵,在近距离时会有极大的威力,使用需要消耗一层灵力。</description>
+		<iconPath>Abilities/NoachianDeluge</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>30</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>NoachianDeluge</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <ThingDef>
+        <defName>NoachianDelugeEmitter</defName>
+        <label>诺亚洪水发射器</label>
+        <thingClass>merissu.Thing_NoachianDelugeEmitter</thingClass>
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <drawGUIOverlay>false</drawGUIOverlay>
+        <tickerType>Normal</tickerType>
+        <passability>Standable</passability>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/null</texPath>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+        <useHitPoints>false</useHitPoints>
+        <destroyable>true</destroyable>
+    </ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Projectile_NoachianDeluge</defName>
+		<label>水弹</label>
+		<thingClass>merissu.DanmakuBullet</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletGa000</texPath>
+			<drawSize>(0.8,0.8)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>4</damageAmountBase>
+			<stoppingPower>0.4</stoppingPower>
+			<speed>60</speed>
+		</projectile>
+	</ThingDef>
+
+    <AbilityDef>
+		<defName>ElementalHarvester</defName>
+		<label>金木符「元素收获者」</label>
+        <abilityClass>merissu.Ability_ElementalHarvester</abilityClass>
+		<description>金、木属性的合成符。在自身周围自身周围产生齿轮状的刀刃用于迎击近接敌人的近战用符。
+
+释放时使用者也可以移动,适合近战使用,需要消耗一层灵力</description>
+		<iconPath>Abilities/ElementalHarvester</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>5</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>ElementalHarvester</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <ThingDef>
+        <defName>ElementalHarvesterField</defName>
+        <label>锯齿</label>
+        <thingClass>merissu.Thing_ElementalHarvester</thingClass>
+        <graphicData>
+            <texPath>Projectiles/ElementalSaw_CW</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(12,12)</drawSize>
+            <shaderType>Transparent</shaderType>
+        </graphicData>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+    </ThingDef>
+
+    <AbilityDef>
+		<defName>SatelliteHimawari</defName>
+		<label>月木符「卫星向日葵」</label>
+        <abilityClass>merissu.Ability_SatelliteHimawari</abilityClass>
+		<description>发动后向日葵会像月球围绕地球公转一般在身边做环形运动的符卡。
+
+向日葵会不断发射弹幕,攻击附近的敌人和建筑,所以不要在室内使用,使用需要消耗一层灵力。
+
+她到底是出于何种品味才让向日葵变成这种形式的弹幕呢。记得帕秋莉似乎说过,她是参考了外面世界的魔导书上记载着的围绕着地球运转的向日葵才开发出这道符卡的。嗯。</description>
+		<iconPath>Abilities/SatelliteHimawari</iconPath>
+		<cooldownTicksRange>800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>99</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <ThingDef>
+        <defName>SatelliteHimawariEmitter</defName>
+        <label>卫星向日葵</label>
+        <thingClass>merissu.SatelliteHimawariEmitter</thingClass>
+            <category>None</category>
+            <selectable>false</selectable>
+            <neverMultiSelect>true</neverMultiSelect>
+            <drawGUIOverlay>false</drawGUIOverlay>
+            <tickerType>Normal</tickerType>
+            <passability>PassThroughOnly</passability>
+            <altitudeLayer>MoteOverhead</altitudeLayer>
+            <graphicData>
+                <graphicClass>Graphic_Single</graphicClass>
+                <texPath>Other/null</texPath>
+                <drawSize>(0,0)</drawSize>
+            </graphicData>
+        <useHitPoints>false</useHitPoints>
+        <destroyable>true</destroyable>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>SatelliteThing</defName>
+        <label>黄色弹幕</label>
+        <thingClass>merissu.SatelliteThing</thingClass>
+        <graphicData>
+            <texPath>Projectiles/spellBulletEa000</texPath>
+            <drawSize>(0.24,0.96)</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <tickerType>Normal</tickerType>
+    </ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>SatelliteThingtrue</defName>
+		<label>黄色弹幕</label>
+		<thingClass>merissu.DanmakuBullet</thingClass>
+		<graphicData>
+			<texPath>Projectiles/spellBulletEa000</texPath>
+			<drawSize>(0.24,0.96)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>10</damageAmountBase>
+			<stoppingPower>0.2</stoppingPower>
+			<speed>30</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>twoSatelliteThingtrue</defName>
+		<label>二号黄色弹幕</label>
+		<thingClass>merissu.DanmakuBullet</thingClass>
+		<graphicData>
+			<texPath>Projectiles/spellBulletEa000</texPath>
+			<drawSize>(0.24,0.96)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>10</damageAmountBase>
+			<stoppingPower>0.2</stoppingPower>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>threeSatelliteThingtrue</defName>
+		<label>三号黄色弹幕</label>
+		<thingClass>merissu.DanmakuBullet</thingClass>
+		<graphicData>
+			<texPath>Projectiles/spellBulletEa000</texPath>
+			<drawSize>(0.24,0.96)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>10</damageAmountBase>
+			<stoppingPower>0.2</stoppingPower>
+			<speed>10</speed>
+		</projectile>
+	</ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>SatelliteThing_New</defName>
+        <label>绿色弹幕</label>
+        <thingClass>merissu.SatelliteThing</thingClass>
+        <graphicData>
+            <texPath>Projectiles/spellBulletEa001</texPath>
+            <drawSize>(0.24,0.96)</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <tickerType>Normal</tickerType>
+    </ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>greenSatelliteThingtrue</defName>
+		<label>绿色弹幕</label>
+		<thingClass>merissu.DanmakuBullet</thingClass>
+		<graphicData>
+			<texPath>Projectiles/spellBulletEa001</texPath>
+			<drawSize>(0.24,0.96)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>10</damageAmountBase>
+			<stoppingPower>0.2</stoppingPower>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+</Defs>	

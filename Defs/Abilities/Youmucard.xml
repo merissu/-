@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>Youmucard</defName>
+        <label>符卡宣言</label>
+        <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
+
+进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张妖梦的强力符卡和极其强大的Last Word</description>
+        <abilityClass>merissu.Youmucard</abilityClass>
+        <iconPath>Abilities/Youmucard</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>Youmucard</defName>
+        <label>符卡宣言</label>
+        <description>已进行符卡宣言,在音乐结束前释放符卡吧</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>Youmuparry</li>
+			<li>youmuClone</li>
+			<li>sakuraflash</li>
+			<li>youmulastspell</li>
+        </abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-8</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Youmu1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+        <defName>Youmuparry</defName>
+        <label>剑伎「反射下界斩」</label>
+        <description>使用楼观剑弹回袭来弹幕的剑伎,没有灵力加持,靠人类的体质是无法做到的。
+
+消耗一层灵力,在接下来三个小时可以用楼观剑反弹任何弹幕</description>
+        <abilityClass>merissu.Ability_Youmuparry</abilityClass>
+        <cooldownTicksRange>2400</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/Youmuparry</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Youmuparry</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>Youmuparry</defName>
+		<label>「反射下界斩」</label>
+		<description>现在可以用楼观剑弹回任何弹幕</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-8</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<ThingDef>
+		<defName>YoumuParryAnim</defName>
+		<label>反射下界斩</label>
+		<thingClass>merissu.Thing_YoumuParryAnim</thingClass>
+		<category>Ethereal</category>
+		<selectable>false</selectable>
+		<tickerType>Normal</tickerType>
+		<drawOffscreen>true</drawOffscreen>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+	</ThingDef>
+
+    <AbilityDef>
+        <defName>youmuClone</defName>
+        <label>魂魄「幽明求闻持聪明之法」</label>
+        <description>创造一个模仿本人行动的半身,半身拥有与本体相同的属性和能力,一段时间后消失
+
+需要消耗一层灵力,半身不会承受伤害,并且会主动帮助本体战斗,持续存在三小时后消失</description>
+        <abilityClass>merissu.Ability_YoumuClone</abilityClass>
+        <cooldownTicksRange>7200</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/youmuClone</iconPath>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>youmuClone</defName>
+		<label>半灵</label>
+		<description>半灵状态。</description>
+		<hediffClass>merissu.Hediff_YoumuShadow</hediffClass>
+		<defaultLabelColor>(0.6, 0.8, 1.0)</defaultLabelColor>
+		<isBad>false</isBad>
+		<stages>
+		<li>
+			<statFactors>
+				<IncomingDamageFactor>0</IncomingDamageFactor>
+			</statFactors>
+			<becomeVisible>false</becomeVisible> 
+		</li>
+		</stages>
+		<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>
+			<min>7500</min>
+			<max>7500</max>
+			</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>youmusoul</defName>
+		<label>半灵</label>
+		<description>半身不会承受伤害,并且会主动帮助本体战斗,持续存在三小时后消失</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_Invisibility">
+				<visibleToPlayer>true</visibleToPlayer>
+			</li>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-4</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+	</HediffDef>
+
+    <AbilityDef>
+        <defName>sakuraflash</defName>
+        <label>剑伎「樱花闪闪」</label>
+        <description>向前方高速移动，一瞬之后轨道上将布满樱色的剑闪。十分华丽的剑技，也有说这是从修剪庭院领会而来，洋溢着生活感的技巧
+
+使用需要消耗一层灵力,发动后会快速突击到目标地点并且对路径上的所有敌人造成高额伤害。</description>
+        <cooldownTicksRange>0</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>true</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>true</requireLineOfSight>
+            <warmupTime>0.1</warmupTime>
+            <soundCast>spell</soundCast>
+			<range>30</range>
+            <targetParams>
+                <canTargetSelf>false</canTargetSelf>
+             	<canTargetAnimals>true</canTargetAnimals>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetLocations>true</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/sakuraflash</iconPath>
+		<comps>
+			<li Class="merissu.CompProperties_SakuraFlash"/>
+		</comps>
+    </AbilityDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_SakuraFlash</defName>
+		<thingClass>merissu.Mote_SakuraFlashStatic</thingClass>
+		<graphicData>
+			<texPath>Other/spellBulletDd000</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_DualLayerBurst</defName>
+		<thingClass>merissu.Mote_DualLayerBurst</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Other/spellBulletDb000</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_FallingPetal</defName>
+		<thingClass>merissu.Mote_FallingPetal</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Other/spellBulletDc000</texPath>
+		</graphicData>
+	</ThingDef>
+
+    <AbilityDef>
+        <defName>youmulastspell</defName>
+        <label>人鬼「未来永劫斩」</label>
+        <abilityClass>merissu.Ability_youmulastspell</abilityClass>
+        <description>踏向前方冲刺斩击并自动进行追击,在地面战中十分强力。威力极高且拥有无敌时间,可谓是攻防一体的完美Spell
+
+使用需要消耗五层灵力,发动后在一段时间内可释放突刺斩击的现世斩,对着敌人释放则变成自动追击的未来永劫斩。</description>
+        <cooldownTicksRange>0</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>true</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/youmulastspell</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>youmurapidlySlash</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>youmurapidlySlash</defName>
+		<label>未来永劫斩</label>
+		<description>以神速冲向敌人斩下猛烈的一刀</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+        <abilities>
+			<li>youmurapidlySlash</li>
+        </abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-8</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Youmu2</songDef>
+            </li>
+		</comps>
+		<stages>
+			<li>
+				<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+    <AbilityDef>
+        <defName>youmurapidlySlash</defName>
+        <label>未来永劫斩</label>
+        <description>对着区域使用是冲刺,对着敌人释放则是高速连斩</description>
+        <cooldownTicksRange>0</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>true</aiCanUse>
+		<targetRequired>true</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>true</requireLineOfSight>
+            <warmupTime>0.1</warmupTime>
+            <soundCast>sakuraflash</soundCast>
+			<range>30</range>
+            <targetParams>
+                <canTargetSelf>false</canTargetSelf>
+             	<canTargetAnimals>true</canTargetAnimals>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetLocations>true</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/youmurapidlySlash</iconPath>
+		<comps>
+			<li Class="merissu.CompProperties_YoumuRapidSlash"/>
+		</comps>
+    </AbilityDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_YoumuFlash</defName>
+		<thingClass>merissu.Mote_YoumuFlash</thingClass>
+		<graphicData>
+			<texPath>Other/YoumuFlash</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+</Defs>	

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ResearchProjectDef>
+		<defName>InsightLimbo</defName>
+		<label>梦违科学世纪</label>
+		<description>梦违，为幻之朝霭的世界的记忆
+现世，构筑在徐徐崩塌的沙土之上
+空梦，描绘着古老的幽玄世界的历史
+白日，映照于逐渐沉没的城市
+
+是幻想吗，抑或空中楼阁吗
+直至黎明，这场梦，蝴蝶之梦
+
+梦违，为幻之绯红的房屋的异彩
+现世，构筑在毫无血色的石块之上
+空梦，描绘着古老的美丽都市的童话
+白日，映照于越发肮脏的城市</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>4</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>PowerPoint</defName>
+		<label>伊奘诺物质</label>
+		<description>曾几何时，人类否定了没有答案的神秘。
+信息剥夺了想象的余地，无法被管理的事物，便被冠以“错误”之名将其抹杀。
+于是，神明消失了，世界变成了寂静的墓场
+
+然而，在重重叠叠的逻辑断层之下，现世中绝无可能存在的"伊奘诺物质"却无声地存在着。
+它是绝对不具活性的死物，却跳动着太古的生命脉理。
+它是科学无法解读的人工造物，却溯及了被遗忘的史前纪元
+
+这不是幻觉，亦非谵妄。
+它是被时代舍弃的真相，是自深处逆流而上的——“真实的神秘”</description>
+		<baseCost>500</baseCost>
+		<techLevel>Neolithic</techLevel>
+		<researchViewX>1</researchViewX>
+		<researchViewY>4</researchViewY>
+		<prerequisites>
+			<li>InsightLimbo</li>
+		</prerequisites>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>ForgettingInTheForge</defName>
+		<label>为难的遗忘之物</label>
+		<description>附在道具上的神明,在被人当宝物宠爱的期间,会很配合主人的。任何一种道具上面都寄宿着神明,所以请不要亏待它们
+			
+就算已经不需要了也请不要草草地丢掉,把道具完全用坏掉之后再扔吧。道具中的神明是不会对被用坏掉这件事发怒的</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Neolithic</techLevel>
+		<researchViewX>2</researchViewX>
+		<researchViewY>4</researchViewY>
+		<prerequisites>
+			<li>PowerPoint</li>
+		</prerequisites>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>NewMoonInWriting</defName>
+		<label>笔下的新月</label>
+		<description>魔导书并不是普通的书，它内含魔法，是种魔法道具。里面并不只是写上使用方法，还有为了能使用魔法的秘密钥匙
+
+虽说有了魔导书就能使用里面的魔法，但没有钥匙的人是完全看不懂书中的文字的。只有和书写者同等或更高熟练度的人才能看得见钥匙</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Neolithic</techLevel>
+		<researchViewX>2</researchViewX>
+		<researchViewY>3.6</researchViewY>
+		<prerequisites>
+			<li>PowerPoint</li>
+		</prerequisites>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>BloodyCatastrophe</defName>
+		<label>血腥浩劫</label>
+		<description>在幻想乡有一片还算大还算深的湖泊，在那片湖畔有一座极其惹眼、红得让人看了眼睛都会难受的洋馆，那就是名为红魔馆的、吸血鬼所居住的洋馆。
+
+从整个建筑物中渗透出来的那种不安分的感觉，会让人觉得似乎有些孩子气吧。这也难怪，因为这座洋馆的吸血鬼主人本来就还是个孩子呢。
+
+一种建筑从外面的世界消失的时候，它可能就会成为幻想的建筑物。外面的世界里也许已经不再有这种古风的洋馆了，就算有，也不会再有人住到里面去，这样一来，它们只能是供人们参观的空房子了吧。
+
+在红魔馆里住着的，是吸血鬼以及侍奉她的女仆们，连她们都一起来到了幻想乡里，看来吸血鬼也好女仆也罢，也许她们都已经是从外面世界消失了的、幻想的生物了。</description>
+		<baseCost>495</baseCost>
+		<techLevel>Neolithic</techLevel>
+		<researchViewX>3</researchViewX>
+		<researchViewY>4</researchViewY>
+		<prerequisites>
+			<li>ForgettingInTheForge</li>
+			<li>NewMoonInWriting</li>
+		</prerequisites>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>BarrierOfLifeAndDeath</defName>
+		<label>幽明结界</label>
+		<description>跨越结界的大门即可到达冥界，来到白玉楼阶梯前。
+
+结界将被削弱，生者可以通过幽明结界进入冥界，但再也无法回来。</description>
+		<prerequisites>
+			<li>ForgettingInTheForge</li>
+			<li>NewMoonInWriting</li>
+		</prerequisites>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>3</researchViewX>
+		<researchViewY>3.6</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>EarthSpiritsPalace</defName>
+		<label>地底黎明</label>
+		<description>灼热地狱遗址位于旧地狱，为原本的灼热地狱的遗迹。
+
+地灵殿位于遗迹上方，古明地觉被委托管理遗迹。
+
+觉的宠物火焰猫燐负责管理灼热地狱遗址的怨灵，灵乌路空则负责管理火力。
+
+在遗迹深处，洩矢诹访子建造了核聚变炉。在地上，可以从间歇泉地下中心进入，一路直抵核聚变炉。
+
+从核聚变炉再往地下深处可到达旧血池地狱，这条通道也供应着灼热地狱遗址的燃料。</description>
+		<prerequisites>
+			<li>ForgettingInTheForge</li>
+			<li>NewMoonInWriting</li>
+		</prerequisites>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>3</researchViewX>
+		<researchViewY>3.2</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+	
+
+	<!--药品-->
+	
+	<ResearchProjectDef>
+		<defName>DeepInTheBambooForest</defName>
+		<label>竹林深处</label>
+		<description>永远亭位于迷途竹林中的一座大型宅邸,是蓬莱山辉夜和八意永琳的隐居之处。
+
+永远亭拥有非常先进的医疗技术,人类用的药和妖怪用的药都能做出。即使是疑难杂症，也能开出特效药。永远亭售出的药世间评价是无副作用,有不错的效果。
+
+通过研究这种幻想中的植物,我们初步理解了永远亭的医疗技术原理。</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>0.4</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>PenglaiPharmacy</defName>
+		<label>蓬莱药局</label>
+		<description>永远亭主要的收入来源是提供医疗服务和贩卖药物，正式的组织名称是“蓬莱药局”。别名是“黑暗医院”
+
+蓬莱药局的药分为放置型和购买型的。放置型的免费派送到各家庭的药箱内，到了季节转变期，就会派人去确认状况，对减少使用掉的部分进行收费。例如感冒药、轻伤药等。购买型的得到永远亭直接购买，例如无法长期保存的，重病的，特殊用途的药。
+
+通过研究,我们已经能够制作出通用药物以及用于康复的特效药。</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>DeepInTheBambooForest</li>
+		</prerequisites>
+		<researchViewX>1.00</researchViewX>
+		<researchViewY>0.4</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>DrunkAsILike</defName>
+		<label>冷吟闲醉</label>
+		<description>幻想乡里的人,有妖怪,有恶魔,还有幽灵,都是些不易患病的群体。所以治疗身体不适的药物就没有什么用武之地了。
+
+这些群体，她们自身几乎都是由精神方面构成的，如果要谈治愈的话在精神方面上下功夫是非常重要的。
+
+蓬莱药局为妖怪们提供各种精神治疗的药物,不过除了某些住在森林里的孤僻的家伙,似乎并没有多少人需要用药物来改善精神状态呢...
+
+虽然这些药物是为妖怪们开发的,但看来殖民地的人类明显更需要这种药物呢。
+
+通过研究,我们已经可以制造出适合人类用的精神治疗药物了。</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>PenglaiPharmacy</li>
+		</prerequisites>
+		<researchViewX>2.00</researchViewX>
+		<researchViewY>0.4</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>EnergyDaybreak</defName>
+		<label>欲望加速</label>
+		<description>人类是充满欲望的,求知欲,贪欲,惰欲,能够实现的欲望也好,不能实现的欲望也好,可以说,欲望是延续人类到现在的重要因素。
+
+想要实现这些无止境的欲望,单凭个人的精力是不够的,人们便开始借助药物,透支身体的健康来换取精力。
+
+不过,永琳制作的药物是不会有副作用的,所以请尽情使用药物,将自己的精神力逼迫到极限吧。
+
+通过研究,我们已经可以制造出能够引诱出精神力的药物了。</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>PenglaiPharmacy</li>
+		</prerequisites>
+		<researchViewX>2.00</researchViewX>
+		<researchViewY>0.8</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>SpiritualDomination</defName>
+		<label>不朽的弹幕</label>
+		<description>射击游戏不会终结。殖民地的故事也不会迎来结束。
+
+虽然只是模拟以生命为赌注的符卡战斗规则,但少女们战斗时可不会有所保留。
+
+合理的运用资源与道具也是弹幕对战的一部分,只要不是不讲道理的道具,都可以尽情使用(前提是能用出来)
+
+通过研究,我们已经可以制造出能够帮助战斗的强力药物了。</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>PenglaiPharmacy</li>
+		</prerequisites>
+		<researchViewX>2.00</researchViewX>
+		<researchViewY>0.0</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>ReturningFromTheHell</defName>
+		<label>彼岸归航</label>
+		<description>过去的我们认为任何生物都是无法死而复生的,即使是机械复活液,也是意识非连续的肉体重塑,无法称之为真正的复活。
+
+不过随着我们不断地研究,我们已经逐渐理解灵魂的本质了。
+
+所谓"有钱能使鬼推磨",阎王实际上是相当腐败的家伙,这也是为什么我们能够制造出真正的复活药。</description>
+		<baseCost>6000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>TheDarkSideOfTheMoon</li>
+		</prerequisites>
+		<researchViewX>4.00</researchViewX>
+		<researchViewY>0.4</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>TheDarkSideOfTheMoon</defName>
+		<label>月之暗面</label>
+		<description>月之都是存在于月球背面的都市,月世界最主要的地点。其大小比幻想乡小。
+
+月之都的技术水平非常高,远胜于幻想乡及外面世界的人类文明,那里还能制作能治好所有病并替换寿命的药。
+
+通过不断的研究,我们已经能够理解部分月之都的技术了。</description>
+		<baseCost>4000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>SpiritualDomination</li>
+			<li>DrunkAsILike</li>
+			<li>EnergyDaybreak</li>
+		</prerequisites>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>0.4</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>PenglaiMedicine</defName>
+		<label>蓬莱之药</label>
+		<description>事到如今,我们终于能够制造出传说中的蓬莱之药了。
+
+虽然不老不死是许多人所追求的,不过被死亡拒绝的人,注定是要在这个世界上将永远受苦,无法解脱的。
+
+那么,这样的残酷的选择,还是等到最后一刻再做出吧。</description>
+		<baseCost>8000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>ReturningFromTheHell</li>
+		</prerequisites>
+		<researchViewX>5.0</researchViewX>
+		<researchViewY>0.4</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+</Defs>

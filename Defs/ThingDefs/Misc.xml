@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="ResourceBase">
+		<defName>SupernaturalBead</defName>
+		<label>灵异珠</label>
+		<description>散发着奇妙能量的珠子，似乎会与博丽小结界产生某种共鸣，传闻集齐七颗能够实现愿望。</description>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Material/Misc/SupernaturalBead</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.01</Mass>
+		</statBases>
+		<burnableByRecipe>false</burnableByRecipe>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<minRewardCount>30</minRewardCount>
+		<stuffProps>
+			<categories>
+				<li>TouhouMaterial</li>
+			</categories>
+			<commonality>0.20</commonality>
+			<color>(180,60,60)</color>
+			<statFactors>
+				<Flammability>0</Flammability>
+				<Beauty>0</Beauty>
+			</statFactors>
+		</stuffProps>
+		<stackLimit>1</stackLimit>
+		<thingCategories>
+			<li>ItemsMisc</li>
+		</thingCategories>
+		<allowedArchonexusCount>80</allowedArchonexusCount>
+		<comps>
+		</comps>
+	</ThingDef>
+</Defs>

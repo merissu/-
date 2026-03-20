@@ -1,0 +1,2222 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<DamageDef Name="DanmakuDamage">
+		<defName>DanmakuDamage</defName>
+		<label>弹幕伤</label>
+		<workerClass>DamageWorker_Stab</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}满身疮痍。</deathMessage>
+		<hediff>Gunshot</hediff>
+		<hediffSkin>Gunshot</hediffSkin>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>false</harmAllLayersUntilOutside>
+		<impactSoundType>Slice</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.4</overkillPctToDestroyPart>
+		<additionalHediffs>
+			<li>
+				<hediff>touhoudie</hediff>
+				<severityPerDamageDealt>1</severityPerDamageDealt>
+				<victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+			</li>
+		</additionalHediffs>
+	</DamageDef>
+	<ThingDef ParentName="UnfinishedBase">
+		<defName>UnfinishedWeapon_TH</defName>
+		<label>武器（未完成）</label>
+		<description>一把未完成的武器</description>
+		<graphicData>
+			<texPath>Things/Item/Unfinished/UnfinishedWeapon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<stuffCategories Inherit="false" />
+	</ThingDef>
+	<ThingDef Name="TH_MeleeWeapon" Abstract="True" ParentName="BaseWeapon">
+		<techLevel>Archotech</techLevel>
+		<smeltable>true</smeltable>
+		<burnableByRecipe>true</burnableByRecipe>
+		<thingCategories>
+			<li>WeaponsMelee</li>
+		</thingCategories>
+		<weaponClasses>
+			<li>Melee</li>
+		</weaponClasses>
+		<comps>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<unfinishedThingDef>UnfinishedWeapon_TH</unfinishedThingDef>
+		</recipeMaker>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef Name="TH_RangeWeapon" Abstract="True" ParentName="BaseGunWithQuality">
+		<techLevel>Archotech</techLevel>
+		<smeltable>true</smeltable>
+		<comps>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<unfinishedThingDef>UnfinishedWeapon_TH</unfinishedThingDef>
+		</recipeMaker>
+		<weaponClasses>
+			<li>Ranged</li>
+		</weaponClasses>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+	</ThingDef>
+	<!--御币-->
+	<ThingDef ParentName="BaseBullet">
+		<defName>HakureiTalisman</defName>
+		<label>博丽灵符</label>
+		<graphicData>
+			<texPath>Weapons/Bullet/HakureiTalisman</texPath>
+			<drawSize>(0.5,0.5)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>hakurei</damageDef>
+			<damageAmountBase>4</damageAmountBase>
+			<stoppingPower>0.2</stoppingPower>
+			<speed>30</speed>
+		</projectile>
+	</ThingDef>
+	<ThingDef ParentName="BaseBullet">
+		<defName>TrackingHakureiTalisman</defName>
+		<label>博丽灵符</label>
+		<graphicData>
+			<texPath>Weapons/Bullet/HakureiTalisman</texPath>
+			<drawSize>(0.5,0.5)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>hakurei</damageDef>
+			<damageAmountBase>4</damageAmountBase>
+			<stoppingPower>0.2</stoppingPower>
+			<speed>30</speed>
+		</projectile>
+	</ThingDef>
+	<DamageDef Name="Hakurei">
+		<defName>hakurei</defName>
+		<label>灵符击中</label>
+		<workerClass>DamageWorker_Stab</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被射爆。</deathMessage>
+		<hediff>hakurei</hediff>
+		<hediffSkin>hakurei</hediffSkin>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>false</harmAllLayersUntilOutside>
+		<impactSoundType>Slice</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.4</overkillPctToDestroyPart>
+		<additionalHediffs>
+			<li>
+                <hediff>touhoudie</hediff>
+                <severityPerDamageDealt>1</severityPerDamageDealt>
+                <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+            </li>
+		</additionalHediffs>
+	</DamageDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>hakurei</defName>
+		<label>灵符击中</label>
+		<labelNoun>灵符击中</labelNoun>
+		<description>被由被博丽灵符所造成的伤口。</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0.2</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>疮痍</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.0125</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.0025</averagePainPerSeverityPermanent>
+			<bleedRate>0.08</bleedRate>
+			<canMerge>true</canMerge>
+			<destroyedLabel>疮痍</destroyedLabel>
+			<destroyedOutLabel>疮痍</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+	<ThingDef ParentName="TH_RangeWeapon">
+		<defName>Gohei</defName>
+		<label>御币</label>
+		<description>巫女的御币,可以以极快的速度发射博丽灵符,也可以拿来敲人,并且这根御币还可以带来飞行能力。被灵符射中的敌人会爆p点。
+
+借助御币飞行时可以进行符卡宣言。</description>
+		<possessionCount>1</possessionCount>
+		<graphicData>
+			<texPath>Weapons/Gohei</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		<drawSize>(1.5,1.5)</drawSize>
+		</graphicData>
+		<uiIconScale>0.8</uiIconScale>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>5000</WorkToMake>
+			<MarketValue>1200</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1.0</Mass>
+			<AccuracyTouch>5</AccuracyTouch>
+			<AccuracyShort>5</AccuracyShort>
+			<AccuracyMedium>5</AccuracyMedium>
+			<AccuracyLong>5</AccuracyLong>
+			<RangedWeapon_Cooldown>0.05</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+			<li>IndustrialGunAdvanced</li>
+		</weaponTags>
+		<equippedStatOffsets>
+			<MaxFlightTime>9999</MaxFlightTime>
+            <FlightCooldown>0</FlightCooldown>
+			<ShootingAccuracyPawn>5</ShootingAccuracyPawn>
+		</equippedStatOffsets>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<SpiritualWood>30</SpiritualWood>
+			<FullPower>1</FullPower>
+			<MakaiShinkiCloth>70</MakaiShinkiCloth>
+	    </costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>PowerPoint</researchPrerequisite>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>HakureiTalisman</defaultProjectile>
+				<warmupTime>0.01</warmupTime>
+				<range>30</range>
+				<soundCast>gohei</soundCast>
+				<muzzleFlashScale>0</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>御币</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1</cooldownTime>
+			</li>
+		</tools>
+        <comps>
+            <li Class="merissu.CompProperties_EquipGrantFlight" />
+			<li Class="merissu.CompProperties_GoheiFlight"/>
+			<li Class="CompProperties_EquippableAbility">
+                <abilityDef>GoheiFlightToggle</abilityDef>
+            </li>
+        </comps>
+	</ThingDef>
+	<!--冈格尼尔-->
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>W_Gungnir</defName>
+		<label>冈格尼尔之枪</label>
+		<description>蕾米莉亚的冈格尼尔,此枪掷出时,会贯穿一切并必然击中目标。当成近战武器使用的话,会有极高的命中率修正,注入灵力后便可以发动极其强大的符卡</description>
+		<graphicData>
+			<texPath>Weapons/Bullet/Gungnir</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2.4,2.4)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<relicChance>3</relicChance>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>5000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>3</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<weaponTags>
+			<li>UltratechMelee</li>
+		</weaponTags>
+		<equippedStatOffsets>
+			<MeleeHitChance>1000</MeleeHitChance>
+			<PawnTrapSpringChance>-100</PawnTrapSpringChance>
+		</equippedStatOffsets>
+		<weaponClasses>
+			<li>Melee</li>
+		</weaponClasses>
+		<costList>
+			<FullPower>6</FullPower>
+			<Crimsongold>160</Crimsongold>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>BloodyCatastrophe</researchPrerequisite>
+		</recipeMaker>
+		<tools>
+			<li>
+				<label>枪尖</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>140</power>
+				<cooldownTime>1.5</cooldownTime>
+				<armorPenetration>5</armorPenetration>
+				<soundMeleeMiss>MissedG</soundMeleeMiss>
+			</li>
+		</tools>
+		<comps>
+			<li Class="merissu.CompProperties_EquippableMultiAbility">
+				<abilityDefs>
+					<li>remiliacard</li>
+					<li>BreakHeart</li>
+				</abilityDefs>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef Name="TH_BreakHeart" Abstract="True">
+		<category>Projectile</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<thingClass>U.N.Owen.Gungnir_BreakHeart</thingClass>
+		<label>bullet</label>
+		<useHitPoints>False</useHitPoints>
+		<neverMultiSelect>True</neverMultiSelect>
+		<graphicData>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="TH_BreakHeart">
+		<defName>BreakHeart</defName>
+		<label>冈格尼尔</label>
+		<graphicData>
+			<texPath>Projectiles/Gungnir</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2.4,2.4)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>RangedStab</damageDef>
+			<damageAmountBase>120</damageAmountBase>
+			<stoppingPower>4</stoppingPower>
+			<armorPenetrationBase>1</armorPenetrationBase>
+			<speed>100</speed>
+		</projectile>
+	</ThingDef>
+	<!--掌中的破坏者-->
+
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>Laevatain</defName>
+		<label>「掌中的破坏者」</label>
+		<description>芙兰朵露经常使用的S形武器,拿在手中便会拥有将一切悉数破坏程度的能力,甚至不用触摸到事物本体就能破坏事物。
+
+注入灵力则可以发动额外的符卡。</description>
+		<possessionCount>1</possessionCount>
+		<graphicData>
+			<texPath>Weapons/Laevatain</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+			<li>TouhouWeapons</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>5000</MarketValue> 
+			<SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>3</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<weaponTags>
+			<li>UltratechMelee</li>
+		</weaponTags>
+		<relicChance>17</relicChance>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<tools>
+			<li>
+				<label>莱瓦汀</label>
+				<capacities>
+					<li>KagomeKagome</li>
+				</capacities>
+				<power>495</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+		<costList>
+			<FullPower>10</FullPower>
+			<Crimsongold>160</Crimsongold>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>18</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>BloodyCatastrophe</researchPrerequisite>
+		</recipeMaker>
+		<comps>
+			<li Class="merissu.CompProperties_EquippableMultiAbility">
+				<abilityDefs>
+					<li>FourOfAKind</li>
+					<li>BloodyCatastrophe</li>
+				</abilityDefs>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ToolCapacityDef>
+		<defName>KagomeKagome</defName>
+		<label>蔓越莓陷阱</label>
+	</ToolCapacityDef>
+
+	<ManeuverDef>
+		<defName>Catadioptric</defName>
+		<requiredCapacity>KagomeKagome</requiredCapacity>
+		<verb>
+			<verbClass>merissu.Verb_Catadioptric</verbClass>
+			<meleeDamageDef>EternalMoments</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<!--八卦炉-->
+	<ThingDef ParentName="TH_RangeWeapon">
+		<defName>Hakkero</defName>
+		<label>八卦炉</label>
+		<description>雾雨魔理沙的武器。一个以魔力为燃料的小型八卦炉,外观呈八棱柱形。
+
+它由森近霖之助打造,霖之助将一种“把空气变洁净的道具”熔了进去,之后又被霖之助改造,往里掺入了绯绯色金。
+
+以灵力为燃料,普通射击模式为喷射火焰,注入灵力后便可以发射激光和弹幕。</description>
+		<graphicData>
+			<texPath>Weapons/Hakkero</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<relicChance>3</relicChance>
+		<statBases>
+			<WorkToMake>10000</WorkToMake>
+			<MarketValue>3700</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1</Mass>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.9</AccuracyShort>
+			<AccuracyMedium>0.9</AccuracyMedium>
+			<Flammability>0</Flammability>
+			<AccuracyLong>0.9</AccuracyLong>
+			<RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+			<li>IndustrialGunAdvanced</li>
+		</weaponTags>
+		<costList>
+			<SpiritualWood>50</SpiritualWood>
+			<FullPower>2</FullPower>
+			<Crimsongold>60</Crimsongold>
+	    </costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>ForgettingInTheForge</researchPrerequisite>
+		</recipeMaker>
+        <verbs>
+            <li>
+                <verbClass>merissu.Verb_HakkeroFlameArc</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Projectile_HakkeroFlame</defaultProjectile>
+			    <warmupTime>0.5</warmupTime>
+				<range>20</range>
+				<burstShotCount>60</burstShotCount>
+				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+				<soundCast>gohei</soundCast>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+					<canTargetPawns>true</canTargetPawns>
+				</targetParams>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>八卦炉</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>1</cooldownTime>
+			</li>
+		</tools>
+        <comps>
+			<li Class="CompProperties_EquippableAbility">
+                <abilityDef>Hakkerocard</abilityDef>
+            </li>
+        </comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Projectile_HakkeroFlame</defName>
+		<label>火焰</label>
+		<thingClass>merissu.Projectile_HakkeroFlame</thingClass>
+		<graphicData>
+			<texPath>Projectiles/FlameShot</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<armorPenetrationBase>1</armorPenetrationBase>
+			<damageAmountBase>3</damageAmountBase>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+
+	<!--uuz-->
+	<ThingDef ParentName="TH_RangeWeapon">
+		<defName>DeathButterfliesFan</defName>
+		<label>蝶舞幽冥扇</label>
+		<description>西行寺幽幽子的折扇，拥有引导死亡的能力，翩翩起舞的死蝶将带走被命中者的灵魂。
+
+这把扇子对敌人造成足够伤害后会直接使敌人死亡,注入灵力后便可以发动极其强大的符卡</description>
+		<possessionCount>1</possessionCount>
+		<graphicData>
+			<texPath>Weapons/DeathButterfliesFan</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.7,0.7)</drawSize>
+		</graphicData>
+		<uiIconScale>1.4</uiIconScale>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>5000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1</Mass>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<SpiritualWood>80</SpiritualWood>
+			<FullPower>3</FullPower>
+			<MakaiShinkiCloth>100</MakaiShinkiCloth>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>BarrierOfLifeAndDeath</researchPrerequisite>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>merissu.Verb_DeathButterfliesVolley</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Butterfly_RowA</defaultProjectile>
+				<range>32</range>
+				<burstShotCount>4</burstShotCount>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<warmupTime>0.5</warmupTime>
+				<soundCast>yuyukoshot</soundCast>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+					<canTargetPawns>true</canTargetPawns>
+				</targetParams>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>扇柄</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1</cooldownTime>
+			</li>
+		</tools>
+        <comps>
+			<li Class="CompProperties_EquippableAbility">
+                <abilityDef>yuyukocard</abilityDef>
+            </li>
+        </comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Butterfly_RowA</defName>
+		<label>反魂蝶</label>
+		<thingClass>merissu.yuyukobullets</thingClass>
+		<graphicData>
+			<texPath>Projectiles/yuyukoBullet/ButterflyBulletA</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>DeathButterflyFloatingMoon</damageDef>
+			<damageAmountBase>1</damageAmountBase>
+			<stoppingPower>0</stoppingPower>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Butterfly_RowB</defName>
+		<label>反魂蝶</label>
+		<thingClass>merissu.yuyukobullets</thingClass>
+		<graphicData>
+			<texPath>Projectiles/yuyukoBullet/ButterflyBulletB</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>DeathButterflyFloatingMoon</damageDef>
+			<damageAmountBase>1</damageAmountBase>
+			<stoppingPower>0</stoppingPower>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Butterfly_RowC</defName>
+		<label>反魂蝶</label>
+		<thingClass>merissu.yuyukobullets</thingClass>
+		<graphicData>
+			<texPath>Projectiles/yuyukoBullet/ButterflyBulletC</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>DeathButterflyFloatingMoon</damageDef>
+			<damageAmountBase>1</damageAmountBase>
+			<stoppingPower>0</stoppingPower>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Butterfly_RowD</defName>
+		<label>反魂蝶</label>
+		<thingClass>merissu.yuyukobullets</thingClass>
+		<graphicData>
+			<texPath>Projectiles/yuyukoBullet/ButterflyBulletD</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>DeathButterflyFloatingMoon</damageDef>
+			<damageAmountBase>1</damageAmountBase>
+			<stoppingPower>0</stoppingPower>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+
+	<DamageDef>
+		<defName>DeathButterflyFloatingMoon</defName>
+		<label>死蝶浮月</label>
+		<workerClass>DamageWorker_AddInjury</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0} 灵魂安息于西行妖下。</deathMessage>
+		<hediff>DeathReturns</hediff>
+		<hediffSolid>DeathReturns</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Blunt</impactSoundType>
+		<armorCategory>Blunt</armorCategory>
+		<overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+		<isRanged>true</isRanged>
+		<makesAnimalsFlee>true</makesAnimalsFlee>
+		<defaultDamage>1</defaultDamage>
+		<defaultArmorPenetration>2</defaultArmorPenetration>
+		<buildingDamageFactorImpassable>1</buildingDamageFactorImpassable>
+		<buildingDamageFactorPassable>1</buildingDamageFactorPassable>
+		<additionalHediffs>
+			<li>
+				<hediff>EternalSleepInFantasy</hediff>
+				<severityPerDamageDealt>0.2</severityPerDamageDealt>
+				<victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+			</li>
+		</additionalHediffs>
+	</DamageDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>DeathReturns</defName>
+		<label>常夜樱</label>
+		<labelNoun>常夜樱</labelNoun>
+		<defaultLabelColor>(163,51,2)</defaultLabelColor>
+		<description>即将命归于九泉之下</description>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<isBad>true</isBad>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0.15</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>蝶留痕</permanentLabel>
+				<instantlyPermanentLabel>蝶留痕</instantlyPermanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.0</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.0</averagePainPerSeverityPermanent>
+			<bleedRate>0.0</bleedRate>
+			<canMerge>true</canMerge>
+			<destroyedLabel>12</destroyedLabel>
+			<destroyedOutLabel>部位缺失</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>EternalSleepInFantasy</defName>
+		<label>生者必灭之理</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(255,153,204)</defaultLabelColor>
+		<description>受到了来自那个世界的邀请</description>
+		<maxSeverity>1.0</maxSeverity>
+      	<stages>
+			<li>
+				<label>眩惑</label>
+				<minSeverity>0.2</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.8</setMax>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-0.2</offset> 
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>死蝶</label>
+				<minSeverity>0.4</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.6</setMax>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-0.4</offset> 
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>毒蛾</label>
+				<minSeverity>0.6</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.4</setMax>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-0.6</offset> 
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>魔境</label>
+				<minSeverity>0.8</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.2</setMax>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-0.8</offset> 
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>通往黄泉的不归路</label>
+				<minSeverity>0.9</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0</setMax>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-1</offset> 
+					</li>
+				</capMods>
+			</li>
+        </stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.1</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+	</HediffDef>
+	
+	
+	
+	<!--铃仙-->
+	
+	
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>MindStarMine</defName>
+		<label>月之波纹</label>
+		<graphicData>
+			<texPath>Weapons/Bullet/GunBullet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>LunaticRedEyes</damageDef>
+			<damageAmountBase>5</damageAmountBase>
+			<stoppingPower>1</stoppingPower>
+			<speed>65</speed>
+		</projectile>
+	</ThingDef>
+	
+	<HediffDef ParentName="InjuryBase">
+		<defName>CrazyMoonWave</defName>
+		<label>中弹</label>
+		<description>被精神系弹幕击中造成的伤口。</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0.1</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>疮痍</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.0125</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+			<bleedRate>0.06</bleedRate>
+			<canMerge>true</canMerge>
+			<destroyedLabel>疮痍</destroyedLabel>
+			<destroyedOutLabel>疮痍</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>MindShaker</defName>
+		<label>赤眼催眠</label>
+        <defaultLabelColor>(204,153,204)</defaultLabelColor>
+		<description>难以抵抗的,疯狂的赤色之瞳。一切都是幻视啊。不要被幻视给迷惑了。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-6</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>赤眼催眠</label>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Berserk</mentalState>
+						<mtbDays>0</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<DamageDef>
+		<defName>LunaticRedEyes</defName>
+		<label>幻胧月睨</label>
+		<workerClass>DamageWorker_AddInjury</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0} 被疯狂吞噬了意识。</deathMessage>
+		<hediff>CrazyMoonWave</hediff>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Bullet</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+		<isRanged>true</isRanged>
+		<makesAnimalsFlee>true</makesAnimalsFlee>
+		<defaultDamage>5</defaultDamage>
+		<defaultArmorPenetration>2</defaultArmorPenetration>
+		<buildingDamageFactorImpassable>1</buildingDamageFactorImpassable>
+		<buildingDamageFactorPassable>1</buildingDamageFactorPassable>
+		<additionalHediffs>
+			<li>
+				<hediff>MindShaker</hediff>
+				<severityPerDamageDealt>1</severityPerDamageDealt>
+				<victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+			</li>
+		</additionalHediffs>
+	</DamageDef>
+	<ThingDef ParentName="TH_RangeWeapon">
+		<defName>MoonRabbitWaveGun</defName>
+		<label>月兔波动枪</label>
+		<description>铃仙所使用的武器,可以发射影响人的精神的子弹,还可以操控各种波长。
+
+注入灵力后可以使用较为强大的符卡</description>
+		<possessionCount>1</possessionCount>
+		<graphicData>
+			<texPath>Weapons/MoonRabbitWaveGun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.8,0.8)</drawSize>
+		</graphicData>
+		<uiIconScale>1.4</uiIconScale>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>10000</WorkToMake>
+			<MarketValue>3700</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1.0</Mass>
+			<AccuracyTouch>0.8</AccuracyTouch>
+			<AccuracyShort>0.9</AccuracyShort>
+			<AccuracyMedium>0.9</AccuracyMedium>
+			<AccuracyLong>0.9</AccuracyLong>
+			<RangedWeapon_Cooldown>0</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+			<li>IndustrialGunAdvanced</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<SpiritualWood>50</SpiritualWood>
+			<FullPower>2</FullPower>
+			<Crimsongold>60</Crimsongold>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>ForgettingInTheForge</researchPrerequisite>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>MindStarMine</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<burstShotCount>1</burstShotCount>
+				<ticksBetweenBurstShots>30</ticksBetweenBurstShots>
+				<range>20</range>
+				<soundCast>udongegun</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>0</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>枪托</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+        <comps>
+			<li Class="CompProperties_EquippableAbility">
+                <abilityDef>udongecard</abilityDef>
+            </li>
+        </comps>
+	</ThingDef>
+	<!--妖梦-->
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>BailouSword</defName>
+		<label>楼观剑</label>
+		<description>据传楼观剑是妖怪锻造的,太长不适合普通人类使用。一挥有杀伤十只幽灵的威力,据说斩不断的东西几乎不存在
+
+使用此剑不仅能对对手造成身体上的伤害,还能造成精神上的伤害,注入灵力的话便可以在一段时间内解锁各种剑伎</description>
+		<possessionCount>1</possessionCount>
+		<graphicData>
+			<texPath>Weapons/BailouSword</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.5,1.5)</drawSize>
+		</graphicData>
+		<equippedStatOffsets>
+			<MoveSpeed>10</MoveSpeed>
+		</equippedStatOffsets>
+		<techLevel>Medieval</techLevel>
+		<thingSetMakerTags>
+			<li>TouhouWeapons</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>5000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>3</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<relicChance>6</relicChance>
+		<weaponTags>
+			<li>LongSword</li>
+		</weaponTags>
+		<tools>
+			<li>
+				<label>生死流转斩</label>
+				<capacities>
+					<li>EvilWindIncredibleInstantaneouslySlash</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>0.3</cooldownTime>
+				<armorPenetration>1</armorPenetration>
+				<soundMeleeHit>hitH</soundMeleeHit>
+				<soundMeleeMiss>MissedG</soundMeleeMiss>
+				<extraMeleeDamages>
+				<li>
+					<def>EternalMoments</def>
+					<amount>1</amount>
+				</li>
+				<li>
+					<def>EternalMoments</def>
+					<amount>1</amount>
+				</li>
+				<li>
+					<def>EternalMoments</def>
+					<amount>1</amount>
+				</li>
+				<li>
+					<def>EternalMoments</def>
+					<amount>1</amount>
+				</li>
+				<li>
+					<def>EternalMoments</def>
+					<amount>1</amount>
+				</li>
+				</extraMeleeDamages>
+			</li>
+		</tools>
+		<costList>
+			<SpiritualWood>80</SpiritualWood>
+			<FullPower>3</FullPower>
+			<Crimsongold>90</Crimsongold>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>BarrierOfLifeAndDeath</researchPrerequisite>
+		</recipeMaker>
+		<comps>
+			<li Class="CompProperties_EquippableAbility">
+                <abilityDef>Youmucard</abilityDef>
+            </li>
+        </comps>
+	</ThingDef>
+	
+	<ToolCapacityDef>
+		<defName>EvilWindIncredibleInstantaneouslySlash</defName>
+		<label>生死流转斩</label>
+	</ToolCapacityDef>
+
+	<ManeuverDef>
+		<defName>WestboundSpringBreezeSlash</defName>
+		<requiredCapacity>EvilWindIncredibleInstantaneouslySlash</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>EternalMoments</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<DamageDef Name="CutBase">
+		<defName>EternalMoments</defName>
+		<label>生死流转斩</label>
+		<workerClass>DamageWorker_Cut</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被一刀两断。</deathMessage>
+		<hediff>FreeFromSixSenceSlash</hediff>
+		<hediffSkin>FreeFromSixSenceSlash</hediffSkin>
+		<hediffSolid>FreeFromSixSenceSlash</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Slice</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.1</overkillPctToDestroyPart>
+		<cutExtraTargetsCurve>
+			<points>
+				<li>0, 0</li>
+				<li>0.6, 1</li>
+				<li>0.9, 2</li>
+				<li>1, 3</li>
+			</points>
+		</cutExtraTargetsCurve>
+		<cutCleaveBonus>1.4</cutCleaveBonus>
+	</DamageDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>FreeFromSixSenceSlash</defName>
+		<label>斩击</label>
+		<labelNoun>斩击</labelNoun>
+		<description>被白楼剑所伤。不仅斩开了肉体,也斩断了灵魂。</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0.15</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>斩击疤痕</permanentLabel>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.01</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<injuryProps>
+			<painPerSeverity>0.0125</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+			<bleedRate>0.06</bleedRate>
+			<canMerge>false</canMerge>
+			<destroyedLabel>斩断</destroyedLabel>
+			<destroyedOutLabel>斩断</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+
+	<ThingDef ParentName="TH_RangeWeapon">
+		<defName>NuclearControlRod</defName>
+		<label>制御棒</label>
+		<description>灵乌路空手中手上安着一门大炮一样的东西(制御棒),便是八咫乌的“第三足”
+
+制御棒有着控制核能的能力,持有者可以用其中蕴含的巨大能量将一切烧成灰烬。
+
+普通射击模式为发射激光,射程无限,切换模式后可以释放大容量的核能烧尽前方一切,注入灵力后便可以发动极其强大的符卡</description>
+		<tickerType>Normal</tickerType>
+		<techLevel>Spacer</techLevel>
+		<smeltable>true</smeltable>
+		<costList>
+			<SpiritualWood>80</SpiritualWood>
+			<FullPower>3</FullPower>
+			<Crimsongold>90</Crimsongold>
+			<Uranium>100</Uranium>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>EarthSpiritsPalace</researchPrerequisite>
+		</recipeMaker>
+		<graphicData>
+				<texPath>Weapons/NuclearControlRod</texPath>
+				<graphicClass>Graphic_Single</graphicClass>
+				<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<statBases>
+			<WorkToMake>20000</WorkToMake>
+			<MarketValue>62100</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>2</Mass>
+			<RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>Touhou</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<verbs>
+			<li>
+				<verbClass>merissu.Verb_ShootStarlightLaser</verbClass>
+				<label>激光模式</label>
+				<hasStandardCommand>true</hasStandardCommand>
+				<warmupTime>1.5</warmupTime>
+				<range>999</range>
+				<minRange>7</minRange>
+				<burstShotCount>1</burstShotCount>
+				<defaultProjectile>HakureiTalisman</defaultProjectile>
+				<soundCast>utsuhoshot</soundCast>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>锤击</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>1.5</cooldownTime>
+			</li>
+		</tools>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>7.8</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+			</li>
+			<li Class="CompProperties_Biocodable"/>
+			<li Class="merissu.CompProperties_EquippableMultiAbility">
+				<abilityDefs>
+					<li>utsuhocard</li>
+					<li>ToggleNuclearMode</li>
+				</abilityDefs>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="TH_RangeWeapon">
+		<defName>BoomNuclearControlRod</defName>
+		<label>制御棒(聚变模式)</label>
+		<description>灵乌路空手中手上安着一门大炮一样的东西(制御棒),便是八咫乌的“第三足”
+
+制御棒有着控制核能的能力,持有者可以用其中蕴含的巨大能量将一切烧成灰烬。
+
+普通射击模式为发射激光,射程无限,切换模式后可以释放大容量的核能烧尽前方一切,注入灵力后便可以发动极其强大的符卡</description>
+		<tickerType>Normal</tickerType>
+		<techLevel>Spacer</techLevel>
+		<smeltable>true</smeltable>
+		<costList>
+			<SpiritualWood>80</SpiritualWood>
+			<FullPower>3</FullPower>
+			<Crimsongold>90</Crimsongold>
+			<Uranium>100</Uranium>
+		</costList>
+		<graphicData>
+			<texPath>Weapons/boomNuclearControlRod</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<statBases>
+			<WorkToMake>20000</WorkToMake>
+			<MarketValue>62100</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>2</Mass>
+			<RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>Touhou</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<verbs>
+			<li>
+				<verbClass>merissu.Verb_ShootNuclearFireball_Custom</verbClass>
+				<label>核熔火球</label>
+				<hasStandardCommand>true</hasStandardCommand>
+				<warmupTime>1.2</warmupTime>
+				<range>50</range>
+				<minRange>10</minRange>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>utsuhoshot2</soundCast>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>锤击</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>1.5</cooldownTime>
+			</li>
+		</tools>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>7.8</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+			</li>
+			<li Class="CompProperties_Biocodable"/>
+			<li Class="merissu.CompProperties_EquippableMultiAbility">
+				<abilityDefs>
+					<li>utsuhocard</li>
+					<li>ToggleNuclearMode</li>
+				</abilityDefs>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Projectile_NuclearFireball</defName>
+		<label>核熔火球</label>
+		<thingClass>merissu.Projectile_NuclearFireball_Custom</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletFd005</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(10,10)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<damageAmountBase>40</damageAmountBase>
+			<speed>50</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>NuclearFireball_FollowingAnim</defName>
+		<label>核聚变火球</label> 
+		<thingClass>merissu.Thing_NuclearFireballFollowingAnim</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<graphicData>
+			<texPath>Other/null</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>NuclearFireball_PillarEffect</defName>
+		<label>核聚变</label> 
+		<thingClass>merissu.Thing_NuclearFireballPillar</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<graphicData>
+			<texPath>Other/null</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+	<AbilityDef>
+		<defName>ToggleNuclearMode</defName>
+		<label>模式切换</label>
+		<description>切换制御棒的输出状态。开启后射击由发射激光变为释放出大容量的核能烧尽前方一切。</description>
+		<iconPath>Weapons/ToggleNuclear</iconPath>
+		<cooldownTicksRange>60</cooldownTicksRange>
+		<abilityClass>Ability</abilityClass>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>0</warmupTime>
+			<drawAimPie>false</drawAimPie>
+			<soundCast>fly</soundCast>
+		</verbProperties>
+		<comps>
+			<li Class="merissu.CompProperties_ToggleNuclearMode"/>
+		</comps>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>StarlightLaserBeam</defName>
+		<label>激光</label>
+		<thingClass>merissu.Thing_StarlightLaserBeam</thingClass>
+		<category>Mote</category>
+        <altitudeLayer>Weather</altitudeLayer>
+		<drawOffscreen>true</drawOffscreen>
+		<selectable>false</selectable>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/null</texPath>
+            <drawSize>(250,250)</drawSize>
+        </graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>StarlightLaserParticle</defName>
+		<label>激光粒子</label>
+		<thingClass>merissu.Thing_StarlightLaserParticle</thingClass>
+		<category>None</category>
+		<tickerType>Normal</tickerType>
+		<selectable>false</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Other/bulletCb000</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+	<DamageDef Name="Bomb">
+		<defName>SubterraneanSun</defName>
+		<label>地底太阳</label>
+		<workerClass>DamageWorker_AddInjury</workerClass>
+		<externalViolence>true</externalViolence>
+		<isExplosive>true</isExplosive>
+		<deathMessage>{0} 飘散在太阳的烈焰中。</deathMessage>
+		<hediff>Shredded</hediff>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Blunt</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<minDamageToFragment>15</minDamageToFragment>
+		<defaultDamage>666</defaultDamage>
+		<defaultStoppingPower>4</defaultStoppingPower>
+		<defaultArmorPenetration>1</defaultArmorPenetration>
+		<buildingDamageFactorImpassable>40</buildingDamageFactorImpassable>
+		<buildingDamageFactorPassable>20</buildingDamageFactorPassable>
+		<plantDamageFactor>40</plantDamageFactor>
+		<corpseDamageFactor>0.5</corpseDamageFactor>
+		<explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+		<explosionHeatEnergyPerCell>4</explosionHeatEnergyPerCell>
+		<explosionCellFleck>BlastDry</explosionCellFleck>
+		<explosionColorCenter>(1, 0.5, 0.3)</explosionColorCenter>
+		<explosionColorEdge>(0.6, 0.5, 0.4)</explosionColorEdge>
+		<soundExplosion>Explosion_Bomb</soundExplosion>
+		<combatLogRules>Damage_Bomb</combatLogRules>
+	</DamageDef>
+
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>ScarletRhapsodySword</defName>
+		<label>绯想之剑</label>
+		<description>天界的道具,只有天人能操纵。比那名居天子的武器。拥有洞察气质程度的能力
+
+使用绯想之剑,能够准确无误地击中对手的弱点,这把剑首先会把对手的气质雾化,转化成任何人都能用肉眼辨视的形态。然后将把那种气质的弱点作为性质缠绕于剑身。
+
+注入灵力后,便可以使用威力极其强大的符卡</description>
+		<tickerType>Normal</tickerType>
+		<smeltable>true</smeltable>
+		<costList>
+			<SpiritualWood>50</SpiritualWood>
+			<FullPower>2</FullPower>
+			<Crimsongold>60</Crimsongold>
+	    </costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>ForgettingInTheForge</researchPrerequisite>
+		</recipeMaker>
+		<graphicData>
+			<texPath>Weapons/ScarletRhapsodySword</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.2,1.2)</drawSize>
+		</graphicData>
+		<weaponTags>
+			<li>UltratechMelee</li>
+		</weaponTags>
+		<statBases>
+			<WorkToMake>10000</WorkToMake>
+			<MarketValue>3700</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1</Mass>
+		</statBases>
+		<weaponClasses>
+			<li>Melee</li>
+		</weaponClasses>
+		<tools>
+			<li>
+				<label>斩击</label>
+				<capacities>
+					<li>TheSwordOfNaivasamjnanasamjnayatana</li>
+				</capacities>
+				<power>20</power>
+				<soundMeleeHit>hitG</soundMeleeHit>
+				<soundMeleeMiss>MissedG</soundMeleeMiss>
+				<cooldownTime>1.2</cooldownTime>
+			</li>
+		</tools>
+        <comps>
+			<li Class="CompProperties_EquippableAbility">
+                <abilityDef>Tenshicard</abilityDef>
+            </li>
+        </comps>
+	</ThingDef>
+
+	<ToolCapacityDef>
+		<defName>TheSwordOfNaivasamjnanasamjnayatana</defName>
+		<label>斩击</label>
+	</ToolCapacityDef>
+
+	<ManeuverDef>
+		<defName>TheSwordOfNaivasamjnanasamjnayatana</defName>
+		<requiredCapacity>TheSwordOfNaivasamjnanasamjnayatana</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>TheSwordOfNaivasamjnanasamjnayatana</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<DamageDef ParentName="CutBase">
+		<defName>TheSwordOfNaivasamjnanasamjnayatana</defName>
+		<label>砍伤</label>
+		<workerClass>DamageWorker_Cut</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被砍掉。</deathMessage>
+		<hediff>TheSwordOfNaivasamjnanasamjnayatana</hediff>
+		<hediffSkin>TheSwordOfNaivasamjnanasamjnayatana</hediffSkin>
+		<hediffSolid>TheSwordOfNaivasamjnanasamjnayatana</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Slice</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.1</overkillPctToDestroyPart>
+		<cutExtraTargetsCurve>
+			<points>
+				<li>0, 0</li>
+				<li>0.6, 1</li>
+				<li>0.9, 2</li>
+				<li>1, 3</li>
+			</points>
+		</cutExtraTargetsCurve>
+		<cutCleaveBonus>1.4</cutCleaveBonus>
+		<additionalHediffs>
+			<li>
+				<hediff>ScarletWeatherRhapsody</hediff>
+				<severityPerDamageDealt>1</severityPerDamageDealt>
+				<victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+			</li>
+		</additionalHediffs>
+	</DamageDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>TheSwordOfNaivasamjnanasamjnayatana</defName>
+		<label>砍伤</label>
+		<labelNoun>砍伤</labelNoun>
+		<description>绯想之剑造成的伤口。</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0.3</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>砍伤疤痕</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.02</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.0125</averagePainPerSeverityPermanent>
+			<bleedRate>1.5</bleedRate>
+			<canMerge>true</canMerge>
+			<destroyedLabel>砍掉</destroyedLabel>
+			<destroyedOutLabel>砍掉</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>ScarletWeatherRhapsody</defName>
+		<label>天气「绯想天促」</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+		<description>这个人的气质暴露无遗,短时间内会承受更多伤害。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-24</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statFactors>
+					<IncomingDamageFactor>2</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>GapUmbrella</defName>
+		<label>隙间的折叠伞</label>
+		<description>八云紫平常使用的阳伞,敲人很痛,还可以展开隙间
+
+这把阳伞无法射出弹幕,但是可以通过隙间将敌人直接神隐
+
+注入灵力后,便可以使用威力极其强大的符卡</description>
+		<tickerType>Normal</tickerType>
+		<smeltable>true</smeltable>
+		<costList>
+			<SpiritualWood>80</SpiritualWood>
+			<FullPower>3</FullPower>
+			<MakaiShinkiCloth>100</MakaiShinkiCloth>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>BarrierOfLifeAndDeath</researchPrerequisite>
+		</recipeMaker>
+		<graphicData>
+			<texPath>Weapons/YukarisUmbrella</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.7,0.7)</drawSize>
+		</graphicData>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>5000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1</Mass>
+		</statBases>
+		<weaponClasses>
+			<li>Melee</li>
+		</weaponClasses>
+		<weaponTags>
+			<li>MeleeTierHigh</li>
+		</weaponTags>
+		<tools>
+			<li>
+				<label>伞骨</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>1</cooldownTime>
+			</li>
+		</tools>
+		<comps>
+			<li Class="merissu.CompProperties_EquippableMultiAbility">
+				<abilityDefs>
+					<li>Gap</li>
+					<li>Yukaricard</li>
+				</abilityDefs>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<AbilityDef>
+		<defName>Gap</defName>
+		<label>隙间</label>
+		<description>取消两点间的境界来将地图上任何一个角落的人或物瞬间传送，如果将境界的两端同时在同一个目标上展开则会将其神隐。</description>
+		<category>Skip</category>
+		<iconPath>Abilities/Gap</iconPath>
+		<writeCombatLog>False</writeCombatLog>
+		<showPsycastEffects>False</showPsycastEffects>
+		<hotKey>Misc9</hotKey>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<cooldownTicksRange>0</cooldownTicksRange>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<requireLineOfSight>False</requireLineOfSight>
+			<warmupTime>0</warmupTime>
+			<range>99999</range>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+				<canTargetAnimals>True</canTargetAnimals>
+				<canTargetItems>True</canTargetItems>
+				<canTargetBuildings>False</canTargetBuildings>
+				<thingCategory>Item</thingCategory>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class = "CompProperties_AbilityTeleport">
+				<compClass>merissu.CompAbilityEffect_Gap</compClass>
+				<destination>Selected</destination>
+				<requiresLineOfSight>False</requiresLineOfSight>
+				<clamorType>Ability</clamorType>
+				<clamorRadius>10</clamorRadius>
+				<destClamorType>Ability</destClamorType>
+				<destClamorRadius>10</destClamorRadius>
+				<stunTicks>0</stunTicks>
+				<maxBodySize>99999</maxBodySize>
+				<goodwillImpact>-15</goodwillImpact>
+				<applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+				<weight>1000</weight>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>LunaRabbitBullet</defName>
+		<label>月兔制式子弹</label>
+		<graphicData>
+			<texPath>Weapons/Bullet/GunBullet</texPath>
+			<drawSize>(0.1,0.1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<stoppingPower>0.5</stoppingPower>
+			<speed>100</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="TH_RangeWeapon">
+		<defName>LunaRabbitGun</defName>
+		<label>月兔制式步枪</label>
+		<description>月之都底层月兔士兵们列装的步枪，不过月兔们几乎没有使用的机会。</description>
+		<possessionCount>1</possessionCount>
+		<graphicData>
+			<texPath>Weapons/LunaRabbitBullet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.5,1.5)</drawSize>
+		</graphicData>
+		<uiIconScale>0.8</uiIconScale>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>5000</WorkToMake>
+			<Mass>1.0</Mass>
+			<AccuracyTouch>0.7</AccuracyTouch>
+			<AccuracyShort>0.8</AccuracyShort>
+			<AccuracyMedium>0.9</AccuracyMedium>
+			<AccuracyLong>1</AccuracyLong>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>SpacerGun</li>
+			<li>IndustrialGunAdvanced</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<Steel>100</Steel>
+			<Crimsongold>15</Crimsongold>
+			<ComponentIndustrial>5</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>PowerPoint</researchPrerequisite>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>LunaRabbitBullet</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>48</range>
+				<soundCast>Shot_Revolver</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>刺刀</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>0.7</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>MR_Bayonet</defName>
+		<label>刺刀冲锋</label>
+		<description>...</description>
+		<graphicData>
+			<texPath>Weapons/Empty</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<techLevel>Medieval</techLevel>
+		<tradeTags Inherit="false">
+		</tradeTags>
+		<tradeability>None</tradeability>
+		<weaponTags Inherit="false">
+			<!-- null -->
+		</weaponTags>
+		<statBases>
+			<WorkToMake>6000</WorkToMake>
+			<Mass>1.6</Mass>
+		</statBases>
+		<costList>
+			<WoodLog>1</WoodLog>
+		</costList>
+		<tools>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>20</power>
+				<cooldownTime>2.5</cooldownTime>
+			</li>
+		</tools>
+		<recipeMaker Inherit="false" />
+	</ThingDef>
+	<ThingDef ParentName="BaseBullet">
+		<defName>TH_Meteorolite_a</defName>
+		<label>灼空陨星</label>
+		<graphicData>
+			<texPath>Weapons/Bullet/Bullet_MagicBlast2</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<damageDef>MagicalR360</damageDef>
+			<!-- Use default damage from explosion def -->
+			<explosionRadius>0.5</explosionRadius>
+			<speed>60</speed>
+			<screenShakeFactor>0.2</screenShakeFactor>
+		</projectile>
+	</ThingDef>
+	<ThingDef ParentName="TH_RangeWeapon">
+		<thingClass>U.N.Owen.ThingWithComps_AbilityModeWeapon</thingClass>
+		<defName>GunMarisa</defName>
+		<label>普通的魔法猎枪</label>
+		<description>融合了雾雨魔理沙的化学知识和魔法造诣的武器，发射威力巨大的金平糖，可以发射三种不同的金平糖以应对不同的敌人。</description>
+		<graphicData>
+			<texPath>Weapons/GunMarisa2</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>12000</WorkToMake>
+			<Mass>3.5</Mass>
+			<AccuracyTouch>0.75</AccuracyTouch>
+			<AccuracyShort>0.80</AccuracyShort>
+			<AccuracyMedium>0.90</AccuracyMedium>
+			<AccuracyLong>0.80</AccuracyLong>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>60</Steel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<displayPriority>415</displayPriority>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>U.N.Owen.Verb_SpawnDanmaku_GunMarisa</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>TH_Meteorolite_a</defaultProjectile>
+				<warmupTime>1.5</warmupTime>
+				<range>42</range>
+				<forcedMissRadius>1.9</forcedMissRadius>
+				<soundCast>Shot_IncendiaryLauncher</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>14</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<burstShotCount>1</burstShotCount>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="merissu.CompProperties_EquippableMultiAbility">
+				<abilityDefs>
+					<li>SwitchWeaponsMode1</li>
+				</abilityDefs>
+			</li>
+			<li Class="U.N.Owen.CompProperties_EquippableAbilityWithDifferentMode">
+				<abilityDef>SwitchWeaponsMode2</abilityDef>
+				<manaDecayIntervalTicks>12000</manaDecayIntervalTicks>
+				<manaLevelGraphicPaths>
+					<li>Weapons/GunMarisa2</li>
+					<li>Weapons/GunMarisa3</li>
+					<li>Weapons/GunMarisa6</li>
+				</manaLevelGraphicPaths>
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>枪托</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<AbilityDef>
+		<defName>SwitchWeaponsMode1</defName>
+		<label>更换金平糖</label>
+		<description>更换普通的魔法猎枪中装填的金平糖。</description>
+		<targetRequired>false</targetRequired>
+		<showWhenDrafted>true</showWhenDrafted>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<hasStandardCommand>true</hasStandardCommand>
+		</verbProperties>
+		<comps>
+			<li Class="U.N.Owen.CompProperties_AbilityEffect_CycleShootMode"/>
+		</comps>
+	</AbilityDef>
+
+	<!-- Ability 2: 消耗 FullPower 严重度，回 mana -->
+	<AbilityDef>
+		<defName>SwitchWeaponsMode2</defName>
+		<label>注入灵力</label>
+		<description>花费灵力让它更劲、更霸、更强。</description>
+		<targetRequired>false</targetRequired>
+		<showWhenDrafted>true</showWhenDrafted>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<hasStandardCommand>true</hasStandardCommand>
+		</verbProperties>
+		<comps>
+			<li Class="U.N.Owen.CompProperties_AbilityEffect_UseFullPowerGainMana">
+				<severityCost>1.0</severityCost>
+				<manaGain>1</manaGain>
+			</li>
+		</comps>
+	</AbilityDef>
+	<DamageDef>
+		<defName>MagicalR360</defName>
+		<label>Magical R360</label>
+		<workerClass>DamageWorker_AddInjury</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0} 被金平糖打死了。</deathMessage>
+		<hediff>Gunshot</hediff>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Bullet</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+		<isRanged>true</isRanged>
+		<makesAnimalsFlee>true</makesAnimalsFlee>
+		<defaultDamage>10</defaultDamage>
+		<defaultArmorPenetration>2</defaultArmorPenetration>
+		<buildingDamageFactorImpassable>1</buildingDamageFactorImpassable>
+		<buildingDamageFactorPassable>1</buildingDamageFactorPassable>
+	</DamageDef>
+	<ThingDef ParentName="EtherealThingBase">
+		<defName>TH_Meteorolite</defName>
+		<label>陨星</label>
+		<thingClass>U.N.Owen.DanmakuGravityExplode</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<comps>
+			<li Class="U.N.Owen.CompProperties_DanmakuSourceAdvanced" />
+			<li Class="U.N.Owen.CompProperties_DanmakuProjectile">
+				<startSpeedMax>0.40</startSpeedMax>
+				<startSpeedMin>0.40</startSpeedMin>
+				<speedAccelerationPerTick>0</speedAccelerationPerTick>
+				<maxSpeed>0.8</maxSpeed>
+				<maxDistance>26</maxDistance>
+				<angleOffsetRange>0</angleOffsetRange>
+
+				<damageDef>MagicalR360</damageDef>
+				<damageAmount>30</damageAmount>
+				<destroyOnPawnHit>true</destroyOnPawnHit>
+
+				<passThroughWalls>false</passThroughWalls>
+				<passThroughBarriers>false</passThroughBarriers>
+
+				<useMoteTrail>true</useMoteTrail>
+				<LineTrailDefs>
+					<li>MRS_Tail</li>
+				</LineTrailDefs>
+				<useLineTrail>true</useLineTrail>
+				<trailMoteDefs>
+					<li>Mote_StarTail</li>
+					<li>Mote_StarTaila</li>
+					<li>Mote_StarTailb</li>
+				</trailMoteDefs>
+
+				<splitOnEnd>false</splitOnEnd>
+				<splitProjectileDef>TH_Comet_b</splitProjectileDef>
+				<splitCount>6</splitCount>
+				<splitAngleOffsetRange>15</splitAngleOffsetRange>
+
+				<materialPath>Weapons/Bullet/Bullet_MagicBlast5</materialPath>
+				<drawMeshSize>(2,2)</drawMeshSize>
+				<drawY>15</drawY>
+				<rotationPerTick>30</rotationPerTick>
+			
+		</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="EtherealThingBase">
+		<defName>TH_Comet</defName>
+		<label>彗星</label>
+		<thingClass>U.N.Owen.DanmakuProjectileBase</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<comps>
+			<li Class="U.N.Owen.CompProperties_DanmakuSourceAdvanced" />
+			<li Class="U.N.Owen.CompProperties_DanmakuProjectile">
+				<startSpeedMax>0.60</startSpeedMax>
+				<startSpeedMin>0.40</startSpeedMin>
+				<speedAccelerationPerTick>0</speedAccelerationPerTick>
+				<maxSpeed>0.8</maxSpeed>
+				<maxDistance>13</maxDistance>
+				<angleOffsetRange>15</angleOffsetRange>
+
+				<damageDef>MagicalR360</damageDef>
+				<damageAmount>25</damageAmount>
+				<destroyOnPawnHit>true</destroyOnPawnHit>
+
+				<passThroughWalls>false</passThroughWalls>
+				<passThroughBarriers>false</passThroughBarriers>
+
+				<useMoteTrail>true</useMoteTrail>
+				<LineTrailDefs>
+					<li>MRS_Tail</li>
+				</LineTrailDefs>
+				<useLineTrail>true</useLineTrail>
+				<trailMoteDefs>
+					<li>Mote_StarTail</li>
+					<li>Mote_StarTaila</li>
+					<li>Mote_StarTailb</li>
+				</trailMoteDefs>
+
+				<splitOnEnd>true</splitOnEnd>
+				<splitProjectileDef>TH_Comet_b</splitProjectileDef>
+				<splitCount>6</splitCount>
+				<splitAngleOffsetRange>15</splitAngleOffsetRange>
+
+				<materialPath>Weapons/Bullet/Bullet_MagicBlast7</materialPath>
+				<drawMeshSize>(2,2)</drawMeshSize>
+				<drawY>15</drawY>
+				<rotationPerTick>30</rotationPerTick>
+			
+		</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="EtherealThingBase">
+		<defName>TH_Meteor</defName>
+		<label>流星</label>
+		<thingClass>U.N.Owen.DanmakuProjectileBase</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<comps>
+			<li Class="U.N.Owen.CompProperties_DanmakuSourceAdvanced" />
+			<li Class="U.N.Owen.CompProperties_DanmakuProjectile">
+				<startSpeedMax>0.80</startSpeedMax>
+				<startSpeedMin>0.80</startSpeedMin>
+				<speedAccelerationPerTick>0.01</speedAccelerationPerTick>
+				<maxSpeed>1.2</maxSpeed>
+				<maxDistance>48</maxDistance>
+				<angleOffsetRange>0</angleOffsetRange>
+
+				<damageDef>MagicalR360</damageDef>
+				<damageAmount>40</damageAmount>
+				<destroyOnPawnHit>false</destroyOnPawnHit>
+
+				<passThroughWalls>true</passThroughWalls>
+				<passThroughBarriers>true</passThroughBarriers>
+
+				<useMoteTrail>true</useMoteTrail>
+				<LineTrailDefs>
+					<li>MRS_Tail</li>
+				</LineTrailDefs>
+				<useLineTrail>true</useLineTrail>
+				<trailMoteDefs>
+					<li>Mote_StarTail</li>
+					<li>Mote_StarTaila</li>
+					<li>Mote_StarTailb</li>
+				</trailMoteDefs>
+
+				<splitOnEnd>false</splitOnEnd>
+				<splitProjectileDef>TH_Comet_b</splitProjectileDef>
+				<splitCount>6</splitCount>
+				<splitAngleOffsetRange>15</splitAngleOffsetRange>
+
+				<materialPath>Weapons/Bullet/Bullet_MagicBlast6</materialPath>
+				<drawMeshSize>(2,2)</drawMeshSize>
+				<drawY>15</drawY>
+				<rotationPerTick>30</rotationPerTick>
+			
+		</li>
+		</comps>
+	</ThingDef>
+		<ThingDef ParentName="EtherealThingBase">
+			<defName>TH_Comet_c</defName>
+			<label>comet bullet</label>
+			<thingClass>U.N.Owen.DanmakuProjectileBase</thingClass>
+			<tickerType>Normal</tickerType>
+			<drawerType>RealtimeOnly</drawerType>
+			<comps>
+				<li Class="U.N.Owen.CompProperties_DanmakuSourceAdvanced" />
+				<li Class="U.N.Owen.CompProperties_DanmakuProjectile">
+					<startSpeedMax>0.6</startSpeedMax>
+					<startSpeedMin>0.6</startSpeedMin>
+					<speedAccelerationPerTick>0</speedAccelerationPerTick>
+					<maxSpeed>0.8</maxSpeed>
+					<maxDistance>30</maxDistance>
+					<angleOffsetRange>8</angleOffsetRange>
+
+					<damageDef>MagicalR360</damageDef>
+					<damageAmount>27</damageAmount>
+					<destroyOnPawnHit>false</destroyOnPawnHit>
+
+					<passThroughWalls>false</passThroughWalls>
+					<passThroughBarriers>false</passThroughBarriers>
+
+					<useMoteTrail>true</useMoteTrail>
+					<LineTrailDefs>
+						<li>MRS_Tail</li>
+					</LineTrailDefs>
+					<useLineTrail>true</useLineTrail>
+					<trailMoteDefs>
+						<li>Mote_StarTail</li>
+						<li>Mote_StarTaila</li>
+						<li>Mote_StarTailb</li>
+					</trailMoteDefs>
+
+					<splitOnEnd>false</splitOnEnd>
+					<splitProjectileDef>TH_Comet_b</splitProjectileDef>
+					<splitCount>6</splitCount>
+					<splitAngleOffsetRange>15</splitAngleOffsetRange>
+
+					<materialPath>Weapons/Bullet/Bullet_MagicBlast8</materialPath>
+					<drawMeshSize>(2,2)</drawMeshSize>
+					<drawY>15</drawY>
+					<rotationPerTick>30</rotationPerTick>
+
+				</li>
+			</comps>
+		</ThingDef>
+			<ThingDef ParentName="EtherealThingBase">
+				<defName>TH_Comet_b</defName>
+				<label>comet bullet</label>
+				<thingClass>U.N.Owen.DanmakuProjectileBase</thingClass>
+				<tickerType>Normal</tickerType>
+				<drawerType>RealtimeOnly</drawerType>
+				<comps>
+					<li Class="U.N.Owen.CompProperties_DanmakuSourceAdvanced" />
+					<li Class="U.N.Owen.CompProperties_DanmakuProjectile">
+						<startSpeedMax>0.3</startSpeedMax>
+						<startSpeedMin>0.4</startSpeedMin>
+						<speedAccelerationPerTick>0</speedAccelerationPerTick>
+						<maxSpeed>0.8</maxSpeed>
+						<maxDistance>13</maxDistance>
+						<angleOffsetRange>15</angleOffsetRange>
+
+						<damageDef>MagicalR360</damageDef>
+						<damageAmount>14</damageAmount>
+						<destroyOnPawnHit>true</destroyOnPawnHit>
+
+						<passThroughWalls>false</passThroughWalls>
+						<passThroughBarriers>false</passThroughBarriers>
+
+						<useMoteTrail>true</useMoteTrail>
+						<LineTrailDefs>
+							<li>MRS_Tail</li>
+						</LineTrailDefs>
+						<useLineTrail>true</useLineTrail>
+						<trailMoteDefs>
+							<li>Mote_StarTail</li>
+							<li>Mote_StarTaila</li>
+							<li>Mote_StarTailb</li>
+						</trailMoteDefs>
+
+						<splitOnEnd>false</splitOnEnd>
+						<splitProjectileDef>TH_Comet_b</splitProjectileDef>
+						<splitCount>6</splitCount>
+						<splitAngleOffsetRange>15</splitAngleOffsetRange>
+
+						<materialPath>Weapons/Bullet/Bullet_MagicBlast7</materialPath>
+						<drawMeshSize>(2,2)</drawMeshSize>
+						<drawY>15</drawY>
+						<rotationPerTick>30</rotationPerTick>
+
+					</li>
+				</comps>
+	</ThingDef>
+</Defs>

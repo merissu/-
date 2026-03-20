@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<ThingDef ParentName="RockBase">
+		<defName>MineableCrimsongold</defName>
+		<label>绯绯色金矿</label>
+		<description>可以挖掘的绯绯色金矿.</description>
+		<graphicData>
+			<texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<color>(255,153,51)</color>
+			<colorTwo>(255,102,51)</colorTwo>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>7500</MaxHitPoints>
+		</statBases>
+		<building>
+			<isResourceRock>true</isResourceRock>
+			<mineableThing>Crimsongold</mineableThing>
+			<mineableYield>15</mineableYield>
+			<mineableScatterCommonality>0.05</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>2~8</mineableScatterLumpSizeRange>
+		</building>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>NitoriGenerator</defName>
+		<label>荷取热机</label>
+		<description>在神奈子开发核能前妖怪之山主要的发电设施，通过消耗p点发电,原理不明,据说防水性为200%。</description>
+		<thingClass>Building</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>Building/NitoriGenerator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(4.5,4.5)</drawSize>
+			<shadowData>
+				<volume>(1.93,1,1.69)</volume>
+				<offset>(-0.03,0,-0.1)</offset>
+			</shadowData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<blockWind>true</blockWind>
+		<fillPercent>1.0</fillPercent>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>2500</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>10</Beauty>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<canOverlapZones>false</canOverlapZones>
+		<size>(4,4)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+		</building>
+		<costList>
+			<Steel>200</Steel>
+			<Crimsongold>30</Crimsongold>
+			<FullPower>1</FullPower>
+			<ComponentIndustrial>5</ComponentIndustrial>
+     	</costList>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerPlant</compClass>
+				<basePowerConsumption>-7500</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+				<soundAmbientProducingPower>ChemfuelFiredGenerator_Ambience</soundAmbientProducingPower>
+			</li>
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>4</fuelConsumptionRate>
+				<fuelCapacity>50.0</fuelCapacity>
+				<fuelFilter>
+					<thingDefs>
+						<li>PowerPoint</li>
+					</thingDefs>
+				</fuelFilter>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(80,112,180,0)</glowColor>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>0</heatPerSecond>
+			</li>
+		</comps>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<designationCategory>Power</designationCategory>
+		<uiOrder>2100</uiOrder>
+		<designationHotKey>Misc4</designationHotKey>
+		<constructEffect>ConstructMetal</constructEffect>
+		<researchPrerequisites>
+			<li>PowerPoint</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+	</ThingDef>
+
+
+	<ThingDef ParentName="BenchBase">
+		<defName>UtuhoNuclearFurnace</defName>
+		<label>核聚变堆芯</label>
+		<description>位于灼热地狱遗址深处，由洩矢诹访子自作主张建造。
+
+炉最内部为“核聚变炉心”（核融合炉心部），有着太阳一般的熔炎火球。
+
+核聚变炉反应所用的原子是神奈子给予的。
+
+尽管核聚变能产生大量热量，但是如果灼热地狱遗址缺乏燃料，核聚变炉还是会停止运转。
+
+可以用尸体作为燃料,倒不如说尸体就是进行核聚变最好的燃料</description>
+		<thingClass>Building</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<rotatable>false</rotatable>
+		<graphicData>
+			<texPath>Building/UtuhoNuclearFurnace</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(8,8)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<costList>
+			<Plasteel>200</Plasteel>
+			<Crimsongold>100</Crimsongold>
+			<FullPower>10</FullPower>
+			<ComponentIndustrial>5</ComponentIndustrial>
+     	</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>3000</WorkToBuild>
+			<MaxHitPoints>600</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<Cleanliness>-2</Cleanliness>
+		</statBases>
+		<size>(8,8)</size>
+		<designationCategory>Power</designationCategory>
+		<uiOrder>2520</uiOrder>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>14</constructionSkillPrerequisite>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<wickTicks>2400</wickTicks>
+				<explosiveRadius>36</explosiveRadius>
+				<explosiveDamageType>SubterraneanSun</explosiveDamageType>
+				<chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerPlant</compClass>
+				<basePowerConsumption>-75000</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+				<soundAmbientProducingPower>ChemfuelFiredGenerator_Ambience</soundAmbientProducingPower>
+			</li>
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>1</fuelConsumptionRate>
+				<fuelCapacity>100</fuelCapacity>
+				<fuelFilter>
+					<thingDefs>
+						<li>Corp</li>
+					</thingDefs>
+				</fuelFilter>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+			</li>
+			<li Class="CompProperties_Glower">
+				<overlightRadius>32.0</overlightRadius>
+				<glowRadius>40</glowRadius>
+				<glowColor>(370,370,370,0)</glowColor>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>3500</heatPerSecond>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<constructEffect>ConstructMetal</constructEffect>
+		<researchPrerequisites>
+			<li>EarthSpiritsPalace</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<ThingDef ParentName="BenchBase">
+		<defName>TableHifuuClub</defName>
+		<label>秘封工作台</label>
+		<description>这个工作台连接着通往其他世界的入口,通过将梦中世界的物品带到现世来制造幻想中的物品。
+
+如果梦中的物品能带到现世,那么究竟哪边才是真实的呢?说不定发生在这颗星球上的一切,才是真正的梦……</description>
+		<thingClass>Building_WorkTable</thingClass>
+		<graphicData>
+			<texPath>Building/TableHifuuClub</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3.5,1.5)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<costList>
+			<Crimsongold>15</Crimsongold>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<SpiritualWood>100</SpiritualWood>
+			<MakaiShinkiCloth>100</MakaiShinkiCloth>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>3000</WorkToBuild>
+			<MaxHitPoints>180</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<Cleanliness>-2</Cleanliness>
+		</statBases>
+		<size>(3,1)</size>
+		<designationCategory>Production</designationCategory>
+		<uiOrder>2520</uiOrder>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+		<recipes>
+			<li>CorpseTransformation</li>
+			<li>MakePowerPoint</li>
+			<li>MakePowerPoint1</li>
+		</recipes>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius>
+				<glowColor>(73,123,138,0)</glowColor>
+			</li>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>ToolCabinet</li>
+				</linkableFacilities>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+		<constructEffect>ConstructMetal</constructEffect>
+		<researchPrerequisites>
+			<li>InsightLimbo</li>
+		</researchPrerequisites>
+		<designationHotKey>Misc7</designationHotKey>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+	</ThingDef>
+
+	<ThingDef ParentName="BenchBase">
+		<defName>PenglaiPharmaceuticalTable</defName>
+		<label>蓬莱制药桌</label>
+		<description>一个配有各种草药,幻想材料和制药设备的制药桌,用于制作各种医药,特效药和成瘾品。</description>
+		<thingClass>Building_WorkTable</thingClass>
+		<graphicData>
+			<texPath>Building/PenglaiPharmaceuticalTable/PenglaiPharmaceuticalTable</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3.5,1.5)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<costList>
+			<Crimsongold>30</Crimsongold>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<ComponentSpacer>3</ComponentSpacer>
+			<LoseBambooShoot>100</LoseBambooShoot>
+	</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>3000</WorkToBuild>
+			<MaxHitPoints>180</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<Cleanliness>0</Cleanliness>
+		</statBases>
+		<size>(3,1)</size>
+		<designationCategory>Production</designationCategory>
+		<uiOrder>2520</uiOrder>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+		<recipes>
+		</recipes>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius>
+				<glowColor>(73,123,138,0)</glowColor>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+				</linkableFacilities>
+			</li>
+		</comps>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+		<constructEffect>ConstructMetal</constructEffect>
+		<researchPrerequisites>
+			<li>PenglaiPharmacy</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>LittleHakureiEnchantment</defName>
+		<label>博丽小结界</label>
+		<description>按照博丽大结界做出的仿制品,由于没有贤者力量的加持,需要大量灵力维护。小结界半径有多少,每天就会消耗多少p点。
+		
+有着各种各样的功能,可以拦截敌人子弹手雷爆炸物(拦截不了能量武器和火焰),让隐身敌对单位现身,使所有敌人幻想入(死亡后爆p点)。</description>
+		<size>(4,2)</size>
+		<thingClass>Building</thingClass>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<MarketValue>1000</MarketValue>
+			<WorkToBuild>50000</WorkToBuild>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Building/LittleHakureiEnchantment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(5,5)</drawSize>
+			<damageData>
+				<rect>(0.2, 0.2, 0.6, 0.6)</rect>
+			</damageData>
+		</graphicData>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<placeWorkers>
+			<li>PlaceWorker_ShowProjectileInterceptorRadius</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_ProjectileInterceptor">
+				<radius>30</radius>
+				<interceptGroundProjectiles>true</interceptGroundProjectiles>
+				<interceptAirProjectiles>true</interceptAirProjectiles>
+				<color>(0.9, 0.4, 0.4)</color>
+			</li>
+			<li Class="merissu.CompProperties_ShieldRadiusControl">
+                <minRadius>5</minRadius>
+                <maxRadius>60</maxRadius>
+                <step>5</step>
+            </li>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>30</fuelConsumptionRate>
+				<fuelCapacity>1000</fuelCapacity>
+				<fuelFilter>
+					<thingDefs>
+						<li>PowerPoint</li>
+					</thingDefs>
+				</fuelFilter>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+			</li>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>ShrineBeacon</li>
+				</linkableFacilities>
+			</li>
+			<li Class="U.N.Owen.EndAbout.CompProperties_EntryGenso">
+				<requiredLinkedFacilities>7</requiredLinkedFacilities>
+				<endingSong>Eastern_Heaven_of_Scarlet_Perception</endingSong>
+				<creditsSongStartDelay>2.5</creditsSongStartDelay>
+
+				<endingCgs>
+					<li>
+						<texturePath>CG/ED1</texturePath>
+						<displaySeconds>5</displaySeconds>
+						<preFadeToWhiteSeconds>1.0</preFadeToWhiteSeconds>
+						<preFadeFromWhiteSeconds>0.0</preFadeFromWhiteSeconds>
+						<postFadeToWhiteSeconds>0.5</postFadeToWhiteSeconds>
+						<postFadeFromWhiteSeconds>0.5</postFadeFromWhiteSeconds>
+					</li>
+					<li>
+						<texturePath>CG/ED2</texturePath>
+						<displaySeconds>5</displaySeconds>
+						<preFadeToWhiteSeconds>0.5</preFadeToWhiteSeconds>
+						<preFadeFromWhiteSeconds>0.5</preFadeFromWhiteSeconds>
+						<postFadeToWhiteSeconds>0.5</postFadeToWhiteSeconds>
+						<postFadeFromWhiteSeconds>0.5</postFadeFromWhiteSeconds>
+					</li>
+					<li>
+						<texturePath>CG/ED3</texturePath>
+						<displaySeconds>5</displaySeconds>
+						<preFadeToWhiteSeconds>0.5</preFadeToWhiteSeconds>
+						<preFadeFromWhiteSeconds>0.5</preFadeFromWhiteSeconds>
+						<postFadeToWhiteSeconds>0.5</postFadeToWhiteSeconds>
+						<postFadeFromWhiteSeconds>0.5</postFadeFromWhiteSeconds>
+					</li>
+					<li>
+						<texturePath>CG/ED4</texturePath>
+						<displaySeconds>5</displaySeconds>
+						<preFadeToWhiteSeconds>0.5</preFadeToWhiteSeconds>
+						<preFadeFromWhiteSeconds>0.5</preFadeFromWhiteSeconds>
+						<postFadeToWhiteSeconds>0.5</postFadeToWhiteSeconds>
+						<postFadeFromWhiteSeconds>0.5</postFadeFromWhiteSeconds>
+					</li>
+					<!-- 继续加 li 就是继续加图片 -->
+				</endingCgs>
+			</li>
+		</comps>
+		<designationCategory>Misc</designationCategory>
+		<costList>
+			<SpiritualWood>200</SpiritualWood>
+			<Crimsongold>30</Crimsongold>
+			<FullPower>2</FullPower>
+	    </costList>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<researchPrerequisites>
+			<li>PowerPoint</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<JobDef>
+		<defName>OpenGensokyo</defName>
+		<driverClass>U.N.Owen.EndAbout.JobDriver_OpenGensokyo</driverClass>
+		<reportString>正在打开幻想乡的裂缝。</reportString>
+		<suspendable>false</suspendable>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>DoremySleepingPillow</defName>
+		<label>哆来咪安眠枕</label>
+		<description>该枕头凭借能让人安眠的功能获得了好评。不仅在人类村落连在妖怪之间也成了热门商品。果然无论是谁都想追求睡眠质量。考虑到人生的时间里，三分之一都被睡眠占据，如何有效利用这一时间也足以成为终身探寻的重要课题之一吧。因此，在这部分产生需求也是理所当然的事情。
+*有传言称用了这个枕头后会在睡梦中看到了同一样貌的人物，还请注意。</description>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Building/DoremySleepingPillow</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>4</pathCost>
+		<constructEffect>ConstructMetal</constructEffect>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<Beauty>8</Beauty>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>100</WorkToBuild>
+			<Flammability>1</Flammability>
+			<Mass>0.1</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<selectable>true</selectable>
+		<costList>
+			<Cloth>75</Cloth>
+			<MakaiShinkiCloth>10</MakaiShinkiCloth>
+		</costList>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<clearBuildingArea>true</clearBuildingArea>
+		<canOverlapZones>false</canOverlapZones>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<comps>
+			<li Class="CompProperties_Facility">
+				<statOffsets>
+					<Comfort>0.75</Comfort>
+					<BedRestEffectiveness>0.4</BedRestEffectiveness>
+				</statOffsets>
+				<maxSimultaneous>1</maxSimultaneous>
+				<mustBePlacedAdjacentCardinalToBedHead>true</mustBePlacedAdjacentCardinalToBedHead>
+			</li>
+			<li Class="merissu.CompProperties_DoremySleepingPillow">
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+			<li>merissu.PlaceWorker_OnBed</li>
+		</placeWorkers>
+		<thingCategories>
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+		<building>
+			<isEdifice>false</isEdifice>
+		</building>
+    <designationCategory>Furniture</designationCategory>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>DreamExpress</defName>
+		<label>梦幻快车</label>
+		<description>这个人在刚刚的睡眠中经历了一段不可思议的旅行。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.75</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li/>
+		</stages>
+	</HediffDef>
+
+	<ThoughtDef>
+		<defName>SweetDream</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>DreamExpress</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>梦幻快车</label>
+				<description>我曾做过一个我长眠后化作蝴蝶的梦。人类从化作蝴蝶的梦境中苏醒,又是否能回到平日的生活中呢？
+还是说,觉得自己变为蝴蝶的一场梦的自己原本就是一只已然长眠的蝴蝶,不过是做了一个人类一辈子的梦呢？</description>
+				<baseMoodEffect>10</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+		<ThingDef ParentName="BuildingBase">
+		<defName>ShrineBeacon</defName>
+		<label>神社庭灯</label>
+		<description>神社用于照明的灯笼，也用于收纳奉纳的香火，里面封印了一枚灵异珠。</description>
+		<graphicData>
+			<texPath>Building/ShrineBeacon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1, 2)</drawSize>
+			<shadowData>
+				<volume>(1, 2.0, 0.2)</volume>
+				<offset>(0.0, 0.5, 0)</offset>
+			</shadowData>
+		</graphicData>
+		<thingClass>Building</thingClass>
+		<thingCategories>
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+		</building>
+		<comps>
+			<li Class="CompProperties_Breakdownable"/>
+
+			<li Class="CompProperties_Facility">
+				<maxSimultaneous>7</maxSimultaneous>
+				<maxDistance>7000</maxDistance>
+				<mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>15</glowRadius>
+				<glowColor>(177,156,217,0)</glowColor>
+			</li>
+		</comps>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MarketValue>6000</MarketValue>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<Beauty>6</Beauty>
+			<Mass>35</Mass>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardCore</li>
+		</thingSetMakerTags>
+		<tickerType>Normal</tickerType>
+		<size>(1, 1)</size>
+		<fillPercent>1.0</fillPercent>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<passability>PassThroughOnly</passability>
+		<rotatable>false</rotatable>
+		<canOverlapZones>false</canOverlapZones>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>ExoticBuilding</li>
+		</tradeTags>
+		<costList>
+			<SupernaturalBead>1</SupernaturalBead>
+		</costList>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>ShrineBeaconWithoutSealing</defName>
+		<label>神社庭灯</label>
+		<description>神社用于照明的灯笼，也用于收纳奉纳的香火，有时也可以封印什么东西。</description>
+		<graphicData>
+			<texPath>Building/ShrineBeaconWithoutSealing</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1, 2)</drawSize>
+			<shadowData>
+				<volume>(1, 2.0, 0.2)</volume>
+				<offset>(0.0, 0.5, 0)</offset>
+			</shadowData>
+		</graphicData>
+		<thingClass>Building</thingClass>
+		<thingCategories>
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+		</building>
+		<comps>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="U.N.Owen.EndAbout.CompProperties_ShrineBeacon">
+			</li>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>2.0</fuelConsumptionRate>
+				<fuelCapacity>30.0</fuelCapacity>
+				<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</fuelFilter>
+				<initialFuelPercent>0</initialFuelPercent>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+				<functionsInVacuum>false</functionsInVacuum>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>15</glowRadius>
+				<glowColor>(252,187,113,0)</glowColor>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>3.5</heatPerSecond>
+				<heatPushMaxTemperature>23</heatPushMaxTemperature>
+			</li>
+		</comps>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MarketValue>6000</MarketValue>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<Beauty>25</Beauty>
+			<Mass>35</Mass>
+			<WorkToBuild>8000</WorkToBuild>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardCore</li>
+		</thingSetMakerTags>
+		<tickerType>Normal</tickerType>
+		<size>(1, 1)</size>
+		<fillPercent>1.0</fillPercent>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<passability>PassThroughOnly</passability>
+		<rotatable>false</rotatable>
+		<canOverlapZones>false</canOverlapZones>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>ExoticBuilding</li>
+		</tradeTags>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>80</costStuffCount>
+		<placeWorkers>
+			<li>PlaceWorker_Heater</li>
+			<li>PlaceWorker_MeditationOffsetBuildingsNear</li>
+			<li>PlaceWorker_GlowRadius</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>PowerPoint</li>
+		</researchPrerequisites>
+		<designationCategory>Misc</designationCategory>
+	</ThingDef>
+	<JobDef>
+		<defName>SealingSupernaturalBead</defName>
+		<driverClass>U.N.Owen.EndAbout.JobDriver_SealingSupernaturalBead</driverClass>
+		<reportString>正在封印灵异珠。</reportString>
+		<suspendable>false</suspendable>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>IbukisGourd</defName>
+		<label>伊吹瓢</label>
+		<description>可以无限地倒出酒的酒葫芦。</description>
+		<graphicData>
+			<texPath>Building/IbukisGourd</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1, 1)</drawSize>
+			<shadowData>
+				<volume>(1.8, 1.0, 0.2)</volume>
+				<offset>(0.0, 0.0, -0.4)</offset>
+			</shadowData>
+		</graphicData>
+		<thingCategories>
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentSpacer>6</ComponentSpacer>
+		</costList>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+		</building>
+		<comps>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Spawner">
+				<requiresPower>false</requiresPower>
+				<thingToSpawn>OniKillingWine</thingToSpawn>
+				<spawnCount>25</spawnCount>
+				<spawnIntervalRange>
+					<min>10000</min>
+					<max>10000</max>
+				</spawnIntervalRange>
+				<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+				<showMessageIfOwned>true</showMessageIfOwned>
+			</li>
+		</comps>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MarketValue>6000</MarketValue>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<Beauty>-10</Beauty>
+			<Mass>35</Mass>
+			<WorkToBuild>8000</WorkToBuild>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardCore</li>
+		</thingSetMakerTags>
+		<tickerType>Normal</tickerType>
+		<size>(1, 1)</size>
+		<fillPercent>1.0</fillPercent>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<passability>Impassable</passability>
+		<rotatable>false</rotatable>
+		<canOverlapZones>false</canOverlapZones>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>ExoticBuilding</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>HoshigumasCup</defName>
+		<label>星熊杯</label>
+		<description>星熊杯能让注入里头的酒品级上升，酒注入的瞬间便会变成纯米大吟酿，但会随时间流逝而劣化，不赶快喝掉就会很吃亏，是鬼的名品。跟伊吹瓢非常合得来。</description>
+		<graphicData>
+			<texPath>Things/Building/Special/InfiniteChemreactor</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1, 1)</drawSize>
+			<shadowData>
+				<volume>(1.8, 1.0, 0.2)</volume>
+				<offset>(0.0, 0.0, -0.4)</offset>
+			</shadowData>
+		</graphicData>
+		<thingCategories>
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+		</building>
+		<comps>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="HoshigumasCup.CompProperties_Exchange">
+				<ticksToRecharge>1</ticksToRecharge>
+			</li>
+		</comps>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MarketValue>6000</MarketValue>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<Beauty>0</Beauty>
+			<Mass>35</Mass>
+			<WorkToBuild>8000</WorkToBuild>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardCore</li>
+		</thingSetMakerTags>
+		<tickerType>Normal</tickerType>
+		<size>(1, 1)</size>
+		<fillPercent>1.0</fillPercent>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<passability>Impassable</passability>
+		<rotatable>false</rotatable>
+		<canOverlapZones>false</canOverlapZones>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<tradeability>Sellable</tradeability>
+		<tradeTags>
+			<li>ExoticBuilding</li>
+		</tradeTags>
+	</ThingDef>
+	<JobDef>
+		<defName>SpawnWine</defName>
+		<driverClass>U.N.Owen.JobDriver_SpawnWine</driverClass>
+		<reportString>正在使用星熊杯。</reportString>
+		<suspendable>false</suspendable>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+</Defs>

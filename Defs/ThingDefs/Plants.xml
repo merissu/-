@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="DeciduousTreeBase">
+		<defName>Plant_SpiritualFloweringBush</defName>
+		<label>栖灵花丛</label>
+		<description>可能是由于某位死神的疏忽，大量幽灵堆积在此岸，它们无处可去，便凭依在这些花上，使花不合时宜地开放，然后快速枯萎，可以在花枯萎前将其砍伐以获取栖灵木。</description>
+		<graphicData>
+			<texPath>Plants/Plant_SpiritualFloweringBush</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.1, 0.2, 0.1)</volume>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<Beauty>20</Beauty>
+			<BeautyOutdoors>2</BeautyOutdoors>
+		</statBases>
+		<plant>
+			<growDays>0.1</growDays>
+			<leaflessGraphicPath>Things/Plant/TreeOak_Leafless</leaflessGraphicPath>
+			<harvestedThingDef>SpiritualWood</harvestedThingDef>
+			<harvestWork>1400</harvestWork>
+			<harvestYield>5</harvestYield>
+			<wildOrder>0.05</wildOrder>
+			<topWindExposure>0.3</topWindExposure>
+			<wildClusterRadius>2</wildClusterRadius>
+			<wildClusterWeight>100</wildClusterWeight>
+		</plant>
+	</ThingDef>
+	
+	<ThingDef ParentName="DeciduousTreeBase">
+		<defName>GrowablePlant_SpiritualFloweringBush</defName>
+		<label>栖灵花丛</label>
+		<description>通过某种术法主动招引幽灵，让幽灵附着在花上，使花开放，但是仍会快速枯萎，在花枯萎前将其砍伐能获取栖灵木。</description>
+		<graphicData>
+			<texPath>Plants/Plant_SpiritualFloweringBush</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.1, 0.2, 0.1)</volume>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<Beauty>20</Beauty>
+			<BeautyOutdoors>20</BeautyOutdoors>
+		</statBases>
+		<plant>
+			<growDays>6</growDays>
+			<leaflessGraphicPath>Things/Plant/TreeOak_Leafless</leaflessGraphicPath>
+			<harvestedThingDef>SpiritualWood</harvestedThingDef>
+			<harvestWork>1400</harvestWork>
+			<harvestYield>10</harvestYield>
+			<wildOrder>0.05</wildOrder>
+			<sowResearchPrerequisites Inherit="False">
+				<li>ReturningFromTheHell</li>
+			</sowResearchPrerequisites>
+			<topWindExposure>0.3</topWindExposure>
+			<wildClusterRadius>2</wildClusterRadius>
+			<wildClusterWeight>100</wildClusterWeight>
+		</plant>
+	</ThingDef>
+	
+	<ThingDef ParentName="PlantBase">
+		<defName>MakaiShinkiVine</defName>
+		<label>幻绮葛</label>
+		<description>汲取了魔界魔力的葛藤，可以割除以提取幻绮绢。</description>
+		<statBases>
+			<MaxHitPoints>120</MaxHitPoints>
+			<Nutrition>0.2</Nutrition>
+		</statBases>
+		<graphicData>
+			<texPath>Plants/MakaiShinkiVine</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.2, 0.6, 0.2)</volume>
+			</shadowData>
+		</graphicData>
+		<selectable>true</selectable>
+		<neverMultiSelect>false</neverMultiSelect>
+		<fillPercent>0.20</fillPercent>
+		<pathCost>30</pathCost>
+		<ingestible />
+		<plant>
+			<growDays>12</growDays>
+			<harvestedThingDef>MakaiShinkiCloth</harvestedThingDef>
+			<harvestYield>5</harvestYield>
+			<harvestWork>300</harvestWork>
+			<harvestTag>Standard</harvestTag>
+			<visualSizeRange>0.9~1.4</visualSizeRange>
+			<topWindExposure>30</topWindExposure>
+			<wildClusterRadius>2</wildClusterRadius>
+			<wildClusterWeight>100</wildClusterWeight>
+			<wildOrder>2</wildOrder>
+		</plant>
+	</ThingDef>
+
+
+	<ThingDef ParentName="PlantBase">
+    <defName>LoseBambooShoot_Plants</defName>
+	<label>迷途笋</label>
+		<description>这种竹笋成长飞快,很容易便会形成竹林。
+
+如果是在广阔且地面不平坦的地方形成的竹林,歪斜的竹子和不断变换的景色就会让人失去方向感,即使本来打算直走也会在不觉间回到原处,迷途竹林的称号便是由此而来。
+
+虽然竹笋很美味,但是除了对竹林熟悉的采笋人以外，最好还是不要踏入较好。</description>
+		<graphicData>
+      <texPath>Plants/LoseBambooShoot_Plants</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+        <shadowData>
+          <volume>(0.15, 0.3, 0.15)</volume>
+          <offset>(0,0,-0.38)</offset>
+        </shadowData>
+    </graphicData>
+    <selectable>true</selectable>
+    <statBases>
+      <Beauty>2</Beauty>
+      <BeautyOutdoors>2</BeautyOutdoors>
+      <Nutrition>0.6</Nutrition>
+    </statBases>
+    <minifiedDef IsNull="True" />
+    <ingestible />
+    <plant>
+      <dieIfLeafless>true</dieIfLeafless>
+      <growDays>2</growDays>
+      <visualSizeRange>0.8~2.0</visualSizeRange>
+      <sowMinSkill>8</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+      </sowTags>
+      <sowResearchPrerequisites Inherit="False">
+        <li>DeepInTheBambooForest</li>
+      </sowResearchPrerequisites>
+      <topWindExposure>0.15</topWindExposure>
+      <mustBeWildToSow>false</mustBeWildToSow>
+      <immatureGraphicPath>Plants/LoseBambooShoot_Plants</immatureGraphicPath>
+      <harvestWork>200</harvestWork>
+      <harvestTag>Standard</harvestTag>
+      <forceIsTree>true</forceIsTree>
+      <harvestYield>1</harvestYield>
+      <harvestedThingDef>LoseBambooShoot</harvestedThingDef>
+      <harvestFailable>true</harvestFailable>
+    </plant>
+  </ThingDef>
+
+	<ThingDef ParentName="PlantBase">
+		<defName>ReimuSakura_Plants</defName>
+		<label>冥界樱花树</label>
+		<description>来自于冥界的樱花树,或许有樱之幽灵附在上面,可以收获灵樱花瓣。
+
+在冥界种植着难以计数的樱花树,盛开时会有众多的幽灵和妖怪们被其所吸引，聚集到樱花树下来,届时便会看到数目众多的幽灵再加上普莉兹姆利巴三姐妹的现场演出的热闹景象。
+
+冥界的一切都是死的,但在死后的世界里也可以过得如此愉快,正因如此所以人类们才会为了能够在冥界过上这种愉快的生活而不是被判入地狱,拼尽全力地生活吧。</description>
+		<graphicData>
+			<texPath>Plants/ReimuSakura_Plants</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.15, 0.3, 0.15)</volume>
+				<offset>(0,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<selectable>true</selectable>
+		<statBases>
+			<Beauty>10</Beauty>
+			<BeautyOutdoors>10</BeautyOutdoors>
+			<Nutrition>1.5</Nutrition>
+		</statBases>
+		<minifiedDef IsNull="True" />
+		<ingestible />
+		<plant>
+			<dieIfLeafless>true</dieIfLeafless>
+			<growDays>10</growDays>
+			<visualSizeRange>0.8~2.0</visualSizeRange>
+			<sowMinSkill>8</sowMinSkill>
+			<sowTags>
+				<li>Ground</li>
+			</sowTags>
+			<sowResearchPrerequisites Inherit="False">
+				<li>PowerPoint</li>
+			</sowResearchPrerequisites>
+			<topWindExposure>0.15</topWindExposure>
+			<mustBeWildToSow>false</mustBeWildToSow>
+			<immatureGraphicPath>Plants/ReimuSakura_Plants</immatureGraphicPath>
+			<harvestWork>310</harvestWork>
+			<harvestAfterGrowth>0.3</harvestAfterGrowth>
+			<harvestTag>Standard</harvestTag>
+			<forceIsTree>true</forceIsTree>
+			<harvestYield>10</harvestYield>
+			<harvestedThingDef>ReimuSakuraPetal</harvestedThingDef>
+			<harvestFailable>false</harvestFailable>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>HeavenlyPeachSeed</defName>
+		<label>月都桃树种子</label>
+		<description>月之都桃树的种子。</description>
+		<descriptionHyperlinks>
+			<ThingDef>HeavenlyPeachTree</ThingDef>
+		</descriptionHyperlinks>
+		<stackLimit>5</stackLimit>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Mass>0.3</Mass>
+			<Beauty>0</Beauty>
+			<MarketValue>70</MarketValue>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Item/GauranlenSeed</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>(0.6, 0.6)</drawSize>
+		</graphicData>
+		<costList>
+			<FullPower>5</FullPower>
+		</costList>
+		<recipeMaker>
+			<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+			<workSkill>Intellectual</workSkill>
+			<recipeUsers>
+				<li>PenglaiPharmaceuticalTable</li>
+			</recipeUsers>
+			<researchPrerequisite>TheDarkSideOfTheMoon</researchPrerequisite>
+			<skillRequirements>
+				<Intellectual>8</Intellectual>
+			</skillRequirements>
+			</recipeMaker>
+		<thingCategories>
+			<li>ItemsMisc</li>
+		</thingCategories>
+		<comps>
+			<li Class="CompProperties_Plantable">
+				<plantDefToSpawn>HeavenlyPeachTree</plantDefToSpawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="PlantBase">
+		<defName>HeavenlyPeachTree</defName>
+		<label>月之都桃树</label>
+		<description>桃李不言,下自成蹊。在月之都的庭院中种植了许多这样的桃树,结出的果实十分鲜美,无论是月之民还是兔子都很喜欢。</description>
+		<graphicData>
+			<texPath>Plants/HeavenlyPeachTree</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.15, 0.3, 0.15)</volume>
+				<offset>(0,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<selectable>true</selectable>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<Beauty>2</Beauty>
+			<BeautyOutdoors>2</BeautyOutdoors>
+			<Nutrition>5</Nutrition>
+		</statBases>
+		<minifiedDef IsNull="True" />
+		<ingestible />
+		<plant>
+			<dieIfLeafless>false</dieIfLeafless>
+			<growDays>30</growDays>
+			<visualSizeRange>0.8~2.0</visualSizeRange>
+			<topWindExposure>0.15</topWindExposure>
+			<immatureGraphicPath>Plants/HeavenlyPeachTree_Immature</immatureGraphicPath>
+			<harvestWork>310</harvestWork>
+			<harvestAfterGrowth>0.9</harvestAfterGrowth>
+			<harvestTag>Standard</harvestTag>
+			<forceIsTree>true</forceIsTree>
+			<harvestYield>10</harvestYield>
+			<harvestedThingDef>HeavenlyPeach</harvestedThingDef>
+			<harvestFailable>false</harvestFailable>
+		</plant>
+		<comps>
+			<li Class="SpawnPlant.CompProperties_Spawner">
+				<requiresPower>false</requiresPower>
+				<thingToSpawn>HeavenlyPeach</thingToSpawn>
+				<spawnCount>2</spawnCount>
+				<spawnIntervalRange>
+					<min>60000</min>
+					<max>120000</max>
+				</spawnIntervalRange>
+				<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+				<showMessageIfOwned>true</showMessageIfOwned>
+		    </li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="PlantBase">
+		<defName>JadeBranch_Plants</defName>
+		<label>优昙花</label>
+		<description>真正的优昙花，是只存在于月之都的树。这种树一旦开花、结果，枝上就缀满了美丽的七色球。从前，我要求前来求婚的男子拿出的「蓬莱玉枝」这种宝物，就是指开花结果的优昙花树枝。所谓蓬莱玉枝，就是用蓬莱的优昙花加工之物。
+这种优昙花，在月之都里既不长叶也不开花更没有结过果。外表虽然朴素，却给人以『侘·寂』中的『寂』感的植物。既不会枯萎也不会成长仅仅生根于那里。但将这枝条带到地上之后，地上的污秽会让其外形产生了巨大的变化。它开始以污秽为营养进行成长，将结出美丽的七色之玉的果实。
+我不知道为什么以污秽为养分的植物会生长在没有污秽的月之都，不过，我想它多半是某个住在月之都的贤者创造出来的植物吧。因为，有人告诉过我，只要把污秽带进月之都，它就会立刻开花。
+月之使者来到地上时，也随身带着这种优昙花的枝。当把树枝交给一名当权者后，这名当权者满身的污秽立刻使它结出了七色的果实。权势越大，结出的果实越美丽，这种果实自然成为了当权者权力的象征</description>
+		<graphicData>
+			<texPath>Plants/JadeBranch_Plants</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.15, 0.3, 0.15)</volume>
+				<offset>(0,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<selectable>true</selectable>
+		<statBases>
+			<Beauty>2</Beauty>
+			<BeautyOutdoors>2</BeautyOutdoors>
+			<Nutrition>1.5</Nutrition>
+		</statBases>
+		<minifiedDef IsNull="True" />
+		<ingestible />
+		<plant>
+			<dieIfLeafless>true</dieIfLeafless>
+			<growDays>8</growDays>
+			<visualSizeRange>0.8~2.0</visualSizeRange>
+			<topWindExposure>0.15</topWindExposure>
+			<harvestWork>310</harvestWork>
+			<harvestTag>Standard</harvestTag>
+			<harvestYield>1</harvestYield>
+			<harvestedThingDef>JadeBranch</harvestedThingDef>
+			<harvestFailable>false</harvestFailable>
+		</plant>
+	</ThingDef>
+
+	<IncidentDef>
+		<defName>JadeBranchSpawn</defName>
+		<label>优昙花现世</label>
+		<category>Special</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>THSIR_JadeBranch.IncidentWorker_JadeBranchSpawn</workerClass>
+		<letterLabel>优昙花现世</letterLabel>
+		<letterText>这是一株世间罕有的宝物，据说只有位高权重的人才有资格拥有，采收的七色的宝玉能够用来制作传说中的不死药——蓬莱之药</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<disallowedBiomes>
+			<li>SeaIce</li>
+		</disallowedBiomes>
+	</IncidentDef>
+</Defs>

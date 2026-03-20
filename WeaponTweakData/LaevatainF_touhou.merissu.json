@@ -3,10 +3,12 @@
   "ItemDefName": "LaevatainF",
   "ItemType": "ThingDef",
   "ItemTypeNamespace": "Verse",
-  "OffX": 0.12870276,
-  "OffY": 0.0360914171,
+  "OffX": 0.114247479,
+  "OffY": 0.081989415,
   "Rotation": 45.0,
-  "BladeStart": 0.0796731338,
-  "BladeEnd": 0.8396323,
+  "ScaleX": 2.0,
+  "ScaleY": 2.0,
+  "BladeStart": 0.0188172869,
+  "BladeEnd": 1.48924744,
   "MeleeWeaponType": 6
 }

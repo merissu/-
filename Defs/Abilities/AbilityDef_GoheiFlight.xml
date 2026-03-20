@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>GoheiFlightToggle</defName>
+        <label>飞行</label>
+        <description>启动或关闭御币的飞行能力。</description>
+        <iconPath>Abilities/GoheiFlight</iconPath>
+        <abilityClass>merissu.Ability_ToggleGoheiFlight</abilityClass>
+        <cooldownTicksRange>3</cooldownTicksRange>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>fly</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>Hediff_GoheiFlying</defName>
+        <label>飞行中</label>
+        <defaultLabelColor>(102,204,255)</defaultLabelColor>
+        <description>你正处于飞行状态,可以进行符卡宣言</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+        <abilities>
+			<li>reimucard</li>
+			<li>DreamHeavenly</li>
+		</abilities>
+    </HediffDef>
+
+</Defs>

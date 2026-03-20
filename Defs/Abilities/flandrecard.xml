@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<AbilityDef>
+		<defName>FourOfAKind</defName>
+		<label>禁忌「四重存在」</label>
+        <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
+		<description>芙兰分身后肆无忌惮地发动攻击的符卡。我一直都觉得分身以后会变得无所不能,而且我也想要奴隶。
+
+使用需要消耗一层灵力,分身会存在六小时</description>
+		<iconPath>Abilities/FourOfAKind</iconPath>
+		<cooldownTicksRange>15000</cooldownTicksRange>
+		<writeCombatLog>True</writeCombatLog>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<range>49.5</range>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>merissu.CompAbilityEffect_Spawner</compClass>
+				<hediffDef>TheLiberationOfTheId</hediffDef>
+				<psychic>false</psychic>
+			</li>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>OntologyFourOfAKind</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>OntologyFourOfAKind</defName>
+		<defaultLabelColor>(255,255,204)</defaultLabelColor>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>禁忌「四重存在」</label>
+		<description>毁灭一切的吸血鬼</description>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-4</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Flandre1</songDef>
+            </li>
+		</comps>
+		<isBad>false</isBad>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>FourOfAKind</defName>
+		<defaultLabelColor>(255,255,204)</defaultLabelColor>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>「四重存在」</label>
+		<description>毁灭一切的吸血鬼</description>
+		<comps>
+			<li Class="merissu.HediffCompProperties_FourOfAKindVanish">
+			</li>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-4</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<isBad>false</isBad>
+	</HediffDef>
+
+	<ThingDef ParentName="BaseWeapon">
+		<techLevel>Archotech</techLevel>
+		<smeltable>true</smeltable>
+		<burnableByRecipe>true</burnableByRecipe>
+		<thingCategories>
+			<li>WeaponsMelee</li>
+		</thingCategories>
+		<weaponClasses>
+			<li>Melee</li>
+		</weaponClasses>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+		<tradeTags>
+			<li>WeaponMelee</li>
+		</tradeTags>
+		<defName>LaevatainF</defName>
+		<label>掌中的破坏者</label>
+		<description>芙兰朵露经常使用的S形武器,拿在手中便会拥有将一切悉数破坏程度的能力,让分身拿上这把武器肆无忌惮地发动攻击吧</description>
+		<destroyOnDrop>true</destroyOnDrop>
+		<tradeability>None</tradeability>
+		<possessionCount>1</possessionCount>
+		<graphicData>
+			<texPath>Weapons/Laevatain</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<relicChance>17</relicChance>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<tools>
+			<li>
+				<label>莱瓦汀</label>
+				<capacities>
+					<li>KagomeKagome</li>
+				</capacities>
+				<power>495</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+    <AbilityDef>
+		<defName>BloodyCatastrophe</defName>
+		<label>破坏的美学</label>
+        <abilityClass>merissu.BloodyCatastrophe</abilityClass>
+		<description>芙兰的能力,将“目”（事物最重要的部分）移动到自己的手中,并且一握拳就能将手中的“目”破坏,甚至不用触摸到事物本体就能破坏事物。
+
+万物被破坏的那一刻才最美丽。而且也更轻松。</description>
+		<iconPath>Abilities/BloodyCatastrophe</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>999</range>
+			<warmupTime>0.5</warmupTime>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>false</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+</Defs>	

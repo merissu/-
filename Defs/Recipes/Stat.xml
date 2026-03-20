@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<StatDef>
+	<defName>PowerPoint</defName>
+	<label>灵力</label>
+	<description>这件物品蕴含的灵力。</description>
+	<category>BasicsNonPawnImportant</category>
+	<defaultBaseValue>0</defaultBaseValue>
+	<minValue>0</minValue>
+	<showIfUndefined>false</showIfUndefined>
+	<toStringStyle>FloatTwo</toStringStyle>
+	<parts>
+	</parts>
+	<displayPriorityInCategory>3000</displayPriorityInCategory>
+</StatDef>
+	</Defs>

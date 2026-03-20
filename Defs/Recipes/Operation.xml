@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<RecipeDef>
+	<defName>UniversalInjection</defName>
+	<label>使用天丸</label>
+	<description>使用天丸。</description>
+	<workerClass>Recipe_AdministerUsableItem</workerClass>
+	<jobString>使用天丸。</jobString>
+	<targetsBodyPart>false</targetsBodyPart>
+	<anesthetize>false</anesthetize>
+	<workAmount>600</workAmount>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+	<surgeryOutcomeEffect IsNull="True"/>
+	<ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>UniversalInjection</li>
+				</thingDefs>
+			</filter>
+			<count>1</count>
+		</li>
+	</ingredients>
+	<fixedIngredientFilter>
+		<thingDefs>
+			<li>UniversalInjection</li>
+		</thingDefs>
+	</fixedIngredientFilter>
+</RecipeDef>
+	
+	<RecipeDef>
+		<defName>E_LargeHiPotion</defName>
+		<label>使用苏生秘药</label>
+		<description>使用苏生秘药。</description>
+		<workerClass>Recipe_AdministerUsableItem</workerClass>
+		<jobString>使用苏生秘药。</jobString>
+		<targetsBodyPart>false</targetsBodyPart>
+		<anesthetize>false</anesthetize>
+		<workAmount>600</workAmount>
+		<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+		<surgeryOutcomeEffect IsNull="True"/>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>E_LargeHiPotion</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>E_LargeHiPotion</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+	</RecipeDef>
+	
+	<RecipeDef>
+		<defName>E_HiPotion</defName>
+		<label>服用苏活秘药</label>
+		<description>服用苏活秘药。</description>
+		<workerClass>Recipe_AdministerUsableItem</workerClass>
+		<jobString>服用苏活秘药。</jobString>
+		<targetsBodyPart>false</targetsBodyPart>
+		<anesthetize>false</anesthetize>
+		<workAmount>600</workAmount>
+		<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+		<surgeryOutcomeEffect IsNull="True"/>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>E_HiPotion</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>E_HiPotion</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+	</RecipeDef>
+</Defs>

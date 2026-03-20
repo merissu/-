@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>YuukaUmbrella</defName>
+		<label>花田阳伞</label>
+		<description>风见幽香的阳伞，拿起后会获得统御鲜花的力量
+
+阳伞收起时可以用伞尖戳人,也可以用伞放出飞散并且会分裂的花弹,消耗五层灵力可以用阳伞放出魔炮
+
+阳伞撑开后,可以作为缓冲减少受到的伤害,还可以解锁新的能力,但是移动速度会大大降低</description>
+		<tickerType>Normal</tickerType>
+		<smeltable>true</smeltable>
+		<costList>
+			<SpiritualWood>50</SpiritualWood>
+			<FullPower>2</FullPower>
+			<MakaiShinkiCloth>100</MakaiShinkiCloth>
+	    </costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>ForgettingInTheForge</researchPrerequisite>
+		</recipeMaker>
+		<graphicData>
+			<texPath>Weapons/YuukasUmbrella</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<statBases>
+			<WorkToMake>10000</WorkToMake>
+			<MarketValue>27000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1</Mass>
+		</statBases>
+		<weaponClasses>
+			<li>Melee</li>
+		</weaponClasses>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>FlowerBullets</defaultProjectile>
+				<warmupTime>0.8</warmupTime>
+				<range>30</range>
+				<soundCast>StarlightTyphoon</soundCast>
+				<muzzleFlashScale>0</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="merissu.CompProperties_YuukaUmbrella" />
+			<li Class="merissu.CompProperties_EquippableMultiAbility">
+				<abilityDefs>
+					<li>Openumbrella</li>
+					<li>InanimateDream</li>
+				</abilityDefs>
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>伞尖</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>18</power>
+				<cooldownTime>1</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>OpenYuukaUmbrella</defName>
+		<label>花田阳伞(展开)</label>
+		<description>风见幽香的阳伞，拿起后会获得统御鲜花的力量
+
+阳伞收起时可以用伞尖戳人,也可以用伞放出飞散并且会分裂的花弹,消耗五层灵力可以用阳伞放出魔炮
+
+阳伞撑开后,可以作为缓冲减少受到的伤害,还可以解锁新的能力,但是移动速度会大大降低</description>
+		<tickerType>Normal</tickerType>
+		<smeltable>true</smeltable>
+		<costList>
+			<SpiritualWood>50</SpiritualWood>
+			<FullPower>2</FullPower>
+			<MakaiShinkiCloth>100</MakaiShinkiCloth>
+	    </costList>
+		<graphicData>
+			<texPath>Weapons/OpenYuukasUmbrella</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<statBases>
+			<WorkToMake>10000</WorkToMake>
+			<MarketValue>27000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1</Mass>
+		</statBases>
+		<weaponClasses>
+			<li>Melee</li>
+		</weaponClasses>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>FlowerBullets</defaultProjectile>
+				<warmupTime>0.8</warmupTime>
+				<range>30</range>
+				<soundCast>StarlightTyphoon</soundCast>
+				<muzzleFlashScale>0</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="merissu.CompProperties_YuukaUmbrella" />
+			<li Class="merissu.CompProperties_EquippableMultiAbility">
+				<abilityDefs>
+					<li>Openumbrella</li>
+					<li>FlowerLand</li>
+				</abilityDefs>
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>伞尖</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>18</power>
+				<cooldownTime>1</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>horrorYuukaUmbrella</defName>
+		<label>花田阳伞(魔炮)</label>
+		<description>风见幽香的阳伞，拿起后会获得统御鲜花的力量
+
+阳伞收起时可以用伞尖戳人,也可以用伞放出飞散并且会分裂的花弹,消耗五层灵力可以用阳伞放出魔炮
+
+阳伞撑开后,可以作为缓冲减少受到的伤害,还可以解锁新的能力,但是移动速度会大大降低</description>
+		<tickerType>Normal</tickerType>
+		<smeltable>true</smeltable>
+		<costList>
+			<SpiritualWood>50</SpiritualWood>
+			<FullPower>2</FullPower>
+			<MakaiShinkiCloth>100</MakaiShinkiCloth>
+	    </costList>
+		<graphicData>
+			<texPath>Weapons/yuukasumbboom</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<statBases>
+			<WorkToMake>10000</WorkToMake>
+			<MarketValue>27000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1</Mass>
+		</statBases>
+		<weaponClasses>
+			<li>Melee</li>
+		</weaponClasses>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>FlowerBullets</defaultProjectile>
+				<warmupTime>0.8</warmupTime>
+				<range>30</range>
+				<soundCast>StarlightTyphoon</soundCast>
+				<muzzleFlashScale>0</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="merissu.CompProperties_HorrorMonitor" />
+			<li Class="merissu.CompProperties_EquippableMultiAbility">
+				<abilityDefs>
+					<li>Inanimate</li>
+				</abilityDefs>
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>伞尖</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>18</power>
+				<cooldownTime>1</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<AbilityDef>
+		<defName>Openumbrella</defName>
+		<label>开伞/收伞</label>
+        <abilityClass>merissu.SleepingTerror</abilityClass>
+		<description>阳伞展开则可以挡住攻击,减少受到的伤害,还会解锁新的能力</description>
+		<iconPath>Abilities/OpenUmbrella</iconPath>
+		<cooldownTicksRange>60</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>0</warmupTime>
+            <soundCast>fly</soundCast>
+		</verbProperties>
+		<comps>
+			<li Class="merissu.CompProperties_AbilityOpenUmbrella"/>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>SleepingTerror</defName>
+		<label>沉睡的恐怖~Sleeping Terror</label>
+        <defaultLabelColor>(153,204,153)</defaultLabelColor>
+		<description>眠れる恐怖~Sleeping Terror</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-3.33</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Yuka1</songDef>
+            </li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>Openumbrella</defName>
+		<label>开伞中</label>
+        <defaultLabelColor>(153,204,153)</defaultLabelColor>
+		<description>展开了阳伞,阳伞会减少所有攻击造成的伤害,但是移动速度会大大降低(开伞后贴图位置可在设置中调整)</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<painFactor>0.5</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0.05</IncomingDamageFactor>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-0.5</offset> 
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+    <AbilityDef>
+        <defName>InanimateDream</defName>
+        <label>幽夢</label>
+        <description>消耗五层灵力发动,在音乐结束前可以尽情地释放激光</description>
+        <abilityClass>merissu.Ability_InanimateDream</abilityClass>
+        <cooldownTicksRange>4800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/Dream</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Hediff_InanimateDream</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>Hediff_InanimateDream</defName>
+		<label>幽梦~Inanimate Dream</label>
+        <defaultLabelColor>(153,204,153)</defaultLabelColor>
+		<description>在音乐结束前可以尽情地释放激光,音乐停止时阳伞会变回普通形态</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-6.25</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Yuka2</songDef>
+            </li>
+		</comps>
+	</HediffDef>
+
+    <AbilityDef>
+		<defName>Inanimate</defName>
+		<label>幽梦~Inanimate Dream</label>
+        <abilityClass>merissu.Ability_Inanimate</abilityClass>
+		<description>释放能贯穿一切的大功率的激光,摧毁位于正前方十五格宽的任何障碍。</description>
+		<iconPath>Abilities/InanimateDream</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>250</range>
+			<warmupTime>0.5</warmupTime>
+			<requireLineOfSight>false</requireLineOfSight>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>true</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>InanimateLaser</defName>
+		<label>魔炮</label>
+		<thingClass>merissu.InanimateLaser</thingClass>
+		<selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <destroyable>true</destroyable>
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <drawGUIOverlay>false</drawGUIOverlay>
+        <tickerType>Normal</tickerType>
+        <passability>Standable</passability>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<graphicClass>Graphic_Random</graphicClass>
+			<texPath>Other/MasterSpark</texPath>
+			<drawSize>(355,355)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>FlowerBullets</defName>
+		<label>花弹</label>
+		<thingClass>merissu.FlowerBullets</thingClass>
+		<graphicData>
+			<texPath>Projectiles/FlowerBullets</texPath>
+			<drawSize>(2,2)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>30</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>FlowerBulletsB</defName>
+		<label>花弹</label>
+		<thingClass>merissu.FlowerBullets</thingClass>
+		<graphicData>
+			<texPath>Projectiles/FlowerBullets</texPath>
+			<drawSize>(1.5,1.5)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>FlowerBulletsC</defName>
+		<label>花弹</label>
+		<thingClass>merissu.FlowerBullets</thingClass>
+		<graphicData>
+			<texPath>Projectiles/FlowerBullets</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>7</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>FlowerBulletsD</defName>
+		<label>花弹</label>
+		<thingClass>merissu.FlowerBullets</thingClass>
+		<graphicData>
+			<texPath>Projectiles/FlowerBullets</texPath>
+			<drawSize>(0.5,0.5)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>3</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+
+    <AbilityDef>
+        <defName>FlowerLand</defName>
+        <label>幻想乡的开花</label>
+        <description>消耗两层灵力发动,在音乐结束前可以使用特殊的能力</description>
+        <abilityClass>merissu.Ability_FlowerLand</abilityClass>
+        <cooldownTicksRange>4800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/FlowerLand</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Hediff_FlowerLand</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>Hediff_FlowerLand</defName>
+		<label>今昔幻想乡~Flower Land</label>
+        <defaultLabelColor>(153,204,153)</defaultLabelColor>
+		<description>今昔幻想乡~Flower Land</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>Sunflowerraise</li>
+        </abilities>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-6.25</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Yuka3</songDef>
+            </li>
+		</comps>
+	</HediffDef>
+
+	<AbilityDef>
+		<defName>Sunflowerraise</defName>
+		<label>幻想乡的开花</label>
+		<description>种下一株向日葵,向日葵会向敌人发射花弹。</description>
+		<iconPath>Abilities/Sunflowerraise</iconPath>
+		<cooldownTicksRange>500</cooldownTicksRange>
+		<category>Sanguophage</category>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>16</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>StarlightTyphoon</soundCast>
+			<targetParams>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetAnimals>False</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>False</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>False</canTargetSelf>
+				<canTargetPawns>False</canTargetPawns>
+				<thingCategory>Item</thingCategory>
+				<canTargetLocations>True</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class = "CompProperties_AbilityWallraise">
+				<compClass>merissu.CompAbilityEffect_Sunflowerraise</compClass>
+				<pattern>
+					<li>(0, 0)</li>
+					<li>(1, 0)</li>
+					<li>(-1, 0)</li>
+					<li>(0, 1)</li>
+					<li>(0, -1)</li>
+				</pattern>
+				<screenShakeIntensity>1.0</screenShakeIntensity>
+				<clamorType>Ability</clamorType>
+				<clamorRadius>25</clamorRadius>
+				<sound>power</sound>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>EternalSummer</defName>
+		<label>向日葵</label>
+		<description>向日葵</description>
+		<graphicData>
+			<texPath>Building/EternalSummer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<AccuracyTouch>1</AccuracyTouch>
+			<AccuracyShort>0.72</AccuracyShort>
+			<AccuracyMedium>0.66</AccuracyMedium>
+			<AccuracyLong>0.5</AccuracyLong>
+			<RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Mass>40</Mass>
+			<Flammability>1</Flammability>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<defaultProjectile>ChantingMoonlitBreeze</defaultProjectile>
+				<warmupTime>0</warmupTime>
+				<minRange>0</minRange>
+				<range>27</range>
+				<ticksBetweenBurstShots>17</ticksBetweenBurstShots>
+				<burstShotCount>3</burstShotCount>
+				<soundCast>StarlightTyphoon</soundCast>
+				<muzzleFlashScale>0</muzzleFlashScale>
+				<consumeFuelPerShot>0</consumeFuelPerShot>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>ChantingMoonlitBreeze</defName>
+		<label>啸风弄月</label>
+		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
+		<graphicData>
+			<texPath>Weapons/Bullet/FlowerBullet</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>FantasticFantasyChantingMoonlitBreeze</damageDef>
+			<stoppingPower>0.5</stoppingPower>
+			<damageAmountBase>20</damageAmountBase>
+			<speed>20</speed>
+			<flyOverhead>true</flyOverhead>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>YuukaSunflower</defName>
+		<label>向日葵</label>
+		<description>不是很普通的向日葵,会向敌人发射花弹,被打到一定会很痛。</description>
+		<uiIconPath>Building/YuukaSunflower</uiIconPath>
+		<statBases>
+			<ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Lifespan">
+				<lifespanTicks>10000</lifespanTicks>
+				<expireEffect>RaisedRock_Collapse</expireEffect>
+			</li>
+		</comps>
+		<building>
+			<turretGunDef>EternalSummer</turretGunDef>
+			<turretBurstCooldownTime>0.5</turretBurstCooldownTime>
+		</building>
+		<thingClass>Building_TurretGun</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<drawHighlight>true</drawHighlight>
+		<drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
+		<graphicData>
+			<texPath>Building/YuukaSunflower</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.7, 1.2)</drawSize>
+			<drawOffset>(0,2,-0.2)</drawOffset>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+			<shadowData>
+				<volume>(0.7,0.35,0.7)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<stealable>false</stealable>
+		<rotatable>false</rotatable>
+		<size>(1,1)</size>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<Beauty>20</Beauty>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<fillPercent>0.5</fillPercent>
+		<hasTooltip>true</hasTooltip>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<building>
+			<ai_combatDangerous>true</ai_combatDangerous>
+			<turretTopDrawSize>2.7</turretTopDrawSize>
+			<turretTopOffset>(0, 0.05)</turretTopOffset>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<designationHotKey>Misc3</designationHotKey>
+		<uiIconScale>0.95</uiIconScale>
+	</ThingDef>
+
+	<DamageDef>
+		<defName>FantasticFantasyChantingMoonlitBreeze</defName>
+		<label>花鸟风月、啸风弄月</label>
+		<workerClass>DamageWorker_AddInjury</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0} 变成了花朵们的肥料。</deathMessage>
+		<hediff>BloomingGensokyo</hediff>
+		<hediffSolid>BloomingGensokyo</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Bullet</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+		<isRanged>true</isRanged>
+		<makesAnimalsFlee>true</makesAnimalsFlee>
+	</DamageDef>
+	
+	<HediffDef ParentName="InjuryBase">
+		<defName>BloomingGensokyo</defName>
+		<label>中弹</label>
+		<labelNoun>中弹</labelNoun>
+		<defaultLabelColor>(163,51,2)</defaultLabelColor>
+		<description>被弹幕击中所造成的伤口。</description>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<isBad>true</isBad>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0.2</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>疮痍</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.0125</painPerSeverity>
+			<averagePainPerSeverityPermanent>0</averagePainPerSeverityPermanent>
+			<bleedRate>0.06</bleedRate>
+			<canMerge>false</canMerge>
+			<destroyedLabel>疮痍</destroyedLabel>
+			<destroyedOutLabel>疮痍</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+</Defs>

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>reimucard</defName>
+        <label>符卡宣言</label>
+        <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
+
+进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三种灵梦的强力符卡</description>
+        <abilityClass>merissu.Ability_ReimuCard</abilityClass>
+        <iconPath>Abilities/reimucard</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>ReimuCardDeclared</defName>
+        <label>符卡宣言</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+        <description>已进行符卡宣言,在音乐结束前释放符卡吧</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>DreamSeal</li>
+			<li>Ability_YinYangFlyingBirdWell</li>
+			<li>EightDragonSlayerArray</li>
+		</abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-24</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>reimu1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>DreamHeavenly</defName>
+		<label>「梦想天生」</label>
+        <abilityClass>merissu.Ability_DreamHeavenly</abilityClass>
+		<description>总之是究极奥义,发动时用大量的符纸包围对手将其压制,使出这张符卡的话,这场战斗对于对手来说就没有任何胜算了。
+
+需要消耗五层灵力进行发动,威力极其恐怖,注意不要在室内使用</description>
+		<iconPath>Abilities/MusouTensei</iconPath>
+		<cooldownTicksRange>800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>99</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>DreamHeavenly</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>DreamHeavenlyHakureiTalisman</defName>
+		<label>博丽灵符</label>
+		<thingClass>merissu.DanmakuBullet</thingClass>
+		<graphicData>
+			<texPath>Other/DreamHeavenlyHakureiTalisman</texPath>
+			<drawSize>(0.8,0.8)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>hakurei</damageDef>
+			<damageAmountBase>100</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>40</speed>
+		</projectile>
+	</ThingDef>
+
+    <ThingDef>
+        <defName>SmallYinYangOrb</defName>
+        <label>阴阳玉</label>
+        <thingClass>merissu.SmallYinYangOrb</thingClass>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+		<altitudeLayer>MetaOverlays</altitudeLayer>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <graphicData>
+            <texPath>Projectiles/YinYangOrbBig</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1.5,1.5)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+  <ThingDef>
+    <defName>RingShockwave</defName>
+    <label>梦想天生冲击波</label>
+    <thingClass>merissu.RingShockwave</thingClass>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Other/DreamShockwave</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+  </ThingDef>
+
+    <HediffDef>
+        <defName>DreamHeavenlyInvincible</defName>
+        <label>梦想天生</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>总之是究极奥义。灵梦漂浮于所有物体中间变成了无敌。</description>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <statOffsets>
+                    <IncomingDamageFactor>-1</IncomingDamageFactor> 
+                </statOffsets>
+            </li>
+        </stages>
+		<comps>
+            <li Class="merissu.HediffCompProperties_DisableMove"/>
+			<li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>reimu5</songDef>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <ThingDef>
+        <defName>DreamHeavenlyEmitter</defName>
+		<label>梦想天生控制</label>
+        <thingClass>merissu.DreamHeavenlyEmitter</thingClass>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+		<graphicData>
+            <texPath>Other/null</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <AbilityDef>
+		<defName>EightDragonSlayerArray</defName>
+		<label>神技「八方鬼缚阵」</label>
+        <abilityClass>merissu.Ability_EightDragonSlayerArray</abilityClass>
+		<description>制成将靠近者和子弹全部阻挡的大结界,在以施法者为中心的广范围内进行攻击,会一个不漏地回击跳进来的敌人
+
+会束缚并绞杀阵法中的所有敌人,释放时施法者也无法移动</description>
+		<iconPath>Abilities/BafangDragonArray</iconPath>
+		<cooldownTicksRange>800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>10</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>EightDragonCasterLock</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<HediffDef>
+        <defName>EightDragonCasterLock</defName>
+		<label>八方鬼缚阵</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <description>通过符札来限制对手行动的符卡。通过符札将对手束缚然后再慢慢绞杀。</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <comps>
+            <li Class="merissu.HediffCompProperties_DisableMove"/>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>reimu4</songDef>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>EightDragonBurnLock</defName>
+		<label>八方鬼缚阵束缚中</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+        <description>通过符札来限制对手行动的符卡。通过符札将对手束缚然后再慢慢绞杀。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+        <isBad>true</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<stages>
+        <li>
+            <capMods>
+                <li>
+                    <capacity>Moving</capacity>
+                    <setMax>0</setMax> </li>
+            </capMods>
+        </li>
+        </stages>
+        <comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+			</li>
+            <li Class="merissu.HediffCompProperties_DisableMove"/>
+        </comps>
+    </HediffDef>
+
+	<ThingDef>
+        <defName>EightDragonSlayerArray</defName>
+		<label>八方鬼缚阵控制</label>
+        <thingClass>merissu.Thing_FlowingArray</thingClass>
+        <category>Item</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+		<graphicData>
+            <texPath>Other/null</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+	<AbilityDef>
+		<defName>Ability_YinYangFlyingBirdWell</defName>
+		<label>宝具「阴阳飞鸟井」</label>
+        <abilityClass>merissu.Ability_YinYangFlyingBirdWell</abilityClass>
+		<description>在手边生成巨大的阴阳玉发射出去将对手压碎,就是现在！决出胜负吧！博丽射门！！
+	
+可以碾压路上的所有东西,嗯,包括你自己的建筑。</description>
+		<iconPath>Abilities/YinYangFlyingBirdWell</iconPath>
+		<cooldownTicksRange>800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>15</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <ThingDef>
+        <defName>YinYangOrb_Big</defName>
+        <label>巨大阴阳玉</label>
+        <thingClass>merissu.YinYangOrb</thingClass>
+        <category>Item</category>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Projectiles/YinYangOrbBig</texPath>
+            <drawSize>(8,8)</drawSize>
+        </graphicData>
+        <comps>
+        <li Class="merissu.CompProperties_YinYangOrb">
+            <moveSpeed>0.04</moveSpeed>
+            <damagePerTick>2</damagePerTick>
+            <radius>4.2</radius>
+            <lingerTicks>120</lingerTicks>
+            <explosionRadius>4</explosionRadius>
+            <explosionDamage>10</explosionDamage>
+        </li>
+        </comps>
+    </ThingDef>
+
+    <HediffDef>
+        <defName>YinYangOrb</defName>
+        <label>阴阳飞鸟井</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <description>就是现在！决出胜负吧！博丽射门！！</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>reimu3</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>DreamSeal</defName>
+		<label>灵符「梦想封印」</label>
+        <abilityClass>merissu.Ability_DreamSeal</abilityClass>
+		<description>梦想封印通过连射八个强力的诱导弹来追击对手，博丽巫女的代名词之一。
+	
+威力很高射程很远,缺点是只能追踪一个敌人。</description>
+		<iconPath>Abilities/DreamSeal</iconPath>
+		<cooldownTicksRange>800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>50</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>False</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <HediffDef>
+        <defName>DreamSeal</defName>
+        <label>梦想封印</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <description>梦想封印通过连射八个强力的诱导弹来追击对手，博丽巫女的代名词之一。</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>reimu2</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>DreamSealOrb_Red</defName>
+        <thingClass>merissu.DreamSealOrb</thingClass>
+        <graphicData>
+            <texPath>Projectiles/DreamSealOrb</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <tickerType>Normal</tickerType>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>DreamSealOrb_Green</defName>
+        <thingClass>merissu.DreamSealOrb</thingClass>
+        <graphicData>
+            <texPath>Projectiles/DreamSealOrb</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <tickerType>Normal</tickerType>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>DreamSealOrb_Blue</defName>
+        <thingClass>merissu.DreamSealOrb</thingClass>
+        <graphicData>
+            <texPath>Projectiles/DreamSealOrb</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <tickerType>Normal</tickerType>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>DreamSealProjectile_Red</defName>
+        <thingClass>merissu.Projectile_DreamSeal</thingClass>
+        <graphicData>
+            <texPath>Projectiles/DreamSealOrb</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3, 3)</drawSize>
+        </graphicData>
+        <projectile>
+            <speed>45</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>DreamSealProjectile_Blue</defName>
+        <thingClass>merissu.Projectile_DreamSeal</thingClass>
+        <graphicData>
+            <texPath>Projectiles/DreamSealOrb</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3, 3)</drawSize>
+        </graphicData>
+        <projectile>
+            <speed>45</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>DreamSealProjectile_Green</defName>
+        <thingClass>merissu.Projectile_DreamSeal</thingClass>
+        <graphicData>
+            <texPath>Projectiles/DreamSealOrb</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3, 3)</drawSize>
+        </graphicData>
+        <projectile>
+            <speed>45</speed>
+        </projectile>
+    </ThingDef>
+
+</Defs>	

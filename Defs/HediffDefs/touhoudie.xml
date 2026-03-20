@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<HediffDef>
+  <defName>touhoudie</defName>
+  <label>幻想入</label>
+  <defaultLabelColor>(255,0,0)</defaultLabelColor>
+  <description>死亡时会爆p点</description>
+
+  <hediffClass>HediffWithComps</hediffClass>
+  <isBad>false</isBad>
+  <tendable>false</tendable>
+
+  <comps>
+    <li Class="merissu.HediffCompProperties_OnDeathTrigger">
+      <soundDef>biu</soundDef>
+
+      <thingDefs>
+        <li>PowerPoint</li>
+      </thingDefs>
+
+      <stackCount>10</stackCount>
+    </li>
+  </comps>
+</HediffDef>
+</Defs>

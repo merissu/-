@@ -3,12 +3,12 @@
   "ItemDefName": "W_Gungnir",
   "ItemType": "ThingDef",
   "ItemTypeNamespace": "Verse",
-  "OffX": 0.0824408457,
-  "OffY": 0.03829941,
+  "OffX": 0.17069909,
+  "OffY": 0.0766129047,
   "Rotation": 45.0,
-  "ScaleX": 2.4,
-  "ScaleY": 2.4,
-  "BladeStart": 0.370658964,
-  "BladeEnd": 1.043168,
+  "ScaleX": 1.8,
+  "ScaleY": 1.8,
+  "BladeStart": 0.495967746,
+  "BladeEnd": 1.16263461,
   "MeleeWeaponType": 4
 }

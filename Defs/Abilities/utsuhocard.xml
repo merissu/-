@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>utsuhocard</defName>
+        <label>符卡宣言</label>
+        <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
+
+进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张灵乌路空的强力符卡和极其强大的Last Word</description>
+        <abilityClass>merissu.utsuhocard</abilityClass>
+        <iconPath>Abilities/utsuhocard</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>utsuhocard</defName>
+        <label>符卡宣言</label>
+        <defaultLabelColor>(102,153,153)</defaultLabelColor>
+        <description>已进行符卡宣言,在音乐结束前释放符卡吧</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>MegaFlare</li>
+			<li>FixedStar</li>
+			<li>SubterraneanSun</li>
+			<li>Ability_AbyssNova</li>
+        </abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-4.545</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>utsuho1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>MegaFlare</defName>
+		<label>爆符「百万耀斑」</label>
+        <abilityClass>merissu.Ability_MegaFlare</abilityClass>
+		<description>收集并发射核聚变能量。空的能力最简单直接的使用方式，几乎不可正面与之抗衡的高火力射击。
+	
+消耗一层灵力,释放出大容量的核能烧尽前方一切。无论范围还是威力都无可挑剔
+
+释放出的能量会在前方形成半径为15的球体</description>
+		<iconPath>Abilities/MegaFlare</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>30</range>
+			<warmupTime>0.5</warmupTime>
+			<requireLineOfSight>false</requireLineOfSight>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>true</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>MegaFlareWarmup</defName>
+		<label>百万耀斑</label>
+		<thingClass>merissu.Thing_MegaFlareWarmup</thingClass>
+		<category>Mote</category>
+		<altitudeLayer>MetaOverlays</altitudeLayer>
+		<selectable>false</selectable>
+		<tickerType>Normal</tickerType>
+		<drawOffscreen>true</drawOffscreen>
+		<useHitPoints>false</useHitPoints>
+		<statBases>
+			<MaxHitPoints>999</MaxHitPoints>
+		</statBases>
+	</ThingDef>
+
+    <AbilityDef>
+		<defName>FixedStar</defName>
+		<label>焰星「十凶星」</label>
+        <abilityClass>merissu.Ability_FixedStar</abilityClass>
+		<description>在身边形成连成环状的核能。攻击身边的敌人。
+
+使用消耗一层灵力,核能环会在身边停留五秒</description>
+		<iconPath>Abilities/FixedStar</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>12</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>Thing_FixedStarVisual</defName>
+		<label>十凶星</label>
+		<thingClass>merissu.Thing_FixedStarVisual</thingClass>
+		<category>Mote</category>
+		<drawOffscreen>true</drawOffscreen>
+		<selectable>false</selectable>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MetaOverlays</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+		<statBases>
+			<MaxHitPoints>999</MaxHitPoints>
+		</statBases>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Other/FixedStar/bulletFd004</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+    <AbilityDef>
+		<defName>SubterraneanSun</defName>
+		<label>「地狱的人造太阳」</label>
+        <abilityClass>merissu.Ability_SubterraneanSun</abilityClass>
+		<description>从地底引导出能量,当场创造出太阳的技能。太阳会出现在固定的场所灼烧四周。
+	
+消耗一层灵力,发动后在地面创造一个太阳的符卡。
+
+因为太阳会产生重力,所以敌人会向着太阳坠落。</description>
+		<iconPath>Abilities/SubterraneanSun</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>100</range>
+			<warmupTime>0.5</warmupTime>
+			<minRange>10</minRange>
+			<requireLineOfSight>false</requireLineOfSight>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>true</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>SubterraneanSunThing</defName>
+		<label>地底太阳</label>
+		<thingClass>merissu.Thing_SubterraneanSun</thingClass>
+		<category>Mote</category>
+		<selectable>false</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<altitudeLayer>MetaOverlays</altitudeLayer>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<canOverlapZones>true</canOverlapZones>
+		<passability>PassThroughOnly</passability>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Other/null</texPath>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+    <AbilityDef>
+		<defName>Ability_AbyssNova</defName>
+		<label>「深渊新星」</label>
+        <abilityClass>merissu.Ability_AbyssNova</abilityClass>
+		<description>让核能在体内循环增幅,当超过临界时自己便会化作将周围一切都燃烧殆尽的灼热太阳。太阳的判定极广且防御不能。
+
+发动需要消耗五层灵力,爆炸前有几秒的预热时间,在这之后便是没有任何人能逃脱的核爆
+
+核爆会直接摧毁80格以内的任何东西,所以不要在家门口发动这张符卡</description>
+		<iconPath>Abilities/AbyssNova</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>100</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Hediff_AbyssNova</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>Hediff_AbyssNova</defName>
+		<label>深渊新星</label>
+        <defaultLabelColor>(102,153,153)</defaultLabelColor>
+		<description>即将核爆</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+			<li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>utsuho2</songDef>
+            </li>
+		</comps>
+		<stages>
+			<li>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>	

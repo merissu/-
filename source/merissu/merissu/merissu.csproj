@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C81CC3F7-25B9-4831-B34C-A4DE4C54D71B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>merissu</RootNamespace>
+    <AssemblyName>merissu</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>none</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HarmonyMod">
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\HarmonyMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreFontEngineModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreTextEngineModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="CompPlantable_touhou.cs" />
+    <Compile Include="flandrecard\BloodyCatastrophe.cs" />
+    <Compile Include="DoremySleepingPillow\CompProperties_DoremySleepingPillow.cs" />
+    <Compile Include="flandrecard\CompAbilityEffect_Spawner.cs" />
+    <Compile Include="flandrecard\HediffCompsProperties_FourOfAKindVanish.cs" />
+    <Compile Include="DoremySleepingPillow\PlaceWorker_OnBed.cs" />
+    <Compile Include="HediffComp_MagicKnockback.cs" />
+    <Compile Include="HediffComp_MagicPotionVisuals.cs" />
+    <Compile Include="tengufan.cs" />
+    <Compile Include="utsuhocard\NuclearControlRod.cs" />
+    <Compile Include="utsuhocard\NuclearWeaponLogic.cs" />
+    <Compile Include="remiliacard\GameCondition_RedMist.cs" />
+    <Compile Include="remiliacard\RedMagic.cs" />
+    <Compile Include="remiliacard\HediffCompProperties_Vampire.cs" />
+    <Compile Include="remiliacard\Ability_ScarletDevil.cs" />
+    <Compile Include="remiliacard\Ability_SpeartheGungnir.cs" />
+    <Compile Include="remiliacard\remiliacard.cs" />
+    <Compile Include="flandrecard\Verb_Catadioptric.cs" />
+    <Compile Include="Yukari\Ability_Turnenemiesintofriends.cs" />
+    <Compile Include="Yukari\Ability_Trainbomb.cs" />
+    <Compile Include="Yukari\AbilityYukaridisappearance.cs" />
+    <Compile Include="Yukari\Yukaridisappearance.cs" />
+    <Compile Include="Yukari\fourfoldbarrier.cs" />
+    <Compile Include="Yukari\Yukaricard.cs" />
+    <Compile Include="Yukari\CompAbilityEffect_Gap.cs" />
+    <Compile Include="CompEquippableMultiAbility.cs" />
+    <Compile Include="CompProperties_EquippableMultiAbility.cs" />
+    <Compile Include="YuukaUmbrella\YuukaUmbrellaSettings.cs" />
+    <Compile Include="yuyuko\Ability_ResurrectionButterfly.cs" />
+    <Compile Include="yuyuko\ResurrectionButterfly_FanEffect.cs" />
+    <Compile Include="yuyuko\yuyukoResurrectionButterfly.cs" />
+    <Compile Include="yuyuko\GhostButterfly.cs" />
+    <Compile Include="yuyuko\Ability_DeadButterfly.cs" />
+    <Compile Include="yuyuko\gotodie.cs" />
+    <Compile Include="yuyuko\HediffCompProperties_GhostCountdown.cs" />
+    <Compile Include="yuyuko\Verb_DeathButterfliesVolley.cs" />
+    <Compile Include="youmucard\Ability_youmulastspell.cs" />
+    <Compile Include="youmucard\CompProperties_YoumuRapidSlash.cs" />
+    <Compile Include="youmucard\SakuraFlash.cs" />
+    <Compile Include="youmucard\Ability_YoumuClone.cs" />
+    <Compile Include="youmucard\Ability_Youmuparry.cs" />
+    <Compile Include="AbyssNova\Ability_AbyssNova.cs" />
+    <Compile Include="AbyssNova\AbyssNovaUIController.cs" />
+    <Compile Include="koishi\CompProperties_AbilityTeleportBackstab.cs" />
+    <Compile Include="koishi\Id.cs" />
+    <Compile Include="koishi\satorieye.cs" />
+    <Compile Include="youmucard\Projectile_YoumuParry.cs" />
+    <Compile Include="SubterraneanSun\Ability_SubterraneanSun.cs" />
+    <Compile Include="SubterraneanSun\Thing_SubterraneanSun.cs" />
+    <Compile Include="koishi\SuperEgo.cs" />
+    <Compile Include="utsuhocard\Ability_FixedStar.cs" />
+    <Compile Include="MegaFlare\Ability_MegaFlare.cs" />
+    <Compile Include="MegaFlare\Thing_MegaFlareWarmup .cs" />
+    <Compile Include="utsuhocard\Thing_StarlightLaserBeam.cs" />
+    <Compile Include="utsuhocard\Thing_StarlightLaserParticle.cs" />
+    <Compile Include="utsuhocard\utsuhocard.cs" />
+    <Compile Include="utsuhocard\Verb_ShootStarlightLaser.cs" />
+    <Compile Include="youmucard\Youmucard.cs" />
+    <Compile Include="YuukaUmbrella\Ability_FlowerLand.cs" />
+    <Compile Include="YuukaUmbrella\Ability_Inanimate.cs" />
+    <Compile Include="YuukaUmbrella\Ability_InanimateDream.cs" />
+    <Compile Include="YuukaUmbrella\CompAbilityEffect_Sunflowerraise.cs" />
+    <Compile Include="YuukaUmbrella\CompProperties_YuukaUmbrella.cs" />
+    <Compile Include="YuukaUmbrella\FlowerBullets.cs" />
+    <Compile Include="Hisouten\Ability_Hisouten.cs" />
+    <Compile Include="Hisouten\Ability_TenshiLastSpell.cs" />
+    <Compile Include="Hisouten\Mote_HisoutenAnimated.cs" />
+    <Compile Include="YuukaUmbrella\InanimateLaser.cs" />
+    <Compile Include="YuukaUmbrella\SleepingTerror.cs" />
+    <Compile Include="tenshicard\JobDriver_WildlyStrikes.cs" />
+    <Compile Include="tenshicard\HediffComp_SpawningMote.cs" />
+    <Compile Include="tenshicard\Ability_UniverseQuake.cs" />
+    <Compile Include="NightFogPhantomKiller\Ability_NightFogPhantomKiller.cs" />
+    <Compile Include="EternalMeek\Ability_EternalMeek.cs" />
+    <Compile Include="LunaticRedEyes\Ability_LunaticRedEyes.cs" />
+    <Compile Include="CorollaVision\Ability_CorollaVision.cs" />
+    <Compile Include="CorollaVision\Thing_CorollaVisionRing.cs" />
+    <Compile Include="CorollaVision\Thing_CorollaVisionTrail.cs" />
+    <Compile Include="LunaticRedEyes\Thing_LunaticRedEyesEmitter.cs" />
+    <Compile Include="LunaticRedEyes\Thing_LunaticRedEyesWave.cs" />
+    <Compile Include="PrivateSquare\SakuyaPrivateSquare.cs" />
+    <Compile Include="tenshicard\Tenshicard.cs" />
+    <Compile Include="theworld\SakuyaCard.cs" />
+    <Compile Include="theworld\SakuyaTheWorld.cs" />
+    <Compile Include="EternalMeek\Thing_EternalMeekEmitter.cs" />
+    <Compile Include="NightFogPhantomKiller\Thing_NightFogKnifeBlade.cs" />
+    <Compile Include="NightFogPhantomKiller\Thing_NightFogKnifeController.cs" />
+    <Compile Include="tenshicard\WildlyStrikes.cs" />
+    <Compile Include="Hisouten\Thing_HisoutenLaser.cs" />
+    <Compile Include="XWave\AbilityWorker_XWave .cs" />
+    <Compile Include="XWave\Thing_XWaveEffect.cs" />
+    <Compile Include="XWave\Thing_XWaveLaser.cs" />
+    <Compile Include="XWave\Thing_XWaveRing.cs" />
+    <Compile Include="udongecard\Ability_udongecard.cs" />
+    <Compile Include="udongecard\Ability_InfraredMoon.cs" />
+    <Compile Include="FinalMasterSpark\Ability_FinalMasterSpark .cs" />
+    <Compile Include="MasterSpark\Ability_MasterSpark .cs" />
+    <Compile Include="StarlightTyphoon\Ability_StarlightTyphoon .cs" />
+    <Compile Include="MilkyWay\Ability_MilkyWay.cs" />
+    <Compile Include="MilkyWay\DanmakuBullet_Spinning.cs" />
+    <Compile Include="Hiziri\Ability_HiziriPower.cs" />
+    <Compile Include="HakureiShield\CompProperties_HakureiShield .cs" />
+    <Compile Include="HakureiShield\Comp_HakureiShield .cs" />
+    <Compile Include="Hakkero\MeshMaker_Fan.cs" />
+    <Compile Include="Hakkero\Projectile_HakkeroFlame.cs" />
+    <Compile Include="MilkyWay\MarisaCard.cs" />
+    <Compile Include="SagesStone\Ability_SagesStone.cs" />
+    <Compile Include="SatelliteHimawari\Ability_SatelliteHimawari.cs" />
+    <Compile Include="RoyalFlare\Ability_RoyalFlare.cs" />
+    <Compile Include="SatelliteHimawari\SatelliteHimawariEmitter.cs" />
+    <Compile Include="SatelliteHimawari\SatelliteThing.cs" />
+    <Compile Include="StarlightTyphoon\StarlightLaserDrawer.cs" />
+    <Compile Include="StElmoPillar\Ability_StElmoPillar .cs" />
+    <Compile Include="NoachianDeluge\Ability_NoachianDeluge.cs" />
+    <Compile Include="ElementalHarvester\Ability_ElementalHarvester.cs" />
+    <Compile Include="StElmoPillar\Projectile_StElmoFireball .cs" />
+    <Compile Include="SevenElementalMagic\CompProperties_WearerHediff .cs" />
+    <Compile Include="SevenElementalMagic\Comp_WearerHediff .cs" />
+    <Compile Include="DreamHeavenly\Ability_DreamHeavenly.cs" />
+    <Compile Include="DreamHeavenly\DanmakuBullet.cs" />
+    <Compile Include="DreamHeavenly\DreamHeavenlyEmitter.cs" />
+    <Compile Include="EightDragonSlayerArray\Ability_EightDragonSlayerArray.cs" />
+    <Compile Include="EightDragonSlayerArray\HediffComp_DisableMove.cs" />
+    <Compile Include="EightDragonSlayerArray\Thing_EightDragonSlayerArray.cs" />
+    <Compile Include="DreamHeavenly\RingShockwave.cs" />
+    <Compile Include="SevenElementalMagic\HediffCompProperties_AddSeverityToOther .cs" />
+    <Compile Include="SevenElementalMagic\HediffComp_AddSeverityToOther .cs" />
+    <Compile Include="SevenElementalMagic\Ability_AddHediff.cs" />
+    <Compile Include="ElementalHarvester\Thing_ElementalHarvester.cs" />
+    <Compile Include="NoachianDeluge\Thing_NoachianDelugeEmitter.cs" />
+    <Compile Include="StElmoPillar\Thing_StElmoFirePillar .cs" />
+    <Compile Include="RoyalFlare\Thing_RoyalFlareConeLight.cs" />
+    <Compile Include="RoyalFlare\Thing_RoyalFlareConeLightReverse .cs" />
+    <Compile Include="RoyalFlare\Thing_RoyalFlareController.cs" />
+    <Compile Include="RoyalFlare\Thing_RoyalFlareRangeIndicator .cs" />
+    <Compile Include="RoyalFlare\Thing_RoyalFlareShockwave.cs" />
+    <Compile Include="RoyalFlare\Thing_RoyalFlareShockwaveEmitter.cs" />
+    <Compile Include="RoyalFlare\Thing_RoyalFlareShockwaveParticle .cs" />
+    <Compile Include="RoyalFlare\Thing_RoyalFlareSun.cs" />
+    <Compile Include="RoyalFlare\Thing_RoyalFlareSunParticle .cs" />
+    <Compile Include="SagesStone\Thing_SagesStone.cs" />
+    <Compile Include="SagesStone\Thing_SagesStoneOrbitController.cs" />
+    <Compile Include="Hakkero\Verb_HakkeroFlameArc.cs" />
+    <Compile Include="MilkyWay\Thing_MilkyWayEmitter.cs" />
+    <Compile Include="StarlightTyphoon\Thing_StarlightOrb.cs" />
+    <Compile Include="MasterSpark\Thing_MasterSparkLaser .cs" />
+    <Compile Include="FinalMasterSpark\Thing_FinalMasterSparkLaser .cs" />
+    <Compile Include="YinYangFlyingBirdWell\Ability_YinYangFlyingBirdWell.cs" />
+    <Compile Include="YinYangFlyingBirdWell\CompProperties_YinYangOrb.cs" />
+    <Compile Include="YinYangFlyingBirdWell\Comp_YinYangOrb.cs" />
+    <Compile Include="LittleHakureiEnchantment\CompProperties_ShieldRadiusControl.cs" />
+    <Compile Include="LittleHakureiEnchantment\Comp_ShieldRadiusControl.cs" />
+    <Compile Include="reimucard\Ability_DreamSeal.cs" />
+    <Compile Include="reimucard\DreamSealOrb.cs" />
+    <Compile Include="reimucard\Projectile_DreamSeal.cs" />
+    <Compile Include="reimucard\Ability_ReimuCard.cs" />
+    <Compile Include="Kanako\JobDriver_SwitchWeather6.cs" />
+    <Compile Include="Kanako\JobDriver_SwitchWeather7.cs" />
+    <Compile Include="Kanako\JobDriver_SwitchWeather1.cs" />
+    <Compile Include="Kanako\JobDriver_SwitchWeather2.cs" />
+    <Compile Include="Kanako\JobDriver_SwitchWeather3.cs" />
+    <Compile Include="Kanako\JobDriver_SwitchWeather4.cs" />
+    <Compile Include="Kanako\JobDriver_SwitchWeather5.cs" />
+    <Compile Include="Kanako\CompProperties_SwitchWeather.cs" />
+    <Compile Include="Kanako\CompSwitchWeather.cs" />
+    <Compile Include="Minoriko\CompAbilityEffect_Minoriko.cs" />
+    <Compile Include="Minoriko\CompMinoriko.cs" />
+    <Compile Include="Minoriko\CompProperties_Minoriko.cs" />
+    <Compile Include="Minoriko\EffecterDefOf.cs" />
+    <Compile Include="GiveRandomInspiration\AbilityCompProperties_GiveRandomInspiration.cs" />
+    <Compile Include="Bayonet\CompBayonet.cs" />
+    <Compile Include="Bayonet\CompGetGizmo.cs" />
+    <Compile Include="Bayonet\CompProperties_Bayonet.cs" />
+    <Compile Include="Bayonet\CompProperties_GetGizmo.cs" />
+    <Compile Include="GiveRandomInspiration\CompAbilityEffect_GiveRandomInspiration.cs" />
+    <Compile Include="Gizom\CompProperties_Usable_CustomIcon.cs" />
+    <Compile Include="Gizom\CompUsable_CustomIcon.cs" />
+    <Compile Include="goheifly\Ability_ToggleGoheiFlight.cs" />
+    <Compile Include="goheifly\CompEquipGrantFlight.cs" />
+    <Compile Include="goheifly\CompGoheiFlight.cs" />
+    <Compile Include="goheifly\CompProperties_EquipGrantFlight.cs" />
+    <Compile Include="goheifly\CompProperties_GoheiFlight.cs" />
+    <Compile Include="goheifly\Patch_AddFlightTracker.cs" />
+    <Compile Include="goheifly\Patch_GoheiFlightControl.cs" />
+    <Compile Include="goheifly\Patch_GoheiForceLand.cs" />
+    <Compile Include="goheifly\Patch_KeepFlyingOnJob.cs" />
+    <Compile Include="goheifly\PawnFlightUtility.cs" />
+    <Compile Include="Bayonet\HediffComp_Bayonet.cs" />
+    <Compile Include="Bayonet\HediffProperties_Bayonet.cs" />
+    <Compile Include="Bayonet\JobDriver_Bayonet.cs" />
+    <Compile Include="Bayonet\JobGiver_TryUseBayonet.cs" />
+    <Compile Include="9music\HediffCompProperties_PlayMusicOnce.cs" />
+    <Compile Include="9music\HediffComp_PlayMusicOnce.cs" />
+    <Compile Include="9music\HediffCompProperties_DanceOnAdd.cs" />
+    <Compile Include="9music\HediffComp_DanceOnAdd.cs" />
+    <Compile Include="butt\HediffComp_PlaySoundOnSeverity.cs" />
+    <Compile Include="butt\HediffCompProperties_PlaySoundOnSeverity.cs" />
+    <Compile Include="Minoriko\JobDefOf.cs" />
+    <Compile Include="Minoriko\JobDriver_GetMinoriko.cs" />
+    <Compile Include="penglai\HediffDefOf.cs" />
+    <Compile Include="penglai\Hediff_PengLaiMedicineDeadless.cs" />
+    <Compile Include="Rising Game\HediffCompProperties_PengLaiMedicineHeal.cs" />
+    <Compile Include="Rising Game\HediffComp_PengLaiMedicineHeal.cs" />
+    <Compile Include="touhoudie\HediffCompProperties_OnDeathTrigger.cs" />
+    <Compile Include="touhoudie\HediffComp_OnDeathTrigger.cs" />
+    <Compile Include="nodie\HediffCompProperties_Heal.cs" />
+    <Compile Include="nodie\HediffComp_Heal.cs" />
+    <Compile Include="MightierThanThousands\HediffCompProperties_MadBerserkExplosion.cs" />
+    <Compile Include="MightierThanThousands\HediffComp_MadBerserkExplosion.cs" />
+    <Compile Include="HighlyToxicBody\HediffCompProperties_ToxicAura.cs" />
+    <Compile Include="HighlyToxicBody\HediffComp_ToxicAura.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Bayonet\DefOf.cs" />
+    <Compile Include="Kanako\WeatherDefOf.cs" />
+    <Compile Include="YinYangFlyingBirdWell\YinYangOrb.cs" />
+    <Compile Include="DreamHeavenly\SmallYinYangOrb.cs" />
+    <Compile Include="yuyuko\yuyukobullets.cs" />
+    <Compile Include="yuyuko\yuyukocard.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

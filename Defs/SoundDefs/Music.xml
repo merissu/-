@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+		<SongDef>
+		<defName>Eastern_Heaven_of_Scarlet_Perception</defName>
+		<clipPath>Music/TFM-003O_18</clipPath>
+		<playOnMap>false</playOnMap>
+	</SongDef>
+	<SongDef>
+		<defName>A_Prayer_To_The_Sky</defName>
+		<clipPath>Music/献予天空的祈愿～共赴同一片高天</clipPath>
+		<allowedSeasons>
+			<li>Spring</li>
+		</allowedSeasons>
+	</SongDef>
+	<SongDef>
+		<defName>Longing_of_Forest</defName>
+		<clipPath>Music/Longing of Forest</clipPath>
+		<allowedTimeOfDay>Day</allowedTimeOfDay>
+	</SongDef>
+	<SongDef>
+		<defName>Shade_hat_and_wind_chime</defName>
+		<clipPath>Music/日阴、帽子与风铃</clipPath>
+		<allowedTimeOfDay>Day</allowedTimeOfDay>
+		<allowedSeasons>
+			<li>Summer</li>
+		</allowedSeasons>
+	</SongDef>
+	<SongDef>
+		<defName>The_Kappa_on_the_distant_mountaintop_Atelier_Nitori</defName>
+		<clipPath>Music/遥远山顶上的河童~Atelier Nitori</clipPath>
+		<volume>5.0</volume>
+	</SongDef>
+	<SongDef>
+		<defName>Thinking_of_the_Crimson_Sky</defName>
+		<clipPath>Music/思恋绯色之天</clipPath>
+	</SongDef>
+	<SongDef>
+		<defName>From_the_depths_of_the_dim_cave</defName>
+		<clipPath>Music/从昏暗的洞穴深处</clipPath>
+	</SongDef>
+
+	<SongDef>
+		<defName>Close_to_your_Mind</defName>
+		<clipPath>Music/Close to your Mind</clipPath>
+		<volume>1</volume>
+	</SongDef>
+	<SongDef>
+		<defName>When_Autumn_Sisters_cry</defName>
+		<clipPath>Music/秋姐妹鸣泣之时</clipPath>
+		<volume>1</volume>
+		<allowedSeasons>
+			<li>Fall</li>
+		</allowedSeasons>
+	</SongDef>
+	<SongDef>
+		<defName>When_Autumn_Sisters_cry__in_the_autumn_sky</defName>
+		<clipPath>Music/秋姐妹鸣泣之时~in the autumn sky</clipPath>
+		<volume>1</volume>
+		<allowedSeasons>
+			<li>Fall</li>
+		</allowedSeasons>
+	</SongDef>
+	<!--战斗-->
+	<SongDef>
+		<defName>Eastern_Mystical_Love_Consultation</defName>
+		<clipPath>Music/东方妖恋谈</clipPath>
+		<volume>1.0</volume>
+		<tense>true</tense>
+	</SongDef>
+	<SongDef>
+		<defName>The_wind_has_ceased</defName>
+		<clipPath>Music/风已止息～绝对障壁</clipPath>
+		<volume>1.0</volume>
+		<tense>true</tense>
+	</SongDef>
+	<SongDef>
+		<defName>Lord_Sanae_will_never_forgive</defName>
+		<clipPath>Music/绝对许早苗</clipPath>
+		<volume>1.0</volume>
+		<tense>true</tense>
+	</SongDef>
+	<SongDef>
+		<defName>The_counterattack_of_Komeji</defName>
+		<clipPath>Music/逆袭的古明地</clipPath>
+		<volume>1.0</volume>
+		<tense>true</tense>
+	</SongDef>
+	<SongDef>
+		<defName>Kyougen_99_stars_descending</defName>
+		<clipPath>Music/狂言「九十九星降」</clipPath>
+		<volume>1.0</volume>
+		<tense>true</tense>
+	</SongDef>
+</Defs>

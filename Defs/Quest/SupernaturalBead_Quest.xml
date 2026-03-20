@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<IncidentDef ParentName="GiveQuestBase">
+		<defName>GiveQuest_SupernaturalBeadShrineFortress</defName>
+		<label>异常灵力波动</label>
+		<letterLabel>
+			你发现了一个敌对营地里传来不寻常的灵力波动，跟记录中的“大结界的钥匙”高度重合，你可以选择前去进攻这个营地以夺取它
+		</letterLabel>
+			<workerClass>IncidentWorker_GiveQuest</workerClass>
+		<questScriptDef>OpportunitySite_SupernaturalBeadShrineFortress</questScriptDef>
+		<pointsScaleable>true</pointsScaleable>
+		<baseChance>0</baseChance>
+	</IncidentDef>
+	
+	<QuestScriptDef>
+			<defName>OpportunitySite_SupernaturalBeadShrineFortress</defName>
+			<isRootSpecial>true</isRootSpecial>
+			<autoAccept>true</autoAccept>
+			<sendAvailableLetter>false</sendAvailableLetter>
+			<rootSelectionWeight>0</rootSelectionWeight>
+			<rootMinPoints>600</rootMinPoints>
+
+			<questNameRules>
+				<rulesStrings>
+					<li>questName->异常灵力波动</li>
+				</rulesStrings>
+			</questNameRules>
+
+			<questDescriptionRules>
+				<rulesStrings>
+					<li>questDescription->根据古籍记录，曾经有一个女高中生制作了大量能够打开博丽大结界的道具，然而我们无从得知其制作原理，而且这种道具在其幻想入后也不知所踪，直到现在我们终于发现了它的蛛丝马迹。</li>
+				</rulesStrings>
+			</questDescriptionRules>
+
+			<root Class="QuestNode_Sequence">
+				<nodes>
+					<li Class="QuestNode_SubScript">
+						<def>Util_AdjustPointsForDistantFight</def>
+					</li>
+
+					<li Class="QuestNode_GetMap">
+						<canBeSpace>true</canBeSpace>
+					</li>
+
+					<li Class="QuestNode_Set">
+						<name>siteDistRange</name>
+						<value>20~60</value>
+					</li>
+
+					<li Class="QuestNode_GetSiteTile">
+						<storeAs>siteTile</storeAs>
+						<preferCloserTiles>true</preferCloserTiles>
+					</li>
+
+					<li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+						<storeAs>sitePartDefs</storeAs>
+						<storeFactionAs>siteFaction</storeFactionAs>
+						<sitePartsTags>
+							<li>
+								<tag>SupernaturalBeadShrineFortress</tag>
+							</li>
+						</sitePartsTags>
+					</li>
+
+					<li Class="QuestNode_GetDefaultSitePartsParams">
+						<tile>$siteTile</tile>
+						<faction>$siteFaction</faction>
+						<sitePartDefs>$sitePartDefs</sitePartDefs>
+						<storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+					</li>
+
+					<li Class="QuestNode_GetSiteThreatPoints">
+						<storeAs>sitePoints</storeAs>
+						<sitePartsParams>$sitePartsParams</sitePartsParams>
+					</li>
+
+					<li Class="QuestNode_SubScript">
+						<def>Util_GenerateSite</def>
+					</li>
+
+					<li Class="QuestNode_SpawnWorldObjects">
+						<worldObjects>$site</worldObjects>
+					</li>
+
+					<li Class="QuestNode_Letter">
+						<letterDef>PositiveEvent</letterDef>
+						<label>异常灵力波动</label>
+						<text>你发现了一个敌对营地里传来不寻常的灵力波动，跟记录中的“大结界的钥匙”高度重合，你可以选择前去进攻这个营地以夺取它</text>
+						<lookTargets>$site</lookTargets>
+					</li>
+
+					<li Class="QuestNode_WorldObjectTimeout">
+						<worldObject>$site</worldObject>
+						<isQuestTimeout>true</isQuestTimeout>
+						<delayTicks>$(randInt(20,35)*60000)</delayTicks>
+						<inSignalDisable>site.MapGenerated</inSignalDisable>
+						<destroyOnCleanup>true</destroyOnCleanup>
+						<node Class="QuestNode_End">
+							<outcome>Fail</outcome>
+						</node>
+					</li>
+
+					<li Class="QuestNode_End">
+						<inSignal>site.AllEnemiesDefeated</inSignal>
+						<outcome>Success</outcome>
+					</li>
+				</nodes>
+			</root>
+	</QuestScriptDef>
+</Defs>

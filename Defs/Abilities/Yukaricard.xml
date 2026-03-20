@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>Yukaricard</defName>
+        <label>符卡宣言</label>
+        <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
+
+进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张八云紫的强力符卡和极其强大的Last Word</description>
+        <abilityClass>merissu.Yukaricard</abilityClass>
+        <iconPath>Abilities/Yukaricard</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>Yukaricard</defName>
+        <label>符卡宣言</label>
+		<defaultLabelColor>(204,102,204)</defaultLabelColor>
+        <description>已进行符卡宣言,在音乐结束前释放符卡吧</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>fourfoldbarrier</li>
+			<li>Yukaridisappearance</li>
+			<li>Trainbomb</li>
+			<li>Turnenemiesintofriends</li>
+		</abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-6.43</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>yukari1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>fourfoldbarrier</defName>
+		<label>境符「四重结界」</label>
+        <abilityClass>merissu.fourfoldbarrier</abilityClass>
+		<description>重复叠加数个结界构成攻击性防壁伤害近处的敌人。
+
+需要消耗一层灵力,其影响范围不容小视,使用时会先将地图上的敌人隙间到范围内然后展开结界进行打击</description>
+		<iconPath>Abilities/fourfoldbarrier</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>fourfoldbarrier</defName>
+		<label>四重结界</label>
+        <defaultLabelColor>(204,102,204)</defaultLabelColor>
+		<description>将四重结界巨大化,同时赋予其吸引能力的上级Spell。判定的加大加之吸引的效果,使得其影响范围不容小视</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-96</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThingDef>
+		<defName>FourfoldBarrierVisual</defName>
+		<label>四重结界</label>
+		<thingClass>merissu.Thing_FourfoldBarrierVisual</thingClass>
+		<category>None</category>
+		<tickerType>Normal</tickerType>
+		<drawOffscreen>true</drawOffscreen>
+	</ThingDef>
+
+    <AbilityDef>
+		<defName>Yukaridisappearance</defName>
+		<label>罔两「八云紫的神隐」</label>
+        <abilityClass>merissu.Yukaridisappearance</abilityClass>
+		<description>使用隙间的能力直接将范围内的敌人神隐
+
+需要消耗一层灵力,会直接神隐范围中的敌人,不对友好单位生效</description>
+		<iconPath>Abilities/Yukaridisappearance</iconPath>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<statBases>
+			<Ability_EffectRadius>15</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>0.5</warmupTime>
+			<range>999</range>
+			<drawAimPie>true</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetSelf>false</canTargetSelf>
+				<neverTargetIncapacitated>false</neverTargetIncapacitated>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityConnectingFleckLine">
+				<fleckDef>PsycastPsychicLine</fleckDef>
+			</li>
+    		<li Class="merissu.CompProperties_Yukaridisappearance"/>
+		</comps>
+	</AbilityDef>
+
+    <AbilityDef>
+		<defName>Trainbomb</defName>
+		<label>废线「废弃车站下车之旅」</label>
+        <abilityClass>merissu.Ability_Trainbomb</abilityClass>
+		<description>从裂隙中出现废旧列车进行突击的大技。威力相当高,被撞到的敌人肯定会很难清理
+	
+消耗一次灵力,从前方隙间出行驶中的列车撞击沿途所有障碍,列车撞到山体时会爆炸</description>
+		<iconPath>Abilities/Trainbomb</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>250</range>
+			<warmupTime>0.5</warmupTime>
+			<requireLineOfSight>false</requireLineOfSight>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>true</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>TrainGapPortal</defName>
+		<label>隙间</label>
+		<thingClass>merissu.Thing_TrainGapPortal</thingClass>
+		<category>Ethereal</category>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<destroyable>true</destroyable>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<passability>Standable</passability>
+	</ThingDef>
+
+	<ThingDef>
+			<defName>TrainMoving</defName>
+			<label>废旧列车</label>
+			<thingClass>merissu.Thing_MovingTrain</thingClass>
+			<category>Ethereal</category>
+			<selectable>false</selectable>
+			<useHitPoints>false</useHitPoints>
+			<tickerType>Normal</tickerType>
+			<altitudeLayer>MoteOverhead</altitudeLayer>
+			<drawGUIOverlay>false</drawGUIOverlay>
+			<graphicData>
+				<texPath>Other/objectCa000</texPath>
+				<graphicClass>Graphic_Single</graphicClass>
+				<drawSize>(999, 999)</drawSize> 
+			</graphicData>
+	</ThingDef>
+
+    <AbilityDef>
+        <defName>Turnenemiesintofriends</defName>
+        <label>结界「光明与黑暗的网目」</label>
+        <description>使用操纵界线程度的能力消除敌我的界线,使地图上所有单位重新加入随机的阵营的符卡
+
+消耗五层灵力,发动后,让地图上所有单位(不包括玩家阵营)对你的态度随机变为敌对/中立/同盟</description>
+        <abilityClass>merissu.Ability_Turnenemiesintofriends</abilityClass>
+        <cooldownTicksRange>2400</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/Turnenemiesintofriends</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Turnenemiesintofriends</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>Turnenemiesintofriends</defName>
+		<label>「光明与黑暗的网目」</label>
+		<defaultLabelColor>(204,102,204)</defaultLabelColor>
+		<description>这项能力是逻辑的创造与破坏的能力。从本质上创造新的存在,从本质上否定已有的存在,因而与神之力相匹敌,是妖怪的能力中最危险的能力之一。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-8</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>yukari2</songDef>
+            </li>
+		</comps>
+	</HediffDef>
+
+</Defs>	

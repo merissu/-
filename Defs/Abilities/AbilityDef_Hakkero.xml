@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>Hakkerocard</defName>
+        <label>符卡宣言</label>
+        <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
+
+进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张魔理沙的强力符卡和极其强大的Last Word</description>
+        <abilityClass>merissu.MarisaCard</abilityClass>
+        <iconPath>Abilities/marisacard</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
+    <HediffDef>
+        <defName>MarisaCardDeclared</defName>
+        <label>符卡宣言</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <description>已进行符卡宣言,在音乐结束前释放符卡吧</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>MilkyWay</li>
+			<li>MasterSpark</li>
+			<li>StarlightTyphoon</li>
+			<li>FinalMasterSpark</li>
+		</abilities>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-24</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>marisa1</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>MilkyWay</defName>
+		<label>魔符「银河」</label>
+        <abilityClass>merissu.Ability_MilkyWay</abilityClass>
+		<description>向四周释放出大量星形弹幕,构成魔法的银河。织女（魔理沙）利用星之沙避开牛郎。加油啊牛郎。
+
+星之沙是绚丽多彩的,但是对周围的人来说是张令人厌恶的符卡。</description>
+		<iconPath>Abilities/MilkyWay</iconPath>
+		<cooldownTicksRange>800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>99</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<DamageDef Name="Marisa">
+		<defName>marisa</defName>
+		<label>中弹</label>
+		<workerClass>DamageWorker_Stab</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被射爆。</deathMessage>
+		<hediff>marisa</hediff>
+		<hediffSkin>marisa</hediffSkin>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>false</harmAllLayersUntilOutside>
+		<impactSoundType>Slice</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.4</overkillPctToDestroyPart>
+		<additionalHediffs>
+			<li>
+                <hediff>touhoudie</hediff>
+                <severityPerDamageDealt>1</severityPerDamageDealt>
+                <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+            </li>
+		</additionalHediffs>
+	</DamageDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>marisa</defName>
+		<label>中弹</label>
+		<labelNoun>中弹</labelNoun>
+		<description>被弹幕击中所造成的伤口。</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0.2</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>疮痍</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.0125</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.0025</averagePainPerSeverityPermanent>
+			<bleedRate>0.8</bleedRate>
+			<canMerge>true</canMerge>
+			<destroyedLabel>疮痍</destroyedLabel>
+			<destroyedOutLabel>疮痍</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>MilkyWayProjectileA</defName>
+		<label>紫色星形弹幕</label>
+		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletDa001</texPath>
+			<drawSize>(2,2)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>12</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>MilkyWayProjectileB</defName>
+		<label>蓝色星形弹幕</label>
+		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletDa002</texPath>
+			<drawSize>(2,2)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>12</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>MilkyWayProjectileC</defName>
+		<label>绿色星形弹幕</label>
+		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletDa003</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>15</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>MilkyWayProjectileD</defName>
+		<label>黄色星形弹幕</label>
+		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletDa000</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>15</speed>
+		</projectile>
+	</ThingDef>
+
+    <ThingDef>
+        <defName>MilkyWayEmitter</defName>
+        <label>银河控制器</label>
+        <thingClass>merissu.Thing_MilkyWayEmitter</thingClass>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+		<graphicData>
+            <texPath>Other/null</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <HediffDef>
+        <defName>MilkyWay</defName>
+        <label>Milky Way</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <description>流星什么的所无法比拟的小行星带攻击。不过，密度似乎很稀薄。也打不到旅行者号（当然的）</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Marisa2</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>StarlightTyphoon</defName>
+		<label>恋风「星光台风」</label>
+        <abilityClass>merissu.Ability_StarlightTyphoon</abilityClass>
+		<description>全方位激光。虽然变得稍微有点豪华,不过果然还是在哪里曾经看到过的攻击。
+
+向四周放射广范围激光和弹幕。激光只能被建筑物阻挡,会灼烧沿途的所有敌人。</description>
+		<iconPath>Abilities/StarlightTyphoon</iconPath>
+		<cooldownTicksRange>800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>99</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <HediffDef>
+        <defName>StarlightTyphoon</defName>
+        <label>星光台风</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <description>非定向激光的改良版。把弱点（激光的照射时间）做了改良,弱点完全被转移到了其他的地方。</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Marisa3</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+	<ThingDef ParentName="MoteBase" Name="StarlightOrb_Red">
+		<defName>StarlightOrb_Red</defName>
+		<label>红色魔法球</label>
+		<thingClass>merissu.Thing_StarlightOrb</thingClass>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Other/StarlightOrb_Red</texPath>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+	</ThingDef>
+
+	<ThingDef ParentName="StarlightOrb_Red">
+		<defName>StarlightOrb_Blue</defName>
+		<graphicData>
+		<texPath>Other/StarlightOrb_Blue</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="StarlightOrb_Red">
+		<defName>StarlightOrb_Green</defName>
+		<graphicData>
+		<texPath>Other/StarlightOrb_Green</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="StarlightOrb_Red">
+		<defName>StarlightOrb_Yellow</defName>
+		<graphicData>
+		<texPath>Other/StarlightOrb_Yellow</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="StarlightOrb_Red">
+		<defName>StarlightOrb_Purple</defName>
+		<graphicData>
+		<texPath>Other/StarlightOrb_Purple</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>StarlightProjectileA</defName>
+		<label>黄色星形弹幕</label>
+		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletDa000</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>6</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>15</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>StarlightProjectileB</defName>
+		<label>紫色星形弹幕</label>
+		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletDa001</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>6</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>15</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>StarlightProjectileC</defName>
+		<label>蓝色星形弹幕</label>
+		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletDa002</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>6</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>15</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>StarlightProjectileD</defName>
+		<label>绿色星形弹幕</label>
+		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletDa003</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>6</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>15</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>StarlightProjectileE</defName>
+		<label>红色星形弹幕</label>
+		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletDa004</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>6</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>1</stoppingPower>
+			<speed>15</speed>
+		</projectile>
+	</ThingDef>
+
+    <AbilityDef>
+		<defName>MasterSpark</defName>
+		<label>恋符「极限火花」</label>
+        <abilityClass>merissu.Ability_MasterSpark</abilityClass>
+		<description>释放强烈光和热的魔理沙招牌魔法,威力与贯穿性能无出其右,要解决困难时火力才是第一选择。
+	
+这个符卡会毫无保留地发射出能贯穿一切的大功率的激光,摧毁位于正前方五格宽的任何障碍,魔理沙本人用起来相当爽。</description>
+		<iconPath>Abilities/MasterSpark</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>250</range>
+			<warmupTime>0.5</warmupTime>
+			<requireLineOfSight>false</requireLineOfSight>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>true</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>MasterSparkLaser</defName>
+		<label>极限火花</label>
+		<thingClass>merissu.Thing_MasterSparkLaser</thingClass>
+		<selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <destroyable>true</destroyable>
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <drawGUIOverlay>false</drawGUIOverlay>
+        <tickerType>Normal</tickerType>
+        <passability>Standable</passability>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<graphicClass>Graphic_Random</graphicClass>
+			<texPath>Other/MasterSpark</texPath>
+			<drawSize>(355,355)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>MasterSpark</defName>
+        <label>极限火花</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <description>能给予对手超强火力的符卡。因为这个用起来很爽,所以会经常用。</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Marisa4</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>FinalMasterSpark</defName>
+		<label> 魔炮「超究极火花」</label>
+        <abilityClass>merissu.Ability_FinalMasterSpark</abilityClass>
+		<description>最后的也是究极的魔炮。魔理沙使出浑身之力放出的魔之光线。本人相当爽。
+	
+魔理沙的魔炮讲座。射击的时候要集中精神,温柔的对迷你八卦炉念咒文。瞄准那令人不快的目标，发射出去的就是那恋爱的魔炮！
+
+使用时先射出的细激光作为导线，将极限火花的输出大幅强化从而形成的超大火力攻击。
+
+破坏范围是普通魔炮的五倍,威力也大大增加,若对手位于正前方的话将无处可逃。直击所能造成的巨大威力无愧于其高消费。</description>
+		<iconPath>Abilities/FinalMasterSpark</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>250</range>
+			<warmupTime>0.5</warmupTime>
+			<requireLineOfSight>false</requireLineOfSight>
+			<soundCast>spell</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>true</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>FinalMasterSparkLaser</defName>
+		<label>超究极火花</label>
+		<thingClass>merissu.Thing_FinalMasterSparkLaser</thingClass>
+		<selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <destroyable>true</destroyable>
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <drawGUIOverlay>false</drawGUIOverlay>
+        <tickerType>Normal</tickerType>
+        <passability>Standable</passability>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<graphicClass>Graphic_Random</graphicClass>
+			<texPath>Other/MasterSpark</texPath>
+			<drawSize>(355,355)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>FinalMasterSpark</defName>
+        <label>超究极火花</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <description>将迷你八卦炉的火力提升至最大限度,令一切化为乌有的激光</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-48</severityPerDay>
+			</li>
+            <li Class="merissu.HediffCompProperties_PlayMusicOnce">
+                <songDef>Marisa5</songDef>
+            </li>
+		</comps>
+    </HediffDef>
+
+</Defs>
