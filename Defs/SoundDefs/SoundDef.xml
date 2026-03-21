@@ -66,8 +66,8 @@
     <SoundDef>
         <defName>TenguFan</defName>
         <context>MapOnly</context>
-		<maxSimultaneous>10</maxSimultaneous>
-		<maxVoices>10</maxVoices>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
 		<subSounds>
 		  <li>
 			<grains>

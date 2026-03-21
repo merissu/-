@@ -1313,6 +1313,86 @@
 	</ThoughtDef>
 
 	<ThingDef ParentName="THDrugBase">
+		<defName>Overnightmoney</defName>
+		<label>隔夜钱</label>
+		<graphicData>
+			<texPath>Medicine/Overnightmoney</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<description>死神的有距离操纵能力的铜钱,使用后可以让距离最近的敌人被推开一段距离,虽然效果低微,却具有可以无限次使用的特征</description>
+		<tradeTags>
+  			<li>ExoticMisc</li> 
+			<li>Medicine</li>   
+		</tradeTags>
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>0.1</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+			<ReimuSakuraPetal>50</ReimuSakuraPetal>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+				<Intellectual>8</Intellectual>
+			</skillRequirements>
+			<workAmount>1200</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>PenglaiPharmaceuticalTable</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>DrunkAsILike</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>None</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>使用{0}</ingestCommandString>
+			<ingestReportString>使用{0}</ingestReportString>
+		    <ingestSound>TenguFan</ingestSound>
+		</ingestible>
+		<comps Inherit="False">
+			<li Class="CompProperties_Drug">
+				<listOrder>200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_OvernightMoney" />
+			<li Class="merissu.CompProperties_Usable_CustomIcon">
+				<useLabel>使用{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+		        <iconPath>Medicine/Overnightmoney</iconPath>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<FleckDef>
+		<defName>Merissu_OvernightMoneyEffect</defName>
+		<fleckSystemClass>Verse.FleckSystemStatic</fleckSystemClass> 
+		<graphicData>
+			<texPath>Other/LEVELUP001</texPath> 
+			<graphicClass>Graphic_Fleck</graphicClass>
+			<shaderType>MoteGlow</shaderType> 
+			<drawSize>(1.0, 1.0)</drawSize> 
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer> 
+		<fadeInTime>0.1</fadeInTime>    
+		<solidTime>0.2</solidTime>    
+		<fadeOutTime>0.2</fadeOutTime> 
+		<growthRate>50</growthRate>   
+	</FleckDef>
+
+	<ThingDef ParentName="THDrugBase">
 		<defName>TenguFan</defName>
 		<label>天狗团扇</label>
 		<graphicData>

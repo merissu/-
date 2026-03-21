@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
     <Compile Include="CompPlantable_touhou.cs" />
+    <Compile Include="CompUseEffect_OvernightMoney.cs" />
     <Compile Include="flandrecard\BloodyCatastrophe.cs" />
     <Compile Include="DoremySleepingPillow\CompProperties_DoremySleepingPillow.cs" />
     <Compile Include="flandrecard\CompAbilityEffect_Spawner.cs" />
