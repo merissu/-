@@ -739,7 +739,6 @@
             </li>
         </comps>
     </HediffDef>
-
 	<ThingDef ParentName="THDrugBase">
 		<defName>MagicKnockback</defName>
 		<label>灵击札</label>
@@ -808,6 +807,112 @@
 			</li>
 		</comps>
 	</ThingDef>
+
+	<ThingDef ParentName="THDrugBase">
+		<defName>DragonStar</defName>
+		<label>龙星</label>
+		<graphicData>
+			<texPath>Medicine/DragonStar</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tradeTags>
+  			<li>ExoticMisc</li> 
+			<li>Medicine</li>   
+		</tradeTags>
+		<description>蕴含有龙的力量（据说）的星型头饰。使用后在短时间内被攻击不会有硬直</description>
+		<statBases>
+			<MarketValue>30</MarketValue>
+			<Mass>0.1</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<PowerPoint>10</PowerPoint>
+			<Crimsongold>1</Crimsongold>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+				<Intellectual>6</Intellectual>
+			</skillRequirements>
+			<workAmount>600</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>PenglaiPharmaceuticalTable</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>SpiritualDomination</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>None</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>使用{0}</ingestCommandString>
+			<ingestReportString>使用{0}</ingestReportString>
+		    <ingestSound>TenguFan</ingestSound>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>DragonStar</hediffDef>
+					<severity>1</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<comps Inherit="False">
+			<li Class="CompProperties_Drug">
+				<listOrder>200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_DragonStarEffect" />
+			<li Class="merissu.CompProperties_Usable_CustomIcon">
+				<useLabel>使用{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+		        <iconPath>Medicine/DragonStar</iconPath>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>DragonStar</defName>
+		<label>龙星</label>
+        <defaultLabelColor>(255,255,102)</defaultLabelColor>
+		<description>一小时内不会因为攻击而产生任何硬直</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<statOffsets>
+					<StaggerDurationFactor>-1.0</StaggerDurationFactor>
+				</statOffsets>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>999</offset>
+						<setMax>1.0</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<comps>
+			<li Class="merissu.HediffCompProperties_NoHitStagger"/>
+			<li Class="merissu.HediffCompProperties_RainbowCycle">
+		    	<pulseFrequency>0.1</pulseFrequency> 
+			    <pulseAmplitude>1.0</pulseAmplitude>
+			    <brightnessBoost>1.5</brightnessBoost>
+    		</li>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-24</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+	</HediffDef>
 
 	<ThingDef ParentName="PawnFlyerBase">
 		<defName>Merissu_KnockbackFlyer</defName>
@@ -972,6 +1077,16 @@
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_LevelUpMaxDef</defName> <graphicData>
 			<texPath>Other/LEVELMAX</texPath>
+			<shaderType>Mote</shaderType>
+			<drawSize>(1.5, 0.34)</drawSize>
+		</graphicData>
+		<mote><fadeInTime>0.1</fadeInTime><solidTime>1</solidTime><fadeOutTime>0.5</fadeOutTime></mote>
+		<altitudeLayer>MetaOverlays</altitudeLayer>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_invincible</defName> <graphicData>
+			<texPath>Other/invincible</texPath>
 			<shaderType>Mote</shaderType>
 			<drawSize>(1.5, 0.34)</drawSize>
 		</graphicData>
@@ -1657,6 +1772,110 @@
 			</li>
 		</stages>
 	</ThoughtDef>
+
+	<ThingDef ParentName="THDrugBase">
+		<defName>ThreeHeavenlyDrops</defName>
+		<label>三粒之天滴</label>
+		<graphicData>
+			<texPath>Medicine/ThreeHeavenlyDrops</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<description>传说一天会滴下三滴的不可思议的水,第一次使用和第二次使用时,什么都不会发生,但是第三次呢？</description>
+		<tradeTags>
+  			<li>ExoticMisc</li> 
+			<li>Medicine</li>   
+		</tradeTags>
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>0.1</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<PowerPoint>10</PowerPoint>
+			<ReimuSakuraPetal>10</ReimuSakuraPetal>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+            <workAmount>540</workAmount>
+			<displayPriority>9</displayPriority>
+			<recipeUsers>
+				<li>PenglaiPharmaceuticalTable</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>EnergyDaybreak</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>Hard</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>喝下{0}</ingestCommandString>
+			<ingestReportString>喝下{0}</ingestReportString>
+		    <ingestSound>TenguFan</ingestSound>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>ThreeHeavenlyDrops</hediffDef>
+					<severity>1</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<comps Inherit="False">
+			<li Class="CompProperties_Drug">
+				<listOrder>99</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="CompProperties_Usable">
+				<useLabel>喝下{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+			<li Class="merissu.CompProperties_DragonStarEffect" />
+		</comps>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>ThreeHeavenlyDrops</defName>
+		<label>三粒之天滴</label>
+        <defaultLabelColor>(255,255,102)</defaultLabelColor>
+		<hediffClass>merissu.Hediff_ThreeHeavenlyDrops</hediffClass>
+		<description>传说一天会滴下三滴的不可思议的水,第一次使用和第二次使用时,什么都不会发生,但是第三次呢？</description>
+		<maxSeverity>3.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_ThreeHeavenlyVisuals" />
+			<li Class="merissu.HediffCompProperties_HeavenlyRainbow">
+				<rainbowSpeed>1.0</rainbowSpeed>
+				<saturation>1.0</saturation>
+				<brightness>1.2</brightness>
+			</li>
+	    </comps>
+		<stages>
+			<li>
+				<label>LEVEL1</label>
+				<minSeverity>1</minSeverity>
+			</li>
+			<li>
+				<label>LEVEL2</label>
+				<minSeverity>2</minSeverity>
+			</li>
+			<li>
+				<label>invincible</label>
+				<minSeverity>3</minSeverity>
+				<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
 
 	<ThingDef ParentName="THDrugBase">
 		<defName>MagicPotion</defName>

@@ -257,7 +257,7 @@
 			<texPath>Weapons/Bullet/Gungnir</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(2.4,2.4)</drawSize>
-			<shaderType>MoteGlow</shaderType>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<soundInteract>Interact_BeatFire</soundInteract>
 		<relicChance>3</relicChance>
@@ -1196,7 +1196,7 @@
 		</graphicData>
 		<statBases>
 			<WorkToMake>20000</WorkToMake>
-			<MarketValue>62100</MarketValue> 
+			<MarketValue>5000</MarketValue> 
             <SellPriceFactor>0.1</SellPriceFactor>
 			<Mass>2</Mass>
 			<RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>

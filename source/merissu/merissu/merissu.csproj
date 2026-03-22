@@ -83,15 +83,21 @@
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
     <Compile Include="CompPlantable_touhou.cs" />
+    <Compile Include="DragonStar\CompProperties_DragonStarEffect.cs" />
     <Compile Include="CompUseEffect_OvernightMoney.cs" />
     <Compile Include="flandrecard\BloodyCatastrophe.cs" />
     <Compile Include="DoremySleepingPillow\CompProperties_DoremySleepingPillow.cs" />
     <Compile Include="flandrecard\CompAbilityEffect_Spawner.cs" />
     <Compile Include="flandrecard\HediffCompsProperties_FourOfAKindVanish.cs" />
     <Compile Include="DoremySleepingPillow\PlaceWorker_OnBed.cs" />
+    <Compile Include="DragonStar\HediffCompProperties_NoHitStagger.cs" />
+    <Compile Include="DragonStar\HediffCompProperties_RainbowCycle.cs" />
+    <Compile Include="ThreeHeavenlyDrops\HediffCompProperties_HeavenlyRainbow.cs" />
+    <Compile Include="ThreeHeavenlyDrops\HediffCompProperties_ThreeHeavenlyVisuals.cs" />
     <Compile Include="HediffComp_MagicKnockback.cs" />
     <Compile Include="HediffComp_MagicPotionVisuals.cs" />
     <Compile Include="HediffCompProperties_LevelUpVisuals.cs" />
+    <Compile Include="ThreeHeavenlyDrops\Hediff_ThreeHeavenlyDrops.cs" />
     <Compile Include="tengufan.cs" />
     <Compile Include="utsuhocard\NuclearControlRod.cs" />
     <Compile Include="utsuhocard\NuclearWeaponLogic.cs" />

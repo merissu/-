@@ -29,7 +29,7 @@
 		<defName>BreakHeart</defName>
 		<label>必杀「碎心」</label>
 		<description>凭借命运的力量，这一枪将必定贯穿目标的心脏。</description>
-		<iconPath>Weapons/Bullet/Gungnir</iconPath>
+		<iconPath>Abilities/BreakHeart</iconPath>
 		<cooldownTicksRange>0</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
 		<aiCanUse>true</aiCanUse>
