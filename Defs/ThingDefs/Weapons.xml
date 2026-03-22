@@ -256,7 +256,7 @@
 		<graphicData>
 			<texPath>Weapons/Bullet/Gungnir</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(2.4,2.4)</drawSize>
+			<drawSize>(1.4,1.4)</drawSize>
 			<shaderType>Mote</shaderType>
 		</graphicData>
 		<soundInteract>Interact_BeatFire</soundInteract>
@@ -298,7 +298,7 @@
 				<capacities>
 					<li>Stab</li>
 				</capacities>
-				<power>140</power>
+				<power>45</power>
 				<cooldownTime>1.5</cooldownTime>
 				<armorPenetration>5</armorPenetration>
 				<soundMeleeMiss>MissedG</soundMeleeMiss>

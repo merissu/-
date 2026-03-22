@@ -25,6 +25,7 @@
             </targetParams>
         </verbProperties>
     </AbilityDef>
+
 	<AbilityDef>
 		<defName>BreakHeart</defName>
 		<label>必杀「碎心」</label>
@@ -37,7 +38,7 @@
 			<verbClass>Verb_CastAbility</verbClass>
 			<range>72</range>
 			<warmupTime>4.5</warmupTime>
-			<soundCast>PiercingSpine_Launch</soundCast>
+			<soundCast>Gungnir</soundCast>
 			<targetParams>
 				<canTargetBuildings>true</canTargetBuildings>
 				<canTargetAnimals>true</canTargetAnimals>
@@ -59,6 +60,7 @@
 			</li>
 		</comps>
 	</AbilityDef>
+	
     <HediffDef>
         <defName>remiliacard</defName>
         <label>符卡宣言</label>
