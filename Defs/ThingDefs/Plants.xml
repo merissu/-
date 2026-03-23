@@ -258,7 +258,7 @@
 			<topWindExposure>0.15</topWindExposure>
 			<immatureGraphicPath>Plants/HeavenlyPeachTree_Immature</immatureGraphicPath>
 			<harvestWork>310</harvestWork>
-			<harvestAfterGrowth>0.9</harvestAfterGrowth>
+			<harvestAfterGrowth>0.5</harvestAfterGrowth>
 			<harvestTag>Standard</harvestTag>
 			<forceIsTree>true</forceIsTree>
 			<harvestYield>10</harvestYield>
