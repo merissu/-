@@ -423,4 +423,129 @@
         </mote>	
     </ThingDef>
 
+    <AbilityDef>
+		<defName>TenshiRandomWeather</defName>
+		<label>绯想之剑</label>
+		<description>将天气切换为适合战斗的特殊天气,天气带来的特殊效果对所有人生效</description>
+        <cooldownTicksRange>20000</cooldownTicksRange>
+		<iconPath>Abilities/TenshiRandomWeather</iconPath>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<warmupTime>1</warmupTime>
+			<soundCast>spell</soundCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="merissu.CompProperties_AbilityRandomWeather">
+			  <forcedDurationTicks>20000</forcedDurationTicks>
+			  <forceWeatherConditionDef>merissu_ForceWeather_Ability</forceWeatherConditionDef>
+				<weatherPool>
+					<li>HighClearSky</li>
+				</weatherPool>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<GameConditionDef>
+		<defName>merissu_ForceWeather_Ability</defName>
+		<conditionClass>merissu.GameCondition_ForceWeather_Ability</conditionClass>
+		<label>天气变化</label>
+		<description>被能力强制改变的天气。</description>
+		<canBePermanent>false</canBePermanent>
+		<natural>false</natural>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<WeatherDef>
+		<defName>HighClearSky</defName>
+		<label>快晴</label>
+		<description>在空中飞行程度的天气,使所有人处于飞行状态</description>
+		<isBad>false</isBad>
+		<favorability>Good</favorability>
+		<perceivePriority>1</perceivePriority>
+		<windSpeedFactor>0.5</windSpeedFactor>
+		<accuracyMultiplier>1.2</accuracyMultiplier> 
+		<moveSpeedMultiplier>1.0</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+				<clipPath>Songs/Weather1</clipPath>
+				<volume>0.8</volume>
+				<fadeOutSeconds>2.0</fadeOutSeconds> 
+			</li>
+		</modExtensions>
+		<ambientSounds>
+			<li>Ambient_Wind_Quiet</li>
+		</ambientSounds>
+		<skyColorsDay>
+			<sky>(1, 1, 1)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 1, 1)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1, 0.588, 0.588)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 0.588, 0.588)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>HighClearSkyCondition</defName>
+		<conditionClass>merissu.GameCondition_ForceWeather_Ability</conditionClass>
+		<label>快晴</label>
+		<description>在空中飞行程度的天气,使所有人处于飞行状态,所有人射击精度提升</description>
+		<weatherDef>HighClearSky</weatherDef>
+		<canBePermanent>false</canBePermanent> 
+		<natural>true</natural> 
+		<letterText>一道异常明亮的阳光刺破了云层,整片区域被阳光笼罩。空气变得前所未有的通透。</letterText>
+		<letterDef>PositiveEvent</letterDef> 
+		<endMessage>快晴结束了,大气流动恢复了正常。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors> 
+		<allowUnderground>false</allowUnderground> 
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>HighClearSkyIncident</defName>
+		<label>快晴</label>
+		<category>Misc</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>HighClearSkyCondition</gameCondition> 
+		<baseChance>0.75</baseChance> 
+		<durationDays>
+			<min>0.333</min>
+    	    <max>0.333</max>
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>HighClearSky_Flying</defName>
+        <label>快晴</label>
+        <defaultLabelColor>(102,204,255)</defaultLabelColor>
+        <description>因为快晴而正处于飞行状态</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+    </HediffDef>
+
 </Defs>	

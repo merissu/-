@@ -1461,7 +1461,7 @@
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>ScarletRhapsodySword</defName>
 		<label>绯想之剑</label>
-		<description>天界的道具,只有天人能操纵。比那名居天子的武器。拥有洞察气质程度的能力
+		<description>天界的道具,只有天人能操纵。比那名居天子的武器。拥有洞察气质程度的能力,能够将对手的气质雾化并转换为某种具体形态（天气）
 
 使用绯想之剑,能够准确无误地击中对手的弱点,这把剑首先会把对手的气质雾化,转化成任何人都能用肉眼辨视的形态。然后将把那种气质的弱点作为性质缠绕于剑身。
 
@@ -1513,9 +1513,12 @@
 			</li>
 		</tools>
         <comps>
-			<li Class="CompProperties_EquippableAbility">
-                <abilityDef>Tenshicard</abilityDef>
-            </li>
+			<li Class="merissu.CompProperties_EquippableMultiAbility">
+				<abilityDefs>
+					<li>Tenshicard</li>
+					<li>TenshiRandomWeather</li>
+				</abilityDefs>
+			</li>
         </comps>
 	</ThingDef>
 
