@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="TH_MeleeWeapon">
+    <defName>Momiji_Blade</defName>
+    <label>天狗哨戒长刀</label>
+    <description>白狼天狗使用的长刀，可以以狼牙般的撕咬撕裂敌人。</description>
+    <graphicData>
+      <texPath>Items/Momiji_Sword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <Mass>2.0</Mass>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <weaponClasses>
+      <li>Melee</li>
+    </weaponClasses>
+    <tools>
+      <li>
+        <label>狼牙斩</label>
+        <capacities>
+          <li>Momiji_TenguBiteCapacity</li>   <!-- 使用自定义能力 -->
+        </capacities>
+        <power>15</power>
+        <cooldownTime>0.25</cooldownTime>
+      </li>
+    </tools>
+    <costList>
+      <Crimsongold>50</Crimsongold>
+    </costList>
+    <recipeMaker>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <workAmount>2500</workAmount>
+      <recipeUsers>
+        <li>TableHifuuClub</li>
+      </recipeUsers>
+    </recipeMaker>
+    <smeltable>true</smeltable>
+    <smeltProducts>
+      <Crimsongold>10</Crimsongold>
+    </smeltProducts>
+    <thingSetMakerTags>
+      <li>RewardStandard</li>
+    </thingSetMakerTags>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+  </ThingDef>
+</Defs>
