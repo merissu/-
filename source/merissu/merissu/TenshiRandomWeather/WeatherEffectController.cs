@@ -7,14 +7,16 @@ namespace merissu
 {
     public class WeatherMusicExtension : DefModExtension
     {
-        public string clipPath;
+        public string clipPath;          
+        public string switchTexturePath; 
         public float volume = 1f;
         public float fadeOutSeconds = 1.5f;
     }
 
     public class WeatherEffectController : GameComponent
     {
-        private const string TargetWeatherDefName = "HighClearSky";
+        private const string SpecialVisualWeather = "HighClearSky";
+
         private const float TIME_FADE_IN = 0.6f;
         private const float TIME_STAY = 3.0f;
         private const float TIME_FADE_OUT = 0.8f;
@@ -42,6 +44,7 @@ namespace merissu
         public override void FinalizeInit() => EnsureAudioSource();
         public override void LoadedGame() => EnsureAudioSource();
         public override void StartedNewGame() => EnsureAudioSource();
+
         private void CleanupAudio()
         {
             if (weatherMusicSource != null)
@@ -51,24 +54,20 @@ namespace merissu
                 weatherMusicSource = null;
             }
         }
+
         public override void ExposeData()
         {
             base.ExposeData();
-            if (Scribe.mode == LoadSaveMode.LoadingVars)
-            {
-                CleanupAudio();
-            }
+            if (Scribe.mode == LoadSaveMode.LoadingVars) CleanupAudio();
         }
 
         private void EnsureAudioSource()
         {
             if (weatherMusicSource != null) return;
-
             GameObject go = new GameObject("Merissu_WeatherMusicSource");
-
             weatherMusicSource = go.AddComponent<AudioSource>();
             weatherMusicSource.playOnAwake = false;
-            weatherMusicSource.loop = true; 
+            weatherMusicSource.loop = true;
             weatherMusicSource.spatialBlend = 0f;
             weatherMusicSource.priority = 0;
         }
@@ -78,19 +77,25 @@ namespace merissu
             if (Find.TickManager.TicksGame % 20 != 0) return;
 
             Map map = Find.CurrentMap;
-            string currentWeather = map?.weatherManager?.curWeather?.defName ?? "";
+            WeatherDef curWeatherDef = map?.weatherManager?.curWeather;
+            string currentWeatherName = curWeatherDef?.defName ?? "";
 
-            if (currentWeather == TargetWeatherDefName && lastWeatherDef != TargetWeatherDefName)
+            if (currentWeatherName != lastWeatherDef)
             {
-                StartWeatherAnimation();
-                StartWeatherMusic(map);
-            }
-            else if (currentWeather != TargetWeatherDefName && lastWeatherDef == TargetWeatherDefName)
-            {
-                StopWeatherMusic(false);
+                WeatherMusicExtension ext = curWeatherDef?.GetModExtension<WeatherMusicExtension>();
+
+                if (ext != null)
+                {
+                    StartWeatherAnimation(ext);
+                    StartWeatherMusic(ext);
+                }
+                else
+                {
+                    StopWeatherMusic(false);
+                }
             }
 
-            lastWeatherDef = currentWeather;
+            lastWeatherDef = currentWeatherName;
         }
 
         public override void GameComponentUpdate()
@@ -98,19 +103,18 @@ namespace merissu
             HandleMusicVolumeAndFade();
         }
 
-        private void StartWeatherAnimation()
+        private void StartWeatherAnimation(WeatherMusicExtension ext)
         {
+            if (string.IsNullOrEmpty(ext.switchTexturePath)) return;
+
             isEffectActive = true;
             effectTimer = 0f;
-            weatherTex = ContentFinder<Texture2D>.Get("weather/weatherNameB000");
+            weatherTex = ContentFinder<Texture2D>.Get(ext.switchTexturePath);
         }
 
-        private void StartWeatherMusic(Map map)
+        private void StartWeatherMusic(WeatherMusicExtension ext)
         {
-            WeatherDef weather = map?.weatherManager?.curWeather;
-            WeatherMusicExtension ext = weather?.GetModExtension<WeatherMusicExtension>();
-
-            if (ext == null || string.IsNullOrEmpty(ext.clipPath)) return;
+            if (string.IsNullOrEmpty(ext.clipPath)) return;
 
             AudioClip clip = ContentFinder<AudioClip>.Get(ext.clipPath, false);
             if (clip == null) return;
@@ -168,7 +172,6 @@ namespace merissu
             }
         }
 
-
         public override void GameComponentOnGUI()
         {
             DrawDayOverlay();
@@ -179,18 +182,15 @@ namespace merissu
         private void DrawDayOverlay()
         {
             Map map = Find.CurrentMap;
-            if (map == null || map.weatherManager.curWeather.defName != TargetWeatherDefName) return;
-
+            if (map == null || map.weatherManager.curWeather.defName != SpecialVisualWeather) return;
             float glowAlpha = map.skyManager.CurSkyGlow;
             if (glowAlpha <= 0.02f) return;
-
             if (dayOverlayTex == null)
             {
                 dayOverlayTex = ContentFinder<Texture2D>.Get("weather/weatherA000");
                 if (dayOverlayTex != null)
                     dayOverlayMat = MaterialPool.MatFrom(dayOverlayTex, ShaderDatabase.MoteGlow, Color.white);
             }
-
             if (dayOverlayTex != null && dayOverlayMat != null)
             {
                 float size = UI.screenHeight;
@@ -205,22 +205,19 @@ namespace merissu
         private void DrawSunBeams()
         {
             Map map = Find.CurrentMap;
-            if (map == null || map.weatherManager.curWeather.defName != TargetWeatherDefName || map.skyManager.CurSkyGlow < 0.5f)
+            if (map == null || map.weatherManager.curWeather.defName != SpecialVisualWeather || map.skyManager.CurSkyGlow < 0.5f)
             {
                 beams.Clear();
                 return;
             }
-
             while (beams.Count < 4)
             {
                 string path = beamPaths.RandomElement();
                 Texture2D tex = ContentFinder<Texture2D>.Get(path);
                 if (!beamMaterials.ContainsKey(path))
                     beamMaterials[path] = MaterialPool.MatFrom(tex, ShaderDatabase.MoteGlow, Color.white);
-
                 beams.Add(new SunBeamInstance(tex, beamMaterials[path]));
             }
-
             for (int i = beams.Count - 1; i >= 0; i--)
             {
                 beams[i].Update(Time.deltaTime);
@@ -266,9 +263,7 @@ namespace merissu
             public float maxLifeTime;
             public float width, height;
             private float shearOffset;
-
             private static readonly Rect SafeSourceRect = new Rect(0.02f, 0.02f, 0.96f, 0.96f);
-
             public bool IsDead => lifeTime >= maxLifeTime;
 
             public SunBeamInstance(Texture2D texture, Material material)
@@ -295,23 +290,17 @@ namespace merissu
             {
                 Matrix4x4 savedMatrix = GUI.matrix;
                 Color savedColor = GUI.color;
-
                 float shearX = shearOffset / height;
                 Matrix4x4 shearMatrix = Matrix4x4.identity;
                 shearMatrix[0, 1] = -shearX;
                 Matrix4x4 transformation = Matrix4x4.Translate(new Vector3(pos.x, pos.y, 0)) * shearMatrix * Matrix4x4.Translate(new Vector3(-pos.x, -pos.y, 0));
-
                 GUI.matrix = savedMatrix * transformation;
-
                 GUI.color = new Color(1f, 1f, 1f, alpha * 0.5f);
-
                 Rect drawRect = new Rect(pos.x, pos.y, width, height);
-
                 if (Event.current.type == EventType.Repaint)
                 {
                     Graphics.DrawTexture(drawRect, tex, SafeSourceRect, 0, 0, 0, 0, GUI.color, mat);
                 }
-
                 GUI.color = savedColor;
                 GUI.matrix = savedMatrix;
             }

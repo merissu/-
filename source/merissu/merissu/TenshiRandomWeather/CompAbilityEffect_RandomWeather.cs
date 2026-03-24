@@ -3,21 +3,32 @@ using System.Collections.Generic;
 using RimWorld;
 using Verse;
 using System.Linq;
+using UnityEngine;
 
 namespace merissu
 {
-    public class GameCondition_ForceWeather_Ability : GameCondition_ForceWeather
-    {
-        private const string FlyingHediffDefName = "HighClearSky_Flying";
-        private HediffDef flyingHediff;
 
-        private HediffDef FlyingHediff
+    public class WeatherConditionExtension : DefModExtension
+    {
+        public string hediffDefName;           // 要添加的状态 (Hediff) 的名称
+        public bool applyToAllEnemies = false; // 是否对所有敌人生效 (false 则使用殖民者配额)
+        public bool playerOnly = false;        // 是否只对玩家生效
+        public bool friendlyOnly = false;      // 是否只对友好/中立派系生效
+    }
+
+
+    public class GameCondition_UniversalWeather : GameCondition_ForceWeather
+    {
+        private HediffDef cachedHediff;
+        private WeatherConditionExtension Props => def.GetModExtension<WeatherConditionExtension>();
+
+        private HediffDef TargetHediff
         {
             get
             {
-                if (flyingHediff == null)
-                    flyingHediff = HediffDef.Named(FlyingHediffDefName);
-                return flyingHediff;
+                if (cachedHediff == null && Props != null && !Props.hediffDefName.NullOrEmpty())
+                    cachedHediff = HediffDef.Named(Props.hediffDefName);
+                return cachedHediff;
             }
         }
 
@@ -25,7 +36,7 @@ namespace merissu
         {
             base.GameConditionTick();
 
-            if (Find.TickManager.TicksGame % 60 == 0)
+            if (Find.TickManager.TicksGame % 60 == 0) 
             {
                 foreach (Map map in AffectedMaps)
                 {
@@ -36,22 +47,24 @@ namespace merissu
 
         private void MaintainHediffOnPawns(Map map)
         {
-            if (map == null || FlyingHediff == null) return;
+            if (map == null || TargetHediff == null || Props == null) return;
 
             List<Pawn> allPawns = map.mapPawns.AllPawnsSpawned.ToList();
-
-            int colonistCount = map.mapPawns.FreeColonistsSpawnedCount;
-
-            List<Pawn> sortedEnemies = allPawns
-                .Where(p => p != null && p.Faction != null && p.Faction.HostileTo(Faction.OfPlayer) && !p.Dead && p.RaceProps.Humanlike)
-                .OrderByDescending(p => p.MarketValue)
-                .ToList();
-
             HashSet<Pawn> targetEnemies = new HashSet<Pawn>();
-            int enemyQuota = Math.Min(colonistCount, sortedEnemies.Count);
-            for (int i = 0; i < enemyQuota; i++)
+
+            if (!Props.applyToAllEnemies)
             {
-                targetEnemies.Add(sortedEnemies[i]);
+                int colonistCount = map.mapPawns.FreeColonistsSpawnedCount;
+                var sortedEnemies = allPawns
+                    .Where(p => p != null && p.Faction != null && p.Faction.HostileTo(Faction.OfPlayer) && !p.Dead && p.RaceProps.Humanlike)
+                    .OrderByDescending(p => p.MarketValue)
+                    .ToList();
+
+                int enemyQuota = Math.Min(colonistCount, sortedEnemies.Count);
+                for (int i = 0; i < enemyQuota; i++)
+                {
+                    targetEnemies.Add(sortedEnemies[i]);
+                }
             }
 
             foreach (Pawn pawn in allPawns)
@@ -66,27 +79,25 @@ namespace merissu
                 }
                 else if (pawn.Faction != null && !pawn.Faction.HostileTo(Faction.OfPlayer))
                 {
-                    shouldHaveHediff = true;
+                    if (!Props.playerOnly) shouldHaveHediff = true;
                 }
-                else if (targetEnemies.Contains(pawn))
+                else if (pawn.Faction != null && pawn.Faction.HostileTo(Faction.OfPlayer))
                 {
-                    shouldHaveHediff = true;
+                    if (!Props.playerOnly && !Props.friendlyOnly)
+                    {
+                        if (Props.applyToAllEnemies || targetEnemies.Contains(pawn))
+                            shouldHaveHediff = true;
+                    }
                 }
 
-                Hediff existingHediff = pawn.health.hediffSet.GetFirstHediffOfDef(FlyingHediff);
+                Hediff existingHediff = pawn.health.hediffSet.GetFirstHediffOfDef(TargetHediff);
                 if (shouldHaveHediff)
                 {
-                    if (existingHediff == null)
-                    {
-                        pawn.health.AddHediff(FlyingHediff);
-                    }
+                    if (existingHediff == null) pawn.health.AddHediff(TargetHediff);
                 }
                 else
                 {
-                    if (existingHediff != null)
-                    {
-                        pawn.health.RemoveHediff(existingHediff);
-                    }
+                    if (existingHediff != null) pawn.health.RemoveHediff(existingHediff);
                 }
             }
         }
@@ -97,31 +108,22 @@ namespace merissu
             {
                 RemoveHediffFromAllPawns(map);
             }
-
-            Map singleMap = SingleMap;
             base.End();
 
-            if (singleMap != null)
+            if (SingleMap != null)
             {
-                singleMap.weatherManager.TransitionTo(RimWorld.WeatherDefOf.Clear);
+                SingleMap.weatherManager.TransitionTo(RimWorld.WeatherDefOf.Clear);
             }
         }
 
         private void RemoveHediffFromAllPawns(Map map)
         {
-            if (map == null || FlyingHediff == null) return;
+            if (map == null || TargetHediff == null) return;
 
-            IReadOnlyList<Pawn> allPawns = map.mapPawns.AllPawnsSpawned;
-            for (int i = 0; i < allPawns.Count; i++)
+            foreach (Pawn pawn in map.mapPawns.AllPawnsSpawned)
             {
-                Pawn pawn = allPawns[i];
-                if (pawn == null) continue;
-
-                Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(FlyingHediff);
-                if (hediff != null)
-                {
-                    pawn.health.RemoveHediff(hediff);
-                }
+                Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(TargetHediff);
+                if (hediff != null) pawn.health.RemoveHediff(hediff);
             }
         }
     }
@@ -129,10 +131,8 @@ namespace merissu
 
     public class CompProperties_AbilityRandomWeather : CompProperties_AbilityEffect
     {
-        public List<WeatherDef> weatherPool;
-        public bool allowSameAsCurrent = false;
+        public List<GameConditionDef> conditionPool; 
         public int forcedDurationTicks = 20000;
-        public GameConditionDef forceWeatherConditionDef;
 
         public CompProperties_AbilityRandomWeather()
         {
@@ -142,40 +142,19 @@ namespace merissu
 
     public class CompAbilityEffect_RandomWeather : CompAbilityEffect
     {
-        public new CompProperties_AbilityRandomWeather Props
-            => (CompProperties_AbilityRandomWeather)props;
+        public new CompProperties_AbilityRandomWeather Props => (CompProperties_AbilityRandomWeather)props;
 
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);
-
             Map map = parent?.pawn?.Map;
-            if (map == null || Props.weatherPool == null || Props.weatherPool.Count == 0) return;
+            if (map == null || Props.conditionPool == null || Props.conditionPool.Count == 0) return;
 
-            if (Props.forceWeatherConditionDef == null)
-            {
-                Log.Error("[merissu] forceWeatherConditionDef is null in XML.");
-                return;
-            }
+            GameConditionDef chosenDef = Props.conditionPool.RandomElement();
+            GameCondition cond = GameConditionMaker.MakeCondition(chosenDef, Props.forcedDurationTicks);
 
-            List<WeatherDef> candidates = new List<WeatherDef>();
-            foreach (var w in Props.weatherPool)
-            {
-                if (w == null) continue;
-                if (!Props.allowSameAsCurrent && w == map.weatherManager.curWeather) continue;
-                candidates.Add(w);
-            }
-
-            if (candidates.Count == 0) return;
-
-            WeatherDef chosen = candidates.RandomElement();
-            GameCondition_ForceWeather cond = (GameCondition_ForceWeather)GameConditionMaker.MakeCondition(
-                Props.forceWeatherConditionDef,
-                Props.forcedDurationTicks
-            );
-
-            cond.weather = chosen;
             map.gameConditionManager.RegisterCondition(cond);
+            Messages.Message("天候改变为: " + chosenDef.label, MessageTypeDefOf.PositiveEvent);
         }
     }
 }

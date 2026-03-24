@@ -442,24 +442,14 @@
 		</verbProperties>
 		<comps>
 			<li Class="merissu.CompProperties_AbilityRandomWeather">
-			  <forcedDurationTicks>20000</forcedDurationTicks>
-			  <forceWeatherConditionDef>merissu_ForceWeather_Ability</forceWeatherConditionDef>
-				<weatherPool>
-					<li>HighClearSky</li>
-				</weatherPool>
+				<forcedDurationTicks>20000</forcedDurationTicks>
+				<conditionPool>
+					<li>HighClearSkyCondition</li>
+					<li>MistyRainCondition</li>
+				</conditionPool>
 			</li>
 		</comps>
 	</AbilityDef>
-
-	<GameConditionDef>
-		<defName>merissu_ForceWeather_Ability</defName>
-		<conditionClass>merissu.GameCondition_ForceWeather_Ability</conditionClass>
-		<label>天气变化</label>
-		<description>被能力强制改变的天气。</description>
-		<canBePermanent>false</canBePermanent>
-		<natural>false</natural>
-		<allowUnderground>false</allowUnderground>
-	</GameConditionDef>
 
 	<WeatherDef>
 		<defName>HighClearSky</defName>
@@ -473,11 +463,11 @@
 		<moveSpeedMultiplier>1.0</moveSpeedMultiplier>
 		<modExtensions>
 			<li Class="merissu.WeatherMusicExtension">
-				<clipPath>Songs/Weather1</clipPath>
+            	<clipPath>Songs/Weather1</clipPath>
+            	<switchTexturePath>weather/weatherNameB000</switchTexturePath> 
 				<volume>0.8</volume>
-				<fadeOutSeconds>2.0</fadeOutSeconds> 
-			</li>
-		</modExtensions>
+    	    </li>
+	    </modExtensions>
 		<ambientSounds>
 			<li>Ambient_Wind_Quiet</li>
 		</ambientSounds>
@@ -509,12 +499,18 @@
 
 	<GameConditionDef>
 		<defName>HighClearSkyCondition</defName>
-		<conditionClass>merissu.GameCondition_ForceWeather_Ability</conditionClass>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
 		<label>快晴</label>
 		<description>在空中飞行程度的天气,现在可以飞行,并且射击精度也会提升</description>
 		<weatherDef>HighClearSky</weatherDef>
 		<canBePermanent>false</canBePermanent> 
 		<natural>true</natural> 
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>HighClearSky_Flying</hediffDefName>
+        	    <applyToAllEnemies>false</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
 		<letterText>一道异常明亮的阳光刺破了云层,整片区域被阳光笼罩。空气变得前所未有的通透。</letterText>
 		<letterDef>PositiveEvent</letterDef> 
 		<endMessage>快晴结束了,大气流动恢复了正常。</endMessage>
@@ -546,6 +542,113 @@
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
+    </HediffDef>
+
+	<WeatherDef>
+		<defName>MistyRain</defName>
+		<label>雾雨</label>
+		<description>符卡就是火力程度的天气,射击精度上升,射击速度变得极快。</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<rainRate>0.1</rainRate>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1.7</accuracyMultiplier>
+		<moveSpeedMultiplier>0.95</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather2</clipPath>
+            	<switchTexturePath>weather/weatherNameB001</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+	    </modExtensions>
+		<overlayClasses>
+			<li>WeatherOverlay_Fog</li> 
+    		<li>WeatherOverlay_Fog</li>
+			<li>WeatherOverlay_Rain</li>
+		</overlayClasses>
+		<ambientSounds>
+			<li>Ambient_Rain_Light</li>
+		</ambientSounds>
+		<skyColorsDay>
+			<sky>(1, 1, 1)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 1, 1)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1, 0.588, 0.588)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 0.588, 0.588)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>MistyRainCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>雾雨</label>
+		<description>弹幕最重要的是火力程度的天气,射击精度上升,射击速度变得极快。</description>
+		<weatherDef>MistyRain</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>MistyRain</hediffDefName>
+        	    <applyToAllEnemies>false</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>一阵奇怪的雾雨笼罩了这片区域。空气中的水汽似乎在引导着弹幕,射击速度得到了极大的提升。</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>雾雨消散了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>MistyRainIncident</defName>
+		<label>雾雨</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>MistyRainCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>MistyRain</defName>
+        <label>雾雨</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <description>射击精度上升,射击速度变得极快</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<stages>
+			<li>
+				<statFactors>
+					<AimingDelayFactor>0.2</AimingDelayFactor>
+					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+				</statFactors>
+			</li>
+		</stages>
     </HediffDef>
 
 </Defs>	
