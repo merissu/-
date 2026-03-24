@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <AbilityDef>
+    <defName>Nazrin_TreasureHunt</defName>
+    <label>探宝「鼠辈的嗅觉」</label>
+    <description>纳兹琳凭借老鼠的直觉，从附近的空间里找出隐藏的宝藏。使用后会在附近30格内发现3-5堆随机宝物，需要消耗一层灵力。</description>
+	<abilityClass>TouhouExpansion.Ability_NazrinTreasureHunt</abilityClass> 
+    <iconPath>Items/Nazrin_Rod</iconPath>
+    <cooldownTicksRange>3600</cooldownTicksRange>
+    <hostile>false</hostile>
+    <targetRequired>false</targetRequired>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>1.0</warmupTime>
+      <range>1</range>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityEffect">
+        <compClass>TouhouExpansion.CompAbilityEffect_TreasureHunt</compClass>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <AbilityDef>
+    <defName>Nazrin_RevealMap</defName>
+    <label>探宝「全图视野」</label>
+    <description>通过探测器瞬间揭示整张地图的迷雾。需要消耗一层灵力。</description>
+	<abilityClass>TouhouExpansion.Ability_NazrinRevealMap</abilityClass>
+    <iconPath>Items/Nazrin_Rod</iconPath>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <hostile>false</hostile>
+    <targetRequired>false</targetRequired>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>1.0</warmupTime>
+      <range>1</range>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+  <comps>
+    <li Class="CompProperties_AbilityEffect">
+      <compClass>TouhouExpansion.CompAbilityEffect_RevealMap</compClass>
+    </li>
+  </comps>
+</AbilityDef>
+</Defs>
