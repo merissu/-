@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ApparelLayerDef>
+    <defName>Touhou_AccessoryOuter</defName>
+    <label>东方盾牌</label>
+    <drawOrder>600</drawOrder>  <!-- 绘制顺序-->
+  </ApparelLayerDef>
+</Defs>
