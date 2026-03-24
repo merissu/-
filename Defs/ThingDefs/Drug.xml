@@ -222,7 +222,8 @@
 		<label>灵力</label>
 		<labelNoun>灵力</labelNoun>
 		<defaultLabelColor>(153,204,255)</defaultLabelColor>
-		<description>灵力最高有十层,每次使用符卡时都会消耗一层灵力。当拥有至少五层灵力时,可以释放极其强大的LastWord。</description>
+		<description>每次使用符卡时都会消耗一层灵力。当拥有至少五层灵力时,可以释放极其强大的LastWord。
+可以在mod配置修改最大灵力</description>
 		<scenarioCanAdd>false</scenarioCanAdd>
 		<isBad>false</isBad>
 		<maxSeverity>10</maxSeverity>
@@ -244,7 +245,7 @@
 				<minSeverity>4</minSeverity>
 			</li>
 			<li>
-				<label>五层</label>
+				<label>FullPower!</label>
 				<minSeverity>5</minSeverity>
 			</li>
 			<li>
@@ -264,7 +265,7 @@
 				<minSeverity>9</minSeverity>
 			</li>
 			<li>
-				<label>FullPower!</label>
+				<label>Double Full Power!!</label>
 				<minSeverity>10</minSeverity>
 			</li>
 		</stages>
