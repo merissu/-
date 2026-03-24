@@ -14,6 +14,9 @@
 			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
 		</li>
 	</modDependencies>
+	<loadAfter>
+		<li>zal.musicmanager</li>
+	</loadAfter>
   <description>添加了来自东方Project的建筑,材料,药物,武器和装备,并且添加了全新的灵力系统和符卡系统,大大扩展了战斗内容,总体上偏正义
 
     本mod为东方星缘纪的二次改版,原mod:https://steamcommunity.com/sharedfiles/filedetails/?id=3085256867.

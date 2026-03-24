@@ -426,7 +426,7 @@
     <AbilityDef>
 		<defName>TenshiRandomWeather</defName>
 		<label>绯想之剑</label>
-		<description>将天气切换为适合战斗的特殊天气,天气带来的特殊效果对所有人生效</description>
+		<description>将天气切换为适合战斗的特殊天气,天气会带来各种特殊效果(增益对所有殖民者和同等数量的敌人生效,负面效果对所有人生效)</description>
         <cooldownTicksRange>20000</cooldownTicksRange>
 		<iconPath>Abilities/TenshiRandomWeather</iconPath>
 		<verbProperties>
@@ -464,7 +464,7 @@
 	<WeatherDef>
 		<defName>HighClearSky</defName>
 		<label>快晴</label>
-		<description>在空中飞行程度的天气,使所有人处于飞行状态</description>
+		<description>在空中飞行程度的天气,使殖民者和等同数量的敌人获得飞行状态</description>
 		<isBad>false</isBad>
 		<favorability>Good</favorability>
 		<perceivePriority>1</perceivePriority>
@@ -511,7 +511,7 @@
 		<defName>HighClearSkyCondition</defName>
 		<conditionClass>merissu.GameCondition_ForceWeather_Ability</conditionClass>
 		<label>快晴</label>
-		<description>在空中飞行程度的天气,使所有人处于飞行状态,所有人射击精度提升</description>
+		<description>在空中飞行程度的天气,现在可以飞行,并且射击精度也会提升</description>
 		<weatherDef>HighClearSky</weatherDef>
 		<canBePermanent>false</canBePermanent> 
 		<natural>true</natural> 

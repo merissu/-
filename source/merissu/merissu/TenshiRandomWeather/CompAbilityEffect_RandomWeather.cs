@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using RimWorld;
 using Verse;
-using System.Linq; 
+using System.Linq;
 
 namespace merissu
 {
@@ -37,34 +38,59 @@ namespace merissu
         {
             if (map == null || FlyingHediff == null) return;
 
-            IReadOnlyList<Pawn> allPawns = map.mapPawns.AllPawnsSpawned;
+            List<Pawn> allPawns = map.mapPawns.AllPawnsSpawned.ToList();
 
-            for (int i = 0; i < allPawns.Count; i++)
+            int colonistCount = map.mapPawns.FreeColonistsSpawnedCount;
+
+            List<Pawn> sortedEnemies = allPawns
+                .Where(p => p != null && p.Faction != null && p.Faction.HostileTo(Faction.OfPlayer) && !p.Dead && p.RaceProps.Humanlike)
+                .OrderByDescending(p => p.MarketValue)
+                .ToList();
+
+            HashSet<Pawn> targetEnemies = new HashSet<Pawn>();
+            int enemyQuota = Math.Min(colonistCount, sortedEnemies.Count);
+            for (int i = 0; i < enemyQuota; i++)
             {
-                Pawn pawn = allPawns[i];
+                targetEnemies.Add(sortedEnemies[i]);
+            }
 
-                if (pawn != null && !pawn.Dead && pawn.RaceProps.Humanlike)
+            foreach (Pawn pawn in allPawns)
+            {
+                if (pawn == null || pawn.Dead || !pawn.RaceProps.Humanlike) continue;
+
+                bool shouldHaveHediff = false;
+
+                if (pawn.Faction == Faction.OfPlayer)
                 {
-                    bool isOutdoor = !pawn.Position.Roofed(map);
+                    shouldHaveHediff = true;
+                }
+                else if (pawn.Faction != null && !pawn.Faction.HostileTo(Faction.OfPlayer))
+                {
+                    shouldHaveHediff = true;
+                }
+                else if (targetEnemies.Contains(pawn))
+                {
+                    shouldHaveHediff = true;
+                }
 
-                    if (isOutdoor)
+                Hediff existingHediff = pawn.health.hediffSet.GetFirstHediffOfDef(FlyingHediff);
+                if (shouldHaveHediff)
+                {
+                    if (existingHediff == null)
                     {
-                        if (pawn.health.hediffSet.GetFirstHediffOfDef(FlyingHediff) == null)
-                        {
-                            pawn.health.AddHediff(FlyingHediff);
-                        }
+                        pawn.health.AddHediff(FlyingHediff);
                     }
-                    else
+                }
+                else
+                {
+                    if (existingHediff != null)
                     {
-                        Hediff indoorHediff = pawn.health.hediffSet.GetFirstHediffOfDef(FlyingHediff);
-                        if (indoorHediff != null)
-                        {
-                            pawn.health.RemoveHediff(indoorHediff);
-                        }
+                        pawn.health.RemoveHediff(existingHediff);
                     }
                 }
             }
         }
+
         public override void End()
         {
             foreach (Map map in AffectedMaps)
@@ -89,6 +115,8 @@ namespace merissu
             for (int i = 0; i < allPawns.Count; i++)
             {
                 Pawn pawn = allPawns[i];
+                if (pawn == null) continue;
+
                 Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(FlyingHediff);
                 if (hediff != null)
                 {
@@ -97,6 +125,7 @@ namespace merissu
             }
         }
     }
+
 
     public class CompProperties_AbilityRandomWeather : CompProperties_AbilityEffect
     {
