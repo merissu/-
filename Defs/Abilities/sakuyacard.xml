@@ -162,7 +162,9 @@
         <label>「咲夜的世界」</label>
         <description>操作时间的顶峰Spell之一。令周围的时间完全停止,从而进行单方面攻击的犯规级Spell。
 
-使用需要消耗两层灵力,持续时间大概一小时,需要注意的是,时停期间其他符卡基本上无法使用,但是远程武器与近战武器依然是可以使用的</description>
+使用需要消耗两层灵力,持续时间大概一小时,需要注意的是,时停期间其他符卡基本上无法使用,但是远程武器与近战武器依然是可以使用的
+
+(时停时长可在设置界面自行调整)</description>
         <abilityClass>merissu.SakuyaTheWorld</abilityClass>
         <jobDef>CastAbilityOnThing</jobDef>
         <targetRequired>False</targetRequired>

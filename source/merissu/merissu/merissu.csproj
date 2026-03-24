@@ -91,6 +91,7 @@
     <Compile Include="goheifly\Patch_GoheiForceLand.cs" />
     <Compile Include="goheifly\Patch_KeepFlyingOnJob.cs" />
     <Compile Include="goheifly\PawnFlightUtility.cs" />
+    <Compile Include="TenshiRandomWeather\HediffComp_Yuntian.cs" />
     <Compile Include="TenshiRandomWeather\HighClearSkyFlightUtil.cs" />
     <Compile Include="TenshiRandomWeather\CompAbilityEffect_RandomWeather.cs" />
     <Compile Include="CompPlantable_touhou.cs" />

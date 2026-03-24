@@ -130,7 +130,7 @@ namespace merissu
             {
                 hp.Severity -= 1f; 
 
-                PrivateSquareManager.Activate(pawn, 10000);
+                PrivateSquareManager.Activate(pawn, 20000);
                 return base.Activate(target, dest);
             }
 

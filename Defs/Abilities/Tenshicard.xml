@@ -446,6 +446,7 @@
 				<conditionPool>
 					<li>HighClearSkyCondition</li>
 					<li>MistyRainCondition</li>
+					<li>YuntianCondition</li>
 				</conditionPool>
 			</li>
 		</comps>
@@ -649,6 +650,99 @@
 				</statFactors>
 			</li>
 		</stages>
+    </HediffDef>
+
+	<WeatherDef>
+		<defName>Yuntian</defName>
+		<label>云天</label>
+		<description>灵活地使用符卡程度的天气,每次消耗大于一层的灵力时都会返还一层灵力</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather3</clipPath>
+            	<switchTexturePath>weather/weatherNameB002</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+	    </modExtensions>
+		<skyColorsDay>
+            <sky>(0.8, 0.8, 0.85)</sky>
+            <shadow>(0.85, 0.85, 0.85)</shadow>
+            <overlay>(0.7, 0.7, 0.7)</overlay>
+            <saturation>0.9</saturation>
+        </skyColorsDay>
+        <skyColorsDusk>
+            <sky>(0.6, 0.55, 0.55)</sky>
+            <shadow>(0.8, 0.8, 0.8)</shadow>
+            <overlay>(0.6, 0.55, 0.55)</overlay>
+            <saturation>0.8</saturation>
+        </skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>YuntianCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>云天</label>
+		<description>灵活地使用符卡程度的天气,每次消耗大于一层的灵力时都会返还一层灵力</description>
+		<weatherDef>Yuntian</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>Yuntian</hediffDefName>
+        	    <applyToAllEnemies>false</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>天空布满了乌云,使用符卡的能力变强了。</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>云天散去了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>YuntianIncident</defName>
+		<label>云天</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>YuntianCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>Yuntian</defName>
+        <label>云天</label>
+        <defaultLabelColor>(204,204,204)</defaultLabelColor>
+        <description>灵活地使用符卡程度的天气,每次消耗大于一层的灵力时都会返还一层灵力</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<comps>
+			<li Class="merissu.HediffCompProperties_Yuntian" />
+		</comps>
     </HediffDef>
 
 </Defs>	
