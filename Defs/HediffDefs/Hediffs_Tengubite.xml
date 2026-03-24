@@ -9,7 +9,7 @@
     <maxSeverity>1.0</maxSeverity>
     <scenarioCanAdd>true</scenarioCanAdd>
     <comps>
-      <!-- 每天减少 10，相当于每 10 秒减少 0.1（10 秒掉一层） -->
+      <!-- 每天减少一层 -->
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-0.1</severityPerDay>
       </li>
