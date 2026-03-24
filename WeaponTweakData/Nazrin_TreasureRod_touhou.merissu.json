@@ -1,0 +1,13 @@
+{
+  "TextureModID": "touhou.merissu",
+  "ItemDefName": "Nazrin_TreasureRod",
+  "ItemType": "ThingDef",
+  "ItemTypeNamespace": "Verse",
+  "OffX": 0.1724138,
+  "OffY": 0.206896558,
+  "ScaleX": 2.0,
+  "ScaleY": 2.0,
+  "BladeStart": -0.551724136,
+  "BladeEnd": 0.7155172,
+  "MeleeWeaponType": 7
+}
