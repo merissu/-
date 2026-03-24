@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+<HediffDef>
+  <defName>Nazrin_EquipmentHediff</defName>
+  <label>探宝棒装备中</label>
+  <description>装备了纳兹琳的探宝棒，可以使用符卡技能。</description>
+  <hediffClass>HediffWithComps</hediffClass>
+  <isBad>false</isBad>
+  <tendable>false</tendable>
+  <maxSeverity>1.0</maxSeverity>
+  <abilities>
+    <li>Nazrin_TreasureHunt</li>   <!-- 你的探宝符卡 -->
+    <li>Nazrin_RevealMap</li>      <!-- 揭示地图符卡 -->
+  </abilities>
+</HediffDef>
+</Defs>
