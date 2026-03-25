@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <DamageDef ParentName="Bite">
+    <defName>Momiji_TenguBite</defName>
+    <label>天狗之噬</label>
+    <!-- 继承 Bite 的所有属性，只需添加附加 Hediff -->
+    <additionalHediffs>
+      <li>
+        <hediff>Momiji_TenguBiteHediff</hediff>
+        <severityPerDamageDealt>0.0067</severityPerDamageDealt>
+        <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+      </li>
+    </additionalHediffs>
+  </DamageDef>
+</Defs>

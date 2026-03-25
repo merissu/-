@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="TH_MeleeWeapon">
+    <defName>Nazrin_TreasureRod</defName>
+    <label>纳兹琳的探宝棒</label>
+    <description>一对看似普通的长棒，被纳兹琳用来敲击地面寻找宝藏。装备后可以使用探宝技能，也可以用来探测地图迷雾。</description>
+    <graphicData>
+      <texPath>Items/Nazrin_Rod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <Mass>1.5</Mass>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Flammability>0.3</Flammability>
+    </statBases>
+    <weaponClasses>
+      <li>Melee</li>
+    </weaponClasses>
+    <tools>
+      <li>
+        <label>敲击</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>0.5</cooldownTime>
+      </li>
+    </tools>
+		<comps>
+		<!-- 添加一个装备时自动添加的 Hediff -->
+		<li Class="merissu.CompProperties_WearerHediff">
+			<hediff>Nazrin_EquipmentHediff</hediff>
+		</li>
+		</comps>
+    <costList>
+      <Crimsongold>50</Crimsongold>
+    </costList>
+    <recipeMaker>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <workAmount>2500</workAmount>
+      <recipeUsers>
+        <li>TableHifuuClub</li>
+      </recipeUsers>
+    </recipeMaker>
+    <smeltable>true</smeltable>
+    <smeltProducts>
+      <Crimsongold>10</Crimsongold>
+    </smeltProducts>
+    <thingSetMakerTags>
+      <li>RewardStandard</li>
+    </thingSetMakerTags>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+  </ThingDef>
+</Defs>
