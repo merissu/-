@@ -1,50 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<ThingDef ParentName="ApparelNoQualityBase">
-		<defName>Minoriko</defName>
-		<label>null</label>
-		<description>null</description>
-		<techLevel>Industrial</techLevel>
-		<graphicData>
-			<texPath>Accessory/SevenElementalGrimoire</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<tickerType>Normal</tickerType>
-		<costList>
-			<Steel>50</Steel>
-			<ComponentIndustrial>4</ComponentIndustrial>
-		</costList>
-		<statBases>
-			<WorkToMake>14000</WorkToMake>
-			<Mass>3</Mass>
-			<Flammability>0.4</Flammability>
-			<EquipDelay>2</EquipDelay>
-		</statBases>
-		<thingSetMakerTags>
-			<li>RewardStandardQualitySuper</li>
-		</thingSetMakerTags>
-		<thingCategories>
-			<li>ApparelUtility</li>
-		</thingCategories>
-		<generateAllowChance>0.15</generateAllowChance>
-		<apparel>
-			<countsAsClothingForNudity>false</countsAsClothingForNudity>
-			<scoreOffset>4</scoreOffset>
-			<careIfWornByCorpse>false</careIfWornByCorpse>
-			<careIfDamaged>false</careIfDamaged>
-			<wearPerDay>0</wearPerDay>
-			<bodyPartGroups>
-				<li>Waist</li>
-			</bodyPartGroups>
-			<layers>
-				<li>Belt</li>
-			</layers>
-		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
-		<allowedArchonexusCount>1</allowedArchonexusCount>
-	</ThingDef>
 	<ThingDef ParentName="BuildingBase">
 	<defName>Minorikox</defName>
 	<label>丰收神龛</label>

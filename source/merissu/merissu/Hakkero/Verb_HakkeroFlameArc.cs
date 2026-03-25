@@ -8,8 +8,10 @@ namespace merissu
     [StaticConstructorOnStartup]
     public class Verb_HakkeroFlameArc : Verb_Shoot
     {
-        private const float ArcAngle = 45f;       
-        private const int BulletsPerWave = 5;     
+        private const float ArcAngle = 45f;
+        private const int BulletsPerWave = 5;
+
+        private static ThingDef CachedProjectileDef;
 
         private static Material arcMat;
         private static Material ArcMat
@@ -39,14 +41,14 @@ namespace merissu
 
             float maxRange = this.verbProps.range;
             if (radius > maxRange) radius = maxRange;
-            if (radius < 0.5f) return; 
+            if (radius < 0.5f) return;
 
             float baseAngle = (tpos - center).AngleFlat();
 
             Matrix4x4 matrix = Matrix4x4.TRS(
                 center,
                 Quaternion.Euler(0f, baseAngle, 0f),
-                new Vector3(radius, 1f, radius) 
+                new Vector3(radius, 1f, radius)
             );
 
             Graphics.DrawMesh(
@@ -59,33 +61,36 @@ namespace merissu
         protected override bool TryCastShot()
         {
             Pawn pawn = CasterPawn;
-            if (pawn == null || pawn.Map == null)
-                return false;
+            if (pawn?.Map == null) return false;
+
+            if (CachedProjectileDef == null)
+            {
+                CachedProjectileDef = ThingDef.Named("Projectile_HakkeroFlame");
+            }
 
             Vector3 center = pawn.DrawPos;
             Vector3 targetPos = currentTarget.CenterVector3;
             float radius = Vector3.Distance(center, targetPos);
             float baseAngle = (targetPos - center).AngleFlat();
 
+            Map map = pawn.Map;
+            IntVec3 casterPos = pawn.Position;
+
             for (int i = 0; i < BulletsPerWave; i++)
             {
                 float ang = baseAngle + Rand.Range(-ArcAngle / 2f, ArcAngle / 2f);
                 Vector3 dir = Quaternion.Euler(0f, ang, 0f) * Vector3.forward;
 
-                IntVec3 dest = (center + dir * radius).ToIntVec3();
-                if (!dest.InBounds(pawn.Map))
-                    continue;
+                Vector3 destVec = center + dir * radius;
+                IntVec3 destCell = destVec.ToIntVec3();
 
-                LocalTargetInfo target;
-                Pawn hitPawn = dest.GetFirstPawn(pawn.Map);
-                target = hitPawn != null ? new LocalTargetInfo(hitPawn) : new LocalTargetInfo(dest);
+                if (!destCell.InBounds(map)) continue;
 
-                ThingDef projDef = ThingDef.Named("Projectile_HakkeroFlame");
-                if (projDef == null) continue;
+                LocalTargetInfo targetInfo = new LocalTargetInfo(destCell);
 
-                Projectile proj = (Projectile)GenSpawn.Spawn(projDef, pawn.Position, pawn.Map);
+                Projectile proj = (Projectile)GenSpawn.Spawn(CachedProjectileDef, casterPos, map);
 
-                proj.Launch(pawn, pawn.DrawPos, target, target, ProjectileHitFlags.All, false, EquipmentSource);
+                proj.Launch(pawn, center, targetInfo, targetInfo, ProjectileHitFlags.All, false, EquipmentSource);
             }
 
             return true;

@@ -192,8 +192,7 @@
 			<RangedWeapon_Cooldown>0.05</RangedWeapon_Cooldown>
 		</statBases>
 		<weaponTags>
-			<li>SpacerGun</li>
-			<li>IndustrialGunAdvanced</li>
+			<li>Touhou</li>
 		</weaponTags>
 		<equippedStatOffsets>
 			<MaxFlightTime>9999</MaxFlightTime>
@@ -269,7 +268,7 @@
 			<Flammability>0</Flammability>
 		</statBases>
 		<weaponTags>
-			<li>UltratechMelee</li>
+			<li>Touhou</li>
 		</weaponTags>
 		<equippedStatOffsets>
 			<MeleeHitChance>1000</MeleeHitChance>
@@ -369,7 +368,7 @@
 			<Flammability>0</Flammability>
 		</statBases>
 		<weaponTags>
-			<li>UltratechMelee</li>
+			<li>Touhou</li>
 		</weaponTags>
 		<relicChance>17</relicChance>
 		<equippedAngleOffset>-65</equippedAngleOffset>
@@ -455,8 +454,7 @@
 			<RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
 		</statBases>
 		<weaponTags>
-			<li>SpacerGun</li>
-			<li>IndustrialGunAdvanced</li>
+			<li>Touhou</li>
 		</weaponTags>
 		<costList>
 			<SpiritualWood>50</SpiritualWood>
@@ -480,7 +478,7 @@
 				<defaultProjectile>Projectile_HakkeroFlame</defaultProjectile>
 			    <warmupTime>0.5</warmupTime>
 				<range>20</range>
-				<burstShotCount>60</burstShotCount>
+				<burstShotCount>20</burstShotCount>
 				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
 				<soundCast>gohei</soundCast>
 				<targetParams>
@@ -518,7 +516,7 @@
 		<projectile>
 			<damageDef>Flame</damageDef>
 			<armorPenetrationBase>1</armorPenetrationBase>
-			<damageAmountBase>3</damageAmountBase>
+			<damageAmountBase>9</damageAmountBase>
 			<speed>20</speed>
 		</projectile>
 	</ThingDef>
@@ -545,7 +543,7 @@
 			<Mass>1</Mass>
 		</statBases>
 		<weaponTags>
-			<li>SpacerGun</li>
+			<li>Touhou</li>
 		</weaponTags>
 		<weaponClasses>
 			<li>RangedLight</li>
@@ -941,8 +939,7 @@
 			<RangedWeapon_Cooldown>0</RangedWeapon_Cooldown>
 		</statBases>
 		<weaponTags>
-			<li>SpacerGun</li>
-			<li>IndustrialGunAdvanced</li>
+			<li>Touhou</li>
 		</weaponTags>
 		<weaponClasses>
 			<li>RangedLight</li>
@@ -1021,7 +1018,7 @@
 		</statBases>
 		<relicChance>6</relicChance>
 		<weaponTags>
-			<li>LongSword</li>
+			<li>Touhou</li>
 		</weaponTags>
 		<tools>
 			<li>
@@ -1489,7 +1486,7 @@
 			<drawSize>(1.2,1.2)</drawSize>
 		</graphicData>
 		<weaponTags>
-			<li>UltratechMelee</li>
+			<li>Touhou</li>
 		</weaponTags>
 		<statBases>
 			<WorkToMake>10000</WorkToMake>
@@ -1661,7 +1658,7 @@
 			<li>Melee</li>
 		</weaponClasses>
 		<weaponTags>
-			<li>MeleeTierHigh</li>
+			<li>Touhou</li>
 		</weaponTags>
 		<tools>
 			<li>
@@ -1764,8 +1761,7 @@
 			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
 		</statBases>
 		<weaponTags>
-			<li>SpacerGun</li>
-			<li>IndustrialGunAdvanced</li>
+			<li>Touhou</li>
 		</weaponTags>
 		<weaponClasses>
 			<li>RangedLight</li>

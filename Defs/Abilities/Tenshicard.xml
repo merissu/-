@@ -426,7 +426,7 @@
     <AbilityDef>
 		<defName>TenshiRandomWeather</defName>
 		<label>绯想之剑</label>
-		<description>将天气切换为适合战斗的特殊天气,天气会带来各种特殊效果(增益对所有殖民者和同等数量的敌人生效,负面效果对所有人生效)</description>
+		<description>将天气切换为适合战斗的特殊天气,天气会带来各种特殊效果,增益对所有殖民者和同等数量的敌人生效,负面效果对所有人生效(天气贴图如遇尺寸不匹配请在设置界面进行调整)</description>
         <cooldownTicksRange>20000</cooldownTicksRange>
 		<iconPath>Abilities/TenshiRandomWeather</iconPath>
 		<verbProperties>
@@ -468,7 +468,21 @@
             	<switchTexturePath>weather/weatherNameB000</switchTexturePath> 
 				<volume>0.8</volume>
     	    </li>
-	    </modExtensions>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/00</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+		</modExtensions>
 		<ambientSounds>
 			<li>Ambient_Wind_Quiet</li>
 		</ambientSounds>
@@ -562,6 +576,20 @@
             	<switchTexturePath>weather/weatherNameB001</switchTexturePath> 
 				<volume>0.8</volume>
     	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/01</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
 	    </modExtensions>
 		<overlayClasses>
 			<li>WeatherOverlay_Fog</li> 
@@ -668,6 +696,20 @@
             	<switchTexturePath>weather/weatherNameB002</switchTexturePath> 
 				<volume>0.8</volume>
     	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/02</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
 	    </modExtensions>
 		<skyColorsDay>
             <sky>(0.8, 0.8, 0.85)</sky>

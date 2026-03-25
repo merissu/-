@@ -121,6 +121,7 @@
     <Compile Include="remiliacard\remiliacard.cs" />
     <Compile Include="flandrecard\Verb_Catadioptric.cs" />
     <Compile Include="TenshiRandomWeather\WeatherEffectController.cs" />
+    <Compile Include="TenshiRandomWeather\WeatherBackdrop_OdysseyStyle.cs" />
     <Compile Include="Yukari\Ability_Turnenemiesintofriends.cs" />
     <Compile Include="Yukari\Ability_Trainbomb.cs" />
     <Compile Include="Yukari\AbilityYukaridisappearance.cs" />
