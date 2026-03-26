@@ -449,6 +449,12 @@
 					<li>YuntianCondition</li>
 					<li>HeavenCondition</li>
 					<li>hailCondition</li>
+					<li>HuaYunCondition</li>
+					<li>DensefogCondition</li>
+					<li>MagicSnowCondition</li>
+					<li>SunshowerCondition</li>
+					<li>WindrainCondition</li>
+					<li>LightrainCondition</li>
 				</conditionPool>
 			</li>
 		</comps>
@@ -568,7 +574,7 @@
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
-		<rainRate>0.1</rainRate>
+		<rainRate>0.3</rainRate>
 		<windSpeedFactor>0.8</windSpeedFactor>
 		<accuracyMultiplier>1.7</accuracyMultiplier>
 		<moveSpeedMultiplier>0.95</moveSpeedMultiplier>
@@ -1039,6 +1045,728 @@
 		<comps>
 			<li Class="merissu.HediffCompProperties_HailLogic" />
 		</comps>
+	</HediffDef>
+
+	<WeatherDef>
+		<defName>HuaYun</defName>
+		<label>花云</label>
+		<description>能回避打击程度的天气,射击精度减少,近战闪避率翻倍</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather6</clipPath>
+            	<switchTexturePath>weather/weatherNameB005</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/05</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<skyColorsDay>
+			<sky>(1, 1, 1)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 1, 1)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1, 0.588, 0.588)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 0.588, 0.588)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>HuaYunCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>花云</label>
+		<description>能回避打击程度的天气,射击精度减少,近战闪避率翻倍</description>
+		<weatherDef>HuaYun</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>HuaYun</hediffDefName>
+        	    <applyToAllEnemies>true</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>天空布满了花云,身体变得灵巧了</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>花云散去了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>HuaYunIncident</defName>
+		<label>花云</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>HuaYunCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>HuaYun</defName>
+        <label>花云</label>
+        <defaultLabelColor>(102,51,102)</defaultLabelColor>
+        <description>能回避打击程度的天气,射击精度减少,近战闪避率翻倍</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<stages>
+			<li>
+				<statFactors>
+					<ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
+					<MeleeDodgeChance>2</MeleeDodgeChance>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<WeatherDef>
+		<defName>Densefog</defName>
+		<label>浓雾</label>
+		<description>变得像吸血鬼程度的天气,获得回血以及体质提升</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather7</clipPath>
+            	<switchTexturePath>weather/weatherNameB006</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/06</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<ambientSounds>
+			<li>Ambient_Wind_Fog</li>
+		</ambientSounds>
+		<overlayClasses>
+			<li>WeatherOverlay_BloodFog</li>
+		</overlayClasses>
+		<skyColorsDay>
+			<sky>(1, 1, 1)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 1, 1)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1, 0.588, 0.588)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 0.588, 0.588)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>DensefogCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>浓雾</label>
+		<description>变得像吸血鬼程度的天气,获得回血以及体质提升</description>
+		<weatherDef>Densefog</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>Densefog</hediffDefName>
+        	    <applyToAllEnemies>false</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>天空布满了浓雾,身体产生了奇妙的变化</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>浓雾散去了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>DensefogIncident</defName>
+		<label>浓雾</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>DensefogCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>Densefog</defName>
+        <label>浓雾</label>
+		<defaultLabelColor>(255,0,0)</defaultLabelColor>
+        <description>变得像吸血鬼程度的天气,获得回血以及体质提升</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<comps>
+			<li Class="merissu.HediffCompProperties_SpawningMote">
+				<moteDef>Mote_VampireSpell</moteDef>
+				<intervalTicks>0</intervalTicks>
+			</li>
+        	<li Class="merissu.HediffCompProperties_Vampire"/>
+		</comps>
+		<stages>
+			<li>
+				<statFactors>
+					<IncomingDamageFactor>0.8</IncomingDamageFactor>
+				    <MeleeDamageFactor>1.2</MeleeDamageFactor>
+    				<MeleeCooldownFactor>0.9</MeleeCooldownFactor> 
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>1.2</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<WeatherDef>
+		<defName>MagicSnow</defName>
+		<label>雪</label>
+		<description>变得像幽灵程度的天气,灵力会自动消耗用于治疗任何负面状态,每小时一次,消耗一层灵力清空身上的负面状态</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather8</clipPath>
+            	<switchTexturePath>weather/weatherNameB007</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/07</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<snowRate>2</snowRate>
+		<rainRate>1</rainRate>
+		<overlayClasses>
+			<li>WeatherOverlay_SnowGentle</li>
+		</overlayClasses>
+		<skyColorsDay>
+			<sky>(1, 1, 1)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 1, 1)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1, 0.588, 0.588)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 0.588, 0.588)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>MagicSnowCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>雪</label>
+		<description>变得像幽灵程度的天气,灵力会自动消耗用于治疗任何负面状态,每小时一次,消耗一层灵力清空身上的负面状态</description>
+		<weatherDef>MagicSnow</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>MagicSnow</hediffDefName>
+        	    <applyToAllEnemies>false</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>天空降下了雪,身体产生了奇妙的变化</letterText>
+		<temperatureOffset>-12</temperatureOffset>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>雪停了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>MagicSnowIncident</defName>
+		<label>雪</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>MagicSnowCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>MagicSnow</defName>
+        <label>雪</label>
+		<defaultLabelColor>(255,153,204)</defaultLabelColor>
+        <description>变得像幽灵程度的天气,灵力会自动消耗用于治疗任何负面状态,每小时一次,消耗一层灵力清空身上的负面状态</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_MagicSnow" />
+    	</comps>
+	</HediffDef>
+
+	<WeatherDef>
+		<defName>Sunshower</defName>
+		<label>太阳雨</label>
+		<description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得一层灵力</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<rainRate>0.5</rainRate>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather9</clipPath>
+            	<switchTexturePath>weather/weatherNameB008</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherVisualSettingsExtension">
+        		<hasTyndallEffect>true</hasTyndallEffect>
+        		<rainbowTexturePath>weather/weatherG005</rainbowTexturePath>
+        		<tint>(1,1,1,0.8)</tint> 
+			</li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/08</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<overlayClasses>
+			<li>WeatherOverlay_Rain</li>
+		</overlayClasses>
+		<ambientSounds>
+			<li>Ambient_Rain_Light</li>
+		</ambientSounds>
+		<skyColorsDay>
+			<sky>(1, 1, 1)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 1, 1)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1, 0.588, 0.588)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 0.588, 0.588)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>SunshowerCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>太阳雨</label>
+		<description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得一层灵力</description>
+		<weatherDef>Sunshower</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>Sunshower</hediffDefName>
+        	    <applyToAllEnemies>true</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>天空布满了乌云,防御变得诡异了。</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>太阳雨停了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>SunshowerIncident</defName>
+		<label>太阳雨</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>SunshowerCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>Sunshower</defName>
+        <label>太阳雨</label>
+		<defaultLabelColor>(204,102,204)</defaultLabelColor>
+        <description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得一层灵力</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<stages>
+			<li>
+				<statFactors>
+					<IncomingDamageFactor>2</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_Sunshower" />
+    	</comps>
+	</HediffDef>
+
+	<WeatherDef>
+		<defName>Lightrain</defName>
+		<label>疏雨</label>
+		<description>必杀技全开程度的天气,近战攻击伤害翻倍</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<rainRate>0.1</rainRate>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather10</clipPath>
+            	<switchTexturePath>weather/weatherNameB009</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/09</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<overlayClasses>
+			<li>WeatherOverlay_Rain</li>
+		</overlayClasses>
+		<ambientSounds>
+			<li>Ambient_Rain_Light</li>
+		</ambientSounds>
+		<skyColorsDay>
+			<sky>(1, 1, 1)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 1, 1)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1, 0.588, 0.588)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 0.588, 0.588)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>LightrainCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>疏雨</label>
+		<description>必杀技全开程度的天气,近战攻击伤害翻倍</description>
+		<weatherDef>Lightrain</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>Lightrain</hediffDefName>
+        	    <applyToAllEnemies>false</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>天空布满了乌云,攻击力上升了。</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>疏雨停了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>LightrainIncident</defName>
+		<label>疏雨</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>LightrainCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>Lightrain</defName>
+        <label>疏雨</label>
+		<defaultLabelColor>(255,204,153)</defaultLabelColor>
+        <description>必杀技全开程度的天气,近战攻击伤害翻倍</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<stages>
+			<li>
+				<statFactors>
+				    <MeleeDamageFactor>2</MeleeDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<WeatherDef>
+		<defName>Windrain</defName>
+		<label>风雨</label>
+		<description>借助风之力程度的天气,移动速度翻倍</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>1.5</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<rainRate>0.3</rainRate>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather11</clipPath>
+            	<switchTexturePath>weather/weatherNameB010</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/10</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<overlayClasses>
+			<li>WeatherOverlay_Rain</li>
+		</overlayClasses>
+		<ambientSounds>
+			<li>Ambient_Rain_Light</li>
+		</ambientSounds>
+		<skyColorsDay>
+			<sky>(1, 1, 1)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 1, 1)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1, 0.588, 0.588)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 0.588, 0.588)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>WindrainCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>风雨</label>
+		<description>借助风之力程度的天气,移动速度翻倍</description>
+		<weatherDef>Windrain</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>Windrain</hediffDefName>
+        	    <applyToAllEnemies>false</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>天空布满了乌云,移动速度变快了。</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>风雨停了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>WindrainIncident</defName>
+		<label>风雨</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>WindrainCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>Windrain</defName>
+        <label>风雨</label>
+		<defaultLabelColor>(204,153,102)</defaultLabelColor>
+        <description>借助风之力程度的天气,移动速度翻倍</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>2</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
 	</HediffDef>
 
 </Defs>	

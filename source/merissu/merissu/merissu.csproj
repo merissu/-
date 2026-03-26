@@ -91,6 +91,8 @@
     <Compile Include="goheifly\Patch_GoheiForceLand.cs" />
     <Compile Include="goheifly\Patch_KeepFlyingOnJob.cs" />
     <Compile Include="goheifly\PawnFlightUtility.cs" />
+    <Compile Include="TenshiRandomWeather\HediffComp_Sunshower.cs" />
+    <Compile Include="TenshiRandomWeather\HediffComp_MagicSnow.cs" />
     <Compile Include="TenshiRandomWeather\HediffComp_HailLogic.cs" />
     <Compile Include="TenshiRandomWeather\HediffComp_Yuntian.cs" />
     <Compile Include="TenshiRandomWeather\HighClearSkyFlightUtil.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="TenshiRandomWeather\WeatherEffectController.cs" />
     <Compile Include="TenshiRandomWeather\WeatherBackdrop_OdysseyStyle.cs" />
     <Compile Include="TenshiRandomWeather\WeatherOverlay_HailFast .cs" />
+    <Compile Include="WeatherVisualSettingsExtension.cs" />
     <Compile Include="Yukari\Ability_Turnenemiesintofriends.cs" />
     <Compile Include="Yukari\Ability_Trainbomb.cs" />
     <Compile Include="Yukari\AbilityYukaridisappearance.cs" />
