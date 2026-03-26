@@ -258,6 +258,7 @@
 				<statFactors>
 					<IncomingDamageFactor>0.4</IncomingDamageFactor>
 				    <MeleeDamageFactor>3</MeleeDamageFactor>
+    				<MeleeCooldownFactor>0.8</MeleeCooldownFactor> 
 				</statFactors>
 				<capMods>
 					<li>

@@ -1121,6 +1121,7 @@
 					<MeleeHitChance>2</MeleeHitChance>
 					<MeleeDodgeChance>2</MeleeDodgeChance>
 				    <MeleeDamageFactor>2</MeleeDamageFactor>
+    				<MeleeCooldownFactor>0.8</MeleeCooldownFactor> 
 				</statFactors>
 				<capMods>
 					<li>
@@ -1140,6 +1141,7 @@
 				    <MeleeHitChance>3</MeleeHitChance>
 				    <MeleeDodgeChance>3</MeleeDodgeChance>
 				    <MeleeDamageFactor>3</MeleeDamageFactor>
+    				<MeleeCooldownFactor>0.6</MeleeCooldownFactor> 
 			    </statFactors>
 			    <capMods>
 				    <li>
@@ -1159,6 +1161,7 @@
 				    <MeleeHitChance>4</MeleeHitChance>
 				    <MeleeDodgeChance>4</MeleeDodgeChance>
 				    <MeleeDamageFactor>4</MeleeDamageFactor>
+    				<MeleeCooldownFactor>0.4</MeleeCooldownFactor> 
 			    </statFactors>
 			    <capMods>
 				    <li>
@@ -1178,6 +1181,7 @@
 					<MeleeHitChance>5</MeleeHitChance>
 					<MeleeDodgeChance>5</MeleeDodgeChance>
 				    <MeleeDamageFactor>5</MeleeDamageFactor>
+    				<MeleeCooldownFactor>0.2</MeleeCooldownFactor> 
 				</statFactors>
 				<capMods>
 					<li>

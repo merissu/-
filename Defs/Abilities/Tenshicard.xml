@@ -447,6 +447,8 @@
 					<li>HighClearSkyCondition</li>
 					<li>MistyRainCondition</li>
 					<li>YuntianCondition</li>
+					<li>HeavenCondition</li>
+					<li>hailCondition</li>
 				</conditionPool>
 			</li>
 		</comps>
@@ -786,5 +788,257 @@
 			<li Class="merissu.HediffCompProperties_Yuntian" />
 		</comps>
     </HediffDef>
+
+	<WeatherDef>
+		<defName>Heaven</defName>
+		<label>苍天</label>
+		<description>连续技变得锐利程度的天气,近战攻击速度翻倍</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather4</clipPath>
+            	<switchTexturePath>weather/weatherNameB003</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/03</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<skyColorsDay>
+			<sky>(1, 1, 1)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 1, 1)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1, 0.588, 0.588)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 0.588, 0.588)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>HeavenCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>苍天</label>
+		<description>连续技变得锐利程度的天气,近战攻击速度翻倍</description>
+		<weatherDef>Heaven</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>Heaven</hediffDefName>
+        	    <applyToAllEnemies>false</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>天空布满了乌云,连续技变得锐利了。</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>苍天散去了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>HeavenIncident</defName>
+		<label>苍天</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>HeavenCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>Heaven</defName>
+        <label>苍天</label>
+        <description>连续技变得锐利程度的天气,近战攻击速度翻倍</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<stages>
+			<li>
+				<statFactors>
+    				<MeleeCooldownFactor>0.5</MeleeCooldownFactor> 
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+  <WeatherDef>
+    <defName>hail</defName>
+    <label>雹</label>
+    <description>灵力强化程度的天气,将你的灵力翻倍,如果没有灵力则获得一层</description>
+    <isBad>false</isBad>
+    <favorability>Neutral</favorability>
+    <perceivePriority>2</perceivePriority>
+    <windSpeedFactor>0.8</windSpeedFactor>
+    <accuracyMultiplier>1</accuracyMultiplier>
+    <moveSpeedMultiplier>1</moveSpeedMultiplier>
+    <modExtensions>
+      <li Class="merissu.WeatherMusicExtension">
+        <clipPath>Songs/Weather5</clipPath>
+        <switchTexturePath>weather/weatherNameB004</switchTexturePath>
+        <volume>0.8</volume>
+      </li>
+      <li Class="merissu.WeatherBackdropExtension">
+        <texturePath>weather/04</texturePath>
+        <alpha>1.0</alpha>
+        <tint>(1,1,1,1)</tint>
+        <splitOneTextureToFour>true</splitOneTextureToFour>
+        <sourceWidth>470</sourceWidth>
+        <sourceHeight>270</sourceHeight>
+        <trimBottomPixels>40</trimBottomPixels>
+        <cropToViewAspect>true</cropToViewAspect>
+        <viewAspectHOverW>0.807</viewAspectHOverW>
+        <keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+        <sideWidthPercent>0.289</sideWidthPercent>
+        <topBottomHeightPercent>0.270</topBottomHeightPercent>
+      </li>
+    </modExtensions>
+    <eventMakers>
+      <li>
+        <averageInterval>80</averageInterval>
+        <eventClass>merissu.WeatherEvent_HailShower</eventClass>
+      </li>
+    </eventMakers>
+    <skyColorsDay>
+      <sky>(0.8, 0.8, 0.85)</sky>
+      <shadow>(0.85, 0.85, 0.85)</shadow>
+      <overlay>(0.7, 0.7, 0.7)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(0.6, 0.55, 0.55)</sky>
+      <shadow>(0.8, 0.8, 0.8)</shadow>
+      <overlay>(0.6, 0.55, 0.55)</overlay>
+      <saturation>0.8</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.471, 0.471, 0.627)</sky>
+      <shadow>(0.8, 0.8, 0.8)</shadow>
+      <overlay>(0.471, 0.471, 0.627)</overlay>
+      <saturation>1.2</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.471, 0.471, 0.627)</sky>
+      <shadow>(0.8, 0.8, 0.8)</shadow>
+      <overlay>(0.471, 0.471, 0.627)</overlay>
+      <saturation>1.2</saturation>
+    </skyColorsNightMid>
+  </WeatherDef>
+	
+	<FleckDef ParentName="FleckBase_RandomGraphic_Thrown">
+		<defName>merissu_HailStone_Fall</defName>
+		<randomGraphics>
+		<li><graphicClass>Graphic_Fleck</graphicClass><texPath>weather/weatherC000</texPath><shaderType>Mote</shaderType><renderInstanced>true</renderInstanced></li>
+		<li><graphicClass>Graphic_Fleck</graphicClass><texPath>weather/weatherC001</texPath><shaderType>Mote</shaderType><renderInstanced>true</renderInstanced></li>
+		<li><graphicClass>Graphic_Fleck</graphicClass><texPath>weather/weatherC002</texPath><shaderType>Mote</shaderType><renderInstanced>true</renderInstanced></li>
+		</randomGraphics>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0</fadeInTime>
+		<solidTime>0.06</solidTime>
+		<fadeOutTime>0.12</fadeOutTime>
+	</FleckDef>
+
+	<FleckDef ParentName="FleckBase_RandomGraphic_Thrown">
+		<defName>merissu_HailStone_Bounce</defName>
+		<randomGraphics>
+		<li><graphicClass>Graphic_Fleck</graphicClass><texPath>weather/weatherC000</texPath><shaderType>Mote</shaderType><renderInstanced>true</renderInstanced></li>
+		<li><graphicClass>Graphic_Fleck</graphicClass><texPath>weather/weatherC001</texPath><shaderType>Mote</shaderType><renderInstanced>true</renderInstanced></li>
+		<li><graphicClass>Graphic_Fleck</graphicClass><texPath>weather/weatherC002</texPath><shaderType>Mote</shaderType><renderInstanced>true</renderInstanced></li>
+		</randomGraphics>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0</fadeInTime>
+		<solidTime>0.16</solidTime>
+		<fadeOutTime>0.36</fadeOutTime>
+		<growthRate>-0.55</growthRate>
+		<archHeight>0.20~0.34</archHeight>
+		<archDuration>0.28~0.40</archDuration>
+	</FleckDef>
+
+	<GameConditionDef>
+		<defName>hailCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>雹</label>
+		<description>灵力强化程度的天气,将你的灵力翻倍,如果没有灵力则获得一层</description>
+		<weatherDef>hail</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>hail</hediffDefName>
+        	    <applyToAllEnemies>false</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>天空下起了冰雹,灵力被强化了</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>冰雹结束了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>hailIncident</defName>
+		<label>雹</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>hailCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>hail</defName>
+        <label>雹</label>
+        <defaultLabelColor>(255,255,204)</defaultLabelColor>
+        <description>灵力强化程度的天气,将你的灵力翻倍,如果没有灵力则获得一层</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<comps>
+			<li Class="merissu.HediffCompProperties_HailLogic" />
+		</comps>
+	</HediffDef>
 
 </Defs>	
