@@ -455,6 +455,8 @@
 					<li>SunshowerCondition</li>
 					<li>WindrainCondition</li>
 					<li>LightrainCondition</li>
+					<li>QinglanCondition</li>
+					<li>KawamuraCondition</li>
 				</conditionPool>
 			</li>
 		</comps>
@@ -1768,5 +1770,226 @@
 			</li>
 		</stages>
 	</HediffDef>
+
+	<WeatherDef>
+		<defName>Qinglan</defName>
+		<label>晴岚</label>
+		<description>手卡不可见程度的天气,将你的灵力变成1~5之间的随机数值</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather12</clipPath>
+            	<switchTexturePath>weather/weatherNameB011</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/11</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<overlayClasses>
+			<li>WeatherOverlay_Fog</li> 
+		</overlayClasses>
+		<skyColorsDay>
+            <sky>(0.8, 0.8, 0.85)</sky>
+            <shadow>(0.85, 0.85, 0.85)</shadow>
+            <overlay>(0.7, 0.7, 0.7)</overlay>
+            <saturation>0.9</saturation>
+        </skyColorsDay>
+        <skyColorsDusk>
+            <sky>(0.6, 0.55, 0.55)</sky>
+            <shadow>(0.8, 0.8, 0.8)</shadow>
+            <overlay>(0.6, 0.55, 0.55)</overlay>
+            <saturation>0.8</saturation>
+        </skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>QinglanCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>晴岚</label>
+		<description>手卡不可见程度的天气,将你的灵力变成1~5之间的随机数值</description>
+		<weatherDef>Qinglan</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>Qinglan</hediffDefName>
+        	    <applyToAllEnemies>false</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>空气中产生了异常的雾气,灵力变得诡异了</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>晴岚散去了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>QinglanIncident</defName>
+		<label>晴岚</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>QinglanCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>Qinglan</defName>
+        <label>晴岚</label>
+		<hediffClass>merissu.Hediff_Qinglan</hediffClass>
+        <defaultLabelColor>(204,153,204)</defaultLabelColor>
+        <description>手卡不可见程度的天气,将你的灵力变成1~5之间的随机数值</description>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+    </HediffDef>
+
+	<WeatherDef>
+		<defName>Kawamura</defName>
+		<label>川雾</label>
+		<description>距离变得诡异程度的天气,位置会在一定范围内随机变化</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather13</clipPath>
+            	<switchTexturePath>weather/weatherNameB012</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/12</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<overlayClasses>
+			<li>WeatherOverlay_Fog</li> 
+			<li>WeatherOverlay_Fog</li> 
+		</overlayClasses>
+		<skyColorsDay>
+            <sky>(0.8, 0.8, 0.85)</sky>
+            <shadow>(0.85, 0.85, 0.85)</shadow>
+            <overlay>(0.7, 0.7, 0.7)</overlay>
+            <saturation>0.9</saturation>
+        </skyColorsDay>
+        <skyColorsDusk>
+            <sky>(0.6, 0.55, 0.55)</sky>
+            <shadow>(0.8, 0.8, 0.8)</shadow>
+            <overlay>(0.6, 0.55, 0.55)</overlay>
+            <saturation>0.8</saturation>
+        </skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>KawamuraCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>川雾</label>
+		<description>距离变得诡异程度的天气,位置会在一定范围内随机变化</description>
+		<weatherDef>Kawamura</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>Kawamura</hediffDefName>
+        	    <applyToAllEnemies>true</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>空气中产生了异常的雾气,距离变得诡异了</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>川雾散去了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>KawamuraIncident</defName>
+		<label>川雾</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>KawamuraCondition</gameCondition>
+		<baseChance>0.75</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>Kawamura</defName>
+        <label>川雾</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(255,0,102)</defaultLabelColor>
+        <description>距离变得诡异程度的天气,位置会在一定范围内随机变化</description>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<comps>
+        	<li Class="merissu.HediffCompProperties_KawamuraRandomMove">
+        	    <intervalTicks>300</intervalTicks> 
+				<radius>5</radius>
+			</li>
+    	</comps>
+    </HediffDef>
 
 </Defs>	
