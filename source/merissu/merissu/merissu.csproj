@@ -91,6 +91,8 @@
     <Compile Include="goheifly\Patch_GoheiForceLand.cs" />
     <Compile Include="goheifly\Patch_KeepFlyingOnJob.cs" />
     <Compile Include="goheifly\PawnFlightUtility.cs" />
+    <Compile Include="TenshiRandomWeather\HediffComp_NowindHeal.cs" />
+    <Compile Include="TenshiRandomWeather\KawamuraEffectController.cs" />
     <Compile Include="TenshiRandomWeather\HediffCompProperties_RandomTeleport.cs" />
     <Compile Include="TenshiRandomWeather\Hediff_Qinglan.cs" />
     <Compile Include="TenshiRandomWeather\HediffComp_Sunshower.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="HediffCompProperties_LevelUpVisuals.cs" />
     <Compile Include="ThreeHeavenlyDrops\Hediff_ThreeHeavenlyDrops.cs" />
     <Compile Include="tengufan.cs" />
+    <Compile Include="TenshiRandomWeather\TyphoonEffectController.cs" />
     <Compile Include="utsuhocard\NuclearControlRod.cs" />
     <Compile Include="utsuhocard\NuclearWeaponLogic.cs" />
     <Compile Include="remiliacard\GameCondition_RedMist.cs" />
@@ -131,6 +134,7 @@
     <Compile Include="TenshiRandomWeather\WeatherVisualSettingsExtension.cs" />
     <Compile Include="TenshiRandomWeather\WindrainEffectController.cs" />
     <Compile Include="TenshiRandomWeather\WeatherBackdropScroller.cs" />
+    <Compile Include="WeatherOverlay_Nowind.cs" />
     <Compile Include="Yukari\Ability_Turnenemiesintofriends.cs" />
     <Compile Include="Yukari\Ability_Trainbomb.cs" />
     <Compile Include="Yukari\AbilityYukaridisappearance.cs" />

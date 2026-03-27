@@ -459,6 +459,8 @@
 					<li>LightrainCondition</li>
 					<li>QinglanCondition</li>
 					<li>KawamuraCondition</li>
+					<li>typhoonCondition</li>
+					<li>NowindCondition</li>
 				</conditionPool>
 			</li>
 		</comps>
@@ -2017,6 +2019,238 @@
         	    <intervalTicks>60</intervalTicks> 
 				<radius>5</radius>
 			</li>
+    	</comps>
+    </HediffDef>
+
+	<WeatherDef>
+		<defName>typhoon</defName>
+		<label>台风</label>
+		<description>胜负变得疯狂程度的天气,强制进入霸体状态
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>2</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather14</clipPath>
+            	<switchTexturePath>weather/weatherNameB013</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/13</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<skyColorsDay>
+            <sky>(0.8, 0.8, 0.85)</sky>
+            <shadow>(0.85, 0.85, 0.85)</shadow>
+            <overlay>(0.7, 0.7, 0.7)</overlay>
+            <saturation>0.9</saturation>
+        </skyColorsDay>
+        <skyColorsDusk>
+            <sky>(0.6, 0.55, 0.55)</sky>
+            <shadow>(0.8, 0.8, 0.8)</shadow>
+            <overlay>(0.6, 0.55, 0.55)</overlay>
+            <saturation>0.8</saturation>
+        </skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>typhoonCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>台风</label>
+		<description>胜负变得疯狂程度的天气,强制进入霸体状态</description>
+		<weatherDef>typhoon</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>typhoon</hediffDefName>
+        	    <applyToAllEnemies>true</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>台风来临了,胜负变得疯狂</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>台风散去了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>typhoonIncident</defName>
+		<label>台风</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>typhoonCondition</gameCondition>
+		<baseChance>0.1</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>typhoon</defName>
+        <label>台风</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(153,153,255)</defaultLabelColor>
+        <description>胜负变得疯狂程度的天气,强制进入霸体状态</description>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<stages>
+			<li>
+				<statOffsets>
+					<StaggerDurationFactor>-1.0</StaggerDurationFactor>
+				</statOffsets>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>999</offset>
+						<setMax>1.0</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<comps>
+			<li Class="merissu.HediffCompProperties_NoHitStagger"/>
+		</comps>
+    </HediffDef>
+
+	<WeatherDef>
+		<defName>Nowind</defName>
+		<label>无风</label>
+		<description>治愈伤痛程度的天气,有灵力时会自动治疗伤口
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather15</clipPath>
+            	<switchTexturePath>weather/weatherNameB015</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/15</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<skyColorsDay>
+			<sky>(1, 1, 1)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 1, 1)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1, 0.588, 0.588)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 0.588, 0.588)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>NowindCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>无风</label>
+		<description>治愈伤痛程度的天气,有灵力时会自动治疗伤口</description>
+		<weatherDef>Nowind</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>Nowind</hediffDefName>
+        	    <applyToAllEnemies>false</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>无风来临了,有灵力时会自动治疗伤口</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>无风散去了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>NowindIncident</defName>
+		<label>无风</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>NowindCondition</gameCondition>
+		<baseChance>0.1</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>Nowind</defName>
+        <label>无风</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0,255,102)</defaultLabelColor>
+        <description>治愈伤痛程度的天气,有灵力时会自动治疗伤口</description>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_NowindHeal" />
     	</comps>
     </HediffDef>
 
