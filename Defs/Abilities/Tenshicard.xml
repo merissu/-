@@ -426,7 +426,9 @@
     <AbilityDef>
 		<defName>TenshiRandomWeather</defName>
 		<label>绯想之剑</label>
-		<description>将天气切换为适合战斗的特殊天气,天气会带来各种特殊效果,增益对所有殖民者和同等数量的敌人生效,负面效果对所有人生效(天气贴图如遇尺寸不匹配请在设置界面进行调整)</description>
+		<description>将天气切换为适合战斗的特殊天气,天气会带来各种特殊效果,增益对所有殖民者和同等数量的敌人生效,负面效果对所有人生效
+	
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
         <cooldownTicksRange>20000</cooldownTicksRange>
 		<iconPath>Abilities/TenshiRandomWeather</iconPath>
 		<verbProperties>
@@ -465,7 +467,9 @@
 	<WeatherDef>
 		<defName>HighClearSky</defName>
 		<label>快晴</label>
-		<description>在空中飞行程度的天气,使殖民者和等同数量的敌人获得飞行状态</description>
+		<description>在空中飞行程度的天气,使殖民者和等同数量的敌人获得飞行状态
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Good</favorability>
 		<perceivePriority>1</perceivePriority>
@@ -552,7 +556,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>HighClearSkyCondition</gameCondition> 
-		<baseChance>0.75</baseChance> 
+		<baseChance>0.1</baseChance> 
 		<durationDays>
 			<min>0.333</min>
     	    <max>0.333</max>
@@ -572,7 +576,9 @@
 	<WeatherDef>
 		<defName>MistyRain</defName>
 		<label>雾雨</label>
-		<description>符卡就是火力程度的天气,射击精度上升,射击速度变得极快。</description>
+		<description>符卡就是火力程度的天气,射击精度上升,射击速度变得极快。
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -665,7 +671,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>MistyRainCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -693,7 +699,9 @@
 	<WeatherDef>
 		<defName>Yuntian</defName>
 		<label>云天</label>
-		<description>灵活地使用符卡程度的天气,每次消耗大于一层的灵力时都会返还一层灵力</description>
+		<description>灵活地使用符卡程度的天气,每次消耗大于一层的灵力时都会返还一层灵力
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -777,7 +785,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>YuntianCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -800,7 +808,9 @@
 	<WeatherDef>
 		<defName>Heaven</defName>
 		<label>苍天</label>
-		<description>连续技变得锐利程度的天气,近战攻击速度翻倍</description>
+		<description>连续技变得锐利程度的天气,近战攻击速度翻倍
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -884,7 +894,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>HeavenCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -910,7 +920,9 @@
   <WeatherDef>
     <defName>hail</defName>
     <label>雹</label>
-    <description>灵力强化程度的天气,将你的灵力翻倍,如果没有灵力则获得一层</description>
+    <description>灵力强化程度的天气,将你的灵力翻倍,如果没有灵力则获得一层
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
     <isBad>false</isBad>
     <favorability>Neutral</favorability>
     <perceivePriority>2</perceivePriority>
@@ -1029,7 +1041,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>hailCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -1052,7 +1064,9 @@
 	<WeatherDef>
 		<defName>HuaYun</defName>
 		<label>花云</label>
-		<description>能回避打击程度的天气,射击精度减少,近战闪避率翻倍</description>
+		<description>能回避打击程度的天气,射击精度减少,近战闪避率翻倍
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1136,7 +1150,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>HuaYunCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -1164,7 +1178,9 @@
 	<WeatherDef>
 		<defName>Densefog</defName>
 		<label>浓雾</label>
-		<description>变得像吸血鬼程度的天气,获得回血以及体质提升</description>
+		<description>变得像吸血鬼程度的天气,获得回血以及体质提升
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1254,7 +1270,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>DensefogCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -1296,7 +1312,9 @@
 	<WeatherDef>
 		<defName>MagicSnow</defName>
 		<label>雪</label>
-		<description>变得像幽灵程度的天气,灵力会自动消耗用于治疗任何负面状态,每小时一次,消耗一层灵力清空身上的负面状态</description>
+		<description>变得像幽灵程度的天气,灵力会自动消耗用于治疗任何负面状态,每小时一次,消耗一层灵力清空身上的负面状态
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1386,7 +1404,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>MagicSnowCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -1409,7 +1427,9 @@
 	<WeatherDef>
 		<defName>Sunshower</defName>
 		<label>太阳雨</label>
-		<description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得一层灵力</description>
+		<description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得一层灵力
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1505,7 +1525,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>SunshowerCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -1535,7 +1555,9 @@
 	<WeatherDef>
 		<defName>Lightrain</defName>
 		<label>疏雨</label>
-		<description>必杀技全开程度的天气,近战攻击伤害翻倍</description>
+		<description>必杀技全开程度的天气,近战攻击伤害翻倍
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1626,7 +1648,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>LightrainCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -1653,7 +1675,9 @@
 	<WeatherDef>
 		<defName>Windrain</defName>
 		<label>风雨</label>
-		<description>借助风之力程度的天气,移动速度翻倍</description>
+		<description>借助风之力程度的天气,移动速度翻倍
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1744,7 +1768,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>WindrainCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -1774,7 +1798,9 @@
 	<WeatherDef>
 		<defName>Qinglan</defName>
 		<label>晴岚</label>
-		<description>手卡不可见程度的天气,将你的灵力变成1~5之间的随机数值</description>
+		<description>手卡不可见程度的天气,将你的灵力变成1~5之间的随机数值
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1861,7 +1887,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>QinglanCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -1881,7 +1907,9 @@
 	<WeatherDef>
 		<defName>Kawamura</defName>
 		<label>川雾</label>
-		<description>距离变得诡异程度的天气,位置会在一定范围内随机变化</description>
+		<description>距离变得诡异程度的天气,位置会在一定范围内随机变化
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1969,7 +1997,7 @@
 		</targetTags>
 		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
 		<gameCondition>KawamuraCondition</gameCondition>
-		<baseChance>0.75</baseChance>
+		<baseChance>0.1</baseChance>
 		<durationDays>
 			<min>0.333</min> 
 			<max>0.333</max>  
@@ -1986,7 +2014,7 @@
         <tendable>false</tendable>
 		<comps>
         	<li Class="merissu.HediffCompProperties_KawamuraRandomMove">
-        	    <intervalTicks>300</intervalTicks> 
+        	    <intervalTicks>60</intervalTicks> 
 				<radius>5</radius>
 			</li>
     	</comps>

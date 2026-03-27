@@ -7,7 +7,7 @@ namespace merissu
 {
     public class HediffCompProperties_KawamuraRandomMove : HediffCompProperties
     {
-        public int intervalTicks = 300; 
+        public int intervalTicks = 60; 
         public float radius = 5f;     
 
         public HediffCompProperties_KawamuraRandomMove()

@@ -133,7 +133,7 @@ namespace merissu
             Patch_MapEdgeClipDrawer_DrawClippers.ClearCache();
         }
 
-        public override string SettingsCategory() => "绯想之剑调试面板";
+        public override string SettingsCategory() => "绯想天气调试面板";
     }
 
     public class WeatherBackdropExtension : DefModExtension

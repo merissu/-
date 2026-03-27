@@ -129,6 +129,8 @@
     <Compile Include="TenshiRandomWeather\WeatherBackdrop_OdysseyStyle.cs" />
     <Compile Include="TenshiRandomWeather\WeatherOverlay_HailFast .cs" />
     <Compile Include="TenshiRandomWeather\WeatherVisualSettingsExtension.cs" />
+    <Compile Include="TenshiRandomWeather\WindrainEffectController.cs" />
+    <Compile Include="TenshiRandomWeather\WeatherBackdropScroller.cs" />
     <Compile Include="Yukari\Ability_Turnenemiesintofriends.cs" />
     <Compile Include="Yukari\Ability_Trainbomb.cs" />
     <Compile Include="Yukari\AbilityYukaridisappearance.cs" />
