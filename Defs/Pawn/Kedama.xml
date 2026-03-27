@@ -282,7 +282,7 @@
 				<labelPlural>毛玉</labelPlural>
 				<bodyGraphicData>
 					<texPath>Pawn/Kedama/maoyu1</texPath>
-					<color>(176,150,106)</color>
+					<color>(255,255,255)</color>
 					<drawSize>1.0</drawSize>
 					<shaderType>CutoutComplex</shaderType>
 					<shadowData>
@@ -302,7 +302,7 @@
 			<li>
 				<bodyGraphicData>
 					<texPath>Pawn/Kedama/maoyu1</texPath>
-					<color>(176,150,106)</color>
+					<color>(255,255,255)</color>
 					<drawSize>1.0</drawSize>
 					<shaderType>CutoutComplex</shaderType>
 					<shadowData>
@@ -322,7 +322,7 @@
 			<li>
 				<bodyGraphicData>
 					<texPath>Pawn/Kedama/maoyu1</texPath>
-					<color>(176,150,106)</color>
+					<color>(255,255,255)</color>
 					<drawSize>1.0</drawSize>
 					<shaderType>CutoutComplex</shaderType>
 					<shadowData>
