@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AbilityDef ParentName="AbilityTouchBase">
+		<defName>Merissu_WanbaoHammerRepair</defName>
+		<label>万宝槌修复</label>
+		<description>敲击建筑物或者物品,使其耐久值恢复至最大值,小人装备万宝槌时会自动用万宝槌修复来替代普通修复工作</description>
+		<iconPath>Abilities/WanbaoRepair</iconPath>
+		<hostile>false</hostile>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<showOnCharacterCard>false</showOnCharacterCard>
+		<verbProperties>
+			<verbClass>Verb_CastAbilityTouch</verbClass>
+			<range>-1</range>
+			<warmupTime>2</warmupTime>
+            <soundCast>WanbaoRepair</soundCast> 
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetItems>true</canTargetItems>
+				<canTargetPlants>false</canTargetPlants>
+				<canTargetLocations>false</canTargetLocations>
+				<onlyTargetDamagedThings>true</onlyTargetDamagedThings>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="merissu.CompProperties_AbilityRepairFull"/>
+		</comps>
+	</AbilityDef>
+
+	<AbilityDef ParentName="AbilityTouchBase">
+		<defName>Merissu_WanbaoHammerUpgradeQuality</defName>
+		<label>万宝槌·升品</label>
+		<description>消耗一层灵力发动,对有品质的物品或建筑物使用,使其品质提高一级。</description>
+		<iconPath>Abilities/WanbaoRepair</iconPath>
+		<hostile>false</hostile>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<showOnCharacterCard>false</showOnCharacterCard>
+		<verbProperties>
+			<verbClass>Verb_CastAbilityTouch</verbClass>
+			<range>-1</range>
+			<warmupTime>1.2</warmupTime>
+			<soundCast>WanbaoRepair</soundCast> 
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>  
+				<canTargetItems>true</canTargetItems>
+				<canTargetPlants>false</canTargetPlants>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="merissu.CompProperties_AbilityUpgradeQuality">
+			<requiredHediff>FullPower</requiredHediff>
+			<severityCost>1</severityCost>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<AbilityDef ParentName="AbilityTouchBase">
+		<defName>Merissu_WanbaoHammerToSilver</defName>
+		<label>万宝槌·化银</label>
+		<description>敲击物品或建筑,使其直接转化为等值白银,若无市场价则转化为9白银。</description>
+		<iconPath>Abilities/WanbaoRepair</iconPath>
+		<hostile>false</hostile>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<showOnCharacterCard>false</showOnCharacterCard>
+		<verbProperties>
+			<verbClass>Verb_CastAbilityTouch</verbClass>
+			<range>-1</range>
+			<warmupTime>2.5</warmupTime>
+			<soundCast>WanbaoRepair</soundCast> 
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetItems>true</canTargetItems>
+				<canTargetPlants>false</canTargetPlants>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="merissu.CompProperties_AbilityTransmuteToSilver">
+			<fallbackSilver>9</fallbackSilver>
+			</li>
+		</comps>
+	</AbilityDef>
+
+</Defs>	

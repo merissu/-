@@ -2092,14 +2092,11 @@
 				<maxSpeed>1.2</maxSpeed>
 				<maxDistance>48</maxDistance>
 				<angleOffsetRange>0</angleOffsetRange>
-
 				<damageDef>MagicalR360</damageDef>
 				<damageAmount>40</damageAmount>
 				<destroyOnPawnHit>false</destroyOnPawnHit>
-
 				<passThroughWalls>true</passThroughWalls>
 				<passThroughBarriers>true</passThroughBarriers>
-
 				<useMoteTrail>true</useMoteTrail>
 				<LineTrailDefs>
 					<li>MRS_Tail</li>
@@ -2110,112 +2107,162 @@
 					<li>Mote_StarTaila</li>
 					<li>Mote_StarTailb</li>
 				</trailMoteDefs>
-
 				<splitOnEnd>false</splitOnEnd>
 				<splitProjectileDef>TH_Comet_b</splitProjectileDef>
 				<splitCount>6</splitCount>
 				<splitAngleOffsetRange>15</splitAngleOffsetRange>
-
 				<materialPath>Weapons/Bullet/Bullet_MagicBlast6</materialPath>
 				<drawMeshSize>(2,2)</drawMeshSize>
 				<drawY>15</drawY>
-				<rotationPerTick>30</rotationPerTick>
-			
-		</li>
+				<rotationPerTick>30</rotationPerTick>			
+			</li>
 		</comps>
 	</ThingDef>
-		<ThingDef ParentName="EtherealThingBase">
-			<defName>TH_Comet_c</defName>
-			<label>comet bullet</label>
-			<thingClass>U.N.Owen.DanmakuProjectileBase</thingClass>
-			<tickerType>Normal</tickerType>
-			<drawerType>RealtimeOnly</drawerType>
-			<comps>
-				<li Class="U.N.Owen.CompProperties_DanmakuSourceAdvanced" />
-				<li Class="U.N.Owen.CompProperties_DanmakuProjectile">
-					<startSpeedMax>0.6</startSpeedMax>
-					<startSpeedMin>0.6</startSpeedMin>
-					<speedAccelerationPerTick>0</speedAccelerationPerTick>
-					<maxSpeed>0.8</maxSpeed>
-					<maxDistance>30</maxDistance>
-					<angleOffsetRange>8</angleOffsetRange>
 
-					<damageDef>MagicalR360</damageDef>
-					<damageAmount>27</damageAmount>
-					<destroyOnPawnHit>false</destroyOnPawnHit>
-
-					<passThroughWalls>false</passThroughWalls>
-					<passThroughBarriers>false</passThroughBarriers>
-
-					<useMoteTrail>true</useMoteTrail>
-					<LineTrailDefs>
-						<li>MRS_Tail</li>
-					</LineTrailDefs>
-					<useLineTrail>true</useLineTrail>
-					<trailMoteDefs>
-						<li>Mote_StarTail</li>
-						<li>Mote_StarTaila</li>
-						<li>Mote_StarTailb</li>
-					</trailMoteDefs>
-
-					<splitOnEnd>false</splitOnEnd>
-					<splitProjectileDef>TH_Comet_b</splitProjectileDef>
-					<splitCount>6</splitCount>
-					<splitAngleOffsetRange>15</splitAngleOffsetRange>
-
-					<materialPath>Weapons/Bullet/Bullet_MagicBlast8</materialPath>
-					<drawMeshSize>(2,2)</drawMeshSize>
-					<drawY>15</drawY>
-					<rotationPerTick>30</rotationPerTick>
-
-				</li>
-			</comps>
-		</ThingDef>
-			<ThingDef ParentName="EtherealThingBase">
-				<defName>TH_Comet_b</defName>
-				<label>comet bullet</label>
-				<thingClass>U.N.Owen.DanmakuProjectileBase</thingClass>
-				<tickerType>Normal</tickerType>
-				<drawerType>RealtimeOnly</drawerType>
-				<comps>
-					<li Class="U.N.Owen.CompProperties_DanmakuSourceAdvanced" />
-					<li Class="U.N.Owen.CompProperties_DanmakuProjectile">
-						<startSpeedMax>0.3</startSpeedMax>
-						<startSpeedMin>0.4</startSpeedMin>
-						<speedAccelerationPerTick>0</speedAccelerationPerTick>
-						<maxSpeed>0.8</maxSpeed>
-						<maxDistance>13</maxDistance>
-						<angleOffsetRange>15</angleOffsetRange>
-
-						<damageDef>MagicalR360</damageDef>
-						<damageAmount>14</damageAmount>
-						<destroyOnPawnHit>true</destroyOnPawnHit>
-
-						<passThroughWalls>false</passThroughWalls>
-						<passThroughBarriers>false</passThroughBarriers>
-
-						<useMoteTrail>true</useMoteTrail>
-						<LineTrailDefs>
-							<li>MRS_Tail</li>
-						</LineTrailDefs>
-						<useLineTrail>true</useLineTrail>
-						<trailMoteDefs>
-							<li>Mote_StarTail</li>
-							<li>Mote_StarTaila</li>
-							<li>Mote_StarTailb</li>
-						</trailMoteDefs>
-
-						<splitOnEnd>false</splitOnEnd>
-						<splitProjectileDef>TH_Comet_b</splitProjectileDef>
-						<splitCount>6</splitCount>
-						<splitAngleOffsetRange>15</splitAngleOffsetRange>
-
-						<materialPath>Weapons/Bullet/Bullet_MagicBlast7</materialPath>
-						<drawMeshSize>(2,2)</drawMeshSize>
-						<drawY>15</drawY>
-						<rotationPerTick>30</rotationPerTick>
-
-					</li>
-				</comps>
+	<ThingDef ParentName="EtherealThingBase">
+		<defName>TH_Comet_c</defName>
+		<label>comet bullet</label>
+		<thingClass>U.N.Owen.DanmakuProjectileBase</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<comps>
+			<li Class="U.N.Owen.CompProperties_DanmakuSourceAdvanced" />
+			<li Class="U.N.Owen.CompProperties_DanmakuProjectile">
+				<startSpeedMax>0.6</startSpeedMax>
+				<startSpeedMin>0.6</startSpeedMin>
+				<speedAccelerationPerTick>0</speedAccelerationPerTick>
+				<maxSpeed>0.8</maxSpeed>
+				<maxDistance>30</maxDistance>
+				<angleOffsetRange>8</angleOffsetRange>
+				<damageDef>MagicalR360</damageDef>
+				<damageAmount>27</damageAmount>
+				<destroyOnPawnHit>false</destroyOnPawnHit>
+				<passThroughWalls>false</passThroughWalls>
+				<passThroughBarriers>false</passThroughBarriers>
+				<useMoteTrail>true</useMoteTrail>
+				<LineTrailDefs>
+					<li>MRS_Tail</li>
+				</LineTrailDefs>
+				<useLineTrail>true</useLineTrail>
+				<trailMoteDefs>
+					<li>Mote_StarTail</li>
+					<li>Mote_StarTaila</li>
+					<li>Mote_StarTailb</li>
+				</trailMoteDefs>
+				<splitOnEnd>false</splitOnEnd>
+				<splitProjectileDef>TH_Comet_b</splitProjectileDef>
+				<splitCount>6</splitCount>
+				<splitAngleOffsetRange>15</splitAngleOffsetRange>
+				<materialPath>Weapons/Bullet/Bullet_MagicBlast8</materialPath>
+				<drawMeshSize>(2,2)</drawMeshSize>
+				<drawY>15</drawY>
+				<rotationPerTick>30</rotationPerTick>
+			</li>
+		</comps>
 	</ThingDef>
+
+	<ThingDef ParentName="EtherealThingBase">
+		<defName>TH_Comet_b</defName>
+		<label>comet bullet</label>
+		<thingClass>U.N.Owen.DanmakuProjectileBase</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<comps>
+			<li Class="U.N.Owen.CompProperties_DanmakuSourceAdvanced" />
+			<li Class="U.N.Owen.CompProperties_DanmakuProjectile">
+				<startSpeedMax>0.3</startSpeedMax>
+				<startSpeedMin>0.4</startSpeedMin>
+				<speedAccelerationPerTick>0</speedAccelerationPerTick>
+				<maxSpeed>0.8</maxSpeed>
+				<maxDistance>13</maxDistance>
+				<angleOffsetRange>15</angleOffsetRange>
+				<damageDef>MagicalR360</damageDef>
+				<damageAmount>14</damageAmount>
+				<destroyOnPawnHit>true</destroyOnPawnHit>
+				<passThroughWalls>false</passThroughWalls>
+				<passThroughBarriers>false</passThroughBarriers>
+				<useMoteTrail>true</useMoteTrail>
+				<LineTrailDefs>
+					<li>MRS_Tail</li>
+				</LineTrailDefs>
+				<useLineTrail>true</useLineTrail>
+				<trailMoteDefs>
+					<li>Mote_StarTail</li>
+					<li>Mote_StarTaila</li>
+					<li>Mote_StarTailb</li>
+				</trailMoteDefs>
+				<splitOnEnd>false</splitOnEnd>
+				<splitProjectileDef>TH_Comet_b</splitProjectileDef>
+				<splitCount>6</splitCount>
+				<splitAngleOffsetRange>15</splitAngleOffsetRange>
+				<materialPath>Weapons/Bullet/Bullet_MagicBlast7</materialPath>
+				<drawMeshSize>(2,2)</drawMeshSize>
+				<drawY>15</drawY>
+				<rotationPerTick>30</rotationPerTick>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>WanbaoHammer</defName>
+		<label>万宝槌</label>
+		<description>寄宿着小槌魔力的仿制品,并没有能实现任何愿望的能力,只能做一些简单的事情,比如修补物品或者让装备升级
+
+注入灵力可以发挥更多功能</description>
+		<possessionCount>1</possessionCount>
+		<graphicData>
+			<texPath>Weapons/WanbaoHammer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.6,0.6)</drawSize>
+		</graphicData>
+		<uiIconScale>0.8</uiIconScale>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>5000</WorkToMake>
+			<MarketValue>3000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1.0</Mass>
+		</statBases>
+		<weaponTags>
+			<li>Touhou</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Melee</li>
+		</weaponClasses>
+		<costList>
+			<SpiritualWood>80</SpiritualWood>
+			<FullPower>3</FullPower>
+			<Crimsongold>90</Crimsongold>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>PowerPoint</researchPrerequisite>
+		</recipeMaker>
+		<tools>
+			<li>
+				<label>敲</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1</cooldownTime>
+			</li>
+		</tools>
+		<comps>
+			<li Class="merissu.CompProperties_EquippableMultiAbility">
+				<abilityDefs>
+					<li>Merissu_WanbaoHammerRepair</li>
+					<li>Merissu_WanbaoHammerUpgradeQuality</li>
+					<li>Merissu_WanbaoHammerToSilver</li>
+				</abilityDefs>
+			</li>
+		</comps>
+	</ThingDef>
+
 </Defs>

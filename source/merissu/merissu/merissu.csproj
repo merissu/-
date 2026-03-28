@@ -86,6 +86,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="WanbaoHammer\CompAbilityEffect_TransmuteToSilver.cs" />
+    <Compile Include="WanbaoHammer\CompAbilityEffect_UpgradeQuality.cs" />
+    <Compile Include="WanbaoHammer\MerissuDefOf.cs" />
+    <Compile Include="WanbaoHammer\CompAbilityEffect_RepairFull.cs" />
     <Compile Include="TenshiRandomWeather\HediffComp_ScorchingBurn.cs" />
     <Compile Include="TenshiRandomWeather\ScorchingSunVisualController.cs" />
     <Compile Include="TenshiRandomWeather\HediffComp_DamageOnDowned.cs" />
@@ -140,6 +144,7 @@
     <Compile Include="TenshiRandomWeather\WeatherBackdropScroller.cs" />
     <Compile Include="TenshiRandomWeather\WeatherOverlay_Nowind.cs" />
     <Compile Include="TenshiRandomWeather\YellowsandEffectController.cs" />
+    <Compile Include="WanbaoHammer\WorkGiver_RepairWithWanbao .cs" />
     <Compile Include="Yukari\Ability_Turnenemiesintofriends.cs" />
     <Compile Include="Yukari\Ability_Trainbomb.cs" />
     <Compile Include="Yukari\AbilityYukaridisappearance.cs" />

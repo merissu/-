@@ -98,4 +98,12 @@
 			<li>DoremySleepingPillow</li>
 		</value>
 	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/WorkGiverDef[defName="Repair"]/giverClass</xpath>
+		<value>
+		<giverClass>merissu.WorkGiver_RepairWithWanbao</giverClass>
+		</value>
+	</Operation>
+
 </Patch>

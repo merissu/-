@@ -171,8 +171,8 @@
     <SoundDef>
         <defName>power</defName>
         <context>MapOnly</context>
-		<maxSimultaneous>10</maxSimultaneous>
-		<maxVoices>10</maxVoices>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
 		<subSounds>
 		  <li>
 			<grains>
@@ -377,6 +377,32 @@
 		  </li>
 		</subSounds>
     </SoundDef>
+
+    <SoundDef>
+        <defName>WanbaoRepair</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Id</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<distRange>
+				<min>0</min>    
+				<max>20</max>   
+			</distRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
 
     <SoundDef>
         <defName>AbyssNova2</defName>
