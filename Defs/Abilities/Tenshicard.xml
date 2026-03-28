@@ -461,6 +461,9 @@
 					<li>KawamuraCondition</li>
 					<li>typhoonCondition</li>
 					<li>NowindCondition</li>
+					<li>DiamondDustCondition</li>
+					<li>YellowsandCondition</li>
+					<li>scorchingsunCondition</li>
 				</conditionPool>
 			</li>
 		</comps>
@@ -2251,6 +2254,347 @@
         <tendable>false</tendable>
 		<comps>
     	    <li Class="merissu.HediffCompProperties_NowindHeal" />
+    	</comps>
+    </HediffDef>
+
+	<WeatherDef>
+		<defName>DiamondDust</defName>
+		<label>钻石尘</label>
+		<description>睡着了就会死程度的天气,倒地时,对四肢造成50伤害
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather16</clipPath>
+            	<switchTexturePath>weather/weatherNameB016</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/00</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<overlayClasses>
+			<li>WeatherOverlay_Fog</li> 
+		</overlayClasses>
+		<skyColorsDay>
+            <sky>(0.8, 0.8, 0.85)</sky>
+            <shadow>(0.85, 0.85, 0.85)</shadow>
+            <overlay>(0.7, 0.7, 0.7)</overlay>
+            <saturation>0.9</saturation>
+        </skyColorsDay>
+        <skyColorsDusk>
+            <sky>(0.6, 0.55, 0.55)</sky>
+            <shadow>(0.8, 0.8, 0.8)</shadow>
+            <overlay>(0.6, 0.55, 0.55)</overlay>
+            <saturation>0.8</saturation>
+        </skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>DiamondDustCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>钻石尘</label>
+		<description>睡着了就会死程度的天气,倒地时,对四肢造成50伤害</description>
+		<weatherDef>DiamondDust</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>DiamondDust</hediffDefName>
+        	    <applyToAllEnemies>true</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>空气中产生了异常的雾气,睡着了就会死</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>钻石尘散去了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>DiamondDustIncident</defName>
+		<label>钻石尘</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>DiamondDustCondition</gameCondition>
+		<baseChance>0.1</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>DiamondDust</defName>
+        <label>钻石尘</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(102,204,255)</defaultLabelColor>
+        <description>睡着了就会死程度的天气,倒地时,对四肢造成50伤害</description>
+        <isBad>true</isBad>
+        <tendable>false</tendable>
+		<comps>
+			<li Class="merissu.HediffCompProperties_DamageOnDowned" />
+    	</comps>
+    </HediffDef>
+
+	<WeatherDef>
+		<defName>Yellowsand</defName>
+		<label>黄沙</label>
+		<description>反击攻击程度的天气,被击中时需要的恢复时间翻倍
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+		<isBad>false</isBad>
+		<favorability>Neutral</favorability>
+		<perceivePriority>2</perceivePriority>
+		<windSpeedFactor>0.8</windSpeedFactor>
+		<accuracyMultiplier>1</accuracyMultiplier>
+		<moveSpeedMultiplier>1</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather17</clipPath>
+            	<switchTexturePath>weather/weatherNameB017</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/17</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+	    </modExtensions>
+		<overlayClasses>
+			<li>WeatherOverlay_Fog</li> 
+		</overlayClasses>
+		<skyColorsDay>
+            <sky>(0.8, 0.8, 0.85)</sky>
+            <shadow>(0.85, 0.85, 0.85)</shadow>
+            <overlay>(0.7, 0.7, 0.7)</overlay>
+            <saturation>0.9</saturation>
+        </skyColorsDay>
+        <skyColorsDusk>
+            <sky>(0.6, 0.55, 0.55)</sky>
+            <shadow>(0.8, 0.8, 0.8)</shadow>
+            <overlay>(0.6, 0.55, 0.55)</overlay>
+            <saturation>0.8</saturation>
+        </skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>YellowsandCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>黄沙</label>
+		<description>反击攻击程度的天气,被击中时需要的恢复时间翻倍</description>
+		<weatherDef>Yellowsand</weatherDef>
+		<canBePermanent>false</canBePermanent>
+		<natural>true</natural>
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>Yellowsand</hediffDefName>
+        	    <applyToAllEnemies>true</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>狂风吹起来黄沙,被击中时需要的恢复时间翻倍</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<endMessage>黄沙散去了,大气恢复了常态。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>YellowsandIncident</defName>
+		<label>黄沙</label>
+		<category>Misc</category> 
+		<targetTags>
+			<li>Map_PlayerHome</li> 
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>YellowsandCondition</gameCondition>
+		<baseChance>0.1</baseChance>
+		<durationDays>
+			<min>0.333</min> 
+			<max>0.333</max>  
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>Yellowsand</defName>
+        <label>黄沙</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(153,153,51)</defaultLabelColor>
+        <description>反击攻击程度的天气,被击中时需要的恢复时间翻倍</description>
+        <isBad>true</isBad>
+        <tendable>false</tendable>
+		<stages>
+			<li>
+				<statOffsets>
+					<StaggerDurationFactor>1.0</StaggerDurationFactor>
+				</statOffsets>
+			</li>
+		</stages>
+    </HediffDef>
+
+	<WeatherDef>
+		<defName>scorchingsun</defName>
+		<label>烈日</label>
+		<description>烧尽一切程度的天气,处于室外时被灼烧
+
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+		<isBad>true</isBad>
+		<favorability>Good</favorability>
+		<perceivePriority>1</perceivePriority>
+		<windSpeedFactor>0.5</windSpeedFactor>
+		<accuracyMultiplier>1.2</accuracyMultiplier> 
+		<moveSpeedMultiplier>1.0</moveSpeedMultiplier>
+		<modExtensions>
+			<li Class="merissu.WeatherMusicExtension">
+            	<clipPath>Songs/Weather18</clipPath>
+            	<switchTexturePath>weather/weatherNameB018</switchTexturePath> 
+				<volume>0.8</volume>
+    	    </li>
+			<li Class="merissu.WeatherBackdropExtension">
+				<texturePath>weather/08</texturePath>
+				<alpha>1.0</alpha>
+				<tint>(1,1,1,1)</tint>
+				<splitOneTextureToFour>true</splitOneTextureToFour>
+				<sourceWidth>470</sourceWidth>
+				<sourceHeight>270</sourceHeight>
+				<trimBottomPixels>40</trimBottomPixels>
+				<cropToViewAspect>true</cropToViewAspect>
+				<viewAspectHOverW>0.807</viewAspectHOverW>
+				<keepBottomWhenCropHeight>true</keepBottomWhenCropHeight>
+				<sideWidthPercent>0.289</sideWidthPercent>
+				<topBottomHeightPercent>0.270</topBottomHeightPercent>
+			</li>
+		</modExtensions>
+		<ambientSounds>
+			<li>Ambient_Wind_Quiet</li>
+		</ambientSounds>
+		<skyColorsDay>
+			<sky>(1, 1, 1)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 1, 1)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1, 0.588, 0.588)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(1, 0.588, 0.588)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.471, 0.471, 0.627)</sky>
+			<shadow>(0.8, 0.8, 0.8)</shadow>
+			<overlay>(0.471, 0.471, 0.627)</overlay>
+			<saturation>1.2</saturation>
+		</skyColorsNightMid>
+	</WeatherDef>
+
+	<GameConditionDef>
+		<defName>scorchingsunCondition</defName>
+		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
+		<label>烈日</label>
+		<description>烧尽一切程度的天气,处于室外时被灼烧</description>
+		<weatherDef>scorchingsun</weatherDef>
+		<temperatureOffset>15</temperatureOffset>
+		<canBePermanent>false</canBePermanent> 
+		<natural>true</natural> 
+		<modExtensions>
+    	    <li Class="merissu.WeatherConditionExtension">
+        	    <hediffDefName>scorchingsun_Hediff</hediffDefName>
+        	    <applyToAllEnemies>true</applyToAllEnemies> 
+			</li>
+	    </modExtensions>
+		<letterText>一道异常明亮的阳光刺破了云层,整片区域被阳光笼罩。室外变得炎热难耐。</letterText>
+		<letterDef>PositiveEvent</letterDef> 
+		<endMessage>烈日结束了,大气流动恢复了正常。</endMessage>
+		<preventNeutralVisitors>false</preventNeutralVisitors> 
+		<allowUnderground>false</allowUnderground> 
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>scorchingsunIncident</defName>
+		<label>烈日</label>
+		<category>Misc</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>IncidentWorker_MakeGameCondition</workerClass>
+		<gameCondition>scorchingsunCondition</gameCondition> 
+		<baseChance>0.1</baseChance> 
+		<durationDays>
+			<min>0.333</min>
+    	    <max>0.333</max>
+		</durationDays>
+	</IncidentDef>
+
+    <HediffDef>
+        <defName>scorchingsun_Hediff</defName>
+        <label>烈日</label>
+        <defaultLabelColor>(102,153,153)</defaultLabelColor>
+        <description>烧尽一切程度的天气,处于室外时被灼烧</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>true</isBad>
+        <tendable>false</tendable>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_ScorchingBurn" />
     	</comps>
     </HediffDef>
 

@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
-using System.Linq;
+using System.Linq; 
 using UnityEngine;
 
 namespace merissu
 {
-
     public class WeatherConditionExtension : DefModExtension
     {
         public string hediffDefName;           // 要添加的状态 (Hediff) 的名称
@@ -15,7 +14,6 @@ namespace merissu
         public bool playerOnly = false;        // 是否只对玩家生效
         public bool friendlyOnly = false;      // 是否只对友好/中立派系生效
     }
-
 
     public class GameCondition_UniversalWeather : GameCondition_ForceWeather
     {
@@ -36,7 +34,7 @@ namespace merissu
         {
             base.GameConditionTick();
 
-            if (Find.TickManager.TicksGame % 60 == 0) 
+            if (Find.TickManager.TicksGame % 60 == 0)
             {
                 foreach (Map map in AffectedMaps)
                 {
@@ -56,7 +54,7 @@ namespace merissu
             {
                 int colonistCount = map.mapPawns.FreeColonistsSpawnedCount;
                 var sortedEnemies = allPawns
-                    .Where(p => p != null && p.Faction != null && p.Faction.HostileTo(Faction.OfPlayer) && !p.Dead && p.RaceProps.Humanlike)
+                    .Where(p => p != null && !p.Dead && p.HostileTo(Faction.OfPlayer))
                     .OrderByDescending(p => p.MarketValue)
                     .ToList();
 
@@ -69,7 +67,7 @@ namespace merissu
 
             foreach (Pawn pawn in allPawns)
             {
-                if (pawn == null || pawn.Dead || !pawn.RaceProps.Humanlike) continue;
+                if (pawn == null || pawn.Dead) continue;
 
                 bool shouldHaveHediff = false;
 
@@ -77,17 +75,17 @@ namespace merissu
                 {
                     shouldHaveHediff = true;
                 }
-                else if (pawn.Faction != null && !pawn.Faction.HostileTo(Faction.OfPlayer))
-                {
-                    if (!Props.playerOnly) shouldHaveHediff = true;
-                }
-                else if (pawn.Faction != null && pawn.Faction.HostileTo(Faction.OfPlayer))
+                else if (pawn.HostileTo(Faction.OfPlayer))
                 {
                     if (!Props.playerOnly && !Props.friendlyOnly)
                     {
                         if (Props.applyToAllEnemies || targetEnemies.Contains(pawn))
                             shouldHaveHediff = true;
                     }
+                }
+                else
+                {
+                    if (!Props.playerOnly) shouldHaveHediff = true;
                 }
 
                 Hediff existingHediff = pawn.health.hediffSet.GetFirstHediffOfDef(TargetHediff);
@@ -128,31 +126,23 @@ namespace merissu
         }
     }
 
-
     public class CompProperties_AbilityRandomWeather : CompProperties_AbilityEffect
     {
-        public List<GameConditionDef> conditionPool; 
+        public List<GameConditionDef> conditionPool;
         public int forcedDurationTicks = 20000;
-
-        public CompProperties_AbilityRandomWeather()
-        {
-            compClass = typeof(CompAbilityEffect_RandomWeather);
-        }
+        public CompProperties_AbilityRandomWeather() { compClass = typeof(CompAbilityEffect_RandomWeather); }
     }
 
     public class CompAbilityEffect_RandomWeather : CompAbilityEffect
     {
         public new CompProperties_AbilityRandomWeather Props => (CompProperties_AbilityRandomWeather)props;
-
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);
             Map map = parent?.pawn?.Map;
             if (map == null || Props.conditionPool == null || Props.conditionPool.Count == 0) return;
-
             GameConditionDef chosenDef = Props.conditionPool.RandomElement();
             GameCondition cond = GameConditionMaker.MakeCondition(chosenDef, Props.forcedDurationTicks);
-
             map.gameConditionManager.RegisterCondition(cond);
             Messages.Message("天候改变为: " + chosenDef.label, MessageTypeDefOf.PositiveEvent);
         }

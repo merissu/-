@@ -86,6 +86,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="TenshiRandomWeather\HediffComp_ScorchingBurn.cs" />
+    <Compile Include="TenshiRandomWeather\ScorchingSunVisualController.cs" />
+    <Compile Include="TenshiRandomWeather\HediffComp_DamageOnDowned.cs" />
+    <Compile Include="TenshiRandomWeather\DiamondDustEffectController.cs" />
     <Compile Include="goheifly\Patch_AddFlightTracker.cs" />
     <Compile Include="goheifly\Patch_GoheiFlightControl.cs" />
     <Compile Include="goheifly\Patch_GoheiForceLand.cs" />
@@ -134,7 +138,8 @@
     <Compile Include="TenshiRandomWeather\WeatherVisualSettingsExtension.cs" />
     <Compile Include="TenshiRandomWeather\WindrainEffectController.cs" />
     <Compile Include="TenshiRandomWeather\WeatherBackdropScroller.cs" />
-    <Compile Include="WeatherOverlay_Nowind.cs" />
+    <Compile Include="TenshiRandomWeather\WeatherOverlay_Nowind.cs" />
+    <Compile Include="TenshiRandomWeather\YellowsandEffectController.cs" />
     <Compile Include="Yukari\Ability_Turnenemiesintofriends.cs" />
     <Compile Include="Yukari\Ability_Trainbomb.cs" />
     <Compile Include="Yukari\AbilityYukaridisappearance.cs" />
