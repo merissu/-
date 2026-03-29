@@ -23,7 +23,7 @@
         <capacities>
           <li>Momiji_TenguBiteCapacity</li>   <!-- 使用自定义能力 -->
         </capacities>
-        <power>15</power>
+        <power>6</power>
         <cooldownTime>0.25</cooldownTime>
       </li>
     </tools>

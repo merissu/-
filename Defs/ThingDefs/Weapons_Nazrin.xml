@@ -24,7 +24,7 @@
         <capacities>
           <li>Blunt</li>
         </capacities>
-        <power>30</power>
+        <power>6</power>
         <cooldownTime>0.5</cooldownTime>
       </li>
     </tools>
