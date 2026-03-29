@@ -7,7 +7,8 @@
     <additionalHediffs>
       <li>
         <hediff>Momiji_TenguBiteHediff</hediff>
-        <severityPerDamageDealt>0.0333</severityPerDamageDealt>
+        <severityPerDamageDealt>0.0167</severityPerDamageDealt>
+        <!-- 设计是砍一刀增加一层的buff，因为一刀的伤害从15变成了6，所以每点伤害对应的严重程度从0.0067改成0.0167 -->
         <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
       </li>
     </additionalHediffs>
