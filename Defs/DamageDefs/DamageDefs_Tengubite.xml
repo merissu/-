@@ -7,7 +7,7 @@
     <additionalHediffs>
       <li>
         <hediff>Momiji_TenguBiteHediff</hediff>
-        <severityPerDamageDealt>0.0067</severityPerDamageDealt>
+        <severityPerDamageDealt>0.0333</severityPerDamageDealt>
         <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
       </li>
     </additionalHediffs>
