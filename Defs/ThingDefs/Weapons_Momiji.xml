@@ -17,6 +17,9 @@
     <weaponClasses>
       <li>Melee</li>
     </weaponClasses>
+    <weaponTags>
+			<li>Touhou</li>
+		</weaponTags>
     <tools>
       <li>
         <label>狼牙斩</label>

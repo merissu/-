@@ -429,6 +429,76 @@
     </value>
   </Operation>
   
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>OpenYuukaUmbrella</defName>
+    <statBases>
+      <WorkToMake>10000</WorkToMake>
+			<MarketValue>27000</MarketValue> 
+      <SellPriceFactor>0.1</SellPriceFactor>
+      <Mass>2.5</Mass>
+      <Bulk>5.0</Bulk>
+      <SightsEfficiency>0.8</SightsEfficiency> 
+      <ShotSpread>0.02</ShotSpread>
+      <SwayFactor>1.2</SwayFactor>
+      <RangedWeapon_Cooldown>0.4</RangedWeapon_Cooldown>
+    </statBases>
+    <FireModes>
+      <aiAimMode>Snapshot</aiAimMode>
+    </FireModes>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="OpenYuukaUmbrella"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>伞尖</label>
+          <capacities><li>Stab</li></capacities>
+          <power>18</power>
+          <cooldownTime>1</cooldownTime>
+          <armorPenetrationSharp>3</armorPenetrationSharp> 
+          <armorPenetrationBlunt>4.5</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>horrorYuukaUmbrella</defName>
+    <statBases>
+      <WorkToMake>10000</WorkToMake>
+			<MarketValue>27000</MarketValue> 
+      <SellPriceFactor>0.1</SellPriceFactor>
+      <Mass>2.5</Mass>
+      <Bulk>5.0</Bulk>
+      <SightsEfficiency>0.8</SightsEfficiency> 
+      <ShotSpread>0.02</ShotSpread>
+      <SwayFactor>1.2</SwayFactor>
+      <RangedWeapon_Cooldown>0.4</RangedWeapon_Cooldown>
+    </statBases>
+    <FireModes>
+      <aiAimMode>Snapshot</aiAimMode>
+    </FireModes>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="horrorYuukaUmbrella"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>伞尖</label>
+          <capacities><li>Stab</li></capacities>
+          <power>18</power>
+          <cooldownTime>1</cooldownTime>
+          <armorPenetrationSharp>3</armorPenetrationSharp> 
+          <armorPenetrationBlunt>4.5</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
               <!-- 制御棒 -->
 
   <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
@@ -451,6 +521,40 @@
   
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="NuclearControlRod"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>重击</label>
+          <capacities><li>Blunt</li></capacities>
+          <power>25</power>
+          <cooldownTime>1.8</cooldownTime>
+          <armorPenetrationBlunt>35.0</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>BoomNuclearControlRod</defName>
+    <statBases>
+      <Mass>5.0</Mass>
+      <Bulk>7.0</Bulk>
+      <WorkToMake>20000</WorkToMake>
+			<MarketValue>62100</MarketValue> 
+      <SellPriceFactor>0.1</SellPriceFactor>
+      <SightsEfficiency>1.5</SightsEfficiency> 
+      <ShotSpread>0.01</ShotSpread>
+      <SwayFactor>1.8</SwayFactor>
+      <RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+    </statBases>
+    <FireModes>
+      <aiAimMode>AimedShot</aiAimMode>
+    </FireModes>
+  </Operation>
+  
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="BoomNuclearControlRod"]/tools</xpath>
     <value>
       <tools>
         <li Class="CombatExtended.ToolCE">
@@ -765,7 +869,193 @@
         </value>
       </li>
     </operations>
-
   </Operation>
 
+              <!-- 天狗哨戒长刀 -->
+
+  <Operation Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="Momiji_Blade"]/tools</xpath>
+      <value>
+        <tools>
+          <li Class="CombatExtended.ToolCE">
+            <label>狼牙斩</label>
+            <capacities>
+              <li>Momiji_TenguBiteCapacity</li>
+            </capacities>
+            <power>16</power> 
+            <cooldownTime>0.65</cooldownTime> 
+            <armorPenetrationSharp>8.5</armorPenetrationSharp> 
+            <armorPenetrationBlunt>4.2</armorPenetrationBlunt>
+            <linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+          </li>
+          <li Class="CombatExtended.ToolCE">
+            <label>刀柄打击</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>5</power>
+            <cooldownTime>0.5</cooldownTime>
+            <armorPenetrationBlunt>1.5</armorPenetrationBlunt>
+            <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+            <chanceFactor>0.2</chanceFactor> 
+          </li>
+        </tools>
+      </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Momiji_Blade"]/statBases</xpath>
+      <value>
+        <Bulk>4.5</Bulk> 
+        <MeleeCounterParryBonus>0.45</MeleeCounterParryBonus> 
+      </value>
+    </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Momiji_Blade"]</xpath>
+    <value>
+      <equippedStatOffsets>
+        <MeleeCritChance>0.25</MeleeCritChance>
+        <MeleeParryChance>0.50</MeleeParryChance> 
+        <MeleeDodgeChance>0.15</MeleeDodgeChance>
+      </equippedStatOffsets>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Momiji_Blade"]/weaponTags</xpath>
+    <value>
+      <li>CE_Sidearm_Melee</li> 
+    </value>
+  </Operation>
+
+              <!-- 天狗盾牌 -->
+
+    <Operation Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="Momiji_Shield"]/statBases</xpath>
+      <value>
+        <statBases>
+          <MarketValue>500</MarketValue>
+          <Mass>3.5</Mass> 
+          <MaxHitPoints>500</MaxHitPoints>
+          <Flammability>0.2</Flammability>
+          <ArmorRating_Sharp>6</ArmorRating_Sharp> 
+          <ArmorRating_Blunt>8</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.5</ArmorRating_Heat>
+          <Bulk>10</Bulk> 
+          <WornBulk>7</WornBulk> 
+        </statBases>
+      </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Momiji_Shield"]/equippedStatOffsets</xpath>
+      <value>
+        <MeleeParryChance>1.2</MeleeParryChance> 
+        <ReloadSpeed>0.1</ReloadSpeed> 
+        <SwayFactor>0.8</SwayFactor> 
+        <ShootingAccuracyPawn>1.5</ShootingAccuracyPawn> 
+      </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Momiji_Shield"]/apparel/tags</xpath>
+      <value>
+        <li>CE_Shield</li> 
+      </value>
+    </Operation>
+
+              <!-- 纳兹琳的探宝棒 -->
+
+  <Operation Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="Nazrin_TreasureRod"]/tools</xpath>
+      <value>
+        <tools>
+          <li Class="CombatExtended.ToolCE">
+            <label>敲击</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>8</power> 
+            <cooldownTime>0.85</cooldownTime> 
+            <armorPenetrationBlunt>3.5</armorPenetrationBlunt> 
+            <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+          </li>
+        </tools>
+      </value>
+    </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Nazrin_TreasureRod"]/statBases</xpath>
+    <value>
+      <Bulk>2.5</Bulk> 
+      <MeleeCounterParryBonus>0.3</MeleeCounterParryBonus>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Nazrin_TreasureRod"]</xpath>
+    <value>
+      <equippedStatOffsets>
+        <MeleeCritChance>0.1</MeleeCritChance>
+        <MeleeParryChance>0.45</MeleeParryChance> 
+        <MeleeDodgeChance>0.1</MeleeDodgeChance>
+      </equippedStatOffsets>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Nazrin_TreasureRod"]/weaponTags</xpath>
+    <value>
+      <li>CE_Sidearm_Melee</li> 
+      <li>CE_OneHandedWeapon</li> 
+    </value>
+  </Operation>
+
+              <!-- 万宝槌 -->
+
+<Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="WanbaoHammer"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>万宝槌敲击</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>12</power> 
+          <cooldownTime>1.45</cooldownTime> 
+          <armorPenetrationBlunt>18.5</armorPenetrationBlunt> 
+          <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="WanbaoHammer"]/statBases</xpath>
+    <value>
+      <Bulk>2.0</Bulk> 
+      <MeleeCounterParryBonus>0.15</MeleeCounterParryBonus>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="WanbaoHammer"]</xpath>
+    <value>
+      <equippedStatOffsets>
+        <MeleeCritChance>0.35</MeleeCritChance> 
+        <MeleeParryChance>0.10</MeleeParryChance> 
+        <MeleeDodgeChance>0.05</MeleeDodgeChance>
+      </equippedStatOffsets>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="WanbaoHammer"]/weaponTags</xpath>
+    <value>
+      <li>CE_Sidearm_Melee</li>
+      <li>CE_OneHandedWeapon</li>
+    </value>
+  </Operation>
 </Patch>

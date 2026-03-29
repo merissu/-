@@ -209,4 +209,47 @@
             <Bulk>0.01</Bulk> 
         </value>
     </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Overnightmoney"]/statBases</xpath>
+    <value>
+        <Bulk>0.01</Bulk> 
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="MagicKnockback"]/statBases</xpath>
+    <value>
+        <Bulk>0.01</Bulk> 
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="DragonStar"]/statBases</xpath>
+    <value>
+        <Bulk>0.01</Bulk> 
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="TenguFan"]/statBases</xpath>
+    <value>
+        <Bulk>0.01</Bulk> 
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="MagicPotion"]/statBases</xpath>
+    <value>
+        <Bulk>0.01</Bulk> 
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="ThreeHeavenlyDrops"]/statBases</xpath>
+    <value>
+        <Bulk>0.01</Bulk> 
+    </value>
+  </Operation>
+
 </Patch>

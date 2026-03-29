@@ -128,12 +128,16 @@ namespace merissu
 
             foreach (IntVec3 cell in affectedCells)
             {
+                if (cell == caster.Position) continue;
+
                 if (Rand.Value < FireChance) FireUtility.TryStartFireIn(cell, map, 0.6f, this);
                 GenTemperature.PushHeat(cell, map, 100f);
+
                 List<Thing> thingList = cell.GetThingList(map);
                 for (int i = thingList.Count - 1; i >= 0; i--)
                 {
                     Thing t = thingList[i];
+
                     if (t != this && t != caster && (t is Pawn || t is Building || t.def.useHitPoints))
                     {
                         float damageAmt = DamagePerHit;
