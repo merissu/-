@@ -1074,6 +1074,54 @@
 			<li Class="CompProperties_EquippableAbility">
                 <abilityDef>Youmucard</abilityDef>
             </li>
+			<li Class="merissu.CompProperties_WeaponExtention">
+				<northOffset>
+					<position>(0.229, 0, 0.229)</position> 
+					<angle>-2</angle>
+				</northOffset>
+				<southOffset>
+					<position>(-0.328, 0, 0.246)</position>
+					<angle>-8</angle>
+				</southOffset>
+				<eastOffset>
+					<position>(0.415, 0, 0.189)</position>
+					<angle>7</angle>
+				</eastOffset>
+				<westOffset>
+					<position>(-0.408, 0, 0.187)</position>
+					<angle>-19</angle>
+				</westOffset>
+				<littleDown>true</littleDown> 
+			</li>
+			<li Class="merissu.CompProperties_Sheath">
+				<sheathOnlyGraphicData>
+					<texPath>Weapons/BailouSword_Sheath</texPath> 
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>(1.5,1.5)</drawSize>
+				</sheathOnlyGraphicData>
+				<fullGraphicData>
+					<texPath>Weapons/BailouSword_Full</texPath> 
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>(1.5,1.5)</drawSize>
+				</fullGraphicData>
+				<drawPosition>Side</drawPosition> 
+				<northOffset>
+					<position>(-0.085, -1, 0.315)</position>
+					<angle>96</angle>
+				</northOffset>
+				<southOffset>
+					<position>(-0.153, 0, 0.284)</position>
+					<angle>97</angle>
+				</southOffset>
+				<eastOffset>
+					<position>(0.15, -1, -0.2)</position>
+					<angle>215</angle>
+				</eastOffset>
+				<westOffset>
+					<position>(-0.028, 0, -0.306)</position>
+					<angle>-217</angle>
+				</westOffset>
+			</li>
         </comps>
 	</ThingDef>
 	
