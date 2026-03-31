@@ -16,8 +16,10 @@ namespace merissu
         private static readonly Texture2D Tex_SpellB = ContentFinder<Texture2D>.Get("Other/SpellB");
         private static readonly Texture2D Tex_Back = ContentFinder<Texture2D>.Get("Other/Touhou_Back");
 
-        private static readonly Texture2D Tex_LabelUp = ContentFinder<Texture2D>.Get("Other/Label_Up"); 
-        private static readonly Texture2D Tex_LabelSpell = ContentFinder<Texture2D>.Get("Other/Label_Spell"); 
+        private static readonly Texture2D Tex_LabelUp = ContentFinder<Texture2D>.Get("Other/Label_Up");
+        private static readonly Texture2D Tex_LabelSpell = ContentFinder<Texture2D>.Get("Other/Label_Spell");
+
+        private static readonly Texture2D Tex_Frame = ContentFinder<Texture2D>.Get("Other/Touhou_Frame");
 
         public Gizmo_TouhouStatus(Pawn pawn)
         {
@@ -25,7 +27,7 @@ namespace merissu
             this.Order = -120f;
         }
 
-        public override float GetWidth(float maxWidth) => 250f;
+        public override float GetWidth(float maxWidth) => 300f;
 
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
@@ -36,14 +38,13 @@ namespace merissu
             int upLevel = Mathf.FloorToInt(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("up"))?.Severity ?? 0f);
             int powerLevel = Mathf.FloorToInt(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("FullPower"))?.Severity ?? 0f);
 
-            float labelWidth = 55f;    
-            float labelHeight = 20f;   
-            float iconSize = 16f;      
-            float spacing = 1.5f;      
+            float labelWidth = 60f;    
+            float labelHeight = 22f;   
+            float iconSize = 18f;      
+            float spacing = 2.5f;      
 
-            float contentStartX = baseRect.x + 8f; 
-            float iconsStartX = contentStartX + labelWidth + 5f;  
-
+            float contentStartX = baseRect.x + 12f; 
+            float iconsStartX = contentStartX + labelWidth + 10f; 
             float upperY = baseRect.y + 16f; 
             float lowerY = baseRect.y + 44f; 
 
@@ -62,6 +63,9 @@ namespace merissu
                 GUI.DrawTexture(spellIconRect, (i < powerLevel) ? Tex_SpellB : Tex_SpellA);
             }
 
+            GUI.color = Color.white;
+            GUI.DrawTexture(baseRect, Tex_Frame);
+
             return new GizmoResult(GizmoState.Clear);
         }
     }
@@ -72,6 +76,7 @@ namespace merissu
         {
             bool isUp = this.Def.defName == "up";
             bool hasUp = Pawn.health.hediffSet.HasHediff(HediffDef.Named("up"));
+
             if (isUp || !hasUp)
             {
                 yield return new Gizmo_TouhouStatus(Pawn);
