@@ -86,6 +86,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="灵力和残机以及显示\TouhouStatusComp.cs" />
+    <Compile Include="GameStart.cs" />
+    <Compile Include="灵力和残机以及显示\HediffCompProperties_AlphaPulse.cs" />
+    <Compile Include="灵力和残机以及显示\Hediff_LifeCard.cs" />
     <Compile Include="SYS刀鞘\SYS_Components.cs" />
     <Compile Include="SYS刀鞘\SYS_Core.cs" />
     <Compile Include="SYS刀鞘\SYS_HarmonyPatches.cs" />

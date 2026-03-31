@@ -222,8 +222,7 @@
 		<label>灵力</label>
 		<labelNoun>灵力</labelNoun>
 		<defaultLabelColor>(153,204,255)</defaultLabelColor>
-		<description>每次使用符卡时都会消耗一层灵力。当拥有至少五层灵力时,可以释放极其强大的LastWord。
-可以在mod配置修改最大灵力</description>
+		<description>每次使用符卡时都会消耗一层灵力。当拥有至少五层灵力时,可以释放极其强大的LastWord。</description>
 		<scenarioCanAdd>false</scenarioCanAdd>
 		<isBad>false</isBad>
 		<maxSeverity>10</maxSeverity>
@@ -245,7 +244,7 @@
 				<minSeverity>4</minSeverity>
 			</li>
 			<li>
-				<label>FullPower!</label>
+				<label>⑤层</label>
 				<minSeverity>5</minSeverity>
 			</li>
 			<li>
@@ -265,8 +264,164 @@
 				<minSeverity>9</minSeverity>
 			</li>
 			<li>
-				<label>Double Full Power!!</label>
+				<label>FullPower!!</label>
 				<minSeverity>10</minSeverity>
+			</li>
+		</stages>
+		<comps>
+			<li Class="merissu.HediffCompProperties_TouhouStatus" />
+		</comps>
+	</HediffDef>
+
+	<ThingDef ParentName="THDrugBase">
+		<defName>LifeCards</defName>
+		<label>生命卡牌</label>
+		<graphicData>
+			<texPath>Medicine/LifeCards</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<description>使用后增加一个生命,最多可获得十个生命
+
+受到任何伤害时会消耗一个生命,抵消此次伤害并清除身上所有伤口,然后获得五秒无敌时间</description>
+		<tradeTags>
+		    <li>ExoticMisc</li> 
+		</tradeTags>		
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>0.01</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<ReimuSakuraPetal>50</ReimuSakuraPetal>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<workAmount>1500</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>PowerPoint</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>Social</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>使用{0}</ingestCommandString>
+			<ingestReportString>使用{0}</ingestReportString>
+		    <ingestSound>up</ingestSound>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>up</hediffDef>
+					<severity>1</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<comps Inherit="False">
+			<li Class="CompProperties_Drug">
+				<listOrder>200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_Usable_CustomIcon">
+				<useLabel>使用{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>up</defName>
+		<hediffClass>meriss.Hediff_LifeCard</hediffClass>
+		<label>残机</label>
+		<labelNoun>残机</labelNoun>
+		<defaultLabelColor>(204,0,153)</defaultLabelColor>
+		<description>受到任何伤害时会消耗一个生命,抵消此次伤害并清除身上所有伤口,然后获得五秒无敌时间</description>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+		<maxSeverity>10</maxSeverity>
+		<stages>
+			<li>
+				<label>Ⅰ</label>
+				<minSeverity>1</minSeverity>
+			</li>
+			<li>
+				<label>Ⅱ</label>
+				<minSeverity>2</minSeverity>
+			</li>
+			<li>
+				<label>Ⅲ</label>
+				<minSeverity>3</minSeverity>
+			</li>
+			<li>
+				<label>Ⅳ</label>
+				<minSeverity>4</minSeverity>
+			</li>
+			<li>
+				<label>Ⅴ</label>
+				<minSeverity>5</minSeverity>
+			</li>
+			<li>
+				<label>Ⅵ</label>
+				<minSeverity>6</minSeverity>
+			</li>
+			<li>
+				<label>Ⅶ</label>
+				<minSeverity>7</minSeverity>
+			</li>
+			<li>
+				<label>Ⅷ</label>
+				<minSeverity>8</minSeverity>
+			</li>
+			<li>
+				<label>Ⅸ</label>
+				<minSeverity>9</minSeverity>
+			</li>
+			<li>
+				<label>X</label>
+				<minSeverity>10</minSeverity>
+			</li>
+		</stages>
+		<comps>
+			<li Class="merissu.HediffCompProperties_TouhouStatus" />
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>InvincibleTime</defName>
+		<label>保护时间</label>
+		<description>五秒内免受所有伤害。</description>
+		<defaultLabelColor>(204,0,153)</defaultLabelColor>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>true</showRemainingTime>
+				<disappearsAfterTicks>300</disappearsAfterTicks> 
+			</li>
+			<li Class="merissu.HediffCompProperties_AlphaPulse">
+                <pulseFrequency>0.5</pulseFrequency> 
+				<minAlpha>0.5</minAlpha>              
+				<maxAlpha>1</maxAlpha>              
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
 			</li>
 		</stages>
 	</HediffDef>
