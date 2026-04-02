@@ -9,7 +9,7 @@ namespace merissu
         {
             base.PostAdd(dinfo);
 
-            HediffDef fullPowerDef = HediffDef.Named("FullPower");
+            HediffDef fullPowerDef = HediffDef.Named("spiritualpower");
 
             Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(fullPowerDef);
 
@@ -20,7 +20,7 @@ namespace merissu
 
             if (firstHediffOfDef != null)
             {
-                firstHediffOfDef.Severity = Rand.RangeInclusive(1, 5);
+                firstHediffOfDef.Severity = Rand.RangeInclusive(1, 4);
             }
 
         }

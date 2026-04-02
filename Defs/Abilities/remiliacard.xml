@@ -5,7 +5,7 @@
         <label>符卡宣言</label>
         <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
 
-进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张蕾米莉亚的强力符卡和极其强大的Last Word</description>
+进行符卡宣言时要有至少一张符卡(符卡通过符咒卡牌或者灵力转化获得),宣言后可以使用三种蕾米莉亚的强力符卡和极其强大的Last Word</description>
         <abilityClass>merissu.remiliacard</abilityClass>
         <iconPath>Abilities/remiliacard</iconPath>
         <cooldownTicksRange>300</cooldownTicksRange>
@@ -93,7 +93,7 @@
         <abilityClass>merissu.Ability_SpeartheGungnir</abilityClass>
 		<description>向前方将灵气收束成枪状投掷而出。贯通力和威力极高,会毫无阻碍的贯穿路径上的任何东西。花样繁多的枪状灵气系技能之一
 	
-使用需要消耗一层灵力,被击中时与其说是被弹幕打中,还不如说是被枪扎了一般。以强大的力量将弹幕投掷而出就能达到这种效果。</description>
+使用需要消耗一张符卡,被击中时与其说是被弹幕打中,还不如说是被枪扎了一般。以强大的力量将弹幕投掷而出就能达到这种效果。</description>
 		<iconPath>Abilities/SpeartheGungnir</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -140,7 +140,7 @@
 
 极限火花是利用迷你八卦炉的火焰发动的,这招则是暗夜力量汇聚后的产物,据说如果盯着看的话就会两眼充血辗转难眠。
 
-使用时需要消耗一层灵力,发动后放出烧尽周围一切的红色灵气。</description>
+使用时需要消耗一张符卡,发动后放出烧尽周围一切的红色灵气。</description>
 		<iconPath>Abilities/ScarletDevil</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -204,7 +204,7 @@
         <label>「千年吸血鬼」</label>
         <description>在一定时间将使用者体质变为吸血鬼体质,不仅防御力大大体升,还会获得自愈能力
            
-使用需要消耗一层灵力,持续时间为三小时</description>
+使用需要消耗一张符卡,持续时间为三小时</description>
         <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
         <cooldownTicksRange>1200</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -294,7 +294,7 @@
 
 殖民者吸入红雾则会变成吸血鬼,敌人吸入红雾则变得难以呼吸,身体也会变差
 
-需要消耗五层灵力,红雾会持续存在一天</description>
+需要消耗五张符卡,红雾会持续存在一天</description>
         <abilityClass>merissu.RedMagic</abilityClass>
         <cooldownTicksRange>1200</cooldownTicksRange>
 		<displayOrder>200</displayOrder>

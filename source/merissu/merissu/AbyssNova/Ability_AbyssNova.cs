@@ -25,7 +25,7 @@ namespace merissu
 
                 if (hp == null || hp.Severity < COST_SEVERITY)
                 {
-                    return "灵力不足 (需要" + COST_SEVERITY + "层)";
+                    return "符卡不足 (需要" + COST_SEVERITY + "张)";
                 }
 
                 return AcceptanceReport.WasAccepted;
@@ -41,7 +41,7 @@ namespace merissu
 
             if (hp == null || hp.Severity < COST_SEVERITY)
             {
-                Messages.Message("灵力不足", MessageTypeDefOf.RejectInput, false);
+                Messages.Message("符卡不足", MessageTypeDefOf.RejectInput, false);
                 return false;
             }
 

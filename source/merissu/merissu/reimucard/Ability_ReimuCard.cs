@@ -25,7 +25,7 @@ namespace merissu
                     .GetFirstHediffOfDef(HediffDef.Named("FullPower"));
 
                 if (fullPower == null || fullPower.Severity < FullPowerCost)
-                    return "需要至少一层灵力";
+                    return "需要至少一张符卡";
 
                 return AcceptanceReport.WasAccepted;
             }

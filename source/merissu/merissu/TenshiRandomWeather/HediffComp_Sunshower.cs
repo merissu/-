@@ -27,18 +27,18 @@ namespace merissu
 
         private void ApplyOrIncrementFullPower()
         {
-            HediffDef fullPowerDef = HediffDef.Named("FullPower");
+            HediffDef fullPowerDef = HediffDef.Named("spiritualpower");
             Hediff existingHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(fullPowerDef);
 
             if (existingHediff == null)
             {
                 Hediff newHediff = HediffMaker.MakeHediff(fullPowerDef, Pawn);
-                newHediff.Severity = 1f;
+                newHediff.Severity = 0.5f;
                 Pawn.health.AddHediff(newHediff);
             }
             else
             {
-                existingHediff.Severity += 1f;
+                existingHediff.Severity += 0.5f;
             }
         }
     }

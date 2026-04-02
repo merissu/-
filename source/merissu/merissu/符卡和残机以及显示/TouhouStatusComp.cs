@@ -27,7 +27,7 @@ namespace merissu
             this.Order = -120f;
         }
 
-        public override float GetWidth(float maxWidth) => 300f;
+        public override float GetWidth(float maxWidth) => 280f;
 
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
@@ -41,7 +41,7 @@ namespace merissu
             float labelWidth = 60f;    
             float labelHeight = 22f;   
             float iconSize = 18f;      
-            float spacing = 2.5f;      
+            float spacing = 0.5f;      
 
             float contentStartX = baseRect.x + 12f; 
             float iconsStartX = contentStartX + labelWidth + 10f; 

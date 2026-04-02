@@ -7,7 +7,7 @@
         <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
 		<description>芙兰分身后肆无忌惮地发动攻击的符卡。我一直都觉得分身以后会变得无所不能,而且我也想要奴隶。
 
-使用需要消耗一层灵力,分身会存在六小时</description>
+使用需要消耗一张符卡,分身会存在六小时</description>
 		<iconPath>Abilities/FourOfAKind</iconPath>
 		<cooldownTicksRange>15000</cooldownTicksRange>
 		<writeCombatLog>True</writeCombatLog>

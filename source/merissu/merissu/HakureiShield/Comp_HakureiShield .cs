@@ -49,13 +49,13 @@ namespace merissu
             {
                 hediff = pawn.health.AddHediff(
                     Props.fullPowerHediff);
-                hediff.Severity = 1f;
+                hediff.Severity = 0.5f;
             }
             else
             {
                 hediff.Severity =
                     Mathf.Min(
-                        hediff.Severity + 1f,
+                        hediff.Severity + 0.5f,
                         Props.maxSeverity);
             }
         }

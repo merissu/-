@@ -20,7 +20,7 @@ namespace merissu
 
                 if (fp == null || fp.Severity < 2f)
                 {
-                    return "灵力不足（需要2层）";
+                    return "符卡不足（需要2张）";
                 }
 
                 return base.CanCast;

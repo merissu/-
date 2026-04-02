@@ -69,7 +69,7 @@
         <label>时符「个人空间」</label>
         <description>咲夜得意的时间操作符卡之一，这张卡的作用是延缓周围的时间，减慢对手的速度从而达到攻防方面的绝对优势
 
-使用需要消耗一层灵力,发动后,让时间减缓五倍,持续时间一小时,使用者不会受到影响</description>
+使用需要消耗一张符卡,发动后,让时间减缓五倍,持续时间一小时,使用者不会受到影响</description>
         <abilityClass>merissu.SakuyaPrivateSquare</abilityClass>
         <jobDef>CastAbilityOnThing</jobDef>
         <targetRequired>False</targetRequired>
@@ -162,7 +162,7 @@
         <label>「咲夜的世界」</label>
         <description>操作时间的顶峰Spell之一。令周围的时间完全停止,从而进行单方面攻击的犯规级Spell。
 
-使用需要消耗两层灵力,持续时间大概一小时,需要注意的是,时停期间其他符卡基本上无法使用,但是远程武器与近战武器依然是可以使用的
+使用需要消耗两张符卡,持续时间大概一小时,需要注意的是,时停期间其他符卡基本上无法使用,但是远程武器与近战武器依然是可以使用的
 
 (时停时长可在设置界面自行调整)</description>
         <abilityClass>merissu.SakuyaTheWorld</abilityClass>
@@ -260,7 +260,7 @@
         <abilityClass>merissu.Ability_NightFogPhantomKiller</abilityClass>
 		<description>向周围撒开匕首并向敌人蜂拥而去的攻击,对单一目标造成极高的伤害。
 	
-向周围放出的小刀能准确地朝对手袭击,不仅威力高,准度也很优秀。使用需要消耗一层灵力。</description>
+向周围放出的小刀能准确地朝对手袭击,不仅威力高,准度也很优秀。使用需要消耗一张符卡。</description>
 		<iconPath>Abilities/sakuyaKiller</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -321,7 +321,7 @@
         <abilityClass>merissu.Ability_EternalMeek</abilityClass>
 		<description>向前方连射大量飞刀。据说没有瞄准而是随意乱扔,可惜真伪还没人能确定。
 	
-散射的弹道适合清理正前方的杂兵,在近距离时会有极大的威力,使用需要消耗一层灵力。</description>
+散射的弹道适合清理正前方的杂兵,在近距离时会有极大的威力,使用需要消耗一张符卡。</description>
 		<iconPath>Abilities/EternalMeek</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>

@@ -68,7 +68,7 @@ namespace merissu
             get
             {
                 Hediff fp = pawn.health.hediffSet.GetFirstHediffOfDef(FullPowerDef);
-                if (fp == null || fp.Severity < 5f) return "灵力不足（需要5层）";
+                if (fp == null || fp.Severity < 5f) return "符卡不足（需要5张）";
 
                 if (pawn.equipment?.Primary?.def.defName != "YuukaUmbrella") return "必须装备收起状态的阳伞";
 

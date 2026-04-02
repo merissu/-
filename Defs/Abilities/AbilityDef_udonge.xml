@@ -5,7 +5,7 @@
         <label>符卡宣言</label>
         <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
 
-进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张铃仙的强力符卡和极其强大的Last Word</description>
+进行符卡宣言时要有至少一张符卡(符卡通过符咒卡牌或者灵力转化获得),宣言后可以使用三种铃仙的强力符卡和极其强大的Last Word</description>
         <abilityClass>merissu.Ability_udongecard</abilityClass>
         <cooldownTicksRange>1200</cooldownTicksRange>
 		<displayOrder>1</displayOrder>
@@ -57,7 +57,7 @@
         <label>长视「赤月下」</label>
         <description>大幅解放疯狂视线的能力,变为四处散发混乱波长的状态,暂时无法为周围所认知。
 
-需要消耗一层灵力,使用后使用者会处于一段时间的隐形,并且无法被攻击到。
+需要消耗一张符卡,使用后使用者会处于一段时间的隐形,并且无法被攻击到。
 
 似乎是铃仙并不怎么想和他人接触的缘故，日常生活中也偶尔会用到。</description>
         <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
@@ -121,7 +121,7 @@
         <abilityClass>merissu.Ability_XWave</abilityClass>
 		<description>发射搅乱敌人认知的波长。命中时敌人将处于幻象,完全失去行动能力。
 
-需要消耗一层灵力</description>
+需要消耗一张符卡</description>
 		<iconPath>Abilities/XWave</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -209,7 +209,7 @@
         <abilityClass>merissu.Ability_CorollaVision</abilityClass>
 		<description>高速连射出会随飞行距离而变大的环形弹幕,弹幕不会和任何障碍发生碰撞,并且会使穿过的敌人发狂
 	
-使用需要消耗一层灵力,环状弹幕最大尺寸三格,会飞行25格并穿透途径的所有物体,可隔墙使用。</description>
+使用需要消一张符卡,环状弹幕最大尺寸三格,会飞行25格并穿透途径的所有物体,可隔墙使用。</description>
 		<iconPath>Abilities/CrownVision</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -275,7 +275,7 @@
         <abilityClass>merissu.Ability_LunaticRedEyes</abilityClass>
 		<description>广范围释放令敌人陷入疯狂的波长漩涡。威力、范围都极其优秀,发动的消耗也因此略大
 
-使用时需要消耗五层灵力,发动后会释放半径为40格的波长漩涡,令陷入其中的所有敌人陷入疯狂。</description>
+使用时需要消耗五张符卡,发动后会释放半径为40格的波长漩涡,令陷入其中的所有敌人陷入疯狂。</description>
 		<iconPath>Abilities/LunaticRedEyes</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>

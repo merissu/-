@@ -25,7 +25,7 @@ namespace merissu
 
                 if (hp == null || hp.Severity < 5f)
                 {
-                    return "灵力不足 (需要5层)";
+                    return "符卡不足 (需要5张)";
                 }
 
                 return AcceptanceReport.WasAccepted;

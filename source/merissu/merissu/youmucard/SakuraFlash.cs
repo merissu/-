@@ -25,7 +25,7 @@ namespace merissu
             {
                 if (throwMessages)
                 {
-                    Messages.Message("灵力不足 (需要1层)", MessageTypeDefOf.RejectInput, false);
+                    Messages.Message("符卡不足", MessageTypeDefOf.RejectInput, false);
                 }
                 return false;
             }
@@ -38,7 +38,7 @@ namespace merissu
 
             if (hp == null || hp.Severity < 1f)
             {
-                reason = "灵力不足";
+                reason = "符卡不足";
                 return true;
             }
 

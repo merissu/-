@@ -24,7 +24,7 @@ namespace merissu
 
                 if (hp == null || hp.Severity < PowerCost)
                 {
-                    return "灵力不足"; 
+                    return "符卡不足"; 
                 }
 
                 return base.CanCast;

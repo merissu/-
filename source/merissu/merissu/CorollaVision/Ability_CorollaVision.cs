@@ -27,7 +27,7 @@ namespace merissu
                 Hediff fp = pawn.health.hediffSet.GetFirstHediffOfDef(FullPowerDef);
                 if (fp == null || fp.Severity < 1f)
                 {
-                    return "灵力不足（需要1层）";
+                    return "符卡不足（需要1张）";
                 }
 
                 return base.CanCast;

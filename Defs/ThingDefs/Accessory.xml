@@ -15,9 +15,9 @@
 		<label>博丽御守</label>
 		<description>博丽神社的御守,能生成一个小型结界来保护使用者
 结界可以抵挡100点的弹幕伤害
-结界破碎后会给予装备者获得一层灵力,结界重新出现时间为30秒。
+结界破碎后会给予装备者获得0.5灵力,结界重新出现时间为30秒。
 
-结界再强大也会有破碎的时候,当结界破碎时,就用最后一层灵力进行反击</description>
+结界再强大也会有破碎的时候,当结界破碎时,就用最后的灵力进行反击</description>
 		<techLevel>Industrial</techLevel>
 		<comps>
 			<li Class="merissu.CompProperties_HakureiShield">
@@ -27,8 +27,8 @@
 				<energyLossPerDamage>0.01</energyLossPerDamage>
 				<energyOnReset>1</energyOnReset>
 				<blocksRangedWeapons>false</blocksRangedWeapons>
-                <fullPowerHediff>FullPower</fullPowerHediff>
-                <maxSeverity>10</maxSeverity>
+                <fullPowerHediff>spiritualpower</fullPowerHediff>
+                <maxSeverity>4</maxSeverity>
 			</li>
 		</comps>
 		<costList>
@@ -110,7 +110,7 @@
 	<ThingDef ParentName="ApparelNoQualityBase">
 		<defName>SevenElementalGrimoire</defName>
 		<label>七曜法典</label>
-		<description>帕秋莉的魔导书,只有充满智慧的人才能看懂。装备后每天会获得一层灵力,还可以使用各种各样的魔法。
+		<description>帕秋莉的魔导书,只有充满智慧的人才能看懂。装备后每天会获得0.5灵力,还可以使用各种各样的魔法。
 
 魔导书并不是普通的书，它内含魔法，是种魔法道具。里面并不只是写上使用方法，还有为了能使用魔法的秘密钥匙。
 
@@ -285,7 +285,7 @@
         <defName>ShinkiRecitation</defName>
         <label>魔人经卷装备中</label>
         <defaultLabelColor>(102,51,102)</defaultLabelColor>
-        <description>现在可以通过诵读经文来强化肉体了,如果不想苦修的话,也可以直接通过消耗五层灵力来将身体素质提升至极限。</description>
+        <description>现在可以通过诵读经文来强化肉体了,如果不想苦修的话,也可以直接通过消耗五张符卡来将身体素质提升至极限。</description>
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
@@ -300,7 +300,7 @@
 		<defName>SuperHiziri</defName>
 		<label>超人「圣白莲」</label>
         <abilityClass>merissu.Ability_HiziriPower</abilityClass>
-		<description>消耗五层灵力,将自身的身体素质提升至极限,身体能变得如同绯绯色金一样坚硬,五感变得十分敏锐,就算身在八卦炉中也能做到肉体的完好无损。
+		<description>消耗五个符卡,将自身的身体素质提升至极限,身体能变得如同绯绯色金一样坚硬,五感变得十分敏锐,就算身在八卦炉中也能做到肉体的完好无损。
 
 强化后的拳头连钢铁墙也可以轻易打爆,能力可持续五小时</description>
 		<iconPath>Abilities/SuperHiziri</iconPath>
@@ -682,7 +682,7 @@
 		<label>月时计</label>
 		<description>十六夜咲夜的怀表,佩戴后可以获得操纵时间程度的能力,让工作效率成倍提升,在战斗上也能发挥极大的用处。
 
-装备后,只要注入灵力便可以获得操纵时间的能力,用在战斗中便是作弊般的能力</description>
+装备后,只要消耗符卡便可以获得操纵时间的能力,用在战斗中便是作弊般的能力</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<SpiritualWood>50</SpiritualWood>

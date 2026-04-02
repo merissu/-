@@ -159,9 +159,9 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.5,0.5)</drawSize>
 		</graphicData>
-		<description>可以为人注入一层灵力,同时也是制作各种幻想道具的必备素材。
+		<description>可以为人注入0.5灵力,同时也是制作各种幻想道具的必备素材。
 
-拥有灵力的人可以进行符卡宣言,使用各种强力的符卡。</description>
+灵力可以直接转化为符卡或者残机,或者凝聚成满p。</description>
 		<tradeability>Sellable</tradeability>
 		<statBases>
 			<MarketValue>50</MarketValue>
@@ -182,6 +182,304 @@
 			</recipeUsers>
 			<researchPrerequisite>
 				<li>PowerPoint</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>Social</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>使用{0}</ingestCommandString>
+			<ingestReportString>使用{0}</ingestReportString>
+		    <ingestSound>powerup</ingestSound>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>spiritualpower</hediffDef>
+					<severity>0.5</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<comps Inherit="False">
+			<li Class="CompProperties_Drug">
+				<listOrder>200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_Usable_CustomIcon">
+				<useLabel>使用{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>FullPower</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>符卡</label>
+		<labelNoun>符卡</labelNoun>
+		<defaultLabelColor>(0,153,51)</defaultLabelColor>
+		<description>通过武器或者卡牌发动符卡宣言后,就能使用各种各样强大的能力。当拥有至少五张符卡时,可以释放极其强大的LastWord。</description>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+		<maxSeverity>10</maxSeverity>
+		<stages>
+			<li>
+				<label>一</label>
+				<minSeverity>1</minSeverity>
+			</li>
+			<li>
+				<label>二</label>
+				<minSeverity>2</minSeverity>
+			</li>
+			<li>
+				<label>三</label>
+				<minSeverity>3</minSeverity>
+			</li>
+			<li>
+				<label>四</label>
+				<minSeverity>4</minSeverity>
+			</li>
+			<li>
+				<label>⑤</label>
+				<minSeverity>5</minSeverity>
+			</li>
+			<li>
+				<label>⑥</label>
+				<minSeverity>6</minSeverity>
+			</li>
+			<li>
+				<label>七</label>
+				<minSeverity>7</minSeverity>
+			</li>
+			<li>
+				<label>八</label>
+				<minSeverity>8</minSeverity>
+			</li>
+			<li>
+				<label>⑨</label>
+				<minSeverity>9</minSeverity>
+			</li>
+			<li>
+				<label>十</label>
+				<minSeverity>10</minSeverity>
+			</li>
+		</stages>
+		<comps>
+			<li Class="merissu.HediffCompProperties_TouhouStatus" />
+		</comps>
+	</HediffDef>
+
+	<ThingDef ParentName="THDrugBase">
+		<defName>Skybluemagatama</defName>
+		<label>天蓝色的勾玉</label>
+		<graphicData>
+			<texPath>Medicine/Skybluemagatama</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<description>可以让人在灵力稀薄的地方收集灵气的魔法道具,灵力可以强化身体素质,提高火力
+
+使用后会获得收集灵力程度的能力,可以收取全图的p点并转化为灵力</description>
+		<tradeTags>
+		    <li>ExoticMisc</li> 
+		</tradeTags>		
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>0.01</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<Crimsongold>1</Crimsongold>
+			<SpiritualWood>5</SpiritualWood>
+			<MakaiShinkiCloth>1</MakaiShinkiCloth>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+			<workAmount>1500</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>InsightLimbo</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>Social</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>使用{0}</ingestCommandString>
+			<ingestReportString>使用{0}</ingestReportString>
+		    <ingestSound>se_ok00</ingestSound>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>spiritualpower</hediffDef>
+					<severity>1</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<comps Inherit="False">
+			<li Class="CompProperties_Drug">
+				<listOrder>200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_Usable_CustomIcon">
+				<useLabel>使用{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<HediffDef>
+		<defName>spiritualpower</defName>
+		<hediffClass>merissu.Hediff_SpiritualPower</hediffClass>
+		<label>灵力</label>
+		<labelNoun>灵力</labelNoun>
+		<defaultLabelColor>(153,204,255)</defaultLabelColor>
+		<description>灵力最多可获得4层,每提高一层就会提升火力,灵力可通过收取地图上的p点来提升
+		
+灵力永远不会归零,保底为0.01.每次直接击杀非倒地敌对单位时会增加0.1灵力
+
+当你倒地且灵力＞0.5时会清空你的灵力,并根据清空的灵力总量获得相应的治疗,并使用一次灵击</description>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+		<maxSeverity>4</maxSeverity>
+		<stages>
+			<li>
+				<label>Ⅰ</label>
+				<minSeverity>1</minSeverity>
+				<statFactors>
+					<AimingDelayFactor>0.8</AimingDelayFactor>
+					<ShootingAccuracyPawn>0.4</ShootingAccuracyPawn>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.25</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>Ⅱ</label>
+				<minSeverity>2</minSeverity>
+				<statFactors>
+					<AimingDelayFactor>0.6</AimingDelayFactor>
+					<ShootingAccuracyPawn>0.8</ShootingAccuracyPawn>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.5</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>Ⅲ</label>
+				<minSeverity>3</minSeverity>
+				<statFactors>
+					<AimingDelayFactor>0.4</AimingDelayFactor>
+					<ShootingAccuracyPawn>1.2</ShootingAccuracyPawn>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.75</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>FullPower!</label>
+				<minSeverity>4</minSeverity>
+				<statFactors>
+					<AimingDelayFactor>0.2</AimingDelayFactor>
+					<ShootingAccuracyPawn>1.6</ShootingAccuracyPawn>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>1</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<comps>
+			<li Class="merissu.HediffCompProperties_SpiritualPowerStatus" />
+			<li Class="merissu.HediffCompProperties_AddSeverityOnKill">
+                <severityGain>0.1</severityGain> 
+			</li>
+			<li Class="merissu.HediffCompProperties_SpiritualPowerHeal" />
+		</comps>
+	</HediffDef>
+
+	<ThingDef>
+		<defName>FlyingPowerPoint</defName>
+		<category>Projectile</category> 
+		<thingClass>merissu.PowerProjectile</thingClass>
+		<label>p点</label>
+		<tickerType>Normal</tickerType> 
+		<altitudeLayer>Projectile</altitudeLayer>
+		<useHitPoints>False</useHitPoints>
+		<neverMultiSelect>True</neverMultiSelect>
+		<graphicData>
+			<texPath>Material/PowerPoint</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<selectable>False</selectable>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>0</damageAmountBase>
+			<speed>80</speed> 
+			<flyOverhead>false</flyOverhead>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="THDrugBase">
+		<defName>spellcard</defName>
+		<label>符咒卡牌</label>
+		<graphicData>
+			<texPath>Medicine/spellcard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<description>使用后增加一张符卡,最多可获得十张符卡,符卡可以用来发动符卡宣言,使用极其强大的能力
+
+叫符咒的卡牌会让人迷惑与符卡有什么不同,虽然效果很朴素但还是比较有用的,虽然效果很朴素...</description>
+		<tradeTags>
+		    <li>ExoticMisc</li> 
+		</tradeTags>		
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>0.01</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<ReimuSakuraPetal>50</ReimuSakuraPetal>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<workAmount>1500</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<ingestible>
@@ -216,63 +514,6 @@
 		</comps>
 	</ThingDef>
 
-	<HediffDef>
-		<defName>FullPower</defName>
-		<hediffClass>HediffWithComps</hediffClass>
-		<label>灵力</label>
-		<labelNoun>灵力</labelNoun>
-		<defaultLabelColor>(153,204,255)</defaultLabelColor>
-		<description>每次使用符卡时都会消耗一层灵力。当拥有至少五层灵力时,可以释放极其强大的LastWord。</description>
-		<scenarioCanAdd>false</scenarioCanAdd>
-		<isBad>false</isBad>
-		<maxSeverity>10</maxSeverity>
-		<stages>
-			<li>
-				<label>一层</label>
-				<minSeverity>1</minSeverity>
-			</li>
-			<li>
-				<label>二层</label>
-				<minSeverity>2</minSeverity>
-			</li>
-			<li>
-				<label>三层</label>
-				<minSeverity>3</minSeverity>
-			</li>
-			<li>
-				<label>四层</label>
-				<minSeverity>4</minSeverity>
-			</li>
-			<li>
-				<label>⑤层</label>
-				<minSeverity>5</minSeverity>
-			</li>
-			<li>
-				<label>⑥层</label>
-				<minSeverity>6</minSeverity>
-			</li>
-			<li>
-				<label>七层</label>
-				<minSeverity>7</minSeverity>
-			</li>
-			<li>
-				<label>八层</label>
-				<minSeverity>8</minSeverity>
-			</li>
-			<li>
-				<label>⑨层</label>
-				<minSeverity>9</minSeverity>
-			</li>
-			<li>
-				<label>FullPower!!</label>
-				<minSeverity>10</minSeverity>
-			</li>
-		</stages>
-		<comps>
-			<li Class="merissu.HediffCompProperties_TouhouStatus" />
-		</comps>
-	</HediffDef>
-
 	<ThingDef ParentName="THDrugBase">
 		<defName>LifeCards</defName>
 		<label>生命卡牌</label>
@@ -306,7 +547,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>PowerPoint</li>
+				<li>MoonlightMarket</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<ingestible>
@@ -426,6 +667,71 @@
 		</stages>
 	</HediffDef>
 
+	<ThingDef ParentName="THDrugBase">
+		<defName>MoneyCard</defName>
+		<label>财源滚滚到门前</label>
+		<graphicData>
+			<texPath>Medicine/MoneyCard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<description>娜兹玲的能力,可以增加金钱,实际上只是让老鼠把掉在地上找不到的零钱收集起来了而已
+
+使用后增加0~300的银</description>
+		<tradeTags>
+		    <li>ExoticMisc</li> 
+		</tradeTags>		
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>0.01</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<workAmount>1500</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>Social</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>使用{0}</ingestCommandString>
+			<ingestReportString>使用{0}</ingestReportString>
+		    <ingestSound>Merissu_E_HiPotion</ingestSound>
+		</ingestible>
+		<comps Inherit="False">
+			<li Class="CompProperties_Drug">
+				<listOrder>200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_Usable_CustomIcon">
+				<useLabel>使用{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+			<li Class="merissu.CompProperties_SpawnSilver">
+                <amountRange>0~300</amountRange>
+                <thingToSpawn>Silver</thingToSpawn>
+            </li>
+		</comps>
+	</ThingDef>
+
 	<!--P-->
 	
 	<ThingDef ParentName="THDrugBase">
@@ -461,9 +767,10 @@
 			<recipeUsers>
 				<li>PenglaiPharmaceuticalTable</li>
 			</recipeUsers>
-<researchPrerequisite>
-			<li>PenglaiPharmacy</li>
-</researchPrerequisite>		</recipeMaker>
+			<researchPrerequisite>
+				<li>PenglaiPharmacy</li>
+			</researchPrerequisite>		
+		</recipeMaker>
 		<ingestible>
 			<baseIngestTicks>1</baseIngestTicks>
 			<chairSearchRadius>0</chairSearchRadius>
@@ -2056,7 +2363,7 @@
 		</statBases>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>10</FullPower>
+			<FullPower>8</FullPower>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -2082,8 +2389,8 @@
 		    <ingestSound>MagicPotion</ingestSound>
 			<outcomeDoers>
 				<li Class="IngestionOutcomeDoer_GiveHediff">
-					<hediffDef>FullPower</hediffDef>
-					<severity>10</severity>
+					<hediffDef>spiritualpower</hediffDef>
+					<severity>4</severity>
 				</li>
 				<li Class="IngestionOutcomeDoer_GiveHediff">
 					<hediffDef>MagicPotion</hediffDef>

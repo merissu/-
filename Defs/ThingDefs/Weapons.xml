@@ -222,7 +222,7 @@
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>HakureiTalisman</defaultProjectile>
-				<warmupTime>0.01</warmupTime>
+				<warmupTime>0.02</warmupTime>
 				<range>30</range>
 				<soundCast>gohei</soundCast>
 				<muzzleFlashScale>0</muzzleFlashScale>
@@ -251,7 +251,7 @@
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>W_Gungnir</defName>
 		<label>冈格尼尔之枪</label>
-		<description>蕾米莉亚的冈格尼尔,此枪掷出时,会贯穿一切并必然击中目标。当成近战武器使用的话,会有极高的命中率修正,注入灵力后便可以发动极其强大的符卡</description>
+		<description>蕾米莉亚的冈格尼尔,此枪掷出时,会贯穿一切并必然击中目标。当成近战武器使用的话,会有极高的命中率修正,消耗符卡后便可以发动极其强大的能力</description>
 		<graphicData>
 			<texPath>Weapons/Bullet/Gungnir</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -348,7 +348,7 @@
 		<label>「掌中的破坏者」</label>
 		<description>芙兰朵露经常使用的S形武器,拿在手中便会拥有将一切悉数破坏程度的能力,甚至不用触摸到事物本体就能破坏事物。
 
-注入灵力则可以发动额外的符卡。</description>
+消耗符卡则可以发动额外的能力。</description>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/Laevatain</texPath>
@@ -433,7 +433,7 @@
 
 它由森近霖之助打造,霖之助将一种“把空气变洁净的道具”熔了进去,之后又被霖之助改造,往里掺入了绯绯色金。
 
-以灵力为燃料,普通射击模式为喷射火焰,注入灵力后便可以发射激光和弹幕。</description>
+以灵力为燃料,普通射击模式为喷射火焰,消耗符卡后便可以发射激光和弹幕。</description>
 		<graphicData>
 			<texPath>Weapons/Hakkero</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -527,7 +527,7 @@
 		<label>蝶舞幽冥扇</label>
 		<description>西行寺幽幽子的折扇，拥有引导死亡的能力，翩翩起舞的死蝶将带走被命中者的灵魂。
 
-这把扇子对敌人造成足够伤害后会直接使敌人死亡,注入灵力后便可以发动极其强大的符卡</description>
+这把扇子对敌人造成足够伤害后会直接使敌人死亡,消耗符卡后便可以发动极其强大的能力</description>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/DeathButterfliesFan</texPath>
@@ -918,7 +918,7 @@
 		<label>月兔波动枪</label>
 		<description>铃仙所使用的武器,可以发射影响人的精神的子弹,还可以操控各种波长。
 
-注入灵力后可以使用较为强大的符卡</description>
+消耗符卡后可以使用较为强大的能力</description>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/MoonRabbitWaveGun</texPath>
@@ -995,7 +995,7 @@
 		<label>楼观剑</label>
 		<description>据传楼观剑是妖怪锻造的,太长不适合普通人类使用。一挥有杀伤十只幽灵的威力,据说斩不断的东西几乎不存在
 
-使用此剑不仅能对对手造成身体上的伤害,还能造成精神上的伤害,注入灵力的话便可以在一段时间内解锁各种剑伎</description>
+使用此剑不仅能对对手造成身体上的伤害,还能造成精神上的伤害,消耗符卡后的话便可以在一段时间内解锁各种剑伎</description>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/BailouSword</texPath>
@@ -1214,7 +1214,7 @@
 
 制御棒有着控制核能的能力,持有者可以用其中蕴含的巨大能量将一切烧成灰烬。
 
-普通射击模式为发射激光,射程无限,切换模式后可以释放大容量的核能烧尽前方一切,注入灵力后便可以发动极其强大的符卡</description>
+普通射击模式为发射激光,射程无限,切换模式后可以释放大容量的核能烧尽前方一切,消耗符卡后便可以发动极其强大的能力</description>
 		<tickerType>Normal</tickerType>
 		<techLevel>Spacer</techLevel>
 		<smeltable>true</smeltable>
@@ -1510,7 +1510,7 @@
 
 使用绯想之剑,能够准确无误地击中对手的弱点,这把剑首先会把对手的气质雾化,转化成任何人都能用肉眼辨视的形态。然后将把那种气质的弱点作为性质缠绕于剑身。
 
-注入灵力后,便可以使用威力极其强大的符卡</description>
+消耗符卡后,便可以发动威力极其强大的能力</description>
 		<tickerType>Normal</tickerType>
 		<smeltable>true</smeltable>
 		<costList>
@@ -1673,7 +1673,7 @@
 
 这把阳伞无法射出弹幕,但是可以通过隙间将敌人直接神隐
 
-注入灵力后,便可以使用威力极其强大的符卡</description>
+消耗符卡后,便可以使用威力极其强大的能力</description>
 		<tickerType>Normal</tickerType>
 		<smeltable>true</smeltable>
 		<costList>
@@ -2256,7 +2256,7 @@
 		<label>万宝槌</label>
 		<description>寄宿着小槌魔力的仿制品,并没有能实现任何愿望的能力,只能做一些简单的事情,比如修补物品或者让装备升级
 
-注入灵力可以发挥更多功能</description>
+通过使用符卡可以发挥更多功能</description>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/WanbaoHammer</texPath>

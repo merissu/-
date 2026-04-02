@@ -12,7 +12,7 @@ namespace merissu
 
             Pawn pawn = parent.pawn;
             Hediff fullPower = pawn.health.hediffSet.hediffs
-                .FirstOrDefault(x => x.def.defName == "FullPower");
+                .FirstOrDefault(x => x.def.defName == "spiritualpower");
 
             if (fullPower != null)
             {
@@ -20,7 +20,7 @@ namespace merissu
             }
             else
             {
-                HediffDef fullPowerDef = HediffDef.Named("FullPower");
+                HediffDef fullPowerDef = HediffDef.Named("spiritualpower");
                 Hediff newHediff = HediffMaker.MakeHediff(fullPowerDef, pawn);
                 newHediff.Severity = 1f; 
                 pawn.health.AddHediff(newHediff);

@@ -5,7 +5,7 @@
         <label>符卡宣言</label>
         <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
 
-进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张灵乌路空的强力符卡和极其强大的Last Word</description>
+进行符卡宣言时要有至少一张符卡(符卡通过符咒卡牌或者灵力转化获得),宣言后可以使用三种灵乌路空的强力符卡和极其强大的Last Word</description>
         <abilityClass>merissu.utsuhocard</abilityClass>
         <iconPath>Abilities/utsuhocard</iconPath>
         <cooldownTicksRange>300</cooldownTicksRange>
@@ -58,7 +58,7 @@
         <abilityClass>merissu.Ability_MegaFlare</abilityClass>
 		<description>收集并发射核聚变能量。空的能力最简单直接的使用方式，几乎不可正面与之抗衡的高火力射击。
 	
-消耗一层灵力,释放出大容量的核能烧尽前方一切。无论范围还是威力都无可挑剔
+消耗一张符卡,释放出大容量的核能烧尽前方一切。无论范围还是威力都无可挑剔
 
 释放出的能量会在前方形成半径为15的球体</description>
 		<iconPath>Abilities/MegaFlare</iconPath>
@@ -105,7 +105,7 @@
         <abilityClass>merissu.Ability_FixedStar</abilityClass>
 		<description>在身边形成连成环状的核能。攻击身边的敌人。
 
-使用消耗一层灵力,核能环会在身边停留五秒</description>
+使用消耗一张符卡,核能环会在身边停留五秒</description>
 		<iconPath>Abilities/FixedStar</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -149,7 +149,7 @@
         <abilityClass>merissu.Ability_SubterraneanSun</abilityClass>
 		<description>从地底引导出能量,当场创造出太阳的技能。太阳会出现在固定的场所灼烧四周。
 	
-消耗一层灵力,发动后在地面创造一个太阳的符卡。
+消耗一张符卡,发动后在地面创造一个太阳的符卡。
 
 因为太阳会产生重力,所以敌人会向着太阳坠落。</description>
 		<iconPath>Abilities/SubterraneanSun</iconPath>
@@ -202,7 +202,7 @@
         <abilityClass>merissu.Ability_AbyssNova</abilityClass>
 		<description>让核能在体内循环增幅,当超过临界时自己便会化作将周围一切都燃烧殆尽的灼热太阳。太阳的判定极广且防御不能。
 
-发动需要消耗五层灵力,爆炸前有几秒的预热时间,在这之后便是没有任何人能逃脱的核爆
+发动需要消耗五张符卡,爆炸前有几秒的预热时间,在这之后便是没有任何人能逃脱的核爆
 
 核爆会直接摧毁80格以内的任何东西,所以不要在家门口发动这张符卡</description>
 		<iconPath>Abilities/AbyssNova</iconPath>

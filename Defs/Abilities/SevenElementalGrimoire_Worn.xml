@@ -4,7 +4,7 @@
         <defName>SevenElementalGrimoire_Worn</defName>
         <label>魔导书装备中</label>
         <defaultLabelColor>(102,51,102)</defaultLabelColor>
-        <description>现在可以咏唱魔法了,并且每天都会获得一层灵力。</description>
+        <description>现在可以咏唱魔法了,并且每天都会获得0.5灵力。</description>
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
@@ -15,8 +15,8 @@
 		</abilities>
         <comps>
             <li Class="merissu.HediffCompProperties_AddSeverityToOther">
-                <targetHediff>FullPower</targetHediff>
-                <severityPerDay>1.0</severityPerDay>
+                <targetHediff>spiritualpower</targetHediff>
+                <severityPerDay>0.5</severityPerDay>
             </li>
         </comps>
     </HediffDef>
@@ -78,7 +78,7 @@
         <abilityClass>merissu.Ability_SagesStone</abilityClass>
 		<description>帕秋莉的Last Word,将魔法的五大基本要素各自结晶化,并使用生成的石头发动魔法攻击的符卡。
 
-发动需要消耗五层灵力,发动后会在自身周围凝聚五颗魔力结晶,结晶会不断对周围敌人释放强化的元素弹幕,造成各种类型的伤害。
+发动需要消耗五张符卡,发动后会在自身周围凝聚五颗魔力结晶,结晶会不断对周围敌人释放强化的元素弹幕,造成各种类型的伤害。
 
 关于贤者之石,遍历文献后我明白的只是这种石头能让卑金属变成贵金属,能瞬间回复众人的体力,撒进饭菜里还能让饭菜变得美味可口,诸如此类而已。哎呀,我好想用它来做一份贤者之石盖浇五色便当。</description>
 		<iconPath>Abilities/SagesStone</iconPath>
@@ -301,7 +301,7 @@
         <abilityClass>merissu.Ability_RoyalFlare</abilityClass>
 		<description>生成小型太阳以光芒烧尽一切，帕秋莉的最高峰魔法之一。住在吸血鬼家里还使用这样的魔法，其中必然有些因缘。
 
-使用时会有两秒的预热时间,需要消耗两层灵力</description>
+使用时会有两秒的预热时间,需要消耗两张符卡</description>
 		<iconPath>Abilities/RoyalFlare</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -468,7 +468,7 @@
         <abilityClass>merissu.Ability_StElmoPillar</abilityClass>
 		<description>火、金属性的合成符。创造出高密度的热块炸向地面产生出火柱。由于射出时是打向对手脚底，所以若是对手在移动中容易打偏
 	
-造成大范围爆炸,产生极高的温度融化敌人,使用需要消耗一层灵力。</description>
+造成大范围爆炸,产生极高的温度融化敌人,使用需要消耗一张符卡。</description>
 		<iconPath>Abilities/StElmoPillar</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -547,7 +547,7 @@
         <abilityClass>merissu.Ability_NoachianDeluge</abilityClass>
 		<description>土、水属性的合成符。将大量压缩的水向前方散射吹出。不仅消费量低,弹速跟密度也很好,对射时能发挥出很好的效果
 	
-散射的弹道适合清理正前方的杂兵,在近距离时会有极大的威力,使用需要消耗一层灵力。</description>
+散射的弹道适合清理正前方的杂兵,在近距离时会有极大的威力,使用需要消耗一张符卡。</description>
 		<iconPath>Abilities/NoachianDeluge</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -613,7 +613,7 @@
         <abilityClass>merissu.Ability_ElementalHarvester</abilityClass>
 		<description>金、木属性的合成符。在自身周围自身周围产生齿轮状的刀刃用于迎击近接敌人的近战用符。
 
-释放时使用者也可以移动,适合近战使用,需要消耗一层灵力</description>
+释放时使用者也可以移动,适合近战使用,需要消耗一张符卡</description>
 		<iconPath>Abilities/ElementalHarvester</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -652,7 +652,7 @@
         <abilityClass>merissu.Ability_SatelliteHimawari</abilityClass>
 		<description>发动后向日葵会像月球围绕地球公转一般在身边做环形运动的符卡。
 
-向日葵会不断发射弹幕,攻击附近的敌人和建筑,所以不要在室内使用,使用需要消耗一层灵力。
+向日葵会不断发射弹幕,攻击附近的敌人和建筑,所以不要在室内使用,使用需要消耗一张符卡。
 
 她到底是出于何种品味才让向日葵变成这种形式的弹幕呢。记得帕秋莉似乎说过,她是参考了外面世界的魔导书上记载着的围绕着地球运转的向日葵才开发出这道符卡的。嗯。</description>
 		<iconPath>Abilities/SatelliteHimawari</iconPath>

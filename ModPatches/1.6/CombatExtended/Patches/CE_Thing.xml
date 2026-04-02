@@ -117,8 +117,8 @@
                 <energyLossPerDamage>0.001</energyLossPerDamage>
                 <energyOnReset>1</energyOnReset>
                 <blocksRangedWeapons>false</blocksRangedWeapons>
-                <fullPowerHediff>FullPower</fullPowerHediff>
-                <maxSeverity>10</maxSeverity>
+                <fullPowerHediff>spiritualpower</fullPowerHediff>
+                <maxSeverity>4</maxSeverity>
             </li>
         </value>
     </Operation>

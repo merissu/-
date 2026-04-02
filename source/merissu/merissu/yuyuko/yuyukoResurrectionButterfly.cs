@@ -40,7 +40,7 @@ namespace merissu
                 if (resSeverity <= 4f && fullSeverity >= 1f)
                     return AcceptanceReport.WasAccepted;
 
-                return "灵力不足";
+                return "符卡不足";
             }
         }
 

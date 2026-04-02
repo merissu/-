@@ -32,7 +32,7 @@
 	<AbilityDef ParentName="AbilityTouchBase">
 		<defName>Merissu_WanbaoHammerUpgradeQuality</defName>
 		<label>万宝槌·升品</label>
-		<description>消耗一层灵力发动,对有品质的物品或建筑物使用,使其品质提高一级。</description>
+		<description>消耗一张符卡发动,对有品质的物品或建筑物使用,使其品质提高一级。</description>
 		<iconPath>Abilities/WanbaoRepair</iconPath>
 		<hostile>false</hostile>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>

@@ -51,7 +51,7 @@ namespace merissu
         {
             if (!HasEnoughFullPower())
             {
-                reason = "需要一层灵力";
+                reason = "需要一张符卡";
                 return true;
             }
 
@@ -73,7 +73,7 @@ namespace merissu
         {
             if (!HasEnoughFullPower())
             {
-                if (throwMessages) Messages.Message("灵力不足，无法发动。", MessageTypeDefOf.RejectInput, false);
+                if (throwMessages) Messages.Message("符卡不足，无法发动。", MessageTypeDefOf.RejectInput, false);
                 return false;
             }
 

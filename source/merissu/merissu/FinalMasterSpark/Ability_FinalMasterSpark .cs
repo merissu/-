@@ -30,7 +30,7 @@ namespace merissu
                 Hediff fp = pawn.health.hediffSet.GetFirstHediffOfDef(FullPowerDef);
                 if (fp == null || fp.Severity < 4f)
                 {
-                    return "灵力不足（需要4层）";
+                    return "符卡不足（需要4张）";
                 }
                 return AcceptanceReport.WasAccepted;
             }
@@ -44,7 +44,7 @@ namespace merissu
             Hediff fp = pawn.health.hediffSet.GetFirstHediffOfDef(FullPowerDef);
             if (fp == null || fp.Severity < 4f)
             {
-                Messages.Message("灵力不足", MessageTypeDefOf.RejectInput, false);
+                Messages.Message("符卡不足", MessageTypeDefOf.RejectInput, false);
                 return false;
             }
             fp.Severity -= 4f; 

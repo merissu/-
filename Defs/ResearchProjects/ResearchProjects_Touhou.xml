@@ -292,4 +292,24 @@
 		<tab>TouhouWeapons</tab>
 	</ResearchProjectDef>
 
+	<ResearchProjectDef>
+		<defName>MoonlightMarket</defName>
+		<label>月虹市场</label>
+		<description>对于人类来说,放弃一样事物是很难的。就算把东西给人,这个东西是谁赠送的这样的信息会一直保留下去。
+
+就算把东西扔进垃圾箱里,非法丢弃在山里,是谁扔的这种信息也会留存下来。失去所有权,并不是一项容易的事情。
+
+但是,有一个地方可以完完全全地做到这种事。那就是人唯一可以交换事物的场所——集市。
+
+通过在集市上售出，人就能够完全地丧失所有权。</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>PowerPoint</li>
+		</prerequisites>
+		<researchViewX>2</researchViewX>
+		<researchViewY>5</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
 </Defs>

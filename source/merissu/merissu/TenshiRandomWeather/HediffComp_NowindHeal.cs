@@ -24,7 +24,7 @@ namespace merissu
 
         private void TryHeal()
         {
-            if (Pawn.health.hediffSet.HasHediff(HediffDef.Named("FullPower")))
+            if (Pawn.health.hediffSet.HasHediff(HediffDef.Named("spiritualpower")))
             {
                 var injuries = Pawn.health.hediffSet.hediffs
                     .OfType<Hediff_Injury>()

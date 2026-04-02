@@ -31,7 +31,7 @@ namespace merissu
                 Hediff hp = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named(PowerHediffName));
                 if (hp == null || hp.Severity < PowerCost)
                 {
-                    return "灵力不足"; 
+                    return "符卡不足"; 
                 }
 
                 return AcceptanceReport.WasAccepted;

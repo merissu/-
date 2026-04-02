@@ -5,7 +5,7 @@
         <label>符卡宣言</label>
         <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
 
-进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张天子的强力符卡和极其强大的Last Word</description>
+进行符卡宣言时要有至少一张符卡(符卡通过符咒卡牌或者灵力转化获得),宣言后可以使用三种天子的强力符卡和极其强大的Last Word</description>
         <abilityClass>merissu.Tenshicard</abilityClass>
         <iconPath>Abilities/Tenshicard</iconPath>
         <cooldownTicksRange>300</cooldownTicksRange>
@@ -58,7 +58,7 @@
         <abilityClass>merissu.Ability_UniverseQuake</abilityClass>
 		<description>向目标发射一颗要石用于定位,之后召唤一颗巨大化的要石一口气落下压向对手的乱来技能
 	
-落下的要石会砸碎目标以及附近10格以内的敌人和建筑,使用需要消耗一层灵力。</description>
+落下的要石会砸碎目标以及附近10格以内的敌人和建筑,使用需要消耗一张符卡。</description>
 		<iconPath>Abilities/UniverseQuake</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -157,7 +157,7 @@
         <label>气符「无念无想的境界」</label>
         <description>在一定时间提升自身的强度。持续时间内抗打击能力大大提升,也不会感到疼痛(其实据说只不过是憋住气强忍住不喊痛罢了)
            
-发动后使用者会感受不到任何痛楚,是一张相当特殊的符卡。使用需要消耗一层灵力,持续时间为三小时</description>
+发动后使用者会感受不到任何痛楚,是一张相当特殊的符卡。使用需要消耗一张符卡,持续时间为三小时</description>
         <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
         <cooldownTicksRange>1200</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -236,7 +236,7 @@
         <label>剑技「气焰万丈之剑」</label>
         <description>绯想之剑来回挥舞将对手大卸八块的打击技。由于只是乱砍一通,能不能叫做技能还值得商榷。
 
-发动时会先靠近目标,然后在极短的时间内挥出十几刀将对手肢解,使用需要消耗一层灵力。</description>
+发动时会先靠近目标,然后在极短的时间内挥出十几刀将对手肢解,使用需要消耗一张符卡。</description>
         <abilityClass>merissu.WildlyStrikes</abilityClass>
         <cooldownTicksRange>1200</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -270,7 +270,7 @@
     <AbilityDef>
         <defName>TenshiLastSpell</defName>
         <label>Last Word</label>
-        <description>消耗五层灵力发动天子的LastSpell,在音乐结束前可以尽情地释放极其强大的符卡</description>
+        <description>消耗五张符卡发动天子的LastSpell,在音乐结束前可以尽情地释放极其强大的能力</description>
         <abilityClass>merissu.Ability_TenshiLastSpell</abilityClass>
         <cooldownTicksRange>1200</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -581,7 +581,7 @@
 	<WeatherDef>
 		<defName>MistyRain</defName>
 		<label>雾雨</label>
-		<description>符卡就是火力程度的天气,射击精度上升,射击速度变得极快。
+		<description>弹幕就是火力程度的天气,射击精度上升,射击速度变得极快。
 
 (天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
@@ -704,7 +704,7 @@
 	<WeatherDef>
 		<defName>Yuntian</defName>
 		<label>云天</label>
-		<description>灵活地使用符卡程度的天气,每次消耗大于一层的灵力时都会返还一层灵力
+		<description>灵活地使用符卡程度的天气,每次消耗大于一张符卡时都会返还一张符卡
 
 (天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
@@ -764,7 +764,7 @@
 		<defName>YuntianCondition</defName>
 		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
 		<label>云天</label>
-		<description>灵活地使用符卡程度的天气,每次消耗大于一层的灵力时都会返还一层灵力</description>
+		<description>灵活地使用符卡程度的天气,每次消耗大于一张符卡时都会返还一张符卡</description>
 		<weatherDef>Yuntian</weatherDef>
 		<canBePermanent>false</canBePermanent>
 		<natural>true</natural>
@@ -801,7 +801,7 @@
         <defName>Yuntian</defName>
         <label>云天</label>
         <defaultLabelColor>(204,204,204)</defaultLabelColor>
-        <description>灵活地使用符卡程度的天气,每次消耗大于一层的灵力时都会返还一层灵力</description>
+        <description>灵活地使用符卡程度的天气,每次消耗大于一张符卡时都会返还一张符卡</description>
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
@@ -1317,7 +1317,7 @@
 	<WeatherDef>
 		<defName>MagicSnow</defName>
 		<label>雪</label>
-		<description>变得像幽灵程度的天气,灵力会自动消耗用于治疗任何负面状态,每小时一次,消耗一层灵力清空身上的负面状态
+		<description>变得像幽灵程度的天气,符卡会自动消耗用于治疗任何负面状态,每小时一次,消耗一张符卡清空身上的负面状态
 
 (天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
@@ -1382,7 +1382,7 @@
 		<defName>MagicSnowCondition</defName>
 		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
 		<label>雪</label>
-		<description>变得像幽灵程度的天气,灵力会自动消耗用于治疗任何负面状态,每小时一次,消耗一层灵力清空身上的负面状态</description>
+		<description>变得像幽灵程度的天气,符卡会自动消耗用于治疗任何负面状态,每小时一次,消耗一张符卡清空身上的负面状态</description>
 		<weatherDef>MagicSnow</weatherDef>
 		<canBePermanent>false</canBePermanent>
 		<natural>true</natural>
@@ -1420,7 +1420,7 @@
         <defName>MagicSnow</defName>
         <label>雪</label>
 		<defaultLabelColor>(255,153,204)</defaultLabelColor>
-        <description>变得像幽灵程度的天气,灵力会自动消耗用于治疗任何负面状态,每小时一次,消耗一层灵力清空身上的负面状态</description>
+        <description>变得像幽灵程度的天气,符卡会自动消耗用于治疗任何负面状态,每小时一次,消耗一张符卡清空身上的负面状态</description>
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
@@ -1432,7 +1432,7 @@
 	<WeatherDef>
 		<defName>Sunshower</defName>
 		<label>太阳雨</label>
-		<description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得一层灵力
+		<description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得0.5灵力
 
 (天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
@@ -1504,7 +1504,7 @@
 		<defName>SunshowerCondition</defName>
 		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
 		<label>太阳雨</label>
-		<description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得一层灵力</description>
+		<description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得0.5灵力</description>
 		<weatherDef>Sunshower</weatherDef>
 		<canBePermanent>false</canBePermanent>
 		<natural>true</natural>
@@ -1541,7 +1541,7 @@
         <defName>Sunshower</defName>
         <label>太阳雨</label>
 		<defaultLabelColor>(204,102,204)</defaultLabelColor>
-        <description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得一层灵力</description>
+        <description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得0.5灵力</description>
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
@@ -1803,7 +1803,7 @@
 	<WeatherDef>
 		<defName>Qinglan</defName>
 		<label>晴岚</label>
-		<description>手卡不可见程度的天气,将你的灵力变成1~5之间的随机数值
+		<description>手卡不可见程度的天气,将你的灵力变成1~4之间的随机数值
 
 (天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>false</isBad>
@@ -1866,7 +1866,7 @@
 		<defName>QinglanCondition</defName>
 		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
 		<label>晴岚</label>
-		<description>手卡不可见程度的天气,将你的灵力变成1~5之间的随机数值</description>
+		<description>手卡不可见程度的天气,将你的灵力变成1~4之间的随机数值</description>
 		<weatherDef>Qinglan</weatherDef>
 		<canBePermanent>false</canBePermanent>
 		<natural>true</natural>
@@ -1904,7 +1904,7 @@
         <label>晴岚</label>
 		<hediffClass>merissu.Hediff_Qinglan</hediffClass>
         <defaultLabelColor>(204,153,204)</defaultLabelColor>
-        <description>手卡不可见程度的天气,将你的灵力变成1~5之间的随机数值</description>
+        <description>手卡不可见程度的天气,将你的灵力变成1~4之间的随机数值</description>
         <isBad>false</isBad>
         <tendable>false</tendable>
     </HediffDef>

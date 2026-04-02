@@ -5,7 +5,7 @@
         <label>符卡宣言</label>
         <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
 
-进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张魔理沙的强力符卡和极其强大的Last Word</description>
+进行符卡宣言时要有至少一张符卡(符卡通过符咒卡牌或者灵力转化获得),宣言后可以使用三种魔理沙的强力符卡和极其强大的Last Word</description>
         <abilityClass>merissu.MarisaCard</abilityClass>
         <iconPath>Abilities/marisacard</iconPath>
         <cooldownTicksRange>300</cooldownTicksRange>

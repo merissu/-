@@ -5,7 +5,7 @@
         <label>符卡宣言</label>
         <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
 
-进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三种灵梦的强力符卡</description>
+进行符卡宣言时要有至少一张符卡(符卡通过符咒卡牌或者灵力转化获得),宣言后可以使用三种灵梦的强力符卡</description>
         <abilityClass>merissu.Ability_ReimuCard</abilityClass>
         <iconPath>Abilities/reimucard</iconPath>
         <cooldownTicksRange>300</cooldownTicksRange>
@@ -57,7 +57,7 @@
         <abilityClass>merissu.Ability_DreamHeavenly</abilityClass>
 		<description>总之是究极奥义,发动时用大量的符纸包围对手将其压制,使出这张符卡的话,这场战斗对于对手来说就没有任何胜算了。
 
-需要消耗五层灵力进行发动,威力极其恐怖,注意不要在室内使用</description>
+需要消耗五个符卡进行发动,威力极其恐怖,注意不要在室内使用</description>
 		<iconPath>Abilities/MusouTensei</iconPath>
 		<cooldownTicksRange>800</cooldownTicksRange>
 		<displayOrder>200</displayOrder>

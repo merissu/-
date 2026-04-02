@@ -5,7 +5,7 @@
         <label>符卡宣言</label>
         <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
 
-进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张八云紫的强力符卡和极其强大的Last Word</description>
+进行符卡宣言时要有至少一张符卡(符卡通过符咒卡牌或者灵力转化获得),宣言后可以使用三种八云紫的强力符卡和极其强大的Last Word</description>
         <abilityClass>merissu.Yukaricard</abilityClass>
         <iconPath>Abilities/Yukaricard</iconPath>
         <cooldownTicksRange>300</cooldownTicksRange>
@@ -58,7 +58,7 @@
         <abilityClass>merissu.fourfoldbarrier</abilityClass>
 		<description>重复叠加数个结界构成攻击性防壁伤害近处的敌人。
 
-需要消耗一层灵力,其影响范围不容小视,使用时会先将地图上的敌人隙间到范围内然后展开结界进行打击</description>
+需要消耗一张符卡,其影响范围不容小视,使用时会先将地图上的敌人隙间到范围内然后展开结界进行打击</description>
 		<iconPath>Abilities/fourfoldbarrier</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -113,7 +113,7 @@
         <abilityClass>merissu.Yukaridisappearance</abilityClass>
 		<description>使用隙间的能力直接将范围内的敌人神隐
 
-需要消耗一层灵力,会直接神隐范围中的敌人,不对友好单位生效</description>
+需要消耗一张符卡,会直接神隐范围中的敌人,不对友好单位生效</description>
 		<iconPath>Abilities/Yukaridisappearance</iconPath>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 		<statBases>
@@ -151,7 +151,7 @@
         <abilityClass>merissu.Ability_Trainbomb</abilityClass>
 		<description>从裂隙中出现废旧列车进行突击的大技。威力相当高,被撞到的敌人肯定会很难清理
 	
-消耗一次灵力,从前方隙间出行驶中的列车撞击沿途所有障碍,列车撞到山体时会爆炸</description>
+消耗一张符卡,从前方隙间出行驶中的列车撞击沿途所有障碍,列车撞到山体时会爆炸</description>
 		<iconPath>Abilities/Trainbomb</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -210,7 +210,7 @@
         <label>结界「光明与黑暗的网目」</label>
         <description>使用操纵界线程度的能力消除敌我的界线,使地图上所有单位重新加入随机的阵营的符卡
 
-消耗五层灵力,发动后,让地图上所有单位(不包括玩家阵营)对你的态度随机变为敌对/中立/同盟</description>
+消耗五张符卡,发动后,让地图上所有单位(不包括玩家阵营)对你的态度随机变为敌对/中立/同盟</description>
         <abilityClass>merissu.Ability_Turnenemiesintofriends</abilityClass>
         <cooldownTicksRange>2400</cooldownTicksRange>
 		<displayOrder>200</displayOrder>

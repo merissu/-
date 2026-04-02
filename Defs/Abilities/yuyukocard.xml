@@ -5,7 +5,7 @@
         <label>符卡宣言</label>
         <description>符卡系的技能初次使用时要进行宣言,在有效时间内再使用进行发动,虽然是一次性使用却是强力的必杀技。
 
-进行符卡宣言时要有至少一层灵力(灵力通过满P注入),宣言后可以使用三张幽幽子的强力符卡和极其强大的Last Word</description>
+进行符卡宣言时要有至少一张符卡(符卡通过符咒卡牌或者灵力转化获得),宣言后可以使用三种幽幽子的强力符卡和极其强大的Last Word</description>
         <abilityClass>merissu.yuyukocard</abilityClass>
         <iconPath>Abilities/yuyukocard</iconPath>
         <cooldownTicksRange>300</cooldownTicksRange>
@@ -58,7 +58,7 @@
         <abilityClass>merissu.gotodie</abilityClass>
 		<description>放出幽灵凭依在敌人身上,幽灵会邀请敌人前往冥界。
 
-使用需要消耗一层灵力,幽灵全部消失的瞬间,敌人就会死亡</description>
+使用需要消耗一张符卡,幽灵全部消失的瞬间,敌人就会死亡</description>
 		<iconPath>Abilities/gotodie</iconPath>
 		<cooldownTicksRange>2500</cooldownTicksRange>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
@@ -172,7 +172,7 @@
         <abilityClass>merissu.Ability_DeadButterfly</abilityClass>
 		<description>以圆形发射大量蝴蝶弹。完全掩护住周围且有无敌,让人永眠并看到蝴蝶之梦的符卡。
 
-需要消耗一层灵力,使用期间带有无敌</description>
+需要消耗一张符卡,使用期间带有无敌</description>
 		<iconPath>Abilities/DeadButterfly</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -265,7 +265,7 @@
         <label>华灵「亡灵蝶」</label>
         <description>使自身幽灵化,在持续时间内不受到任何伤害,并且移动时大部分碰撞和阻碍
 
-使用需要消耗一次灵力,持续一小时</description>
+使用需要消耗一张符卡,持续一小时</description>
         <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
         <cooldownTicksRange>1200</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -329,7 +329,7 @@
         <abilityClass>merissu.Ability_ResurrectionButterfly</abilityClass>
 		<description>幽幽子最大的奥义,她的死。在游戏中几乎没什么机会展现她的能力让人很头疼啊。被那东西给砰砰地杀掉比较那个呢。
 
-使用需要消耗一层灵力,发动后会在背后张开扇子,在音乐结束前释放Last Word。</description>
+使用需要消耗一张符卡,发动后会在背后张开扇子,在音乐结束前释放Last Word。</description>
 		<iconPath>Abilities/ResurrectionButterfly</iconPath>
 		<cooldownTicksRange>800</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -432,7 +432,7 @@
         <abilityClass>merissu.yuyukoResurrectionButterfly</abilityClass>
 		<description>在周围延伸出光带以及飞舞而上的蝶弹。开始性能较弱,但随着多次使用会变得愈加强力的Spell Card。
 
-使用需要消耗一层灵力,发动四次后则不再消耗灵力</description>
+使用需要消耗一张符卡,发动四次后则不再消耗符卡</description>
 		<iconPath>Abilities/yuyukoResurrectionButterfly</iconPath>
 		<cooldownTicksRange>300</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
