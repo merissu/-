@@ -27,8 +27,6 @@ namespace merissu
         {
             Listing_Standard listing = new Listing_Standard();
             listing.Begin(inRect);
-            listing.Label($"持续时间: {Settings.duration} tick");
-            Settings.duration = (int)listing.Slider(Settings.duration, 60f, 20000f);
             listing.CheckboxLabeled("暂停投射物", ref Settings.pauseProjectiles);
             listing.CheckboxLabeled("暂停所有动画 (水面/火焰/翅膀)", ref Settings.pauseAnimations);
             listing.End();
@@ -38,13 +36,11 @@ namespace merissu
 
     public class SakuyaSettings : ModSettings
     {
-        public int duration = 10000;
         public bool pauseProjectiles = true;
         public bool pauseAnimations = true;
 
         public override void ExposeData()
         {
-            Scribe_Values.Look(ref duration, "duration", 10000);
             Scribe_Values.Look(ref pauseProjectiles, "pauseProjectiles", true);
             Scribe_Values.Look(ref pauseAnimations, "pauseAnimations", true);
         }
@@ -84,6 +80,7 @@ namespace merissu
 
         public static void ActivateTheWorld(Pawn caster)
         {
+            RemainingTicks = 999999; 
             EnvState = new FrozenWorldState
             {
                 startTicksGame = Find.TickManager.TicksGame,
@@ -99,7 +96,6 @@ namespace merissu
 
             IsTimeStopped = true;
             TimeStopOwner = caster;
-            RemainingTicks = SakuyaMod.Settings.duration;
             FrozenTime = Time.timeSinceLevelLoad;
             FrozenTick = Find.TickManager.TicksGame;
             FrozenGuns.Clear();
@@ -136,19 +132,36 @@ namespace merissu
         {
             if (!IsTimeStopped) return;
 
+            try
+            {
+                if (TimeStopOwner != null && TimeStopOwner.health != null)
+                {
+                    Hediff def = TimeStopOwner.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("the"));
+                    if (def != null)
+                    {
+                        TimeStopOwner.health.RemoveHediff(def);
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Error("移除时停状态时发生错误: " + e.Message);
+            }
+
             if (EnvState.startTicksGame > 0)
             {
                 Find.TickManager.DebugSetTicksGame(EnvState.startTicksGame);
             }
 
             IsTimeStopped = false;
+
             TimeStopOwner = null;
             RemainingTicks = 0;
             FrozenGuns.Clear();
 
             Messages.Message("时间开始流动。", MessageTypeDefOf.NeutralEvent, false);
         }
-
         public static bool IsProtected(Thing thing)
         {
             if (!IsTimeStopped) return true;
@@ -212,11 +225,16 @@ namespace merissu
         {
             get
             {
+                if (TimeStopManager.IsTimeStopped)
+                {
+                    return AcceptanceReport.WasAccepted;
+                }
+
                 Hediff hp = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("FullPower"));
 
-                if (hp == null || hp.Severity < 2f)
+                if (hp == null || hp.Severity < 5f)
                 {
-                    return "符卡不足 (需要2张)";
+                    return "符卡不足 (需要5张)";
                 }
 
                 return AcceptanceReport.WasAccepted;
@@ -225,20 +243,20 @@ namespace merissu
 
         public override bool Activate(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            Hediff hp = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("FullPower"));
-
-            if (hp == null || hp.Severity < 2f)
+            if (TimeStopManager.IsTimeStopped)
             {
-                return false;
+                TimeStopManager.ResumeTime();
+                return true;
             }
 
-            hp.Severity -= 2f;
+            Hediff hp = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("FullPower"));
+            if (hp == null || hp.Severity < 5f) return false;
 
+            hp.Severity -= 5f;
             TimeStopManager.ActivateTheWorld(pawn);
             return base.Activate(target, dest);
         }
     }
-
     [HarmonyPatch(typeof(GlobalControlsUtility), "DoDate")]
     public static class Patch_UI_Clock_Freeze
     {
@@ -413,12 +431,17 @@ namespace merissu
     {
         public static void Postfix()
         {
-            if (!TimeStopManager.IsTimeStopped) return;
-            TimeStopManager.RemainingTicks--;
-            if (TimeStopManager.RemainingTicks <= 0) TimeStopManager.ResumeTime();
+            if (TimeStopManager.IsTimeStopped)
+            {
+                Pawn owner = TimeStopManager.TimeStopOwner;
+
+                if (owner == null || owner.Destroyed || owner.Dead || owner.Downed || owner.Map == null)
+                {
+                    TimeStopManager.ResumeTime();
+                }
+            }
         }
     }
-
     [HarmonyPatch(typeof(PawnRenderUtility), "DrawEquipmentAiming")]
     public static class Patch_Weapon_Aim_Freeze
     {

@@ -27,7 +27,7 @@ namespace merissu
             this.Order = -120f;
         }
 
-        public override float GetWidth(float maxWidth) => 280f;
+        public override float GetWidth(float maxWidth) => 260f;
 
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
@@ -41,7 +41,7 @@ namespace merissu
             float labelWidth = 60f;    
             float labelHeight = 22f;   
             float iconSize = 18f;      
-            float spacing = 0.5f;      
+            float spacing = -2f;      
 
             float contentStartX = baseRect.x + 12f; 
             float iconsStartX = contentStartX + labelWidth + 10f; 
@@ -74,6 +74,11 @@ namespace merissu
     {
         public override IEnumerable<Gizmo> CompGetGizmos()
         {
+            if (Find.Selector.SelectedObjects.Count > 1)
+            {
+                yield break;
+            }
+
             bool isUp = this.Def.defName == "up";
             bool hasUp = Pawn.health.hediffSet.HasHediff(HediffDef.Named("up"));
 
@@ -83,7 +88,6 @@ namespace merissu
             }
         }
     }
-
     public class HediffCompProperties_TouhouStatus : HediffCompProperties
     {
         public HediffCompProperties_TouhouStatus()

@@ -362,7 +362,7 @@
 				<minSeverity>1</minSeverity>
 				<statFactors>
 					<AimingDelayFactor>0.8</AimingDelayFactor>
-					<ShootingAccuracyPawn>0.4</ShootingAccuracyPawn>
+					<ShootingAccuracyPawn>1.3</ShootingAccuracyPawn>
 				</statFactors>
 				<capMods>
 					<li>
@@ -376,7 +376,7 @@
 				<minSeverity>2</minSeverity>
 				<statFactors>
 					<AimingDelayFactor>0.6</AimingDelayFactor>
-					<ShootingAccuracyPawn>0.8</ShootingAccuracyPawn>
+					<ShootingAccuracyPawn>1.6</ShootingAccuracyPawn>
 				</statFactors>
 				<capMods>
 					<li>
@@ -390,7 +390,7 @@
 				<minSeverity>3</minSeverity>
 				<statFactors>
 					<AimingDelayFactor>0.4</AimingDelayFactor>
-					<ShootingAccuracyPawn>1.2</ShootingAccuracyPawn>
+					<ShootingAccuracyPawn>1.9</ShootingAccuracyPawn>
 				</statFactors>
 				<capMods>
 					<li>
@@ -404,7 +404,7 @@
 				<minSeverity>4</minSeverity>
 				<statFactors>
 					<AimingDelayFactor>0.2</AimingDelayFactor>
-					<ShootingAccuracyPawn>1.6</ShootingAccuracyPawn>
+					<ShootingAccuracyPawn>2.0</ShootingAccuracyPawn>
 				</statFactors>
 				<capMods>
 					<li>
@@ -424,28 +424,29 @@
 	</HediffDef>
 
 	<ThingDef>
-		<defName>FlyingPowerPoint</defName>
-		<category>Projectile</category> 
-		<thingClass>merissu.PowerProjectile</thingClass>
-		<label>p点</label>
-		<tickerType>Normal</tickerType> 
-		<altitudeLayer>Projectile</altitudeLayer>
-		<useHitPoints>False</useHitPoints>
-		<neverMultiSelect>True</neverMultiSelect>
-		<graphicData>
-			<texPath>Material/PowerPoint</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>0.85</drawSize>
-		</graphicData>
-		<selectable>False</selectable>
-		<projectile>
-			<damageDef>Bullet</damageDef>
-			<damageAmountBase>0</damageAmountBase>
-			<speed>80</speed> 
-			<flyOverhead>false</flyOverhead>
-		</projectile>
-	</ThingDef>
-
+        <defName>FlyingPowerPoint</defName>
+        <category>Projectile</category> 
+        <thingClass>merissu.PowerProjectile</thingClass>
+        <label>p点</label>
+        <tickerType>Normal</tickerType> 
+        <altitudeLayer>Projectile</altitudeLayer>
+        <useHitPoints>False</useHitPoints>
+        <neverMultiSelect>True</neverMultiSelect>
+        <graphicData>
+            <texPath>Material/PowerPoint</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.85</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <selectable>False</selectable>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>0</damageAmountBase>
+            <speed>40</speed> 
+            <flyOverhead>false</flyOverhead>
+        </projectile>
+    </ThingDef>
+	
 	<ThingDef ParentName="THDrugBase">
 		<defName>spellcard</defName>
 		<label>符咒卡牌</label>
@@ -524,7 +525,9 @@
 		</graphicData>
 		<description>使用后增加一个生命,最多可获得十个生命
 
-受到任何伤害时会消耗一个生命,抵消此次伤害并清除身上所有伤口,然后获得五秒无敌时间</description>
+受到任何伤害时会消耗一个生命,抵消此次伤害并清除身上所有伤口,然后获得五秒无敌时间
+
+简单而可贵的卡牌,虽然不知道封入的是谁的生命,不过就心怀感激地收下吧</description>
 		<tradeTags>
 		    <li>ExoticMisc</li> 
 		</tradeTags>		
@@ -682,7 +685,7 @@
 		    <li>ExoticMisc</li> 
 		</tradeTags>		
 		<statBases>
-			<MarketValue>100</MarketValue>
+			<MarketValue>50</MarketValue>
 			<Mass>0.01</Mass>
 		</statBases>
 		<techLevel>Industrial</techLevel>
@@ -729,6 +732,74 @@
                 <amountRange>0~300</amountRange>
                 <thingToSpawn>Silver</thingToSpawn>
             </li>
+		</comps>
+	</ThingDef>
+
+
+	<ThingDef ParentName="THDrugBase">
+		<defName>Ringocard</defName>
+		<label>铃瑚团子</label>
+		<graphicData>
+			<texPath>Medicine/Ringocard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<description>铃瑚的能力,可以大幅提升火力,使用后获得2灵力
+
+空着肚子可没法战斗,要不来个铃瑚团子？</description>
+		<tradeTags>
+		    <li>ExoticMisc</li> 
+		</tradeTags>		
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>0.01</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>4</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<workAmount>1500</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>Social</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>使用{0}</ingestCommandString>
+			<ingestReportString>使用{0}</ingestReportString>
+		    <ingestSound>Merissu_E_HiPotion</ingestSound>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>spiritualpower</hediffDef>
+					<severity>2</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<comps Inherit="False">
+			<li Class="CompProperties_Drug">
+				<listOrder>200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_Usable_CustomIcon">
+				<useLabel>使用{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
 		</comps>
 	</ThingDef>
 

@@ -37,8 +37,14 @@ namespace merissu
             this.Order = -120f;
         }
 
-        public override float GetWidth(float maxWidth) => 330f;
-
+        public override float GetWidth(float maxWidth) => 300f;
+        public override bool Visible
+        {
+            get
+            {
+                return Find.Selector.SelectedObjects.Count == 1;
+            }
+        }
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
             Rect baseRect = new Rect(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
@@ -60,33 +66,33 @@ namespace merissu
             float centerY = baseRect.y + baseRect.height / 2f;
             float curX = baseRect.x + 100f;
 
-            float cIntW = 32f; float cIntH = 32f;
+            float cIntW = 30f; float cIntH = 30f;
             float cDecW = 18f; float cDecH = 18f;
             float cIntY = 0f;
             float cDecY = 4f;
-            float cGap = 0.85f;
+            float cGap = 0.75f;
 
-            float mIntW = 32f; float mIntH = 32f;
+            float mIntW = 30f; float mIntH = 30f;
             float mDecW = 18f; float mDecH = 18f;
             float mIntY = 0f;
             float mDecY = 4f;
-            float mGap = 0.85f;
+            float mGap = 0.75f;
 
             float dotW = 10f; float dotH = 10f; float dotY = 8f;
             float slsW = 30f; float slsH = 30f; float slsY = 0f;
 
-            GUI.DrawTexture(new Rect(baseRect.x + 12f, centerY - 45f, 90f, 90f), Tex_Label);
+            GUI.DrawTexture(new Rect(baseRect.x + 12f, centerY - 48f, 95f, 95f), Tex_Label);
 
             DrawCustom(ref curX, centerY + cIntY, Tex_Nums[cur_int], cIntW, cIntH, cGap);
-            DrawCustom(ref curX, centerY + dotY, Tex_Dot, dotW, dotH, 1.0f);
+            DrawCustom(ref curX, centerY + dotY, Tex_Dot, dotW, dotH, 0.5f);
             DrawCustom(ref curX, centerY + cDecY, Tex_Nums[cur_ten], cDecW, cDecH, cGap);
-            DrawCustom(ref curX, centerY + cDecY, Tex_Nums[cur_hun], cDecW, cDecH, cGap);
+            DrawCustom(ref curX, centerY + cDecY, Tex_Nums[cur_hun], cDecW, cDecH, 0.6f);
 
             DrawCustom(ref curX, centerY + slsY, Tex_Slash, slsW, slsH, 0.4f);
             curX += 4f;
 
             DrawCustom(ref curX, centerY + mIntY, Tex_Nums[m_int], mIntW, mIntH, mGap);
-            DrawCustom(ref curX, centerY + dotY, Tex_Dot, dotW, dotH, 1.0f);
+            DrawCustom(ref curX, centerY + dotY, Tex_Dot, dotW, dotH, 0.5f);
             DrawCustom(ref curX, centerY + mDecY, Tex_Nums[m_ten], mDecW, mDecH, mGap);
             DrawCustom(ref curX, centerY + mDecY, Tex_Nums[m_hun], mDecW, mDecH, mGap);
 
@@ -245,18 +251,42 @@ namespace merissu
     public class PowerProjectile : Projectile
     {
         public int powerCount = 1;
+        private int updateTicks = 0;
+        private const int UpdateRate = 4;
+
         protected override void Tick()
         {
-            base.Tick();
-            if (this.intendedTarget.Thing != null && this.intendedTarget.Thing.Destroyed)
+            Pawn victim = this.intendedTarget.Thing as Pawn;
+            if (victim == null || victim.Destroyed || victim.Dead)
             {
                 this.Destroy();
+                return;
             }
+
+            updateTicks++;
+            if (updateTicks >= UpdateRate)
+            {
+                this.destination = victim.DrawPos;
+                this.Position = victim.Position;
+                updateTicks = 0; 
+            }
+
+            Vector3 currentPos = this.DrawPos;
+            Vector3 targetPos = victim.DrawPos;
+
+            if (Vector3.Distance(currentPos, targetPos) < 0.2f)
+            {
+                this.Impact(victim);
+                return;
+            }
+
+            base.Tick();
         }
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             Pawn victim = hitThing as Pawn ?? this.intendedTarget.Thing as Pawn;
             if (victim == null) victim = this.Position.GetFirstPawn(this.Map);
+
             if (victim != null && !victim.Dead)
             {
                 Hediff scHediff = victim.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("spiritualpower"));
@@ -269,7 +299,6 @@ namespace merissu
             this.Destroy();
         }
     }
-
     public class HediffComp_SpiritualPowerStatus : HediffComp
     {
         public override IEnumerable<Gizmo> CompGetGizmos()

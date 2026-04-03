@@ -88,10 +88,18 @@ namespace merissu
 
         public static void Deactivate()
         {
-            if (IsActive)
+            if (!IsActive) return;
+
+            if (Caster != null && Caster.health != null)
             {
-                Messages.Message("时间流速恢复正常", MessageTypeDefOf.PositiveEvent);
+                Hediff hd = Caster.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("Private"));
+                if (hd != null)
+                {
+                    Caster.health.RemoveHediff(hd);
+                }
             }
+
+            Messages.Message("时间流速恢复正常", MessageTypeDefOf.PositiveEvent);
 
             IsActive = false;
             Caster = null;
@@ -109,11 +117,15 @@ namespace merissu
         {
             get
             {
+                if (PrivateSquareManager.IsActive)
+                {
+                    return AcceptanceReport.WasAccepted;
+                }
+
                 AcceptanceReport baseReport = base.CanCast;
                 if (!baseReport.Accepted) return baseReport;
 
                 Hediff hp = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("FullPower"));
-
                 if (hp == null || hp.Severity < 1f)
                 {
                     return "符卡不足";
@@ -121,16 +133,19 @@ namespace merissu
                 return AcceptanceReport.WasAccepted;
             }
         }
-
         public override bool Activate(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            Hediff hp = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("FullPower"));
+            if (PrivateSquareManager.IsActive)
+            {
+                PrivateSquareManager.Deactivate();
+                return true;
+            }
 
+            Hediff hp = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("FullPower"));
             if (hp != null && hp.Severity >= 1f)
             {
-                hp.Severity -= 1f; 
-
-                PrivateSquareManager.Activate(pawn, 20000);
+                hp.Severity -= 1f;
+                PrivateSquareManager.Activate(pawn, 9999999);
                 return base.Activate(target, dest);
             }
 
@@ -211,6 +226,15 @@ namespace merissu
         {
             if (PrivateSquareManager.IsActive)
             {
+                if (PrivateSquareManager.Caster == null ||
+                    PrivateSquareManager.Caster.Destroyed ||
+                    PrivateSquareManager.Caster.Dead ||
+                    PrivateSquareManager.Caster.Downed)
+                {
+                    PrivateSquareManager.Deactivate();
+                    return; 
+                }
+
                 PrivateSquareManager.DurationTicks--;
                 if (PrivateSquareManager.DurationTicks <= 0)
                 {
