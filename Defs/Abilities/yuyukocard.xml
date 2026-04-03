@@ -457,7 +457,7 @@
 			<texPath>Projectiles/Butterfly_dayu</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(2,2)</drawSize>
-			<shaderType>Mote</shaderType>
+			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>DeathButterflyFloatingMoon</damageDef>

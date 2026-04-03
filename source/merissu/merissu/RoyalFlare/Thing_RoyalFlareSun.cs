@@ -69,7 +69,7 @@ namespace merissu
 
             Material mat = MaterialPool.MatFrom(
                 $"Projectiles/SUN/Sun_{frame}",
-                ShaderDatabase.Transparent);
+                ShaderDatabase.MoteGlow);
 
             Vector3 pos = caster.DrawPos + new Vector3(0f, 0f, 1.6f);
             pos.y = AltitudeLayer.MoteOverhead.AltitudeFor();

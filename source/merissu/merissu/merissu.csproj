@@ -86,6 +86,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="HediffComp_ReimuJade.cs" />
+    <Compile Include="Projectile_HomingTalisman.cs" />
+    <Compile Include="Thing_ReimuJade.cs" />
     <Compile Include="灵力\HediffComp_SpiritualPowerHeal.cs" />
     <Compile Include="灵力\HediffComp_AddSeverityOnKill.cs" />
     <Compile Include="灵力\Hediff_SpiritualPower.cs" />

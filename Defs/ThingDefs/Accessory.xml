@@ -763,4 +763,132 @@
 		</tradeTags>
 		<allowedArchonexusCount>1</allowedArchonexusCount>
 	</ThingDef>
+
+    <ApparelLayerDef>
+        <defName>AuxiliaryEquipmentCard</defName>
+        <label>附属装备卡</label>
+        <drawOrder>999</drawOrder>
+    </ApparelLayerDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>ReimuJade</defName>
+		<label>阴阳玉</label>
+		<description>博丽灵梦的能力,可以射出追踪弹幕,简洁而能提升攻击力的便利卡牌
+
+附属装备卡,装备后获得一个会发射追踪弹幕的子机,最大射程30格
+
+究竟是什么时候复制的这种能力呢,这种东西居然会在市场上流通，太可怕了……</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/ReimuJade</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryEquipmentCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>ReimuJade</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>ReimuJade</defName>
+        <label>阴阳玉</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>博丽灵梦的能力,可以射出追踪弹幕,简洁而能提升攻击力的便利卡牌</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="merissu.HediffCompProperties_ReimuJade" /> 
+		</comps>
+    </HediffDef>
+
+    <ThingDef>
+		<defName>ReimuJadeThing</defName>
+		<label>阴阳玉</label>
+		<thingClass>merissu.Thing_ReimuJade</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+		<graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/ReimuJade</texPath>
+            <shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<drawerType>RealtimeOnly</drawerType>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>TrackingHakureiTalisman</defName>
+		<label>博丽灵符</label>
+		<thingClass>merissu.Projectile_HomingTalisman</thingClass>
+		<graphicData>
+			<texPath>Weapons/Bullet/HakureiTalisman</texPath>
+			<drawSize>(0.5,0.5)</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>hakurei</damageDef>
+			<damageAmountBase>4</damageAmountBase>
+			<stoppingPower>0.2</stoppingPower>
+			<speed>30</speed>
+		</projectile>
+	</ThingDef>
+
 </Defs>

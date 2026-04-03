@@ -24,7 +24,7 @@ namespace merissu
 
             Material mat = MaterialPool.MatFrom(
                 $"Other/StElmoFirePillar/pillar_{frame}",
-                ShaderDatabase.Transparent);
+                ShaderDatabase.MoteGlow);
 
             Vector3 pos = drawLoc;
             pos.y = AltitudeLayer.MoteOverhead.AltitudeFor();

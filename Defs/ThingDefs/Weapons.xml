@@ -93,21 +93,7 @@
 			<texPath>Weapons/Bullet/HakureiTalisman</texPath>
 			<drawSize>(0.5,0.5)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<projectile>
-			<damageDef>hakurei</damageDef>
-			<damageAmountBase>4</damageAmountBase>
-			<stoppingPower>0.2</stoppingPower>
-			<speed>30</speed>
-		</projectile>
-	</ThingDef>
-	<ThingDef ParentName="BaseBullet">
-		<defName>TrackingHakureiTalisman</defName>
-		<label>博丽灵符</label>
-		<graphicData>
-			<texPath>Weapons/Bullet/HakureiTalisman</texPath>
-			<drawSize>(0.5,0.5)</drawSize>
-			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>hakurei</damageDef>
@@ -604,7 +590,7 @@
 			<texPath>Projectiles/yuyukoBullet/ButterflyBulletA</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(1,1)</drawSize>
-			<shaderType>Mote</shaderType>
+			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>DeathButterflyFloatingMoon</damageDef>
@@ -622,7 +608,7 @@
 			<texPath>Projectiles/yuyukoBullet/ButterflyBulletB</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(1,1)</drawSize>
-			<shaderType>Mote</shaderType>
+			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>DeathButterflyFloatingMoon</damageDef>
@@ -640,7 +626,7 @@
 			<texPath>Projectiles/yuyukoBullet/ButterflyBulletC</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(1,1)</drawSize>
-			<shaderType>Mote</shaderType>
+			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>DeathButterflyFloatingMoon</damageDef>
@@ -658,7 +644,7 @@
 			<texPath>Projectiles/yuyukoBullet/ButterflyBulletD</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(1,1)</drawSize>
-			<shaderType>Mote</shaderType>
+			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>DeathButterflyFloatingMoon</damageDef>

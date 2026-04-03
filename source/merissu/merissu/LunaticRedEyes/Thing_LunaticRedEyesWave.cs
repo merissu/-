@@ -64,7 +64,7 @@ namespace merissu
         {
             Material mat = MaterialPool.MatFrom(
                 "Projectiles/RedEyes",
-                ShaderDatabase.Transparent,
+                ShaderDatabase.MoteGlow,
                 new Color(1f, 1f, 1f, alpha));
 
             float size = radius * 2f;

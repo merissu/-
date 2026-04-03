@@ -143,6 +143,7 @@
             <texPath>Other/stone/spellBulletFa000</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(0.8,0.8)</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
         </graphicData>
     </ThingDef>
 
@@ -154,6 +155,7 @@
             <texPath>Projectiles/bulletLa000</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(1,1)</drawSize>
+            <shaderType>MoteGlow</shaderType>
         </graphicData>
         <projectile>
             <damageDef>Flame</damageDef>
@@ -176,6 +178,7 @@
             <texPath>Other/stone/spellBulletFb000</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(0.8,0.8)</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
         </graphicData>
     </ThingDef>
 
@@ -187,6 +190,7 @@
             <texPath>Projectiles/bulletLa001</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(1,1)</drawSize>
+            <shaderType>MoteGlow</shaderType>
         </graphicData>
         <projectile>
             <damageDef>Frostbite</damageDef>
@@ -209,6 +213,7 @@
             <texPath>Other/stone/spellBulletFc000</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(0.8,0.8)</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
         </graphicData>
     </ThingDef>
 
@@ -220,6 +225,7 @@
             <texPath>Projectiles/bulletLa002</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(1,1)</drawSize>
+            <shaderType>MoteGlow</shaderType>
         </graphicData>
         <projectile>
             <damageDef>AcidBurn</damageDef>
@@ -242,6 +248,7 @@
             <texPath>Other/stone/spellBulletFd000</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(0.8,0.8)</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
         </graphicData>
     </ThingDef>
 
@@ -253,6 +260,7 @@
             <texPath>Projectiles/bulletLa003</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(1,1)</drawSize>
+            <shaderType>MoteGlow</shaderType>
         </graphicData>
         <projectile>
             <damageDef>EMP</damageDef>
@@ -275,6 +283,7 @@
             <texPath>Other/stone/spellBulletFe000</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(0.8,0.8)</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
         </graphicData>
     </ThingDef>
 
@@ -286,6 +295,7 @@
             <texPath>Projectiles/bulletLa004</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(1,1)</drawSize>
+            <shaderType>MoteGlow</shaderType>
         </graphicData>
         <projectile>
             <damageDef>Crush</damageDef>
@@ -499,6 +509,7 @@
             <texPath>Projectiles/StElmoFireball</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(1.2,1.2)</drawSize>
+            <shaderType>MoteGlow</shaderType>
         </graphicData>
         <projectile>
             <speed>20</speed>
@@ -536,7 +547,7 @@
             <graphicClass>Graphic_Single</graphicClass>
             <texPath>Other/StElmoFirePillar/pillar_1</texPath>
             <drawSize>(4,8)</drawSize>
-            <shaderType>Transparent</shaderType>
+            <shaderType>MoteGlow</shaderType>
         </graphicData>
         <altitudeLayer>MoteOverhead</altitudeLayer>
     </ThingDef>
@@ -699,6 +710,7 @@
             <texPath>Projectiles/spellBulletEa000</texPath>
             <drawSize>(0.24,0.96)</drawSize>
             <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
         </graphicData>
         <altitudeLayer>MoteOverhead</altitudeLayer>
         <tickerType>Normal</tickerType>
@@ -712,6 +724,7 @@
 			<texPath>Projectiles/spellBulletEa000</texPath>
 			<drawSize>(0.24,0.96)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>Blunt</damageDef>
@@ -729,6 +742,7 @@
 			<texPath>Projectiles/spellBulletEa000</texPath>
 			<drawSize>(0.24,0.96)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>Blunt</damageDef>
@@ -746,6 +760,7 @@
 			<texPath>Projectiles/spellBulletEa000</texPath>
 			<drawSize>(0.24,0.96)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>Blunt</damageDef>
@@ -763,6 +778,7 @@
             <texPath>Projectiles/spellBulletEa001</texPath>
             <drawSize>(0.24,0.96)</drawSize>
             <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
         </graphicData>
         <altitudeLayer>MoteOverhead</altitudeLayer>
         <tickerType>Normal</tickerType>
@@ -776,6 +792,7 @@
 			<texPath>Projectiles/spellBulletEa001</texPath>
 			<drawSize>(0.24,0.96)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>Blunt</damageDef>

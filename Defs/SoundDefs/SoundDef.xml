@@ -531,6 +531,27 @@
     </SoundDef>
 
     <SoundDef>
+        <defName>Trackinggohei</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>gohei</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>20</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
         <defName>MegaFlare2</defName>
         <context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>

@@ -15,7 +15,7 @@ namespace merissu
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            mat = MaterialPool.MatFrom(def.graphicData.texPath, ShaderDatabase.Transparent);
+            mat = MaterialPool.MatFrom(def.graphicData.texPath, ShaderDatabase.MoteGlow);
         }
 
         protected override void Tick()

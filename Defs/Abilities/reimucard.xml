@@ -82,6 +82,7 @@
 			<texPath>Other/DreamHeavenlyHakureiTalisman</texPath>
 			<drawSize>(0.8,0.8)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>hakurei</damageDef>
@@ -250,6 +251,7 @@
 			<range>15</range>
 			<warmupTime>0.5</warmupTime>
 			<soundCast>spell</soundCast>
+            <requireLineOfSight>False</requireLineOfSight>
 			<targetParams>
 				<canTargetBuildings>False</canTargetBuildings>
 				<canTargetAnimals>true</canTargetAnimals>
@@ -276,6 +278,7 @@
             <graphicClass>Graphic_Single</graphicClass>
             <texPath>Projectiles/YinYangOrbBig</texPath>
             <drawSize>(8,8)</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
         </graphicData>
         <comps>
         <li Class="merissu.CompProperties_YinYangOrb">

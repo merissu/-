@@ -41,11 +41,11 @@ namespace merissu
 
             Material[] laserMats =
             {
-                MaterialPool.MatFrom("Other/StarlightLaser_Red", ShaderDatabase.Transparent),
-                MaterialPool.MatFrom("Other/StarlightLaser_Blue", ShaderDatabase.Transparent),
-                MaterialPool.MatFrom("Other/StarlightLaser_Green", ShaderDatabase.Transparent),
-                MaterialPool.MatFrom("Other/StarlightLaser_Yellow", ShaderDatabase.Transparent),
-                MaterialPool.MatFrom("Other/StarlightLaser_Purple", ShaderDatabase.Transparent)
+                MaterialPool.MatFrom("Other/StarlightLaser_Red", ShaderDatabase.MoteGlow),
+                MaterialPool.MatFrom("Other/StarlightLaser_Blue", ShaderDatabase.MoteGlow),
+                MaterialPool.MatFrom("Other/StarlightLaser_Green", ShaderDatabase.MoteGlow),
+                MaterialPool.MatFrom("Other/StarlightLaser_Yellow", ShaderDatabase.MoteGlow),
+                MaterialPool.MatFrom("Other/StarlightLaser_Purple", ShaderDatabase.MoteGlow)
             };
 
             for (int i = 0; i < 5; i++)

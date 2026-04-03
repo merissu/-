@@ -23,7 +23,7 @@ namespace merissu
                 lifeTicks = 3; 
                 lightSphereGraphic = GraphicDatabase.Get<Graphic_Single>(
                     "Other/spellBulletEc001",
-                    ShaderDatabase.Transparent,
+                    ShaderDatabase.MoteGlow,
                     new Vector2(2.5f, 2.5f),
                     Color.white
                 );
@@ -33,7 +33,7 @@ namespace merissu
                 lifeTicks = 3; 
                 lightSphereGraphic = GraphicDatabase.Get<Graphic_Single>(
                     "Other/spellBulletEc000",
-                    ShaderDatabase.Transparent,
+                    ShaderDatabase.MoteGlow,
                     new Vector2(2.5f, 2.5f),
                     Color.white
                 );

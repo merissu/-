@@ -133,6 +133,7 @@
 			<texPath>Projectiles/bulletDa001</texPath>
 			<drawSize>(2,2)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>marisa</damageDef>
@@ -151,6 +152,7 @@
 			<texPath>Projectiles/bulletDa002</texPath>
 			<drawSize>(2,2)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>marisa</damageDef>
@@ -169,6 +171,7 @@
 			<texPath>Projectiles/bulletDa003</texPath>
 			<drawSize>(1,1)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>marisa</damageDef>
@@ -187,6 +190,7 @@
 			<texPath>Projectiles/bulletDa000</texPath>
 			<drawSize>(1,1)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>marisa</damageDef>
@@ -278,6 +282,7 @@
 		<graphicData>
 			<graphicClass>Graphic_Single</graphicClass>
 			<texPath>Other/StarlightOrb_Red</texPath>
+            <shaderType>TransparentPostLight</shaderType>
 			<drawSize>(1,1)</drawSize>
 		</graphicData>
         <category>Mote</category>
@@ -323,6 +328,7 @@
 			<texPath>Projectiles/bulletDa000</texPath>
 			<drawSize>(1,1)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>marisa</damageDef>
@@ -340,6 +346,7 @@
 		<graphicData>
 			<texPath>Projectiles/bulletDa001</texPath>
 			<drawSize>(1,1)</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<projectile>
@@ -357,6 +364,7 @@
 		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
 		<graphicData>
 			<texPath>Projectiles/bulletDa002</texPath>
+            <shaderType>TransparentPostLight</shaderType>
 			<drawSize>(1,1)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
@@ -377,6 +385,7 @@
 			<texPath>Projectiles/bulletDa003</texPath>
 			<drawSize>(1,1)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>marisa</damageDef>
@@ -395,6 +404,7 @@
 			<texPath>Projectiles/bulletDa004</texPath>
 			<drawSize>(1,1)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>marisa</damageDef>
