@@ -467,7 +467,6 @@
 		</statBases>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<ReimuSakuraPetal>50</ReimuSakuraPetal>
 			<FullPower>1</FullPower>
 		</costList>
 		<recipeMaker>
@@ -537,7 +536,6 @@
 		</statBases>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<ReimuSakuraPetal>50</ReimuSakuraPetal>
 			<FullPower>1</FullPower>
 		</costList>
 		<recipeMaker>

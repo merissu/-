@@ -891,4 +891,110 @@
 		</projectile>
 	</ThingDef>
 
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>MiniHakkero</defName>
+		<label>迷你八卦炉</label>
+		<description>雾雨魔理沙的能力,可以发射激光,在装备类型中属于高威力的一类
+
+附属装备卡,装备后获得一个会发射激光的子机,射程无限(非追踪型子机只会在征兆时进攻)
+
+不管是人类还是妖怪,都想试试发射激光的感觉,所以是非常受欢迎的卡牌</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/MiniHakkero</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryEquipmentCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>MiniHakkero</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>MiniHakkero</defName>
+        <label>迷你八卦炉</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>雾雨魔理沙的能力,可以发射激光,在装备类型中属于高威力的一类</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_MiniHakkero">
+    	        <orbDef>MiniHakkero_Orb_Blue</orbDef> 
+				<radius>3</radius>
+    	    </li>
+		</comps>
+    </HediffDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>MiniHakkero_Orb_Blue</defName>
+		<label>蓝色魔法球</label>
+		<thingClass>merissu.Thing_StarlightOrb_Follower</thingClass>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Other/StarlightOrb_Blue</texPath>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<drawOffscreen>true</drawOffscreen>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+	</ThingDef>
+
 </Defs>

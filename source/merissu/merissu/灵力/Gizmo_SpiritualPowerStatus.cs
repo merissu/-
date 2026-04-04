@@ -184,12 +184,12 @@ namespace merissu
 
         private void OnExtraButtonClicked()
         {
-            if (hediff.Severity < 0.5f)
+            if (hediff.Severity < 0.75f)
             {
-                Messages.Message("灵力不足 (需要 0.5)", MessageTypeDefOf.RejectInput, false);
+                Messages.Message("灵力不足 (需要 0.75)", MessageTypeDefOf.RejectInput, false);
                 return;
             }
-            hediff.Severity -= 0.5f;
+            hediff.Severity -= 0.75f;
             HediffDef fullPowerDef = HediffDef.Named("FullPower");
             Hediff existingFullPower = pawn.health.hediffSet.GetFirstHediffOfDef(fullPowerDef);
             if (existingFullPower != null) existingFullPower.Severity += 1f;
@@ -204,12 +204,12 @@ namespace merissu
 
         private void OnThirdButtonClicked()
         {
-            if (hediff.Severity < 0.5f)
+            if (hediff.Severity < 0.75f)
             {
-                Messages.Message("灵力不足 (需要 0.5)", MessageTypeDefOf.RejectInput, false);
+                Messages.Message("灵力不足 (需要 0.75)", MessageTypeDefOf.RejectInput, false);
                 return;
             }
-            hediff.Severity -= 0.5f;
+            hediff.Severity -= 0.75f;
             HediffDef upDef = HediffDef.Named("up");
             Hediff existingUp = pawn.health.hediffSet.GetFirstHediffOfDef(upDef);
             if (existingUp != null) existingUp.Severity += 1f;

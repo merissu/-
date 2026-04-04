@@ -514,6 +514,12 @@
 		<descriptionHyperlinks>
 			<RecipeDef>InstallKasenArm</RecipeDef>
 		</descriptionHyperlinks>
+		<graphicData>
+            <texPath>Accessory/KasenArm</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
 		<statBases>
 			<MarketValue>4500</MarketValue>
 			<Mass>4</Mass>
@@ -660,6 +666,12 @@
 		<descriptionHyperlinks>
 			<RecipeDef>InstallOmoikane</RecipeDef>
 		</descriptionHyperlinks>
+		<graphicData>
+            <texPath>Accessory/Omoikane</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
 		<statBases>
 			<MarketValue>3500</MarketValue>
 			<Mass>4</Mass>
@@ -861,6 +873,12 @@
 		<descriptionHyperlinks>
 			<RecipeDef>InstallSatorisEye</RecipeDef>
 		</descriptionHyperlinks>
+		<graphicData>
+            <texPath>Accessory/satori</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
 		<statBases>
 			<WorkToMake>20000</WorkToMake>
 			<MarketValue>40000</MarketValue> 
@@ -1283,6 +1301,12 @@
             <SellPriceFactor>0.1</SellPriceFactor>
 			<Mass>2</Mass>
 		</statBases>
+		<graphicData>
+            <texPath>Accessory/koishi</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1</drawSize>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>5</FullPower>

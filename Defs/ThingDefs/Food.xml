@@ -349,7 +349,7 @@
 				<statFactors>
 					<ImmunityGainSpeed>2</ImmunityGainSpeed>
 					<InjuryHealingFactor>2</InjuryHealingFactor>
-					<IncomingDamageFactor>2</IncomingDamageFactor>
+					<IncomingDamageFactor>0.5</IncomingDamageFactor>
 				</statFactors>
 				<painFactor>0.5</painFactor>
 				<capMods>

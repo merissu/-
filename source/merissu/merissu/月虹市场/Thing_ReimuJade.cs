@@ -72,6 +72,8 @@ namespace merissu
                 if (p != null &&
                     !p.Dead &&
                     p.Spawned &&
+                    !p.Downed && 
+                    !p.IsPrisoner && 
                     p.Faction != null &&
                     p.Faction.HostileTo(caster.Faction))
                 {

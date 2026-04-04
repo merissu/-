@@ -289,8 +289,8 @@
 			<Crimsongold>30</Crimsongold>
 			<ComponentIndustrial>10</ComponentIndustrial>
 			<ComponentSpacer>3</ComponentSpacer>
-			<LoseBambooShoot>100</LoseBambooShoot>
-	</costList>
+			<LoseBambooShoot>50</LoseBambooShoot>
+		</costList>
 		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>0.5</fillPercent>
 		<useHitPoints>True</useHitPoints>

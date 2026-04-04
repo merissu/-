@@ -145,7 +145,7 @@
 		<injuryProps>
 			<painPerSeverity>0.0125</painPerSeverity>
 			<averagePainPerSeverityPermanent>0.0025</averagePainPerSeverityPermanent>
-			<bleedRate>0.08</bleedRate>
+			<bleedRate>0.001</bleedRate>
 			<canMerge>true</canMerge>
 			<destroyedLabel>疮痍</destroyedLabel>
 			<destroyedOutLabel>疮痍</destroyedOutLabel>

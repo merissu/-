@@ -509,6 +509,25 @@
 		</subSounds>
     </SoundDef>
 
+
+    <SoundDef>
+        <defName>se_lazer02</defName>
+        <context>MapOnly</context>
+    	<sustain>true</sustain>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>se_lazer02</clipPath>
+			  </li>
+			</grains>
+			<volumeRange>25</volumeRange>
+			<distRange>5~20</distRange> 
+		  </li>
+		</subSounds>
+    </SoundDef>
+
     <SoundDef>
         <defName>gohei</defName>
         <context>MapOnly</context>
