@@ -997,4 +997,242 @@
 		<selectable>false</selectable>
 	</ThingDef>
 
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>HakkeroMissile</defName>
+		<label>迷你八卦炉(导弹)</label>
+		<description>雾雨魔理沙的能力,可以发射导弹,射速低的导弹某些时刻会有奇效的
+
+附属装备卡,装备后获得一个会发射导弹的子机,最大射程40格(非追踪型子机只会在征兆时进攻)
+
+……曾经我是这么觉得的,但其实这单纯只是会提升攻击力下限的好用卡牌</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/HakkeroMissile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryEquipmentCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>HakkeroMissile</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>HakkeroMissile</defName>
+        <label>迷你八卦炉(导弹)</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>雾雨魔理沙的能力,可以发射导弹,射速低的导弹某些时刻会有奇效的</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_MiniHakkerored">
+    	        <orbDef>MiniHakkero_Orb_Red</orbDef> 
+				<radius>3</radius>
+    	    </li>
+		</comps>
+    </HediffDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>MiniHakkero_Orb_Red</defName>
+		<label>红色魔法球</label>
+		<thingClass>merissu.Thing_StarlightOrbRed_Follower</thingClass>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Other/StarlightOrb_Red</texPath>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<drawOffscreen>true</drawOffscreen>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Missile</defName>
+		<label>导弹</label>
+		<thingClass>merissu.Projectile_Missile</thingClass>
+		<graphicData>
+			<texPath>Projectiles/Missile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<speed>30</speed>
+			<armorPenetrationBase>1</armorPenetrationBase>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Missile_ExplosionAnim</defName>
+		<label>导弹爆炸</label>
+		<thingClass>merissu.Thing_MissileExplosionAnim</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<graphicData>
+			<texPath>Other/null</texPath> 
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>MaidKnife</defName>
+		<label>女仆飞刀</label>
+		<description>十六夜咲夜的能力,可以发射飞刀,飞刀会同时锁定射角内的三名敌人
+
+附属装备卡,装备后获得一个会发射飞刀的子机,最大射程40格(非追踪型子机只会在征兆时进攻)
+
+直到能瞄准并贯穿妖精为止,都没有做女仆的资格</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/MaidKnife</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryEquipmentCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>MaidKnife</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>MaidKnife</defName>
+        <label>女仆飞刀</label>
+        <defaultLabelColor>(204,204,204)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>十六夜咲夜的能力,可以发射飞刀,飞刀会同时锁定射角内的三名敌人</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_MaidKnife">
+    	        <orbDef>MaidKnife_Orb_Visual</orbDef> 
+				<radius>2</radius>
+    	    </li>
+    	</comps>
+    </HediffDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>MaidKnife_Orb_Visual</defName>
+		<thingClass>merissu.Thing_MaidKnife_Orb</thingClass> 
+		<label>飞刀子机</label>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Projectiles/MaidKnife/Orb000</texPath> 
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
 </Defs>

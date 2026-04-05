@@ -550,6 +550,29 @@
     </SoundDef>
 
     <SoundDef>
+        <defName>Missile</defName>
+        <context>Any</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<onCamera>true</onCamera>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Missile</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+
+    <SoundDef>
         <defName>Trackinggohei</defName>
         <context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>

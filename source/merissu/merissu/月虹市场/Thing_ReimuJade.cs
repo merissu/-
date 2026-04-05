@@ -69,21 +69,21 @@ namespace merissu
             {
                 Pawn p = allPawns[i];
 
-                if (p != null &&
-                    !p.Dead &&
-                    p.Spawned &&
-                    !p.Downed && 
-                    !p.IsPrisoner && 
-                    p.Faction != null &&
-                    p.Faction.HostileTo(caster.Faction))
+            if (p != null && 
+                p.Spawned && 
+                !p.Dead && 
+                !p.Downed && 
+                p.Faction != null && 
+                p.Faction.HostileTo(caster.Faction) &&
+                GenSight.LineOfSight(caster.Position, p.Position, caster.Map)) 
+            {
+                float dist = p.Position.DistanceTo(caster.Position);
+                if (dist <= minDist)
                 {
-                    float dist = p.Position.DistanceTo(caster.Position);
-                    if (dist <= minDist)
-                    {
-                        minDist = dist;
-                        target = p;
-                    }
+                    minDist = dist;
+                    target = p;
                 }
+            }
             }
 
             if (target == null) return false;
