@@ -2,10 +2,10 @@
 using RimWorld;
 using UnityEngine;
 using System.Linq;
-using Verse.Sound; 
+using Verse.Sound;
+
 namespace merissu
 {
-
     public class Thing_StarlightOrb_Follower : Thing
     {
         private Pawn owner;
@@ -17,24 +17,35 @@ namespace merissu
         private const float CombatRadius = 2.5f;
         private const float RotateSpeedIdle = 2f;
         private const float LaserRange = 250f;
-        private Sustainer sustainer; 
+        private Sustainer sustainer;
+
+        private static readonly HediffDef SpiritualPowerDef = HediffDef.Named("spiritualpower");
+        private const float MinPowerToFire = 0.02f;
+        private const float PowerDrainPerSecond = 0.02f; 
+
         public void Init(Pawn owner, Material mat)
         {
             this.owner = owner;
             this.laserMat = mat;
         }
 
+        private float GetCurrentSpiritualPower()
+        {
+            if (owner?.health?.hediffSet == null) return 0f;
+            return owner.health.hediffSet.GetFirstHediffOfDef(SpiritualPowerDef)?.Severity ?? 0f;
+        }
+
         protected override void Tick()
         {
             if (owner == null || owner.Dead || !owner.Spawned)
             {
-                EndSustainer(); 
+                EndSustainer();
                 this.Destroy();
                 return;
             }
 
             Pawn target = null;
-            if (owner.Drafted)
+            if (owner.Drafted && GetCurrentSpiritualPower() >= MinPowerToFire)
             {
                 target = FindBestTarget();
             }
@@ -46,8 +57,9 @@ namespace merissu
                 currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, 0.15f);
 
                 UpdateLaser(target);
-
                 StartOrMaintainSustainer();
+
+                ConsumeSpiritualPowerPerTick();
             }
             else
             {
@@ -57,6 +69,15 @@ namespace merissu
                 laserEnd = DrawPos;
 
                 EndSustainer();
+            }
+        }
+
+        private void ConsumeSpiritualPowerPerTick()
+        {
+            Hediff hediff = owner.health.hediffSet.GetFirstHediffOfDef(SpiritualPowerDef);
+            if (hediff != null)
+            {
+                hediff.Severity -= (PowerDrainPerSecond / 60f);
             }
         }
 
@@ -70,7 +91,6 @@ namespace merissu
                     sustainer = soundDef.TrySpawnSustainer(SoundInfo.InMap(this, MaintenanceType.PerTick));
                 }
             }
-
             sustainer?.Maintain();
         }
 
@@ -78,7 +98,7 @@ namespace merissu
         {
             if (sustainer != null)
             {
-                sustainer.End(); 
+                sustainer.End();
                 sustainer = null;
             }
         }
@@ -88,6 +108,7 @@ namespace merissu
             EndSustainer();
             base.Destroy(mode);
         }
+
         private Pawn FindBestTarget()
         {
             return (Pawn)GenClosest.ClosestThingReachable(
@@ -108,6 +129,7 @@ namespace merissu
                            GenSight.LineOfSight(owner.Position, p.Position, owner.Map);
                 });
         }
+
         private void UpdateLaser(Pawn target)
         {
             Vector3 start = DrawPos;
@@ -124,7 +146,7 @@ namespace merissu
                     break;
                 }
 
-                if (Find.TickManager.TicksGame % 6 == 0) 
+                if (Find.TickManager.TicksGame % 6 == 0)
                 {
                     var victim = cell.GetFirstPawn(Map);
                     if (victim != null && victim.HostileTo(owner))
@@ -140,24 +162,20 @@ namespace merissu
             get
             {
                 if (owner == null) return base.DrawPos;
-
                 float rad = currentAngle * Mathf.Deg2Rad;
                 float dist = owner.Drafted ? CombatRadius : FollowRadius;
-
                 float xOffset = Mathf.Cos(rad) * dist;
                 float zOffset = Mathf.Sin(rad) * dist;
-
                 float floatingZ = zOffset + Mathf.Sin(Find.TickManager.TicksGame * 0.05f) * 0.15f;
-
                 Vector3 offset = new Vector3(xOffset, 0.5f, floatingZ);
-
                 return owner.DrawPos + offset;
             }
         }
+
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
             base.DrawAt(drawLoc, flip);
-            if (owner != null && owner.Drafted && laserMat != null)
+            if (owner != null && owner.Drafted && laserMat != null && GetCurrentSpiritualPower() >= MinPowerToFire)
             {
                 StarlightLaserDrawer.DrawLaser(drawLoc, laserEnd, laserMat, 1.5f);
             }

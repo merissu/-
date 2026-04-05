@@ -13,13 +13,23 @@ namespace merissu
 
         private const float FollowRadius = 1.5f;
         private const float CombatRadius = 2.5f;
-        private const float MinAttackRange = 3f;  
-        private const float MaxAttackRange = 40f; 
-        private const int ShootIntervalTicks = 60; 
+        private const float MinAttackRange = 3f;
+        private const float MaxAttackRange = 40f;
+        private const int ShootIntervalTicks = 60;
+
+        private static readonly HediffDef SpiritualPowerDef = HediffDef.Named("spiritualpower");
+        private const float MinPowerToFire = 0.02f;
+        private const float PowerCostPerShot = 0.01f;
 
         public void Init(Pawn owner)
         {
             this.owner = owner;
+        }
+
+        private float GetCurrentSpiritualPower()
+        {
+            if (owner?.health?.hediffSet == null) return 0f;
+            return owner.health.hediffSet.GetFirstHediffOfDef(SpiritualPowerDef)?.Severity ?? 0f;
         }
 
         protected override void Tick()
@@ -31,7 +41,7 @@ namespace merissu
             }
 
             Pawn target = null;
-            if (owner.Drafted)
+            if (owner.Drafted && GetCurrentSpiritualPower() >= MinPowerToFire)
             {
                 target = FindBestTarget();
             }
@@ -64,7 +74,7 @@ namespace merissu
                 ThingRequest.ForGroup(ThingRequestGroup.Pawn),
                 Verse.AI.PathEndMode.OnCell,
                 TraverseParms.For(owner),
-                MaxAttackRange, 
+                MaxAttackRange,
                 x =>
                 {
                     Pawn p = x as Pawn;
@@ -83,9 +93,18 @@ namespace merissu
             if (projectileDef == null) return;
 
             Projectile projectile = (Projectile)GenSpawn.Spawn(projectileDef, DrawPos.ToIntVec3(), Map);
-
             projectile.Launch(owner, DrawPos, target, target, ProjectileHitFlags.All, false, null);
 
+            ConsumeSpiritualPower(PowerCostPerShot);
+        }
+
+        private void ConsumeSpiritualPower(float amount)
+        {
+            Hediff hediff = owner.health.hediffSet.GetFirstHediffOfDef(SpiritualPowerDef);
+            if (hediff != null)
+            {
+                hediff.Severity -= amount;
+            }
         }
 
         public override Vector3 DrawPos

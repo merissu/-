@@ -86,7 +86,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
-    <Compile Include="MaidKnifeOrb.cs" />
+    <Compile Include="月虹市场\HediffComp_Shanghai.cs" />
+    <Compile Include="月虹市场\Thing_ShanghaiDoll.cs" />
+    <Compile Include="月虹市场\HediffComp_TrackMaidKnife.cs" />
+    <Compile Include="月虹市场\Projectile_TrackKnife.cs" />
+    <Compile Include="月虹市场\MaidKnifeOrb.cs" />
     <Compile Include="月虹市场\HediffCompProperties_MiniHakkerored.cs" />
     <Compile Include="月虹市场\Projectile_Missile.cs" />
     <Compile Include="月虹市场\Thing_StarlightOrbRed_Follower.cs" />
