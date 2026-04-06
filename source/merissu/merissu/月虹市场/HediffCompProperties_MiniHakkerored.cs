@@ -6,7 +6,7 @@ namespace merissu
 {
     public class HediffCompProperties_MiniHakkerored : HediffCompProperties
     {
-        public ThingDef orbDef; 
+        public ThingDef orbDef;
         public float radius = 3f;
 
         public HediffCompProperties_MiniHakkerored()
@@ -30,15 +30,19 @@ namespace merissu
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            if (spawnedOrb == null || spawnedOrb.Destroyed)
+
+            if (Pawn.IsHashIntervalTick(60))
             {
-                SpawnOrb();
+                if (spawnedOrb == null || spawnedOrb.Destroyed || !spawnedOrb.Spawned)
+                {
+                    SpawnOrb();
+                }
             }
         }
 
         private void SpawnOrb()
         {
-            if (Pawn.Map != null && Props.orbDef != null)
+            if (Pawn.Map != null && !Pawn.Dead && Props.orbDef != null)
             {
                 var newThing = ThingMaker.MakeThing(Props.orbDef);
                 spawnedOrb = newThing as Thing_StarlightOrbRed_Follower;
@@ -50,7 +54,7 @@ namespace merissu
                 }
                 else
                 {
-                    Log.Error($"[merissu] {Props.orbDef.defName} 的 thingClass 不是 Thing_StarlightOrbRed_Follower!");
+                    Log.ErrorOnce($"[merissu] {Props.orbDef.defName} 的 thingClass 不是 Thing_StarlightOrbRed_Follower!", Props.orbDef.GetHashCode());
                 }
             }
         }

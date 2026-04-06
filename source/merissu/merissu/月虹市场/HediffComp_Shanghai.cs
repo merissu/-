@@ -14,31 +14,29 @@ namespace merissu
     {
         private Thing_ShanghaiDoll spawnedDoll;
 
-        public override void CompPostPostAdd(DamageInfo? dinfo)
-        {
-            base.CompPostPostAdd(dinfo);
-            SpawnDoll();
-        }
+        private static readonly ThingDef DollDef = ThingDef.Named("ShanghaiDoll_Thing");
 
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            if (spawnedDoll == null || !spawnedDoll.Spawned || spawnedDoll.Destroyed)
+
+            if (Pawn.IsHashIntervalTick(60))
             {
-                SpawnDoll();
+                if (spawnedDoll == null || !spawnedDoll.Spawned || spawnedDoll.Destroyed)
+                {
+                    SpawnDoll();
+                }
             }
         }
 
         private void SpawnDoll()
         {
-            if (Pawn.Map != null)
+            if (Pawn.Map != null && !Pawn.Dead)
             {
-                ThingDef dollDef = ThingDef.Named("ShanghaiDoll_Thing");
-                spawnedDoll = (Thing_ShanghaiDoll)GenSpawn.Spawn(dollDef, Pawn.Position, Pawn.Map);
+                spawnedDoll = (Thing_ShanghaiDoll)GenSpawn.Spawn(DollDef, Pawn.Position, Pawn.Map);
                 spawnedDoll.Init(Pawn);
             }
         }
-
         public override void CompPostPostRemoved()
         {
             spawnedDoll?.Destroy();

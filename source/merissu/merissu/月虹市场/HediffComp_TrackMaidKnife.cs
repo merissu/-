@@ -27,7 +27,10 @@ namespace merissu
 
         public override void CompPostTick(ref float severityAdjustment)
         {
-            if (spawnedOrb == null || spawnedOrb.Destroyed) SpawnOrb();
+            if (Pawn.IsHashIntervalTick(60))
+            {
+                if (spawnedOrb == null || spawnedOrb.Destroyed) SpawnOrb();
+            }
         }
 
         private void SpawnOrb()
@@ -59,6 +62,8 @@ namespace merissu
         private int age = 0;
         private int lastShotTick = -999;
 
+        private List<Pawn> cachedTargets = new List<Pawn>();
+
         private const int TicksPerFrame = 3;
         private const int MaxFrameIndex = 7;
         private const float DrawSize = 0.5f;
@@ -69,6 +74,9 @@ namespace merissu
         private const float CombatDist = 1.8f;
 
         private static readonly HediffDef SpiritualPowerDef = HediffDef.Named("spiritualpower");
+        private static readonly ThingDef ProjectileDef = ThingDef.Named("trackknife");
+        private static readonly SoundDef ShootSound = SoundDef.Named("knife");
+
         private const float MinPowerToFire = 0.02f;
         private const float PowerCostPerShot = 0.01f;
 
@@ -101,28 +109,34 @@ namespace merissu
         {
             if (owner == null || owner.Dead || !owner.Spawned)
             {
-                this.Destroy();
+                if (!Destroyed) this.Destroy();
                 return;
             }
 
             if (this.Position != owner.Position) this.Position = owner.Position;
             age++;
 
-            List<Pawn> targets = null;
-            if (owner.Drafted && GetCurrentSpiritualPower() >= MinPowerToFire)
+            if (age % 30 == 0)
             {
-                targets = FindBestTargets(3);
+                if (owner.Drafted && GetCurrentSpiritualPower() >= MinPowerToFire)
+                {
+                    UpdateCachedTargets();
+                }
+                else
+                {
+                    cachedTargets.Clear();
+                }
             }
 
-            if (targets != null && targets.Count > 0)
+            if (cachedTargets.Count > 0)
             {
-                Vector3 aimDir = (targets[0].DrawPos - owner.DrawPos).normalized;
+                Vector3 aimDir = (cachedTargets[0].DrawPos - owner.DrawPos).normalized;
                 float targetAngle = Mathf.Atan2(aimDir.z, aimDir.x) * Mathf.Rad2Deg;
                 currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, 0.15f);
 
                 if (Find.TickManager.TicksGame >= lastShotTick + ShootIntervalTicks)
                 {
-                    ShootAtTargets(targets);
+                    ShootAtTargets(cachedTargets);
                     lastShotTick = Find.TickManager.TicksGame;
                 }
             }
@@ -132,52 +146,47 @@ namespace merissu
             }
         }
 
-        private List<Pawn> FindBestTargets(int count)
+        private void UpdateCachedTargets()
         {
-            return owner.Map.mapPawns.AllPawnsSpawned
-                .Where(p => p.HostileTo(owner) && !p.Downed && !p.Dead && !p.IsPrisoner) 
-                .Where(p => p.Position.DistanceTo(owner.Position) <= MaxAttackRange)
-                .Where(p => GenSight.LineOfSight(owner.Position, p.Position, owner.Map))
-                .OrderBy(p => p.Position.DistanceToSquared(owner.Position))
-                .Take(count)
-                .ToList();
+            cachedTargets.Clear();
+            IEnumerable<Thing> nearby = GenRadial.RadialDistinctThingsAround(owner.Position, owner.Map, MaxAttackRange, true);
+
+            int found = 0;
+            foreach (Thing t in nearby)
+            {
+                if (t is Pawn p && p.HostileTo(owner) && !p.Downed && !p.Dead && !p.IsPrisoner)
+                {
+                    if (GenSight.LineOfSight(owner.Position, p.Position, owner.Map))
+                    {
+                        cachedTargets.Add(p);
+                        found++;
+                    }
+                }
+                if (found >= 3) break; 
+            }
         }
 
         private void ShootAtTargets(List<Pawn> targets)
         {
-            ThingDef projectileDef = ThingDef.Named("trackknife");
-            if (projectileDef == null) return;
+            if (ProjectileDef == null || targets.Count == 0) return;
 
-            if (targets.Count == 0) return;
-
-            SoundDef shootSound = SoundDef.Named("knife");
-            if (shootSound != null)
-                shootSound.PlayOneShot(new TargetInfo(owner.Position, owner.Map));
+            if (ShootSound != null)
+                ShootSound.PlayOneShot(new TargetInfo(owner.Position, owner.Map));
 
             Pawn currentTarget = targets[0];
-
-            Thing spawnedThing = GenSpawn.Spawn(projectileDef, DrawPos.ToIntVec3(), owner.Map);
-            Projectile projectile = spawnedThing as Projectile;
+            Projectile projectile = (Projectile)GenSpawn.Spawn(ProjectileDef, DrawPos.ToIntVec3(), owner.Map);
 
             if (projectile != null)
             {
                 projectile.Launch(owner, DrawPos, currentTarget, currentTarget, ProjectileHitFlags.All, false, null);
-
                 ConsumeSpiritualPower(PowerCostPerShot);
-            }
-            else if (spawnedThing != null)
-            {
-                spawnedThing.Destroy();
             }
         }
 
         private void ConsumeSpiritualPower(float amount)
         {
             Hediff hediff = owner.health.hediffSet.GetFirstHediffOfDef(SpiritualPowerDef);
-            if (hediff != null)
-            {
-                hediff.Severity -= amount;
-            }
+            if (hediff != null) hediff.Severity -= amount;
         }
 
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
@@ -187,6 +196,7 @@ namespace merissu
             int frame = Mathf.RoundToInt(pingPongValue / TicksPerFrame);
 
             Material mat = MaterialPool.MatFrom($"Projectiles/MaidKnife/Orb{frame:D3}", ShaderDatabase.MoteGlow);
+
             Quaternion rotation = Quaternion.AngleAxis(-currentAngle, Vector3.up);
             Matrix4x4 matrix = Matrix4x4.TRS(drawLoc, rotation, new Vector3(DrawSize, 1f, DrawSize));
             Graphics.DrawMesh(MeshPool.plane10, matrix, mat, 0);

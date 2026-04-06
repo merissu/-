@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
@@ -20,7 +21,11 @@ namespace merissu
         private const int FireIntervalTicks = 12;
         private int nextFireTick;
 
-        private int shotCount = 0; 
+        private Pawn cachedTarget;
+        private int lastScanTick = -999;
+        private const int ScanInterval = 30; 
+
+        private int shotCount = 0;
         private static readonly HediffDef SpiritualPowerDef = HediffDef.Named("spiritualpower");
 
         private ThingDef cachedBulletDef;
@@ -44,22 +49,22 @@ namespace merissu
                 return;
             }
 
-            orbitAngle += OrbitSpeed;
-            selfRotationAngle += SelfRotateSpeed;
-            if (orbitAngle > 360f) orbitAngle -= 360f;
-            if (selfRotationAngle > 360f) selfRotationAngle -= 360f;
+            orbitAngle = (orbitAngle + OrbitSpeed) % 360f;
+            selfRotationAngle = (selfRotationAngle + SelfRotateSpeed) % 360f;
 
             if (Find.TickManager.TicksGame >= nextFireTick)
             {
                 if (GetCurrentSpiritualPower() > 0.02f)
                 {
-                    if (TryFireAtTarget())
+                    Pawn target = GetOrUpdateTarget();
+                    if (target != null)
                     {
+                        FireBullet(target);
                         nextFireTick = Find.TickManager.TicksGame + FireIntervalTicks;
                     }
                     else
                     {
-                        nextFireTick = Find.TickManager.TicksGame + 10;
+                        nextFireTick = Find.TickManager.TicksGame + 30;
                     }
                 }
                 else
@@ -69,46 +74,46 @@ namespace merissu
             }
         }
 
-        private float GetCurrentSpiritualPower()
+        private Pawn GetOrUpdateTarget()
         {
-            if (caster?.health?.hediffSet == null) return 0f;
-            Hediff firstHediffOfDef = caster.health.hediffSet.GetFirstHediffOfDef(SpiritualPowerDef);
-            return firstHediffOfDef?.Severity ?? 0f;
+            if (Find.TickManager.TicksGame >= lastScanTick + ScanInterval || cachedTarget == null || cachedTarget.Dead || cachedTarget.Downed || !cachedTarget.Spawned)
+            {
+                cachedTarget = FindNewTarget();
+                lastScanTick = Find.TickManager.TicksGame;
+            }
+            return cachedTarget;
         }
 
-        private bool TryFireAtTarget()
+        private Pawn FindNewTarget()
         {
-            if (caster.Map == null) return false;
+            if (caster.Map == null) return null;
 
-            Pawn target = null;
-            float minDist = ScanRadius;
+            Pawn bestTarget = null;
+            float minDistSq = ScanRadius * ScanRadius;
 
-            var allPawns = caster.Map.mapPawns.AllPawnsSpawned;
-            for (int i = 0; i < allPawns.Count; i++)
+            IEnumerable<Thing> nearby = GenRadial.RadialDistinctThingsAround(caster.Position, caster.Map, ScanRadius, true);
+
+            foreach (Thing t in nearby)
             {
-                Pawn p = allPawns[i];
-                if (p != null &&
-                    p.Spawned &&
-                    !p.Dead &&
-                    !p.Downed &&
-                    !p.IsPrisoner && 
-                    p.Faction != null &&
-                    p.Faction.HostileTo(caster.Faction) &&
-                    GenSight.LineOfSight(caster.Position, p.Position, caster.Map))
+                if (t is Pawn p && p.HostileTo(caster) && !p.Dead && !p.Downed && !p.IsPrisoner)
                 {
-                    float dist = p.Position.DistanceTo(caster.Position);
-                    if (dist <= minDist)
+                    float distSq = p.Position.DistanceToSquared(caster.Position);
+                    if (distSq <= minDistSq)
                     {
-                        minDist = dist;
-                        target = p;
+                        if (GenSight.LineOfSight(caster.Position, p.Position, caster.Map))
+                        {
+                            minDistSq = distSq;
+                            bestTarget = p;
+                        }
                     }
                 }
             }
+            return bestTarget;
+        }
 
-            if (target == null) return false;
-
-            FireBullet(target);
-            return true;
+        private float GetCurrentSpiritualPower()
+        {
+            return caster.health?.hediffSet?.GetFirstHediffOfDef(SpiritualPowerDef)?.Severity ?? 0f;
         }
 
         private void FireBullet(Pawn target)
@@ -124,25 +129,20 @@ namespace merissu
             if (shotCount >= 3)
             {
                 ConsumeSpiritualPower(0.01f);
-                shotCount = 0; 
+                shotCount = 0;
             }
         }
 
         private void ConsumeSpiritualPower(float amount)
         {
             Hediff hediff = caster.health.hediffSet.GetFirstHediffOfDef(SpiritualPowerDef);
-            if (hediff != null)
-            {
-                hediff.Severity -= amount;
-            }
+            if (hediff != null) hediff.Severity -= amount;
         }
 
         private Vector3 GetCurrentDrawPos()
         {
-            Vector3 center = caster.DrawPos;
             float rad = orbitAngle * Mathf.Deg2Rad;
-            Vector3 offset = new Vector3(Mathf.Cos(rad) * Radius, 0f, Mathf.Sin(rad) * Radius);
-            Vector3 pos = center + offset;
+            Vector3 pos = caster.DrawPos + new Vector3(Mathf.Cos(rad) * Radius, 0f, Mathf.Sin(rad) * Radius);
             pos.y = AltitudeLayer.MoteOverhead.AltitudeFor();
             return pos;
         }
@@ -150,10 +150,7 @@ namespace merissu
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
             Vector3 finalPos = GetCurrentDrawPos();
-            float sizeScale = 0.5f;
-            Vector3 scaleVector = new Vector3(sizeScale, 1f, sizeScale);
-            Matrix4x4 matrix = default;
-            matrix.SetTRS(finalPos, Quaternion.AngleAxis(selfRotationAngle, Vector3.up), scaleVector);
+            Matrix4x4 matrix = Matrix4x4.TRS(finalPos, Quaternion.AngleAxis(selfRotationAngle, Vector3.up), new Vector3(0.5f, 1f, 0.5f));
             Graphics.DrawMesh(MeshPool.plane10, matrix, Graphic.MatSingle, 0);
         }
 

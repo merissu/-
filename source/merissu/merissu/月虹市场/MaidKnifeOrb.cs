@@ -27,7 +27,10 @@ namespace merissu
 
         public override void CompPostTick(ref float severityAdjustment)
         {
-            if (spawnedOrb == null || spawnedOrb.Destroyed) SpawnOrb();
+            if (Pawn.IsHashIntervalTick(60))
+            {
+                if (spawnedOrb == null || spawnedOrb.Destroyed) SpawnOrb();
+            }
         }
 
         private void SpawnOrb()
@@ -59,6 +62,8 @@ namespace merissu
         private int age = 0;
         private int lastShotTick = -999;
 
+        private List<Pawn> cachedTargets = new List<Pawn>();
+
         private const int TicksPerFrame = 3;
         private const int MaxFrameIndex = 7;
         private const float DrawSize = 0.5f;
@@ -69,8 +74,11 @@ namespace merissu
         private const float CombatDist = 1.8f;
 
         private static readonly HediffDef SpiritualPowerDef = HediffDef.Named("spiritualpower");
+        private static readonly ThingDef ProjectileDef = ThingDef.Named("knife");
+        private static readonly SoundDef ShootSound = SoundDef.Named("knife");
+
         private const float MinPowerToFire = 0.02f;
-        private const float PowerCostPerVolley = 0.01f; 
+        private const float PowerCostPerVolley = 0.01f;
 
         public void Init(Pawn owner) => this.owner = owner;
 
@@ -100,28 +108,34 @@ namespace merissu
         {
             if (owner == null || owner.Dead || !owner.Spawned)
             {
-                this.Destroy();
+                if (!Destroyed) this.Destroy();
                 return;
             }
 
             if (this.Position != owner.Position) this.Position = owner.Position;
             age++;
 
-            List<Pawn> targets = null;
-            if (owner.Drafted && GetCurrentSpiritualPower() >= MinPowerToFire)
+            if (age % 30 == 0)
             {
-                targets = FindBestTargets(3);
+                if (owner.Drafted && GetCurrentSpiritualPower() >= MinPowerToFire)
+                {
+                    UpdateTargets();
+                }
+                else
+                {
+                    cachedTargets.Clear();
+                }
             }
 
-            if (targets != null && targets.Count > 0)
+            if (cachedTargets.Count > 0)
             {
-                Vector3 aimDir = (targets[0].DrawPos - owner.DrawPos).normalized;
+                Vector3 aimDir = (cachedTargets[0].DrawPos - owner.DrawPos).normalized;
                 float targetAngle = Mathf.Atan2(aimDir.z, aimDir.x) * Mathf.Rad2Deg;
                 currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, 0.15f);
 
                 if (Find.TickManager.TicksGame >= lastShotTick + ShootIntervalTicks)
                 {
-                    ShootAtTargets(targets);
+                    ShootAtTargets(cachedTargets);
                     lastShotTick = Find.TickManager.TicksGame;
                 }
             }
@@ -131,44 +145,45 @@ namespace merissu
             }
         }
 
-        private List<Pawn> FindBestTargets(int count)
+        private void UpdateTargets()
         {
-            return owner.Map.mapPawns.AllPawnsSpawned
-                .Where(p => p.HostileTo(owner) && !p.Downed && !p.Dead && !p.IsPrisoner) 
-                .Where(p => p.Position.DistanceTo(owner.Position) <= MaxAttackRange)
-                .Where(p => GenSight.LineOfSight(owner.Position, p.Position, owner.Map))
-                .OrderBy(p => p.Position.DistanceToSquared(owner.Position))
-                .Take(count)
-                .ToList();
+            cachedTargets.Clear();
+            IEnumerable<Thing> nearby = GenRadial.RadialDistinctThingsAround(owner.Position, owner.Map, MaxAttackRange, true);
+            int count = 0;
+            foreach (var thing in nearby)
+            {
+                if (thing is Pawn p && p.HostileTo(owner) && !p.Downed && !p.Dead && !p.IsPrisoner)
+                {
+                    if (GenSight.LineOfSight(owner.Position, p.Position, owner.Map))
+                    {
+                        cachedTargets.Add(p);
+                        count++;
+                        if (count >= 3) break;
+                    }
+                }
+            }
         }
 
         private void ShootAtTargets(List<Pawn> targets)
         {
-            ThingDef projectileDef = ThingDef.Named("knife");
-            if (projectileDef == null) return;
+            if (ProjectileDef == null) return;
 
             int targetCount = targets.Count;
             if (targetCount == 0) return;
 
-            SoundDef shootSound = SoundDef.Named("knife");
-            if (shootSound != null)
+            if (ShootSound != null)
             {
-                shootSound.PlayOneShot(new TargetInfo(owner.Position, owner.Map));
+                ShootSound.PlayOneShot(new TargetInfo(owner.Position, owner.Map));
             }
 
             for (int i = 0; i < 3; i++)
             {
                 Pawn currentTarget = targets[i % targetCount];
-                Thing spawnedThing = GenSpawn.Spawn(projectileDef, DrawPos.ToIntVec3(), owner.Map);
-                Projectile projectile = spawnedThing as Projectile;
+                Projectile projectile = (Projectile)GenSpawn.Spawn(ProjectileDef, DrawPos.ToIntVec3(), owner.Map);
 
                 if (projectile != null)
                 {
                     projectile.Launch(owner, DrawPos, currentTarget, currentTarget, ProjectileHitFlags.All, false, null);
-                }
-                else
-                {
-                    if (spawnedThing != null && !spawnedThing.Destroyed) spawnedThing.Destroy();
                 }
             }
 
@@ -178,10 +193,7 @@ namespace merissu
         private void ConsumeSpiritualPower(float amount)
         {
             Hediff hediff = owner.health.hediffSet.GetFirstHediffOfDef(SpiritualPowerDef);
-            if (hediff != null)
-            {
-                hediff.Severity -= amount;
-            }
+            if (hediff != null) hediff.Severity -= amount;
         }
 
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)

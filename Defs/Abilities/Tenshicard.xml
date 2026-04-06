@@ -576,6 +576,12 @@
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
+		</comps>
     </HediffDef>
 
 	<WeatherDef>
@@ -699,6 +705,12 @@
 				</statFactors>
 			</li>
 		</stages>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
+		</comps>
     </HediffDef>
 
 	<WeatherDef>
@@ -805,8 +817,12 @@
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
 		<comps>
 			<li Class="merissu.HediffCompProperties_Yuntian" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
 		</comps>
     </HediffDef>
 
@@ -920,6 +936,12 @@
 				</statFactors>
 			</li>
 		</stages>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
+		</comps>
 	</HediffDef>
 
   <WeatherDef>
@@ -1061,8 +1083,12 @@
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
 		<comps>
 			<li Class="merissu.HediffCompProperties_HailLogic" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
 		</comps>
 	</HediffDef>
 
@@ -1170,6 +1196,12 @@
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
+		</comps>
 		<stages>
 			<li>
 				<statFactors>
@@ -1290,10 +1322,14 @@
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
 		<comps>
 			<li Class="merissu.HediffCompProperties_SpawningMote">
 				<moteDef>Mote_VampireSpell</moteDef>
 				<intervalTicks>0</intervalTicks>
+			</li>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
 			</li>
         	<li Class="merissu.HediffCompProperties_Vampire"/>
 		</comps>
@@ -1424,8 +1460,12 @@
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
 		<comps>
     	    <li Class="merissu.HediffCompProperties_MagicSnow" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
     	</comps>
 	</HediffDef>
 
@@ -1552,8 +1592,12 @@
 				</statFactors>
 			</li>
 		</stages>
+		<maxSeverity>1.0</maxSeverity>
 		<comps>
     	    <li Class="merissu.HediffCompProperties_Sunshower" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
     	</comps>
 	</HediffDef>
 
@@ -1668,6 +1712,12 @@
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
+		</comps>
 		<stages>
 			<li>
 				<statFactors>
@@ -1788,6 +1838,12 @@
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
+		</comps>
 		<stages>
 			<li>
 				<capMods>
@@ -1907,6 +1963,12 @@
         <description>手卡不可见程度的天气,将你的灵力变成1~4之间的随机数值</description>
         <isBad>false</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
+		</comps>
     </HediffDef>
 
 	<WeatherDef>
@@ -2017,10 +2079,14 @@
         <description>距离变得诡异程度的天气,位置会在一定范围内随机变化</description>
         <isBad>false</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
 		<comps>
         	<li Class="merissu.HediffCompProperties_KawamuraRandomMove">
         	    <intervalTicks>60</intervalTicks> 
 				<radius>5</radius>
+			</li>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
 			</li>
     	</comps>
     </HediffDef>
@@ -2131,6 +2197,7 @@
         <tendable>false</tendable>
 		<stages>
 			<li>
+				<painFactor>0</painFactor>
 				<statOffsets>
 					<StaggerDurationFactor>-1.0</StaggerDurationFactor>
 				</statOffsets>
@@ -2143,8 +2210,12 @@
 				</capMods>
 			</li>
 		</stages>
+		<maxSeverity>1.0</maxSeverity>
 		<comps>
 			<li Class="merissu.HediffCompProperties_NoHitStagger"/>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
 		</comps>
     </HediffDef>
 
@@ -2252,8 +2323,12 @@
         <description>治愈伤痛程度的天气,有灵力时会自动治疗伤口</description>
         <isBad>false</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
 		<comps>
     	    <li Class="merissu.HediffCompProperties_NowindHeal" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
     	</comps>
     </HediffDef>
 
@@ -2364,8 +2439,12 @@
         <description>睡着了就会死程度的天气,倒地时,对四肢造成50伤害</description>
         <isBad>true</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
 		<comps>
 			<li Class="merissu.HediffCompProperties_DamageOnDowned" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
     	</comps>
     </HediffDef>
 
@@ -2483,6 +2562,12 @@
 				</statOffsets>
 			</li>
 		</stages>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
+		</comps>
     </HediffDef>
 
 	<WeatherDef>
@@ -2593,8 +2678,12 @@
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>true</isBad>
         <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
 		<comps>
     	    <li Class="merissu.HediffCompProperties_ScorchingBurn" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+			</li>
     	</comps>
     </HediffDef>
 

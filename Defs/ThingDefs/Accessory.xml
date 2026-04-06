@@ -1462,4 +1462,141 @@
     	    <graphicClass>Graphic_Single</graphicClass>
     	</graphicData>
 	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>IceFairy</defName>
+		<label>冰之妖精</label>
+		<description>琪露诺的能力,可以冻住敌人并散播碎冰粒
+
+附属装备卡,装备后获得一个会释放冷气的子机,会消耗灵力,最大射程40格(非追踪型子机只会在征兆时进攻)
+
+胡乱攻击实在显得太过无谋,但是,对于冰之妖精来说这就是最强的证明,有效利用无谋的大范围吧</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/IceFairy</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryEquipmentCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>IceFairy</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>IceFairy</defName>
+        <label>冰之妖精</label>
+        <defaultLabelColor>(153,255,255)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>琪露诺的能力,可以冻住敌人并散播碎冰粒,会消耗灵力</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_IceFairy" />
+    	</comps>
+    </HediffDef>
+
+	<ThingDef>
+		<defName>IceFairyThing</defName>
+		<label>冰晶子机</label>
+		<thingClass>merissu.Thing_IceFairy</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<drawOffscreen>true</drawOffscreen>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Accessory/baka/bulletIa001</texPath>
+			<shaderType>TransparentPostLight</shaderType> 
+		</graphicData>
+		<drawerType>RealtimeOnly</drawerType>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_IceCloud</defName>
+		<thingClass>MoteThrown</thingClass>
+		<graphicData>
+			<texPath>Accessory/baka/bulletBc000</texPath>
+			<shaderType>MoteGlow</shaderType> 
+			<drawSize>(1.5, 1.5)</drawSize>
+		</graphicData>
+		<mote>
+			<fadeInTime>0.1</fadeInTime>
+			<solidTime>0.2</solidTime>
+			<fadeOutTime>0.4</fadeOutTime>
+		</mote>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Crushedice</defName>
+		<label>碎冰</label>
+		<thingClass>merissu.DanmakuBullet</thingClass>
+		<graphicData>
+			<texPath>Projectiles/bulletBd000</texPath>
+			<drawSize>(0.4,0.4)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>Frostbite</damageDef>
+			<damageAmountBase>9</damageAmountBase>
+			<stoppingPower>0.4</stoppingPower>
+			<speed>25</speed>
+		</projectile>
+	</ThingDef>
+
 </Defs>

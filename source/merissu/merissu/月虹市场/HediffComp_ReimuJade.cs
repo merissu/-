@@ -14,26 +14,26 @@ namespace merissu
     {
         private Thing_ReimuJade jade;
 
-        public override void CompPostPostAdd(DamageInfo? dinfo)
-        {
-            base.CompPostPostAdd(dinfo);
-            SpawnJade();
-        }
+        private static readonly ThingDef JadeDef = ThingDef.Named("ReimuJadeThing");
 
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            if (jade == null || !jade.Spawned)
+
+            if (Pawn.IsHashIntervalTick(60))
             {
-                SpawnJade();
+                if (jade == null || !jade.Spawned || jade.Destroyed)
+                {
+                    SpawnJade();
+                }
             }
         }
 
         private void SpawnJade()
         {
-            if (Pawn.Map != null)
+            if (Pawn.Map != null && !Pawn.Dead)
             {
-                jade = (Thing_ReimuJade)ThingMaker.MakeThing(ThingDef.Named("ReimuJadeThing"));
+                jade = (Thing_ReimuJade)ThingMaker.MakeThing(JadeDef);
                 jade.Init(Pawn);
                 GenSpawn.Spawn(jade, Pawn.Position, Pawn.Map);
             }

@@ -17,35 +17,32 @@ namespace merissu
     public class HediffComp_MiniHakkero : HediffComp
     {
         private Thing_StarlightOrb_Follower spawnedOrb;
+        private static readonly Material BlueMat = MaterialPool.MatFrom("Other/StarlightLaser_Blue", ShaderDatabase.MoteGlow);
 
         public HediffCompProperties_MiniHakkero Props => (HediffCompProperties_MiniHakkero)props;
-
-        public override void CompPostPostAdd(DamageInfo? dinfo)
-        {
-            base.CompPostPostAdd(dinfo);
-            SpawnOrb();
-        }
 
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            if (spawnedOrb == null || spawnedOrb.Destroyed)
+
+            if (Pawn.IsHashIntervalTick(60))
             {
-                SpawnOrb();
+                if (spawnedOrb == null || spawnedOrb.Destroyed)
+                {
+                    SpawnOrb();
+                }
             }
         }
 
         private void SpawnOrb()
         {
-            if (Pawn.Map != null)
+            if (Pawn.Spawned && !Pawn.Dead)
             {
                 spawnedOrb = (Thing_StarlightOrb_Follower)ThingMaker.MakeThing(Props.orbDef);
-                Material blueMat = MaterialPool.MatFrom("Other/StarlightLaser_Blue", ShaderDatabase.MoteGlow);
-                spawnedOrb.Init(Pawn, blueMat);
+                spawnedOrb.Init(Pawn, BlueMat);
                 GenSpawn.Spawn(spawnedOrb, Pawn.Position, Pawn.Map);
             }
         }
-
         public override void CompPostPostRemoved()
         {
             base.CompPostPostRemoved();
