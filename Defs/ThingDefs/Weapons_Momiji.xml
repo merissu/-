@@ -30,6 +30,11 @@
         <cooldownTime>0.25</cooldownTime>
       </li>
     </tools>
+	<comps>
+	<li Class="merissu.CompProperties_WearerHediff">
+		<hediff>Momiji_Blade_Equipped</hediff>
+	</li>
+	</comps>
     <costList>
       <Crimsongold>50</Crimsongold>
     </costList>
