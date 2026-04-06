@@ -1468,7 +1468,7 @@
 		<label>冰之妖精</label>
 		<description>琪露诺的能力,可以冻住敌人并散播碎冰粒
 
-附属装备卡,装备后获得一个会释放冷气的子机,会消耗灵力,最大射程40格(非追踪型子机只会在征兆时进攻)
+附属装备卡,装备后获得一个会释放冷气的子机,需要消耗灵力,最大射程40格(非追踪型子机只会在征兆时进攻)
 
 胡乱攻击实在显得太过无谋,但是,对于冰之妖精来说这就是最强的证明,有效利用无谋的大范围吧</description>
 		<techLevel>Industrial</techLevel>
@@ -1541,7 +1541,7 @@
         <label>冰之妖精</label>
         <defaultLabelColor>(153,255,255)</defaultLabelColor>
         <hediffClass>HediffWithComps</hediffClass>
-        <description>琪露诺的能力,可以冻住敌人并散播碎冰粒,会消耗灵力</description>
+        <description>琪露诺的能力,可以冻住敌人并散播碎冰粒,需要消耗灵力</description>
         <isBad>false</isBad>
 		<maxSeverity>1.0</maxSeverity>
 		<comps>

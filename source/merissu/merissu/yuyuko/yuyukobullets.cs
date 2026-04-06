@@ -10,9 +10,7 @@ namespace merissu
         protected override void Tick()
         {
             base.Tick();
-
             if (Destroyed) return;
-
             CheckAdvancedCollision();
         }
 
@@ -26,7 +24,7 @@ namespace merissu
             IEnumerable<Thing> list = GenRadial.RadialDistinctThingsAround(
                 intPos,
                 Map,
-                0.5f, 
+                0.5f,
                 true
             );
 
@@ -34,19 +32,49 @@ namespace merissu
             {
                 if (thing == launcher) continue;
 
-                if (thing is Pawn p)
+                if (thing is Pawn p && !p.Dead && p.Faction != launcher.Faction)
                 {
-                    if (!p.Dead && p.Faction != launcher.Faction)
-                    {
-                        this.Impact(p);
-                        return;
-                    }
+                    ApplyYuyukoDamage(p);
+                    this.Destroy(); 
+                    return;
                 }
                 else if (thing is Building b)
                 {
                     this.Impact(b);
                     return;
                 }
+            }
+        }
+
+        private void ApplyYuyukoDamage(Pawn victim)
+        {
+            float damageAmount = this.def.projectile.GetDamageAmount(launcher);
+            DamageDef customDmgDef = DefDatabase<DamageDef>.GetNamed("DeathButterflyFloatingMoon");
+
+            DamageInfo dinfo = new DamageInfo(
+                customDmgDef,
+                damageAmount,
+                9999f, 
+                -1f,
+                this.launcher,
+                null,
+                this.def
+            );
+
+            dinfo.SetIgnoreArmor(true);
+            dinfo.SetIgnoreInstantKillProtection(true);
+
+            DamageWorker.DamageResult result = victim.TakeDamage(dinfo);
+
+            if (result.totalDamageDealt <= 0.01f && !victim.Dead)
+            {
+                BodyPartRecord part = victim.health.hediffSet.GetNotMissingParts().RandomElement();
+                Hediff_Injury injury = (Hediff_Injury)HediffMaker.MakeHediff(HediffDef.Named("DeathReturns"), victim, part);
+                injury.Severity = damageAmount;
+                victim.health.AddHediff(injury, part, dinfo);
+
+                float extraSeverity = damageAmount * 0.2f;
+                HealthUtility.AdjustSeverity(victim, HediffDef.Named("EternalSleepInFantasy"), extraSeverity);
             }
         }
     }

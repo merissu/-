@@ -513,7 +513,7 @@
 		<label>蝶舞幽冥扇</label>
 		<description>西行寺幽幽子的折扇，拥有引导死亡的能力，翩翩起舞的死蝶将带走被命中者的灵魂。
 
-这把扇子对敌人造成足够伤害后会直接使敌人死亡,消耗符卡后便可以发动极其强大的能力</description>
+这把扇子会直接击中敌人的灵魂,无法被任何防御手段抵挡,对敌人造成足够伤害后会直接使敌人死亡,消耗符卡后便可以发动极其强大的能力</description>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/DeathButterfliesFan</texPath>
@@ -675,7 +675,7 @@
 		<additionalHediffs>
 			<li>
 				<hediff>EternalSleepInFantasy</hediff>
-				<severityPerDamageDealt>0.2</severityPerDamageDealt>
+				<severityPerDamageDealt>0.05</severityPerDamageDealt>
 				<victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
 			</li>
 		</additionalHediffs>
