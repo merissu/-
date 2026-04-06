@@ -9,7 +9,7 @@
   <tendable>false</tendable>
   <maxSeverity>1.0</maxSeverity>
   <abilities>
-    <li>Nazrin_TreasureHunt</li>   <!-- 你的探宝符卡 -->
+    <li>Nazrin_TreasureHunt</li>   <!-- 探宝符卡 -->
     <li>Nazrin_RevealMap</li>      <!-- 揭示地图符卡 -->
   </abilities>
 </HediffDef>
