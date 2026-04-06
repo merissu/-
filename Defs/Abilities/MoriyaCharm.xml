@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ========== 奇迹效果Hediff定义 ========== -->
+
+  <!-- 星之奇迹效果 -->
+<HediffDef>
+  <defName>Miracle_Star_Effect</defName>
+  <label>星之奇迹</label>
+  <description>近战能力大幅提升。</description>
+  <hediffClass>HediffWithComps</hediffClass>
+  <isBad>false</isBad>
+  <maxSeverity>1.0</maxSeverity>
+  <comps>
+    <li Class="HediffCompProperties_SeverityPerDay">
+      <severityPerDay>-1.0</severityPerDay>
+      <showHoursToRecover>true</showHoursToRecover>
+    </li>
+  </comps>
+  <stages>
+    <li>
+      <statOffsets>
+        <MeleeDamageFactor>5.0</MeleeDamageFactor>
+      </statOffsets>
+      <statFactors>
+        <MeleeHitChance>5.0</MeleeHitChance>
+        <MeleeCooldownFactor>0.25</MeleeCooldownFactor>    <!-- 近战冷却时间 -75% -->
+      </statFactors>
+    </li>
+  </stages>
+</HediffDef>
+
+  <!-- 月之奇迹效果 -->
+<HediffDef>
+  <defName>Miracle_Moon_Effect</defName>
+  <label>月之奇迹</label>
+  <description>工作速度激增，且不会疲劳。</description>
+  <hediffClass>HediffWithComps</hediffClass>
+  <isBad>false</isBad>
+  <maxSeverity>1.0</maxSeverity>
+  <comps>
+    <li Class="HediffCompProperties_SeverityPerDay">
+      <severityPerDay>-1.0</severityPerDay>
+      <showHoursToRecover>true</showHoursToRecover>
+    </li>
+  </comps>
+  <stages>
+    <li>
+      <statFactors>
+        <WorkSpeedGlobal>2.0</WorkSpeedGlobal>
+        <RestFallRateFactor>0</RestFallRateFactor> <!-- 疲劳不下降 -->
+      </statFactors>
+      <capMods>
+        <li><capacity>Consciousness</capacity><offset>1.0</offset></li>
+        <li><capacity>Manipulation</capacity><offset>2.0</offset></li>
+      </capMods>
+    </li>
+  </stages>
+</HediffDef>
+
+  <!-- 日之奇迹效果 -->
+  <HediffDef>
+    <defName>Miracle_Sun_Effect</defName>
+    <label>日之奇迹</label>
+    <description>远程射击能力大幅提升。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+        <li Class="HediffCompProperties_SeverityPerDay">
+            <severityPerDay>-1.0</severityPerDay>
+            <showHoursToRecover>true</showHoursToRecover>
+        </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <ShootingAccuracyPawn>5.0</ShootingAccuracyPawn>   <!-- 精度 -->
+        </statFactors>
+        <statOffsets>
+          <AimingDelayFactor>-0.75</AimingDelayFactor>        <!-- 瞄准时间 -->
+          <RangedCooldownFactor>-0.75</RangedCooldownFactor> <!-- 冷却 -->
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 山之奇迹效果 -->
+  <HediffDef>
+    <defName>Miracle_Mountain_Effect</defName>
+    <label>山之奇迹</label>
+    <description>坚如磐石，超速再生。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+        <li Class="HediffCompProperties_SeverityPerDay">
+            <severityPerDay>-1.0</severityPerDay>
+            <showHoursToRecover>true</showHoursToRecover>
+        </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <IncomingDamageFactor>0.1</IncomingDamageFactor>   <!-- 承伤-90% -->
+          <InjuryHealingFactor>10.0</InjuryHealingFactor>     <!-- 自愈×1000% -->
+        </statFactors>
+        <capMods>
+          <li><capacity>Consciousness</capacity><offset>1.0</offset></li> <!-- 意识×200% -->
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 海之奇迹效果（清除负面 + 死亡回避） -->
+  <HediffDef>
+    <defName>Miracle_Sea_Effect</defName>
+    <label>海之奇迹</label>
+    <description>净化一切污秽，并赋予一次死亡回避。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+        <li Class="HediffCompProperties_SeverityPerDay">
+            <severityPerDay>-240.0</severityPerDay>
+            <showHoursToRecover>true</showHoursToRecover>
+        </li>
+      <!-- 清除负面状态 -->
+      <li Class="merissu.HediffCompProperties_Heal" />
+    </comps>
+    <!-- 死亡回避通过技能直接添加 DeathRefusal，不在这个Hediff里做 -->
+  </HediffDef>
+
+  <!-- 空之奇迹效果（学习速度+随机技能点） -->
+  <HediffDef>
+    <defName>Miracle_Sky_Effect</defName>
+    <label>空之奇迹</label>
+    <description>学习速度激增，并获得随机技能经验。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+        <li Class="HediffCompProperties_SeverityPerDay">
+            <severityPerDay>-1.0</severityPerDay>
+            <showHoursToRecover>true</showHoursToRecover>
+        </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <GlobalLearningFactor>5.0</GlobalLearningFactor>   <!-- +500%学习速度 -->
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 风之奇迹效果 -->
+  <HediffDef>
+    <defName>Miracle_Wind_Effect</defName>
+    <label>风之奇迹</label>
+    <description>疾风迅雷，灵动闪避。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+        <li Class="HediffCompProperties_SeverityPerDay">
+            <severityPerDay>-1.0</severityPerDay>
+            <showHoursToRecover>true</showHoursToRecover>
+        </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MoveSpeed>30.0</MoveSpeed>
+          <MeleeDodgeChance>5.0</MeleeDodgeChance> <!-- 近战闪避 -->
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- ========== 奇迹技能AbilityDef ========== -->
+
+  <!-- 奇迹「星耀」 -->
+  <AbilityDef>
+    <defName>Miracle_Star</defName>
+    <label>奇迹「星耀」</label>
+    <description>消耗1层符卡，获得大量近战增益效果。</description>
+	<iconPath>Abilities/Miracle_Star</iconPath>
+    <abilityClass>TouhouExpansion.Ability_Miracle_Star</abilityClass>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<soundCast>spell</soundCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Miracle_Star_Effect</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+  </AbilityDef>
+
+  <!-- 奇迹「月华」 -->
+  <AbilityDef>
+    <defName>Miracle_Moon</defName>
+    <label>奇迹「月华」</label>
+    <description>消耗1层符卡，全局工作速度×200%，且不会疲劳，持续24小时。</description>
+	<iconPath>Abilities/Miracle_Moon</iconPath>
+    <abilityClass>TouhouExpansion.Ability_Miracle_Moon</abilityClass>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<soundCast>spell</soundCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Miracle_Moon_Effect</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+  </AbilityDef>
+
+  <!-- 奇迹「日灼」 -->
+  <AbilityDef>
+    <defName>Miracle_Sun</defName>
+    <label>奇迹「日灼」</label>
+    <description>消耗1层符卡，获得大量远程射速和精度增益，持续24小时。</description>
+	<iconPath>Abilities/Miracle_Sun</iconPath>
+    <abilityClass>TouhouExpansion.Ability_Miracle_Sun</abilityClass>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<soundCast>spell</soundCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Miracle_Sun_Effect</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+  </AbilityDef>
+
+  <!-- 奇迹「山岳」 -->
+  <AbilityDef>
+    <defName>Miracle_Mountain</defName>
+    <label>奇迹「山岳」</label>
+    <description>消耗1层符卡，承伤-90%，意识×200%，自愈×1000%，持续24小时。</description>
+	<iconPath>Abilities/Miracle_Mountain</iconPath>
+    <abilityClass>TouhouExpansion.Ability_Miracle_Mountain</abilityClass>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<soundCast>spell</soundCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Miracle_Mountain_Effect</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+  </AbilityDef>
+
+  <!-- 奇迹「海潮」（清除负面 + 死亡回避） -->
+  <AbilityDef>
+    <defName>Miracle_Sea</defName>
+    <label>奇迹「海潮」</label>
+    <description>消耗1层符卡，清除所有负面状态和损伤，并获得一次死亡回避，持续24小时。</description>
+	<iconPath>Abilities/Miracle_Sea</iconPath>
+    <abilityClass>TouhouExpansion.Ability_Miracle_Sea</abilityClass>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<soundCast>spell</soundCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Miracle_Sea_Effect</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+  </AbilityDef>
+
+  <!-- 奇迹「空灵」（随机技能点） -->
+  <AbilityDef>
+    <defName>Miracle_Sky</defName>
+    <label>奇迹「空灵」</label>
+    <description>消耗1层符卡，学习速度+500%，并随机获得若干技能经验，持续24小时。</description>
+	<iconPath>Abilities/Miracle_Sky</iconPath>
+    <abilityClass>TouhouExpansion.Ability_Miracle_Sky</abilityClass>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<soundCast>spell</soundCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Miracle_Sky_Effect</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+  </AbilityDef>
+
+  <!-- 奇迹「风驰」 -->
+  <AbilityDef>
+    <defName>Miracle_Wind</defName>
+    <label>奇迹「风驰」</label>
+    <description>消耗1层符卡，移动速度+30，近战闪避+10，持续24小时。</description>
+	<iconPath>Abilities/Miracle_Wind</iconPath>
+    <abilityClass>TouhouExpansion.Ability_Miracle_Wind</abilityClass>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<soundCast>spell</soundCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Miracle_Wind_Effect</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+		</comps>
+  </AbilityDef>
+
+</Defs>

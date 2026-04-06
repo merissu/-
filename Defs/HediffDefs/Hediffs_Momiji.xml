@@ -23,4 +23,108 @@
       </li>
     </stages>
   </HediffDef>
+  <HediffDef>
+    <defName>RabiesBiteChargeSpeed</defName>
+    <label>狂犬冲锋</label>
+    <description>冲锋时速度大幅提升。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-500.0</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>5.0</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+<HediffDef>
+  <defName>Momiji_Blade_Equipped</defName>
+  <label>天狗哨戒长刀装备中</label>
+  <description>装备了天狗哨戒长刀。</description>
+  <hediffClass>HediffWithComps</hediffClass>
+  <isBad>false</isBad>
+  <maxSeverity>1.0</maxSeverity>
+  <abilities>
+    <li>RabiesBite</li>
+	<li>ExpelleesCanaan</li>
+  </abilities>
+</HediffDef>
+
+<HediffDef>
+  <defName>ExpelleesCanaan_Aura</defName>
+  <label>约定之地（光环）</label>
+  <description>被选中的战士周围弥漫着约定的力量。</description>
+  <hediffClass>HediffWithComps</hediffClass>
+  <isBad>false</isBad>
+  <maxSeverity>1.0</maxSeverity>
+  <comps>
+    <li Class="HediffCompProperties_SeverityPerDay">
+      <severityPerDay>-4.0</severityPerDay>
+      <showHoursToRecover>true</showHoursToRecover>
+    </li>
+    <li Class="HediffCompProperties_GiveHediffsInRange">
+      <range>15</range>
+      <targetingParameters>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetMechs>false</canTargetMechs>
+        <onlyTargetColonists>false</onlyTargetColonists>
+        <canTargetPawns>true</canTargetPawns>
+      </targetingParameters>
+      <hediff>ExpelleesCanaan_Buff</hediff>
+    </li>
+  </comps>
+  <stages>
+    <li>
+        <statOffsets>
+          <ArmorRating_Sharp>0.75</ArmorRating_Sharp>       <!-- 锐器护甲+75% -->
+          <ArmorRating_Blunt>0.75</ArmorRating_Blunt>       <!-- 钝器护甲+75% -->
+          <ArmorRating_Heat>0.75</ArmorRating_Heat>       <!-- 热能护甲+75% -->
+        </statOffsets>
+        <statFactors>
+          <MeleeHitChance>1.5</MeleeHitChance>       <!-- 近战命中+50% -->
+          <MeleeDodgeChance>1.5</MeleeDodgeChance>   <!-- 近战闪避+50% -->
+          <InjuryHealingFactor>3.0</InjuryHealingFactor>   <!-- 自愈速度×3 -->
+        </statFactors>
+    </li>
+  </stages>
+</HediffDef>
+
+  <!-- 队友获得的子Hediff -->
+<HediffDef>
+  <defName>ExpelleesCanaan_Buff</defName>
+  <label>约定之地</label>
+  <description>受到约定的祝福。</description>
+  <hediffClass>HediffWithComps</hediffClass>
+  <isBad>false</isBad>
+  <maxSeverity>1.0</maxSeverity>
+  <comps>
+    <!-- 5秒后自动消失，光环会每1秒刷新一次，确保持续存在 -->
+    <li Class="HediffCompProperties_Disappears">
+      <disappearsAfterTicks>300</disappearsAfterTicks>
+    </li>
+  </comps>
+  <stages>
+    <li>
+        <statOffsets>
+          <ArmorRating_Sharp>0.75</ArmorRating_Sharp>       <!-- 锐器护甲+75% -->
+          <ArmorRating_Blunt>0.75</ArmorRating_Blunt>       <!-- 钝器护甲+75% -->
+          <ArmorRating_Heat>0.75</ArmorRating_Heat>       <!-- 热能护甲+75% -->
+        </statOffsets>
+        <statFactors>
+          <MeleeHitChance>1.5</MeleeHitChance>       <!-- 近战命中+50% -->
+          <MeleeDodgeChance>1.5</MeleeDodgeChance>   <!-- 近战闪避+50% -->
+          <InjuryHealingFactor>3.0</InjuryHealingFactor>   <!-- 自愈速度×3 -->
+        </statFactors>
+    </li>
+  </stages>
+</HediffDef>
 </Defs>

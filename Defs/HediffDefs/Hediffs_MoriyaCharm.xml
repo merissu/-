@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>MiracleOngoing</defName>
+    <label>奇迹进行时</label>
+    <description>守矢神社护符的常驻祝福，各项能力小幅提升。同时可通过消耗灵力激活更强大的奇迹之力。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <stages>
+      <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>2</ShootingAccuracyPawn>
+          <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+        </statOffsets>
+        <statFactors>
+          <MoveSpeed>1.25</MoveSpeed>
+          <MeleeHitChance>1.25</MeleeHitChance>
+          <WorkSpeedGlobal>1.5</WorkSpeedGlobal>
+		  <AimingDelayFactor>0.75</AimingDelayFactor>
+          <RangedCooldownFactor>0.75</RangedCooldownFactor>
+        </statFactors>
+      </li>
+    </stages>
+    <abilities>
+      <li>Miracle_Star</li>
+      <li>Miracle_Moon</li>
+      <li>Miracle_Sun</li>
+      <li>Miracle_Mountain</li>
+      <li>Miracle_Sea</li>
+      <li>Miracle_Sky</li>
+      <li>Miracle_Wind</li>
+    </abilities>
+  </HediffDef>
+</Defs>
