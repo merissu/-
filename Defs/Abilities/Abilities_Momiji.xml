@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <AbilityDef>
+    <defName>RabiesBite</defName>
+    <label>狗符「狂犬断噬」</label>
+    <description>向敌人发起冲锋，用利齿撕咬目标咽喉，造成巨额伤害并附加天狗之噬。</description>
+    <abilityClass>TouhouExpansion.Ability_RabiesBite</abilityClass>
+    <cooldownTicksRange>600</cooldownTicksRange>
+    <targetRequired>true</targetRequired>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+	  <soundCast>spell</soundCast>
+      <range>20</range>
+      <warmupTime>0.5</warmupTime>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetMechs>true</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <iconPath>Abilities/RabiesBite</iconPath>
+  </AbilityDef>
+
+  <JobDef>
+    <defName>Job_RabiesBite</defName>
+    <driverClass>TouhouExpansion.JobDriver_RabiesBite</driverClass>
+    <reportString>正在冲锋撕咬。</reportString>
+  </JobDef>
+  
+   <AbilityDef>
+    <defName>ExpelleesCanaan</defName>
+    <label>山窝「遭放逐者的约定之地」</label>
+    <description>消耗1层符卡，以自身为中心产生祝福光环，提升自身以周围友军的近战能力、自愈速度和防御力，持续一段时间。</description>
+    <abilityClass>TouhouExpansion.Ability_ExpelleesCanaan</abilityClass>   <!-- 自定义消耗类 -->
+    <cooldownTicksRange>12000</cooldownTicksRange>   <!-- 30秒冷却 -->
+    <targetRequired>false</targetRequired>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1.0</warmupTime>
+      <soundCast>spell</soundCast>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <iconPath>Abilities/ExpelleesCanaan</iconPath>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>ExpelleesCanaan_Aura</hediffDef>
+        <onlyApplyToSelf>True</onlyApplyToSelf>
+        <severity>1.0</severity>
+        <replaceExisting>True</replaceExisting>
+      </li>
+    </comps>
+  </AbilityDef>
+</Defs>
