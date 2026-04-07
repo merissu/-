@@ -86,6 +86,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="月虹市场\HediffComp_StatusLink.cs" />
+    <Compile Include="月虹市场\HediffCompProperties_MiserLogic.cs" />
+    <Compile Include="月虹市场\HediffCompProperties_AnnnoyingUFO.cs" />
+    <Compile Include="月虹市场\Thing_AnnnoyingUFO.cs" />
     <Compile Include="月虹市场\HediffCompProperties_IceFairy.cs" />
     <Compile Include="月虹市场\Thing_IceFairy.cs" />
     <Compile Include="月虹市场\HediffComp_Shanghai.cs" />
