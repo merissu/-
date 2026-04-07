@@ -68,6 +68,7 @@
   			<li>ExoticMisc</li> 
 			<li>Medicine</li>   
 		</tradeTags>
+		<tradeability>Sellable</tradeability>
 		<graphicData>
 			<texPath>Medicine/MedicineOfTheBambooForest</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
@@ -809,7 +810,8 @@
 		<graphicData>
 			<texPath>Medicine/E_HiPotion</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.68,0.68)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<description>为了让病人更快康复而制作的药,如果不想让病人整天躺在床上,那就给她服下这个药吧。</description>
 		<tradeTags>
@@ -820,6 +822,7 @@
 			<MarketValue>250</MarketValue>
 			<Mass>0.1</Mass>
 		</statBases>
+		<tradeability>Sellable</tradeability>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>1</FullPower>
@@ -922,7 +925,8 @@
 		<graphicData>
 			<texPath>Medicine/UniversalInjection</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<description>对不老不死之药心怀抗拒，但说是长寿药便会开心，这便是在这种人中间颇具人气的药。
 		
@@ -1027,7 +1031,8 @@
 		<graphicData>
 			<texPath>Medicine/E_LargeHiPotion</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.68,0.68)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<description>浓缩后的苏活秘药，可以激发人的生命力，让人以不可思议的速度自愈，对各种病症和伤疤都有治疗效果。</description>
 		<tradeability>Sellable</tradeability>
@@ -1113,7 +1118,8 @@
     <graphicData>
 		<texPath>Medicine/ReturnFromDeath</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-		<drawSize>(0.6,0.6)</drawSize>
+		<drawSize>(1,1)</drawSize>
+		<shaderType>Mote</shaderType>
     </graphicData>
     <stackLimit>10</stackLimit>
     <statBases>
@@ -1168,7 +1174,8 @@
 		<graphicData>
 			<texPath>Medicine/HighlyToxicBody</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<description>服下这种药可以暂时获得操纵毒素程度的能力,让自身周围产生只会被敌人吸入的毒气,这种毒气吸入一点便会让敌人皮肤溃烂陷入疯狂,中了铃兰之毒的敌人肯定会十分痛苦地死去。</description>
 		<tradeTags>
@@ -1508,7 +1515,8 @@
 		<graphicData>
 			<texPath>Medicine/MightierThanThousands</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<description>永琳制造的强壮药。每次服用都能在一定时间内提升攻击力和防御力。另外，服用过度会发生“那种事情”哦。</description>
 		<tradeTags>
@@ -1762,7 +1770,8 @@
 		<graphicData>
 			<texPath>Medicine/ButterflyDreamPill</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.7,0.7)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<description>八意永琳特为苦恼中的现代人们开发出的「可以做好梦」的、名符其实的梦幻的新药,服用后会感受到成为蝴蝶的快乐,由此而得名「蝴蝶梦丸」
 
@@ -2192,7 +2201,8 @@
 		<graphicData>
 			<texPath>Medicine/OgenticJadeRabbit</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<description>服用后会使人散发能让人产生强烈幻觉的香气,大幅提升一定范围内的人的心情,完全没有任何副作用哦。</description>
 		<tradeTags>
@@ -2536,7 +2546,8 @@
 		<graphicData>
 			<texPath>Medicine/Energizer</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.9,0.9)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<description>⑨仔奶粉,喝了就会元气满满~
 
@@ -2920,11 +2931,12 @@
 
 	<ThingDef ParentName="THDrugBase">
 		<defName>MeteorStreamX</defName>
-		<label>流星群X</label>
+		<label>流星群·X</label>
 		<graphicData>
 			<texPath>Medicine/MeteorStreamX</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.9,0.9)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<description>喝一口就可以摆脱睡意,大幅提升工作效率,可以把积攒了一个月的工作一夜间一口气做完。</description>
 		<tradeability>Sellable</tradeability>
@@ -3026,9 +3038,10 @@
 		<graphicData>
 			<texPath>Medicine/FabledAbodeImmortalsMedicine</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.9,0.9)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
-		<description>蓬莱山辉夜在月球时,出于天真的好奇心找永琳索要不老不死之药,也就是名为蓬莱之药的东西,永琳为她制作了蓬莱之药并交给了她。
+		<description>七色年糕所铸就的不死之药 ~ 蓬莱山辉夜在月球时,出于天真的好奇心找永琳索要不老不死之药,也就是名为蓬莱之药的东西,永琳为她制作了蓬莱之药并交给了她。
 
 人类喝了药,就会永远受苦。不被允许死去,也不能成仙,再也不能像一个人类一样和其它人类生活。这个药是月之民为了测试地上的人类而存在的。如果没有污秽的月之民喝了这个药,变得不老不死的同时,由于被不老不死所诱惑,也会产生和人类同样的污秽，再也不能在月之都继续生活。
 
@@ -3074,8 +3087,8 @@
 			<drugCategory>Medical</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
 			<foodType>Fluid</foodType>
-			<ingestCommandString>服下{0}</ingestCommandString>
-			<ingestReportString>服下{0}</ingestReportString>
+			<ingestCommandString>食用{0}</ingestCommandString>
+			<ingestReportString>食用{0}</ingestReportString>
 		    <ingestSound>penglai</ingestSound>
 			<outcomeDoers>
 				<li Class="merissu.IngestionOutcomeDoer_GivePenglaiImmortal">
