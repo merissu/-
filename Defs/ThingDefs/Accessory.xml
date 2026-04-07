@@ -1599,4 +1599,287 @@
 		</projectile>
 	</ThingDef>
 
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>AnnnoyingUFO</defName>
+		<label>恼人的UFO</label>
+		<description>封兽鵺的能力,自身周围会有UFO环绕,UFO能够成为消去敌弹的掩体
+
+附属装备卡,装备后获得一个UFO掩体,拦截十发子弹后会切换颜色并根据颜色给予灵力/残机/符卡
+
+看过很多UFO的照片吧?但是从来没发生过宇宙战争,因为UFO只是单纯想飞才飞而已</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/AnnnoyingUFO</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryEquipmentCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>AnnnoyingUFO</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>AnnnoyingUFO</defName>
+        <label>恼人的UFO</label>
+        <defaultLabelColor>(0,204,102)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>封兽鵺的能力,自身周围会有UFO环绕,UFO能够成为消去敌弹的掩体</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+            <li Class="merissu.HediffCompProperties_AnnnoyingUFO" />
+        </comps>
+    </HediffDef>
+
+	<ThingDef>
+        <defName>AnnnoyingUFO_Thing</defName>
+        <label>UFO</label>
+        <thingClass>merissu.Thing_AnnnoyingUFO</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <graphicData>
+            <texPath>Accessory/UFO/blue000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+	
+    <ApparelLayerDef>
+        <defName>AuxiliaryAbilityCard</defName>
+        <label>附属能力卡</label>
+        <drawOrder>999</drawOrder>
+    </ApparelLayerDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>miser</defName>
+		<label>守财奴的教诲</label>
+		<description>河城荷取的能力,即“掉在地上的全都是自己的！”灵力利用效率会大幅增加
+
+附属能力卡,装备后,每次消耗灵力会返还一半的灵力
+
+既然河童能伸长手臂,那肯定是利用这一招来网罗万物的</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/miser</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryAbilityCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>miser</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>miser</defName>
+        <label>守财奴的教诲</label>
+        <defaultLabelColor>(0,153,0)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>河城荷取的能力,即“掉在地上的全都是自己的！”灵力利用效率会大幅增加</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="merissu.HediffCompProperties_MiserLogic">
+				<targetHediffDef>spiritualpower</targetHediffDef>
+				<refundMultiplier>0.5</refundMultiplier>
+				<threshold>0.01</threshold>
+			</li>
+		</comps>
+    </HediffDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>YasakaKanako</defName>
+		<label>献给神山的供物</label>
+		<description>八坂神奈子的能力,可以将献给大山的供品全部回收,道具获取率会大幅提升
+
+附属能力卡,装备后,获得符卡时会多获得一个残机,获得残机时会多获得一张符卡
+
+“献给大山的，便是属于我的！”啊啊,乍一听是多么自私的说法啊！</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/YasakaKanako</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryAbilityCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>YasakaKanako</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>YasakaKanako</defName>
+        <label>献给神山的供物</label>
+        <defaultLabelColor>(102,51,204)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>八坂神奈子的能力,可以将献给大山的供品全部回收,道具获取率会大幅提升</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+            <li Class="merissu.HediffCompProperties_MountainGodLogic" />
+        </comps>
+    </HediffDef>
+
 </Defs>
