@@ -10,6 +10,7 @@
 	<graphicData>
 		<texPath>Material/Crimsongold</texPath>
 		<graphicClass>Graphic_StackCount</graphicClass>
+		<shaderType>Mote</shaderType>
 	</graphicData>
 	<equippedAngleOffset>20</equippedAngleOffset>
 	<soundInteract>Metal_Drop</soundInteract>
@@ -216,6 +217,7 @@
 		<graphicData>
 			<texPath>Material/MakaiShinkiCloth</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>200</MaxHitPoints>
@@ -331,6 +333,7 @@
 		<graphicData>
 			<texPath>Material/ReimuSakuraPetal</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>200</MaxHitPoints>
@@ -367,6 +370,7 @@
 		<graphicData>
 			<texPath>Material/JadeBranch</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>9961</MaxHitPoints>
