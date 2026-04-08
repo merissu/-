@@ -2373,13 +2373,13 @@
         <mote>
 			<fadeInTime>0</fadeInTime>
 			<solidTime>0.0</solidTime>
-			<fadeOutTime>0.2</fadeOutTime>
+			<fadeOutTime>0.4</fadeOutTime>
         </mote>
     </ThingDef>
 
 	<ShaderTypeDef>
 		<defName>merissu_RedGhost</defName>
 		<shaderPath>merissu/RW_Mote_CyberRedGhost</shaderPath>
-	</ShaderTypeDef>
-	
+	</ShaderTypeDef>	
+
 </Defs>

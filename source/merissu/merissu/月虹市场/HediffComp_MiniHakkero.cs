@@ -13,12 +13,17 @@ namespace merissu
             compClass = typeof(HediffComp_MiniHakkero);
         }
     }
-
+    [StaticConstructorOnStartup]
     public class HediffComp_MiniHakkero : HediffComp
     {
         private Thing_StarlightOrb_Follower spawnedOrb;
-        private static readonly Material BlueMat = MaterialPool.MatFrom("Other/StarlightLaser_Blue", ShaderDatabase.MoteGlow);
 
+        private static readonly Material BlueMat;
+
+                static HediffComp_MiniHakkero()
+        {
+            BlueMat = MaterialPool.MatFrom("Other/StarlightLaser_Blue", ShaderDatabase.MoteGlow);
+        }
         public HediffCompProperties_MiniHakkero Props => (HediffCompProperties_MiniHakkero)props;
 
         public override void CompPostTick(ref float severityAdjustment)

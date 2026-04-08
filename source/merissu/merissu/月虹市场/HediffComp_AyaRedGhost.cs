@@ -7,7 +7,7 @@ using Verse;
 
 namespace merissu
 {
-
+    [StaticConstructorOnStartup]
     public class Mote_AyaRedGhost : MoteThrown
     {
         public Texture snapshotTex;

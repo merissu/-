@@ -18,7 +18,6 @@ namespace merissu
 
         public override void CompPostTick(ref float severityAdjustment)
         {
-            // 每200tick检查一次，确保UFO存在（比如地图切换后重新生成）
             if (Pawn.IsHashIntervalTick(200) && Pawn.Spawned && !Pawn.Dead)
             {
                 if (ufo == null || !ufo.Spawned || ufo.Destroyed)
