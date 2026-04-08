@@ -282,7 +282,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.5,0.5)</drawSize>
 		</graphicData>
-		<description>主动道具卡,可以让人在灵力稀薄的地方收集灵气的魔法道具,灵力可以强化身体素质,提高火力
+		<description>即时消耗卡,可以让人在灵力稀薄的地方收集灵气的魔法道具,灵力可以强化身体素质,提高火力
 
 使用后会获得收集灵力程度的能力,可以收取全图的p点并转化为灵力</description>
 		<tradeTags>
@@ -456,7 +456,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.5,0.5)</drawSize>
 		</graphicData>
-		<description>主动道具卡,使用后增加一张符卡,最多可获得十张符卡,符卡可以用来发动符卡宣言,使用极其强大的能力
+		<description>即时消耗卡,使用后增加一张符卡,最多可获得十张符卡,符卡可以用来发动符卡宣言,使用极其强大的能力
 
 叫符咒的卡牌会让人迷惑与符卡有什么不同,虽然效果很朴素但还是比较有用的,虽然效果很朴素...</description>
 		<tradeTags>
@@ -523,7 +523,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.5,0.5)</drawSize>
 		</graphicData>
-		<description>主动道具卡,使用后增加一个生命,最多可获得十个生命
+		<description>即时消耗卡,使用后增加一个生命,最多可获得十个生命
 
 受到任何伤害时会消耗一个生命,抵消此次伤害并清除身上所有伤口,然后获得五秒无敌时间
 
@@ -679,7 +679,7 @@
 		</graphicData>
 		<description>娜兹玲的能力,可以增加金钱,实际上只是让老鼠把掉在地上找不到的零钱收集起来了而已
 
-主动道具卡,使用后增加0~300的银</description>
+即时消耗卡,使用后增加0~300的银</description>
 		<tradeTags>
 		    <li>ExoticMisc</li> 
 		</tradeTags>		
@@ -743,7 +743,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.5,0.5)</drawSize>
 		</graphicData>
-		<description>主动道具卡,铃瑚的能力,可以大幅提升火力,使用后获得2灵力
+		<description>即时消耗卡,铃瑚的能力,可以大幅提升火力,使用后获得2灵力
 
 空着肚子可没法战斗,要不来个铃瑚团子？</description>
 		<tradeTags>

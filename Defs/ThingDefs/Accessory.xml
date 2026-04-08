@@ -1882,4 +1882,504 @@
         </comps>
     </HediffDef>
 
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>LuckyRabbitFoot</defName>
+		<label>幸运兔脚</label>
+		<description>因幡天为的能力,在中弹时稍微会获得一点幸运,使用符卡的有效时间变长
+
+附属能力卡,装备后,残机或者符卡每次使用时有50%的概率不消耗
+
+像兔子一样敏捷、狡猾,能够回避中弹的幸运护符。</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/LuckyRabbitFoot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryAbilityCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>LuckyRabbitFoot</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>LuckyRabbitFoot</defName>
+        <label>幸运兔脚</label>
+        <defaultLabelColor>(255,153,153)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>因幡天为的能力,在中弹时稍微会获得一点幸运,使用符卡的有效时间变长</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_LuckyRabbitFoot" />
+    	</comps>
+    </HediffDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Survivalfittest</defName>
+		<label>弱肉强食之理</label>
+		<description>骊驹早鬼的能力,可以让自身的射击变得更强,即使处于低火力状态也会变得很强,十分好用的能力
+
+附属能力卡,装备后,射击速度和精度大大提高
+
+不管如何绞尽脑汁,想尽千方百计,在压倒性的力量面前,万物均会降伏。说到底,最重要的还是攻击力</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/Survivalfittest</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryAbilityCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>Survivalfittest</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>Survivalfittest</defName>
+        <label>弱肉强食之理</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>骊驹早鬼的能力,可以让自身的射击变得更强,即使处于低火力状态也会变得很强,十分好用的能力</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<stages>
+			<li>
+				<statFactors>
+					<AimingDelayFactor>0.2</AimingDelayFactor>
+					<ShootingAccuracyPawn>2.0</ShootingAccuracyPawn>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>1</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+    </HediffDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>koishicard</defName>
+		<label>小石子帽子</label>
+		<description>古明地恋的能力,不再会撞到敌机本体
+
+附属能力卡,装备后,不再被敌人索敌
+
+难道说没人注意到我？这样啊,这下就方便了。</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+                <Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Intellectual</workSkill>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisites>
+				<li>MoonlightMarket</li>
+			</researchPrerequisites>
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/koishicard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>10000</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.5</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>0.4</Flammability>
+			<EquipDelay>0.2</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<wornGraphicPath>Accessory/koishi/koishicard</wornGraphicPath> 
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<parentTagDef>ApparelHead</parentTagDef>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryAbilityCard</li>
+			</layers>
+			</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>koishicard</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>koishicard</defName>
+        <label>小石子帽子</label>
+        <defaultLabelColor>(102,204,153)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>古明地恋的能力,不再会撞到敌机本体</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Invisibility">
+				<visibleToPlayer>true</visibleToPlayer>
+			</li>
+		</comps>
+    </HediffDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>ExplodingRedFrog</defName>
+		<label>爆裂赤蛙</label>
+		<description>洩矢诹访子的能力,让附近的敌人死亡时会爆炸,爆炸能溅射到附近的杂鱼敌人
+
+附属能力卡,装备后,附近40格的敌人死亡时会造成一次爆炸
+
+时常能听说把爆竹塞进青蛙体内让其爆炸的故事,不过你肯定觉得青蛙不可能自己爆炸对吧,事实上,它真的会自己爆炸</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/ExplodingRedFrog</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryAbilityCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>ExplodingRedFrog</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>ExplodingRedFrog</defName>
+        <label>爆裂赤蛙</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>洩矢诹访子的能力,让附近的敌人死亡时会爆炸,爆炸能溅射到附近的杂鱼敌人</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_FrogAura" />
+    	</comps>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>FrogBoom</defName>
+        <label>爆裂赤蛙</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>你死了,Boom!</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+    	    <li Class="merissu.HediffCompProperties_ExplodeOnDeath" />
+    	</comps>
+    </HediffDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>ayacard</defName>
+		<label>疾风木屐</label>
+		<description>射命丸文的能力,可以超高速移动,进入征兆状态时便能超高速移动
+
+附属能力卡,装备后,征兆时会进行超高速移动
+
+只有天狗才能做到这种主动引发判定欺诈的能力</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/ayacard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryAbilityCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>ayacard</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>ayacard</defName>
+        <label>疾风木屐</label>
+		<defaultLabelColor>(204,153,102)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>射命丸文的能力,可以超高速移动,进入征兆状态时便能超高速移动</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="merissu.HediffCompProperties_AyaRedGhost" />
+	    </comps>
+		<stages>
+			<li>
+				<minSeverity>0.1</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>0.1</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.9</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>4.0</offset>
+					</li>
+				</capMods>
+				<statOffsets>
+					<MoveSpeed>2.0</MoveSpeed> 
+				</statOffsets>
+			</li>
+		</stages>
+    </HediffDef>
+
+	<ThingDef ParentName="MoteBase">
+        <defName>Mote_AyaRedGhost</defName>
+        <thingClass>merissu.Mote_AyaRedGhost</thingClass> 
+        <graphicData>
+            <texPath>Other/null</texPath> 
+			<shaderType>merissu_RedGhost</shaderType> 
+        </graphicData>
+        <mote>
+			<fadeInTime>0</fadeInTime>
+			<solidTime>0.0</solidTime>
+			<fadeOutTime>0.2</fadeOutTime>
+        </mote>
+    </ThingDef>
+
+	<ShaderTypeDef>
+		<defName>merissu_RedGhost</defName>
+		<shaderPath>merissu/RW_Mote_CyberRedGhost</shaderPath>
+	</ShaderTypeDef>
+	
 </Defs>
