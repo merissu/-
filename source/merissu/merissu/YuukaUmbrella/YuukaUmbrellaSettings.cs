@@ -11,10 +11,10 @@ namespace merissu
     {
         public static Dictionary<string, Vector2> offsets = new Dictionary<string, Vector2>
         {
-            { "North", new Vector2(-0.01f, 0.11f) },
-            { "South", new Vector2(0.01f, 0.14f) },
-            { "East",  new Vector2(-0.03f, 0.14f) },
-            { "West",  new Vector2(0.03f, 0.13f) }
+            { "North", new Vector2(-0.01f, 0.57f) },
+            { "South", new Vector2(0.11f, 0.60f) },
+            { "East",  new Vector2(-0.04f, 0.54f) },
+            { "West",  new Vector2(0.03f, 0.52f) }
         };
 
         public static Dictionary<string, float> angles = new Dictionary<string, float>
@@ -24,10 +24,10 @@ namespace merissu
 
         public static Dictionary<string, float> yOffsets = new Dictionary<string, float>
         {
-            { "North", 0.020f },
-            { "South", -0.065f },
-            { "East",  -0.071f },
-            { "West",  -0.020f }
+            { "North", 0.011f },
+            { "South", 0.015f },
+            { "East",  0.018f },
+            { "West",  0.017f }
         };
 
         public override void ExposeData()
@@ -49,7 +49,6 @@ namespace merissu
             }
         }
     }
-
     public class YuukaUmbrellaMod : Mod
     {
         private Vector2 scrollPosition = Vector2.zero;
@@ -109,22 +108,22 @@ namespace merissu
 
         private void ResetSettings()
         {
-            YuukaUmbrellaSettings.offsets["North"] = new Vector2(-0.01f, 0.11f);
-            YuukaUmbrellaSettings.offsets["South"] = new Vector2(0.01f, 0.14f);
-            YuukaUmbrellaSettings.offsets["East"] = new Vector2(-0.03f, 0.14f);
-            YuukaUmbrellaSettings.offsets["West"] = new Vector2(0.03f, 0.13f);
-
-            YuukaUmbrellaSettings.yOffsets["North"] = 0.020f;
-            YuukaUmbrellaSettings.yOffsets["South"] = -0.065f;
-            YuukaUmbrellaSettings.yOffsets["East"] = -0.071f;
-            YuukaUmbrellaSettings.yOffsets["West"] = -0.020f;
-
+            YuukaUmbrellaSettings.offsets["North"] = new Vector2(-0.01f, 0.57f);
+            YuukaUmbrellaSettings.yOffsets["North"] = 0.011f;
             YuukaUmbrellaSettings.angles["North"] = -27f;
+
+            YuukaUmbrellaSettings.offsets["South"] = new Vector2(0.11f, 0.60f);
+            YuukaUmbrellaSettings.yOffsets["South"] = 0.015f;
             YuukaUmbrellaSettings.angles["South"] = 20f;
+
+            YuukaUmbrellaSettings.offsets["East"] = new Vector2(-0.04f, 0.54f);
+            YuukaUmbrellaSettings.yOffsets["East"] = 0.018f;
             YuukaUmbrellaSettings.angles["East"] = -30f;
+
+            YuukaUmbrellaSettings.offsets["West"] = new Vector2(0.03f, 0.52f);
+            YuukaUmbrellaSettings.yOffsets["West"] = 0.017f;
             YuukaUmbrellaSettings.angles["West"] = 23f;
         }
-
         public override string SettingsCategory() => "花田阳伞设置";
     }
 
@@ -144,15 +143,17 @@ namespace merissu
                                     rot == Rot4.South ? "South" :
                                     rot == Rot4.East ? "East" : "West";
 
+                    Vector3 pawnBasePos = pawn.DrawPos;
+
                     if (YuukaUmbrellaSettings.offsets.TryGetValue(dirKey, out Vector2 offset))
                     {
-                        drawLoc.x += offset.x;
-                        drawLoc.z += offset.y;
+                        drawLoc.x = pawnBasePos.x + offset.x;
+                        drawLoc.z = pawnBasePos.z + offset.y;
                     }
 
                     if (YuukaUmbrellaSettings.yOffsets.TryGetValue(dirKey, out float yOffset))
                     {
-                        drawLoc.y += yOffset;
+                        drawLoc.y = pawnBasePos.y + yOffset;
                     }
 
                     if (YuukaUmbrellaSettings.angles.TryGetValue(dirKey, out float angle))
