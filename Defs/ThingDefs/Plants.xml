@@ -10,6 +10,7 @@
 			<shadowData>
 				<volume>(0.1, 0.2, 0.1)</volume>
 			</shadowData>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<statBases>
 			<Beauty>20</Beauty>
@@ -38,6 +39,7 @@
 			<shadowData>
 				<volume>(0.1, 0.2, 0.1)</volume>
 			</shadowData>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<statBases>
 			<Beauty>20</Beauty>
@@ -72,7 +74,9 @@
 			<graphicClass>Graphic_Random</graphicClass>
 			<shadowData>
 				<volume>(0.2, 0.6, 0.2)</volume>
+				<offset>(0,0,-0.50)</offset>
 			</shadowData>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<neverMultiSelect>false</neverMultiSelect>
@@ -154,8 +158,10 @@
 			<graphicClass>Graphic_Random</graphicClass>
 			<shadowData>
 				<volume>(0.15, 0.3, 0.15)</volume>
-				<offset>(0,0,-0.38)</offset>
+				<offset>(0,0,-0.8)</offset>
 			</shadowData>
+			<drawsize>(1.9,1.9)</drawsize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<statBases>
@@ -203,7 +209,7 @@
 			<MarketValue>70</MarketValue>
 		</statBases>
 		<graphicData>
-			<texPath>Things/Item/GauranlenSeed</texPath>
+			<texPath>Plants/Peachseed</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
 			<drawSize>(0.6, 0.6)</drawSize>
 		</graphicData>
@@ -239,8 +245,10 @@
 			<graphicClass>Graphic_Random</graphicClass>
 			<shadowData>
 				<volume>(0.15, 0.3, 0.15)</volume>
-				<offset>(0,0,-0.38)</offset>
+				<offset>(0,0,-0.8)</offset>
 			</shadowData>
+			<drawsize>(2,2)</drawsize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<tickerType>Normal</tickerType>
@@ -292,8 +300,9 @@
 			<graphicClass>Graphic_Random</graphicClass>
 			<shadowData>
 				<volume>(0.15, 0.3, 0.15)</volume>
-				<offset>(0,0,-0.38)</offset>
+				<offset>(0,0,-0.45)</offset>
 			</shadowData>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<statBases>
