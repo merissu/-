@@ -11,7 +11,7 @@
 		<graphicData>
 			<texPath>Food/LoseBambooShoot</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
-			<drawSize>(1,1)</drawSize>
+			<drawSize>(1.5,1.5)</drawSize>
 		</graphicData>
 	<statBases>
 		<MarketValue>1.5</MarketValue>
@@ -121,7 +121,8 @@
 		<graphicData>
 			<texPath>Food/HeavenlyPeach</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
-			<drawSize>(1,1)</drawSize>
+			<drawSize>(1.2,1.2)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<tradeability>Sellable</tradeability>
 		<statBases>
