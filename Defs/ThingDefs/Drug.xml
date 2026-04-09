@@ -920,6 +920,91 @@
 	</HediffDef>
 
 	<ThingDef ParentName="THDrugBase">
+		<defName>Gypsum</defName>
+		<label>绀珠之药</label>
+		<graphicData>
+			<texPath>Medicine/UniversalInjection</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<description>八意永琳为了让人类自机有能力对抗纯狐而制作的药,具有净化污秽、体验未来的效果,能将生与死的存在变得稀薄。
+
+由于失去污秽意味着失去生与死,不再能生活于生命满溢的地上,因此不断使用绀珠之药对于地上人来说很危险。
+		
+服用后可以会净化体内的污秽,不再能承受任何伤害,但是也永远不会彻底死亡。</description>
+		<statBases>
+			<MarketValue>2500</MarketValue>
+			<Mass>0.1</Mass>
+		</statBases>
+		<costList>
+			<FullPower>2</FullPower>
+			<MedicineOfTheLunarCapital>2</MedicineOfTheLunarCapital>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Intellectual>12</Intellectual>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<workAmount>6000</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>PenglaiPharmaceuticalTable</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>ReturningFromTheHell</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>Medical</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>喝下{0}</ingestCommandString>
+			<ingestReportString>喝下{0}</ingestReportString>
+		    <ingestSound>up</ingestSound>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>Gypsum</hediffDef>
+					<severity>1</severity>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>DeathRefusal</hediffDef>
+                    <severity>1</severity>
+                </li>
+			</outcomeDoers>
+		</ingestible>
+		<comps Inherit="False">
+			<li Class="CompProperties_Drug">
+				<listOrder>200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_Usable_CustomIcon">
+				<useLabel>喝下{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+		        <iconPath>Abilities/up</iconPath>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>Gypsum</defName>
+		<hediffClass>merissu.Hediff_Gypsum</hediffClass>
+		<label>绀珠之药</label>
+		<labelNoun>八意永琳为了让人类自机有能力对抗纯狐而制作的药,具有净化污秽、体验未来的效果,能将生与死的存在变得稀薄。</labelNoun>
+		<defaultLabelColor>(255,153,0)</defaultLabelColor>
+		<description>八意永琳为了让人类自机有能力对抗纯狐而制作的药,具有净化污秽、体验未来的效果,能将生与死的存在变得稀薄。</description>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+	</HediffDef>
+
+	<ThingDef ParentName="THDrugBase">
 		<defName>UniversalInjection</defName>
 		<label>死秽回避之药</label>
 		<graphicData>

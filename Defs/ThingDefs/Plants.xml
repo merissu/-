@@ -10,7 +10,7 @@
 			<shadowData>
 				<volume>(0.1, 0.2, 0.1)</volume>
 			</shadowData>
-			<shaderType>Mote</shaderType>
+			<shaderType>CutoutPlant</shaderType>
 		</graphicData>
 		<statBases>
 			<Beauty>20</Beauty>
@@ -39,7 +39,7 @@
 			<shadowData>
 				<volume>(0.1, 0.2, 0.1)</volume>
 			</shadowData>
-			<shaderType>Mote</shaderType>
+			<shaderType>CutoutPlant</shaderType>
 		</graphicData>
 		<statBases>
 			<Beauty>20</Beauty>
@@ -76,7 +76,7 @@
 				<volume>(0.2, 0.6, 0.2)</volume>
 				<offset>(0,0,-0.50)</offset>
 			</shadowData>
-			<shaderType>Mote</shaderType>
+			<shaderType>CutoutPlant</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<neverMultiSelect>false</neverMultiSelect>
@@ -161,7 +161,7 @@
 				<offset>(0,0,-0.8)</offset>
 			</shadowData>
 			<drawSize>(1.9,1.9)</drawSize>
-			<shaderType>Mote</shaderType>
+			<shaderType>CutoutPlant</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<statBases>
@@ -248,7 +248,7 @@
 				<offset>(0,0,-0.8)</offset>
 			</shadowData>
 			<drawSize>(2,2)</drawSize>
-			<shaderType>Mote</shaderType>
+			<shaderType>CutoutPlant</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<tickerType>Normal</tickerType>
@@ -302,7 +302,7 @@
 				<volume>(0.15, 0.3, 0.15)</volume>
 				<offset>(0,0,-0.45)</offset>
 			</shadowData>
-			<shaderType>Mote</shaderType>
+			<shaderType>CutoutPlant</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<statBases>

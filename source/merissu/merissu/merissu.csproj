@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="MaintainDeathRefusal.cs" />
     <Compile Include="月虹市场\HediffComp_AyaRedGhost.cs" />
     <Compile Include="月虹市场\HediffCompProperties_FrogAura.cs" />
     <Compile Include="月虹市场\HediffComp_ExplodeOnDeath.cs" />

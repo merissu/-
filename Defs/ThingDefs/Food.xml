@@ -118,6 +118,10 @@
 		<thingCategories>
 			<li>PlantFoodRaw</li>
 		</thingCategories>
+		<tradeTags>
+			<li>Exotic</li>
+			<li>Vegetable</li>
+		</tradeTags>
 		<graphicData>
 			<texPath>Food/HeavenlyPeach</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
