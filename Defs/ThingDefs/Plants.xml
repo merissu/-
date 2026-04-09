@@ -10,7 +10,7 @@
 			<shadowData>
 				<volume>(0.1, 0.2, 0.1)</volume>
 			</shadowData>
-			<shaderType>CutoutPlant</shaderType>
+			<shaderType>merissu_Plant</shaderType>
 		</graphicData>
 		<statBases>
 			<Beauty>20</Beauty>
@@ -27,6 +27,13 @@
 			<wildClusterRadius>2</wildClusterRadius>
 			<wildClusterWeight>100</wildClusterWeight>
 		</plant>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>2</glowRadius> 
+				<glowColor>(204,408,408,0)</glowColor> 
+				<overlightRadius>10</overlightRadius>
+			</li>
+		</comps>
 	</ThingDef>
 	
 	<ThingDef ParentName="DeciduousTreeBase">
@@ -39,7 +46,7 @@
 			<shadowData>
 				<volume>(0.1, 0.2, 0.1)</volume>
 			</shadowData>
-			<shaderType>CutoutPlant</shaderType>
+			<shaderType>merissu_Plant</shaderType>
 		</graphicData>
 		<statBases>
 			<Beauty>20</Beauty>
@@ -59,6 +66,13 @@
 			<wildClusterRadius>2</wildClusterRadius>
 			<wildClusterWeight>100</wildClusterWeight>
 		</plant>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>2</glowRadius> 
+				<glowColor>(204,408,408,0)</glowColor> 
+				<overlightRadius>10</overlightRadius>
+			</li>
+		</comps>
 	</ThingDef>
 	
 	<ThingDef ParentName="PlantBase">
@@ -76,7 +90,7 @@
 				<volume>(0.2, 0.6, 0.2)</volume>
 				<offset>(0,0,-0.50)</offset>
 			</shadowData>
-			<shaderType>CutoutPlant</shaderType>
+			<shaderType>merissu_Plant</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<neverMultiSelect>false</neverMultiSelect>
@@ -95,6 +109,13 @@
 			<wildClusterWeight>100</wildClusterWeight>
 			<wildOrder>2</wildOrder>
 		</plant>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>2</glowRadius> 
+				<glowColor>(510,100,100,0)</glowColor> 
+				<overlightRadius>10</overlightRadius>
+			</li>
+		</comps>
 	</ThingDef>
 
 
@@ -145,6 +166,11 @@
     </plant>
   </ThingDef>
 
+	<ShaderTypeDef>
+		<defName>merissu_Plant</defName>
+		<shaderPath>merissu/RW_Plant_bioluminescence</shaderPath>
+	</ShaderTypeDef>	
+
 	<ThingDef ParentName="PlantBase">
 		<defName>ReimuSakura_Plants</defName>
 		<label>冥界樱花树</label>
@@ -161,7 +187,7 @@
 				<offset>(0,0,-0.8)</offset>
 			</shadowData>
 			<drawSize>(1.9,1.9)</drawSize>
-			<shaderType>CutoutPlant</shaderType>
+			<shaderType>merissu_Plant</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<statBases>
@@ -193,6 +219,13 @@
 			<harvestedThingDef>ReimuSakuraPetal</harvestedThingDef>
 			<harvestFailable>false</harvestFailable>
 		</plant>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius> 
+				<glowColor>(510,100,100,0)</glowColor> 
+				<overlightRadius>10</overlightRadius>
+			</li>
+		</comps>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>HeavenlyPeachSeed</defName>
@@ -248,7 +281,7 @@
 				<offset>(0,0,-0.8)</offset>
 			</shadowData>
 			<drawSize>(2,2)</drawSize>
-			<shaderType>CutoutPlant</shaderType>
+			<shaderType>merissu_Plant</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<tickerType>Normal</tickerType>
@@ -285,6 +318,11 @@
 				<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
 				<showMessageIfOwned>true</showMessageIfOwned>
 		    </li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius> 
+				<glowColor>(0,120,204,0)</glowColor> 
+				<overlightRadius>10</overlightRadius>
+			</li>
 		</comps>
 	</ThingDef>
 
@@ -302,7 +340,7 @@
 				<volume>(0.15, 0.3, 0.15)</volume>
 				<offset>(0,0,-0.45)</offset>
 			</shadowData>
-			<shaderType>CutoutPlant</shaderType>
+			<shaderType>merissu_Plant</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
 		<statBases>
@@ -323,6 +361,13 @@
 			<harvestedThingDef>JadeBranch</harvestedThingDef>
 			<harvestFailable>false</harvestFailable>
 		</plant>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius> 
+				<glowColor>(255,255,255,0)</glowColor> 
+				<overlightRadius>10</overlightRadius>
+			</li>
+		</comps>
 	</ThingDef>
 
 	<IncidentDef>

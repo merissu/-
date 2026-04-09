@@ -340,7 +340,7 @@
 			<texPath>Weapons/Laevatain</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(1,1)</drawSize>
-			<shaderType>Mote</shaderType>
+			<shaderType>merissu_Laevatain</shaderType>
 		</graphicData>
 		<thingSetMakerTags>
 			<li>RewardStandardQualitySuper</li>
@@ -391,6 +391,12 @@
 			</li>
 		</comps>
 	</ThingDef>
+
+	<ShaderTypeDef>
+		<defName>merissu_Laevatain</defName>
+		<shaderPath>merissu/RW_Laevatain_CoreGlow</shaderPath>
+	</ShaderTypeDef>	
+
 
 	<ToolCapacityDef>
 		<defName>KagomeKagome</defName>

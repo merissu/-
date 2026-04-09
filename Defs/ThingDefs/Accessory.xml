@@ -2053,6 +2053,7 @@
 			<li>
 				<statFactors>
 					<AimingDelayFactor>0.2</AimingDelayFactor>
+					<RangedWeapon_Cooldown>0.2</RangedWeapon_Cooldown>
 					<ShootingAccuracyPawn>2.0</ShootingAccuracyPawn>
 				</statFactors>
 				<capMods>
