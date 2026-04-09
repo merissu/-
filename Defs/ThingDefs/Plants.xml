@@ -184,9 +184,9 @@
 			<graphicClass>Graphic_Random</graphicClass>
 			<shadowData>
 				<volume>(0.15, 0.3, 0.15)</volume>
-				<offset>(0,0,-0.8)</offset>
+				<offset>(0,0,-0.38)</offset>
 			</shadowData>
-			<drawSize>(1.9,1.9)</drawSize>
+			<drawSize>(2,2)</drawSize>
 			<shaderType>merissu_Plant</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
@@ -278,9 +278,9 @@
 			<graphicClass>Graphic_Random</graphicClass>
 			<shadowData>
 				<volume>(0.15, 0.3, 0.15)</volume>
-				<offset>(0,0,-0.8)</offset>
+				<offset>(0,0,-0.38)</offset>
 			</shadowData>
-			<drawSize>(2,2)</drawSize>
+			<drawSize>(2.1,2.1)</drawSize>
 			<shaderType>merissu_Plant</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
