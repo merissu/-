@@ -90,6 +90,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="HediffCompProperties_CentipedeLogic.cs" />
+    <Compile Include="月虹市场\HediffComp_StrengthenKsitigarbha.cs" />
+    <Compile Include="月虹市场\HediffComp_SpiritualGain.cs" />
+    <Compile Include="月虹市场\HediffComp_KaguyaSecret.cs" />
     <Compile Include="Patch_MaterialPool_WindFix.cs" />
     <Compile Include="绀珠药\MaintainDeathRefusal.cs" />
     <Compile Include="月虹市场\HediffComp_AyaRedGhost.cs" />
