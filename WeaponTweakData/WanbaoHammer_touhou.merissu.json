@@ -1,0 +1,9 @@
+{
+  "TextureModID": "touhou.merissu",
+  "ItemDefName": "WanbaoHammer",
+  "ItemType": "ThingDef",
+  "ItemTypeNamespace": "Verse",
+  "ScaleX": 0.6,
+  "ScaleY": 0.6,
+  "MeleeWeaponType": 6
+}
