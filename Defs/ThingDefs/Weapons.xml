@@ -1904,13 +1904,14 @@
 	<ThingDef ParentName="TH_RangeWeapon">
 		<thingClass>U.N.Owen.ThingWithComps_AbilityModeWeapon</thingClass>
 		<defName>GunMarisa</defName>
-		<label>普通的魔法猎枪</label>
+		<label>雾雨家的魔法猎枪</label>
 		<description>融合了雾雨魔理沙的化学知识和魔法造诣的武器，发射威力巨大的金平糖，可以发射三种不同的金平糖以应对不同的敌人。</description>
 		<graphicData>
 			<texPath>Weapons/GunMarisa2</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(2,2)</drawSize>
+			<drawSize>(1.55,1.55)</drawSize>
 		</graphicData>
+		<equippedAngleOffset>33</equippedAngleOffset>
 		<soundInteract>Interact_Rifle</soundInteract>
 		<weaponClasses>
 			<li>LongShots</li>
@@ -1981,7 +1982,8 @@
 	<AbilityDef>
 		<defName>SwitchWeaponsMode1</defName>
 		<label>更换金平糖</label>
-		<description>更换普通的魔法猎枪中装填的金平糖。</description>
+		<description>更换魔法猎枪中装填的金平糖。</description>
+		<iconPath>Abilities/switchgunmode</iconPath>
 		<targetRequired>false</targetRequired>
 		<showWhenDrafted>true</showWhenDrafted>
 		<verbProperties>
@@ -1996,8 +1998,9 @@
 	<!-- Ability 2: 消耗 FullPower 严重度，回 mana -->
 	<AbilityDef>
 		<defName>SwitchWeaponsMode2</defName>
-		<label>注入灵力</label>
-		<description>花费灵力让它更劲、更霸、更强。</description>
+		<label>注入符咒</label>
+		<description>花费符咒卡牌让它更劲、更霸、更强。</description>
+		<iconPath>Abilities/putpoweringun</iconPath>
 		<targetRequired>false</targetRequired>
 		<showWhenDrafted>true</showWhenDrafted>
 		<verbProperties>
