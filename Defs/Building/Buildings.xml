@@ -407,32 +407,32 @@
 						<displaySeconds>5</displaySeconds>
 						<preFadeToWhiteSeconds>1.0</preFadeToWhiteSeconds>
 						<preFadeFromWhiteSeconds>0.0</preFadeFromWhiteSeconds>
-						<postFadeToWhiteSeconds>0.5</postFadeToWhiteSeconds>
-						<postFadeFromWhiteSeconds>0.5</postFadeFromWhiteSeconds>
+						<postFadeToWhiteSeconds>0</postFadeToWhiteSeconds>
+						<postFadeFromWhiteSeconds>0</postFadeFromWhiteSeconds>
 					</li>
 					<li>
 						<texturePath>CG/ED2</texturePath>
 						<displaySeconds>5</displaySeconds>
 						<preFadeToWhiteSeconds>0.5</preFadeToWhiteSeconds>
-						<preFadeFromWhiteSeconds>0.5</preFadeFromWhiteSeconds>
-						<postFadeToWhiteSeconds>0.5</postFadeToWhiteSeconds>
-						<postFadeFromWhiteSeconds>0.5</postFadeFromWhiteSeconds>
+						<preFadeFromWhiteSeconds>0</preFadeFromWhiteSeconds>
+						<postFadeToWhiteSeconds>0</postFadeToWhiteSeconds>
+						<postFadeFromWhiteSeconds>0</postFadeFromWhiteSeconds>
 					</li>
 					<li>
 						<texturePath>CG/ED3</texturePath>
 						<displaySeconds>5</displaySeconds>
 						<preFadeToWhiteSeconds>0.5</preFadeToWhiteSeconds>
-						<preFadeFromWhiteSeconds>0.5</preFadeFromWhiteSeconds>
-						<postFadeToWhiteSeconds>0.5</postFadeToWhiteSeconds>
-						<postFadeFromWhiteSeconds>0.5</postFadeFromWhiteSeconds>
+						<preFadeFromWhiteSeconds>0</preFadeFromWhiteSeconds>
+						<postFadeToWhiteSeconds>0</postFadeToWhiteSeconds>
+						<postFadeFromWhiteSeconds>0</postFadeFromWhiteSeconds>
 					</li>
 					<li>
 						<texturePath>CG/ED4</texturePath>
 						<displaySeconds>5</displaySeconds>
 						<preFadeToWhiteSeconds>0.5</preFadeToWhiteSeconds>
-						<preFadeFromWhiteSeconds>0.5</preFadeFromWhiteSeconds>
-						<postFadeToWhiteSeconds>0.5</postFadeToWhiteSeconds>
-						<postFadeFromWhiteSeconds>0.5</postFadeFromWhiteSeconds>
+						<preFadeFromWhiteSeconds>0</preFadeFromWhiteSeconds>
+						<postFadeToWhiteSeconds>0</postFadeToWhiteSeconds>
+						<postFadeFromWhiteSeconds>0</postFadeFromWhiteSeconds>
 					</li>
 					<!-- 继续加 li 就是继续加图片 -->
 				</endingCgs>
@@ -698,7 +698,6 @@
 		<costStuffCount>80</costStuffCount>
 		<placeWorkers>
 			<li>PlaceWorker_Heater</li>
-			<li>PlaceWorker_MeditationOffsetBuildingsNear</li>
 			<li>PlaceWorker_GlowRadius</li>
 		</placeWorkers>
 		<researchPrerequisites>
