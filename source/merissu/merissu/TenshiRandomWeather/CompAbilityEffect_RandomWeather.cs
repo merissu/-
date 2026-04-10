@@ -136,14 +136,29 @@ namespace merissu
     public class CompAbilityEffect_RandomWeather : CompAbilityEffect
     {
         public new CompProperties_AbilityRandomWeather Props => (CompProperties_AbilityRandomWeather)props;
+
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);
             Map map = parent?.pawn?.Map;
+
             if (map == null || Props.conditionPool == null || Props.conditionPool.Count == 0) return;
+
+            foreach (GameConditionDef condDef in Props.conditionPool)
+            {
+                if (map.gameConditionManager.ConditionIsActive(condDef))
+                {
+                    GameCondition activeCond = map.gameConditionManager.GetActiveCondition(condDef);
+                    if (activeCond != null)
+                    {
+                        activeCond.End();
+                    }
+                }
+            }
             GameConditionDef chosenDef = Props.conditionPool.RandomElement();
             GameCondition cond = GameConditionMaker.MakeCondition(chosenDef, Props.forcedDurationTicks);
             map.gameConditionManager.RegisterCondition(cond);
+
             Messages.Message("天候改变为: " + chosenDef.label, MessageTypeDefOf.PositiveEvent);
         }
     }

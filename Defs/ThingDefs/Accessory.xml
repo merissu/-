@@ -3029,4 +3029,384 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
     	</comps>
     </HediffDef>
 
+    <ApparelLayerDef>
+        <defName>ActiveItemCard</defName>
+        <label>主动道具卡</label>
+        <drawOrder>999</drawOrder>
+    </ApparelLayerDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Patiencestone</defName>
+		<label>忍耐的要石</label>
+		<description>比那名居天子的能力,可以唤出能消除敌人的要石,十分可靠
+
+主动道具卡,装备后,获得召唤要石的能力
+
+攻击就是最好的防御!</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/Patiencestone</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>ActiveItemCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>Patiencestone</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>Patiencestone</defName>
+        <label>忍耐的要石</label>
+        <defaultLabelColor>(0,102,204)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>比那名居天子的能力,可以唤出能消除敌人的要石,十分可靠</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>Patiencestone</li>
+        </abilities>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>Patiencestone</defName>
+		<label>忍耐的要石</label>
+        <abilityClass>merissu.Ability_Patiencestone</abilityClass>
+		<description>向目标发射一颗要石用于定位,之后召唤一颗巨大化的要石一口气落下压向对手的乱来技能
+	
+落下的要石会砸碎目标以及附近10格以内的敌人和建筑,无需消耗符卡。</description>
+		<iconPath>Accessory/card/Patiencestone</iconPath>
+		<cooldownTicksRange>5000</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>35</range>
+			<warmupTime>0.5</warmupTime>
+			<ai_AvoidFriendlyFireRadius>8</ai_AvoidFriendlyFireRadius>
+			<soundCast>spell</soundCast>
+        	<muzzleFlashScale>14</muzzleFlashScale>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>MadMoon</defName>
+		<label>疯狂之月</label>
+		<description>克劳恩皮丝的能力,可以丢出虚假之月
+
+主动道具卡,装备后,可以丢出虚假之月
+
+相当高的攻击力,相当大的防御范围,还算说得过去的冷却时间
+
+果然月亮（确实）超酷啊!</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/MadMoon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>ActiveItemCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>MadMoon</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>MadMoon</defName>
+        <label>疯狂之月</label>
+        <defaultLabelColor>(255,0,0)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>克劳恩皮丝的能力,可以丢出虚假之月</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>MadMoon</li>
+        </abilities>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>MadMoon</defName>
+		<label>疯狂之月</label>
+        <abilityClass>merissu.Ability_MadMoon</abilityClass>
+		<description>克劳恩皮丝的能力,可以丢出虚假之月
+	
+月亮能够抵消沿途的弹幕,会对敌人造成伤害并使其狂暴,无需消耗符卡。</description>
+		<iconPath>Accessory/card/MadMoon</iconPath>
+		<cooldownTicksRange>5000</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>35</range>
+			<warmupTime>0.5</warmupTime>
+			<ai_AvoidFriendlyFireRadius>8</ai_AvoidFriendlyFireRadius>
+			<soundCast>se_boon01</soundCast>
+        	<muzzleFlashScale>14</muzzleFlashScale>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>Projectile_MadMoon</defName>
+		<label>疯狂之月</label>
+		<thingClass>merissu.Projectile_MadMoon</thingClass>
+		<category>Ethereal</category> <tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer> <useHitPoints>False</useHitPoints>
+		<graphicData>
+			<texPath>Projectiles/enm5b</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Mote</shaderType> 
+			<drawSize>1</drawSize>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>sublimemajesty</defName>
+		<label>崇高的威光</label>
+		<description>丰聪耳神子的能力,能以执政者的气场抽掉敌弹,绝大多数弹幕都是杂音,重要的敌弹仅有极小一部分
+
+主动道具卡,装备后,可以通过气场消除周围的敌弹和敌人
+
+双手合十集中注意力,应该就能够只关注会造成威胁的子弹。你看很简单对吧？</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/sublimemajesty</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>ActiveItemCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>sublimemajesty</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>sublimemajesty</defName>
+        <label>崇高的威光</label>
+        <defaultLabelColor>(204,102,204)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>丰聪耳神子的能力,能以执政者的气场抽掉敌弹</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>sublimemajesty</li>
+        </abilities>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>sublimemajesty</defName>
+		<label>崇高的威光</label>
+        <abilityClass>merissu.sublimemajesty</abilityClass>
+		<description>丰聪耳神子的能力,能以执政者的气场抽掉敌弹
+
+放出执政者的气场,消除四周的敌弹并对敌人造成伤害,不需要消耗符卡</description>
+		<iconPath>Accessory/card/sublimemajesty</iconPath>
+		<cooldownTicksRange>5000</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>30</range>
+			<warmupTime>0</warmupTime>
+			<soundCast>se_release</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+        <defName>SublimeMajestyEffect</defName>
+        <label>威光</label>
+        <thingClass>merissu.Thing_SublimeMajesty</thingClass>
+        <category>Ethereal</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MetaOverlays</altitudeLayer> <selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <drawGUIOverlay>false</drawGUIOverlay>
+        <graphicData>
+            <texPath>Other/bulletCe000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+    </ThingDef>
 </Defs>
