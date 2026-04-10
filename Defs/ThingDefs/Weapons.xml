@@ -339,7 +339,7 @@
 		<graphicData>
 			<texPath>Weapons/Laevatain</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1,1)</drawSize>
+			<drawSize>(2,2)</drawSize>
 			<shaderType>merissu_Laevatain</shaderType>
 		</graphicData>
 		<thingSetMakerTags>
@@ -1665,7 +1665,7 @@
 
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>GapUmbrella</defName>
-		<label>隙间的折叠伞</label>
+		<label>隙间阳伞</label>
 		<description>八云紫平常使用的阳伞,敲人很痛,还可以展开隙间
 
 这把阳伞无法射出弹幕,但是可以通过隙间将敌人直接神隐
@@ -1691,7 +1691,8 @@
 		<graphicData>
 			<texPath>Weapons/YukarisUmbrella</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.7,0.7)</drawSize>
+			<drawSize>(1.5,1.5)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<statBases>
 			<WorkToMake>30000</WorkToMake>
