@@ -239,9 +239,9 @@
 		<label>冈格尼尔之枪</label>
 		<description>蕾米莉亚的冈格尼尔,此枪掷出时,会贯穿一切并必然击中目标。当成近战武器使用的话,会有极高的命中率修正,消耗符卡后便可以发动极其强大的能力</description>
 		<graphicData>
-			<texPath>Weapons/Bullet/Gungnir</texPath>
+			<texPath>Weapons/Gungnir</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.4,1.4)</drawSize>
+			<drawSize>(1.9,1.9)</drawSize>
 			<shaderType>Mote</shaderType>
 		</graphicData>
 		<soundInteract>Interact_BeatFire</soundInteract>
@@ -529,8 +529,10 @@
 		<graphicData>
 			<texPath>Weapons/DeathButterfliesFan</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.7,0.7)</drawSize>
+			<drawSize>(1.2,1.2)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
+		<equippedAngleOffset>-20</equippedAngleOffset>
 		<uiIconScale>1.4</uiIconScale>
 		<soundInteract>Interact_Revolver</soundInteract>
 		<statBases>
@@ -823,7 +825,8 @@
 		<graphicData>
 			<texPath>Weapons/Bullet/GunBullet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.5,0.5)</drawSize>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>LunaticRedEyes</damageDef>
@@ -921,7 +924,9 @@
 			<texPath>Weapons/MoonRabbitWaveGun</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
+		<equippedAngleOffset>25</equippedAngleOffset>
 		<uiIconScale>1.4</uiIconScale>
 		<soundInteract>Interact_Revolver</soundInteract>
 		<statBases>
@@ -1235,6 +1240,7 @@
 				<texPath>Weapons/NuclearControlRod</texPath>
 				<graphicClass>Graphic_Single</graphicClass>
 				<drawSize>(1,1)</drawSize>
+				<shaderType>Mote</shaderType>
 		</graphicData>
 		<statBases>
 			<WorkToMake>20000</WorkToMake>
@@ -1423,7 +1429,7 @@
 		<defName>ToggleNuclearMode</defName>
 		<label>模式切换</label>
 		<description>切换制御棒的输出状态。开启后射击由发射激光变为释放出大容量的核能烧尽前方一切。</description>
-		<iconPath>Weapons/ToggleNuclear</iconPath>
+		<iconPath>Abilities/ToggleNuclear</iconPath>
 		<cooldownTicksRange>60</cooldownTicksRange>
 		<abilityClass>Ability</abilityClass>
 		<targetRequired>false</targetRequired>
@@ -1773,9 +1779,10 @@
 		<defName>LunaRabbitBullet</defName>
 		<label>月兔制式子弹</label>
 		<graphicData>
-			<texPath>Weapons/Bullet/GunBullet</texPath>
-			<drawSize>(0.1,0.1)</drawSize>
+			<texPath>Weapons/Bullet/mrbGunBullet</texPath>
+			<drawSize>(0.8,0.8)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>Bullet</damageDef>
@@ -1793,8 +1800,10 @@
 		<graphicData>
 			<texPath>Weapons/LunaRabbitBullet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.5,1.5)</drawSize>
+			<drawSize>(1.55,1.55)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>
 		<uiIconScale>0.8</uiIconScale>
 		<soundInteract>Interact_Revolver</soundInteract>
 		<statBases>
@@ -2263,6 +2272,7 @@
 			<texPath>Weapons/WanbaoHammer</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.6,0.6)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<uiIconScale>0.8</uiIconScale>
 		<soundInteract>Interact_Revolver</soundInteract>

@@ -3,7 +3,15 @@
   "ItemDefName": "WanbaoHammer",
   "ItemType": "ThingDef",
   "ItemTypeNamespace": "Verse",
+  "Rotation": 45.0,
   "ScaleX": 0.6,
   "ScaleY": 0.6,
-  "MeleeWeaponType": 6
+  "BladeEnd": 0.252873927,
+  "MeleeWeaponType": 24,
+  "TrailTint": {
+    "r": 0.9,
+    "g": 0.7609862,
+    "b": 0.09799987,
+    "a": 0.771111
+  }
 }
