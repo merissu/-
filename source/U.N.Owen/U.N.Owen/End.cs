@@ -56,6 +56,7 @@ namespace U.N.Owen.EndAbout
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             this.AddFailCondition(() => !job.GetTarget(TargetIndex.A).HasThing);
             Toil reserveFuel = Toils_Reserve.Reserve(TargetIndex.B, 1, 1, null, false);
+            this.job.count = 1;
             yield return reserveFuel;
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch, false).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
             yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, true, false, true, false).FailOnDestroyedNullOrForbidden(TargetIndex.B);
@@ -178,10 +179,10 @@ namespace U.N.Owen.EndAbout
         public SongDef endingSong;
 
         public string endingIntro =
-            "一道深邃可怕的空间裂隙在你的眼前缓缓张开，露出无数猩红的眼瞳，此刻已无退路，也不必后退";
+            "一道深邃可怕的空间裂隙在你的眼前缓缓张开，露出无数猩红的眼瞳，此刻已无退路，也不必后退。";
 
         public string endingText =
-            "你走进了这道裂隙，而里边的景色却与你刚刚看到的截然不同，你发现你再次站在一座同样的鸟居下，但你抬头遥望，熟悉的殖民地已经无影无踪，你看见绯红的洋馆倒映在蔚蓝的湖面，你看见瀑布从山顶垂落，你看见金黄的花田连绵不断，你已经明白自己身在何处。身后传来少女不满的质问，回首看时，红白巫女服在空中轻轻飘荡，而她身后，这个不可思议的世界会静静地将你包容。";
+            "你发现你再次站在一座同样的鸟居下，但你抬头遥望，熟悉的殖民地已经无影无踪，你看见绯红的洋馆倒映在蔚蓝的湖面，你看见瀑布从山顶垂落，你看见金黄的花田连绵不断，你已经明白自己身在何处。身后传来少女不满的质问，回首看时，红白巫女服在空中轻轻飘荡，而她身后，这个不可思议的世界会静静地将你包容。";
 
         public float creditsSongStartDelay = 2.5f;
 
@@ -317,7 +318,7 @@ namespace U.N.Owen.EndAbout
                 Props.endingIntro.Translate(),
                 Props.endingText.Translate(),
                 sb.ToString(),
-                "GameOverColonistsEntryGenso",
+                "你走进了这道裂隙，而里边的景色却与你刚刚看到的截然不同。",
                 escaped
             );
 

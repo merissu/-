@@ -64,6 +64,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Danmaku.cs" />
     <Compile Include="End.cs" />
+    <Compile Include="Mamizou.cs" />
     <Compile Include="Other.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SupernaturalBead.cs" />
