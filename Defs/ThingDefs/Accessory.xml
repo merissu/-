@@ -2386,9 +2386,9 @@
 	<ThingDef ParentName="ApparelNoQualityBase">
 		<defName>KaguyaSecret</defName>
 		<label>辉夜姬的秘密宝箱</label>
-		<description>蓬莱山辉夜的能力,在死亡时会出现符卡道具
+		<description>蓬莱山辉夜的能力,在中弹时会出现符卡道具
 
-附属能力卡,装备后,每次死亡会掉落一个符卡道具
+附属能力卡,装备后,每次失去残疾时会掉落一个符卡道具
 
 完全不需要五个秘宝这种毫无实用性的东西,对于永恒的人生来说,最重要的是什么？
 
@@ -3408,5 +3408,141 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
             <graphicClass>Graphic_Single</graphicClass>
             <shaderType>MoteGlow</shaderType>
         </graphicData>
+    </ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>SunUnderground</defName>
+		<label>地底的太阳</label>
+		<description>灵乌路空的能力,可以焚尽世间万物,究极攻击力,无尽的无敌时间,超长的冷却时间
+
+主动道具卡,装备后,可以召唤焚尽世间万物的太阳
+
+来回躲闪回避弹幕只是耍帅罢了,对于有能力之人只要把一切都烧个干净就好</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/SunUnderground</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>ActiveItemCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>SunUnderground</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>SunUnderground</defName>
+        <label>地底的太阳</label>
+        <defaultLabelColor>(102,153,153)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>灵乌路空的能力,可以焚尽世间万物</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>SunUnderground</li>
+        </abilities>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>SunUnderground</defName>
+		<label>地底的太阳</label>
+        <abilityClass>merissu.Ability_SunUnderground</abilityClass>
+		<description>灵乌路空的能力,可以焚尽世间万物,究极攻击力,无尽的无敌时间,超长的冷却时间
+
+释放焚尽一切的太阳,期间有无敌时间,不需要消耗符卡</description>
+		<iconPath>Accessory/card/SunUnderground</iconPath>
+		<cooldownTicksRange>15000</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>60</range>
+			<warmupTime>0</warmupTime>
+			<soundCast>MasterSpark</soundCast>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<HediffDef>
+        <defName>Suninvincible</defName>
+        <label>地底的太阳</label>
+        <description>灵乌路空的能力,可以焚尽世间万物,究极攻击力,无尽的无敌时间,超长的冷却时间</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(102,153,153)</defaultLabelColor>
+		<isBad>false</isBad>
+        <stages>
+            <li>
+                <painFactor>0</painFactor>
+                <statFactors>
+                    <IncomingDamageFactor>0</IncomingDamageFactor> 
+				</statFactors>
+            </li>
+        </stages>
+    </HediffDef>
+
+	<ThingDef>
+        <defName>SunUndergroundAnimation</defName>
+        <label>地底太阳动画</label>
+        <thingClass>merissu.Thing_SunUndergroundAnimation</thingClass>
+        <category>None</category>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+        <altitudeLayer>MetaOverlays</altitudeLayer>
     </ThingDef>
 </Defs>

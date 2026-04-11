@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="月虹市场\Ability_SunUnderground.cs" />
     <Compile Include="月虹市场\sublimemajesty.cs" />
     <Compile Include="月虹市场\Thing_SublimeMajesty.cs" />
     <Compile Include="月虹市场\Ability_MadMoon.cs" />
