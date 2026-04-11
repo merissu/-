@@ -16,6 +16,18 @@ using static UnityEngine.GraphicsBuffer;
 namespace U.N.Owen
 {
     [DefOf]
+    public static class EffecterDefOf
+    {
+        // Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
+        static EffecterDefOf()
+        {
+            DefOfHelper.EnsureInitializedInCtor(typeof(EffecterDefOf));
+        }
+
+        // Token: 0x04000001 RID: 1
+        public static EffecterDef Mamizou;
+    }
+    [DefOf]
     public static class HediffDefOf
     {
         // Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
