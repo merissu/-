@@ -1411,6 +1411,27 @@
 		</subSounds>
     </SoundDef>
 
+	<SoundDef>
+        <defName>Drinksth</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Drinksth</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>20</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
     <SoundDef>
         <defName>gowork</defName>
         <context>MapOnly</context>
