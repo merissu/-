@@ -357,7 +357,7 @@
         <altitudeLayer>MoteOverhead</altitudeLayer>
 		<graphicData>
 			<graphicClass>Graphic_Random</graphicClass>
-			<texPath>Other/MasterSpark</texPath>
+			<texPath>Other/YuukaLaser</texPath>
 			<drawSize>(355,355)</drawSize>
 		</graphicData>
 	</ThingDef>

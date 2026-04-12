@@ -401,6 +401,9 @@
 					<li>Ghoul</li>
 				</allowedMutants>
 			</li>
+			<li Class="merissu.CompProperties_UseEffect_TriggerIncident">
+        	    <incident>hailIncident</incident> 
+			</li>
 		</comps>
 	</ThingDef>
 
