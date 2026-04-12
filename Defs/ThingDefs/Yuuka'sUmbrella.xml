@@ -28,7 +28,8 @@
 		<graphicData>
 			<texPath>Weapons/YuukasUmbrella</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1,1)</drawSize>
+			<drawSize>(1.5,1.5)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<statBases>
 			<WorkToMake>10000</WorkToMake>
@@ -89,7 +90,8 @@
 		<graphicData>
 			<texPath>Weapons/OpenYuukasUmbrella</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1,1)</drawSize>
+			<drawSize>(1.5,1.5)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<statBases>
 			<WorkToMake>10000</WorkToMake>
@@ -150,7 +152,7 @@
 		<graphicData>
 			<texPath>Weapons/yuukasumbboom</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1,1)</drawSize>
+			<drawSize>(1.5,1.5)</drawSize>
 			<shaderType>Mote</shaderType>
 		</graphicData>
 		<statBases>
@@ -573,6 +575,7 @@
 			<texPath>Weapons/Bullet/FlowerBullet</texPath>
 			<drawSize>(1,1)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<projectile>
 			<damageDef>FantasticFantasyChantingMoonlitBreeze</damageDef>
@@ -585,8 +588,8 @@
 
 	<ThingDef ParentName="BuildingBase">
 		<defName>YuukaSunflower</defName>
-		<label>向日葵</label>
-		<description>不是很普通的向日葵,会向敌人发射花弹,被打到一定会很痛。</description>
+		<label>风见向日葵</label>
+		<description>风见幽香催生出的的向日葵，会向敌人发射花弹，被打到一定会很痛。</description>
 		<uiIconPath>Building/YuukaSunflower</uiIconPath>
 		<statBases>
 			<ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
@@ -610,7 +613,7 @@
 		<graphicData>
 			<texPath>Building/YuukaSunflower</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.7, 1.2)</drawSize>
+			<drawSize>(1, 2)</drawSize>
 			<drawOffset>(0,2,-0.2)</drawOffset>
 			<damageData>
 				<rect>(0.2,0.2,0.6,0.6)</rect>
@@ -619,6 +622,7 @@
 				<volume>(0.7,0.35,0.7)</volume>
 				<offset>(0,0,-0.05)</offset>
 			</shadowData>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<altitudeLayer>Building</altitudeLayer>
 		<stealable>false</stealable>
