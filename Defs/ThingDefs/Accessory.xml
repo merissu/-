@@ -3545,4 +3545,117 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
         <drawOffscreen>true</drawOffscreen>
         <altitudeLayer>MetaOverlays</altitudeLayer>
     </ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>WheatRice</defName>
+		<label>大天狗的麦饭</label>
+		<description>饭纲丸龙的能力,可以无数次提升火力。使用时灵力增加1。
+
+主动道具卡,装备后,可以无数次提升火力
+
+为什么要上山之后再收集能量？一开始就拿着大量食材上山不就好了。</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/WheatRice</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>100</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>ActiveItemCard</li>
+			</layers>
+		</apparel>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>WheatRice</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>WheatRice</defName>
+        <label>大天狗的麦饭</label>
+        <defaultLabelColor>(153,153,204)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>饭纲丸龙的能力,可以无数次提升火力</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>WheatRice</li>
+        </abilities>
+    </HediffDef>
+
+    <AbilityDef>
+        <defName>WheatRice</defName>
+        <label>大天狗的麦饭</label>
+        <description>饭纲丸龙的能力,可以无数次提升火力。使用时灵力增加1。
+
+每次使用增加1灵力,不需要消耗符卡</description>
+        <abilityClass>merissu.Ability_WheatRice</abilityClass>
+        <cooldownTicksRange>10000</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>se_ok00</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Accessory/card/WheatRice</iconPath>
+    </AbilityDef>
+
 </Defs>

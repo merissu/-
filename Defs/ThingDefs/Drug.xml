@@ -923,7 +923,7 @@
 		<defName>Gypsum</defName>
 		<label>绀珠之药</label>
 		<graphicData>
-			<texPath>Medicine/UniversalInjection</texPath>
+			<texPath>Medicine/Gypsum</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.8,0.8)</drawSize>
 			<shaderType>Mote</shaderType>
