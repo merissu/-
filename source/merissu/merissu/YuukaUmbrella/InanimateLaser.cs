@@ -162,7 +162,7 @@ namespace merissu
             originPos.y = AltitudeLayer.MetaOverlays.AltitudeFor() + 0.8f;
 
             Quaternion rotation = Quaternion.LookRotation(normDir) * Quaternion.Euler(0, -90, 0);
-            Material mat = MaterialPool.MatFrom($"Other/MasterSpark/bulletEa{(age % (TicksPerFrame * TotalFrames)) / TicksPerFrame:D3}", ShaderDatabase.MoteGlow);
+            Material mat = MaterialPool.MatFrom($"Other/YuukaLaser/bulletEa{(age % (TicksPerFrame * TotalFrames)) / TicksPerFrame:D3}", ShaderDatabase.MoteGlow);
 
             Matrix4x4 headMatrix = Matrix4x4.TRS(originPos, rotation, new Vector3(currentSize, 1f, currentSize));
             Graphics.DrawMesh(HeadMesh, headMatrix, mat, 0);
