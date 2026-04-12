@@ -519,7 +519,6 @@
 			<li Class = "CompProperties_AbilityWallraise">
 				<compClass>merissu.CompAbilityEffect_Sunflowerraise</compClass>
 				<pattern>
-					<li>(0, 0)</li>
 					<li>(1, 0)</li>
 					<li>(-1, 0)</li>
 					<li>(0, 1)</li>

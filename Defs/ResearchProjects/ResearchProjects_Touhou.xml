@@ -308,7 +308,49 @@
 			<li>PowerPoint</li>
 		</prerequisites>
 		<researchViewX>2</researchViewX>
+		<researchViewY>5.5</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>AuxiliaryEquipmentCard</defName>
+		<label>附属装备卡</label>
+		<description>为自机附加各种战斗功能的卡牌,一般是某种子机</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>MoonlightMarket</li>
+		</prerequisites>
+		<researchViewX>3</researchViewX>
 		<researchViewY>5</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>AuxiliaryAbilityCard</defName>
+		<label>附属能力卡</label>
+		<description>给自机附加永续效果的卡牌</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>MoonlightMarket</li>
+		</prerequisites>
+		<researchViewX>3</researchViewX>
+		<researchViewY>5.5</researchViewY>
+		<tab>TouhouWeapons</tab>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>ActiveItemCard</defName>
+		<label>主动道具卡</label>
+		<description>可以主动使用的卡牌,使用一次后需要冷却一段时间才能继续使用</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>MoonlightMarket</li>
+		</prerequisites>
+		<researchViewX>3</researchViewX>
+		<researchViewY>6</researchViewY>
 		<tab>TouhouWeapons</tab>
 	</ResearchProjectDef>
 

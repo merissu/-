@@ -90,7 +90,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
-    <Compile Include="Ability_WheatRice.cs" />
+    <Compile Include="CompUseEffect_TriggerEvent.cs" />
+    <Compile Include="月虹市场\Ability_WheatRice.cs" />
     <Compile Include="月虹市场\Ability_SunUnderground.cs" />
     <Compile Include="月虹市场\sublimemajesty.cs" />
     <Compile Include="月虹市场\Thing_SublimeMajesty.cs" />

@@ -794,7 +794,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryEquipmentCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -917,7 +917,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryEquipmentCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -1025,7 +1025,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryEquipmentCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -1165,7 +1165,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryEquipmentCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -1267,7 +1267,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryEquipmentCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -1386,7 +1386,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryEquipmentCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -1487,7 +1487,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryEquipmentCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -1623,7 +1623,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryEquipmentCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -1730,7 +1730,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -1820,7 +1820,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -1906,7 +1906,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -1992,7 +1992,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -2091,7 +2091,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisites>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisites>
 		</recipeMaker>
 		<graphicData>
@@ -2180,7 +2180,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -2279,7 +2279,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -2388,7 +2388,7 @@
 		<label>辉夜姬的秘密宝箱</label>
 		<description>蓬莱山辉夜的能力,在中弹时会出现符卡道具
 
-附属能力卡,装备后,每次失去残疾时会掉落一个符卡道具
+附属能力卡,装备后,每次失去残机时会掉落一个符卡道具
 
 完全不需要五个秘宝这种毫无实用性的东西,对于永恒的人生来说,最重要的是什么？
 
@@ -2409,7 +2409,7 @@
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -2463,7 +2463,7 @@
         <label>辉夜姬的秘密宝箱</label>
 		<defaultLabelColor>(255,204,153)</defaultLabelColor>
         <hediffClass>HediffWithComps</hediffClass>
-        <description>蓬莱山辉夜的能力,在死亡时会出现符卡道具</description>
+        <description>蓬莱山辉夜的能力,在失去残机时会出现符卡道具</description>
         <isBad>false</isBad>
 		<maxSeverity>1.0</maxSeverity>
 		<comps>
@@ -2504,7 +2504,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -2590,7 +2590,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -2680,7 +2680,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -2766,7 +2766,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>AuxiliaryAbilityCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -3059,7 +3059,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>ActiveItemCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -3178,7 +3178,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>ActiveItemCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -3309,7 +3309,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>ActiveItemCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -3434,7 +3434,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>ActiveItemCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
@@ -3570,7 +3570,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>TableHifuuClub</li>
 			</recipeUsers>
 			<researchPrerequisite>
-				<li>MoonlightMarket</li>
+				<li>ActiveItemCard</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<graphicData>
