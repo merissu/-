@@ -308,7 +308,8 @@
 		<graphicData>
 			<texPath>Material/PowerPoint</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>0.85</drawSize>
+			<drawSize>(0.9,0.9)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<stackLimit>128</stackLimit>
 		<healthAffectsPrice>false</healthAffectsPrice>
