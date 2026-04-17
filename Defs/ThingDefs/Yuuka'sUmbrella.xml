@@ -33,7 +33,7 @@
 		</graphicData>
 		<statBases>
 			<WorkToMake>10000</WorkToMake>
-			<MarketValue>27000</MarketValue> 
+			<MarketValue>2700</MarketValue> 
             <SellPriceFactor>0.1</SellPriceFactor>
 			<Mass>1</Mass>
 		</statBases>
@@ -95,7 +95,7 @@
 		</graphicData>
 		<statBases>
 			<WorkToMake>10000</WorkToMake>
-			<MarketValue>27000</MarketValue> 
+			<MarketValue>2700</MarketValue> 
             <SellPriceFactor>0.1</SellPriceFactor>
 			<Mass>1</Mass>
 		</statBases>
@@ -157,7 +157,7 @@
 		</graphicData>
 		<statBases>
 			<WorkToMake>10000</WorkToMake>
-			<MarketValue>27000</MarketValue> 
+			<MarketValue>2700</MarketValue> 
             <SellPriceFactor>0.1</SellPriceFactor>
 			<Mass>1</Mass>
 		</statBases>

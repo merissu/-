@@ -353,7 +353,7 @@
 		</graphicData>
 		<description>卡面空无一物的能力卡牌,天弓千亦的能力,可以开设月虹市场
 
-使用后会吸引一批交易者,与他们交易可以获得各种各样的道具</description>
+使用后会吸引一批交易者,与他们交易可以获得各种各样的卡牌</description>
 		<tradeTags>
 		    <li>ExoticMisc</li> 
 		</tradeTags>		
@@ -402,7 +402,7 @@
 				</allowedMutants>
 			</li>
 			<li Class="merissu.CompProperties_UseEffect_TriggerIncident">
-        	    <incident>hailIncident</incident> 
+        	    <incident>Merissu_FiveCaravansArrival</incident> 
 			</li>
 		</comps>
 	</ThingDef>
@@ -852,6 +852,134 @@
 		</ingestible>
 		<comps Inherit="False">
 			<li Class="CompProperties_Drug">
+				<listOrder>200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_Usable_CustomIcon">
+				<useLabel>使用{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="THDrugBase">
+		<defName>Smokedroundfan</defName>
+		<label>烟熏的团扇</label>
+		<graphicData>
+			<texPath>Medicine/Smokedroundfan</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<description>即时消耗卡,依神紫苑的能力,下一波次起难度变低,高级敌人变少,召唤一次袭击(来袭的的敌人会掉落金钱)
+
+谁把这贫穷神招来的啊。拿到这张卡不就相当于拿不到金钱了吗。下次绝对不要再靠近她了。</description>
+		<tradeTags>
+		    <li>ExoticMisc</li> 
+		</tradeTags>		
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>0.01</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<workAmount>1500</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>Social</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>使用{0}</ingestCommandString>
+			<ingestReportString>使用{0}</ingestReportString>
+		    <ingestSound>se_notice</ingestSound>
+		</ingestible>
+		<comps Inherit="False">
+			<li Class="merissu.CompProperties_UseEffect_TriggerRaidWithLock">
+					<incident>Merissu_SpecialRaidEvent</incident> 
+			</li>
+			<li Class="CompProperties_Drug">
+				<listOrder>200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_Usable_CustomIcon">
+				<useLabel>使用{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="THDrugBase">
+		<defName>YorigamiJyooncard</defName>
+		<label>不可抗拒的朱莉安娜羽扇</label>
+		<graphicData>
+			<texPath>Medicine/YorigamiJyooncard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<description>即时消耗卡,依神女苑的能力,下一波次起难度变高,袭击会召唤更加强大的敌人,召唤一次袭击(来袭的的敌人会掉落金钱)
+
+谁把这疫病神招来的啊,拿到这张卡不就相当于要死了吗,下次绝对不要再靠近她了。</description>
+		<tradeTags>
+		    <li>ExoticMisc</li> 
+		</tradeTags>		
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>0.01</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<workAmount>1500</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>Social</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>使用{0}</ingestCommandString>
+			<ingestReportString>使用{0}</ingestReportString>
+		    <ingestSound>se_fault</ingestSound>
+		</ingestible>
+		<comps Inherit="False">
+				<li Class="merissu.CompProperties_UseEffect_TriggerRaidWithUnlock">
+					<incident>Merissu_SpecialRaidEvent</incident> 
+				</li>
+				<li Class="CompProperties_Drug">
 				<listOrder>200</listOrder>
 				<teetotalerCanConsume>true</teetotalerCanConsume>
 			</li>

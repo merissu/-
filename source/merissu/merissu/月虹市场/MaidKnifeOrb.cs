@@ -66,7 +66,7 @@ namespace merissu
 
         private const int TicksPerFrame = 3;
         private const int MaxFrameIndex = 7;
-        private const float DrawSize = 0.5f;
+        new private const float DrawSize = 0.5f;
 
         private const float MaxAttackRange = 40f;
         private const int ShootIntervalTicks = 60;

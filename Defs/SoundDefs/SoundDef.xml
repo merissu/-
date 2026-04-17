@@ -449,8 +449,8 @@
     <SoundDef>
         <defName>MilkyWay_AB_Fire</defName>
         <context>MapOnly</context>
-		<maxSimultaneous>1</maxSimultaneous>
-		<maxVoices>1</maxVoices>
+		<maxSimultaneous>5</maxSimultaneous>
+		<maxVoices>5</maxVoices>
 		<subSounds>
 		  <li>
 			<grains>
@@ -458,11 +458,12 @@
 				<clipPath>MilkyWay_AB_Fire</clipPath>
 			  </li>
 			</grains>
-			<pitchRange>
-				<min>1</min>
-				<max>1</max>
-			</pitchRange>
-			<volumeRange>40</volumeRange>
+			<pitchRange>0.95~1.05</pitchRange>
+			<distRange>
+				<min>0</min>    
+				<max>30</max>   
+			</distRange>
+			<volumeRange>30</volumeRange>
 		  </li>
 		</subSounds>
     </SoundDef>
@@ -1533,6 +1534,48 @@
 				<max>1.1</max>
 			</pitchRange>
 			<volumeRange>40</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>se_notice</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>se_notice</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>se_fault</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>se_fault</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
 		  </li>
 		</subSounds>
     </SoundDef>

@@ -8,6 +8,7 @@ namespace merissu
     {
         public static AbilityDef Merissu_WanbaoHammerRepair;
         public static ThingDef WanbaoHammer;
+        public static ThingDef Merissu_WarFlyer;
 
         static MerissuDefOf()
         {

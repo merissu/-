@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThinkTreeDef>
+    <defName>Merissu_CombatOnlyFlyer</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="ThinkNode_ConditionalMustKeepLyingDown">
+          <subNodes>
+            <li Class="ThinkNode_QueuedJob">
+              <inBedOnly>true</inBedOnly>
+            </li>
+            <li Class="JobGiver_KeepLyingDown"/>
+          </subNodes>
+        </li>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Downed</treeDef>
+        </li>
+        <li Class="JobGiver_ReactToCloseMeleeThreat"/>
+        <li Class="ThinkNode_QueuedJob"/>
+        <li Class="ThinkNode_ConditionalForcedGoto">
+          <subNodes>
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>Misc</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_ForcedGoto"/>
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>LordDuty</treeDef>
+        </li>
+		<li Class="ThinkNode_Tagger">
+			<tagToGive>Fieldwork</tagToGive> 
+			<subNodes>
+				<li Class="merissu.JobGiver_YinYangFirebeam">
+					<maxAttackRange>25</maxAttackRange>
+					<minRetreatDist>3</minRetreatDist> 
+					<maxRetreatDist>8</maxRetreatDist> 
+				</li>
+			</subNodes>
+		</li>
+		<li Class="ThinkNode_Tagger">
+          <tagToGive>Idle</tagToGive>
+          <subNodes>
+            <li Class="JobGiver_WanderAnywhere">
+              <maxDanger>Deadly</maxDanger>
+              <ticksBetweenWandersRange>600~1200</ticksBetweenWandersRange>
+            </li>
+          </subNodes>
+        </li>
+        <li Class="JobGiver_IdleError"/>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+
+	<BodyPartDef>
+		<defName>Merissu_YinYangCore</defName>
+		<label>阴阳玉核心</label>
+		<description>阴阳玉的核心,一旦受损就会使阴阳玉解体</description>
+		<hitPoints>10</hitPoints> 
+		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor> 
+		<skinCovered>false</skinCovered>
+		<frostbiteVulnerability>0.1</frostbiteVulnerability>
+		<tags>
+			<li>ConsciousnessSource</li> 
+		    <li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>YinYangJade</defName>
+		<label>阴阳玉外壳</label>
+		<description>阴阳玉的外壳,冰冰凉凉并且易碎</description>
+		<hitPoints>20</hitPoints> 
+		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor> 
+		<skinCovered>false</skinCovered>
+		<frostbiteVulnerability>0.1</frostbiteVulnerability>
+		<tags>
+			<li>BreathingSource</li>
+		    <li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyDef>   
+		<defName>YinYangJade</defName>
+		<label>阴阳玉</label>
+		<corePart>
+			<def>YinYangJade</def>
+			<coverage>1.0</coverage>
+			<groups>
+				<li>FullHead</li>
+			</groups>
+			<parts>
+				<li>
+					<def>Merissu_YinYangCore</def>
+					<coverage>0.3</coverage> 
+					<depth>Inside</depth>
+					<groups>
+						<li>FullHead</li>
+					</groups>
+				</li>
+			</parts>
+		</corePart>
+	</BodyDef>
+
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Merissu_WarFlyer</defName>
+		<label>嗜血阴阳玉</label>
+		<description>不知为何充满敌意的阴阳玉,只为了战斗而存在</description>
+		<statBases>
+			<MoveSpeed>3.2</MoveSpeed>
+			<MarketValue>600</MarketValue>
+			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
+		    <ComfyTemperatureMax>250</ComfyTemperatureMax>
+			<PainShockThreshold>9999</PainShockThreshold>
+			<ToxicResistance>1.0</ToxicResistance>
+			<FilthRate>0</FilthRate>
+			<Wildness>1.0</Wildness>
+			<MaxFlightTime>99999</MaxFlightTime>
+			<FlightCooldown>0</FlightCooldown>
+		</statBases>
+		<butcherProducts>
+			<PowerPoint>1</PowerPoint>
+		</butcherProducts>
+		<race>
+			<deathAction>
+				<workerClass>merissu.DeathActionWorker_YinYangJadeDie</workerClass>
+			</deathAction>
+			<meatMarketValue>0</meatMarketValue> 
+			<body>YinYangJade</body>
+			<fleshType>Normal</fleshType>
+			<bleedRateFactor>0</bleedRateFactor>
+			<gestationPeriodDays>999</gestationPeriodDays>
+			<hasGenders>false</hasGenders>
+			<intelligence>Animal</intelligence>
+			<trainability>None</trainability>
+			<foodType>None</foodType>
+			<needsRest>false</needsRest>
+			<thinkTreeMain>Merissu_CombatOnlyFlyer</thinkTreeMain>
+			<flightStartChanceOnJobStart>1.0</flightStartChanceOnJobStart>
+			<canFlyIntoMap>true</canFlyIntoMap>
+			<canLeaveMapFlying>true</canLeaveMapFlying>
+			<canFlyInVacuum>true</canFlyInVacuum>
+			<manhunterOnDamageChance>1.0</manhunterOnDamageChance>
+			<baseBodySize>0.5</baseBodySize>
+			<baseHealthScale>1.0</baseHealthScale>
+			<lifeExpectancy>999</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+				<def>AnimalAdult</def>
+				<minAge>0</minAge>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>hitA</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>hitA</soundMeleeHitBuilding>
+			<soundMeleeMiss>MissedA</soundMeleeMiss>
+		</race>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<defaultProjectile>MediumbulletA</defaultProjectile>
+				<warmupTime>2</warmupTime>
+				<range>25</range>
+				<soundCast>MilkyWay_AB_Fire</soundCast>
+				<muzzleFlashScale>0</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>撞击</label>
+				<capacities>
+				<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>1</cooldownTime>
+				<linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="merissu.CompProperties_YinYangRotatingGraphic" />
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>MediumbulletA</defName>
+		<label>中玉</label>
+		<graphicData>
+			<texPath>Projectiles/MediumbulletA</texPath>
+			<drawSize>(0.5,0.5)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>marisa</damageDef>
+			<damageAmountBase>6</damageAmountBase>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<stoppingPower>0.2</stoppingPower>
+			<speed>15</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef>
+        <defName>Merissu_YinYangDieAnim</defName>
+        <label>阴阳玉解体</label>
+        <thingClass>merissu.Thing_YinYangDieAnim</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <graphicData>
+            <texPath>Other/null</texPath> 
+			<graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Merissu_WarFlyerKind</defName>
+		<label>嗜血阴阳玉</label>
+		<race>Merissu_WarFlyer</race>
+		<fixedGender>None</fixedGender>
+		<combatPower>10</combatPower>
+		<ecoSystemWeight>0.01</ecoSystemWeight>
+		<wildGroupSize>1~2</wildGroupSize>
+		<allowOldAgeInjuries>false</allowOldAgeInjuries>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Pawn/YinYangJade/red4</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<shaderType>MoteGlow</shaderType>
+					<drawSize>(1,1)</drawSize>
+					<color>(0,0,0,0)</color>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+				<texPath>Pawn/YinYangJade/red4</texPath>
+				<drawSize>1.6</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+</Defs>

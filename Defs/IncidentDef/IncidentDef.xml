@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IncidentDef>
+      <defName>Merissu_FiveCaravansArrival</defName>
+      <label>月虹市场</label>
+      <category>Misc</category>
+      <targetTags>
+        <li>Map_PlayerHome</li>
+      </targetTags>
+      <baseChance>0</baseChance>
+      <workerClass>merissu.IncidentWorker_FiveCaravans</workerClass>
+      <letterLabel>月虹市场</letterLabel>
+      <letterText>月虹市场吸引了大量的交易者前来,他们带来了各种各样的商品和资源。</letterText>
+      <letterDef>PositiveEvent</letterDef>
+    </IncidentDef>
+
+  <HediffDef>
+    <defName>Merissu_SpecialGuestMarker</defName>
+    <label>弹幕狂</label>
+		<defaultLabelColor>(153,204,255)</defaultLabelColor>
+    <description>这个人手中似乎有特殊的商品可以交易</description>
+    <isBad>false</isBad>
+  </HediffDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>Merissu_CustomCoin</defName> 
+    <label>金钱</label>
+    <description>在月虹市场流通的特殊货币,可以通过不可抗拒的朱莉安娜羽扇和烟熏的团扇召唤敌人,并且打败敌人获得,能用来交换特殊的商品。
+
+在月虹市场购买卡牌比直接制作能省一半钱,所以不要吝啬金钱,大手大脚的花出去吧</description>
+    <graphicData>
+			<texPath>Accessory/card/Merissu_CustomCoin</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+    </graphicData>
+    <soundInteract>Silver_Drop</soundInteract>
+    <soundDrop>Silver_Drop</soundDrop>
+    <stackLimit>500</stackLimit>
+    <statBases>
+      <MaxHitPoints>10000</MaxHitPoints>
+      <MarketValue>10</MarketValue>
+      <Mass>0.001</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+  </ThingDef>
+
+  <JobDef>
+    <defName>Merissu_GotoMoonbowMarket</defName>
+    <driverClass>merissu.JobDriver_GotoMoonbowMarket</driverClass>
+    <reportString>正在前往月虹市场</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <IncidentDef>
+    <defName>Merissu_SpecialRaidEvent</defName>
+    <label>妖怪袭击</label>
+    <description>一大群敌人正在接近</description>
+    <category>ThreatBig</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>merissu.IncidentWorker_CustomMonsterRaid</workerClass>
+    <baseChance>1.0</baseChance>
+    <pointsScaleable>true</pointsScaleable>
+    <tale>Raid</tale>
+    <letterLabel>敌袭</letterLabel>
+    <letterText>一群被殖民地财富吸引的敌人发起了进攻！</letterText>
+    <letterDef>ThreatBig</letterDef>
+    <modExtensions>
+      <li Class="merissu.CustomRaidExtension">
+          <hediffZayu>BulletScreenManiaA</hediffZayu>
+          <hediffLow>BulletScreenManiaB</hediffLow>
+          <hediffMid>BulletScreenManiaC</hediffMid>
+          <hediffHigh>BulletScreenManiaD</hediffHigh>
+          <hediffBoss>BulletScreenManiaE</hediffBoss>
+          <hediffExtraF>BulletScreenManiaF</hediffExtraF>
+          <poolZayu>
+            <li>Merissu_WarFlyerKind</li> 
+          </poolZayu>
+          <poolLow>
+            <li>Merissu_WarFlyerKind</li>
+          </poolLow>
+          <poolMid>
+            <li>Merissu_WarFlyerKind</li>
+          </poolMid>
+          <poolHigh>
+            <li>Merissu_WarFlyerKind</li>
+          </poolHigh>
+          <poolBoss>
+            <li>Merissu_WarFlyerKind</li>
+          </poolBoss>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+
+  <HediffDef>
+    <defName>BulletScreenManiaA</defName>
+    <label>弹幕狂(妖精级)</label>
+    <defaultLabelColor>(153,204,153)</defaultLabelColor>
+    <description>这个家伙似乎携带了少量金钱</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="merissu.HediffCompProperties_OnDeathTrigger">
+        <soundDef>gohei</soundDef>
+        <thingDefs>
+          <li>Merissu_CustomCoin</li>
+        </thingDefs>
+        <stackCount>1</stackCount>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>BulletScreenManiaB</defName>
+    <label>弹幕狂(河童级)</label>
+    <defaultLabelColor>(153,153,255)</defaultLabelColor>
+    <description>这个家伙似乎携带了适量金钱</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="merissu.HediffCompProperties_OnDeathTrigger">
+        <soundDef>gohei</soundDef>
+        <thingDefs>
+          <li>Merissu_CustomCoin</li>
+        </thingDefs>
+        <stackCount>2</stackCount>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>BulletScreenManiaC</defName>
+    <label>弹幕狂(天狗级)</label>
+    <defaultLabelColor>(204,153,153)</defaultLabelColor>
+    <description>这个家伙似乎携带了大量金钱</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="merissu.HediffCompProperties_OnDeathTrigger">
+        <soundDef>gohei</soundDef>
+        <thingDefs>
+          <li>Merissu_CustomCoin</li>
+        </thingDefs>
+        <stackCount>4</stackCount>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>BulletScreenManiaD</defName>
+    <label>弹幕狂(鬼神级)</label>
+    <defaultLabelColor>(204,153,204)</defaultLabelColor>
+    <description>这个家伙似乎携带了超多的金钱</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="merissu.HediffCompProperties_OnDeathTrigger">
+        <soundDef>gohei</soundDef>
+        <thingDefs>
+          <li>Merissu_CustomCoin</li>
+        </thingDefs>
+        <stackCount>8</stackCount>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>BulletScreenManiaE</defName>
+    <label>弹幕狂(偶像级)</label>
+    <defaultLabelColor>(153,204,153)</defaultLabelColor>
+    <description>这个家伙携带的金钱已经多到数不清了!</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="merissu.HediffCompProperties_OnDeathTrigger">
+        <soundDef>gohei</soundDef>
+        <thingDefs>
+          <li>Merissu_CustomCoin</li>
+        </thingDefs>
+        <stackCount>20</stackCount>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>BulletScreenManiaF</defName>
+    <label>鬼杰组长的恐吓</label>
+		<defaultLabelColor>(153,102,153)</defaultLabelColor>
+    <description>这个家伙似乎还藏了不少钱呢</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="merissu.HediffCompProperties_OnDeathTrigger">
+        <soundDef>gohei</soundDef>
+        <thingDefs>
+          <li>Merissu_CustomCoin</li>
+        </thingDefs>
+        <stackCount>2</stackCount>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

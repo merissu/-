@@ -301,7 +301,7 @@
 
 但是,有一个地方可以完完全全地做到这种事。那就是人唯一可以交换事物的场所——集市。
 
-通过在集市上售出，人就能够完全地丧失所有权。</description>
+空白卡牌可以开设月虹市场,通过在集市上售出，人就能够完全地丧失所有权。</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -316,7 +316,7 @@
 		<defName>AuxiliaryEquipmentCard</defName>
 		<label>附属装备卡</label>
 		<description>为自机附加各种战斗功能的卡牌,一般是某种子机</description>
-		<baseCost>500</baseCost>
+		<baseCost>5000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
 			<li>MoonlightMarket</li>
@@ -330,7 +330,7 @@
 		<defName>AuxiliaryAbilityCard</defName>
 		<label>附属能力卡</label>
 		<description>给自机附加永续效果的卡牌</description>
-		<baseCost>500</baseCost>
+		<baseCost>5000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
 			<li>MoonlightMarket</li>
@@ -344,7 +344,7 @@
 		<defName>ActiveItemCard</defName>
 		<label>主动道具卡</label>
 		<description>可以主动使用的卡牌,使用一次后需要冷却一段时间才能继续使用</description>
-		<baseCost>500</baseCost>
+		<baseCost>5000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
 			<li>MoonlightMarket</li>

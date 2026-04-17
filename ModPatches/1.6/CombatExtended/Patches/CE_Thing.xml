@@ -252,4 +252,13 @@
     </value>
   </Operation>
 
+              <!-- 钱 -->
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Merissu_CustomCoin"]/statBases</xpath>
+    <value>
+        <Bulk>0.001</Bulk> 
+    </value>
+  </Operation>
+
 </Patch>

@@ -43,9 +43,9 @@ namespace merissu
             {
                 Pawn clone = duplicator.Duplicate(target);
                 if (clone == null) continue;
+                clone.abilities?.abilities?.Clear();
 
                 GenSpawn.Spawn(clone, spawnPos, target.Map);
-
                 clone.Rotation = parent.pawn.Rotation;
 
                 if (target.apparel != null)

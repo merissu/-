@@ -44,21 +44,19 @@ namespace merissu
         }
         private void CheckAdvancedCollision()
         {
+            if (!this.IsHashIntervalTick(3)) return;
+
             Vector3 currentPos = DrawPos;
             IntVec3 intPos = currentPos.ToIntVec3();
 
             if (!intPos.InBounds(Map)) return;
 
-            IEnumerable<Thing> list =
-                GenRadial.RadialDistinctThingsAround(
-                    intPos,
-                    Map,
-                    0.8f,
-                    true
-                );
+            List<Thing> thingList = intPos.GetThingList(Map);
 
-            foreach (Thing thing in list)
+            for (int i = 0; i < thingList.Count; i++)
             {
+                Thing thing = thingList[i];
+
                 if (thing == launcher) continue;
 
                 if (thing is Pawn p)
@@ -77,7 +75,6 @@ namespace merissu
                         {
                             continue;
                         }
-
                     }
                     this.Impact(b);
                     return;

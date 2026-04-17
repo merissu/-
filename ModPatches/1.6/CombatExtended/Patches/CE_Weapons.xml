@@ -26,7 +26,7 @@
     <value>
       <statBases>
         <WorkToMake>5000</WorkToMake>
-        <MarketValue>17600</MarketValue>
+        <MarketValue>1760</MarketValue>
         <SellPriceFactor>0.1</SellPriceFactor>
         <Mass>1.0</Mass>
         <Bulk>1.0</Bulk>
@@ -177,7 +177,7 @@
       <defName>Hakkero</defName>
       <statBases>
 		  	<WorkToMake>10000</WorkToMake>
-        <MarketValue>37000</MarketValue> 
+        <MarketValue>3700</MarketValue> 
         <SellPriceFactor>0.1</SellPriceFactor>
         <Mass>1.0</Mass>
         <AccuracyTouch>0.9</AccuracyTouch>
@@ -285,7 +285,7 @@
     <defName>MoonRabbitWaveGun</defName>
     <statBases>
 			<WorkToMake>10000</WorkToMake>
-			<MarketValue>37000</MarketValue> 
+			<MarketValue>3700</MarketValue> 
       <SellPriceFactor>0.1</SellPriceFactor>
 			<Mass>1.0</Mass>
 			<AccuracyTouch>0.8</AccuracyTouch>
@@ -398,7 +398,7 @@
     <defName>YuukaUmbrella</defName>
     <statBases>
       <WorkToMake>10000</WorkToMake>
-			<MarketValue>27000</MarketValue> 
+			<MarketValue>2700</MarketValue> 
       <SellPriceFactor>0.1</SellPriceFactor>
       <Mass>2.5</Mass>
       <Bulk>5.0</Bulk>
@@ -433,7 +433,7 @@
     <defName>OpenYuukaUmbrella</defName>
     <statBases>
       <WorkToMake>10000</WorkToMake>
-			<MarketValue>27000</MarketValue> 
+			<MarketValue>2700</MarketValue> 
       <SellPriceFactor>0.1</SellPriceFactor>
       <Mass>2.5</Mass>
       <Bulk>5.0</Bulk>
@@ -468,7 +468,7 @@
     <defName>horrorYuukaUmbrella</defName>
     <statBases>
       <WorkToMake>10000</WorkToMake>
-			<MarketValue>27000</MarketValue> 
+			<MarketValue>2700</MarketValue> 
       <SellPriceFactor>0.1</SellPriceFactor>
       <Mass>2.5</Mass>
       <Bulk>5.0</Bulk>
@@ -507,7 +507,7 @@
       <Mass>5.0</Mass>
       <Bulk>7.0</Bulk>
       <WorkToMake>20000</WorkToMake>
-			<MarketValue>62100</MarketValue> 
+			<MarketValue>6210</MarketValue> 
       <SellPriceFactor>0.1</SellPriceFactor>
       <SightsEfficiency>1.5</SightsEfficiency> 
       <ShotSpread>0.01</ShotSpread>
@@ -541,7 +541,7 @@
       <Mass>5.0</Mass>
       <Bulk>7.0</Bulk>
       <WorkToMake>20000</WorkToMake>
-			<MarketValue>62100</MarketValue> 
+			<MarketValue>6210</MarketValue> 
       <SellPriceFactor>0.1</SellPriceFactor>
       <SightsEfficiency>1.5</SightsEfficiency> 
       <ShotSpread>0.01</ShotSpread>
@@ -576,7 +576,7 @@
     <value>
       <statBases>
         <WorkToMake>30000</WorkToMake>
-        <MarketValue>50000</MarketValue> 
+        <MarketValue>5000</MarketValue> 
         <SellPriceFactor>0.1</SellPriceFactor>
         <Mass>3</Mass>
         <Flammability>0</Flammability>
@@ -635,7 +635,7 @@
     <value>
       <statBases>
         <WorkToMake>30000</WorkToMake>
-        <MarketValue>50000</MarketValue>
+        <MarketValue>5000</MarketValue>
         <SellPriceFactor>0.1</SellPriceFactor>
         <Mass>1</Mass>
         <Bulk>2</Bulk>
@@ -738,7 +738,7 @@
     <value>
       <statBases>
         <WorkToMake>30000</WorkToMake>
-        <MarketValue>50000</MarketValue> 
+        <MarketValue>5000</MarketValue> 
         <SellPriceFactor>0.1</SellPriceFactor>
         <Mass>1</Mass>
         <Bulk>3</Bulk>
@@ -783,7 +783,7 @@
         <value>
           <statBases>
             <WorkToMake>30000</WorkToMake>
-            <MarketValue>50000</MarketValue> 
+            <MarketValue>5000</MarketValue> 
             <SellPriceFactor>0.1</SellPriceFactor>
             <Mass>3</Mass>
             <Flammability>0</Flammability>
@@ -822,6 +822,52 @@
   </operations>
 </Operation>
 
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="LaevatainF"]/statBases</xpath>
+        <value>
+          <statBases>
+            <WorkToMake>30000</WorkToMake>
+            <MarketValue>50000</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+            <Mass>3</Mass>
+            <Flammability>0</Flammability>
+            <Bulk>5</Bulk> 
+            <MeleeCritChance>0.5</MeleeCritChance> 
+            <MeleeParryChance>0.15</MeleeParryChance> 
+          </statBases>
+        </value>
+      </li>
+
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="LaevatainF"]/weaponTags</xpath>
+      <value>
+        <li>CE_HeavyWeapon</li> 
+      </value>
+    </li>
+
+    <li Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="LaevatainF"]/tools</xpath>
+      <value>
+        <tools>
+          <li Class="CombatExtended.ToolCE">
+            <label>莱瓦汀</label>
+            <capacities>
+              <li>KagomeKagome</li>
+            </capacities>
+            <power>495</power>
+            <cooldownTime>2.0</cooldownTime>
+            <armorPenetrationSharp>999</armorPenetrationSharp> 
+            <armorPenetrationBlunt>999</armorPenetrationBlunt>
+            <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+          </li>
+        </tools>
+      </value>
+    </li>
+  </operations>
+</Operation>
+
               <!-- 冈格尼尔之枪 -->
 
   <Operation Class="PatchOperationSequence">
@@ -832,7 +878,7 @@
         <value>
           <statBases>
             <WorkToMake>30000</WorkToMake>
-            <MarketValue>50000</MarketValue>
+            <MarketValue>5000</MarketValue>
             <SellPriceFactor>0.1</SellPriceFactor>
             <Mass>3</Mass>
             <Bulk>4</Bulk> 

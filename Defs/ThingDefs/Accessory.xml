@@ -780,7 +780,8 @@
 究竟是什么时候复制的这种能力呢,这种东西居然会在市场上流通，太可怕了……</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>480</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -805,7 +806,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -832,9 +833,7 @@
 				<li>AuxiliaryEquipmentCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>ReimuJade</hediff>
@@ -903,7 +902,8 @@
 不管是人类还是妖怪,都想试试发射激光的感觉,所以是非常受欢迎的卡牌</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>480</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -928,7 +928,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -955,9 +955,7 @@
 				<li>AuxiliaryEquipmentCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>MiniHakkero</hediff>
@@ -1011,7 +1009,8 @@
 ……曾经我是这么觉得的,但其实这单纯只是会提升攻击力下限的好用卡牌</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>560</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -1036,7 +1035,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -1063,9 +1062,7 @@
 				<li>AuxiliaryEquipmentCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>HakkeroMissile</hediff>
@@ -1151,7 +1148,8 @@
 直到能瞄准并贯穿妖精为止,都没有做女仆的资格</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>480</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -1176,7 +1174,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -1203,9 +1201,7 @@
 				<li>AuxiliaryEquipmentCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>MaidKnife</hediff>
@@ -1253,7 +1249,8 @@
 射击变得华丽真是太好了,攻击方式就是越花哨越好</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>480</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -1278,7 +1275,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -1305,9 +1302,7 @@
 				<li>AuxiliaryEquipmentCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>trackMaidKnife</hediff>
@@ -1372,7 +1367,8 @@
 从动作看来像是拥有自我意识,但人偶是没有自我的.大概吧……</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>560</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -1397,7 +1393,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -1424,9 +1420,7 @@
 				<li>AuxiliaryEquipmentCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>shanghaicard</hediff>
@@ -1473,7 +1467,8 @@
 胡乱攻击实在显得太过无谋,但是,对于冰之妖精来说这就是最强的证明,有效利用无谋的大范围吧</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>400</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -1498,7 +1493,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>1000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -1525,9 +1520,7 @@
 				<li>AuxiliaryEquipmentCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>IceFairy</hediff>
@@ -1609,7 +1602,8 @@
 看过很多UFO的照片吧?但是从来没发生过宇宙战争,因为UFO只是单纯想飞才飞而已</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>400</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -1634,7 +1628,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -1661,9 +1655,7 @@
 				<li>AuxiliaryEquipmentCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>AnnnoyingUFO</hediff>
@@ -1716,7 +1708,8 @@
 既然河童能伸长手臂,那肯定是利用这一招来网罗万物的</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>200</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -1741,7 +1734,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -1768,9 +1761,7 @@
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>miser</hediff>
@@ -1806,7 +1797,8 @@
 “献给大山的，便是属于我的！”啊啊,乍一听是多么自私的说法啊！</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>200</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -1831,7 +1823,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -1858,9 +1850,7 @@
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>YasakaKanako</hediff>
@@ -1892,7 +1882,8 @@
 像兔子一样敏捷、狡猾,能够回避中弹的幸运护符。</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>200</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -1917,7 +1908,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -1944,9 +1935,7 @@
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>LuckyRabbitFoot</hediff>
@@ -1978,7 +1967,8 @@
 不管如何绞尽脑汁,想尽千方百计,在压倒性的力量面前,万物均会降伏。说到底,最重要的还是攻击力</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>360</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -2003,7 +1993,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -2030,9 +2020,7 @@
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>Survivalfittest</hediff>
@@ -2076,7 +2064,8 @@
 难道说没人注意到我？这样啊,这下就方便了。</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>200</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -2101,7 +2090,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>10000</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.5</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>0.4</Flammability>
@@ -2129,10 +2118,8 @@
 			<layers>
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
-			</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		</apparel>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>koishicard</hediff>
@@ -2166,7 +2153,8 @@
 时常能听说把爆竹塞进青蛙体内让其爆炸的故事,不过你肯定觉得青蛙不可能自己爆炸对吧,事实上,它真的会自己爆炸</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>280</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -2191,7 +2179,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -2218,9 +2206,7 @@
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>ExplodingRedFrog</hediff>
@@ -2265,7 +2251,8 @@
 只有天狗才能做到这种主动引发判定欺诈的能力</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>200</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -2290,7 +2277,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -2317,9 +2304,7 @@
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>ayacard</hediff>
@@ -2395,7 +2380,8 @@
 ……当然是储蓄</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>200</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -2420,7 +2406,7 @@
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -2447,9 +2433,7 @@
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>KaguyaSecret</hediff>
@@ -2490,7 +2474,8 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 收集道具这种事,就交给小弟们吧</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>700</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -2515,7 +2500,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -2542,9 +2527,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>DiscipleTanuki</hediff>
@@ -2576,7 +2559,8 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 亡灵不会害怕死亡。不,应该说不可能害怕,对于不可能害怕死亡的亡灵来说,攻击无法造成任何威胁</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>480</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -2601,7 +2585,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -2628,9 +2612,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>ghostsbarrage</hediff>
@@ -2666,7 +2648,8 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 感谢您一直供奉地藏,作为回报,您想要一个健康的身体吧？没错吧？</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>280</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -2691,7 +2674,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -2718,9 +2701,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>StrengthenKsitigarbha</hediff>
@@ -2752,7 +2733,8 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 节约符卡的意义又多了一个。这就是会令人紧张到神经刺痛的蜈蚣的毒。</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>600</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -2777,7 +2759,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -2804,9 +2786,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>AuxiliaryAbilityCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>centipede</hediff>
@@ -3029,6 +3009,254 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
     	</comps>
     </HediffDef>
 
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Businessacumen</defName>
+		<label>经商有道的招财猫</label>
+		<description>豪德寺三花的能力,可以提升商品丰富度,商人处可购买的卡牌种类增加
+
+附属能力卡,装备后,到来的卡牌商人会携带三倍的卡牌
+
+在原本的豪德寺的招财猫都是白猫,因此身为三花猫的她生活十分艰辛</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<Merissu_CustomCoin>200</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>AuxiliaryAbilityCard</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/Businessacumen</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>4000</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryAbilityCard</li>
+			</layers>
+		</apparel>
+		<tradeability>None</tradeability>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>Businessacumen</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>Businessacumen</defName>
+        <label>经商有道的招财猫</label>
+		<defaultLabelColor>(255,102,51)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>豪德寺三花的能力,可以提升商品丰富度,商人处可购买的卡牌种类增加</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+    </HediffDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>ShoppingTechniques</defName>
+		<label>山童式购物术</label>
+		<description>山城高岭的能力,可以在购买卡牌时花费更少
+
+附属能力卡,装备后,卡牌会打八折
+
+做生意的铁则是低买高卖,但是没必要去买便宜货了,因为山童拥有低价购入贵重商品的技术</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<Merissu_CustomCoin>200</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>AuxiliaryAbilityCard</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/ShoppingTechniques</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>4000</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryAbilityCard</li>
+			</layers>
+		</apparel>
+		<tradeability>None</tradeability>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>ShoppingTechniques</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>ShoppingTechniques</defName>
+        <label>山童式购物术</label>
+		<defaultLabelColor>(0,204,102)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>山城高岭的能力,可以在购买卡牌时花费更少</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+    </HediffDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>KitchoYachiecard</defName>
+		<label>鬼杰组长的恐吓</label>
+		<description>吉吊八千慧的能力,可以让敌人掉落额外的金钱
+
+附属能力卡,装备后,来袭的敌人会带更多钱
+
+以尽管彬彬有礼却让人生不出反抗念头的态度,从妖精手上再夺走一点小钱
+
+购买能力卡牌时,什么是必要的？人生中最重要的东西是什么,你应该能明白</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<Merissu_CustomCoin>280</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>AuxiliaryAbilityCard</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/KitchoYachiecard</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>4000</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryAbilityCard</li>
+			</layers>
+		</apparel>
+		<tradeability>None</tradeability>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>KitchoYachiecard</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>KitchoYachiecard</defName>
+        <label>鬼杰组长的恐吓</label>
+		<defaultLabelColor>(153,102,153)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>吉吊八千慧的能力,可以让敌人掉落额外的金钱</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+    </HediffDef>
+
     <ApparelLayerDef>
         <defName>ActiveItemCard</defName>
         <label>主动道具卡</label>
@@ -3045,7 +3273,8 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 攻击就是最好的防御!</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>800</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -3070,7 +3299,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -3097,9 +3326,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>ActiveItemCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>Patiencestone</hediff>
@@ -3164,7 +3391,8 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 果然月亮（确实）超酷啊!</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>480</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -3189,7 +3417,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -3216,9 +3444,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>ActiveItemCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>MadMoon</hediff>
@@ -3295,7 +3521,8 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 双手合十集中注意力,应该就能够只关注会造成威胁的子弹。你看很简单对吧？</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>800</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -3320,7 +3547,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -3347,9 +3574,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>ActiveItemCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>sublimemajesty</hediff>
@@ -3420,7 +3645,8 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 来回躲闪回避弹幕只是耍帅罢了,对于有能力之人只要把一切都烧个干净就好</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>900</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -3445,7 +3671,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -3472,9 +3698,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>ActiveItemCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>SunUnderground</hediff>
@@ -3553,10 +3777,11 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 
 主动道具卡,装备后,可以无数次提升火力
 
-为什么要上山之后再收集能量？一开始就拿着大量食材上山不就好了。</description>
+为什么要上山之后再收集能量？一开始就拿着大量食材上山不就好了</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
+			<Merissu_CustomCoin>560</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -3581,7 +3806,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 		<tickerType>Normal</tickerType>
 		<statBases>
 			<WorkToMake>200</WorkToMake>
-			<MarketValue>100</MarketValue> 
+			<MarketValue>4000</MarketValue> 
 			<Mass>0.1</Mass>
 			<MaxHitPoints>99999</MaxHitPoints>
 			<Flammability>1</Flammability>
@@ -3608,9 +3833,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				<li>ActiveItemCard</li>
 			</layers>
 		</apparel>
-		<tradeTags>
-			<li>ExoticMisc</li>
-		</tradeTags>
+		<tradeability>None</tradeability>
 		<comps>
             <li Class="merissu.CompProperties_WearerHediff">
                 <hediff>WheatRice</hediff>
@@ -3656,6 +3879,125 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
             </targetParams>
         </verbProperties>
         <iconPath>Accessory/card/WheatRice</iconPath>
+    </AbilityDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>BribingYama</defName>
+		<label>有钱能使鬼推磨</label>
+		<description>四季映姬·夜摩仙那度的能力,消费50金钱便可以回避死亡
+
+主动道具卡,装备后,可以消耗50金钱获得一次死亡回避
+
+你生前做的任何事情我都一清二楚……既然有这么多钱,说明你值得拥有从头开始人生的机会</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<Merissu_CustomCoin>280</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>ActiveItemCard</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/BribingYama</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>4000</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>ActiveItemCard</li>
+			</layers>
+		</apparel>
+		<tradeability>None</tradeability>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>BribingYama</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+    <HediffDef>
+        <defName>BribingYama</defName>
+        <label>有钱能使鬼推磨</label>
+        <defaultLabelColor>(51,102,102)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>四季映姬·夜摩仙那度的能力,消费50金钱便可以回避死亡</description>
+        <isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>BribingYama</li>
+        </abilities>
+    </HediffDef>
+
+    <AbilityDef>
+        <defName>BribingYama</defName>
+        <label>有钱能使鬼推磨</label>
+        <description>四季映姬·夜摩仙那度的能力,消费50金钱便可以回避死亡
+           
+只要有钱,就能起死回生。没错,幻想乡里最腐败的就是这些阎魔！</description>
+        <abilityClass>merissu.Ability_BribingYama</abilityClass>
+        <cooldownTicksRange>0</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>up</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Accessory/card/BribingYama</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>DeathRefusal</hediffDef>
+                <severity>1</severity>
+                <onlyApplyToSelf>True</onlyApplyToSelf> 
+			</li>
+		</comps>
     </AbilityDef>
 
 </Defs>

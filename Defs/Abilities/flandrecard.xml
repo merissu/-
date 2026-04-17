@@ -77,33 +77,32 @@
 		<isBad>false</isBad>
 	</HediffDef>
 
-	<ThingDef ParentName="BaseWeapon">
-		<techLevel>Archotech</techLevel>
-		<smeltable>true</smeltable>
-		<burnableByRecipe>true</burnableByRecipe>
-		<thingCategories>
-			<li>WeaponsMelee</li>
-		</thingCategories>
-		<weaponClasses>
-			<li>Melee</li>
-		</weaponClasses>
-		<inspectorTabs>
-			<li>ITab_Art</li>
-		</inspectorTabs>
-		<tradeTags>
-			<li>WeaponMelee</li>
-		</tradeTags>
+
+	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>LaevatainF</defName>
 		<label>掌中的破坏者</label>
 		<description>芙兰朵露经常使用的S形武器,拿在手中便会拥有将一切悉数破坏程度的能力,让分身拿上这把武器肆无忌惮地发动攻击吧</description>
-		<destroyOnDrop>true</destroyOnDrop>
-		<tradeability>None</tradeability>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/Laevatain</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1,1)</drawSize>
+			<drawSize>(2,2)</drawSize>
+			<shaderType>merissu_Laevatain</shaderType>
 		</graphicData>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+			<li>TouhouWeapons</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>50000</MarketValue> 
+			<SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>3</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<weaponTags>
+			<li>Touhou</li>
+		</weaponTags>
 		<relicChance>17</relicChance>
 		<equippedAngleOffset>-65</equippedAngleOffset>
 		<tools>
@@ -116,6 +115,23 @@
 				<cooldownTime>2</cooldownTime>
 			</li>
 		</tools>
+		<costList>
+			<FullPower>10</FullPower>
+			<Crimsongold>160</Crimsongold>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>18</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+		</recipeMaker>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius> 
+				<glowColor>(255,255,255,0)</glowColor> 
+				<overlightRadius>10</overlightRadius>
+			</li>
+		</comps>
 	</ThingDef>
 
     <AbilityDef>

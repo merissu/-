@@ -13,7 +13,7 @@ namespace merissu
         public Texture snapshotTex;
         private static Material cachedMat;
         private MaterialPropertyBlock mpb;
-        private float yOffset;
+        new private float yOffset;
         public float targetScale = 1f;
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {

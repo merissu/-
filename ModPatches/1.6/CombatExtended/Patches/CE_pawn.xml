@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+              <!-- 毛玉 -->
+
+<Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="Kedama"]/statBases</xpath>
+        <value>
+          <statBases>
+            <MoveSpeed>6.4</MoveSpeed>
+            <MarketValue>350</MarketValue>
+            <ComfyTemperatureMin>-85</ComfyTemperatureMin>
+            <FilthRate>3</FilthRate>
+            <ToxicEnvironmentResistance>0.2</ToxicEnvironmentResistance>
+            <Wildness>0.2</Wildness>
+            <MeleeDodgeChance>0.15</MeleeDodgeChance>
+            <MeleeCritChance>0.05</MeleeCritChance>
+            <MeleeParryChance>0</MeleeParryChance>
+          </statBases>
+        </value>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="Kedama"]/tools</xpath>
+        <value>
+          <tools>
+            <li Class="CombatExtended.ToolCE">
+              <label>绒毛</label>
+              <capacities>
+                <li>Stab</li>
+              </capacities>
+              <power>12</power>
+              <cooldownTime>1.8</cooldownTime>
+              <linkedBodyPartsGroup>Kedama</linkedBodyPartsGroup>
+              <armorPenetrationSharp>2.5</armorPenetrationSharp>
+              <armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+            </li>
+          </tools>
+        </value>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="KedamaLauncher"]/verbs</xpath>
+        <value>
+          <verbs>
+            <li Class="CombatExtended.VerbPropertiesCE">
+              <verbClass>U.N.Owen.Verb_SpawnDanmaku_Kedama</verbClass>
+              <hasStandardCommand>true</hasStandardCommand>
+              <defaultProjectile>SmallShoot</defaultProjectile> 
+              <warmupTime>0.6</warmupTime>
+              <range>18</range>
+              <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+              <burstShotCount>1</burstShotCount>
+              <soundCast>Shot_ChargeBlaster</soundCast>
+              <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+          </verbs>
+        </value>
+      </li>
+
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="SmallShoot"]</xpath>
+        <value>
+          <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>MagicalR360</damageDef>
+            <damageAmountBase>14</damageAmountBase>
+            <armorPenetrationSharp>6</armorPenetrationSharp> 
+            <armorPenetrationBlunt>10</armorPenetrationBlunt>
+            <speed>35</speed> </projectile>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+
+              <!-- 阴阳玉 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyer"]/statBases</xpath>
+    <value>
+      <statBases>
+        <MoveSpeed>3.2</MoveSpeed>
+        <MarketValue>600</MarketValue>
+        <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+        <ComfyTemperatureMax>250</ComfyTemperatureMax>
+        <MeleeDodgeChance>0.25</MeleeDodgeChance>
+        <MeleeCritChance>0.08</MeleeCritChance>
+        <MeleeParryChance>0</MeleeParryChance>
+        <ArmorRating_Sharp>2</ArmorRating_Sharp> 
+        <ArmorRating_Blunt>4</ArmorRating_Blunt>
+        <PainShockThreshold>9999</PainShockThreshold>
+        <ToxicResistance>1.0</ToxicResistance>
+        <FilthRate>0</FilthRate>
+        <Wildness>1.0</Wildness>
+        <MaxFlightTime>99999</MaxFlightTime>
+        <FlightCooldown>0</FlightCooldown>
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyer"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>撞击</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.0</cooldownTime>
+          <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
+          <armorPenetrationBlunt>4.5</armorPenetrationBlunt> </li>
+      </tools>
+    </value>
+  </Operation>
+
+
+</Patch>
