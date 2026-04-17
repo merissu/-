@@ -6,6 +6,7 @@
   "Rotation": 45.0,
   "ScaleX": 0.6,
   "ScaleY": 0.6,
+  "HandsMode": 2,
   "BladeEnd": 0.252873927,
   "MeleeWeaponType": 24,
   "TrailTint": {

@@ -158,7 +158,8 @@
 		<graphicData>
 			<texPath>Material/FullPower</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.5,0.5)</drawSize>
+			<drawSize>(0.9,0.9)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<description>可以为人注入0.5灵力,同时也是制作各种幻想道具的必备素材。
 
@@ -1115,7 +1116,7 @@
 		<defName>Gypsum</defName>
 		<label>绀珠之药</label>
 		<graphicData>
-			<texPath>Medicine/Gypsum</texPath>
+			<texPath>Medicine/UltramarineOrbElixir</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.8,0.8)</drawSize>
 			<shaderType>Mote</shaderType>
@@ -3406,8 +3407,10 @@
 		</descriptionHyperlinks>
 		<possessionCount>6</possessionCount>
 		<graphicData>
-			<texPath>Things/Item/Drug/Beer</texPath>
-			<graphicClass>Graphic_StackCount</graphicClass>
+			<texPath>Medicine/onikoro</texPath>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
+			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<rotatable>false</rotatable>
 		<stackLimit>25</stackLimit>
@@ -3424,7 +3427,7 @@
 			<joy>0.6</joy>
 			<nurseable>true</nurseable>
 			<drugCategory>Social</drugCategory>
-			<ingestSound>Ingest_Beer</ingestSound>
+			<ingestSound>Drinksth</ingestSound>
 			<ingestHoldOffsetStanding>
 				<northDefault>
 					<offset>(0.18,0,0)</offset>

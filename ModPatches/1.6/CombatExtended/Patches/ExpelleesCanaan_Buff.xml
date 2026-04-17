@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>东方秘星异闻 ～ the Paranormal in RimWorld</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/HediffDef[defName="ExpelleesCanaan_Buff"]/stages/li[1]/statOffsets</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/HediffDef[defName="ExpelleesCanaan_Buff"]/stages/li[1]</xpath>
+            <value>
+              <statOffsets />
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/HediffDef[defName="ExpelleesCanaan_Buff"]/stages/li[1]/statOffsets</xpath>
+          <value>
+            <statOffsets>
+              <ArmorRating_Sharp>7.5000</ArmorRating_Sharp>
+              <ArmorRating_Blunt>7.5000</ArmorRating_Blunt>
+              <ArmorRating_Heat>0.7500</ArmorRating_Heat>
+            </statOffsets>
+          </value>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/HediffDef[defName="ExpelleesCanaan_Buff"]/stages/li[1]/statFactors</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/HediffDef[defName="ExpelleesCanaan_Buff"]/stages/li[1]</xpath>
+            <value>
+              <statFactors />
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/HediffDef[defName="ExpelleesCanaan_Buff"]/stages/li[1]/statFactors</xpath>
+          <value>
+            <statFactors>
+              <MeleeHitChance>1.5000</MeleeHitChance>
+              <MeleeDamageFactor>1.5000</MeleeDamageFactor>
+              <InjuryHealingFactor>5.0000</InjuryHealingFactor>
+            </statFactors>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

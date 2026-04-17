@@ -90,9 +90,9 @@
           <ArmorRating_Heat>0.75</ArmorRating_Heat>       <!-- 热能护甲+75% -->
         </statOffsets>
         <statFactors>
-          <MeleeHitChance>1.5</MeleeHitChance>       <!-- 近战命中+50% -->
-          <MeleeDodgeChance>1.5</MeleeDodgeChance>   <!-- 近战闪避+50% -->
-          <InjuryHealingFactor>3.0</InjuryHealingFactor>   <!-- 自愈速度×3 -->
+          <MeleeHitChance>1.5</MeleeHitChance>       <!-- 近战命中×150% -->
+          <MeleeDamageFactor>1.5</MeleeDamageFactor>    <!-- 近战伤害×150% -->
+          <InjuryHealingFactor>5.0</InjuryHealingFactor>   <!-- 自愈速度×5 -->
         </statFactors>
     </li>
   </stages>
@@ -120,9 +120,9 @@
           <ArmorRating_Heat>0.75</ArmorRating_Heat>       <!-- 热能护甲+75% -->
         </statOffsets>
         <statFactors>
-          <MeleeHitChance>1.5</MeleeHitChance>       <!-- 近战命中+50% -->
-          <MeleeDodgeChance>1.5</MeleeDodgeChance>   <!-- 近战闪避+50% -->
-          <InjuryHealingFactor>3.0</InjuryHealingFactor>   <!-- 自愈速度×3 -->
+          <MeleeHitChance>1.5</MeleeHitChance>       <!-- 近战命中×150% -->
+          <MeleeDamageFactor>1.5</MeleeDamageFactor>    <!-- 近战伤害×150% -->
+          <InjuryHealingFactor>5.0</InjuryHealingFactor>   <!-- 自愈速度×5 -->
         </statFactors>
     </li>
   </stages>

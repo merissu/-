@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<FleckDef ParentName="FleckBase">
+	<defName>Mamizou_1</defName>
+	<altitudeLayer>MoteOverhead</altitudeLayer>
+	<solidTime>0.05</solidTime>
+	<fadeOutTime>0.1</fadeOutTime>
+	<graphicData>
+		<texPath>Fleck/Mamizou_1</texPath>
+		<shaderType>MoteGlow</shaderType>
+		<drawSize>4.0</drawSize>
+	</graphicData>
+</FleckDef>
+
+<FleckDef ParentName="FleckBase">
+	<defName>Mamizou_2</defName>
+	<altitudeLayer>MoteOverhead</altitudeLayer>
+	<solidTime>0.05</solidTime>
+	<fadeOutTime>0.1</fadeOutTime>
+	<graphicData>
+		<texPath>Fleck/Mamizou_2</texPath>
+		<shaderType>MoteGlow</shaderType>
+		<drawSize>5.2</drawSize>
+	</graphicData>
+</FleckDef>
+
+<FleckDef ParentName="FleckBase">
+	<defName>Mamizou_3</defName>
+	<altitudeLayer>MoteOverhead</altitudeLayer>
+	<solidTime>0.05</solidTime>
+	<fadeOutTime>0.1</fadeOutTime>
+	<graphicData>
+		<texPath>Fleck/Mamizou_3</texPath>
+		<shaderType>MoteGlow</shaderType>
+		<drawSize>5.2</drawSize>
+	</graphicData>
+</FleckDef>
+	<FleckDef ParentName="FleckBase">
+		<defName>Mamizou_4</defName>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<solidTime>0.05</solidTime>
+		<fadeOutTime>0.1</fadeOutTime>
+		<graphicData>
+			<texPath>Fleck/Mamizou_4</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>4.0</drawSize>
+		</graphicData>
+	</FleckDef>
+	<EffecterDef>
+		<defName>Mamizou</defName>
+		<maintainTicks>46</maintainTicks>
+		<children>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerTriggeredDelayed</subEffecterClass>
+				<fleckDef>Mamizou_1</fleckDef>
+				<initialDelayTicks>1</initialDelayTicks>
+				<spawnLocType>OnSource</spawnLocType>
+				<burstCount>1</burstCount>
+			</li>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerTriggeredDelayed</subEffecterClass>
+				<fleckDef>Mamizou_2</fleckDef>
+				<initialDelayTicks>6</initialDelayTicks>
+				<spawnLocType>OnSource</spawnLocType>
+				<burstCount>1</burstCount>
+			</li>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerTriggeredDelayed</subEffecterClass>
+				<fleckDef>Mamizou_3</fleckDef>
+				<initialDelayTicks>11</initialDelayTicks>
+				<spawnLocType>OnSource</spawnLocType>
+				<burstCount>1</burstCount>
+			</li>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerTriggeredDelayed</subEffecterClass>
+				<fleckDef>Mamizou_4</fleckDef>
+				<initialDelayTicks>16</initialDelayTicks>
+				<spawnLocType>OnSource</spawnLocType>
+				<burstCount>1</burstCount>
+			</li>
+		</children>
+	</EffecterDef>
+</Defs>
