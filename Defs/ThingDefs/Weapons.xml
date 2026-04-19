@@ -327,14 +327,12 @@
 			<speed>100</speed>
 		</projectile>
 	</ThingDef>
-	<!--掌中的破坏者-->
+	<!--莱瓦汀-->
 
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>Laevatain</defName>
-		<label>「掌中的破坏者」</label>
-		<description>芙兰朵露经常使用的S形武器,拿在手中便会拥有将一切悉数破坏程度的能力,甚至不用触摸到事物本体就能破坏事物。
-
-消耗符卡则可以发动额外的能力。</description>
+		<label>莱瓦汀</label>
+		<description>芙兰朵露唤出的巨大火焰剑状的武器，可以消耗符卡发动强大的四重身。在家里挥舞着这样的剑真是危险。就算是吸血鬼，这剑还是太大了。</description>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/Laevatain</texPath>

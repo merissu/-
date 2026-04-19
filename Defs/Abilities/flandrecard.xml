@@ -80,11 +80,11 @@
 
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>LaevatainF</defName>
-		<label>掌中的破坏者</label>
-		<description>芙兰朵露经常使用的S形武器,拿在手中便会拥有将一切悉数破坏程度的能力,让分身拿上这把武器肆无忌惮地发动攻击吧</description>
+		<label>四重身·莱瓦汀</label>
+		<description>芙兰朵露的四重身们所持的莱瓦汀虚影。</description>
 		<possessionCount>1</possessionCount>
 		<graphicData>
-			<texPath>Weapons/Laevatain</texPath>
+			<texPath>Weapons/PhantomLaevatain</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(2,2)</drawSize>
 			<shaderType>merissu_Laevatain</shaderType>
