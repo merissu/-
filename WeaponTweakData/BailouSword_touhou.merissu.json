@@ -3,12 +3,19 @@
   "ItemDefName": "BailouSword",
   "ItemType": "ThingDef",
   "ItemTypeNamespace": "Verse",
-  "OffX": 0.465053916,
-  "OffY": 0.161290318,
-  "Rotation": 40.0,
+  "OffX": 0.6034483,
+  "OffY": 0.126436964,
+  "Rotation": 45.0,
   "ScaleX": 1.8,
   "ScaleY": 1.8,
-  "BladeStart": 0.0538651571,
-  "BladeEnd": 1.41666687,
-  "MeleeWeaponType": 6
+  "HandsMode": 2,
+  "BladeStart": 0.373563558,
+  "BladeEnd": 1.77011526,
+  "MeleeWeaponType": 6,
+  "TrailTint": {
+    "r": 0.009,
+    "g": 0.996,
+    "b": 0.64,
+    "a": 0.62
+  }
 }

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>东方秘星异闻 ～ the Paranormal in RimWorld</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/HediffDef[defName="MiracleOngoing"]/stages/li[1]/statOffsets</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/HediffDef[defName="MiracleOngoing"]/stages/li[1]</xpath>
+            <value>
+              <statOffsets />
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/HediffDef[defName="MiracleOngoing"]/stages/li[1]/statOffsets</xpath>
+          <value>
+            <statOffsets>
+              <ShootingAccuracyPawn>2.0000</ShootingAccuracyPawn>
+              <ArmorRating_Sharp>2.0000</ArmorRating_Sharp>
+              <ArmorRating_Blunt>2.0000</ArmorRating_Blunt>
+            </statOffsets>
+          </value>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/HediffDef[defName="MiracleOngoing"]/stages/li[1]/statFactors</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/HediffDef[defName="MiracleOngoing"]/stages/li[1]</xpath>
+            <value>
+              <statFactors />
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/HediffDef[defName="MiracleOngoing"]/stages/li[1]/statFactors</xpath>
+          <value>
+            <statFactors>
+              <MoveSpeed>1.2500</MoveSpeed>
+              <MeleeHitChance>1.2500</MeleeHitChance>
+              <WorkSpeedGlobal>1.5000</WorkSpeedGlobal>
+              <AimingDelayFactor>0.7500</AimingDelayFactor>
+              <RangedCooldownFactor>0.7500</RangedCooldownFactor>
+            </statFactors>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>
