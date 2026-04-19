@@ -66,6 +66,8 @@
 		<tags>
 			<li>ConsciousnessSource</li> 
 		    <li>MovingLimbCore</li>
+			<li>SightSource</li> 
+			<li>ManipulationLimbCore</li>
 		</tags>
 	</BodyPartDef>
 
@@ -116,6 +118,7 @@
 		    <ComfyTemperatureMax>250</ComfyTemperatureMax>
 			<PainShockThreshold>9999</PainShockThreshold>
 			<ToxicResistance>1.0</ToxicResistance>
+			<ShootingAccuracyPawn>12</ShootingAccuracyPawn>
 			<FilthRate>0</FilthRate>
 			<Wildness>1.0</Wildness>
 			<MaxFlightTime>99999</MaxFlightTime>
@@ -192,6 +195,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
             <shaderType>MoteGlow</shaderType>
 		</graphicData>
+		<thingClass>merissu.DanmakuBullet_Spinning</thingClass>
 		<projectile>
 			<damageDef>marisa</damageDef>
 			<damageAmountBase>6</damageAmountBase>

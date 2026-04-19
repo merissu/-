@@ -3101,7 +3101,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 做生意的铁则是低买高卖,但是没必要去买便宜货了,因为山童拥有低价购入贵重商品的技术</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<Merissu_CustomCoin>200</Merissu_CustomCoin>
+			<Merissu_CustomCoin>160</Merissu_CustomCoin>
 			<Blankcard>1</Blankcard>
 		</costList>
 		<recipeMaker>

@@ -328,6 +328,34 @@
 	</ThingDef>
 
 	<ThingDef ParentName="ResourceBase">
+		<defName>ProofHeroism</defName>
+		<label>袭击之证</label>
+		<description>袭击的证物,用于合成空白卡牌,通过使用烟熏的团扇或者不可抗拒的朱莉安娜羽扇掉落</description>
+		<possessionCount>20</possessionCount>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Material/cdbg04a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<stackLimit>1</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<intricate>true</intricate>
+		<statBases>
+			<MaxHitPoints>5000</MaxHitPoints>
+			<MarketValue>1</MarketValue>
+			<Mass>0.01</Mass>
+			<Flammability>0</Flammability>
+			<DeteriorationRate>1.0</DeteriorationRate>
+		</statBases>
+		<thingCategories>
+			<li>TouhouMaterial</li>
+		</thingCategories>
+		<allowedArchonexusCount>100</allowedArchonexusCount>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
 		<defName>ReimuSakuraPetal</defName>
 		<label>灵樱花瓣</label>
 		<description>从妖怪樱上收集的花瓣,其中蕴含着灵力,可以用来制作一些药品,也可以从中提取灵力用于制作p点。</description>
