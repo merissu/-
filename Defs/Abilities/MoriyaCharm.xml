@@ -102,7 +102,7 @@
     <stages>
       <li>
         <statFactors>
-          <IncomingDamageFactor>0.1</IncomingDamageFactor>   <!-- 承伤-90% -->
+          <IncomingDamageFactor>0.05</IncomingDamageFactor>   <!-- 承伤-95% -->
           <InjuryHealingFactor>10.0</InjuryHealingFactor>     <!-- 自愈×1000% -->
         </statFactors>
         <capMods>
@@ -122,7 +122,7 @@
     <maxSeverity>1.0</maxSeverity>
     <comps>
         <li Class="HediffCompProperties_SeverityPerDay">
-            <severityPerDay>-240.0</severityPerDay>
+            <severityPerDay>-100.0</severityPerDay>
             <showHoursToRecover>true</showHoursToRecover>
         </li>
       <!-- 清除负面状态 -->
@@ -277,7 +277,7 @@
   <AbilityDef>
     <defName>Miracle_Mountain</defName>
     <label>奇迹「山岳」</label>
-    <description>消耗1层符卡，承伤-90%，意识×200%，自愈×1000%，持续24小时。</description>
+    <description>消耗1层符卡，承伤-95%，意识×200%，自愈×1000%，持续24小时。</description>
 	<iconPath>Abilities/Miracle_Mountain</iconPath>
     <abilityClass>TouhouExpansion.Ability_Miracle_Mountain</abilityClass>
     <cooldownTicksRange>60000</cooldownTicksRange>
@@ -311,7 +311,7 @@
     <description>消耗1层符卡，清除所有负面状态和损伤，并获得一次死亡回避，持续24小时。</description>
 	<iconPath>Abilities/Miracle_Sea</iconPath>
     <abilityClass>TouhouExpansion.Ability_Miracle_Sea</abilityClass>
-    <cooldownTicksRange>60000</cooldownTicksRange>
+    <cooldownTicksRange>600</cooldownTicksRange>
     <targetRequired>false</targetRequired>
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
