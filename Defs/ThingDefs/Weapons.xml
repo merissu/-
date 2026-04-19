@@ -1002,7 +1002,8 @@
 		<graphicData>
 			<texPath>Weapons/BailouSword</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.5,1.5)</drawSize>
+			<drawSize>(1.8,1.8)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<equippedStatOffsets>
 			<MoveSpeed>10</MoveSpeed>
@@ -1174,7 +1175,7 @@
 		<defName>FreeFromSixSenceSlash</defName>
 		<label>斩击</label>
 		<labelNoun>斩击</labelNoun>
-		<description>被白楼剑所伤。不仅斩开了肉体,也斩断了灵魂。</description>
+		<description>被楼观剑所伤。不仅斩开了肉体,也斩断了灵魂。</description>
 		<comps>
 			<li Class="HediffCompProperties_TendDuration">
 				<labelTendedWell>已包扎</labelTendedWell>
