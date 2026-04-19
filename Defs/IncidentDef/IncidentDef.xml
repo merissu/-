@@ -171,7 +171,7 @@
   <HediffDef>
     <defName>BulletScreenManiaE</defName>
     <label>弹幕狂(偶像级)</label>
-    <defaultLabelColor>(153,204,153)</defaultLabelColor>
+    <defaultLabelColor>(204,153,102)</defaultLabelColor>
     <description>这个家伙携带的金钱已经多到数不清了!</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>false</isBad>

@@ -365,6 +365,7 @@
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>1</FullPower>
+			<ProofHeroism>1</ProofHeroism>
 		</costList>
 		<recipeMaker>
 			<skillRequirements>
@@ -875,7 +876,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.5,0.5)</drawSize>
 		</graphicData>
-		<description>即时消耗卡,依神紫苑的能力,下一波次起难度变低,高级敌人变少,召唤一次袭击(来袭的的敌人会掉落金钱)
+		<description>即时消耗卡,依神紫苑的能力,下一波次起难度变低,高级敌人变少,掉落袭击之证并召唤一次袭击(来袭的的敌人会掉落金钱)
 
 谁把这贫穷神招来的啊。拿到这张卡不就相当于拿不到金钱了吗。下次绝对不要再靠近她了。</description>
 		<tradeTags>
@@ -920,6 +921,11 @@
 				<listOrder>200</listOrder>
 				<teetotalerCanConsume>true</teetotalerCanConsume>
 			</li>
+			<li Class="merissu.CompProperties_UseEffect_DropThing">
+    		    <thingDef>ProofHeroism</thingDef>
+    		    <count>1</count>
+    		    <spawnNear>true</spawnNear>
+			</li>
 			<li Class="merissu.CompProperties_Usable_CustomIcon">
 				<useLabel>使用{0_label}</useLabel>
 				<useJob>Ingest</useJob>
@@ -939,7 +945,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(0.5,0.5)</drawSize>
 		</graphicData>
-		<description>即时消耗卡,依神女苑的能力,下一波次起难度变高,袭击会召唤更加强大的敌人,召唤一次袭击(来袭的的敌人会掉落金钱)
+		<description>即时消耗卡,依神女苑的能力,下一波次起难度变高,袭击会召唤更加强大的敌人,掉落袭击之证并召唤一次袭击(来袭的的敌人会掉落金钱)
 
 谁把这疫病神招来的啊,拿到这张卡不就相当于要死了吗,下次绝对不要再靠近她了。</description>
 		<tradeTags>
@@ -983,6 +989,11 @@
 				<li Class="CompProperties_Drug">
 				<listOrder>200</listOrder>
 				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_UseEffect_DropThing">
+    		    <thingDef>ProofHeroism</thingDef>
+    		    <count>1</count>
+    		    <spawnNear>true</spawnNear>
 			</li>
 			<li Class="merissu.CompProperties_Usable_CustomIcon">
 				<useLabel>使用{0_label}</useLabel>

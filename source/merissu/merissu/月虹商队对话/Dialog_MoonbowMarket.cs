@@ -15,7 +15,7 @@ namespace merissu
         private int currentIndex = 0;
         private int lastIndex = 0;
 
-        private bool isSellMode = false; 
+        private bool isSellMode = false;
 
         private float displayX = 0f;
         private const float MoveSpeed = 800f;
@@ -96,6 +96,7 @@ namespace merissu
 
             if (currentIndex >= availableStock.Count) currentIndex = 0;
         }
+
         public override void DoWindowContents(Rect inRect)
         {
             DrawHeader(inRect);
@@ -103,7 +104,7 @@ namespace merissu
             if (availableStock.NullOrEmpty())
             {
                 DrawEmptyMsg(inRect);
-                DrawModeToggleButton(inRect); 
+                DrawModeToggleButton(inRect);
                 return;
             }
 
@@ -169,12 +170,25 @@ namespace merissu
             Text.Anchor = TextAnchor.MiddleCenter;
             Widgets.Label(new Rect(0f, inRect.height - 110f, inRect.width, 30f), $"{(isSellMode ? "回收价" : "售价")}: {price}");
 
+            float btnWidth = 120f;
+            float btnHeight = 40f;
+            float spacing = 20f;
+            float totalWidth = (btnWidth * 2) + spacing;
+            float startX = (inRect.width - totalWidth) / 2f;
+
+            if (Widgets.ButtonText(new Rect(startX, inRect.height - 70f, btnWidth, btnHeight), "交换卡牌"))
+            {
+                Find.WindowStack.Add(new Dialog_TradeTalk(buyer, seller));
+                SoundDefOf.Tick_High.PlayOneShotOnCamera();
+            }
+
             string actionLabel = isSellMode ? "确认卖出" : "确认购买";
-            if (Widgets.ButtonText(new Rect((inRect.width - 120f) / 2f, inRect.height - 70f, 120f, 40f), actionLabel))
+            if (Widgets.ButtonText(new Rect(startX + btnWidth + spacing, inRect.height - 70f, btnWidth, btnHeight), actionLabel))
             {
                 if (isSellMode) TrySellItem(currentItem, price);
                 else TryPurchaseRealItem(currentItem, price);
             }
+
             Text.Anchor = TextAnchor.UpperLeft;
         }
 
@@ -211,9 +225,9 @@ namespace merissu
             }
 
             SoundDefOf.ExecuteTrade.PlayOneShotOnCamera();
-
             RefreshStock();
         }
+
         private void DrawHeader(Rect inRect)
         {
             float tw = 400f, th = 66f;

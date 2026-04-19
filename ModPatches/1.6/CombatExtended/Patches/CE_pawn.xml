@@ -115,5 +115,55 @@
     </value>
   </Operation>
 
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyer"]/statBases</xpath>
+    <value>
+      <ShootingAccuracyPawn>1.5</ShootingAccuracyPawn>
+      <AimingAccuracy>1.2</AimingAccuracy>           
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyer"]/verbs</xpath>
+    <value>
+      <verbs>
+        <li Class="CombatExtended.VerbPropertiesCE">
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <defaultProjectile>MediumbulletA</defaultProjectile>
+          <warmupTime>2</warmupTime>
+          <range>25</range>
+          <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+          <burstShotCount>1</burstShotCount>
+          <soundCast>MilkyWay_AB_Fire</soundCast>
+          <muzzleFlashScale>0</muzzleFlashScale>
+          <recoilAmount>0</recoilAmount>
+          <targetParams>
+            <canTargetLocations>true</canTargetLocations>
+          </targetParams>
+        </li>
+      </verbs>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MediumbulletA"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>marisa</damageDef>
+        <damageAmountBase>6</damageAmountBase> 
+        <speed>15</speed> 
+        <armorPenetrationSharp>4</armorPenetrationSharp> 
+        <armorPenetrationBlunt>8</armorPenetrationBlunt> 
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MediumbulletA"]/thingClass</xpath>
+    <value>
+      <thingClass>CombatExtended.BulletCE</thingClass>
+    </value>
+  </Operation>
 
 </Patch>
