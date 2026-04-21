@@ -91,7 +91,7 @@
 		<label>博丽灵符</label>
 		<graphicData>
 			<texPath>Weapons/Bullet/HakureiTalisman</texPath>
-			<drawSize>(0.5,0.5)</drawSize>
+			<drawSize>(0.8,0.8)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
             <shaderType>TransparentPostLight</shaderType>
 		</graphicData>
@@ -162,7 +162,8 @@
 		<graphicData>
 			<texPath>Weapons/Gohei</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-		<drawSize>(1.5,1.5)</drawSize>
+			<drawSize>(1.65,1.65)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<uiIconScale>0.8</uiIconScale>
 		<soundInteract>Interact_Revolver</soundInteract>
@@ -327,14 +328,12 @@
 			<speed>100</speed>
 		</projectile>
 	</ThingDef>
-	<!--掌中的破坏者-->
+	<!--莱瓦汀-->
 
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>Laevatain</defName>
-		<label>「掌中的破坏者」</label>
-		<description>芙兰朵露经常使用的S形武器,拿在手中便会拥有将一切悉数破坏程度的能力,甚至不用触摸到事物本体就能破坏事物。
-
-消耗符卡则可以发动额外的能力。</description>
+		<label>莱瓦汀</label>
+		<description>芙兰朵露唤出的巨大火焰剑状的武器，可以消耗符卡发动强大的四重身。在家里挥舞着这样的剑真是危险。就算是吸血鬼，这剑还是太大了。</description>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/Laevatain</texPath>
@@ -1535,7 +1534,8 @@
 		<graphicData>
 			<texPath>Weapons/ScarletRhapsodySword</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.2,1.2)</drawSize>
+			<drawSize>(1.3,1.3)</drawSize>
+			<shaderType>merissu_Laevatain</shaderType>
 		</graphicData>
 		<weaponTags>
 			<li>Touhou</li>
