@@ -91,6 +91,8 @@
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
     <Compile Include="CompUseEffect_DropThing.cs" />
+    <Compile Include="月虹商队对话\Dialog_ThreeCardMonte.cs" />
+    <Compile Include="月虹商队对话\DialogueNodeDef.cs" />
     <Compile Include="月虹商队对话\TradeDialogueTree.cs" />
     <Compile Include="月虹商队对话\TradeCardUtility.cs" />
     <Compile Include="月虹商队对话\DialogueModels.cs" />

@@ -56,6 +56,13 @@ namespace merissu
                                     Thing card = ThingMaker.MakeThing(selected);
                                     luckyPawn.inventory.innerContainer.TryAdd(card, 1);
                                 }
+                                ThingDef coinDef = DefDatabase<ThingDef>.GetNamed("Merissu_CustomCoin", false);
+                                if (coinDef != null)
+                                {
+                                    Thing coins = ThingMaker.MakeThing(coinDef);
+                                    coins.stackCount = 600;
+                                    luckyPawn.inventory.innerContainer.TryAdd(coins, 200);
+                                }
                             }
                         }
                     }

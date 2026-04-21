@@ -7,7 +7,7 @@
       <targetTags>
         <li>Map_PlayerHome</li>
       </targetTags>
-      <baseChance>0</baseChance>
+      <baseChance>0.4</baseChance>
       <workerClass>merissu.IncidentWorker_FiveCaravans</workerClass>
       <letterLabel>月虹市场</letterLabel>
       <letterText>月虹市场吸引了大量的交易者前来,他们带来了各种各样的商品和资源。</letterText>
@@ -63,7 +63,7 @@
       <li>Map_PlayerHome</li>
     </targetTags>
     <workerClass>merissu.IncidentWorker_CustomMonsterRaid</workerClass>
-    <baseChance>1.0</baseChance>
+    <baseChance>0.01</baseChance>
     <pointsScaleable>true</pointsScaleable>
     <tale>Raid</tale>
     <letterLabel>敌袭</letterLabel>

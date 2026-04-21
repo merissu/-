@@ -13,7 +13,9 @@ namespace merissu
         public int dialogueStage = 0;
         public Thing playerOfferedCard;
         public Thing traderTargetCard;
-
+        public int lastProcessedStage = -1;
+        public string cachedBaseText;
+        public List<string> cachedOptionTexts = new List<string>();
         private static readonly Texture2D CustomBgTex = ContentFinder<Texture2D>.Get("UI/stage05a");
         private static readonly Dictionary<DialogueMood, string> MoodPathBase = new Dictionary<DialogueMood, string>
         {

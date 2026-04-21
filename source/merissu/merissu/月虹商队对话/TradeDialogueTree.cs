@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using RimWorld;
@@ -19,309 +20,224 @@ namespace merissu
             float buyerIntellectual = buyer.skills.GetSkill(SkillDefOf.Intellectual).Level;
             float sellerIntellectual = seller.skills.GetSkill(SkillDefOf.Intellectual).Level;
 
-            switch (stage)
+            var nodes = DefDatabase<DialogueNodeDef>.AllDefsListForReading.Where(x => x.stage == stage).ToList();
+            if (nodes.Count == 0) return null;
+
+            DialogueNodeDef nodeDef = nodes.Count > 1
+                ? (nodes.FirstOrDefault(x => x.requireSocial > 0 && buyerSocial >= x.requireSocial) ?? nodes.FirstOrDefault(x => x.requireSocial == 0))
+                : nodes[0];
+
+            if (nodeDef == null) return null;
+
+            if (window.lastProcessedStage != stage)
             {
-                case 0:
-                    return new DialogueLine { Speaker = seller, Text = "你好！有什么可以帮忙的吗？", Mood = DialogueMood.Ordinary };
+                if (nodeDef.texts != null && nodeDef.texts.Count > 0)
+                    window.cachedBaseText = nodeDef.texts.RandomElement();
+                else
+                    window.cachedBaseText = nodeDef.text ?? "";
 
-                case 1:
-                    return new DialogueLine
+                window.cachedOptionTexts.Clear();
+
+                if (nodeDef.options != null)
+                {
+                    foreach (var opt in nodeDef.options)
                     {
-                        Speaker = buyer,
-                        Text = "我该怎么开口呢...",
-                        Mood = DialogueMood.Think,
-                        Options = new List<DialogueOption>
+                        string oText = (opt.texts != null && opt.texts.Count > 0)
+                            ? opt.texts.RandomElement()
+                            : (opt.text ?? "Missing Option Text");
+
+                        if (oText.Contains("{Chance}"))
                         {
-                            new DialogueOption { Text = "我可以用这张卡牌交换你手中的卡牌吗？", NextStage = 10 },
-                            new DialogueOption {
-                                Text = "(挑衅)识相一点,把你的卡牌交出来",
-                                OnSelect = () => { seller.Faction?.TryAffectGoodwillWith(buyer.Faction, -10); },
-                                NextStage = 20
-                            },
-                            new DialogueOption { Text = "我正在执行一个秘密任务,需要你手中的卡牌。", NextStage = 30 }
+                            float bHand = buyer.skills.GetSkill(SkillDefOf.Crafting).Level;
+                            float sHand = seller.skills.GetSkill(SkillDefOf.Crafting).Level;
+                            float chance = bHand < sHand ? 0f : Mathf.Clamp(0.30f + (bHand - sHand) * 0.05f, 0f, 0.95f);
+                            oText = oText.Replace("{Chance}", (chance * 100f).ToString("F0") + "%");
                         }
-                    };
-
-                case 10:
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = "你想拿哪张卡来交换？让我看看你的诚意。",
-                        Mood = DialogueMood.Ordinary,
-                        Options = new List<DialogueOption> {
-                            new DialogueOption {
-                                Text = "[展示我的卡牌]",
-                                OnSelect = () => {
-                                    var selWin = new Dialog_CardSelection(buyer, "选择你要拿出的卡牌", (selected) => {
-                                        window.playerOfferedCard = selected;
-                                        window.dialogueStage = 11; 
-                                    });
-                                    Find.WindowStack.Add(selWin);
-                                }
-                            }
-                        }
-                    };
-
-                case 11: 
-                    return new DialogueLine
-                    {
-                        Speaker = buyer,
-                        Text = $"我打算用 【{window.playerOfferedCard.Label}】 交换，你那里有什么？",
-                        Mood = DialogueMood.Ordinary,
-                        Options = new List<DialogueOption> {
-                            new DialogueOption {
-                                Text = "[查看商人的货物]",
-                                OnSelect = () => {
-                                    Find.WindowStack.Add(new Dialog_CardSelection(seller, "选择你想要的卡牌", (selected) => {
-                                        window.traderTargetCard = selected;
-                                        window.ProcessTradeLogic();
-                                    }));
-                                }
-                            }
-                        }
-                    };
-
-                case 15: 
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = "哈哈哈！这张卡正是我需要的，你真是个爽快人。这笔交易我成交了！",
-                        Mood = DialogueMood.Excitement,
-                        Options = new List<DialogueOption> { new DialogueOption { Text = "合作愉快", NextStage = 999 } }
-                    };
-
-                case 16: 
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = "哦不，我不会傻到做亏本买卖。",
-                        Mood = DialogueMood.Ordinary,
-                        Options = new List<DialogueOption>
+                        if (oText.Contains("{Difficulty}"))
                         {
-                            new DialogueOption
+                            bool isEasy = false;
+                            switch (opt.skillCheck)
                             {
-                                Text = "(武力)我给你一次机会再考虑考虑...",
-                                OnSelect = () => {
-                                    if (buyerCombat <= sellerCombat) {
-                                        seller.Faction?.TryAffectGoodwillWith(buyer.Faction, -2);
-                                        Messages.Message($"{seller.LabelShort} 对你的威胁感到不悦。", MessageTypeDefOf.NegativeEvent);
-                                    }
-                                },
-                                NextStage = buyerCombat > sellerCombat ? 101 : 102
-                            },
-                            new DialogueOption { Text = "(社交)哦，我还以为我们是朋友呢。", NextStage = buyerSocial > sellerSocial ? 201 : 202 },
-                            new DialogueOption { Text = "(智识)啊！恶魔！那张卡牌被恶魔诅咒了！", NextStage = buyerIntellectual > sellerIntellectual ? 301 : 305 }
-                        }
-                    };
-
-                case 101: 
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = "抱歉，我刚才昏了头，你说得对，这笔交易很划算。",
-                        Mood = DialogueMood.Ordinary,
-                        Options = new List<DialogueOption>
-                        {
-                            new DialogueOption
-                            {
-                                Text = "感谢你的慷慨。",
-                                OnSelect = () => {
-                                    seller.Faction?.TryAffectGoodwillWith(buyer.Faction, -2);
-                                    TradeCardUtility.ExecutePhysicalExchange(buyer, seller, window.playerOfferedCard, window.traderTargetCard);
-                                },
-                                NextStage = 999
+                                case SkillCompareType.Combat: isEasy = buyerCombat > sellerCombat; break;
+                                case SkillCompareType.Social: isEasy = buyerSocial > sellerSocial; break;
+                                case SkillCompareType.Intellectual: isEasy = buyerIntellectual > sellerIntellectual; break;
+                                default: isEasy = true; break;
                             }
+                            string diffStr = isEasy ? "<color=#66E066>容易</color>" : "<color=#E06666>非常困难</color>";
+                            oText = oText.Replace("{Difficulty}", diffStr);
                         }
-                    };
 
-                case 102: 
-                    return new DialogueLine
+                        window.cachedOptionTexts.Add(oText);
+                    }
+                }
+
+                window.lastProcessedStage = stage;
+            }
+            string finalText = window.cachedBaseText;
+
+            if (stage == 11 && window.playerOfferedCard != null)
+            {
+                finalText = finalText.Replace("{0}", window.playerOfferedCard.Label);
+            }
+
+            float buyPrice = 0f;
+            if (stage == 103 && window.traderTargetCard != null)
+            {
+                buyPrice = TradeCardUtility.GetCustomCardPrice(window.traderTargetCard) * 2f;
+                finalText = finalText.Replace("{0}", Mathf.CeilToInt(buyPrice).ToString());
+            }
+
+            DialogueLine line = new DialogueLine
+            {
+                Speaker = nodeDef.speaker == DialogueSpeaker.Buyer ? buyer : seller,
+                Text = finalText,
+                Mood = nodeDef.mood,
+                Options = new List<DialogueOption>()
+            };
+
+            if (nodeDef.defaultNextStage != -1) line.NextStage = nodeDef.defaultNextStage;
+
+            if (nodeDef.onLineComplete != null)
+            {
+                line.OnSelect = () => ExecuteEvent(nodeDef.onLineComplete, window, buyer, seller);
+            }
+
+            if (nodeDef.options != null)
+            {
+                for (int i = 0; i < nodeDef.options.Count; i++)
+                {
+                    var optDef = nodeDef.options[i];
+                    string currentOptText = (window.cachedOptionTexts.Count > i) ? window.cachedOptionTexts[i] : (optDef.text ?? "");
+
+                    DialogueOption option = new DialogueOption { Text = currentOptText };
+
+                    if (optDef.skillCheck == SkillCompareType.None && optDef.onSelect?.customAction == "CheckAfford")
                     {
-                        Speaker = seller,
-                        Text = "嗯？你是在威胁我？",
-                        Mood = DialogueMood.Excitement,
-                        Options = new List<DialogueOption> {
-                            new DialogueOption {
-                                Text = "额...我是说，我可以买下这个卡牌。",
-                                NextStage = 103
-                            },
-                            new DialogueOption {
-                                Text = "抱歉大人，我被冲昏了头，请原谅我。",
-                                OnSelect = () => {
-                                    seller.Faction?.TryAffectGoodwillWith(buyer.Faction, -5);
-                                },
-                                NextStage = 104
-                            }
-                        }
-                    };
-
-                case 103:
-                    float buyPrice = TradeCardUtility.GetCustomCardPrice(window.traderTargetCard) * 2f;
-                    bool canAfford = TradeCardUtility.CheckCustomCoinCount(buyer.Map, buyPrice);
-
-                    var options = new List<DialogueOption>();
-
-                    if (canAfford)
-                    {
-                        options.Add(new DialogueOption
+                        bool canAfford = TradeCardUtility.CheckCustomCoinCount(buyer.Map, buyPrice);
+                        if (canAfford)
                         {
-                            Text = $"[付钱] 支付 {Mathf.CeilToInt(buyPrice)} 枚金钱",
-                            OnSelect = () => {
+                            option.Text = $"[付钱] 支付 {Mathf.CeilToInt(buyPrice)} 枚金钱";
+                            option.OnSelect = () => {
                                 if (TradeCardUtility.TryPayWithCustomCoin(buyer.Map, buyPrice))
                                 {
                                     TradeCardUtility.ExecutePhysicalExchangeOnlyGet(buyer, window.traderTargetCard);
                                     window.dialogueStage = 999;
                                 }
-                            }
-                        });
+                            };
+                            option.NextStage = 999;
+                        }
+                        else
+                        {
+                            option.Text = $"[钱不够] 需要 {Mathf.CeilToInt(buyPrice)} 枚金钱";
+                            option.NextStage = 103;
+                        }
                     }
-                    else
+                    else if (optDef.skillCheck != SkillCompareType.None)
                     {
-                        options.Add(new DialogueOption { Text = $"[钱不够] 需要 {Mathf.CeilToInt(buyPrice)} 枚金钱", NextStage = 103 });
-                    }
-
-                    options.Add(new DialogueOption
-                    {
-                        Text = "太贵了，我再想想",
-                        OnSelect = () => {
-                            seller.Faction?.TryAffectGoodwillWith(buyer.Faction, -6);
-                        },
-                        NextStage = 1
-                    });
-
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = $"想要那张卡？一共要 {Mathf.CeilToInt(buyPrice)} 枚金钱，少一个都不行。",
-                        Mood = DialogueMood.Ordinary,
-                        Options = options
-                    };
-
-                case 104:
-                    return new DialogueLine { Speaker = seller, Text = "你最好好好考虑你要说的话，否则我会把你的舌头拔下来。", Mood = DialogueMood.Excitement, NextStage = 999 };
-
-                case 201: 
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = "那还说啥了，我亏点钱呗，卡牌给你了。",
-                        Mood = DialogueMood.Touching,
-                        Options = new List<DialogueOption>
+                        bool success = false;
+                        switch (optDef.skillCheck)
                         {
-                            new DialogueOption
-                            {
-                                Text = "这扯不扯，那卡牌送你了。",
-                                OnSelect = () => {
-                                    TradeCardUtility.ExecutePhysicalExchange(buyer, seller, window.playerOfferedCard, window.traderTargetCard);
-                                },
-                                NextStage = 999
-                            }
+                            case SkillCompareType.Combat: success = buyerCombat > sellerCombat; break;
+                            case SkillCompareType.Social: success = buyerSocial > sellerSocial; break;
+                            case SkillCompareType.Intellectual: success = buyerIntellectual > sellerIntellectual; break;
                         }
-                    };
 
-                case 202: 
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = "真正的朋友不会对我这么吝啬。",
-                        Mood = DialogueMood.Ordinary,
-                        Options = new List<DialogueOption>
+                        if (success)
                         {
-                            new DialogueOption
-                            {
-                                Text = "你说得对，也许我们应该重新考虑一下这笔交易。",
-                                OnSelect = () =>
-                                {
-                                    seller.Faction?.TryAffectGoodwillWith(buyer.Faction, -1);
-                                    Messages.Message($"{seller.LabelShort} 觉得你不够慷慨，关系下降了。", MessageTypeDefOf.NegativeEvent);
-                                },
-                                NextStage = 1
-                            }
+                            option.NextStage = (optDef.randomSuccessStages != null && optDef.randomSuccessStages.Count > 0)
+                                ? optDef.randomSuccessStages.RandomElement()
+                                : optDef.successStage;
                         }
-                    };
-
-                case 301: 
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = "嘿！不要说这种不吉利的话！",
-                        Mood = DialogueMood.Excitement,
-                        Options = new List<DialogueOption> { new DialogueOption { Text = "是真的，不瞒你说，我的眼睛被超凡智能开过光...", NextStage = 302 } }
-                    };
-
-                case 302:
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = "别说了！赶快把这个鬼卡牌拿走！",
-                        Mood = DialogueMood.Excitement,
-                        Options = new List<DialogueOption>
+                        else
                         {
-                            new DialogueOption
-                            {
-                                Text = "明智的选择，我就知道你不是蠢人。",
-                                OnSelect = () =>
-                                {
-                                    TradeCardUtility.ExecutePhysicalExchange(buyer, seller, window.playerOfferedCard, window.traderTargetCard);
-                                },
-                                NextStage = 999
-                            }
+                            option.NextStage = (optDef.randomFailStages != null && optDef.randomFailStages.Count > 0)
+                                ? optDef.randomFailStages.RandomElement()
+                                : optDef.failStage;
                         }
-                    };
-
-                case 305: 
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = "你在胡扯什么？什么年代了还搞这种封建迷信。",
-                        Mood = DialogueMood.Ordinary,
-                        Options = new List<DialogueOption> { new DialogueOption { Text = "是真的....", NextStage = 306 } }
-                    };
-
-                case 306:
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = "*打断* 你当我傻吗？如果你再说这些胡话，我就得重新评估交易了。",
-                        Mood = DialogueMood.Excitement,
-                        Options = new List<DialogueOption> { new DialogueOption { Text = "抱歉..我刚才可能被恶魔附身了。", NextStage = 307 } }
-                    };
-
-                case 307:
-                    return new DialogueLine
-                    {
-                        Speaker = seller,
-                        Text = "够了！",
-                        Mood = DialogueMood.Ordinary,
-                        OnSelect = () => {
-                            seller.Faction?.TryAffectGoodwillWith(buyer.Faction, -1);
-                            Messages.Message($"{seller.LabelShort} 对你的胡言乱语感到厌烦。", MessageTypeDefOf.NegativeEvent);
-                        },
-                        NextStage = 999
-                    };
-
-                case 20:
-                    return new DialogueLine { Speaker = seller, Text = "做梦！离我远点！", Mood = DialogueMood.Excitement };
-
-                case 30:
-                    float socialSkill = buyer.skills.GetSkill(SkillDefOf.Social).Level;
-                    if (socialSkill >= 10)
-                    {
-                        return new DialogueLine
-                        {
-                            Speaker = seller,
-                            Text = "原来如此...既然是秘密任务，那就请便吧。",
-                            Mood = DialogueMood.Touching,
-                            Options = new List<DialogueOption> { new DialogueOption { Text = "谢谢。", NextStage = 10 } }
+                        option.OnSelect = () => {
+                            if (optDef.onSelect != null) ExecuteEvent(optDef.onSelect, window, buyer, seller);
+                            if (success && optDef.onSuccess != null) ExecuteEvent(optDef.onSuccess, window, buyer, seller);
+                            if (!success && optDef.onFail != null) ExecuteEvent(optDef.onFail, window, buyer, seller);
                         };
                     }
                     else
                     {
-                        return new DialogueLine { Speaker = seller, Text = "滚蛋！这种借口三岁小孩都不信！", Mood = DialogueMood.Ordinary };
+                        option.NextStage = (optDef.nextStage == -1) ? stage : optDef.nextStage;
+
+                        if (optDef.onSelect != null)
+                        {
+                            option.OnSelect = () => ExecuteEvent(optDef.onSelect, window, buyer, seller);
+                        }
                     }
 
-                default:
-                    return null;
+                    line.Options.Add(option);
+                }
+            }
+
+            return line;
+        }
+        private static void FailSteal(Dialog_TradeTalk window, Pawn buyer, Pawn seller)
+        {
+            Messages.Message("偷窃失败！" + seller.LabelShort + " 发现了你的小动作！", MessageTypeDefOf.RejectInput);
+            seller.Faction?.TryAffectGoodwillWith(buyer.Faction, -30);
+            window.dialogueStage = 30; 
+        }
+        private static void ExecuteEvent(DialogueEventDef ev, Dialog_TradeTalk window, Pawn buyer, Pawn seller)
+        {
+            if (ev.goodwillChange != 0)
+            {
+                seller.Faction?.TryAffectGoodwillWith(buyer.Faction, ev.goodwillChange);
+            }
+            if (!string.IsNullOrEmpty(ev.messageText))
+            {
+                Messages.Message(ev.messageText.Replace("{SellerLabel}", seller.LabelShort), ev.messageType ?? MessageTypeDefOf.NeutralEvent);
+            }
+            if (!string.IsNullOrEmpty(ev.customAction))
+            {
+                switch (ev.customAction)
+                {
+                    case "OpenPlayerCardSelect":
+                        Find.WindowStack.Add(new Dialog_CardSelection(buyer, "选择你要拿出的卡牌", (selected) => {
+                            window.playerOfferedCard = selected;
+                            window.dialogueStage = 11;
+                        }));
+                        break;
+                    case "OpenTraderCardSelect":
+                        Find.WindowStack.Add(new Dialog_CardSelection(seller, "选择你想要的卡牌", (selected) => {
+                            window.traderTargetCard = selected;
+                            window.ProcessTradeLogic();
+                        }));
+                        break;
+                    case "ExecuteExchange":
+                        TradeCardUtility.ExecutePhysicalExchange(buyer, seller, window.playerOfferedCard, window.traderTargetCard);
+                        break;
+                    case "OpenStealSelect":
+                        Find.WindowStack.Add(new Dialog_CardSelection(seller, "选择你要窃取的卡牌", (selected) => {
+                            Texture2D targetTex = selected.def.uiIcon;
+
+                            float bHand = buyer.skills.GetSkill(SkillDefOf.Crafting).Level; 
+                            float sHand = seller.skills.GetSkill(SkillDefOf.Crafting).Level;
+
+                            float chance = bHand < sHand ? 0f : Mathf.Clamp(0.30f + (bHand - sHand) * 0.05f, 0f, 0.95f);
+                            float diff = Mathf.Max(0, sHand - bHand);
+
+                            Find.WindowStack.Add(new Dialog_ThreeCardMonte(chance, selected.def.uiIcon, (bool isWin) => {
+                                if (isWin)
+                                {
+                                    Messages.Message("窃取成功！你神不知鬼不觉地拿走了 " + selected.LabelShort, MessageTypeDefOf.PositiveEvent);
+                                    TradeCardUtility.ExecutePhysicalExchangeOnlyGet(buyer, selected);
+                                    window.lastProcessedStage = -1;
+                                    window.dialogueStage = 999;
+                                }
+                                else
+                                {
+                                    window.lastProcessedStage = -1;
+                                    FailSteal(window, buyer, seller); 
+                                }
+                            }));
+                        }));
+                        break;
+                }
             }
         }
     }

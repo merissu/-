@@ -78,7 +78,7 @@ namespace merissu
 
                     if (isSellMode)
                     {
-                        finalPrice = Mathf.Max(1, Mathf.RoundToInt(baseBuyPrice * 0.75f));
+                        finalPrice = Mathf.Max(1, Mathf.RoundToInt(baseBuyPrice * 0.5f));
                     }
                     else
                     {
@@ -204,11 +204,22 @@ namespace merissu
         private void TrySellItem(Thing item, int price)
         {
             ThingDef coinDef = ThingDef.Named("Merissu_CustomCoin");
-            Messages.Message($"卖出成功：获得了 {price} 钱币", MessageTypeDefOf.PositiveEvent);
 
-            Thing coin = ThingMaker.MakeThing(coinDef);
-            coin.stackCount = price;
-            GenPlace.TryPlaceThing(coin, buyer.Position, buyer.Map, ThingPlaceMode.Near);
+            int sellerMoney = seller.inventory.innerContainer.TotalStackCountOfDef(coinDef);
+            if (sellerMoney < price)
+            {
+                Messages.Message("商人没有足够的金钱来支付！", MessageTypeDefOf.RejectInput);
+                return;
+            }
+
+            SpendCoinsFromSeller(coinDef, price);
+
+            Thing playerCoin = ThingMaker.MakeThing(coinDef);
+            playerCoin.stackCount = price;
+            if (!buyer.inventory.innerContainer.TryAdd(playerCoin))
+            {
+                GenPlace.TryPlaceThing(playerCoin, buyer.Position, buyer.Map, ThingPlaceMode.Near);
+            }
 
             if (item.ParentHolder is Pawn_ApparelTracker apparelTracker)
             {
@@ -224,10 +235,27 @@ namespace merissu
                 GenPlace.TryPlaceThing(item, seller.Position, seller.Map, ThingPlaceMode.Near);
             }
 
+            Messages.Message($"卖出成功：获得了 {price} 金钱", MessageTypeDefOf.PositiveEvent);
             SoundDefOf.ExecuteTrade.PlayOneShotOnCamera();
             RefreshStock();
         }
 
+        private void SpendCoinsFromSeller(ThingDef coinDef, int cost)
+        {
+            int rem = cost;
+            var inv = seller.inventory.innerContainer.Where(t => t.def == coinDef).ToList();
+            foreach (var t in inv)
+            {
+                int takeCount = Mathf.Min(rem, t.stackCount);
+                t.stackCount -= takeCount;
+                rem -= takeCount;
+                if (t.stackCount <= 0)
+                {
+                    t.Destroy();
+                }
+                if (rem <= 0) break;
+            }
+        }
         private void DrawHeader(Rect inRect)
         {
             float tw = 400f, th = 66f;
@@ -276,18 +304,30 @@ namespace merissu
         private void TryPurchaseRealItem(Thing item, int cost)
         {
             ThingDef coinDef = ThingDef.Named("Merissu_CustomCoin");
+
             if (CountAvailableCoins(coinDef) >= cost)
             {
                 SpendCoins(coinDef, cost);
+
+                Thing sellerCoin = ThingMaker.MakeThing(coinDef);
+                sellerCoin.stackCount = cost;
+                if (!seller.inventory.innerContainer.TryAdd(sellerCoin))
+                {
+                    GenPlace.TryPlaceThing(sellerCoin, seller.Position, seller.Map, ThingPlaceMode.Near);
+                }
+
                 Thing p = item.SplitOff(1);
                 GenPlace.TryPlaceThing(p, buyer.Position, buyer.Map, ThingPlaceMode.Near);
+
                 Messages.Message($"购买成功：获得了 {p.LabelCap}", MessageTypeDefOf.PositiveEvent);
                 SoundDefOf.ExecuteTrade.PlayOneShotOnCamera();
                 RefreshStock();
             }
-            else Messages.Message("金钱不足！", MessageTypeDefOf.RejectInput);
+            else
+            {
+                Messages.Message("金钱不足！", MessageTypeDefOf.RejectInput);
+            }
         }
-
         private int CountAvailableCoins(ThingDef coinDef)
         {
             int c = buyer.inventory.innerContainer.TotalStackCountOfDef(coinDef);
