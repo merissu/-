@@ -81,16 +81,16 @@
             <li>Merissu_WarFlyerKind</li> 
           </poolZayu>
           <poolLow>
-            <li>Merissu_WarFlyerKind</li>
+            <li>Merissu_WarFlyerKindB</li>
           </poolLow>
           <poolMid>
-            <li>Merissu_WarFlyerKind</li>
+            <li>Merissu_WarFlyerKindC</li>
           </poolMid>
           <poolHigh>
-            <li>Merissu_WarFlyerKind</li>
+            <li>Merissu_WarFlyerKindD</li>
           </poolHigh>
           <poolBoss>
-            <li>Merissu_WarFlyerKind</li>
+            <li>Merissu_WarFlyerKindD</li>
           </poolBoss>
       </li>
     </modExtensions>

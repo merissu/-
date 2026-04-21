@@ -166,4 +166,284 @@
     </value>
   </Operation>
 
+              <!-- 绿色阴阳玉 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerB"]/statBases</xpath>
+    <value>
+      <statBases>
+        <MoveSpeed>4.2</MoveSpeed>
+        <MarketValue>600</MarketValue>
+        <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+        <ComfyTemperatureMax>250</ComfyTemperatureMax>
+        <MeleeDodgeChance>0.5</MeleeDodgeChance>
+        <MeleeCritChance>0.16</MeleeCritChance>
+        <MeleeParryChance>0.1</MeleeParryChance>
+        <ArmorRating_Sharp>4</ArmorRating_Sharp> 
+        <ArmorRating_Blunt>8</ArmorRating_Blunt>
+        <PainShockThreshold>9999</PainShockThreshold>
+        <ToxicResistance>1.0</ToxicResistance>
+        <FilthRate>0</FilthRate>
+        <Wildness>1.0</Wildness>
+        <MaxFlightTime>99999</MaxFlightTime>
+        <FlightCooldown>0</FlightCooldown>
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerB"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>撞击</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>0.8</cooldownTime>
+          <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
+          <armorPenetrationBlunt>6.5</armorPenetrationBlunt> </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerB"]/statBases</xpath>
+    <value>
+      <ShootingAccuracyPawn>1.7</ShootingAccuracyPawn>
+      <AimingAccuracy>1.4</AimingAccuracy>           
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerB"]/verbs</xpath>
+    <value>
+      <verbs>
+        <li Class="CombatExtended.VerbPropertiesCE">
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <defaultProjectile>MediumbulletA</defaultProjectile>
+          <warmupTime>1.6</warmupTime>
+          <range>30</range>
+          <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+          <burstShotCount>2</burstShotCount>
+          <soundCast>MilkyWay_AB_Fire</soundCast>
+          <muzzleFlashScale>0</muzzleFlashScale>
+          <recoilAmount>0</recoilAmount>
+          <targetParams>
+            <canTargetLocations>true</canTargetLocations>
+          </targetParams>
+        </li>
+      </verbs>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MediumbulletB"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>marisa</damageDef>
+        <damageAmountBase>9</damageAmountBase> 
+        <speed>20</speed> 
+        <armorPenetrationSharp>6</armorPenetrationSharp> 
+        <armorPenetrationBlunt>10</armorPenetrationBlunt> 
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MediumbulletB"]/thingClass</xpath>
+    <value>
+      <thingClass>CombatExtended.BulletCE</thingClass>
+    </value>
+  </Operation>
+            
+              <!-- 蓝色阴阳玉 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerC"]/statBases</xpath>
+    <value>
+      <statBases>
+        <MoveSpeed>5.2</MoveSpeed>
+        <MarketValue>600</MarketValue>
+        <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+        <ComfyTemperatureMax>250</ComfyTemperatureMax>
+        <MeleeDodgeChance>0.7</MeleeDodgeChance>
+        <MeleeCritChance>0.26</MeleeCritChance>
+        <MeleeParryChance>0.2</MeleeParryChance>
+        <ArmorRating_Sharp>7</ArmorRating_Sharp> 
+        <ArmorRating_Blunt>10</ArmorRating_Blunt>
+        <PainShockThreshold>9999</PainShockThreshold>
+        <ToxicResistance>1.0</ToxicResistance>
+        <FilthRate>0</FilthRate>
+        <Wildness>1.0</Wildness>
+        <MaxFlightTime>99999</MaxFlightTime>
+        <FlightCooldown>0</FlightCooldown>
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerC"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>撞击</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>12</power>
+          <cooldownTime>0.8</cooldownTime>
+          <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
+          <armorPenetrationBlunt>9</armorPenetrationBlunt> </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerC"]/statBases</xpath>
+    <value>
+      <ShootingAccuracyPawn>2</ShootingAccuracyPawn>
+      <AimingAccuracy>1.7</AimingAccuracy>           
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerC"]/verbs</xpath>
+    <value>
+      <verbs>
+        <li Class="CombatExtended.VerbPropertiesCE">
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <defaultProjectile>MediumbulletC</defaultProjectile>
+          <warmupTime>1.2</warmupTime>
+          <range>35</range>
+          <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+          <burstShotCount>3</burstShotCount>
+          <soundCast>MilkyWay_AB_Fire</soundCast>
+          <muzzleFlashScale>0</muzzleFlashScale>
+          <recoilAmount>0</recoilAmount>
+          <targetParams>
+            <canTargetLocations>true</canTargetLocations>
+          </targetParams>
+        </li>
+      </verbs>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MediumbulletC"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>marisa</damageDef>
+        <damageAmountBase>15</damageAmountBase> 
+        <speed>25</speed> 
+        <armorPenetrationSharp>8</armorPenetrationSharp> 
+        <armorPenetrationBlunt>12</armorPenetrationBlunt> 
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MediumbulletC"]/thingClass</xpath>
+    <value>
+      <thingClass>CombatExtended.BulletCE</thingClass>
+    </value>
+  </Operation>
+
+              <!-- 紫色阴阳玉 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerD"]/statBases</xpath>
+    <value>
+      <statBases>
+        <MoveSpeed>6.2</MoveSpeed>
+        <MarketValue>600</MarketValue>
+        <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+        <ComfyTemperatureMax>250</ComfyTemperatureMax>
+        <MeleeDodgeChance>0.8</MeleeDodgeChance>
+        <MeleeCritChance>0.4</MeleeCritChance>
+        <MeleeParryChance>0.4</MeleeParryChance>
+        <ArmorRating_Sharp>10</ArmorRating_Sharp> 
+        <ArmorRating_Blunt>15</ArmorRating_Blunt>
+        <PainShockThreshold>9999</PainShockThreshold>
+        <ToxicResistance>1.0</ToxicResistance>
+        <FilthRate>0</FilthRate>
+        <Wildness>1.0</Wildness>
+        <MaxFlightTime>99999</MaxFlightTime>
+        <FlightCooldown>0</FlightCooldown>
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerD"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>撞击</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>16</power>
+          <cooldownTime>0.8</cooldownTime>
+          <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
+          <armorPenetrationBlunt>14</armorPenetrationBlunt> 
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerD"]/statBases</xpath>
+    <value>
+      <ShootingAccuracyPawn>2.5</ShootingAccuracyPawn>
+      <AimingAccuracy>2.1</AimingAccuracy>           
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Merissu_WarFlyerD"]/verbs</xpath>
+    <value>
+      <verbs>
+        <li Class="CombatExtended.VerbPropertiesCE">
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <defaultProjectile>MediumbulletD</defaultProjectile>
+          <warmupTime>0.8</warmupTime>
+          <range>40</range>
+          <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+          <burstShotCount>4</burstShotCount>
+          <soundCast>MilkyWay_AB_Fire</soundCast>
+          <muzzleFlashScale>0</muzzleFlashScale>
+          <recoilAmount>0</recoilAmount>
+          <targetParams>
+            <canTargetLocations>true</canTargetLocations>
+          </targetParams>
+        </li>
+      </verbs>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MediumbulletD"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>marisa</damageDef>
+        <damageAmountBase>20</damageAmountBase> 
+        <speed>30</speed> 
+        <armorPenetrationSharp>12</armorPenetrationSharp> 
+        <armorPenetrationBlunt>16</armorPenetrationBlunt> 
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MediumbulletD"]/thingClass</xpath>
+    <value>
+      <thingClass>CombatExtended.BulletCE</thingClass>
+    </value>
+  </Operation>
+
 </Patch>

@@ -90,6 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicPurple.cs" />
+    <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicblue.cs" />
+    <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicgreen.cs" />
     <Compile Include="CompUseEffect_DropThing.cs" />
     <Compile Include="月虹商队对话\Dialog_ThreeCardMonte.cs" />
     <Compile Include="月虹商队对话\DialogueNodeDef.cs" />

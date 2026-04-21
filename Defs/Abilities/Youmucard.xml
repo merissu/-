@@ -184,7 +184,7 @@
 
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>PhantomBailouSword</defName>
-		<label>楼观剑[幻影]</label>
+		<label>幻影·楼观剑</label>
 		<description>据传楼观剑是妖怪锻造的,太长不适合普通人类使用。一挥有杀伤十只幽灵的威力,据说斩不断的东西几乎不存在</description>
 		<possessionCount>1</possessionCount>
 		<graphicData>
