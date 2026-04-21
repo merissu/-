@@ -2272,7 +2272,7 @@
 		<graphicData>
 			<texPath>Weapons/WanbaoHammer</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.8,0.8)</drawSize>
 			<shaderType>Mote</shaderType>
 		</graphicData>
 		<uiIconScale>0.8</uiIconScale>
