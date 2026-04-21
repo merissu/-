@@ -83,15 +83,20 @@ namespace merissu
             foreach (Apparel a in caster.apparel.WornApparel)
                 clone.apparel.Wear((Apparel)ThingMaker.MakeThing(a.def, a.Stuff));
 
-            clone.equipment.DestroyAllEquipment();
-            if (caster.equipment.Primary != null)
-                clone.equipment.AddEquipment(
-                    (ThingWithComps)ThingMaker.MakeThing(
-                        caster.equipment.Primary.def,
-                        caster.equipment.Primary.Stuff
-                    )
-                );
+            ThingDef weaponDef = ThingDef.Named("PhantomBailouSword");
 
+            if (weaponDef != null)
+            {
+                ThingWithComps customWeapon = (ThingWithComps)ThingMaker.MakeThing(weaponDef, null);
+
+                CompQuality qualityComp = customWeapon.TryGetComp<CompQuality>();
+                if (qualityComp != null)
+                {
+                    qualityComp.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Colony);
+                }
+
+                clone.equipment.AddEquipment(customWeapon);
+            }
             GenSpawn.Spawn(clone, caster.Position, map);
 
             Hediff_YoumuShadow shadow =

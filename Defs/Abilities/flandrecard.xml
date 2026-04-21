@@ -77,7 +77,6 @@
 		<isBad>false</isBad>
 	</HediffDef>
 
-
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>LaevatainF</defName>
 		<label>四重身·莱瓦汀</label>
@@ -95,10 +94,12 @@
 		</thingSetMakerTags>
 		<statBases>
 			<WorkToMake>30000</WorkToMake>
+			<DeteriorationRate>10000000</DeteriorationRate>
+			<MaxHitPoints>1</MaxHitPoints>
 			<MarketValue>50000</MarketValue> 
 			<SellPriceFactor>0.1</SellPriceFactor>
 			<Mass>3</Mass>
-			<Flammability>0</Flammability>
+			<Flammability>1</Flammability>
 		</statBases>
 		<weaponTags>
 			<li>Touhou</li>

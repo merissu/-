@@ -628,6 +628,64 @@
     </value>
   </Operation>
 
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="PhantomBailouSword"]/statBases</xpath>
+    <value>
+      <statBases>
+        <WorkToMake>30000</WorkToMake>
+        <MarketValue>5000</MarketValue> 
+        <SellPriceFactor>0.1</SellPriceFactor>
+        <Mass>3</Mass>
+        <MaxHitPoints>1</MaxHitPoints>
+        <Flammability>0</Flammability>
+        <Bulk>6</Bulk> 
+        <MeleeCounterParryBonus>1.0</MeleeCounterParryBonus> 
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="PhantomBailouSword"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>生死流转斩</label>
+          <capacities>
+            <li>EvilWindIncredibleInstantaneouslySlash</li>
+          </capacities>
+          <power>12</power> 
+          <cooldownTime>0.3</cooldownTime> 
+          <armorPenetrationSharp>100</armorPenetrationSharp> 
+          <armorPenetrationBlunt>50</armorPenetrationBlunt>
+          <soundMeleeHit>hitH</soundMeleeHit>
+  				<soundMeleeMiss>MissedG</soundMeleeMiss>
+          <extraMeleeDamages>
+            <li>
+              <def>EternalMoments</def>
+              <amount>1</amount>
+            </li>
+            <li>
+              <def>EternalMoments</def>
+              <amount>1</amount>
+            </li>
+            <li>
+              <def>EternalMoments</def>
+              <amount>1</amount>
+            </li>
+            <li>
+              <def>EternalMoments</def>
+              <amount>1</amount>
+            </li>
+            <li>
+              <def>EternalMoments</def>
+              <amount>1</amount>
+            </li>
+          </extraMeleeDamages>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
               <!-- 蝶舞幽冥扇 -->
 
   <Operation Class="PatchOperationReplace">
@@ -774,7 +832,7 @@
     </value>
   </Operation>
 
-              <!-- 掌中的破坏者 -->
+              <!-- 莱瓦汀 -->
 
   <Operation Class="PatchOperationSequence">
     <operations>
@@ -830,9 +888,11 @@
           <statBases>
             <WorkToMake>30000</WorkToMake>
             <MarketValue>50000</MarketValue> 
+            <DeteriorationRate>10000000</DeteriorationRate>
             <SellPriceFactor>0.1</SellPriceFactor>
+            <MaxHitPoints>1</MaxHitPoints>
             <Mass>3</Mass>
-            <Flammability>0</Flammability>
+            <Flammability>1</Flammability>
             <Bulk>5</Bulk> 
             <MeleeCritChance>0.5</MeleeCritChance> 
             <MeleeParryChance>0.15</MeleeParryChance> 

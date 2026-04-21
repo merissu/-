@@ -182,6 +182,134 @@
 		</comps>
 	</HediffDef>
 
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>PhantomBailouSword</defName>
+		<label>楼观剑[幻影]</label>
+		<description>据传楼观剑是妖怪锻造的,太长不适合普通人类使用。一挥有杀伤十只幽灵的威力,据说斩不断的东西几乎不存在</description>
+		<possessionCount>1</possessionCount>
+		<graphicData>
+			<texPath>Weapons/PhantomBailouSword</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.8,1.8)</drawSize>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<equippedStatOffsets>
+			<MoveSpeed>10</MoveSpeed>
+		</equippedStatOffsets>
+		<techLevel>Medieval</techLevel>
+		<thingSetMakerTags>
+			<li>TouhouWeapons</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>5000</MarketValue> 
+            <MaxHitPoints>1</MaxHitPoints>
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>3</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<relicChance>6</relicChance>
+		<weaponTags>
+			<li>Touhou</li>
+		</weaponTags>
+		<tools>
+			<li>
+				<label>生死流转斩</label>
+				<capacities>
+					<li>EvilWindIncredibleInstantaneouslySlash</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>0.3</cooldownTime>
+				<armorPenetration>1</armorPenetration>
+				<soundMeleeHit>hitH</soundMeleeHit>
+				<soundMeleeMiss>MissedG</soundMeleeMiss>
+				<extraMeleeDamages>
+				<li>
+					<def>EternalMoments</def>
+					<amount>1</amount>
+				</li>
+				<li>
+					<def>EternalMoments</def>
+					<amount>1</amount>
+				</li>
+				<li>
+					<def>EternalMoments</def>
+					<amount>1</amount>
+				</li>
+				<li>
+					<def>EternalMoments</def>
+					<amount>1</amount>
+				</li>
+				<li>
+					<def>EternalMoments</def>
+					<amount>1</amount>
+				</li>
+				</extraMeleeDamages>
+			</li>
+		</tools>
+		<costList>
+			<SpiritualWood>80</SpiritualWood>
+			<FullPower>3</FullPower>
+			<Crimsongold>90</Crimsongold>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+		</recipeMaker>
+		<comps>
+			<li Class="merissu.CompProperties_WeaponExtention">
+				<northOffset>
+					<position>(0.229, 0, 0.229)</position> 
+					<angle>-2</angle>
+				</northOffset>
+				<southOffset>
+					<position>(-0.328, 0, 0.246)</position>
+					<angle>-8</angle>
+				</southOffset>
+				<eastOffset>
+					<position>(0.415, 0, 0.189)</position>
+					<angle>7</angle>
+				</eastOffset>
+				<westOffset>
+					<position>(-0.408, 0, 0.187)</position>
+					<angle>-19</angle>
+				</westOffset>
+				<littleDown>true</littleDown> 
+			</li>
+			<li Class="merissu.CompProperties_Sheath">
+				<sheathOnlyGraphicData>
+					<texPath>Weapons/PhantomBailouSword_Sheath</texPath> 
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>(1.5,1.5)</drawSize>
+				</sheathOnlyGraphicData>
+				<fullGraphicData>
+					<texPath>Weapons/PhantomBailouSword_Full</texPath> 
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>(1.5,1.5)</drawSize>
+				</fullGraphicData>
+				<drawPosition>Side</drawPosition> 
+				<northOffset>
+					<position>(-0.085, -1, 0.315)</position>
+					<angle>96</angle>
+				</northOffset>
+				<southOffset>
+					<position>(-0.153, 0, 0.284)</position>
+					<angle>97</angle>
+				</southOffset>
+				<eastOffset>
+					<position>(0.15, -1, -0.2)</position>
+					<angle>215</angle>
+				</eastOffset>
+				<westOffset>
+					<position>(-0.028, 0, -0.306)</position>
+					<angle>-217</angle>
+				</westOffset>
+			</li>
+        </comps>
+	</ThingDef>
+
     <AbilityDef>
         <defName>sakuraflash</defName>
         <label>剑伎「樱花闪闪」</label>
