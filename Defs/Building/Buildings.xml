@@ -23,82 +23,87 @@
 		</building>
 	</ThingDef>
 
-	<ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="BuildingBase">
 		<defName>NitoriGenerator</defName>
 		<label>荷取热机</label>
-		<description>在神奈子开发核能前妖怪之山主要的发电设施，通过消耗p点发电,原理不明,据说防水性为200%。</description>
-		<thingClass>Building</thingClass>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<graphicData>
-			<texPath>Building/NitoriGenerator</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(4.5,4.5)</drawSize>
-			<shadowData>
-				<volume>(1.93,1,1.69)</volume>
-				<offset>(-0.03,0,-0.1)</offset>
-			</shadowData>
-		</graphicData>
-		<altitudeLayer>Building</altitudeLayer>
-		<passability>PassThroughOnly</passability>
-		<pathCost>50</pathCost>
-		<blockWind>true</blockWind>
-		<fillPercent>1.0</fillPercent>
-		<rotatable>false</rotatable>
-		<statBases>
-			<MaxHitPoints>300</MaxHitPoints>
-			<WorkToBuild>2500</WorkToBuild>
-			<Flammability>1.0</Flammability>
-			<Beauty>10</Beauty>
-		</statBases>
-		<tickerType>Normal</tickerType>
-		<canOverlapZones>false</canOverlapZones>
-		<size>(4,4)</size>
-		<building>
-			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
-		</building>
-		<costList>
-			<Steel>200</Steel>
-			<Crimsongold>30</Crimsongold>
-			<FullPower>1</FullPower>
-			<ComponentIndustrial>5</ComponentIndustrial>
-     	</costList>
-		<comps>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerPlant</compClass>
-				<basePowerConsumption>-7500</basePowerConsumption>
-				<transmitsPower>true</transmitsPower>
-				<soundAmbientProducingPower>ChemfuelFiredGenerator_Ambience</soundAmbientProducingPower>
-			</li>
-			<li Class="CompProperties_Flickable" />
-			<li Class="CompProperties_Refuelable">
-				<fuelConsumptionRate>4</fuelConsumptionRate>
-				<fuelCapacity>50.0</fuelCapacity>
-				<fuelFilter>
-					<thingDefs>
-						<li>PowerPoint</li>
-					</thingDefs>
-				</fuelFilter>
-				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-			</li>
-			<li Class="CompProperties_Glower">
-				<glowRadius>6</glowRadius>
-				<glowColor>(80,112,180,0)</glowColor>
-			</li>
-			<li Class="CompProperties_HeatPusher">
-				<compClass>CompHeatPusherPowered</compClass>
-				<heatPerSecond>0</heatPerSecond>
-			</li>
-		</comps>
-		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-		<designationCategory>Power</designationCategory>
-		<uiOrder>2100</uiOrder>
-		<designationHotKey>Misc4</designationHotKey>
-		<constructEffect>ConstructMetal</constructEffect>
-		<researchPrerequisites>
-			<li>PowerPoint</li>
-		</researchPrerequisites>
-		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
-	</ThingDef>
+		<description>这是我在山上发现的神奇的机械，好像比人类使用的科技更加先进，所以我就偷偷溜进河童们的工坊，把它的图纸带了回来。不过看起来莲子也不是很明白这个机械的原理的样子，嘛，我想那个世界的东西大概都是难以理解的吧。</description>
+    <thingClass>Building</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+	  <graphicData>
+		  <texPath>Building/NitoriGenerator</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <drawSize>(4.5,4.5)</drawSize>
+		  <shadowData>
+			  <volume>(1.93,1,1.69)</volume>
+			  <offset>(-0.03,0,-0.1)</offset>
+		  </shadowData>
+	  </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <fillPercent>1</fillPercent>
+    <blockLight>true</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+	  <statBases>
+		  <MaxHitPoints>300</MaxHitPoints>
+		  <WorkToBuild>2500</WorkToBuild>
+		  <Flammability>1.0</Flammability>
+		  <Beauty>10</Beauty>
+	  </statBases>
+    <tickerType>Normal</tickerType>
+    <size>(4,4)</size>
+	  <costList>
+		  <Steel>200</Steel>
+		  <Crimsongold>30</Crimsongold>
+		  <FullPower>1</FullPower>
+		  <ComponentIndustrial>5</ComponentIndustrial>
+	  </costList>
+    <bringAlongOnGravship>false</bringAlongOnGravship>
+    <comps>
+		<li Class="CompProperties_Power">
+			<compClass>CompPowerPlant</compClass>
+			<basePowerConsumption>-5140</basePowerConsumption>
+			<transmitsPower>true</transmitsPower>
+			<soundAmbientProducingPower>ChemfuelFiredGenerator_Ambience</soundAmbientProducingPower>
+		</li>
+		<li Class="U.N.Owen.CompProperties_SpawnWater" />
+		<li Class="CompProperties_Flickable" />
+		<li Class="CompProperties_Glower">
+			<glowRadius>6</glowRadius>
+			<glowColor>(80,112,180,0)</glowColor>
+		</li>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_AmbientSound">
+        <sound>GeothermalPlant_Ambience</sound>
+        <disabledOnUnpowered>true</disabledOnUnpowered>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <uiOrder>2110</uiOrder>
+    <placeWorkers>
+      <li>PlaceWorker_OnSteamGeyser</li>
+      <li>PlaceWorker_InvalidOverSubstructure</li>
+    </placeWorkers>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <constructEffect>ConstructMetal</constructEffect>
+    <designationHotKey>Misc6</designationHotKey>
+    <researchPrerequisites><li>PowerPoint</li></researchPrerequisites>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+  </ThingDef>
+	<JobDef>
+		<defName>SpawnWater</defName>
+		<driverClass>U.N.Owen.JobDriver_SpawnWater</driverClass>
+		<reportString>取出温泉水。</reportString>
+		<suspendable>false</suspendable>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+
 
 
 	<ThingDef ParentName="BenchBase">
@@ -712,121 +717,6 @@
 		<suspendable>false</suspendable>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
-	<ThingDef ParentName="BuildingBase">
-		<defName>IbukisGourd</defName>
-		<label>伊吹瓢</label>
-		<description>可以无限地倒出酒的酒葫芦。</description>
-		<graphicData>
-			<texPath>Building/IbukisGourd</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1, 1)</drawSize>
-			<shadowData>
-				<volume>(1.8, 1.0, 0.2)</volume>
-				<offset>(0.0, 0.0, -0.4)</offset>
-			</shadowData>
-		</graphicData>
-		<thingCategories>
-			<li>BuildingsSpecial</li>
-		</thingCategories>
-		<costList>
-			<Steel>200</Steel>
-			<ComponentSpacer>6</ComponentSpacer>
-		</costList>
-		<building>
-			<destroySound>BuildingDestroyed_Metal_Big</destroySound>
-		</building>
-		<comps>
-			<li Class="CompProperties_Breakdownable"/>
-			<li Class="CompProperties_Spawner">
-				<requiresPower>false</requiresPower>
-				<thingToSpawn>OniKillingWine</thingToSpawn>
-				<spawnCount>25</spawnCount>
-				<spawnIntervalRange>
-					<min>10000</min>
-					<max>10000</max>
-				</spawnIntervalRange>
-				<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
-				<showMessageIfOwned>true</showMessageIfOwned>
-			</li>
-		</comps>
-		<altitudeLayer>Building</altitudeLayer>
-		<statBases>
-			<MarketValue>6000</MarketValue>
-			<MaxHitPoints>200</MaxHitPoints>
-			<Flammability>1.0</Flammability>
-			<Beauty>-10</Beauty>
-			<Mass>35</Mass>
-			<WorkToBuild>8000</WorkToBuild>
-		</statBases>
-		<thingSetMakerTags>
-			<li>RewardStandardCore</li>
-		</thingSetMakerTags>
-		<tickerType>Normal</tickerType>
-		<size>(1, 1)</size>
-		<fillPercent>1.0</fillPercent>
-		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-		<passability>Impassable</passability>
-		<rotatable>false</rotatable>
-		<canOverlapZones>false</canOverlapZones>
-		<minifiedDef>MinifiedThing</minifiedDef>
-		<tradeability>Sellable</tradeability>
-		<tradeTags>
-			<li>ExoticBuilding</li>
-		</tradeTags>
-	</ThingDef>
-
-	<ThingDef ParentName="BuildingBase">
-		<defName>HoshigumasCup</defName>
-		<label>星熊杯</label>
-		<description>星熊杯能让注入里头的酒品级上升，酒注入的瞬间便会变成纯米大吟酿，但会随时间流逝而劣化，不赶快喝掉就会很吃亏，是鬼的名品。跟伊吹瓢非常合得来。</description>
-		<graphicData>
-			<texPath>Things/Building/Special/InfiniteChemreactor</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1, 1)</drawSize>
-			<shadowData>
-				<volume>(1.8, 1.0, 0.2)</volume>
-				<offset>(0.0, 0.0, -0.4)</offset>
-			</shadowData>
-		</graphicData>
-		<thingCategories>
-			<li>BuildingsSpecial</li>
-		</thingCategories>
-		<building>
-			<destroySound>BuildingDestroyed_Metal_Big</destroySound>
-		</building>
-		<comps>
-			<li Class="CompProperties_Breakdownable"/>
-			<li Class="HoshigumasCup.CompProperties_Exchange">
-				<ticksToRecharge>1</ticksToRecharge>
-			</li>
-		</comps>
-		<altitudeLayer>Building</altitudeLayer>
-		<statBases>
-			<MarketValue>6000</MarketValue>
-			<MaxHitPoints>200</MaxHitPoints>
-			<Flammability>1.0</Flammability>
-			<Beauty>0</Beauty>
-			<Mass>35</Mass>
-			<WorkToBuild>8000</WorkToBuild>
-		</statBases>
-		<thingSetMakerTags>
-			<li>RewardStandardCore</li>
-		</thingSetMakerTags>
-		<tickerType>Normal</tickerType>
-		<size>(1, 1)</size>
-		<fillPercent>1.0</fillPercent>
-		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-		<passability>Impassable</passability>
-		<rotatable>false</rotatable>
-		<canOverlapZones>false</canOverlapZones>
-		<minifiedDef>MinifiedThing</minifiedDef>
-		<tradeability>Sellable</tradeability>
-		<tradeTags>
-			<li>ExoticBuilding</li>
-		</tradeTags>
-	</ThingDef>
 	<JobDef>
 		<defName>SpawnWine</defName>
 		<driverClass>U.N.Owen.JobDriver_SpawnWine</driverClass>
