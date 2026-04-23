@@ -108,7 +108,7 @@
             <li>Blunt</li>
           </capacities>
           <power>9</power>
-          <cooldownTime>1.0</cooldownTime>
+          <cooldownTime>2</cooldownTime>
           <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
           <armorPenetrationBlunt>4.5</armorPenetrationBlunt> </li>
       </tools>
@@ -201,7 +201,7 @@
             <li>Blunt</li>
           </capacities>
           <power>9</power>
-          <cooldownTime>0.8</cooldownTime>
+          <cooldownTime>1.6</cooldownTime>
           <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
           <armorPenetrationBlunt>6.5</armorPenetrationBlunt> </li>
       </tools>
@@ -294,7 +294,7 @@
             <li>Blunt</li>
           </capacities>
           <power>12</power>
-          <cooldownTime>0.8</cooldownTime>
+          <cooldownTime>1.2</cooldownTime>
           <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
           <armorPenetrationBlunt>9</armorPenetrationBlunt> </li>
       </tools>
@@ -387,7 +387,7 @@
             <li>Blunt</li>
           </capacities>
           <power>16</power>
-          <cooldownTime>0.8</cooldownTime>
+          <cooldownTime>1</cooldownTime>
           <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
           <armorPenetrationBlunt>14</armorPenetrationBlunt> 
         </li>

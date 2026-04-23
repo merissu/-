@@ -31,11 +31,15 @@ namespace merissu
         private static int particleTickCounter;
 
         private static float whiteScreenDuration = 0f;
-        private const float TOTAL_WHITE_TIME = 3.0f;     
-        private const float WHITE_FADE_OUT_START = 0.8f; 
+        private const float TOTAL_WHITE_TIME = 3.0f;
+        private const float WHITE_FADE_OUT_START = 0.8f;
 
         private static float shakeDurationRemaining = 0f;
-        private const float TOTAL_SHAKE_TIME = 5.0f;     
+        private const float TOTAL_SHAKE_TIME = 5.0f;
+
+        private static Texture2D raidBannerTex;
+        private static float raidHudOffset;
+        private const float RAID_HUD_SCROLL_SPEED = 420f;
 
         public AbyssNovaUIController(Game game) : base() { }
 
@@ -54,6 +58,7 @@ namespace merissu
 
             centerTex = ContentFinder<Texture2D>.Get("Other/AbyssNova1");
             sideTex = ContentFinder<Texture2D>.Get("Other/AbyssNova2");
+            raidBannerTex = sideTex; // 复用同一张
             particleMat = MaterialPool.MatFrom("Other/bulletFd002", ShaderDatabase.MoteGlow);
             particleMat.renderQueue = 4000;
             particles.Clear();
@@ -88,6 +93,8 @@ namespace merissu
                 GUI.DrawTexture(new Rect(0, 0, UI.screenWidth, UI.screenHeight), BaseContent.WhiteTex);
                 GUI.color = oldColor;
             }
+
+            DrawRaidStatusHud();
         }
 
         public override void GameComponentUpdate()
@@ -102,6 +109,19 @@ namespace merissu
                 shakeDurationRemaining -= Time.deltaTime;
                 float currentShakeIntensity = Mathf.Lerp(0f, 12f, shakeDurationRemaining / TOTAL_SHAKE_TIME);
                 Find.CameraDriver.shaker.DoShake(currentShakeIntensity);
+            }
+
+            if (!Find.TickManager.Paused)
+            {
+                Map curMap = Find.CurrentMap;
+                if (curMap != null)
+                {
+                    Merissu_RaidManager mgr = curMap.GetComponent<Merissu_RaidManager>();
+                    if (mgr != null && mgr.RaidActive && mgr.RaidRemainingCount > 0)
+                    {
+                        raidHudOffset += RAID_HUD_SCROLL_SPEED * Time.deltaTime;
+                    }
+                }
             }
 
             if (!active) return;
@@ -209,7 +229,7 @@ namespace merissu
                 damAmount: 5000,
                 armorPenetration: 10f,
                 explosionSound: SoundDef.Named("AbyssNova2"),
-                ignoredThings: ignoredList, 
+                ignoredThings: ignoredList,
                 damageFalloff: false
             );
 
@@ -221,6 +241,7 @@ namespace merissu
                 }
             }
         }
+
         private static void Stop()
         {
             active = false;
@@ -254,7 +275,9 @@ namespace merissu
             public Vector3 startPos, targetPos;
             public int life, maxLife;
             public float size;
+
             public void Tick() => life++;
+
             public void Draw()
             {
                 float t = Mathf.Clamp01((float)life / maxLife);
@@ -264,6 +287,7 @@ namespace merissu
                 Matrix4x4 matrix = Matrix4x4.TRS(pos, Quaternion.identity, Vector3.one * size);
                 Graphics.DrawMesh(MeshPool.plane10, matrix, particleMat, 0);
             }
+
             public bool Dead => life >= maxLife;
         }
 
@@ -276,17 +300,97 @@ namespace merissu
             DrawScrolling(new Rect(0, screenH - 180f, screenW, 80f), sideTex, sideOffset, false, 0f);
         }
 
+        private static void DrawRaidStatusHud()
+        {
+            Map map = Find.CurrentMap;
+            if (map == null) return;
+
+            Merissu_RaidManager mgr = map.GetComponent<Merissu_RaidManager>();
+            if (mgr == null || !mgr.RaidActive) return;
+
+            int total = mgr.RaidTotalCount;
+            int remain = mgr.RaidRemainingCount;
+            if (total <= 0 || remain <= 0) return;
+
+            if (raidBannerTex == null)
+                raidBannerTex = ContentFinder<Texture2D>.Get("UI/AttackUI", false);
+            if (raidBannerTex == null) return;
+
+            float bannerW = 300f;
+            float infoW = 200f;
+            float spacing = 12f;
+            float panelH = 92f;
+
+            float totalW = bannerW + spacing + infoW;
+            float startX = UI.screenWidth - totalW - 16f;
+            float startY = 16f;
+
+            float r = 207f / 255f;
+            float g = 0f / 255f;
+            float b = 112f / 255f;
+            Color customMagenta = new Color(r, g, b);
+
+            Rect bannerBox = new Rect(startX, startY, bannerW, panelH);
+
+            float bgBreathAlpha = 0.25f + Mathf.Sin(Time.realtimeSinceStartup * 6f) * 0.15f;
+            Color bgFillColor = new Color(r, g, b, bgBreathAlpha);
+            Color borderColor = new Color(r, g, b, 0.8f);
+
+            Widgets.DrawBoxSolid(bannerBox, bgFillColor);
+
+            DrawScrolling(bannerBox, raidBannerTex, raidHudOffset, false, 0f);
+
+            Color oldGuiColor = GUI.color;
+            GUI.color = borderColor;
+            Widgets.DrawBox(bannerBox, 2);
+            GUI.color = oldGuiColor;
+
+            float infoX = startX + bannerW + spacing;
+            Rect infoAreaRect = new Rect(infoX, startY, infoW, panelH);
+            Widgets.DrawBoxSolidWithOutline(infoAreaRect, new Color(0f, 0f, 0f, 0.6f), Color.grey, 1);
+
+            TextAnchor oldAnchor = Text.Anchor;
+            GameFont oldFont = Text.Font;
+            Color originalColor = GUI.color;
+
+            GUI.color = customMagenta;
+
+            Rect barRect = new Rect(infoAreaRect.x + 10f, infoAreaRect.y + 20f, infoAreaRect.width - 20f, 16f);
+            float progress = 1f - ((float)remain / Mathf.Max(1, total));
+            Widgets.FillableBar(barRect, progress, BaseContent.WhiteTex);
+
+            Text.Font = GameFont.Tiny;
+            float labelY = barRect.yMax + 4f;
+
+            Text.Anchor = TextAnchor.UpperLeft;
+            Widgets.Label(new Rect(barRect.x, labelY, 80f, 20f), "残余敌人");
+
+            Text.Anchor = TextAnchor.UpperRight;
+            Widgets.Label(new Rect(barRect.xMax - 80f, labelY, 80f, 20f), "敌人总数");
+
+            Text.Font = GameFont.Small;
+            Text.Anchor = TextAnchor.MiddleCenter;
+            Rect valueRect = new Rect(barRect.x, labelY + 12f, barRect.width, 30f);
+            Widgets.Label(valueRect, $"{remain} / {total}");
+
+            Text.Anchor = oldAnchor;
+            Text.Font = oldFont;
+            GUI.color = originalColor;
+        }
         private static void DrawScrolling(Rect rect, Texture2D tex, float offset, bool leftToRight, float gap)
         {
             if (tex == null) return;
+
             GUI.BeginGroup(rect);
             float cycleWidth = tex.width + gap;
             float effectiveOffset = offset % cycleWidth;
             float startX = leftToRight ? (effectiveOffset - cycleWidth) : -effectiveOffset;
+
             for (float x = startX; x < rect.width; x += cycleWidth)
             {
                 GUI.DrawTexture(new Rect(x, 0, tex.width, rect.height), tex, ScaleMode.StretchToFill);
             }
+
             GUI.EndGroup();
         }
     }

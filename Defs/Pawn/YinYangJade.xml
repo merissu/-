@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
+	<DutyDef>
+		<defName>Merissu_AssaultRanged</defName>
+		<alwaysShowWeapon>true</alwaysShowWeapon>
+		<hook>HighPriority</hook>
+		<thinkNode Class="ThinkNode_Priority">
+		<subNodes>
+			<li Class="ThinkNode_Subtree">
+			<treeDef>Abilities_Aggressive</treeDef>
+			</li>
+			<li Class="merissu.JobGiver_YinYangFirebeam">
+			<retreatRatio>0.3</retreatRatio>
+			<meleeRatio>0.1</meleeRatio>
+			<retreatBandTolerance>0.25</retreatBandTolerance>
+			</li>
+			<li Class="JobGiver_AIGotoNearestHostile"/>
+			<li Class="JobGiver_WanderAnywhere">
+			<maxDanger>Deadly</maxDanger>
+			</li>
+		</subNodes>
+		</thinkNode>
+	</DutyDef>
+
   <ThinkTreeDef>
     <defName>Merissu_CombatOnlyFlyer</defName>
     <thinkRoot Class="ThinkNode_Priority">
@@ -35,9 +57,9 @@
 			<tagToGive>Fieldwork</tagToGive> 
 			<subNodes>
 				<li Class="merissu.JobGiver_YinYangFirebeam">
-					<maxAttackRange>25</maxAttackRange>
-					<minRetreatDist>3</minRetreatDist> 
-					<maxRetreatDist>8</maxRetreatDist> 
+					<retreatRatio>0.3</retreatRatio>
+					<meleeRatio>0.1</meleeRatio>
+					<retreatBandTolerance>0.25</retreatBandTolerance>
 				</li>
 			</subNodes>
 		</li>
@@ -177,7 +199,7 @@
 				<li>Blunt</li>
 				</capacities>
 				<power>9</power>
-				<cooldownTime>1</cooldownTime>
+				<cooldownTime>2</cooldownTime>
 				<linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
 			</li>
 		</tools>
@@ -244,60 +266,6 @@
 			</li>
 		</lifeStages>
 	</PawnKindDef>
-
-  <ThinkTreeDef>
-    <defName>Merissu_CombatOnlyFlyerB</defName>
-    <thinkRoot Class="ThinkNode_Priority">
-      <subNodes>
-        <li Class="ThinkNode_ConditionalMustKeepLyingDown">
-          <subNodes>
-            <li Class="ThinkNode_QueuedJob">
-              <inBedOnly>true</inBedOnly>
-            </li>
-            <li Class="JobGiver_KeepLyingDown"/>
-          </subNodes>
-        </li>
-        <li Class="ThinkNode_Subtree">
-          <treeDef>Downed</treeDef>
-        </li>
-        <li Class="JobGiver_ReactToCloseMeleeThreat"/>
-        <li Class="ThinkNode_QueuedJob"/>
-        <li Class="ThinkNode_ConditionalForcedGoto">
-          <subNodes>
-            <li Class="ThinkNode_Tagger">
-              <tagToGive>Misc</tagToGive>
-              <subNodes>
-                <li Class="JobGiver_ForcedGoto"/>
-              </subNodes>
-            </li>
-          </subNodes>
-        </li>
-        <li Class="ThinkNode_Subtree">
-          <treeDef>LordDuty</treeDef>
-        </li>
-		<li Class="ThinkNode_Tagger">
-			<tagToGive>Fieldwork</tagToGive> 
-			<subNodes>
-				<li Class="merissu.JobGiver_YinYangFirebeam">
-					<maxAttackRange>30</maxAttackRange>
-					<minRetreatDist>3</minRetreatDist> 
-					<maxRetreatDist>8</maxRetreatDist> 
-				</li>
-			</subNodes>
-		</li>
-		<li Class="ThinkNode_Tagger">
-          <tagToGive>Idle</tagToGive>
-          <subNodes>
-            <li Class="JobGiver_WanderAnywhere">
-              <maxDanger>Deadly</maxDanger>
-              <ticksBetweenWandersRange>600~1200</ticksBetweenWandersRange>
-            </li>
-          </subNodes>
-        </li>
-        <li Class="JobGiver_IdleError"/>
-      </subNodes>
-    </thinkRoot>
-  </ThinkTreeDef>
 
 	<BodyPartDef>
 		<defName>Merissu_YinYangCoreB</defName>
@@ -385,7 +353,7 @@
 			<trainability>None</trainability>
 			<foodType>None</foodType>
 			<needsRest>false</needsRest>
-			<thinkTreeMain>Merissu_CombatOnlyFlyerB</thinkTreeMain>
+			<thinkTreeMain>Merissu_CombatOnlyFlyer</thinkTreeMain>
 			<flightStartChanceOnJobStart>1.0</flightStartChanceOnJobStart>
 			<canFlyIntoMap>true</canFlyIntoMap>
 			<canLeaveMapFlying>true</canLeaveMapFlying>
@@ -421,7 +389,7 @@
 					<li>Blunt</li>
 				</capacities>
 				<power>9</power>
-				<cooldownTime>0.8</cooldownTime>
+				<cooldownTime>1.6</cooldownTime>
 				<linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
 			</li>
 		</tools>
@@ -474,60 +442,6 @@
 			</li>
 		</lifeStages>
 	</PawnKindDef>
-
-  <ThinkTreeDef>
-    <defName>Merissu_CombatOnlyFlyerC</defName>
-    <thinkRoot Class="ThinkNode_Priority">
-      <subNodes>
-        <li Class="ThinkNode_ConditionalMustKeepLyingDown">
-          <subNodes>
-            <li Class="ThinkNode_QueuedJob">
-              <inBedOnly>true</inBedOnly>
-            </li>
-            <li Class="JobGiver_KeepLyingDown"/>
-          </subNodes>
-        </li>
-        <li Class="ThinkNode_Subtree">
-          <treeDef>Downed</treeDef>
-        </li>
-        <li Class="JobGiver_ReactToCloseMeleeThreat"/>
-        <li Class="ThinkNode_QueuedJob"/>
-        <li Class="ThinkNode_ConditionalForcedGoto">
-          <subNodes>
-            <li Class="ThinkNode_Tagger">
-              <tagToGive>Misc</tagToGive>
-              <subNodes>
-                <li Class="JobGiver_ForcedGoto"/>
-              </subNodes>
-            </li>
-          </subNodes>
-        </li>
-        <li Class="ThinkNode_Subtree">
-          <treeDef>LordDuty</treeDef>
-        </li>
-		<li Class="ThinkNode_Tagger">
-			<tagToGive>Fieldwork</tagToGive> 
-			<subNodes>
-				<li Class="merissu.JobGiver_YinYangFirebeam">
-					<maxAttackRange>35</maxAttackRange>
-					<minRetreatDist>3</minRetreatDist> 
-					<maxRetreatDist>8</maxRetreatDist> 
-				</li>
-			</subNodes>
-		</li>
-		<li Class="ThinkNode_Tagger">
-          <tagToGive>Idle</tagToGive>
-          <subNodes>
-            <li Class="JobGiver_WanderAnywhere">
-              <maxDanger>Deadly</maxDanger>
-              <ticksBetweenWandersRange>600~1200</ticksBetweenWandersRange>
-            </li>
-          </subNodes>
-        </li>
-        <li Class="JobGiver_IdleError"/>
-      </subNodes>
-    </thinkRoot>
-  </ThinkTreeDef>
 
 	<BodyPartDef>
 		<defName>Merissu_YinYangCoreC</defName>
@@ -615,7 +529,7 @@
 			<trainability>None</trainability>
 			<foodType>None</foodType>
 			<needsRest>false</needsRest>
-			<thinkTreeMain>Merissu_CombatOnlyFlyerC</thinkTreeMain>
+			<thinkTreeMain>Merissu_CombatOnlyFlyer</thinkTreeMain>
 			<flightStartChanceOnJobStart>1.0</flightStartChanceOnJobStart>
 			<canFlyIntoMap>true</canFlyIntoMap>
 			<canLeaveMapFlying>true</canLeaveMapFlying>
@@ -651,7 +565,7 @@
 					<li>Blunt</li>
 				</capacities>
 				<power>12</power>
-				<cooldownTime>0.8</cooldownTime>
+				<cooldownTime>1.2</cooldownTime>
 				<linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
 			</li>
 		</tools>
@@ -704,60 +618,6 @@
 			</li>
 		</lifeStages>
 	</PawnKindDef>
-
-  <ThinkTreeDef>
-    <defName>Merissu_CombatOnlyFlyerD</defName>
-    <thinkRoot Class="ThinkNode_Priority">
-      <subNodes>
-        <li Class="ThinkNode_ConditionalMustKeepLyingDown">
-          <subNodes>
-            <li Class="ThinkNode_QueuedJob">
-              <inBedOnly>true</inBedOnly>
-            </li>
-            <li Class="JobGiver_KeepLyingDown"/>
-          </subNodes>
-        </li>
-        <li Class="ThinkNode_Subtree">
-          <treeDef>Downed</treeDef>
-        </li>
-        <li Class="JobGiver_ReactToCloseMeleeThreat"/>
-        <li Class="ThinkNode_QueuedJob"/>
-        <li Class="ThinkNode_ConditionalForcedGoto">
-          <subNodes>
-            <li Class="ThinkNode_Tagger">
-              <tagToGive>Misc</tagToGive>
-              <subNodes>
-                <li Class="JobGiver_ForcedGoto"/>
-              </subNodes>
-            </li>
-          </subNodes>
-        </li>
-        <li Class="ThinkNode_Subtree">
-          <treeDef>LordDuty</treeDef>
-        </li>
-		<li Class="ThinkNode_Tagger">
-			<tagToGive>Fieldwork</tagToGive> 
-			<subNodes>
-				<li Class="merissu.JobGiver_YinYangFirebeam">
-					<maxAttackRange>40</maxAttackRange>
-					<minRetreatDist>3</minRetreatDist> 
-					<maxRetreatDist>8</maxRetreatDist> 
-				</li>
-			</subNodes>
-		</li>
-		<li Class="ThinkNode_Tagger">
-          <tagToGive>Idle</tagToGive>
-          <subNodes>
-            <li Class="JobGiver_WanderAnywhere">
-              <maxDanger>Deadly</maxDanger>
-              <ticksBetweenWandersRange>600~1200</ticksBetweenWandersRange>
-            </li>
-          </subNodes>
-        </li>
-        <li Class="JobGiver_IdleError"/>
-      </subNodes>
-    </thinkRoot>
-  </ThinkTreeDef>
 
 	<BodyPartDef>
 		<defName>Merissu_YinYangCoreD</defName>
@@ -845,7 +705,7 @@
 			<trainability>None</trainability>
 			<foodType>None</foodType>
 			<needsRest>false</needsRest>
-			<thinkTreeMain>Merissu_CombatOnlyFlyerD</thinkTreeMain>
+			<thinkTreeMain>Merissu_CombatOnlyFlyer</thinkTreeMain>
 			<flightStartChanceOnJobStart>1.0</flightStartChanceOnJobStart>
 			<canFlyIntoMap>true</canFlyIntoMap>
 			<canLeaveMapFlying>true</canLeaveMapFlying>
@@ -881,7 +741,7 @@
 					<li>Blunt</li>
 				</capacities>
 				<power>16</power>
-				<cooldownTime>0.8</cooldownTime>
+				<cooldownTime>1</cooldownTime>
 				<linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
 			</li>
 		</tools>

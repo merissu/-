@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="月虹市场事件\Merissu_AI_System.cs" />
     <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicPurple.cs" />
     <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicblue.cs" />
     <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicgreen.cs" />

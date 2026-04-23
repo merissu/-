@@ -63,11 +63,11 @@
       <li>Map_PlayerHome</li>
     </targetTags>
     <workerClass>merissu.IncidentWorker_CustomMonsterRaid</workerClass>
-    <baseChance>0.01</baseChance>
+    <baseChance>0.05</baseChance>
     <pointsScaleable>true</pointsScaleable>
     <tale>Raid</tale>
     <letterLabel>敌袭</letterLabel>
-    <letterText>一群被殖民地财富吸引的敌人发起了进攻！</letterText>
+    <letterText>一群怀揣着各种各样的目的的妖怪从四面八方对殖民地发起了进攻！</letterText>
     <letterDef>ThreatBig</letterDef>
     <modExtensions>
       <li Class="merissu.CustomRaidExtension">
@@ -77,6 +77,46 @@
           <hediffHigh>BulletScreenManiaD</hediffHigh>
           <hediffBoss>BulletScreenManiaE</hediffBoss>
           <hediffExtraF>BulletScreenManiaF</hediffExtraF>
+          <songsZayu>
+            <li>Zayuraid001</li>
+            <li>Zayuraid002</li>
+            <li>Zayuraid003</li>
+            <li>Zayuraid004</li>
+            <li>Zayuraid005</li>
+            <li>Zayuraid006</li>
+          </songsZayu>
+          <songsLow>
+            <li>Lowraid001</li>
+            <li>Lowraid002</li>
+            <li>Lowraid003</li>
+            <li>Lowraid004</li>
+            <li>Lowraid005</li>
+            <li>Lowraid006</li>
+          </songsLow>
+          <songsMid>
+            <li>Midraid001</li>
+            <li>Midraid002</li>
+            <li>Midraid003</li>
+            <li>Midraid004</li>
+            <li>Midraid005</li>
+            <li>Midraid006</li>
+          </songsMid>
+          <songsHigh>
+            <li>Highraid001</li>
+            <li>Highraid002</li>
+            <li>Highraid003</li>
+            <li>Highraid004</li>
+            <li>Highraid005</li>
+            <li>Highraid006</li>
+          </songsHigh>
+          <songsBoss>
+            <li>Bossraid001</li>
+            <li>Bossraid002</li>
+            <li>Bossraid003</li>
+            <li>Bossraid004</li>
+            <li>Bossraid005</li>
+            <li>Bossraid006</li>
+          </songsBoss>
           <poolZayu>
             <li>Merissu_WarFlyerKind</li> 
           </poolZayu>

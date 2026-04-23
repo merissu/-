@@ -1937,6 +1937,7 @@
 	<SongDef>
 		<defName>MightierThanThousands_Music</defName>
 		<clipPath>Songs/MightierThanThousands_Music</clipPath>
+		<label>狂気の瞳～ Invisible Full Moon</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -1945,6 +1946,7 @@
 	<SongDef>
 		<defName>HighlyToxicBody_Music</defName>
 		<clipPath>Songs/HighlyToxicBody_Music</clipPath>
+		<label>剧毒身体～ Forsaken Doll</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -1953,6 +1955,7 @@
 	<SongDef>
 		<defName>BAKA_Music</defName>
 		<clipPath>Songs/BAKA_Music</clipPath>
+		<label>BAKA</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -1961,6 +1964,7 @@
 	<SongDef>
 		<defName>marisa1</defName>
 		<clipPath>Songs/marisa1</clipPath>
+		<label>人气爆发·Magus Night</label>
         <volume>0.7</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -1969,6 +1973,7 @@
 	<SongDef>
 		<defName>reimu1</defName>
 		<clipPath>Songs/reimu1</clipPath>
+		<label>人气爆发·春色小径～ Colorful Path</label>
         <volume>0.7</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -1977,6 +1982,7 @@
 	<SongDef>
 		<defName>reimu2</defName>
 		<clipPath>Songs/reimu2</clipPath>
+		<label>二色莲花蝶～ Ancients</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -1985,6 +1991,7 @@
 	<SongDef>
 		<defName>reimu3</defName>
 		<clipPath>Songs/reimu3</clipPath>
+		<label>春色小径～ Colorful Path</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -1993,6 +2000,7 @@
 	<SongDef>
 		<defName>reimu4</defName>
 		<clipPath>Songs/reimu4</clipPath>
+		<label>東方妖恋談</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2001,6 +2009,7 @@
 	<SongDef>
 		<defName>reimu5</defName>
 		<clipPath>Songs/reimu5</clipPath>
+		<label>少女綺想曲～ Dream Battle</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2009,6 +2018,7 @@
 	<SongDef>
 		<defName>Patchouli1</defName>
 		<clipPath>Songs/Patchouli1</clipPath>
+		<label>伏瓦鲁魔法图书馆</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2017,6 +2027,7 @@
 	<SongDef>
 		<defName>Patchouli2</defName>
 		<clipPath>Songs/Patchouli2</clipPath>
+		<label>Locked Girl～ 少女密室</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2025,6 +2036,7 @@
 	<SongDef>
 		<defName>hijiri2</defName>
 		<clipPath>Songs/hijiri2</clipPath>
+		<label>人气爆发·感情の摩天楼～ Cosmic Mind</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2033,6 +2045,7 @@
 	<SongDef>
 		<defName>hijiri1</defName>
 		<clipPath>Songs/hijiri1</clipPath>
+		<label>感情の摩天楼～ Cosmic Mind</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2041,6 +2054,7 @@
 	<SongDef>
 		<defName>Marisa2</defName>
 		<clipPath>Songs/Marisa2</clipPath>
+		<label>星之器～ Casket of Star</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2049,6 +2063,7 @@
 	<SongDef>
 		<defName>Marisa3</defName>
 		<clipPath>Songs/Marisa3</clipPath>
+		<label>魔女们的舞会～ Magus</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2057,6 +2072,7 @@
 	<SongDef>
 		<defName>Marisa4</defName>
 		<clipPath>Songs/Marisa4</clipPath>
+		<label>Magus Night</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2065,6 +2081,7 @@
 	<SongDef>
 		<defName>Marisa5</defName>
 		<clipPath>Songs/Marisa5</clipPath>
+		<label>恋色マスタースパーク</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2073,6 +2090,7 @@
 	<SongDef>
 		<defName>udonge1</defName>
 		<clipPath>Songs/udonge1</clipPath>
+		<label>狂気の瞳～ Invisible Full Moon</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2081,6 +2099,7 @@
 	<SongDef>
 		<defName>udonge2</defName>
 		<clipPath>Songs/udonge2</clipPath>
+		<label>狂気の瞳～ Invisible Full Moon</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2089,6 +2108,7 @@
 	<SongDef>
 		<defName>sakuya1</defName>
 		<clipPath>Songs/sakuya1</clipPath>
+		<label>Flowering Night</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2097,6 +2117,7 @@
 	<SongDef>
 		<defName>sakuya2</defName>
 		<clipPath>Songs/sakuya2</clipPath>
+		<label>月时计～ Luna Dial</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2105,6 +2126,7 @@
 	<SongDef>
 		<defName>sakuya3</defName>
 		<clipPath>Songs/sakuya3</clipPath>
+		<label>女仆与血之怀表</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2113,6 +2135,7 @@
 	<SongDef>
 		<defName>Tenshi1</defName>
 		<clipPath>Songs/Tenshi1</clipPath>
+		<label>有頂天変～ Wonderful Heaven</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2121,6 +2144,7 @@
 	<SongDef>
 		<defName>Tenshi2</defName>
 		<clipPath>Songs/Tenshi2</clipPath>
+		<label>幼心地の有頂天</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2129,6 +2153,7 @@
 	<SongDef>
 		<defName>Yuka1</defName>
 		<clipPath>Songs/Yuka1</clipPath>
+		<label>沉睡的恐怖～ Sleeping Terror</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2137,6 +2162,7 @@
 	<SongDef>
 		<defName>Yuka2</defName>
 		<clipPath>Songs/Yuka2</clipPath>
+		<label>幽夢～ Inanimate Dream</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2145,6 +2171,7 @@
 	<SongDef>
 		<defName>Yuka3</defName>
 		<clipPath>Songs/Yuka3</clipPath>
+		<label>今昔幻想郷～ Flower Land</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2153,6 +2180,7 @@
 	<SongDef>
 		<defName>utsuho1</defName>
 		<clipPath>Songs/utsuho1</clipPath>
+		<label>未知物Ｘ～ Unfound Adventure</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2161,6 +2189,7 @@
 	<SongDef>
 		<defName>utsuho2</defName>
 		<clipPath>Songs/utsuho2</clipPath>
+		<label>霊知の太陽信仰～ Nuclear Fusion</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2169,6 +2198,7 @@
 	<SongDef>
 		<defName>koishi1</defName>
 		<clipPath>Songs/koishi1</clipPath>
+		<label>哈德曼的妖怪少女</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2177,6 +2207,7 @@
 	<SongDef>
 		<defName>satori</defName>
 		<clipPath>Songs/satori</clipPath>
+		<label>少女さとり～ 3rd eye</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2185,6 +2216,7 @@
 	<SongDef>
 		<defName>Youmu1</defName>
 		<clipPath>Songs/Youmu1</clipPath>
+		<label>东方妖妖梦～ Ancient Temple</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2193,6 +2225,7 @@
 	<SongDef>
 		<defName>Youmu2</defName>
 		<clipPath>Songs/Youmu2</clipPath>
+		<label>広有射怪鳥事～ Till When?</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2201,6 +2234,7 @@
 	<SongDef>
 		<defName>yuyuko1</defName>
 		<clipPath>Songs/yuyuko1</clipPath>
+		<label>幽雅地绽放吧，墨染的樱花～ Border of Life</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2209,6 +2243,7 @@
 	<SongDef>
 		<defName>yuyuko2</defName>
 		<clipPath>Songs/yuyuko2</clipPath>
+		<label>Border of Life</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2217,6 +2252,7 @@
 	<SongDef>
 		<defName>Mokou</defName>
 		<clipPath>Songs/Mokou</clipPath>
+		<label>月まで届け、不死の煙</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2225,6 +2261,7 @@
 	<SongDef>
 		<defName>yukari1</defName>
 		<clipPath>Songs/yukari1</clipPath>
+		<label>夜幕降临～ Evening Star</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2233,6 +2270,7 @@
 	<SongDef>
 		<defName>yukari2</defName>
 		<clipPath>Songs/yukari2</clipPath>
+		<label>Necro-Fantasia</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2241,6 +2279,7 @@
 	<SongDef>
 		<defName>Remilia1</defName>
 		<clipPath>Songs/Remilia1</clipPath>
+		<label>亡き王女の為のセプテット</label>
         <volume>2</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2249,6 +2288,7 @@
 	<SongDef>
 		<defName>Remilia2</defName>
 		<clipPath>Songs/Remilia2</clipPath>
+		<label>亡き王女の為のセプテット</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
 		<tense>true</tense>
@@ -2257,8 +2297,296 @@
 	<SongDef>
 		<defName>Flandre1</defName>
 		<clipPath>Songs/Flandre1</clipPath>
+		<label>U.N.オーエンは彼女なのか？</label>
         <volume>1</volume>
 		<commonality>0.0001</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Zayuraid001</defName>
+		<clipPath>raid/Zayuraid001</clipPath>
+		<label>如鬼灯般的红色之魂</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+		<allowedTimeOfDay>Night</allowedTimeOfDay>
+	</SongDef>
+
+	<SongDef>
+		<defName>Zayuraid002</defName>
+		<clipPath>raid/Zayuraid002</clipPath>
+		<label>无何有之乡～ Deep Mountain</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+		<allowedSeasons>
+            <li>Winter</li>
+        </allowedSeasons>
+	</SongDef>
+
+	<SongDef>
+		<defName>Zayuraid003</defName>
+		<clipPath>raid/Zayuraid003</clipPath>
+		<label>幻视之夜～ Ghostly Eyes</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+		<allowedTimeOfDay>Night</allowedTimeOfDay>
+	</SongDef>
+
+	<SongDef>
+		<defName>Zayuraid004</defName>
+		<clipPath>raid/Zayuraid004</clipPath>
+		<label>眷爱众生之神～ Romantic Fall</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+		<allowedSeasons>
+            <li>Fall</li>
+        </allowedSeasons>
+	</SongDef>
+
+	<SongDef>
+		<defName>Zayuraid005</defName>
+		<clipPath>raid/Zayuraid005</clipPath>
+		<label>可爱的大战争叠奏曲</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Zayuraid006</defName>
+		<clipPath>raid/Zayuraid006</clipPath>
+		<label>风的循环～ Wind Tour</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Lowraid001</defName>
+		<clipPath>raid/Lowraid001</clipPath>
+		<label>Lunate Elf</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Lowraid002</defName>
+		<clipPath>raid/Lowraid002</clipPath>
+		<label>远野幻想物语</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Lowraid003</defName>
+		<clipPath>raid/Lowraid003</clipPath>
+		<label>夜雀的歌声～ Night Bird</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+		<allowedTimeOfDay>Night</allowedTimeOfDay>
+	</SongDef>
+
+	<SongDef>
+		<defName>Lowraid004</defName>
+		<clipPath>raid/Lowraid004</clipPath>
+		<label>厄神降临之路～ Dark Road</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Lowraid005</defName>
+		<clipPath>raid/Lowraid005</clipPath>
+		<label>赌上性命去恶作剧</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Lowraid006</defName>
+		<clipPath>raid/Lowraid006</clipPath>
+		<label>现代妖怪殖民地</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Midraid001</defName>
+		<clipPath>raid/Midraid001</clipPath>
+		<label>上海红茶馆～ Chinese Tea</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Midraid002</defName>
+		<clipPath>raid/Midraid002</clipPath>
+		<label>布加勒斯特的人偶师</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Midraid003</defName>
+		<clipPath>raid/Midraid003</clipPath>
+		<label>令人怀念的东方之血～ Old World</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+		<allowedTimeOfDay>Night</allowedTimeOfDay>
+	</SongDef>
+
+	<SongDef>
+		<defName>Midraid004</defName>
+		<clipPath>raid/Midraid004</clipPath>
+		<label>众神眷恋的幻想乡</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Midraid005</defName>
+		<clipPath>raid/Midraid005</clipPath>
+		<label>时刻旺盛的好奇心</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Midraid006</defName>
+		<clipPath>raid/Midraid006</clipPath>
+		<label>东之国的不眠夜</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Highraid001</defName>
+		<clipPath>raid/Highraid001</clipPath>
+		<label>伏瓦鲁魔法图书馆</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+		<allowedTimeOfDay>Night</allowedTimeOfDay>
+	</SongDef>
+
+	<SongDef>
+		<defName>Highraid002</defName>
+		<clipPath>raid/Highraid002</clipPath>
+		<label>天空的花都</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+		<allowedSeasons>
+            <li>Spring</li>
+        </allowedSeasons>
+	</SongDef>
+
+	<SongDef>
+		<defName>Highraid003</defName>
+		<clipPath>raid/Highraid003</clipPath>
+		<label>永夜的报应～ Imperishable Night</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+		<allowedTimeOfDay>Night</allowedTimeOfDay>
+	</SongDef>
+
+	<SongDef>
+		<defName>Highraid004</defName>
+		<clipPath>raid/Highraid004</clipPath>
+		<label>Fall of Fall～ 秋意渐浓之瀑</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Highraid005</defName>
+		<clipPath>raid/Highraid005</clipPath>
+		<label>午夜的妖精舞会</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+		<allowedTimeOfDay>Night</allowedTimeOfDay>
+	</SongDef>
+
+	<SongDef>
+		<defName>Highraid006</defName>
+		<clipPath>raid/Highraid006</clipPath>
+		<label>回忆京都</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Bossraid001</defName>
+		<clipPath>raid/Bossraid001</clipPath>
+		<label>女仆与血之怀表</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Bossraid002</defName>
+		<clipPath>raid/Bossraid002</clipPath>
+		<label>东方妖妖梦～ Ancient Temple</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Bossraid003</defName>
+		<clipPath>raid/Bossraid003</clipPath>
+		<label>灰姑娘的笼子～ Kagome-Kagome</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+		<allowedTimeOfDay>Night</allowedTimeOfDay>
+	</SongDef>
+
+	<SongDef>
+		<defName>Bossraid004</defName>
+		<clipPath>raid/Bossraid004</clipPath>
+		<label>少女曾见的日本原风景</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Bossraid005</defName>
+		<clipPath>raid/Bossraid005</clipPath>
+		<label>Loose Rain</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
+		<tense>true</tense>
+	</SongDef>
+
+	<SongDef>
+		<defName>Bossraid006</defName>
+		<clipPath>raid/Bossraid006</clipPath>
+		<label>无间之钟～ Infinite Nightmare</label>
+        <volume>1</volume>
+		<commonality>0.1</commonality>
 		<tense>true</tense>
 	</SongDef>
 
