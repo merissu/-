@@ -3486,7 +3486,7 @@
 		<description>啊哈哈……梅莉……我感觉自己现在能一拳打碎一座山……zzz……</description>
 		<hediffClass>HediffWithComps</hediffClass>
 		<comps>
-			<li Class="HediffCompProperties_DamageBoost">
+			<li Class="U.N.Owen.HediffCompProperties_DamageBoost">
 			</li>
 		</comps>
 	</HediffDef>
