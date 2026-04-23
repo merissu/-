@@ -3461,6 +3461,10 @@
 					<divideByBodySize>true</divideByBodySize>
 					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
 				</li>
+					<li Class="IngestionOutcomeDoer_GiveHediff">
+						<hediffDef>DrunkenMadnessIbukisGourd</hediffDef>
+						<severity>1</severity>
+					</li>
 			</outcomeDoers>
 		</ingestible>
 		<techLevel>Neolithic</techLevel>
@@ -3476,7 +3480,216 @@
 		</comps>
 		<allowedArchonexusCount>50</allowedArchonexusCount>
 	</ThingDef>
-
+	<HediffDef>
+		<defName>DrunkenMadnessIbukisGourd</defName>
+		<label>酒疯</label>
+		<description>啊哈哈……梅莉……我感觉自己现在能一拳打碎一座山……zzz……</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_DamageBoost">
+			</li>
+		</comps>
+	</HediffDef>
+	<ThingDef  Name="WineBugWine" ParentName="DrugPillBase" Abstract="True">
+		<defName>WineBugWine</defName>
+		<label>酒虫酒</label>
+		<description>从伊吹瓢中收集的酒，似乎是由其中一种名为酒虫的生物酿造的，它们只需要一点水就能源源不断地生产出酒来，真是神奇啊。我和莲子稍微品尝了一点，结果完全不一样，每一口都有不同的滋味。喝太多了……现在头好痛，早知道不喝那么多了。</description>
+		<descriptionHyperlinks>
+			<HediffDef>AlcoholHigh</HediffDef>
+			<HediffDef>AlcoholTolerance</HediffDef>
+			<HediffDef>Hangover</HediffDef>
+			<HediffDef>AlcoholAddiction</HediffDef>
+			<HediffDef>Cirrhosis</HediffDef>
+			<HediffDef>ChemicalDamageModerate</HediffDef>
+		</descriptionHyperlinks>
+		<possessionCount>6</possessionCount>
+		<graphicData>
+			<texPath>Medicine/onikoro</texPath>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<DeteriorationRate>0.5</DeteriorationRate>
+			<MarketValue>20</MarketValue>
+			<Mass>0.3</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0.08</Nutrition>
+		</statBases>
+		<ingestible>
+			<foodType>Fluid, Processed, Liquor</foodType>
+			<joyKind>Chemical</joyKind>
+			<joy>0.6</joy>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>Drinksth</ingestSound>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<ingestCommandString>Drink {0}</ingestCommandString>
+			<ingestReportString>Drinking {0}.</ingestReportString>
+			<chairSearchRadius>25</chairSearchRadius>
+			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+			<tableDesired>false</tableDesired>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholHigh</hediffDef>
+					<severity>0.75</severity>
+					<toleranceChemical>Alcohol</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholTolerance</hediffDef>
+					<severity>0.04</severity>
+					<divideByBodySize>true</divideByBodySize>
+					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<techLevel>Neolithic</techLevel>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>Alcohol</chemical>
+				<addictiveness>0.030</addictiveness>
+				<minToleranceToAddict>0.25</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.80</existingAddictionSeverityOffset>
+				<needLevelOffset>0.9</needLevelOffset>
+				<listOrder>10</listOrder>
+			</li>
+			<li Class="U.N.Owen.CompProperties_OfferFillOnGround">
+			</li>
+		</comps>
+		<allowedArchonexusCount>50</allowedArchonexusCount>
+	</ThingDef>
+	<ThingDef ParentName="WineBugWine">
+		<defName>WineBugWineMetal</defName>
+		<label>酒虫酒(金)</label>
+	</ThingDef>
+	<ThingDef ParentName="WineBugWine">
+		<defName>WineBugWineWood</defName>
+		<label>酒虫酒(木)</label>
+	</ThingDef>
+	<ThingDef ParentName="WineBugWine">
+		<defName>WineBugWineWater</defName>
+		<label>酒虫酒(水)</label>
+	</ThingDef>
+	<ThingDef ParentName="WineBugWine">
+		<defName>WineBugWineFire</defName>
+		<label>酒虫酒(火)</label>
+	</ThingDef>
+	<ThingDef ParentName="WineBugWine">
+		<defName>WineBugWineEarth</defName>
+		<label>酒虫酒(土)</label>
+	</ThingDef>
+	<ThingDef ParentName="WineBugWine">
+		<defName>WineBugWineSun</defName>
+		<label>酒虫酒(日)</label>
+	</ThingDef>
+	<ThingDef ParentName="WineBugWine">
+		<defName>WineBugWineLuna</defName>
+		<label>酒虫酒(月)</label>
+	</ThingDef>
+	<ThingDef Name="GeyserWater" ParentName="ResourceBase" Abstract="True" >
+		<thingClass>ThingWithComps</thingClass>
+		<stackLimit>10</stackLimit>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<orderedTakeGroup>Drug</orderedTakeGroup>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<MarketValue>200</MarketValue>
+			<Mass>0.5</Mass>
+			<Flammability>0.7</Flammability>
+		</statBases>
+		<thingCategories>
+			<li>Drugs</li>
+		</thingCategories>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<ingestible>
+			<preferability>NeverForNutrition</preferability>
+			<maxNumToIngestAtOnce>4</maxNumToIngestAtOnce>
+			<defaultNumToIngestAtOnce>1</defaultNumToIngestAtOnce>
+			<drugCategory>Medical</drugCategory>
+			<foodType>Processed</foodType>
+			<baseIngestTicks>100</baseIngestTicks>
+			<humanlikeOnly>true</humanlikeOnly>
+			<chairSearchRadius>0</chairSearchRadius>
+			<ingestSound>Ingest_Pill</ingestSound>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Ingest {0}</ingestCommandString>
+			<ingestReportString>Ingesting {0}.</ingestReportString>
+			<showIngestFloatOption>false</showIngestFloatOption>
+			<!-- Useable does this -->
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_UseThing" />
+			</outcomeDoers>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="CompProperties_Usable">
+				<useLabel>服用{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+			<li Class="U.N.Owen.CompProperties_OfferFillOnGround">
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="GeyserWater">
+		<defName>GeyserWater</defName>
+		<label>温泉水</label>
+		<description>从梅莉带回来的机器里产出的温泉水，她告诉我这些水可以用来酿酒，可是一般来说温泉水含硫磺、氟化物和一些重金属，根本不适合饮用啊，而且闻起来就有一股硫磺味……</description>
+		<descriptionHyperlinks>
+			<ThingDef>OniKillingWine</ThingDef>
+		</descriptionHyperlinks>
+		<possessionCount>6</possessionCount>
+		<graphicData>
+			<texPath>Medicine/GeyserWater</texPath>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<DeteriorationRate>0.5</DeteriorationRate>
+			<MarketValue>20</MarketValue>
+			<Mass>0.3</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0</Nutrition>
+		</statBases>
+		<ingestible>
+			<foodType>Fluid, Processed, Liquor</foodType>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>Drinksth</ingestSound>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<ingestCommandString>Drink {0}</ingestCommandString>
+			<ingestReportString>Drinking {0}.</ingestReportString>
+			<chairSearchRadius>25</chairSearchRadius>
+			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+			<tableDesired>false</tableDesired>
+		</ingestible>
+		<techLevel>Neolithic</techLevel>
+		<allowedArchonexusCount>50</allowedArchonexusCount>
+	</ThingDef>
 	<ThingDef ParentName="DrugPillBase">
 		<defName>JunmaiDaiGinjoShu</defName>
 		<label>大吟酿</label>
