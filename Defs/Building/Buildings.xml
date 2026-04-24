@@ -717,11 +717,4 @@
 		<suspendable>false</suspendable>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
-	<JobDef>
-		<defName>SpawnWine</defName>
-		<driverClass>U.N.Owen.JobDriver_SpawnWine</driverClass>
-		<reportString>正在使用星熊杯。</reportString>
-		<suspendable>false</suspendable>
-		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-	</JobDef>
 </Defs>
