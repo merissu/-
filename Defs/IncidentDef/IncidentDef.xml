@@ -118,19 +118,23 @@
             <li>Bossraid006</li>
           </songsBoss>
           <poolZayu>
-            <li>Merissu_WarFlyerKind</li> 
+            <li>ZayuMaoYuKind</li> 
           </poolZayu>
           <poolLow>
-            <li>Merissu_WarFlyerKindB</li>
+            <li>Merissu_WarFlyerKind</li>
+            <li>ZayuMaoYuKindB</li>
           </poolLow>
           <poolMid>
-            <li>Merissu_WarFlyerKindC</li>
+            <li>Merissu_WarFlyerKindB</li>
+            <li>ZayuMaoYuKindC</li>
           </poolMid>
           <poolHigh>
-            <li>Merissu_WarFlyerKindD</li>
+            <li>Merissu_WarFlyerKindC</li>
+              <li>ZayuMaoYuKindD</li>
           </poolHigh>
           <poolBoss>
             <li>Merissu_WarFlyerKindD</li>
+            <li>ZayuMaoYuKindE</li>
           </poolBoss>
       </li>
     </modExtensions>

@@ -82,29 +82,39 @@
 		<label>阴阳玉核心</label>
 		<description>阴阳玉的核心,一旦受损就会使阴阳玉解体</description>
 		<hitPoints>10</hitPoints> 
+		<bleedRate>0</bleedRate>
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor> 
 		<skinCovered>false</skinCovered>
 		<frostbiteVulnerability>0.1</frostbiteVulnerability>
 		<tags>
 			<li>ConsciousnessSource</li> 
-		    <li>MovingLimbCore</li>
 			<li>SightSource</li> 
 			<li>ManipulationLimbCore</li>
 		</tags>
 	</BodyPartDef>
 
 	<BodyPartDef>
+        <defName>Merissu_YinYangPropulsion</defName>
+        <label>阴阳玉飞行核心</label>
+        <description>维持阴阳玉飞行的核心。如果受损,阴阳玉将失去移动能力。</description>
+        <hitPoints>60</hitPoints>
+        <bleedRate>0</bleedRate>
+        <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+        <skinCovered>false</skinCovered>
+        <tags>
+            <li>MovingLimbCore</li> 
+		</tags>
+    </BodyPartDef>
+
+	<BodyPartDef>
 		<defName>YinYangJade</defName>
 		<label>阴阳玉外壳</label>
 		<description>阴阳玉的外壳,冰冰凉凉并且易碎</description>
 		<hitPoints>20</hitPoints> 
+		<bleedRate>0</bleedRate>
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor> 
 		<skinCovered>false</skinCovered>
 		<frostbiteVulnerability>0.1</frostbiteVulnerability>
-		<tags>
-			<li>BreathingSource</li>
-		    <li>MovingLimbCore</li>
-		</tags>
 	</BodyPartDef>
 
 	<BodyDef>   
@@ -119,11 +129,16 @@
 			<parts>
 				<li>
 					<def>Merissu_YinYangCore</def>
-					<coverage>0.3</coverage> 
+					<coverage>0.1</coverage> 
 					<depth>Inside</depth>
 					<groups>
 						<li>FullHead</li>
 					</groups>
+				</li>
+				<li>
+                    <def>Merissu_YinYangPropulsion</def>
+                    <coverage>0</coverage> 
+					<depth>Inside</depth> 
 				</li>
 			</parts>
 		</corePart>
@@ -131,11 +146,11 @@
 
 	<ThingDef ParentName="AnimalThingBase">
 		<defName>Merissu_WarFlyer</defName>
-		<label>嗜血阴阳玉</label>
+		<label>杂鱼阴阳玉</label>
 		<description>不知为何充满敌意的阴阳玉,只为了战斗而存在</description>
 		<statBases>
 			<MoveSpeed>3.2</MoveSpeed>
-			<MarketValue>600</MarketValue>
+			<MarketValue>100</MarketValue>
 			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
 		    <ComfyTemperatureMax>250</ComfyTemperatureMax>
 			<PainShockThreshold>9999</PainShockThreshold>
@@ -155,6 +170,7 @@
 			</deathAction>
 			<meatMarketValue>0</meatMarketValue> 
 			<body>YinYangJade</body>
+			<alwaysAwake>true</alwaysAwake>
 			<fleshType>Normal</fleshType>
 			<bleedRateFactor>0</bleedRateFactor>
 			<gestationPeriodDays>999</gestationPeriodDays>
@@ -206,6 +222,9 @@
 		<comps>
 			<li Class="merissu.CompProperties_YinYangRotatingGraphic" />
 		</comps>
+		<modExtensions>
+            <li Class="merissu.PermanentFlight" />
+        </modExtensions>
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBullet">
@@ -243,11 +262,12 @@
 
 	<PawnKindDef ParentName="AnimalKindBase">
 		<defName>Merissu_WarFlyerKind</defName>
-		<label>嗜血阴阳玉</label>
+		<label>杂鱼阴阳玉</label>
 		<race>Merissu_WarFlyer</race>
 		<fixedGender>None</fixedGender>
 		<combatPower>10</combatPower>
 		<ecoSystemWeight>0.01</ecoSystemWeight>
+		<ignoresPainShock>true</ignoresPainShock>
 		<wildGroupSize>1~2</wildGroupSize>
 		<allowOldAgeInjuries>false</allowOldAgeInjuries>
 		<lifeStages>
@@ -272,12 +292,12 @@
 		<label>阴阳玉核心</label>
 		<description>阴阳玉的核心,一旦受损就会使阴阳玉解体</description>
 		<hitPoints>20</hitPoints> 
+		<bleedRate>0</bleedRate>
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor> 
 		<skinCovered>false</skinCovered>
 		<frostbiteVulnerability>0.1</frostbiteVulnerability>
 		<tags>
 			<li>ConsciousnessSource</li> 
-		    <li>MovingLimbCore</li>
 			<li>SightSource</li> 
 			<li>ManipulationLimbCore</li>
 		</tags>
@@ -288,13 +308,10 @@
 		<label>阴阳玉外壳</label>
 		<description>阴阳玉的外壳,冰冰凉凉并且易碎</description>
 		<hitPoints>40</hitPoints> 
+		<bleedRate>0</bleedRate>
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor> 
 		<skinCovered>false</skinCovered>
 		<frostbiteVulnerability>0.1</frostbiteVulnerability>
-		<tags>
-			<li>BreathingSource</li>
-		    <li>MovingLimbCore</li>
-		</tags>
 	</BodyPartDef>
 
 	<BodyDef>   
@@ -309,11 +326,16 @@
 			<parts>
 				<li>
 					<def>Merissu_YinYangCoreB</def>
-					<coverage>0.3</coverage> 
+					<coverage>0.1</coverage> 
 					<depth>Inside</depth>
 					<groups>
 						<li>FullHead</li>
 					</groups>
+				</li>
+				<li>
+                    <def>Merissu_YinYangPropulsion</def>
+                    <coverage>0</coverage> 
+					<depth>Inside</depth> 
 				</li>
 			</parts>
 		</corePart>
@@ -321,11 +343,11 @@
 
 	<ThingDef ParentName="AnimalThingBase">
 		<defName>Merissu_WarFlyerB</defName>
-		<label>嗜血阴阳玉</label>
+		<label>好斗阴阳玉</label>
 		<description>不知为何充满敌意的阴阳玉,只为了战斗而存在</description>
 		<statBases>
 			<MoveSpeed>4.2</MoveSpeed>
-			<MarketValue>600</MarketValue>
+			<MarketValue>200</MarketValue>
 			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
 		    <ComfyTemperatureMax>250</ComfyTemperatureMax>
 			<PainShockThreshold>9999</PainShockThreshold>
@@ -350,6 +372,7 @@
 			<gestationPeriodDays>999</gestationPeriodDays>
 			<hasGenders>false</hasGenders>
 			<intelligence>Animal</intelligence>
+			<alwaysAwake>true</alwaysAwake>
 			<trainability>None</trainability>
 			<foodType>None</foodType>
 			<needsRest>false</needsRest>
@@ -396,6 +419,9 @@
 		<comps>
 			<li Class="merissu.CompProperties_YinYangRotatingGraphicgreen" />
 		</comps>
+		<modExtensions>
+            <li Class="merissu.PermanentFlight" />
+        </modExtensions>
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBullet">
@@ -419,9 +445,10 @@
 
 	<PawnKindDef ParentName="AnimalKindBase">
 		<defName>Merissu_WarFlyerKindB</defName>
-		<label>嗜血阴阳玉</label>
+		<label>好斗阴阳玉</label>
 		<race>Merissu_WarFlyerB</race>
 		<fixedGender>None</fixedGender>
+		<ignoresPainShock>true</ignoresPainShock>
 		<combatPower>20</combatPower>
 		<ecoSystemWeight>0.01</ecoSystemWeight>
 		<wildGroupSize>1~2</wildGroupSize>
@@ -448,12 +475,12 @@
 		<label>阴阳玉核心</label>
 		<description>阴阳玉的核心,一旦受损就会使阴阳玉解体</description>
 		<hitPoints>30</hitPoints> 
+		<bleedRate>0</bleedRate>
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor> 
 		<skinCovered>false</skinCovered>
 		<frostbiteVulnerability>0.1</frostbiteVulnerability>
 		<tags>
 			<li>ConsciousnessSource</li> 
-		    <li>MovingLimbCore</li>
 			<li>SightSource</li> 
 			<li>ManipulationLimbCore</li>
 		</tags>
@@ -464,13 +491,10 @@
 		<label>阴阳玉外壳</label>
 		<description>阴阳玉的外壳,冰冰凉凉并且易碎</description>
 		<hitPoints>60</hitPoints> 
+		<bleedRate>0</bleedRate>
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor> 
 		<skinCovered>false</skinCovered>
 		<frostbiteVulnerability>0.1</frostbiteVulnerability>
-		<tags>
-			<li>BreathingSource</li>
-		    <li>MovingLimbCore</li>
-		</tags>
 	</BodyPartDef>
 
 	<BodyDef>   
@@ -485,11 +509,16 @@
 			<parts>
 				<li>
 					<def>Merissu_YinYangCoreC</def>
-					<coverage>0.3</coverage> 
+					<coverage>0.1</coverage> 
 					<depth>Inside</depth>
 					<groups>
 						<li>FullHead</li>
 					</groups>
+				</li>
+				<li>
+                    <def>Merissu_YinYangPropulsion</def>
+                    <coverage>0</coverage> 
+					<depth>Inside</depth> 
 				</li>
 			</parts>
 		</corePart>
@@ -497,11 +526,11 @@
 
 	<ThingDef ParentName="AnimalThingBase">
 		<defName>Merissu_WarFlyerC</defName>
-		<label>嗜血阴阳玉</label>
+		<label>残暴阴阳玉</label>
 		<description>不知为何充满敌意的阴阳玉,只为了战斗而存在</description>
 		<statBases>
 			<MoveSpeed>5.2</MoveSpeed>
-			<MarketValue>600</MarketValue>
+			<MarketValue>400</MarketValue>
 			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
 		    <ComfyTemperatureMax>250</ComfyTemperatureMax>
 			<PainShockThreshold>9999</PainShockThreshold>
@@ -525,6 +554,7 @@
 			<bleedRateFactor>0</bleedRateFactor>
 			<gestationPeriodDays>999</gestationPeriodDays>
 			<hasGenders>false</hasGenders>
+			<alwaysAwake>true</alwaysAwake>
 			<intelligence>Animal</intelligence>
 			<trainability>None</trainability>
 			<foodType>None</foodType>
@@ -572,6 +602,9 @@
 		<comps>
 			<li Class="merissu.CompProperties_YinYangRotatingGraphicblue" />
 		</comps>
+		<modExtensions>
+            <li Class="merissu.PermanentFlight" />
+        </modExtensions>
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBullet">
@@ -595,11 +628,12 @@
 
 	<PawnKindDef ParentName="AnimalKindBase">
 		<defName>Merissu_WarFlyerKindC</defName>
-		<label>嗜血阴阳玉</label>
+		<label>残暴阴阳玉</label>
 		<race>Merissu_WarFlyerC</race>
 		<fixedGender>None</fixedGender>
 		<combatPower>40</combatPower>
 		<ecoSystemWeight>0.01</ecoSystemWeight>
+		<ignoresPainShock>true</ignoresPainShock>
 		<wildGroupSize>1~2</wildGroupSize>
 		<allowOldAgeInjuries>false</allowOldAgeInjuries>
 		<lifeStages>
@@ -624,12 +658,12 @@
 		<label>阴阳玉核心</label>
 		<description>阴阳玉的核心,一旦受损就会使阴阳玉解体</description>
 		<hitPoints>50</hitPoints> 
+		<bleedRate>0</bleedRate>
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor> 
 		<skinCovered>false</skinCovered>
 		<frostbiteVulnerability>0.1</frostbiteVulnerability>
 		<tags>
 			<li>ConsciousnessSource</li> 
-		    <li>MovingLimbCore</li>
 			<li>SightSource</li> 
 			<li>ManipulationLimbCore</li>
 		</tags>
@@ -640,13 +674,10 @@
 		<label>阴阳玉外壳</label>
 		<description>阴阳玉的外壳,冰冰凉凉并且易碎</description>
 		<hitPoints>100</hitPoints> 
+		<bleedRate>0</bleedRate>
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor> 
 		<skinCovered>false</skinCovered>
 		<frostbiteVulnerability>0.1</frostbiteVulnerability>
-		<tags>
-			<li>BreathingSource</li>
-		    <li>MovingLimbCore</li>
-		</tags>
 	</BodyPartDef>
 
 	<BodyDef>   
@@ -661,11 +692,16 @@
 			<parts>
 				<li>
 					<def>Merissu_YinYangCoreD</def>
-					<coverage>0.3</coverage> 
+					<coverage>0.1</coverage> 
 					<depth>Inside</depth>
 					<groups>
 						<li>FullHead</li>
 					</groups>
+				</li>
+				<li>
+                    <def>Merissu_YinYangPropulsion</def>
+                    <coverage>0</coverage> 
+					<depth>Inside</depth> 
 				</li>
 			</parts>
 		</corePart>
@@ -677,7 +713,7 @@
 		<description>不知为何充满敌意的阴阳玉,只为了战斗而存在</description>
 		<statBases>
 			<MoveSpeed>6.2</MoveSpeed>
-			<MarketValue>600</MarketValue>
+			<MarketValue>800</MarketValue>
 			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
 		    <ComfyTemperatureMax>250</ComfyTemperatureMax>
 			<PainShockThreshold>9999</PainShockThreshold>
@@ -702,6 +738,7 @@
 			<gestationPeriodDays>999</gestationPeriodDays>
 			<hasGenders>false</hasGenders>
 			<intelligence>Animal</intelligence>
+			<alwaysAwake>true</alwaysAwake>
 			<trainability>None</trainability>
 			<foodType>None</foodType>
 			<needsRest>false</needsRest>
@@ -748,6 +785,9 @@
 		<comps>
 			<li Class="merissu.CompProperties_YinYangRotatingGraphicPurple" />
 		</comps>
+		<modExtensions>
+            <li Class="merissu.PermanentFlight" />
+        </modExtensions>
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBullet">
@@ -776,6 +816,7 @@
 		<fixedGender>None</fixedGender>
 		<combatPower>80</combatPower>
 		<ecoSystemWeight>0.01</ecoSystemWeight>
+		<ignoresPainShock>true</ignoresPainShock>
 		<wildGroupSize>1~2</wildGroupSize>
 		<allowOldAgeInjuries>false</allowOldAgeInjuries>
 		<lifeStages>

@@ -16,7 +16,7 @@ namespace merissu
 
         }
     }
-
+    public class PermanentFlight : DefModExtension { }
     public static class FlightUtil
     {
         private static readonly AccessTools.FieldRef<Pawn_FlightTracker, Pawn> PawnRef =
@@ -26,10 +26,12 @@ namespace merissu
 
         public static bool IsWarFlyer(Pawn pawn)
         {
-            return pawn != null && pawn.def == MerissuDefOf.Merissu_WarFlyer;
+            if (pawn == null) return false;
+
+            return pawn.def == MerissuDefOf.Merissu_WarFlyer ||
+                   pawn.def.HasModExtension<PermanentFlight>();
         }
     }
-
     [HarmonyPatch(typeof(Pawn_FlightTracker), "get_MaxFlightTicks")]
     public static class Patch_MaxFlightTicks
     {

@@ -286,19 +286,39 @@ namespace merissu
             if (activePools.Count == 0) return false;
 
             float remainingWealth = map.wealthWatcher.WealthTotal;
-            Dictionary<int, int> spawnCounts = new Dictionary<int, int>();
-            foreach (PoolData p in activePools) spawnCounts[p.cost] = 0;
+
+            Dictionary<int, List<PawnKindDef>> spawnedKindsByCost = new Dictionary<int, List<PawnKindDef>>();
+            foreach (PoolData p in activePools)
+            {
+                spawnedKindsByCost[p.cost] = new List<PawnKindDef>();
+            }
 
             foreach (PoolData pool in activePools)
             {
-                if (remainingWealth >= pool.cost)
+                foreach (PawnKindDef kind in pool.kinds)
                 {
-                    spawnCounts[pool.cost]++;
+                    spawnedKindsByCost[pool.cost].Add(kind);
                     remainingWealth -= pool.cost;
                 }
             }
 
-            bool canAffordMore = true;
+            for (int i = 0; i < activePools.Count - 1; i++)
+            {
+                PoolData higherTier = activePools[i];
+                PoolData lowerTier = activePools[i + 1];
+
+                int higherCount = spawnedKindsByCost[higherTier.cost].Count;
+                int lowerCount = spawnedKindsByCost[lowerTier.cost].Count;
+
+                while (lowerCount < higherCount)
+                {
+                    spawnedKindsByCost[lowerTier.cost].Add(lowerTier.kinds.RandomElement());
+                    remainingWealth -= lowerTier.cost;
+                    lowerCount++;
+                }
+            }
+
+            bool canAffordMore = remainingWealth > 0;
             while (canAffordMore)
             {
                 float packageCost = 0f;
@@ -313,7 +333,10 @@ namespace merissu
                     for (int i = 0; i < activePools.Count; i++)
                     {
                         int ratio = (int)Math.Pow(2, i);
-                        spawnCounts[activePools[i].cost] += ratio;
+                        for (int j = 0; j < ratio; j++)
+                        {
+                            spawnedKindsByCost[activePools[i].cost].Add(activePools[i].kinds.RandomElement());
+                        }
                     }
                     remainingWealth -= packageCost;
                 }
@@ -322,47 +345,76 @@ namespace merissu
                     canAffordMore = false;
                 }
             }
-
-            foreach (PoolData pool in activePools)
+            for (int i = activePools.Count - 1; i >= 0; i--)
             {
+                if (remainingWealth <= 0) break;
+
+                PoolData pool = activePools[i];
+
+                int maxCanAdd = int.MaxValue;
+                if (i < activePools.Count - 1)
+                {
+                    PoolData lowerTier = activePools[i + 1];
+                    maxCanAdd = spawnedKindsByCost[lowerTier.cost].Count - spawnedKindsByCost[pool.cost].Count;
+                }
+
                 int canAfford = (int)(remainingWealth / pool.cost);
-                if (canAfford > 0)
+                int toAdd = Math.Min(canAfford, maxCanAdd);
+
+                if (toAdd > 0)
                 {
-                    spawnCounts[pool.cost] += canAfford;
-                    remainingWealth -= canAfford * pool.cost;
+                    for (int j = 0; j < toAdd; j++)
+                    {
+                        spawnedKindsByCost[pool.cost].Add(pool.kinds.RandomElement());
+                    }
+                    remainingWealth -= toAdd * pool.cost;
                 }
             }
-
-            int totalCount = spawnCounts.Values.Sum();
-            if (totalCount > 500)
-            {
-                List<int> costsAsc = spawnCounts.Keys.OrderBy(c => c).ToList();
-                foreach (int cost in costsAsc)
-                {
-                    if (totalCount <= 500) break;
-                    int remove = Math.Min(spawnCounts[cost], totalCount - 500);
-                    spawnCounts[cost] -= remove;
-                    totalCount -= remove;
-                }
-            }
-
-            bool hasYachieBuff = map.mapPawns.FreeColonists.Any(p =>
-                p.health.hediffSet.HasHediff(HediffDef.Named("KitchoYachiecard")));
 
             List<SpawnRequest> requests = new List<SpawnRequest>();
             foreach (PoolData pool in activePools)
             {
-                int count = spawnCounts[pool.cost];
-                for (int i = 0; i < count; i++)
+                foreach (PawnKindDef kind in spawnedKindsByCost[pool.cost])
                 {
-                    PawnKindDef kind = pool.kinds.RandomElement();
                     requests.Add(new SpawnRequest(kind, pool.specificHediff));
                 }
             }
 
+            if (requests.Count > 500)
+            {
+                List<SpawnRequest> trimmed = new List<SpawnRequest>();
+                List<SpawnRequest> poolForExtras = new List<SpawnRequest>();
+                HashSet<PawnKindDef> addedKinds = new HashSet<PawnKindDef>();
+
+                foreach (var req in requests)
+                {
+                    if (!addedKinds.Contains(req.kind))
+                    {
+                        trimmed.Add(req);
+                        addedKinds.Add(req.kind);
+                    }
+                    else
+                    {
+                        poolForExtras.Add(req);
+                    }
+                }
+
+                int needed = 500 - trimmed.Count;
+                if (needed > 0)
+                {
+                    trimmed.AddRange(poolForExtras.Take(needed));
+                }
+                requests = trimmed;
+            }
+
             if (requests.Count == 0) return false;
 
+            bool hasYachieBuff = map.mapPawns.FreeColonists.Any(p =>
+                p.health.hediffSet.HasHediff(HediffDef.Named("KitchoYachiecard")));
             Faction raidFaction = parms.faction ?? Faction.OfEntities;
+
+            requests.SortBy(_ => Rand.Value);
+
             manager.StartRaid(requests, raidFaction, ext.hediffExtraF, hasYachieBuff, ext, currentLevel);
             LookTargets lookTargets = new LookTargets(map.Center, map);
             SendStandardLetter(def.letterLabel, def.letterText, def.letterDef, parms, lookTargets);

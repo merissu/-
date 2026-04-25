@@ -80,7 +80,7 @@
     <value>
       <statBases>
         <MoveSpeed>3.2</MoveSpeed>
-        <MarketValue>600</MarketValue>
+        <MarketValue>100</MarketValue>
         <ComfyTemperatureMin>-100</ComfyTemperatureMin>
         <ComfyTemperatureMax>250</ComfyTemperatureMax>
         <MeleeDodgeChance>0.25</MeleeDodgeChance>
@@ -98,7 +98,16 @@
     </value>
   </Operation>
 
-  <Operation Class="PatchOperationReplace">
+  <Operation Class="PatchOperationAddModExtension">
+      <xpath>Defs/ThingDef[defName="Merissu_WarFlyer"]</xpath>
+      <value>
+          <li Class="CombatExtended.RacePropertiesExtensionCE">
+              <bodyShape>Quadruped</bodyShape>
+          </li>
+      </value>
+  </Operation>
+  
+    <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="Merissu_WarFlyer"]/tools</xpath>
     <value>
       <tools>
@@ -173,7 +182,7 @@
     <value>
       <statBases>
         <MoveSpeed>4.2</MoveSpeed>
-        <MarketValue>600</MarketValue>
+        <MarketValue>200</MarketValue>
         <ComfyTemperatureMin>-100</ComfyTemperatureMin>
         <ComfyTemperatureMax>250</ComfyTemperatureMax>
         <MeleeDodgeChance>0.5</MeleeDodgeChance>
@@ -189,6 +198,15 @@
         <FlightCooldown>0</FlightCooldown>
       </statBases>
     </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+      <xpath>Defs/ThingDef[defName="Merissu_WarFlyerB"]</xpath>
+      <value>
+          <li Class="CombatExtended.RacePropertiesExtensionCE">
+              <bodyShape>Quadruped</bodyShape>
+          </li>
+      </value>
   </Operation>
 
   <Operation Class="PatchOperationReplace">
@@ -223,7 +241,7 @@
         <li Class="CombatExtended.VerbPropertiesCE">
           <verbClass>CombatExtended.Verb_ShootCE</verbClass>
           <hasStandardCommand>true</hasStandardCommand>
-          <defaultProjectile>MediumbulletA</defaultProjectile>
+          <defaultProjectile>MediumbulletB</defaultProjectile>
           <warmupTime>1.6</warmupTime>
           <range>30</range>
           <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
@@ -266,7 +284,7 @@
     <value>
       <statBases>
         <MoveSpeed>5.2</MoveSpeed>
-        <MarketValue>600</MarketValue>
+        <MarketValue>400</MarketValue>
         <ComfyTemperatureMin>-100</ComfyTemperatureMin>
         <ComfyTemperatureMax>250</ComfyTemperatureMax>
         <MeleeDodgeChance>0.7</MeleeDodgeChance>
@@ -282,6 +300,15 @@
         <FlightCooldown>0</FlightCooldown>
       </statBases>
     </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+      <xpath>Defs/ThingDef[defName="Merissu_WarFlyerC"]</xpath>
+      <value>
+          <li Class="CombatExtended.RacePropertiesExtensionCE">
+              <bodyShape>Quadruped</bodyShape>
+          </li>
+      </value>
   </Operation>
 
   <Operation Class="PatchOperationReplace">
@@ -359,7 +386,7 @@
     <value>
       <statBases>
         <MoveSpeed>6.2</MoveSpeed>
-        <MarketValue>600</MarketValue>
+        <MarketValue>800</MarketValue>
         <ComfyTemperatureMin>-100</ComfyTemperatureMin>
         <ComfyTemperatureMax>250</ComfyTemperatureMax>
         <MeleeDodgeChance>0.8</MeleeDodgeChance>
@@ -375,6 +402,15 @@
         <FlightCooldown>0</FlightCooldown>
       </statBases>
     </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+      <xpath>Defs/ThingDef[defName="Merissu_WarFlyerD"]</xpath>
+      <value>
+          <li Class="CombatExtended.RacePropertiesExtensionCE">
+              <bodyShape>Quadruped</bodyShape>
+          </li>
+      </value>
   </Operation>
 
   <Operation Class="PatchOperationReplace">
@@ -443,6 +479,274 @@
     <xpath>Defs/ThingDef[defName="MediumbulletD"]/thingClass</xpath>
     <value>
       <thingClass>CombatExtended.BulletCE</thingClass>
+    </value>
+  </Operation>
+
+              <!-- 杂鱼毛玉 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuMaoYu"]/statBases</xpath>
+    <value>
+      <statBases>
+        <MoveSpeed>3.2</MoveSpeed>
+        <MarketValue>100</MarketValue>
+        <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+        <ComfyTemperatureMax>35</ComfyTemperatureMax>
+        <PainShockThreshold>0.9</PainShockThreshold>
+        <ToxicResistance>0.1</ToxicResistance>
+        <ShootingAccuracyPawn>12</ShootingAccuracyPawn>
+        <FilthRate>0.5</FilthRate>
+        <Wildness>1.0</Wildness>
+        <MaxFlightTime>99999</MaxFlightTime>
+        <FlightCooldown>0</FlightCooldown>
+        <MeleeDodgeChance>0.1</MeleeDodgeChance>
+        <MeleeCritChance>0.1</MeleeCritChance>
+        <MeleeParryChance>0.1</MeleeParryChance>
+        <ArmorRating_Sharp>1</ArmorRating_Sharp> 
+        <ArmorRating_Blunt>2</ArmorRating_Blunt>
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+      <xpath>Defs/ThingDef[defName="ZayuMaoYu"]</xpath>
+      <value>
+          <li Class="CombatExtended.RacePropertiesExtensionCE">
+              <bodyShape>Quadruped</bodyShape>
+          </li>
+      </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuMaoYu"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>绒毛</label>
+          <capacities>
+            <li>Stab</li>
+          </capacities>
+          <power>6</power>
+          <cooldownTime>1</cooldownTime>
+          <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
+          <ensureLinkedBodyPartsGroupAlwaysUsable>false</ensureLinkedBodyPartsGroupAlwaysUsable>
+          <armorPenetrationSharp>1</armorPenetrationSharp> 
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+              <!-- 好斗毛玉 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuMaoYuB"]/statBases</xpath>
+    <value>
+      <statBases>
+        <MoveSpeed>4.2</MoveSpeed>
+        <MarketValue>100</MarketValue>
+        <ComfyTemperatureMin>-11</ComfyTemperatureMin>
+        <ComfyTemperatureMax>36</ComfyTemperatureMax>
+        <PainShockThreshold>0.9</PainShockThreshold>
+        <ToxicResistance>0.2</ToxicResistance>
+        <ShootingAccuracyPawn>14</ShootingAccuracyPawn>
+        <FilthRate>0.5</FilthRate>
+        <Wildness>1.0</Wildness>
+        <MaxFlightTime>99999</MaxFlightTime>
+        <FlightCooldown>0</FlightCooldown>
+        <MeleeDodgeChance>0.2</MeleeDodgeChance>
+        <MeleeCritChance>0.2</MeleeCritChance>
+        <MeleeParryChance>0.2</MeleeParryChance>
+        <ArmorRating_Sharp>2</ArmorRating_Sharp> 
+        <ArmorRating_Blunt>4</ArmorRating_Blunt>
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+      <xpath>Defs/ThingDef[defName="ZayuMaoYuB"]</xpath>
+      <value>
+          <li Class="CombatExtended.RacePropertiesExtensionCE">
+              <bodyShape>Quadruped</bodyShape>
+          </li>
+      </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuMaoYuB"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>绒毛</label>
+          <capacities>
+            <li>Stab</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1</cooldownTime>
+          <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
+          <ensureLinkedBodyPartsGroupAlwaysUsable>false</ensureLinkedBodyPartsGroupAlwaysUsable>
+          <armorPenetrationSharp>2</armorPenetrationSharp> 
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+              <!-- 残暴毛玉 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuMaoYuC"]/statBases</xpath>
+    <value>
+      <statBases>
+        <MoveSpeed>5.2</MoveSpeed>
+        <MarketValue>100</MarketValue>
+        <ComfyTemperatureMin>-12</ComfyTemperatureMin>
+        <ComfyTemperatureMax>37</ComfyTemperatureMax>
+        <PainShockThreshold>0.9</PainShockThreshold>
+        <ToxicResistance>0.4</ToxicResistance>
+        <ShootingAccuracyPawn>16</ShootingAccuracyPawn>
+        <FilthRate>0.5</FilthRate>
+        <Wildness>1.0</Wildness>
+        <MaxFlightTime>99999</MaxFlightTime>
+        <FlightCooldown>0</FlightCooldown>
+        <MeleeDodgeChance>0.4</MeleeDodgeChance>
+        <MeleeCritChance>0.4</MeleeCritChance>
+        <MeleeParryChance>0.4</MeleeParryChance>
+        <ArmorRating_Sharp>3</ArmorRating_Sharp> 
+        <ArmorRating_Blunt>6</ArmorRating_Blunt>
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+      <xpath>Defs/ThingDef[defName="ZayuMaoYuC"]</xpath>
+      <value>
+          <li Class="CombatExtended.RacePropertiesExtensionCE">
+              <bodyShape>Quadruped</bodyShape>
+          </li>
+      </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuMaoYuC"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>绒毛</label>
+          <capacities>
+            <li>Stab</li>
+          </capacities>
+          <power>12</power>
+          <cooldownTime>1</cooldownTime>
+          <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
+          <ensureLinkedBodyPartsGroupAlwaysUsable>false</ensureLinkedBodyPartsGroupAlwaysUsable>
+          <armorPenetrationSharp>4</armorPenetrationSharp> 
+        </li>
+      </tools>
+    </value>
+  </Operation>
+              <!-- 嗜血毛玉 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuMaoYuD"]/statBases</xpath>
+    <value>
+      <statBases>
+        <MoveSpeed>6.2</MoveSpeed>
+        <MarketValue>100</MarketValue>
+        <ComfyTemperatureMin>-16</ComfyTemperatureMin>
+        <ComfyTemperatureMax>40</ComfyTemperatureMax>
+        <PainShockThreshold>0.9</PainShockThreshold>
+        <ToxicResistance>0.8</ToxicResistance>
+        <ShootingAccuracyPawn>18</ShootingAccuracyPawn>
+        <FilthRate>0.5</FilthRate>
+        <Wildness>1.0</Wildness>
+        <MaxFlightTime>99999</MaxFlightTime>
+        <FlightCooldown>0</FlightCooldown>
+        <MeleeDodgeChance>0.6</MeleeDodgeChance>
+        <MeleeCritChance>0.6</MeleeCritChance>
+        <MeleeParryChance>0.6</MeleeParryChance>
+        <ArmorRating_Sharp>5</ArmorRating_Sharp> 
+        <ArmorRating_Blunt>10</ArmorRating_Blunt>
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+      <xpath>Defs/ThingDef[defName="ZayuMaoYuD"]</xpath>
+      <value>
+          <li Class="CombatExtended.RacePropertiesExtensionCE">
+              <bodyShape>Quadruped</bodyShape>
+          </li>
+      </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuMaoYuD"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>绒毛</label>
+          <capacities>
+            <li>Stab</li>
+          </capacities>
+          <power>16</power>
+          <cooldownTime>1</cooldownTime>
+          <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
+          <ensureLinkedBodyPartsGroupAlwaysUsable>false</ensureLinkedBodyPartsGroupAlwaysUsable>
+          <armorPenetrationSharp>8</armorPenetrationSharp> 
+        </li>
+      </tools>
+    </value>
+  </Operation>
+              <!-- 恐怖毛玉 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuMaoYuE"]/statBases</xpath>
+    <value>
+      <statBases>
+        <MoveSpeed>7.2</MoveSpeed>
+        <MarketValue>100</MarketValue>
+        <ComfyTemperatureMin>-20</ComfyTemperatureMin>
+        <ComfyTemperatureMax>60</ComfyTemperatureMax>
+        <PainShockThreshold>0.9</PainShockThreshold>
+        <ToxicResistance>1</ToxicResistance>
+        <ShootingAccuracyPawn>20</ShootingAccuracyPawn>
+        <FilthRate>0.5</FilthRate>
+        <Wildness>1.0</Wildness>
+        <MaxFlightTime>99999</MaxFlightTime>
+        <FlightCooldown>0</FlightCooldown>
+        <MeleeDodgeChance>0.9</MeleeDodgeChance>
+        <MeleeCritChance>0.9</MeleeCritChance>
+        <MeleeParryChance>0.9</MeleeParryChance>
+        <ArmorRating_Sharp>10</ArmorRating_Sharp> 
+        <ArmorRating_Blunt>20</ArmorRating_Blunt>
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+      <xpath>Defs/ThingDef[defName="ZayuMaoYuE"]</xpath>
+      <value>
+          <li Class="CombatExtended.RacePropertiesExtensionCE">
+              <bodyShape>Quadruped</bodyShape>
+          </li>
+      </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuMaoYuE"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>绒毛</label>
+          <capacities>
+            <li>Stab</li>
+          </capacities>
+          <power>20</power>
+          <cooldownTime>1</cooldownTime>
+          <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
+          <ensureLinkedBodyPartsGroupAlwaysUsable>false</ensureLinkedBodyPartsGroupAlwaysUsable>
+          <armorPenetrationSharp>16</armorPenetrationSharp> 
+        </li>
+      </tools>
     </value>
   </Operation>
 

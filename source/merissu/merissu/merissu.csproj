@@ -90,7 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
-    <Compile Include="月虹市场事件\Merissu_AI_System.cs" />
+    <Compile Include="袭击毛玉\JobGiver_MaoyuHitAndRun.cs" />
+    <Compile Include="袭击毛玉\CompAbilityEffect_MaoyuDashHit .cs" />
+    <Compile Include="月虹市场事件和袭击ai\Merissu_AI_System.cs" />
     <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicPurple.cs" />
     <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicblue.cs" />
     <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicgreen.cs" />
@@ -102,19 +104,19 @@
     <Compile Include="月虹商队对话\DialogueModels.cs" />
     <Compile Include="月虹商队对话\Dialog_TradeTalk.cs" />
     <Compile Include="月虹商队对话\Dialog_CardSelection.cs" />
-    <Compile Include="月虹市场事件\CompProperties_UseEffect_TriggerRaidWithLock.cs" />
-    <Compile Include="月虹市场事件\CompUseEffect_TriggerRaidWithUnlock.cs" />
+    <Compile Include="月虹市场事件和袭击ai\CompProperties_UseEffect_TriggerRaidWithLock.cs" />
+    <Compile Include="月虹市场事件和袭击ai\CompUseEffect_TriggerRaidWithUnlock.cs" />
     <Compile Include="阴阳玉敌人\JobGiver_YinYangFirebeam.cs" />
     <Compile Include="阴阳玉敌人\Comp_YinYangRotatingGraphic.cs" />
     <Compile Include="阴阳玉敌人\DeathActionWorker_YinYangJadeDie.cs" />
-    <Compile Include="月虹市场事件\IncidentWorker_CustomRaid.cs" />
+    <Compile Include="月虹市场事件和袭击ai\IncidentWorker_CustomRaid.cs" />
     <Compile Include="阴阳玉敌人\YinYangJade.cs" />
     <Compile Include="月虹市场\Ability_BribingYama.cs" />
     <Compile Include="CompProperties_UseEffect_TriggerIncident.cs" />
     <Compile Include="月虹商队对话\Dialog_MoonbowMarket.cs" />
-    <Compile Include="月虹市场事件\IncidentWorker_FiveCaravans.cs" />
-    <Compile Include="月虹市场事件\JobDriver_GotoMoonbowMarket.cs" />
-    <Compile Include="月虹市场事件\Patch_Pawn_SpecialTradeOption.cs" />
+    <Compile Include="月虹市场事件和袭击ai\IncidentWorker_FiveCaravans.cs" />
+    <Compile Include="月虹市场事件和袭击ai\JobDriver_GotoMoonbowMarket.cs" />
+    <Compile Include="月虹市场事件和袭击ai\Patch_Pawn_SpecialTradeOption.cs" />
     <Compile Include="月虹市场\Ability_WheatRice.cs" />
     <Compile Include="月虹市场\Ability_SunUnderground.cs" />
     <Compile Include="月虹市场\sublimemajesty.cs" />
