@@ -800,6 +800,69 @@
 		</comps>
 	</ThingDef>
 
+	<ThingDef ParentName="THDrugBase">
+		<defName>PropsSeason</defName>
+		<label>道具的季节</label>
+		<graphicData>
+			<texPath>Accessory/card/PropsSeason</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<description>即时消耗卡,拥有使用后便能召唤莉莉霍瓦特的能力,她是个小富豪。
+
+不知为何她带着大量金钱和道具！打倒并夺走吧！但是要小心,她也会发射子弹。</description>
+		<tradeTags>
+		    <li>ExoticMisc</li> 
+		</tradeTags>		
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>0.01</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<FullPower>1</FullPower>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<workAmount>1500</workAmount>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>MoonlightMarket</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<ingestible>
+			<baseIngestTicks>1</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<drugCategory>Social</drugCategory>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<foodType>Fluid</foodType>
+			<ingestCommandString>使用{0}</ingestCommandString>
+			<ingestReportString>使用{0}</ingestReportString>
+		    <ingestSound>Merissu_E_HiPotion</ingestSound>
+		</ingestible>
+		<comps Inherit="False">
+			<li Class="CompProperties_Drug">
+				<listOrder>200</listOrder>
+				<teetotalerCanConsume>true</teetotalerCanConsume>
+			</li>
+			<li Class="merissu.CompProperties_Usable_CustomIcon">
+				<useLabel>使用{0_label}</useLabel>
+				<useJob>Ingest</useJob>
+				<showUseGizmo>true</showUseGizmo>
+				<allowedMutants>
+					<li>Ghoul</li>
+				</allowedMutants>
+			</li>
+			<li Class="merissu.CompProperties_UseEffect_TriggerIncident">
+        	    <incident>ZayuLilyArrival</incident> 
+			</li>
+		</comps>
+	</ThingDef>
 
 	<ThingDef ParentName="THDrugBase">
 		<defName>Ringocard</defName>

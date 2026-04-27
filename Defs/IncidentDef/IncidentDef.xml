@@ -248,4 +248,20 @@
     </comps>
   </HediffDef>
 
+  <IncidentDef>
+    <defName>ZayuLilyArrival</defName>
+    <label>告春精</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>merissu.IncidentWorker_ZayuLily</workerClass>
+    <baseChance>2.5</baseChance>
+    <allowedBiomes /> 
+    <letterLabel>告春精</letterLabel>
+    <letterText>宣告春天来临的妖精出现了。\n\n她会在地图上散播春天的气息,并在完成使命后悄然离去。\n\n她是道具携带者,身上带着符卡或者生命的卡牌,但是要小心,她也会发射子弹！</letterText>
+    <letterDef>PositiveEvent</letterDef>
+    <earliestDay>15</earliestDay> 
+  </IncidentDef>
+
 </Defs>

@@ -90,6 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="告春精\IncidentWorker_ZayuLily.cs" />
+    <Compile Include="告春精\CompProperties_FlowerTrail .cs" />
+    <Compile Include="告春精\DanmakuExtension.cs" />
     <Compile Include="袭击毛玉\JobGiver_MaoyuHitAndRun.cs" />
     <Compile Include="袭击毛玉\CompAbilityEffect_MaoyuDashHit .cs" />
     <Compile Include="月虹市场事件和袭击ai\Merissu_AI_System.cs" />

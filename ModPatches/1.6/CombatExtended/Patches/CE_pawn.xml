@@ -119,7 +119,8 @@
           <power>9</power>
           <cooldownTime>2</cooldownTime>
           <linkedBodyPartsGroup>FullHead</linkedBodyPartsGroup>
-          <armorPenetrationBlunt>4.5</armorPenetrationBlunt> </li>
+          <armorPenetrationBlunt>4.5</armorPenetrationBlunt> 
+        </li>
       </tools>
     </value>
   </Operation>
@@ -747,6 +748,111 @@
           <armorPenetrationSharp>16</armorPenetrationSharp> 
         </li>
       </tools>
+    </value>
+  </Operation>
+
+              <!-- 杂鱼告春精 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuLily"]/statBases</xpath>
+    <value>
+      <statBases>
+        <MoveSpeed>3.2</MoveSpeed>
+        <MarketValue>100</MarketValue>
+        <ComfyTemperatureMin>-20</ComfyTemperatureMin>
+        <ComfyTemperatureMax>60</ComfyTemperatureMax>
+        <PainShockThreshold>0.9</PainShockThreshold>
+        <ToxicResistance>1</ToxicResistance>
+        <ShootingAccuracyPawn>20</ShootingAccuracyPawn>
+        <FilthRate>0.5</FilthRate>
+        <Wildness>1.0</Wildness>
+        <MaxFlightTime>99999</MaxFlightTime>
+        <FlightCooldown>0</FlightCooldown>
+        <MeleeDodgeChance>0.2</MeleeDodgeChance>
+        <MeleeCritChance>0.2</MeleeCritChance>
+        <MeleeParryChance>0.2</MeleeParryChance>
+        <ArmorRating_Sharp>5</ArmorRating_Sharp> 
+        <ArmorRating_Blunt>10</ArmorRating_Blunt>
+      </statBases>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+      <xpath>Defs/ThingDef[defName="ZayuLily"]</xpath>
+      <value>
+          <li Class="CombatExtended.RacePropertiesExtensionCE">
+              <bodyShape>Humanoid</bodyShape>
+          </li>
+      </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="ZayuLily"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>拳击</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>6</power>
+          <cooldownTime>1</cooldownTime>
+          <linkedBodyPartsGroup>Arms</linkedBodyPartsGroup>
+          <armorPenetrationBlunt>4.5</armorPenetrationBlunt> 
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="LilyMediumbulletA"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>marisa</damageDef>
+        <damageAmountBase>2</damageAmountBase> 
+        <speed>15</speed> 
+        <armorPenetrationSharp>4</armorPenetrationSharp> 
+        <armorPenetrationBlunt>8</armorPenetrationBlunt> 
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="LilyMediumbulletB"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>marisa</damageDef>
+        <damageAmountBase>2</damageAmountBase> 
+        <speed>15</speed> 
+        <armorPenetrationSharp>4</armorPenetrationSharp> 
+        <armorPenetrationBlunt>8</armorPenetrationBlunt> 
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="LilyMediumbulletC"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>marisa</damageDef>
+        <damageAmountBase>2</damageAmountBase> 
+        <speed>20</speed> 
+        <armorPenetrationSharp>4</armorPenetrationSharp> 
+        <armorPenetrationBlunt>8</armorPenetrationBlunt> 
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="LilyMediumbulletD"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>marisa</damageDef>
+        <damageAmountBase>2</damageAmountBase> 
+        <speed>20</speed> 
+        <armorPenetrationSharp>4</armorPenetrationSharp> 
+        <armorPenetrationBlunt>8</armorPenetrationBlunt> 
+      </projectile>
     </value>
   </Operation>
 
