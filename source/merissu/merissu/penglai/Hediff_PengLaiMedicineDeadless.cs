@@ -6,17 +6,36 @@ using RimWorld;
 using Verse;
 using Verse.Sound;
 using HarmonyLib;
+using UnityEngine;
 
 namespace merissu
 {
+    [RimWorld.DefOf]
+    public static class PengLaiDefOf
+    {
+        public static HediffDef FabledAbodeImmortals;
+        public static SongDef Mokou;
+
+        static PengLaiDefOf()
+        {
+            DefOfHelper.EnsureInitializedInCtor(typeof(PengLaiDefOf));
+        }
+    }
+
     [StaticConstructorOnStartup]
     public static class PengLaiMod_Core
     {
+        public static readonly AccessTools.FieldRef<PawnCapacitiesHandler, Pawn> HandlerPawnField =
+            AccessTools.FieldRefAccess<PawnCapacitiesHandler, Pawn>("pawn");
+
+        public static readonly AccessTools.FieldRef<Pawn_HealthTracker, Pawn> HealthTrackerPawnField =
+            AccessTools.FieldRefAccess<Pawn_HealthTracker, Pawn>("pawn");
+
         static PengLaiMod_Core()
         {
             var harmony = new Harmony("com.merissu.penglai_immortal");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
-            Log.Message("月まで届け、不死の煙");
+            Log.Message("月まで届け、不死の烟 - 蓬莱之药已初始化");
         }
     }
 
@@ -33,11 +52,12 @@ namespace merissu
         public override float Severity
         {
             get => base.Severity;
-            set => base.Severity = UnityEngine.Mathf.Max(value, 1.0f);
+            set => base.Severity = Mathf.Max(value, 1.0f);
         }
 
         public override bool ShouldRemove => false;
     }
+
 
     [HarmonyPatch(typeof(PawnCapacitiesHandler), "GetLevel")]
     public static class Patch_Consciousness_Lock
@@ -46,9 +66,8 @@ namespace merissu
         {
             if (capacity != PawnCapacityDefOf.Consciousness) return;
 
-            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
-
-            if (pawn != null && pawn.health.hediffSet.HasHediff(HediffDef.Named("FabledAbodeImmortals")))
+            Pawn pawn = PengLaiMod_Core.HandlerPawnField(__instance);
+            if (pawn?.health?.hediffSet != null && pawn.health.hediffSet.HasHediff(PengLaiDefOf.FabledAbodeImmortals))
             {
                 __result = 1.0f;
             }
@@ -58,19 +77,12 @@ namespace merissu
     [HarmonyPatch(typeof(Pawn_HealthTracker), "RemoveHediff")]
     public static class Patch_Prevent_Hediff_Removal
     {
-        public static bool Prefix(Pawn_HealthTracker __instance, Hediff hediff)
+        public static bool Prefix(Hediff hediff)
         {
-            if (hediff is Hediff_PengLaiMedicineDeadless hp)
-            {
-                if (hp.isOriginal)
-                {
-                    return false; 
-                }
-            }
-
-            return true; 
+            return !(hediff is Hediff_PengLaiMedicineDeadless hp && hp.isOriginal);
         }
     }
+
     public static class PengLaiGuard
     {
         public static bool IsInIngestionProcess = false;
@@ -81,7 +93,7 @@ namespace merissu
     {
         public static bool Prefix(Hediff hediff)
         {
-            if (hediff.def.defName == "FabledAbodeImmortals" && !PengLaiGuard.IsInIngestionProcess)
+            if (hediff.def == PengLaiDefOf.FabledAbodeImmortals && !PengLaiGuard.IsInIngestionProcess)
             {
                 return false;
             }
@@ -93,31 +105,29 @@ namespace merissu
     {
         protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
         {
-            merissu.PengLaiGuard.IsInIngestionProcess = true;
+            PengLaiGuard.IsInIngestionProcess = true;
             try
             {
-                HediffDef immortalDef = HediffDef.Named("FabledAbodeImmortals");
-                pawn.health.AddHediff(immortalDef);
-
-                var hed = pawn.health.hediffSet.GetFirstHediffOfDef(immortalDef) as Hediff_PengLaiMedicineDeadless;
-                if (hed != null)
+                pawn.health.AddHediff(PengLaiDefOf.FabledAbodeImmortals);
+                if (pawn.health.hediffSet.GetFirstHediffOfDef(PengLaiDefOf.FabledAbodeImmortals) is Hediff_PengLaiMedicineDeadless hed)
                 {
                     hed.isOriginal = true;
                 }
             }
             finally
             {
-                merissu.PengLaiGuard.IsInIngestionProcess = false;
+                PengLaiGuard.IsInIngestionProcess = false;
             }
         }
     }
+
     [HarmonyPatch(typeof(Pawn_HealthTracker), "ShouldBeDead")]
     public static class Patch_Never_Dead
     {
         public static bool Prefix(Pawn_HealthTracker __instance, ref bool __result)
         {
-            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
-            if (pawn != null && pawn.health.hediffSet.HasHediff(HediffDef.Named("FabledAbodeImmortals")))
+            Pawn pawn = PengLaiMod_Core.HealthTrackerPawnField(__instance);
+            if (pawn?.health?.hediffSet != null && pawn.health.hediffSet.HasHediff(PengLaiDefOf.FabledAbodeImmortals))
             {
                 __result = false;
                 return false;
@@ -125,6 +135,7 @@ namespace merissu
             return true;
         }
     }
+
     [HarmonyPatch(typeof(Pawn), "SpawnSetup")]
     public static class Patch_CheckCloneImmunity
     {
@@ -132,25 +143,20 @@ namespace merissu
         {
             if (__instance.health?.hediffSet == null) return;
 
-            var hed = __instance.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("FabledAbodeImmortals")) as Hediff_PengLaiMedicineDeadless;
-
-            if (hed != null && !hed.isOriginal)
+            if (__instance.health.hediffSet.GetFirstHediffOfDef(PengLaiDefOf.FabledAbodeImmortals) is Hediff_PengLaiMedicineDeadless hed && !hed.isOriginal)
             {
                 __instance.health.RemoveHediff(hed);
                 Log.Warning($"{__instance.Name} 是克隆人，已移除蓬莱人体质。");
             }
         }
     }
+
     [HarmonyPatch(typeof(Pawn), "Kill")]
     public static class Patch_Prevent_Kill
     {
         public static bool Prefix(Pawn __instance)
         {
-            if (__instance.health.hediffSet.HasHediff(HediffDef.Named("FabledAbodeImmortals")))
-            {
-                return false;
-            }
-            return true;
+            return !(__instance.health?.hediffSet?.HasHediff(PengLaiDefOf.FabledAbodeImmortals) ?? false);
         }
     }
 
@@ -159,9 +165,7 @@ namespace merissu
     {
         public static bool Prefix(Pawn __instance, DestroyMode mode)
         {
-            if (__instance.Map != null &&
-                __instance.health?.hediffSet != null &&
-                __instance.health.hediffSet.HasHediff(HediffDef.Named("FabledAbodeImmortals")))
+            if (__instance.Map != null && (__instance.health?.hediffSet?.HasHediff(PengLaiDefOf.FabledAbodeImmortals) ?? false))
             {
                 if (mode == DestroyMode.KillFinalize || mode == DestroyMode.Vanish)
                 {
@@ -169,18 +173,13 @@ namespace merissu
                     return false;
                 }
             }
-
             return true;
         }
 
         private static void EscapeDestruction(Pawn pawn)
         {
             Map map = pawn.Map;
-
-            if (!CellFinder.TryFindRandomCell(map, (IntVec3 c) =>
-                c.Standable(map) &&
-                !c.Fogged(map) &&
-                !c.Roofed(map), out IntVec3 safeLoc))
+            if (!CellFinder.TryFindRandomCell(map, c => c.Standable(map) && !c.Fogged(map), out IntVec3 safeLoc))
             {
                 safeLoc = DropCellFinder.RandomDropSpot(map);
             }
@@ -192,33 +191,19 @@ namespace merissu
             {
                 pawn.health.RestorePart(pawn.RaceProps.body.corePart);
 
-                var hediffs = pawn.health.hediffSet.hediffs;
-                for (int i = hediffs.Count - 1; i >= 0; i--)
-                {
-                    if (hediffs[i].def.defName != "FabledAbodeImmortals" &&
-                       (hediffs[i] is Hediff_Injury || hediffs[i] is Hediff_MissingPart))
-                    {
-                        pawn.health.RemoveHediff(hediffs[i]);
-                    }
-                }
+                var hSet = pawn.health.hediffSet;
+                hSet.hediffs.RemoveAll(h => h.def != PengLaiDefOf.FabledAbodeImmortals && (h is Hediff_Injury || h is Hediff_MissingPart));
             }
 
-            Messages.Message($"「不死鸟重生」",
-                new TargetInfo(safeLoc, map), MessageTypeDefOf.PositiveEvent);
-
+            Messages.Message("「不死鸟重生」", new TargetInfo(safeLoc, map), MessageTypeDefOf.PositiveEvent);
             PlayMokouBGM();
-
-            Log.Message($"{pawn.Name}已重生");
         }
 
         private static void PlayMokouBGM()
         {
-            SongDef song = DefDatabase<SongDef>.GetNamedSilentFail("Mokou");
-            if (song == null) return;
-
-            if (Find.MusicManagerPlay != null)
+            if (PengLaiDefOf.Mokou != null && Find.MusicManagerPlay != null)
             {
-                Find.MusicManagerPlay.ForcePlaySong(song, true);
+                Find.MusicManagerPlay.ForcePlaySong(PengLaiDefOf.Mokou, true);
             }
         }
     }

@@ -8,34 +8,32 @@ namespace merissu
     [HarmonyPatch(typeof(Pawn_FlightTracker), "FlightTick")]
     public static class Patch_GoheiForceLand
     {
-        static readonly FieldInfo pawnField =
-            AccessTools.Field(typeof(Pawn_FlightTracker), "pawn");
+        private static readonly AccessTools.FieldRef<Pawn_FlightTracker, Pawn> PawnRef =
+            AccessTools.FieldRefAccess<Pawn_FlightTracker, Pawn>("pawn");
 
-        static readonly FieldInfo flightStateField =
+        private static readonly FieldInfo flightStateField =
             AccessTools.Field(typeof(Pawn_FlightTracker), "flightState");
 
-        static readonly MethodInfo forceLandMethod =
+        private static readonly MethodInfo forceLandMethod =
             AccessTools.Method(typeof(Pawn_FlightTracker), "ForceLand");
 
         static void Prefix(Pawn_FlightTracker __instance)
         {
-            Pawn pawn = pawnField.GetValue(__instance) as Pawn;
+            Pawn pawn = PawnRef(__instance);
             if (pawn == null) return;
 
-            ThingWithComps weapon = pawn.equipment?.Primary;
+            var weapon = pawn.equipment?.Primary;
             if (weapon == null) return;
 
             CompGoheiFlight comp = weapon.GetComp<CompGoheiFlight>();
-            if (comp == null) return;
 
-            // 如果飞行被关闭，但当前仍在飞行状态
-            if (!comp.FlightEnabled)
+            if (comp == null || comp.FlightEnabled) return;
+
+            object state = flightStateField.GetValue(__instance);
+
+            if (state?.ToString() == "Flying")
             {
-                var state = flightStateField.GetValue(__instance);
-                if (state != null && state.ToString() == "Flying")
-                {
-                    forceLandMethod.Invoke(__instance, null);
-                }
+                forceLandMethod.Invoke(__instance, null);
             }
         }
     }

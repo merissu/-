@@ -80,7 +80,7 @@ namespace merissu
 
         public static void ActivateTheWorld(Pawn caster)
         {
-            RemainingTicks = 999999; 
+            RemainingTicks = 999999;
             EnvState = new FrozenWorldState
             {
                 startTicksGame = Find.TickManager.TicksGame,
@@ -141,7 +141,6 @@ namespace merissu
                     {
                         TimeStopOwner.health.RemoveHediff(def);
                     }
-
                 }
             }
             catch (Exception e)
@@ -162,14 +161,17 @@ namespace merissu
 
             Messages.Message("时间开始流动。", MessageTypeDefOf.NeutralEvent, false);
         }
+
         public static bool IsProtected(Thing thing)
         {
-            if (!IsTimeStopped) return true;
-            if (thing == null) return true;
+            if (!IsTimeStopped || thing == null) return true;
             if (thing is Building_Door) return true;
             if (thing == TimeStopOwner) return true;
-            if (thing.ParentHolder is Pawn_ApparelTracker a && a.pawn == TimeStopOwner) return true;
-            if (thing.ParentHolder is Pawn_EquipmentTracker e && e.pawn == TimeStopOwner) return true;
+
+            IThingHolder parentHolder = thing.ParentHolder;
+            if (parentHolder is Pawn_ApparelTracker a && a.pawn == TimeStopOwner) return true;
+            if (parentHolder is Pawn_EquipmentTracker e && e.pawn == TimeStopOwner) return true;
+
             if (thing is Projectile p && p.Launcher == TimeStopOwner && !SakuyaMod.Settings.pauseProjectiles) return true;
             return false;
         }
@@ -177,6 +179,8 @@ namespace merissu
 
     public class TimeStopVisual : Thing
     {
+        private static MaterialPropertyBlock blockCache;
+
         protected override void Tick()
         {
             if (!TimeStopManager.IsTimeStopped)
@@ -200,11 +204,15 @@ namespace merissu
             float breath = (Mathf.Sin(Time.realtimeSinceStartup * 2.0f) + 1f) * 0.25f;
 
             Material mat = this.Graphic.MatSingle;
-            MaterialPropertyBlock block = new MaterialPropertyBlock();
 
-            block.SetColor("_Color", new Color(1f, 1f, 1f, breath));
+            if (blockCache == null)
+            {
+                blockCache = new MaterialPropertyBlock();
+            }
 
-            Graphics.DrawMesh(MeshPool.plane10, matrix, mat, 0, null, 0, block);
+            blockCache.SetColor("_Color", new Color(1f, 1f, 1f, breath));
+
+            Graphics.DrawMesh(MeshPool.plane10, matrix, mat, 0, null, 0, blockCache);
         }
     }
 
@@ -257,6 +265,7 @@ namespace merissu
             return base.Activate(target, dest);
         }
     }
+
     [HarmonyPatch(typeof(GlobalControlsUtility), "DoDate")]
     public static class Patch_UI_Clock_Freeze
     {
@@ -309,26 +318,25 @@ namespace merissu
         public static bool Prefix() => !TimeStopManager.IsTimeStopped;
     }
 
-
     [HarmonyPatch(typeof(Stance), "StanceDraw")]
     public static class Patch_Stance_Draw { public static bool Prefix() => true; }
 
     [HarmonyPatch(typeof(Graphic_Flicker), "DrawWorker")]
     public static class Patch_Fire_Freeze
     {
-        public static bool Prefix(Graphic_Flicker __instance, Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation)
+        public static bool Prefix(Graphic_Flicker __instance, Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation, Graphic[] ___subGraphics)
         {
             if (!TimeStopManager.IsTimeStopped || !SakuyaMod.Settings.pauseAnimations) return true;
-            var subGraphics = Traverse.Create(__instance).Field("subGraphics").GetValue<Graphic[]>();
-            if (subGraphics != null && subGraphics.Length > 0)
+
+            if (___subGraphics != null && ___subGraphics.Length > 0)
             {
                 float fireSize = 1f;
                 if (thing is Fire fire) fireSize = fire.fireSize;
                 int seed = thing.thingIDNumber ^ 80531001;
-                int frozenIndex = Math.Abs((TimeStopManager.FrozenTick + seed) % subGraphics.Length);
+                int frozenIndex = Math.Abs((TimeStopManager.FrozenTick + seed) % ___subGraphics.Length);
                 float sineWave = Mathf.Sin((float)seed + TimeStopManager.FrozenTime * 15f);
                 float flickerScale = 0.85f + sineWave * 0.15f;
-                Graphic graphic = subGraphics[frozenIndex];
+                Graphic graphic = ___subGraphics[frozenIndex];
                 Vector2 originalDrawSize = graphic.drawSize;
                 graphic.drawSize = originalDrawSize * fireSize * flickerScale;
                 graphic.Draw(loc, rot, thing, extraRotation);
@@ -361,11 +369,10 @@ namespace merissu
     [HarmonyPatch(typeof(PawnTweener), "PreDrawPosCalculation")]
     public static class Patch_Tweener_Freeze
     {
-        public static bool Prefix(PawnTweener __instance)
+        public static bool Prefix(PawnTweener __instance, Pawn ___pawn)
         {
             if (!TimeStopManager.IsTimeStopped) return true;
-            Pawn p = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
-            return p == null || TimeStopManager.IsProtected(p);
+            return ___pawn == null || TimeStopManager.IsProtected(___pawn);
         }
     }
 
@@ -399,28 +406,31 @@ namespace merissu
     [HarmonyPatch(typeof(Pawn_RotationTracker), "UpdateRotation")]
     public static class Patch_Rotation_Freeze
     {
-        public static bool Prefix(Pawn_RotationTracker __instance)
+        public static bool Prefix(Pawn_RotationTracker __instance, Pawn ___pawn)
         {
             if (!TimeStopManager.IsTimeStopped) return true;
-            Pawn p = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
-            return p == null || TimeStopManager.IsProtected(p);
+            return ___pawn == null || TimeStopManager.IsProtected(___pawn);
         }
     }
 
     [HarmonyPatch(typeof(TickList), "Tick")]
     public static class Patch_MainTick
     {
-        public static bool Prefix(TickList __instance)
+        public static bool Prefix(TickList __instance, TickerType ___tickType, List<List<Thing>> ___thingLists)
         {
             if (!TimeStopManager.IsTimeStopped) return true;
-            var tr = Traverse.Create(__instance);
-            var tickType = tr.Field("tickType").GetValue<TickerType>();
-            var thingLists = tr.Field("thingLists").GetValue<List<List<Thing>>>();
-            int interval = tickType == TickerType.Normal ? 1 : tickType == TickerType.Rare ? 250 : 2000;
-            var bucket = thingLists[Find.TickManager.TicksGame % interval];
-            for (int i = 0; i < bucket.Count; i++)
+
+            int interval = ___tickType == TickerType.Normal ? 1 : ___tickType == TickerType.Rare ? 250 : 2000;
+            var bucket = ___thingLists[Find.TickManager.TicksGame % interval];
+
+            int count = bucket.Count;
+            for (int i = 0; i < count; i++)
             {
-                if (TimeStopManager.IsProtected(bucket[i])) bucket[i].DoTick();
+                Thing thing = bucket[i];
+                if (TimeStopManager.IsProtected(thing))
+                {
+                    thing.DoTick();
+                }
             }
             return false;
         }
@@ -442,6 +452,7 @@ namespace merissu
             }
         }
     }
+
     [HarmonyPatch(typeof(PawnRenderUtility), "DrawEquipmentAiming")]
     public static class Patch_Weapon_Aim_Freeze
     {
@@ -452,6 +463,7 @@ namespace merissu
             Pawn p = (eq.ParentHolder as Pawn_EquipmentTracker)?.pawn;
             if (p == null || TimeStopManager.IsProtected(p)) return;
             int gunID = eq.thingIDNumber;
+
             if (TimeStopManager.FrozenGuns.TryGetValue(gunID, out FrozenGunState state))
             {
                 drawLoc = state.drawLoc;

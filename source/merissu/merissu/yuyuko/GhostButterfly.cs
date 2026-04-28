@@ -3,18 +3,16 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 using Verse.AI;
-using System.Reflection;
 
 namespace merissu
 {
-
     [StaticConstructorOnStartup]
-public static class GhostButterfly_Main
-{
-    public static HediffDef GhostDef;
+    public static class GhostButterfly_Main
+    {
+        public static HediffDef GhostDef;
 
-    public static readonly AccessTools.FieldRef<Pawn_PathFollower, Pawn> PawnField =
-        AccessTools.FieldRefAccess<Pawn_PathFollower, Pawn>("pawn");
+        public static readonly AccessTools.FieldRef<Pawn_PathFollower, Pawn> PawnField =
+            AccessTools.FieldRefAccess<Pawn_PathFollower, Pawn>("pawn");
 
         static GhostButterfly_Main()
         {
@@ -61,6 +59,7 @@ public static class GhostButterfly_Main
             return true;
         }
     }
+
     [HarmonyPatch(typeof(Pawn_PathFollower),
                   "WillCollideWithPawnAt",
                   new Type[] { typeof(IntVec3), typeof(bool), typeof(bool) })]
@@ -82,28 +81,6 @@ public static class GhostButterfly_Main
             }
 
             return true;
-        }
-    }
-
-    [HarmonyPatch(typeof(GenGrid), "Walkable")]
-    public static class Patch_Ghost_WalkThroughWalls
-    {
-        static void Postfix(IntVec3 c, Map map, ref bool __result)
-        {
-            if (__result)
-                return;
-
-            if (map == null)
-                return;
-
-            foreach (Pawn pawn in map.mapPawns.AllPawnsSpawned)
-            {
-                if (pawn.Position == c && GhostButterfly_Main.IsGhost(pawn))
-                {
-                    __result = true;
-                    return;
-                }
-            }
         }
     }
 

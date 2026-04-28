@@ -1,9 +1,9 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using System;
-using System.Reflection;
 using Verse;
 using Verse.AI;
+using System.Reflection;
 
 namespace merissu
 {
@@ -13,119 +13,72 @@ namespace merissu
 
         public static bool HasHighClearSkyFlying(Pawn pawn)
         {
-            return pawn?.health?.hediffSet?.GetFirstHediffOfDef(HighClearSkyFlyingDef) != null;
-        }
-    }
-
-    [HarmonyPatch(typeof(Pawn), "Tick")]
-    public static class Patch_HighClearSky_AddFlightTracker
-    {
-        static void Prefix(Pawn __instance)
-        {
-            if (__instance == null || !__instance.Spawned) return;
-            if (!HighClearSkyFlightUtil.HasHighClearSkyFlying(__instance)) return;
-
-            if (__instance.flight == null)
-            {
-                __instance.flight = new Pawn_FlightTracker(__instance);
-            }
-        }
-    }
-    [HarmonyPatch(typeof(Pawn_FlightTracker), "CanEverFly", MethodType.Getter)]
-    public static class Patch_HighClearSky_CanEverFly
-    {
-        private static readonly FieldInfo pawnField =
-            AccessTools.Field(typeof(Pawn_FlightTracker), "pawn");
-
-        static void Postfix(Pawn_FlightTracker __instance, ref bool __result)
-        {
-            var pawn = pawnField.GetValue(__instance) as Pawn;
-            if (HighClearSkyFlightUtil.HasHighClearSkyFlying(pawn))
-            {
-                __result = true;
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(Pawn_FlightTracker), "Notify_JobStarted")]
-    public static class Patch_HighClearSky_KeepFlyingOnJob
-    {
-        private static readonly FieldInfo pawnField =
-            AccessTools.Field(typeof(Pawn_FlightTracker), "pawn");
-
-        private static readonly FieldInfo flightCooldownTicksField =
-            AccessTools.Field(typeof(Pawn_FlightTracker), "flightCooldownTicks");
-
-        static bool Prefix(Pawn_FlightTracker __instance, Job job)
-        {
-            var pawn = pawnField.GetValue(__instance) as Pawn;
-            if (!HighClearSkyFlightUtil.HasHighClearSkyFlying(pawn))
-                return true; 
-
-            flightCooldownTicksField.SetValue(__instance, 0);
-
-            if (!__instance.Flying && __instance.CanFlyNow)
-                __instance.StartFlying();
-
-            if (job != null)
-                job.flying = true;
-
-            return false; 
+            return pawn?.health?.hediffSet?.HasHediff(HighClearSkyFlyingDef) ?? false;
         }
     }
 
     [HarmonyPatch(typeof(Pawn_FlightTracker), "FlightTick")]
     public static class Patch_HighClearSky_ForceStayFlying
     {
-        private static readonly FieldInfo pawnField =
-            AccessTools.Field(typeof(Pawn_FlightTracker), "pawn");
+        private static readonly AccessTools.FieldRef<Pawn_FlightTracker, Pawn> PawnRef =
+            AccessTools.FieldRefAccess<Pawn_FlightTracker, Pawn>("pawn");
 
-        private static readonly FieldInfo flightStateField =
-            AccessTools.Field(typeof(Pawn_FlightTracker), "flightState");
+        private static readonly AccessTools.FieldRef<Pawn_FlightTracker, int> FlyingTicksRef =
+            AccessTools.FieldRefAccess<Pawn_FlightTracker, int>("flyingTicks");
 
-        private static readonly FieldInfo flyingTicksField =
-            AccessTools.Field(typeof(Pawn_FlightTracker), "flyingTicks");
+        private static readonly AccessTools.FieldRef<Pawn_FlightTracker, int> LerpTickRef =
+            AccessTools.FieldRefAccess<Pawn_FlightTracker, int>("lerpTick");
 
-        private static readonly FieldInfo lerpTickField =
-            AccessTools.Field(typeof(Pawn_FlightTracker), "lerpTick");
+        private static readonly AccessTools.FieldRef<Pawn_FlightTracker, int> FlightCooldownTicksRef =
+            AccessTools.FieldRefAccess<Pawn_FlightTracker, int>("flightCooldownTicks");
 
-        private static readonly FieldInfo flightCooldownTicksField =
-            AccessTools.Field(typeof(Pawn_FlightTracker), "flightCooldownTicks");
+        private static readonly FieldInfo flightStateField = AccessTools.Field(typeof(Pawn_FlightTracker), "flightState");
+
+        private static object flyingEnum;
+        private static int flyingInt;
+        private static int landingInt;
+        private static int groundedInt;
+        private static bool enumsInitialized = false;
 
         static void Postfix(Pawn_FlightTracker __instance)
         {
-            var pawn = pawnField.GetValue(__instance) as Pawn;
-            if (!HighClearSkyFlightUtil.HasHighClearSkyFlying(pawn))
+            Pawn pawn = PawnRef(__instance);
+            if (pawn == null || !HighClearSkyFlightUtil.HasHighClearSkyFlying(pawn))
                 return;
 
-            object stateObj = flightStateField.GetValue(__instance);
-            string state = stateObj?.ToString();
-
-            if (state == "Landing" || state == "Grounded")
+            if (!enumsInitialized)
             {
                 Type enumType = flightStateField.FieldType;
-                object flyingEnum = Enum.Parse(enumType, "Flying");
+                flyingEnum = Enum.Parse(enumType, "Flying");
+                flyingInt = (int)flyingEnum;
+                landingInt = (int)Enum.Parse(enumType, "Landing");
+                groundedInt = (int)Enum.Parse(enumType, "Grounded");
+                enumsInitialized = true;
+            }
 
+            int currentState = (int)flightStateField.GetValue(__instance);
+
+            if (currentState == landingInt || currentState == groundedInt)
+            {
                 flightStateField.SetValue(__instance, flyingEnum);
-                lerpTickField.SetValue(__instance, 0);
-                flyingTicksField.SetValue(__instance, 0);
-                flightCooldownTicksField.SetValue(__instance, 0);
+                LerpTickRef(__instance) = 0;
+                FlyingTicksRef(__instance) = 0;
+                FlightCooldownTicksRef(__instance) = 0;
                 return;
             }
 
-            if (state == "Flying")
+            if (currentState == flyingInt)
             {
-                int flyingTicks = (int)flyingTicksField.GetValue(__instance);
                 int max = __instance.MaxFlightTicks;
-                if (max > 0 && flyingTicks >= max - 1)
+                if (max > 0 && FlyingTicksRef(__instance) >= max - 1)
                 {
-                    flyingTicksField.SetValue(__instance, 0);
+                    FlyingTicksRef(__instance) = 0;
                 }
             }
 
             if (!__instance.Flying)
             {
-                flightCooldownTicksField.SetValue(__instance, 0);
+                FlightCooldownTicksRef(__instance) = 0;
                 if (__instance.CanFlyNow)
                     __instance.StartFlying();
             }

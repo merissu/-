@@ -263,7 +263,7 @@
     <AbilityDef>
         <defName>GhostButterfly</defName>
         <label>华灵「亡灵蝶」</label>
-        <description>使自身幽灵化,在持续时间内不受到任何伤害,并且移动时大部分碰撞和阻碍
+        <description>使自身幽灵化,在持续时间内不受到任何伤害,并且移动时无视大部分碰撞和阻碍
 
 使用需要消耗一张符卡,持续一小时</description>
         <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
