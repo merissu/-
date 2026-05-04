@@ -10,7 +10,7 @@
     </graphicData>
     <statBases>
       <MarketValue>500</MarketValue>
-      <Mass>2.0</Mass>
+      <Mass>1.0</Mass>
       <MaxHitPoints>150</MaxHitPoints>
       <Flammability>0.5</Flammability>
     </statBases>
