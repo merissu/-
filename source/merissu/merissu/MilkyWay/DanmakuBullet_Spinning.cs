@@ -69,15 +69,18 @@ namespace merissu
                 }
                 else if (thing is Building b)
                 {
-                    if (b is Building_Turret)
+                    if (b.def.fillPercent > 0)
                     {
-                        if (launcher != null && b.Faction != null && b.Faction == launcher.Faction)
+                        if (b is Building_Turret)
                         {
-                            continue;
+                            if (launcher != null && b.Faction != null && b.Faction == launcher.Faction)
+                            {
+                                continue;
+                            }
                         }
+                        this.Impact(b);
+                        return;
                     }
-                    this.Impact(b);
-                    return;
                 }
             }
         }

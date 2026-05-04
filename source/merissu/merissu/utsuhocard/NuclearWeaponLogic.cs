@@ -59,18 +59,34 @@ namespace merissu
 
         private void CheckCollision()
         {
-            List<Thing> targets = new List<Thing>(GenRadial.RadialDistinctThingsAround(Position, Map, CollisionRadius, true));
-            foreach (Thing t in targets)
+            if (!this.IsHashIntervalTick(2)) return;
+
+            var list = GenRadial.RadialDistinctThingsAround(Position, Map, CollisionRadius, true);
+
+            foreach (Thing t in list)
             {
-                if (t != launcher && (t is Pawn || t is Building))
+                if (t == launcher) continue;
+
+                if (t is Pawn p && !p.Dead)
                 {
-                    if (t is Pawn p && p.Downed) continue;
+                    if (p.Downed) continue;
+
+                    if (p.Faction == launcher?.Faction) continue;
+
                     this.Impact(t);
                     break;
                 }
+
+                else if (t is Building b)
+                {
+                    if (b.def.fillPercent > 0)
+                    {
+                        this.Impact(b);
+                        break;
+                    }
+                }
             }
         }
-
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             Map map = Map;

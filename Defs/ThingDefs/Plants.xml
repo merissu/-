@@ -264,7 +264,7 @@
 			<li>ItemsMisc</li>
 		</thingCategories>
 		<comps>
-			<li Class="CompProperties_Plantable">
+			<li Class="meriss.CompProperties_PlantableMeriss">
 				<plantDefToSpawn>HeavenlyPeachTree</plantDefToSpawn>
 			</li>
 		</comps>
