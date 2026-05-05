@@ -5,7 +5,7 @@
     <label>狗符「狂犬断噬」</label>
     <description>向敌人发起冲锋，用利齿撕咬目标咽喉，造成巨额伤害并附加天狗之噬。</description>
     <abilityClass>TouhouExpansion.Ability_RabiesBite</abilityClass>
-    <cooldownTicksRange>600</cooldownTicksRange>
+    <cooldownTicksRange>300</cooldownTicksRange>
     <targetRequired>true</targetRequired>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
