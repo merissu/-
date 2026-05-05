@@ -87,7 +87,7 @@
         <statOffsets>
           <ArmorRating_Sharp>0.75</ArmorRating_Sharp>       <!-- 锐器护甲+75% -->
           <ArmorRating_Blunt>0.75</ArmorRating_Blunt>       <!-- 钝器护甲+75% -->
-          <ArmorRating_Heat>0.75</ArmorRating_Heat>       <!-- 热能护甲+75% -->
+          <ArmorRating_Heat>2.00</ArmorRating_Heat>       <!-- 热能护甲+200% -->
         </statOffsets>
         <statFactors>
           <MeleeHitChance>1.5</MeleeHitChance>       <!-- 近战命中×150% -->
@@ -117,7 +117,7 @@
         <statOffsets>
           <ArmorRating_Sharp>0.75</ArmorRating_Sharp>       <!-- 锐器护甲+75% -->
           <ArmorRating_Blunt>0.75</ArmorRating_Blunt>       <!-- 钝器护甲+75% -->
-          <ArmorRating_Heat>0.75</ArmorRating_Heat>       <!-- 热能护甲+75% -->
+          <ArmorRating_Heat>2.00</ArmorRating_Heat>       <!-- 热能护甲+200% -->
         </statOffsets>
         <statFactors>
           <MeleeHitChance>1.5</MeleeHitChance>       <!-- 近战命中×150% -->
