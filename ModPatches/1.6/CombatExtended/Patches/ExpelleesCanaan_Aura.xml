@@ -21,7 +21,7 @@
             <statOffsets>
               <ArmorRating_Sharp>7.5000</ArmorRating_Sharp>
               <ArmorRating_Blunt>7.5000</ArmorRating_Blunt>
-              <ArmorRating_Heat>0.7500</ArmorRating_Heat>
+              <ArmorRating_Heat>2.0000</ArmorRating_Heat>
             </statOffsets>
           </value>
         </li>
