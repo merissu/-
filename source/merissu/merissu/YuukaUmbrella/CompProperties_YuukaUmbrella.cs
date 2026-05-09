@@ -2,16 +2,12 @@
 using Verse;
 using RimWorld;
 using UnityEngine;
-using HarmonyLib;
 
 namespace merissu
 {
     public class YuukaMod : Mod
     {
-        public YuukaMod(ModContentPack content) : base(content)
-        {
-            new Harmony("merissu.yuukaumbrella").PatchAll();
-        }
+        public YuukaMod(ModContentPack content) : base(content) { }
     }
 
     public class CompProperties_YuukaUmbrella : CompProperties

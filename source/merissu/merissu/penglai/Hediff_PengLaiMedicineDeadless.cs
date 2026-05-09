@@ -33,8 +33,6 @@ namespace merissu
 
         static PengLaiMod_Core()
         {
-            var harmony = new Harmony("com.merissu.penglai_immortal");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
             Log.Message("月まで届け、不死の烟 - 蓬莱之药已初始化");
         }
     }

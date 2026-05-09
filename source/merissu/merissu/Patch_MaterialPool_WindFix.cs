@@ -6,15 +6,6 @@ using HarmonyLib;
 
 namespace merissu
 {
-    [StaticConstructorOnStartup]
-    public static class ModInit
-    {
-        static ModInit()
-        {
-            var harmony = new Harmony("merissu.rimworld.plantfix");
-            harmony.PatchAll();
-        }
-    }
     [HarmonyPatch(typeof(MaterialPool), "MatFrom", new Type[] { typeof(MaterialRequest) })]
     public static class Patch_MaterialPool_WindFix
     {
