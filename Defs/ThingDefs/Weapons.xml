@@ -433,7 +433,7 @@
 		<graphicData>
 			<texPath>Weapons/Hakkero</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.5,0.5)</drawSize>
+			<drawSize>(0.85,0.85)</drawSize>
 		</graphicData>
 		<soundInteract>Interact_BeatFire</soundInteract>
 		<relicChance>3</relicChance>
