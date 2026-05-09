@@ -5,16 +5,6 @@ using Verse;
 
 namespace merissu
 {
-    [StaticConstructorOnStartup]
-    public static class GoldenPulse_Bootstrap
-    {
-        static GoldenPulse_Bootstrap()
-        {
-            var h = new Harmony("merissu.tengufan.goldenpulse");
-            h.PatchAll();
-        }
-    }
-
     public class HediffCompProperties_RainbowCycle : HediffCompProperties
     {
         public float pulseFrequency = 0.1f;    

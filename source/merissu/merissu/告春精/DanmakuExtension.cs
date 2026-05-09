@@ -41,15 +41,6 @@ namespace merissu
         }
     }
 
-    [StaticConstructorOnStartup]
-    public static class HarmonyInit_LilyShootingGraphic
-    {
-        static HarmonyInit_LilyShootingGraphic()
-        {
-            new Harmony("merissu.lily.shooting.graphic").PatchAll();
-        }
-    }
-
     [HarmonyPatch(typeof(Pawn_StanceTracker), nameof(Pawn_StanceTracker.SetStance))]
     public static class Patch_Pawn_StanceTracker_SetStance_LilyGraphicDirty
     {

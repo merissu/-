@@ -151,12 +151,6 @@ namespace merissu
         public float topBottomHeightPercent = 0.270f;
     }
 
-    [StaticConstructorOnStartup]
-    public static class WeatherBackdropBootstrap
-    {
-        static WeatherBackdropBootstrap() { new Harmony("merissu.weatherbackdrop.normalclipper").PatchAll(); }
-    }
-
     internal class BackdropMatSet { public Material west, east, north, south; }
 
     [HarmonyPatch(typeof(MapEdgeClipDrawer), nameof(MapEdgeClipDrawer.DrawClippers))]

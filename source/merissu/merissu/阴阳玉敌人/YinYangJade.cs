@@ -6,16 +6,6 @@ using Verse.AI;
 
 namespace merissu
 {
-    [StaticConstructorOnStartup]
-    public static class Bootstrap
-    {
-        static Bootstrap()
-        {
-            var harmony = new Harmony("merissu.warflyer.patch");
-            harmony.PatchAll();
-
-        }
-    }
     public class PermanentFlight : DefModExtension { }
     public static class FlightUtil
     {

@@ -8,16 +8,6 @@ using Verse.AI;
 
 namespace merissu
 {
-    [StaticConstructorOnStartup]
-    public static class HarmonyInit
-    {
-        static HarmonyInit()
-        {
-            var harmony = new Harmony("com.merissu.market");
-            harmony.PatchAll();
-        }
-    }
-
     [HarmonyPatch(typeof(Pawn_TraderTracker), "GiveSoldThingToTrader")]
     public static class Patch_Pawn_TraderTracker_GiveSoldThingToTrader
     {

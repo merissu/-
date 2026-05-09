@@ -29,15 +29,6 @@ namespace merissu
     {
     }
 
-    [StaticConstructorOnStartup]
-    public static class HarmonyInit_NoHitStagger
-    {
-        static HarmonyInit_NoHitStagger()
-        {
-            new Harmony("merissu.dragonstar.nohitstagger").PatchAll();
-        }
-    }
-
     public static class DragonStarUtility
     {
         public static bool HasNoHitStagger(Pawn pawn)
