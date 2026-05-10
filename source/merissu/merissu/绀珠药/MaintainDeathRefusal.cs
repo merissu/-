@@ -32,18 +32,7 @@ namespace merissu
         }
     }
 
-    [StaticConstructorOnStartup]
-    public static class GypsumPatch
-    {
-        static GypsumPatch()
-        {
-            var harmony = new Harmony("merissu.gypsum.patch");
-            var original = AccessTools.Method(typeof(Pawn_HealthTracker), "PreApplyDamage");
-            var prefix = AccessTools.Method(typeof(Patch_InstantDeath), "Prefix");
-            harmony.Patch(original, new HarmonyMethod(prefix));
-        }
-    }
-
+    [HarmonyPatch(typeof(Pawn_HealthTracker), "PreApplyDamage")]
     public static class Patch_InstantDeath
     {
         public static bool Prefix(Pawn ___pawn, ref DamageInfo dinfo, out bool absorbed)

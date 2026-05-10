@@ -56,8 +56,6 @@ namespace merissu
         public YuukaUmbrellaMod(ModContentPack content) : base(content)
         {
             GetSettings<YuukaUmbrellaSettings>();
-            var harmony = new Harmony("merissu.yuukaumbrella.livepatch");
-            harmony.PatchAll();
         }
 
         public override void DoSettingsWindowContents(Rect inRect)

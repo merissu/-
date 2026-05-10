@@ -10,15 +10,6 @@ using Verse.Sound;
 
 namespace merissu
 {
-    [StaticConstructorOnStartup]
-    public static class MerissuStartup
-    {
-        static MerissuStartup()
-        {
-            new Harmony("merissu.youmuclone").PatchAll();
-        }
-    }
-
     public class Ability_YoumuClone : Ability
     {
         public Ability_YoumuClone() : base() { }

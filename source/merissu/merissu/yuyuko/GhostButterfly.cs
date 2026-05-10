@@ -17,9 +17,6 @@ namespace merissu
         static GhostButterfly_Main()
         {
             GhostDef = DefDatabase<HediffDef>.GetNamed("Hediff_GhostButterfly", false);
-
-            var harmony = new Harmony("merissu.ghostbutterfly");
-            harmony.PatchAll();
         }
 
         public static bool IsGhost(Pawn pawn)

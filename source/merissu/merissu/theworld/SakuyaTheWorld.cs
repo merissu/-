@@ -17,8 +17,6 @@ namespace merissu
         public SakuyaMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<SakuyaSettings>();
-            Harmony harmony = new Harmony("merissu.sakuya.world.fixed.v1.7_final_true_time");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
         public override string SettingsCategory() => "咲夜的世界";

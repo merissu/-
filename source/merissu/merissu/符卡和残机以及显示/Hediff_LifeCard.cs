@@ -36,16 +36,6 @@ namespace meriss
         }
     }
 
-    [StaticConstructorOnStartup]
-    public static class HarmonyPatches
-    {
-        static HarmonyPatches()
-        {
-            var harmony = new Harmony("meriss.rimworld.lifecards");
-            harmony.PatchAll();
-        }
-    }
-
     [HarmonyPatch(typeof(Pawn_HealthTracker), "PreApplyDamage")]
     public static class Patch_PreApplyDamage
     {

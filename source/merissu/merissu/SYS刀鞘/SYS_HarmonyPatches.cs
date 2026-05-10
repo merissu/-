@@ -15,8 +15,6 @@ namespace merissu
         static DrawPatch()
         {
             HasMeleeAnimation = ModLister.GetActiveModWithIdentifier("co.uk.epicguru.meleeanimation") != null;
-            Harmony val = new Harmony("com.merissu.rimworld.mod");
-            val.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
 
