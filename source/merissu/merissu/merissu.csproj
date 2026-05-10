@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="HakkeroGraphicPatch.cs" />
     <Compile Include="告春精\IncidentWorker_ZayuLily.cs" />
     <Compile Include="告春精\CompProperties_FlowerTrail .cs" />
     <Compile Include="告春精\DanmakuExtension.cs" />
