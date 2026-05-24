@@ -13,6 +13,7 @@
       <CarryingCapacity>1500</CarryingCapacity>
       <WorkSpeedGlobal>5.0</WorkSpeedGlobal>
       <MechEnergyLossPerHP>0</MechEnergyLossPerHP>
+      <FoodPoisonChance>0</FoodPoisonChance>
     </statBases>
     <butcherProducts>
       <Steel>30</Steel>
