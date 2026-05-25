@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RecipeDef ParentName="LightMechanoidRecipe">
+    <defName>Recipe_Rukoto</defName>
+    <label>制造留琴</label>
+    <description>组装一台万能家务型机械女仆留琴。</description>
+    <products>
+      <Rukoto>1</Rukoto>
+    </products>
+    <!-- 材料清单 -->
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Uranium</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Crimsongold</li>
+          </thingDefs>
+        </filter>
+        <count>50</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>FullPower</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MakaiShinkiCloth</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+    </ingredients>
+    <!-- 工作量 -->
+    <workAmount>18000</workAmount>
+    <!-- 所需研究 -->
+    <researchPrerequisite>BasicMechtech</researchPrerequisite>
+    <!-- 生产设施 -->
+    <recipeUsers>
+      <li>MechGestator</li>
+    </recipeUsers>
+  </RecipeDef>
+</Defs>

@@ -131,11 +131,11 @@
     <!-- 死亡回避通过技能直接添加 DeathRefusal，不在这个Hediff里做 -->
   </HediffDef>
 
-  <!-- 空之奇迹效果（学习速度+随机技能点） -->
+  <!-- 空之奇迹效果（学习和研究速度+随机技能点） -->
   <HediffDef>
     <defName>Miracle_Sky_Effect</defName>
     <label>空之奇迹</label>
-    <description>学习速度激增，并获得随机技能经验。</description>
+    <description>加快学习和研究速度，并获得随机技能经验。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>false</isBad>
     <maxSeverity>1.0</maxSeverity>
@@ -149,6 +149,7 @@
       <li>
         <statFactors>
           <GlobalLearningFactor>5.0</GlobalLearningFactor>   <!-- +500%学习速度 -->
+		  <ResearchSpeed>2.0</ResearchSpeed>    <!-- +200%研究速度 -->
         </statFactors>
       </li>
     </stages>
@@ -339,7 +340,7 @@
   <AbilityDef>
     <defName>Miracle_Sky</defName>
     <label>奇迹「空灵」</label>
-    <description>消耗1层符卡，学习速度+500%，并随机获得若干技能经验，持续24小时。</description>
+    <description>消耗1层符卡，学习速度×500%，研究速度×200%，并随机获得若干技能经验，持续24小时。</description>
 	<iconPath>Abilities/Miracle_Sky</iconPath>
     <abilityClass>TouhouExpansion.Ability_Miracle_Sky</abilityClass>
     <cooldownTicksRange>60000</cooldownTicksRange>

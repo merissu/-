@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="Rukoto_MechanoidBase">
+    <defName>Rukoto</defName>
+    <label>留琴</label>
+    <description>冈崎梦美制造的万能核动力机械女仆，可以从事几乎所有类型的劳动,并且不需要充电。</description>
+    <statBases>
+      <ArmorRating_Blunt>1.25</ArmorRating_Blunt>
+      <ArmorRating_Sharp>1.50</ArmorRating_Sharp>
+      <BandwidthCost>3</BandwidthCost>
+      <EMPResistance>1.00</EMPResistance>
+      <MoveSpeed>10.0</MoveSpeed>
+      <CarryingCapacity>1500</CarryingCapacity>
+      <WorkSpeedGlobal>5.0</WorkSpeedGlobal>
+      <MechEnergyLossPerHP>0</MechEnergyLossPerHP>
+      <FoodPoisonChance>0</FoodPoisonChance>
+    </statBases>
+    <butcherProducts>
+      <Steel>30</Steel>
+      <Plasteel>15</Plasteel>
+    </butcherProducts>
+    <!-- 攻击方式 -->
+    <tools>
+      <li>
+        <label>核动力铁拳</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>45</power>
+        <cooldownTime>0.5</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>1.0</chanceFactor>
+      </li>
+    </tools>
+    <race>
+	  <mechFixedSkillLevel>15</mechFixedSkillLevel>
+      <baseHealthScale>10.0</baseHealthScale>
+      <body>Mech_Light</body>
+      <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
+      <mechEnabledWorkTypes>
+        <li>Cleaning</li>
+        <li>Mining</li>
+        <li>Hauling</li>
+        <li>Construction</li>
+        <li>Crafting</li>
+        <li>Smithing</li>
+        <li>Tailoring</li>
+        <li>Cooking</li>
+        <li>Research</li>
+        <li>PlantCutting</li>
+        <li>Growing</li>
+        <li>Doctor</li>
+        <li>Firefighter</li>
+      </mechEnabledWorkTypes>
+    </race>
+    <comps>
+      <li Class="TouhouExpansion.CompProperties_IgnoreOverseerDistance" />
+    </comps>
+  </ThingDef>
+</Defs>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 自定义抽象父类，继承自原版 BaseMechanoidWalker -->
+  <ThingDef ParentName="BaseMechanoidWalker" Name="Rukoto_MechanoidBase" Abstract="True">
+    <statBases>
+      <ArmorRating_Blunt>1.25</ArmorRating_Blunt>
+      <ArmorRating_Sharp>1.50</ArmorRating_Sharp>
+      <BandwidthCost>3</BandwidthCost>
+      <EMPResistance>1.00</EMPResistance>
+      <Mass>45</Mass>
+      <MoveSpeed>10.0</MoveSpeed>
+      <WorkSpeedGlobal>5.0</WorkSpeedGlobal>
+      <MechEnergyLossPerHP>0.0</MechEnergyLossPerHP>
+      <MechEnergyUsageFactor>0</MechEnergyUsageFactor>   <!-- 核动力：不消耗能量 -->
+    </statBases>
+    <butcherProducts>
+      <Steel>30</Steel>
+      <Plasteel>15</Plasteel>
+    </butcherProducts>
+    <race>
+      <baseHealthScale>5.0</baseHealthScale>
+      <body>Mech_Light</body>
+      <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
+      <mechWeightClass>Light</mechWeightClass>          <!-- 轻型，理论上用普通充电站，但既然不耗能，充电站无用 -->
+    </race>
+  </ThingDef>
+</Defs>
