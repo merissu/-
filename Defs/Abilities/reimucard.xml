@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+
+    <AbilityDef>
+        <defName>aaawarn</defName>
+        <label> A!!严重警告!!! </label>
+        <description>严禁用角色编辑器或者其他mod将东方秘星异闻里面的能力强行绑定到小人身上,那样会导致小人读档时初始化失败,会炸档!!!
+
+It is strictly forbidden to use Character Editor or other mods to forcibly bind abilities from 东方秘星异闻 to your characters. Doing so will cause character initialization failures during save loading, resulting in a game crash!!!
+
+Character Editorやその他のMODを使用して东方秘星异闻の能力をキャラクターに強制的にバインドすることは固く禁じられています。これを行うと、セーブデータの読み込み中にキャラクターの初期化エラーが発生し、ゲームがクラッシュします。</description>
+        <iconPath>Abilities/aaawarn</iconPath>
+        <cooldownTicksRange>300</cooldownTicksRange>
+		<displayOrder>1</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
     <AbilityDef>
         <defName>reimucard</defName>
         <label>符卡宣言</label>
