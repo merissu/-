@@ -4,7 +4,7 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace meriss
+namespace merissu
 {
     public class CompProperties_PlantableMeriss : CompProperties
     {

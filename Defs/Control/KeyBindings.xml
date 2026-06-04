@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <KeyBindingCategoryDef>
+        <defName>Merissu_STGControls</defName>
+        <label>东方秘星异闻 - 自机控制</label>
+        <description>自机模式下的方向控制键</description>
+    </KeyBindingCategoryDef>
+	<KeyBindingDef>
+		<defName>ToggleCameraZoom</defName>
+		<label>切换视角</label>
+		<category>Merissu_STGControls</category>
+		<defaultKeyCodeA>V</defaultKeyCodeA>
+	</KeyBindingDef>
+	<KeyBindingDef>
+		<defName>ToggleManualControl</defName>
+		<label>切换自机模式</label>
+		<category>Merissu_STGControls</category>
+		<defaultKeyCodeA>F</defaultKeyCodeA>
+	</KeyBindingDef>
+    <KeyBindingDef>
+        <defName>Merissu_MoveUp</defName>
+        <label>向上移动</label>
+        <category>Merissu_STGControls</category>
+        <defaultKeyCodeA>UpArrow</defaultKeyCodeA>
+    </KeyBindingDef>
+    <KeyBindingDef>
+        <defName>Merissu_MoveDown</defName>
+        <label>向下移动</label>
+        <category>Merissu_STGControls</category>
+        <defaultKeyCodeA>DownArrow</defaultKeyCodeA>
+    </KeyBindingDef>
+    <KeyBindingDef>
+        <defName>Merissu_MoveLeft</defName>
+        <label>向左移动</label>
+        <category>Merissu_STGControls</category>
+        <defaultKeyCodeA>LeftArrow</defaultKeyCodeA>
+    </KeyBindingDef>
+    <KeyBindingDef>
+        <defName>Merissu_MoveRight</defName>
+        <label>向右移动</label>
+        <category>Merissu_STGControls</category>
+        <defaultKeyCodeA>RightArrow</defaultKeyCodeA>
+    </KeyBindingDef>
+    <KeyBindingDef>
+        <defName>PS_Sneak</defName>
+        <label>低速模式</label>
+        <category>Merissu_STGControls</category>
+        <defaultKeyCodeA>LeftShift</defaultKeyCodeA>
+    </KeyBindingDef>
+</Defs>

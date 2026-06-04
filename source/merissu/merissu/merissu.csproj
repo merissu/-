@@ -90,8 +90,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="射击模式STG\STGHarmonyPatch.cs" />
+    <Compile Include="射击模式STG\PC_UI.cs" />
+    <Compile Include="射击模式STG\STGcamera.cs" />
+    <Compile Include="射击模式STG\PC_Combat.cs" />
     <Compile Include="HakkeroGraphicPatch.cs" />
-    <Compile Include="Patch_PreventMerissuAbilityCrash.cs" />
+    <Compile Include="射击模式STG\PC_Movement.cs" />
+    <Compile Include="射击模式STG\State.cs" />
+    <Compile Include="射击模式STG\PC.cs" />
+    <Compile Include="射击模式STG\STGKeyDefOf.cs" />
+    <Compile Include="射击模式STG\ManualControlManager.cs" />
     <Compile Include="youmucard\YoumuHarmonyInit.cs" />
     <Compile Include="youmucard\YoumuRapidSlashVisualState.cs" />
     <Compile Include="告春精\IncidentWorker_ZayuLily.cs" />
@@ -428,4 +436,11 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <PackageReference Include="Krafs.Publicizer" Version="2.3.0" OutputItemType="Analyzer" />
+  </ItemGroup>
+  <ItemGroup>
+    <Publicize Include="Assembly-CSharp" IncludeCompilerGeneratedMembers="false" IncludeVirtualMembers="false" />
+    <Publicize Include="Assembly-CSharp:Verse.AI.Pawn_PathFollower.CostToMoveIntoCell" />
+  </ItemGroup>
 </Project>

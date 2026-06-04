@@ -652,7 +652,7 @@
 
 	<HediffDef>
 		<defName>up</defName>
-		<hediffClass>meriss.Hediff_LifeCard</hediffClass>
+		<hediffClass>merissu.Hediff_LifeCard</hediffClass>
 		<label>残机</label>
 		<labelNoun>残机</labelNoun>
 		<defaultLabelColor>(204,0,153)</defaultLabelColor>

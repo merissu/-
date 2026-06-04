@@ -19,15 +19,18 @@ namespace merissu
 
         private void MaintainDeathRefusal()
         {
-            Hediff deathRefusal = pawn.health.hediffSet.GetFirstHediffOfDef(RimWorld.HediffDefOf.DeathRefusal);
+            Hediff_DeathRefusal deathRefusal =
+                pawn.health.hediffSet.GetFirstHediff<Hediff_DeathRefusal>();
+
             if (deathRefusal == null)
             {
-                deathRefusal = pawn.health.AddHediff(RimWorld.HediffDefOf.DeathRefusal);
+                deathRefusal =
+                    (Hediff_DeathRefusal)pawn.health.AddHediff(RimWorld.HediffDefOf.DeathRefusal);
             }
 
-            if (deathRefusal.Severity < deathRefusal.def.maxSeverity)
+            if (deathRefusal.UsesLeft < deathRefusal.MaxUses)
             {
-                deathRefusal.Severity = deathRefusal.def.maxSeverity;
+                deathRefusal.SetUseAmountDirect(deathRefusal.MaxUses);
             }
         }
     }
@@ -51,17 +54,19 @@ namespace merissu
                         biuSound.PlayOneShot(new TargetInfo(___pawn.Position, ___pawn.Map));
                     }
 
-                    Hediff sickness = ___pawn.health.hediffSet.GetFirstHediffOfDef(RimWorld.HediffDefOf.DeathRefusalSickness);
+                    Hediff sickness = ___pawn.health.hediffSet
+                        .GetFirstHediffOfDef(RimWorld.HediffDefOf.DeathRefusalSickness);
                     if (sickness != null)
                     {
                         ___pawn.health.RemoveHediff(sickness);
                     }
 
                     absorbed = true;
-                    return false;
+                    return false; 
                 }
             }
-            return true;
+
+            return true; 
         }
     }
 }
