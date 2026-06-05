@@ -107,6 +107,7 @@ namespace merissu
     public class HediffComp_AyaRedGhost : HediffComp
     {
         private int lastMoveTick = -9999;
+        private Vector3 lastDrawPos = Vector3.zero; 
 
         public override void CompPostTick(ref float severityAdjustment)
         {
@@ -120,14 +121,21 @@ namespace merissu
             {
                 parent.Severity = 0.4f;
             }
+
             int currentTick = Find.TickManager.TicksGame;
 
-            if (Pawn.pather.Moving)
+            bool isMovingNative = Pawn.pather.Moving;
+
+            bool isMovingManual = (Pawn.DrawPos - lastDrawPos).sqrMagnitude > 0.001f;
+
+            lastDrawPos = Pawn.DrawPos;
+
+            if (isMovingNative || isMovingManual)
             {
                 lastMoveTick = currentTick;
             }
 
-            bool allowGhost = Pawn.Drafted && (Pawn.pather.Moving || (currentTick - lastMoveTick <= 30));
+            bool allowGhost = Pawn.Drafted && (isMovingNative || isMovingManual || (currentTick - lastMoveTick <= 30));
 
             if (allowGhost)
             {
@@ -137,6 +145,7 @@ namespace merissu
                 }
             }
         }
+
         private void ThrowAyaGhost(Pawn pawn)
         {
             Mote_AyaRedGhost mote = (Mote_AyaRedGhost)ThingMaker.MakeThing(ThingDef.Named("Mote_AyaRedGhost"));
@@ -144,7 +153,6 @@ namespace merissu
 
             mote.exactPosition = pawn.DrawPos;
             mote.exactRotation = pawn.Rotation.AsAngle;
-
             mote.targetScale = pawn.ageTracker.CurLifeStage.bodySizeFactor;
 
             RenderTexture snapshot = PortraitsCache.Get(pawn, new Vector2(128f, 128f), pawn.Rotation, default, 1.2f);

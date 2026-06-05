@@ -10,7 +10,7 @@ namespace merissu
     public static class ManualControlTextures
     {
         public static readonly Texture2D IconOff = ContentFinder<Texture2D>.Get("UI/STG/Control_Off", false) ?? BaseContent.BadTex;
-
+        public static readonly Material HitboxMat = MaterialPool.MatFrom("UI/STG/Hitbox", ShaderDatabase.MoteGlow);
         public static readonly Texture2D IconOn = ContentFinder<Texture2D>.Get("UI/STG/Control_On", false) ?? BaseContent.BadTex;
         public static readonly Texture2D zoom = ContentFinder<Texture2D>.Get("UI/STG/zoom", false) ?? BaseContent.BadTex;
 

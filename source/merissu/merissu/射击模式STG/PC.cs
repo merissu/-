@@ -18,7 +18,15 @@ namespace merissu
         public Vector3 LeanTarget = Vector3.zero;
         public Vector3 LeanSmoothed = Vector3.zero;
         private bool wasMovingLastFrame;
+        private bool wasSneakingLastFrame;
+        private float hitboxAppearProgress = 0f;
+        private float hitboxRotation = 0f;
+        private float hitboxCurrentAlpha = 0f;     
+        private const float MaxHitboxAlpha = 0.5f; 
+        private const float FadeSpeed = 5f;        
 
+        private static readonly MaterialPropertyBlock _staticPropBlock = new MaterialPropertyBlock();
+        private static readonly MaterialPropertyBlock _rotatingPropBlock = new MaterialPropertyBlock();
         public PC()
         {
         }
