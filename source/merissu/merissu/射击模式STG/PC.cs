@@ -38,7 +38,7 @@ namespace merissu
         public PC()
         {
         }
-        public void TryTriggerGraze(Projectile proj)
+        public void TryTriggerGraze(Thing proj)
         {
             if (grazedProjectileIds.Contains(proj.thingIDNumber)) return;
 

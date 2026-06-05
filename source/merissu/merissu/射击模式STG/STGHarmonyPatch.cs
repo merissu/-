@@ -6,6 +6,100 @@ using Verse;
 
 namespace merissu
 {
+    [StaticConstructorOnStartup]
+    public static class CE_Compat_Patch
+    {
+        static CE_Compat_Patch()
+        {
+            if (ModLister.HasActiveModWithName("Combat Extended"))
+            {
+                State.Message("检测到Combat Extended，正在加载STG兼容补丁...");
+                var harmony = new Harmony("merissu.stg.ce_compat");
+                PatchCE(harmony);
+            }
+        }
+
+        private static void PatchCE(Harmony harmony)
+        {
+            var typeCompSuppressable = Type.GetType("CombatExtended.CompSuppressable, CombatExtended");
+            if (typeCompSuppressable != null)
+            {
+                var addSuppressionMethod = AccessTools.Method(typeCompSuppressable, "AddSuppression");
+                if (addSuppressionMethod != null)
+                {
+                    harmony.Patch(addSuppressionMethod,
+                        prefix: new HarmonyMethod(typeof(CE_Compat_Patch), nameof(Prefix_AddSuppression)));
+                }
+            }
+
+            var typeProjectileCE = Type.GetType("CombatExtended.ProjectileCE, CombatExtended");
+            if (typeProjectileCE != null)
+            {
+                var tickMethod = AccessTools.Method(typeProjectileCE, "Tick");
+                if (tickMethod != null)
+                {
+                    harmony.Patch(tickMethod,
+                        prefix: new HarmonyMethod(typeof(CE_Compat_Patch), nameof(Prefix_ProjectileCE_Tick)),
+                        postfix: new HarmonyMethod(typeof(CE_Compat_Patch), nameof(Postfix_ProjectileCE_Tick)));
+                }
+            }
+        }
+
+        public static bool Prefix_AddSuppression(ThingComp __instance)
+        {
+            if (State.IsActive && State.PC?.pawn != null && __instance.parent == State.PC.pawn)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static void Prefix_ProjectileCE_Tick(Thing __instance, out Vector3 __state)
+        {
+            __state = __instance.DrawPos;
+        }
+
+        public static void Postfix_ProjectileCE_Tick(Thing __instance, Vector3 __state)
+        {
+            if (!State.IsActive || State.PC?.pawn == null || __instance.Destroyed) return;
+
+            Vector3 oldPos = __state;
+            Vector3 newPos = __instance.DrawPos;
+            Vector3 centerPos = State.PC.physicsPosition ?? State.PC.pawn.DrawPos;
+
+            if (STG_HitManager.SegmentIntersectsHitbox(oldPos, newPos, centerPos, STG_HitManager.HitboxHalfWidth))
+            {
+                ForceImpactCE(__instance, State.PC.pawn);
+                return;
+            }
+
+            if (STG_HitManager.SegmentIntersectsHitbox(oldPos, newPos, centerPos, STG_HitManager.GrazeHalfWidth))
+            {
+                State.PC.TryTriggerGraze(__instance);
+            }
+        }
+
+        private static void ForceImpactCE(Thing proj, Pawn target)
+        {
+            STG_HitManager.IsForcingHit = true;
+            try
+            {
+                var impactMethod = AccessTools.Method(proj.GetType(), "Impact");
+                if (impactMethod != null)
+                {
+                    impactMethod.Invoke(proj, new object[] { target });
+                }
+                else
+                {
+                    State.Warning($"CE 兼容报错: 找不到 {proj.GetType().Name} 的 Impact 方法");
+                }
+            }
+            finally
+            {
+                STG_HitManager.IsForcingHit = false;
+            }
+        }
+    }
     [HarmonyPatch(typeof(Pawn_RotationTracker), nameof(Pawn_RotationTracker.UpdateRotation))]
     public static class Pawn_RotationTracker_UpdateRotation_Patch
     {
