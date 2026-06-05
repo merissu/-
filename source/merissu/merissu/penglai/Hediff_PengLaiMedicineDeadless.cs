@@ -33,7 +33,7 @@ namespace merissu
 
         static PengLaiMod_Core()
         {
-            Log.Message("月まで届け、不死の烟 - 蓬莱之药已初始化");
+            Log.Message("月まで届け、不死の烟");
         }
     }
 

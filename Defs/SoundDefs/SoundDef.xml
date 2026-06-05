@@ -531,6 +531,27 @@
     </SoundDef>
 
     <SoundDef>
+        <defName>STG_Sound_Graze</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>se_graze</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>50</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
         <defName>gohei</defName>
         <context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>

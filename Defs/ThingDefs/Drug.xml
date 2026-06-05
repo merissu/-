@@ -415,7 +415,7 @@
 		<label>灵力</label>
 		<labelNoun>灵力</labelNoun>
 		<defaultLabelColor>(153,204,255)</defaultLabelColor>
-		<description>灵力最多可获得4层,每提高一层就会提升火力,灵力可通过收取地图上的p点来提升
+		<description>灵力最多可获得4层,每提高一层就会提升火力,灵力可通过收取地图上的p点来提升,也可以通过擦弹获得
 		
 灵力永远不会归零,保底为0.01.每次直接击杀非倒地敌对单位时会增加0.1灵力
 

@@ -133,6 +133,8 @@ namespace merissu
                 else
                 {
                     Find.CameraDriver.config = new CameraMapConfig_Normal();
+
+                    SimpleCameraBridge.ResetSimpleCamera();
                 }
             }
 

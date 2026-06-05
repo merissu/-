@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="射击模式STG\hitbox.cs" />
     <Compile Include="射击模式STG\STGHarmonyPatch.cs" />
     <Compile Include="射击模式STG\PC_UI.cs" />
     <Compile Include="射击模式STG\STGcamera.cs" />

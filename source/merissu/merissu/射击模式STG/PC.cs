@@ -1,8 +1,11 @@
 ﻿using RimWorld;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using Verse.AI;
 using Verse.AI.Group;
+using Verse.Sound;
+using static merissu.STG_HitManager;
 
 namespace merissu
 {
@@ -27,10 +30,43 @@ namespace merissu
 
         private static readonly MaterialPropertyBlock _staticPropBlock = new MaterialPropertyBlock();
         private static readonly MaterialPropertyBlock _rotatingPropBlock = new MaterialPropertyBlock();
+        public HashSet<int> grazedProjectileIds = new HashSet<int>();
+
+        public List<GrazeParticle> grazeParticles = new List<GrazeParticle>();
+        private static readonly HediffDef SpiritualPowerDef = HediffDef.Named("spiritualpower");
+        private static readonly Material GrazeParticleMat = MaterialPool.MatFrom("UI/STG/GrazeItem", ShaderDatabase.TransparentPostLight);
         public PC()
         {
         }
+        public void TryTriggerGraze(Projectile proj)
+        {
+            if (grazedProjectileIds.Contains(proj.thingIDNumber)) return;
 
+            grazedProjectileIds.Add(proj.thingIDNumber);
+
+            SoundDef.Named("STG_Sound_Graze").PlayOneShot(SoundInfo.InMap(pawn));
+
+            Vector3 spawnPos = physicsPosition ?? pawn.DrawPos;
+            grazeParticles.Add(new GrazeParticle(spawnPos));
+
+            if (SpiritualPowerDef != null && pawn.health != null)
+            {
+                Hediff spiritualHediff = pawn.health.hediffSet.GetFirstHediffOfDef(SpiritualPowerDef);
+
+                if (spiritualHediff == null)
+                {
+                    spiritualHediff = HediffMaker.MakeHediff(SpiritualPowerDef, pawn);
+
+                    spiritualHediff.Severity = 0.011f;
+
+                    pawn.health.AddHediff(spiritualHediff);
+                }
+                else
+                {
+                    spiritualHediff.Severity += 0.001f;
+                }
+            }
+        }
         public PC(Pawn pawn)
         {
             this.pawn = pawn;
@@ -60,7 +96,7 @@ namespace merissu
                 float moveSpeed;
                 if (isSneaking)
                 {
-                    moveSpeed = 4.6f;
+                    moveSpeed = 2.3f;
                 }
                 else
                 {

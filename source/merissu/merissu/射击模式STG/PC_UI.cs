@@ -10,7 +10,30 @@ namespace merissu
 {
     public partial class PC
     {
+        private void UpdateAndRenderGrazeParticles()
+        {
+            float deltaTime = Time.deltaTime;
+            if (Find.TickManager.Paused) deltaTime = 0f;
 
+            Vector3 playerPos = physicsPosition ?? pawn.DrawPos;
+
+            for (int i = grazeParticles.Count - 1; i >= 0; i--)
+            {
+                if (grazeParticles[i].Update(playerPos, deltaTime))
+                {
+                    grazeParticles[i].Draw(GrazeParticleMat, MeshPool.plane10);
+                }
+                else
+                {
+                    grazeParticles.RemoveAt(i);
+                }
+            }
+
+            if (pawn.IsHashIntervalTick(300) && grazedProjectileIds.Count > 100)
+            {
+                grazedProjectileIds.Clear();
+            }
+        }
         public void RenderPawn()
         {
             if (pawn.Map == null || !pawn.Spawned) return;
@@ -81,6 +104,7 @@ namespace merissu
                     new Vector3(currentScale, 1f, currentScale)
                 );
                 Graphics.DrawMesh(MeshPool.plane10, rotatingMatrix, ManualControlTextures.HitboxMat, 0, null, 0, _rotatingPropBlock);
+                UpdateAndRenderGrazeParticles();
             }
         }
     }

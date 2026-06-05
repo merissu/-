@@ -8,8 +8,24 @@ namespace merissu
     public class DanmakuBullet_Spinning : Bullet
     {
         private float spinAngle;
+        private const float SpinSpeed = 2f;
 
-        private const float SpinSpeed = 2f; 
+        private float cachedHitRadius = -1f;
+
+        protected float BulletHitRadius
+        {
+            get
+            {
+                if (cachedHitRadius < 0f)
+                {
+                    float drawSizeX = this.def.graphicData?.drawSize.x ?? 1f;
+                    float visualRadius = drawSizeX / 2f;
+
+                    cachedHitRadius = visualRadius * 0.3333f;
+                }
+                return cachedHitRadius;
+            }
+        }
 
         protected override void Tick()
         {
@@ -31,7 +47,7 @@ namespace merissu
             Quaternion finalRotation = flightRotation * spinRotation;
 
             Vector2 s = this.Graphic.drawSize;
-            Vector3 scale = new Vector3(s.x, 1f, s.y); 
+            Vector3 scale = new Vector3(s.x, 1f, s.y);
 
             Matrix4x4 matrix = Matrix4x4.TRS(drawLoc, finalRotation, scale);
 
@@ -42,42 +58,50 @@ namespace merissu
                 0
             );
         }
+
         private void CheckAdvancedCollision()
         {
-            if (!this.IsHashIntervalTick(3)) return;
-
-            Vector3 currentPos = DrawPos;
-            IntVec3 intPos = currentPos.ToIntVec3();
+            Vector3 exactPos = this.ExactPosition;
+            IntVec3 intPos = exactPos.ToIntVec3();
 
             if (!intPos.InBounds(Map)) return;
 
-            List<Thing> thingList = intPos.GetThingList(Map);
+            float searchRadius = Mathf.Max(1.2f, this.def.graphicData?.drawSize.x ?? 1f);
+            IEnumerable<Thing> list = GenRadial.RadialDistinctThingsAround(intPos, Map, searchRadius, true);
 
-            for (int i = 0; i < thingList.Count; i++)
+            foreach (Thing thing in list)
             {
-                Thing thing = thingList[i];
-
                 if (thing == launcher) continue;
 
-                if (thing is Pawn p)
+                if (thing is Pawn p && !p.Dead && p.Faction != launcher?.Faction)
                 {
-                    if (!p.Dead && p.Faction != launcher.Faction)
+                    Vector3 targetPos = p.DrawPos;
+                    targetPos.y = exactPos.y; 
+
+                    float distance = Vector3.Distance(exactPos, targetPos);
+                    float targetHitRadius;
+
+                    if (State.IsActive && State.PC?.pawn != null && p == State.PC.pawn)
+                    {
+                        targetHitRadius = STG_HitManager.HitboxHalfWidth; 
+                    }
+                    else
+                    {
+                        targetHitRadius = 0.4f; 
+                    }
+
+                    if (distance <= (this.BulletHitRadius + targetHitRadius))
                     {
                         this.Impact(p);
                         return;
                     }
                 }
-                else if (thing is Building b)
+                else if (thing is Building b && b.def.fillPercent > 0)
                 {
-                    if (b.def.fillPercent > 0)
+                    if (b is Building_Turret && launcher != null && b.Faction == launcher.Faction) continue;
+
+                    if (b.OccupiedRect().Contains(intPos))
                     {
-                        if (b is Building_Turret)
-                        {
-                            if (launcher != null && b.Faction != null && b.Faction == launcher.Faction)
-                            {
-                                continue;
-                            }
-                        }
                         this.Impact(b);
                         return;
                     }

@@ -237,7 +237,7 @@ namespace merissu
 
             if (isSneaking)
             {
-                speed = 4.6f * Time.deltaTime * Find.TickManager.TickRateMultiplier;
+                speed = 2.3f * Time.deltaTime * Find.TickManager.TickRateMultiplier;
             }
             else
             {
