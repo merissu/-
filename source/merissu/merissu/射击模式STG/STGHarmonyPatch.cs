@@ -13,7 +13,7 @@ namespace merissu
         {
             if (ModLister.HasActiveModWithName("Combat Extended"))
             {
-                State.Message("检测到Combat Extended，正在加载STG兼容补丁...");
+                Log.Message("检测到Combat Extended，正在加载STG兼容补丁...");
                 var harmony = new Harmony("merissu.stg.ce_compat");
                 PatchCE(harmony);
             }
@@ -63,6 +63,14 @@ namespace merissu
         {
             if (!State.IsActive || State.PC?.pawn == null || __instance.Destroyed) return;
 
+            Thing launcher = Traverse.Create(__instance).Field("launcher").GetValue<Thing>() ??
+                             Traverse.Create(__instance).Property("launcher").GetValue<Thing>();
+
+            if (launcher == State.PC.pawn)
+            {
+                return; 
+            }
+
             Vector3 oldPos = __state;
             Vector3 newPos = __instance.DrawPos;
             Vector3 centerPos = State.PC.physicsPosition ?? State.PC.pawn.DrawPos;
@@ -84,14 +92,19 @@ namespace merissu
             STG_HitManager.IsForcingHit = true;
             try
             {
-                var impactMethod = AccessTools.Method(proj.GetType(), "Impact");
-                if (impactMethod != null)
+                var traverse = Traverse.Create(proj);
+
+                if (traverse.Method("Impact", target).MethodExists())
                 {
-                    impactMethod.Invoke(proj, new object[] { target });
+                    traverse.Method("Impact", target).GetValue();
+                }
+                else if (traverse.Method("Impact", target, false).MethodExists())
+                {
+                    traverse.Method("Impact", target, false).GetValue();
                 }
                 else
                 {
-                    State.Warning($"CE 兼容报错: 找不到 {proj.GetType().Name} 的 Impact 方法");
+                    Log.Warning($"CE 兼容报错: 找不到 {proj.GetType().Name} 的 Impact 方法");
                 }
             }
             finally
@@ -160,6 +173,10 @@ namespace merissu
         {
             if (!State.IsActive || State.PC?.pawn == null || __instance.Destroyed) return;
 
+            if (__instance.launcher == State.PC.pawn)
+            {
+                return;
+            }
             Vector3 oldPos = __state;
             Vector3 newPos = __instance.ExactPosition;
             Vector3 centerPos = State.PC.physicsPosition ?? State.PC.pawn.DrawPos;
@@ -167,7 +184,7 @@ namespace merissu
             if (STG_HitManager.SegmentIntersectsHitbox(oldPos, newPos, centerPos, STG_HitManager.HitboxHalfWidth))
             {
                 ForceImpact(__instance, State.PC.pawn);
-                return; 
+                return;
             }
 
             if (STG_HitManager.SegmentIntersectsHitbox(oldPos, newPos, centerPos, STG_HitManager.GrazeHalfWidth))
