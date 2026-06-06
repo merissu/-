@@ -9,5 +9,11 @@
   "ScaleY": 2.0,
   "BladeStart": -0.551724136,
   "BladeEnd": 0.7155172,
-  "MeleeWeaponType": 7
+  "MeleeWeaponType": 7,
+  "TrailTint": {
+    "r": 0.9955555,
+    "g": 0.9955555,
+    "b": 0.9955555,
+    "a": 0.5444444
+  }
 }

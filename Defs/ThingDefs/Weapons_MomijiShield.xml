@@ -9,6 +9,7 @@
       <texPath>Items/Momiji_Shield</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1,1)</drawSize>
+      <shaderType>Mote</shaderType>
     </graphicData>
 
     <!-- 材料 -->
@@ -53,6 +54,11 @@
       <layers>
         <li>Touhou_AccessoryOuter</li>
       </layers>
+      <drawData>
+        <dataNorth>
+          <layer>-1</layer>
+        </dataNorth>
+      </drawData>
       <wornGraphicPath>Items/Momiji_Shield</wornGraphicPath>
       <tags>
         <li>Shield</li>

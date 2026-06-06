@@ -7,7 +7,11 @@
     <graphicData>
       <texPath>Items/Momiji_Sword</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.2,1.2)</drawSize>
+			<shaderType>Mote</shaderType>
     </graphicData>
+    <soundInteract>Interact_MonoSword</soundInteract>
+    <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
     <statBases>
       <MarketValue>500</MarketValue>
       <Mass>1.0</Mass>

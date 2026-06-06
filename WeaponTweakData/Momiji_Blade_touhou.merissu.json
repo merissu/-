@@ -3,9 +3,18 @@
   "ItemDefName": "Momiji_Blade",
   "ItemType": "ThingDef",
   "ItemTypeNamespace": "Verse",
-  "OffX": 0.275862068,
-  "OffY": 0.293103456,
+  "OffX": 0.4827586,
+  "OffY": 0.005747302,
+  "Rotation": 45.0,
+  "ScaleX": 1.2,
+  "ScaleY": 1.2,
   "BladeStart": 0.05172414,
-  "BladeEnd": 0.793103456,
-  "MeleeWeaponType": 4
+  "BladeEnd": 1.32619917,
+  "MeleeWeaponType": 6,
+  "TrailTint": {
+    "r": 0.99777776,
+    "g": 0.18577835,
+    "b": 0.0155208139,
+    "a": 0.7733333
+  }
 }
