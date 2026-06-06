@@ -507,6 +507,7 @@
 		<graphicData>
 			<texPath>Projectiles/FlameShot</texPath>
 			<graphicClass>Graphic_Random</graphicClass>
+			<shaderType>MoteGlow</shaderType>
 			<drawSize>(1,1)</drawSize>
 		</graphicData>
 		<projectile>

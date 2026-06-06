@@ -51,15 +51,16 @@ namespace merissu
 
             float alpha = 1f - Mathf.Pow(progress, 3);
 
-            Material mat = Graphic.MatSingle;
+            Material baseMat = Graphic.MatSingle;
 
-            mat.color = new Color(1f, 0.6f * alpha, 0.3f * alpha, alpha);
+            Material instanceMat = new Material(baseMat);
+            instanceMat.color = new Color(1f, 0.6f * alpha, 0.3f * alpha, alpha);
 
             Graphics.DrawMesh(
                 MeshPool.plane10,
                 drawLoc,
                 ExactRotation,
-                mat,
+                instanceMat,
                 0);
         }
     }

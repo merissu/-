@@ -58,7 +58,7 @@ namespace merissu
 
             centerTex = ContentFinder<Texture2D>.Get("Other/AbyssNova1");
             sideTex = ContentFinder<Texture2D>.Get("Other/AbyssNova2");
-            raidBannerTex = sideTex; // 复用同一张
+            raidBannerTex = sideTex; 
             particleMat = MaterialPool.MatFrom("Other/bulletFd002", ShaderDatabase.MoteGlow);
             particleMat.renderQueue = 4000;
             particles.Clear();
