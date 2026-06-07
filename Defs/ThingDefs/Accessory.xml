@@ -1692,6 +1692,73 @@
         </graphicData>
     </ThingDef>
 	
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Doorbehind</defName>
+		<label>背后之门</label>
+		<thingClass>merissu.Apparel_Doorbehind</thingClass>
+		<description>摩多罗隐岐奈的能力,可以打开背后之门,能够消去背后的敌弹,还能够攻击
+
+附属装备卡,装备后可以打开背后之门,消去背后的敌弹,还可以伤害位于背后的敌人
+
+对生物而言,背后既是弱点也是理想乡.在这前方,究竟是能托付背后的贵人,还是栖息于乐园中的天魔呢</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<Merissu_CustomCoin>560</Merissu_CustomCoin>
+			<Blankcard>1</Blankcard>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>7</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>
+				<li>AuxiliaryEquipmentCard</li>
+			</researchPrerequisite>		
+		</recipeMaker>
+		<graphicData>
+			<texPath>Accessory/card/Doorbehind</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>4000</MarketValue> 
+			<Mass>0.1</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0.15</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<scoreOffset>4</scoreOffset>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<useWornGraphicMask>false</useWornGraphicMask>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>AuxiliaryEquipmentCard</li>
+			</layers>
+		</apparel>
+		<tradeability>None</tradeability>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
     <ApparelLayerDef>
         <defName>AuxiliaryAbilityCard</defName>
         <label>附属能力卡</label>
