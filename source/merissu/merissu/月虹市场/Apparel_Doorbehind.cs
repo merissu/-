@@ -352,7 +352,7 @@ namespace merissu
             }
 
             string finalPath = basePath + directionSuffix;
-            Material currentMat = MaterialPool.MatFrom(finalPath, ShaderDatabase.CutoutComplex);
+            Material currentMat = MaterialPool.MatFrom(finalPath, ShaderDatabase.Mote);
 
             if (currentMat == null) return;
 
