@@ -8,6 +8,7 @@
       <texPath>Items/Nazrin_Rod</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2,2)</drawSize>
+      <shaderType>Mote</shaderType>
     </graphicData>
     <statBases>
       <MarketValue>500</MarketValue>
