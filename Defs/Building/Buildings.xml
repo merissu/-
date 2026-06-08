@@ -572,8 +572,8 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(1, 2)</drawSize>
 			<shadowData>
-				<volume>(1, 2.0, 0.2)</volume>
-				<offset>(0.0, 0.5, 0)</offset>
+				<volume>(0.5, 0.5, 0.2)</volume>
+				<offset>(0, 0, -0.45)</offset>
 			</shadowData>
 		</graphicData>
 		<thingClass>Building</thingClass>
@@ -633,8 +633,8 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(1, 2)</drawSize>
 			<shadowData>
-				<volume>(1, 2.0, 0.2)</volume>
-				<offset>(0.0, 0.5, 0)</offset>
+				<volume>(0.5, 0.5, 0.2)</volume>
+				<offset>(0, 0, -0.45)</offset>
 			</shadowData>
 		</graphicData>
 		<thingClass>Building</thingClass>
