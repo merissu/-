@@ -161,39 +161,60 @@ namespace merissu
     [HarmonyPatch(typeof(Pawn), "Destroy")]
     public static class Patch_Anti_Erasure
     {
-        public static bool Prefix(Pawn __instance, DestroyMode mode)
+        public static void Prefix(Pawn __instance, DestroyMode mode, out Map __state)
         {
+            __state = null;
+
+            if (__instance == null || !__instance.RaceProps.Humanlike)
+            {
+                return;
+            }
+
             if (__instance.Map != null && (__instance.health?.hediffSet?.HasHediff(PengLaiDefOf.FabledAbodeImmortals) ?? false))
             {
                 if (mode == DestroyMode.KillFinalize || mode == DestroyMode.Vanish)
                 {
-                    EscapeDestruction(__instance);
-                    return false;
+                    __state = __instance.Map;
                 }
             }
-            return true;
         }
 
-        private static void EscapeDestruction(Pawn pawn)
+        public static void Postfix(Pawn __instance, DestroyMode mode, Map __state)
         {
-            Map map = pawn.Map;
-            if (!CellFinder.TryFindRandomCell(map, c => c.Standable(map) && !c.Fogged(map), out IntVec3 safeLoc))
+            if (__state == null) return;
+
+            if (!CellFinder.TryFindRandomCell(__state, c => c.Standable(__state) && !c.Fogged(__state), out IntVec3 safeLoc))
             {
-                safeLoc = DropCellFinder.RandomDropSpot(map);
+                safeLoc = DropCellFinder.RandomDropSpot(__state);
             }
 
-            pawn.Position = safeLoc;
-            pawn.Notify_Teleported();
-
-            if (pawn.health.Dead || pawn.health.ShouldBeDeadFromRequiredCapacity() != null)
+            if (__instance.Dead)
             {
-                pawn.health.RestorePart(pawn.RaceProps.body.corePart);
-
-                var hSet = pawn.health.hediffSet;
-                hSet.hediffs.RemoveAll(h => h.def != PengLaiDefOf.FabledAbodeImmortals && (h is Hediff_Injury || h is Hediff_MissingPart));
+                ResurrectionUtility.TryResurrect(__instance);
             }
 
-            Messages.Message("「不死鸟重生」", new TargetInfo(safeLoc, map), MessageTypeDefOf.PositiveEvent);
+            if (!__instance.Spawned)
+            {
+                GenSpawn.Spawn(__instance, safeLoc, __state);
+            }
+            else
+            {
+                __instance.Position = safeLoc;
+                __instance.Notify_Teleported();
+            }
+
+            if (__instance.health != null)
+            {
+                __instance.health.RestorePart(__instance.RaceProps.body.corePart);
+
+                var hSet = __instance.health.hediffSet;
+                if (hSet != null)
+                {
+                    hSet.hediffs.RemoveAll(h => h.def != PengLaiDefOf.FabledAbodeImmortals && (h is Hediff_Injury || h is Hediff_MissingPart));
+                }
+            }
+
+            Messages.Message("「不死鸟重生」", new TargetInfo(safeLoc, __state), MessageTypeDefOf.PositiveEvent);
             PlayMokouBGM();
         }
 
