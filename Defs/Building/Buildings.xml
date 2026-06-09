@@ -27,7 +27,7 @@
 		<defName>NitoriGenerator</defName>
 		<label>荷取热机</label>
 		<description>这是我在山上发现的神奇的机械，好像比人类使用的科技更加先进，所以我就偷偷溜进河童们的工坊，把它的图纸带了回来。不过看起来莲子也不是很明白这个机械的原理的样子，嘛，我想那个世界的东西大概都是难以理解的吧。</description>
-    <thingClass>Building</thingClass>
+	<thingClass>merissu.Building_RefuelableGraphicChange</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
 	  <graphicData>
 		  <texPath>Building/NitoriGenerator</texPath>
@@ -69,6 +69,12 @@
 		</li>
 		<li Class="U.N.Owen.CompProperties_SpawnWater" />
 		<li Class="CompProperties_Flickable" />
+		<li Class="merissu.CompProperties_RefuelableGraphicAndGlow">
+			<noFuelTexPath>Building/NitoriGenerator</noFuelTexPath>
+			<glowWithoutFuel>true</glowWithoutFuel>
+			<noFuelGlowRadius>3</noFuelGlowRadius>
+			<ManuelGlowColor>(204, 255, 153)</ManuelGlowColor>
+		</li>
 		<li Class="CompProperties_Glower">
 			<glowRadius>6</glowRadius>
 			<glowColor>(80,112,180,0)</glowColor>
@@ -169,6 +175,7 @@
                 <noFuelTexPath>Building/UtuhoNuclearFurnace</noFuelTexPath>
                 <glowWithoutFuel>true</glowWithoutFuel>
                 <noFuelGlowRadius>10</noFuelGlowRadius>
+				<ManuelGlowColor>(255, 104, 102)</ManuelGlowColor>
             </li>
 			<li Class="CompProperties_Flickable" />
 			<li Class="CompProperties_Refuelable">
@@ -657,6 +664,7 @@
                 <noFuelTexPath>Building/ShrineBeaconoff</noFuelTexPath>
                 <glowWithoutFuel>false</glowWithoutFuel>
                 <noFuelGlowRadius>0</noFuelGlowRadius>
+				<ManuelGlowColor>(0, 0, 0)</ManuelGlowColor>
             </li>
 			<li Class="CompProperties_Refuelable">
 				<fuelConsumptionRate>2.0</fuelConsumptionRate>

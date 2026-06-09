@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace merissu
@@ -9,6 +10,8 @@ namespace merissu
         public bool glowWithoutFuel = false;
         public float noFuelGlowRadius = 0f;
 
+        public Color ManuelGlowColor = Color.white;
+
         public CompProperties_RefuelableGraphicAndGlow()
         {
             this.compClass = typeof(CompRefuelableGraphicAndGlow);
@@ -17,15 +20,42 @@ namespace merissu
 
     public class Building_RefuelableGraphicChange : Building
     {
+        private Graphic noFuelGraphicInt;
+        private CompRefuelable compRefuelable;
+        private CompRefuelableGraphicAndGlow customComp;
+
         public override Graphic Graphic
         {
             get
             {
-                var comp = GetComp<CompRefuelableGraphicAndGlow>();
-                if (comp != null && !comp.HasFuel && comp.NoFuelGraphic != null)
+                if (compRefuelable == null) compRefuelable = GetComp<CompRefuelable>();
+
+                if (compRefuelable != null && !compRefuelable.HasFuel)
                 {
-                    return comp.NoFuelGraphic;
+                    if (noFuelGraphicInt == null)
+                    {
+                        if (customComp == null) customComp = GetComp<CompRefuelableGraphicAndGlow>();
+
+                        string path = customComp?.Props?.noFuelTexPath;
+                        if (!path.NullOrEmpty())
+                        {
+                            noFuelGraphicInt = GraphicDatabase.Get(
+                                def.graphicData.graphicClass,
+                                path,
+                                def.graphic.Shader,
+                                def.graphicData.drawSize,
+                                DrawColor,
+                                DrawColorTwo
+                            );
+                        }
+                    }
+
+                    if (noFuelGraphicInt != null)
+                    {
+                        return noFuelGraphicInt;
+                    }
                 }
+
                 return base.Graphic;
             }
         }
@@ -35,13 +65,7 @@ namespace merissu
     {
         private CompRefuelable compRefuelable;
         private CompGlower compGlower;
-
-        private Graphic defaultGraphic;
-        private Graphic noFuelGraphic;
         private bool lastFuelState = true;
-
-        public bool HasFuel => compRefuelable == null || compRefuelable.HasFuel;
-        public Graphic NoFuelGraphic => noFuelGraphic;
 
         public CompProperties_RefuelableGraphicAndGlow Props => (CompProperties_RefuelableGraphicAndGlow)props;
 
@@ -50,20 +74,6 @@ namespace merissu
             base.PostSpawnSetup(respawningAfterLoad);
             compRefuelable = parent.GetComp<CompRefuelable>();
             compGlower = parent.GetComp<CompGlower>();
-
-            defaultGraphic = parent.def.graphic;
-
-            if (!Props.noFuelTexPath.NullOrEmpty())
-            {
-                noFuelGraphic = GraphicDatabase.Get(
-                    parent.def.graphicData.graphicClass,
-                    Props.noFuelTexPath,
-                    parent.def.graphic.Shader,
-                    parent.def.graphicData.drawSize,
-                    parent.DrawColor,
-                    parent.DrawColorTwo
-                );
-            }
 
             if (compRefuelable != null)
             {
@@ -104,7 +114,7 @@ namespace merissu
 
             bool hasFuel = compRefuelable.HasFuel;
 
-            if (noFuelGraphic != null && !forceRefresh)
+            if (!forceRefresh)
             {
                 parent.Notify_ColorChanged();
             }
@@ -118,6 +128,7 @@ namespace merissu
                     if (originalGlowerProps != null)
                     {
                         compGlower.Props.glowRadius = originalGlowerProps.glowRadius;
+                        compGlower.Props.glowColor = originalGlowerProps.glowColor; 
                     }
 
                     if (parent.Spawned)
@@ -131,6 +142,8 @@ namespace merissu
                     if (Props.glowWithoutFuel)
                     {
                         compGlower.Props.glowRadius = Props.noFuelGlowRadius;
+                        compGlower.Props.glowColor = new ColorInt(Props.ManuelGlowColor);
+
                         if (parent.Spawned)
                         {
                             parent.Map.glowGrid.RegisterGlower(compGlower);
