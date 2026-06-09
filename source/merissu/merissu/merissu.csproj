@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
+    <Compile Include="CompProperties_RefuelableGraphicAndGlow.cs" />
     <Compile Include="月虹市场\Apparel_Doorbehind.cs" />
     <Compile Include="射击模式STG\hitbox.cs" />
     <Compile Include="射击模式STG\STGHarmonyPatch.cs" />

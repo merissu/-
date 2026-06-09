@@ -118,11 +118,11 @@
 尽管核聚变能产生大量热量，但是如果灼热地狱遗址缺乏燃料，核聚变炉还是会停止运转。
 
 可以用尸体作为燃料,倒不如说尸体就是进行核聚变最好的燃料</description>
-		<thingClass>Building</thingClass>
+		<thingClass>merissu.Building_RefuelableGraphicChange</thingClass>
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<rotatable>false</rotatable>
 		<graphicData>
-			<texPath>Building/UtuhoNuclearFurnace</texPath>
+			<texPath>Building/UtuhoNuclearFurnaceburning</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(8,8)</drawSize>
 			<shaderType>Mote</shaderType>
@@ -165,6 +165,11 @@
 				<transmitsPower>true</transmitsPower>
 				<soundAmbientProducingPower>ChemfuelFiredGenerator_Ambience</soundAmbientProducingPower>
 			</li>
+			<li Class="merissu.CompProperties_RefuelableGraphicAndGlow">
+                <noFuelTexPath>Building/UtuhoNuclearFurnace</noFuelTexPath>
+                <glowWithoutFuel>true</glowWithoutFuel>
+                <noFuelGlowRadius>10</noFuelGlowRadius>
+            </li>
 			<li Class="CompProperties_Flickable" />
 			<li Class="CompProperties_Refuelable">
 				<fuelConsumptionRate>1</fuelConsumptionRate>
@@ -637,7 +642,7 @@
 				<offset>(0, 0, -0.45)</offset>
 			</shadowData>
 		</graphicData>
-		<thingClass>Building</thingClass>
+		<thingClass>merissu.Building_RefuelableGraphicChange</thingClass>
 		<thingCategories>
 			<li>BuildingsSpecial</li>
 		</thingCategories>
@@ -648,6 +653,11 @@
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="U.N.Owen.EndAbout.CompProperties_ShrineBeacon">
 			</li>
+			<li Class="merissu.CompProperties_RefuelableGraphicAndGlow">
+                <noFuelTexPath>Building/ShrineBeaconoff</noFuelTexPath>
+                <glowWithoutFuel>false</glowWithoutFuel>
+                <noFuelGlowRadius>0</noFuelGlowRadius>
+            </li>
 			<li Class="CompProperties_Refuelable">
 				<fuelConsumptionRate>2.0</fuelConsumptionRate>
 				<fuelCapacity>30.0</fuelCapacity>
@@ -696,11 +706,9 @@
 		<tradeTags>
 			<li>ExoticBuilding</li>
 		</tradeTags>
-		<stuffCategories>
-			<li>Metallic</li>
-			<li>Stony</li>
-		</stuffCategories>
-		<costStuffCount>80</costStuffCount>
+	  <costList>
+		  <Steel>80</Steel>
+	  </costList>
 		<placeWorkers>
 			<li>PlaceWorker_Heater</li>
 			<li>PlaceWorker_GlowRadius</li>
