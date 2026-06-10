@@ -43,7 +43,7 @@
     <blockWind>true</blockWind>
     <scatterableOnMapGen>false</scatterableOnMapGen>
     <fillPercent>1</fillPercent>
-    <blockLight>true</blockLight>
+    <blockLight>false</blockLight>
     <canOverlapZones>false</canOverlapZones>
 	  <statBases>
 		  <MaxHitPoints>300</MaxHitPoints>
@@ -72,12 +72,11 @@
 		<li Class="merissu.CompProperties_RefuelableGraphicAndGlow">
 			<noFuelTexPath>Building/NitoriGenerator</noFuelTexPath>
 			<glowWithoutFuel>true</glowWithoutFuel>
-			<noFuelGlowRadius>3</noFuelGlowRadius>
+			<noFuelGlowRadius>6</noFuelGlowRadius>
 			<ManuelGlowColor>(204, 255, 153)</ManuelGlowColor>
-		</li>
-		<li Class="CompProperties_Glower">
-			<glowRadius>6</glowRadius>
-			<glowColor>(80,112,180,0)</glowColor>
+			<overlightRadius>12.0</overlightRadius>
+			<glowRadius>12</glowRadius>
+			<glowColor>(204, 255, 153,0)</glowColor>
 		</li>
       <li Class="CompProperties_Breakdownable"/>
       <li Class="CompProperties_AmbientSound">
@@ -172,11 +171,14 @@
 				<soundAmbientProducingPower>ChemfuelFiredGenerator_Ambience</soundAmbientProducingPower>
 			</li>
 			<li Class="merissu.CompProperties_RefuelableGraphicAndGlow">
-                <noFuelTexPath>Building/UtuhoNuclearFurnace</noFuelTexPath>
-                <glowWithoutFuel>true</glowWithoutFuel>
-                <noFuelGlowRadius>10</noFuelGlowRadius>
+				<noFuelTexPath>Building/UtuhoNuclearFurnace</noFuelTexPath>
+				<glowWithoutFuel>true</glowWithoutFuel>
+				<noFuelGlowRadius>10</noFuelGlowRadius>
 				<ManuelGlowColor>(255, 104, 102)</ManuelGlowColor>
-            </li>
+				<overlightRadius>32.0</overlightRadius>
+				<glowRadius>40</glowRadius>
+				<glowColor>(370,370,370,0)</glowColor>
+			</li>
 			<li Class="CompProperties_Flickable" />
 			<li Class="CompProperties_Refuelable">
 				<fuelConsumptionRate>1</fuelConsumptionRate>
@@ -187,11 +189,6 @@
 					</thingDefs>
 				</fuelFilter>
 				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-			</li>
-			<li Class="CompProperties_Glower">
-				<overlightRadius>32.0</overlightRadius>
-				<glowRadius>40</glowRadius>
-				<glowColor>(370,370,370,0)</glowColor>
 			</li>
 			<li Class="CompProperties_HeatPusher">
 				<compClass>CompHeatPusherPowered</compClass>

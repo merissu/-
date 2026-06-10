@@ -4,13 +4,13 @@ using Verse;
 
 namespace merissu
 {
-    public class CompProperties_RefuelableGraphicAndGlow : CompProperties
+    public class CompProperties_RefuelableGraphicAndGlow : CompProperties_Glower
     {
         public string noFuelTexPath;
         public bool glowWithoutFuel = false;
         public float noFuelGlowRadius = 0f;
 
-        public Color ManuelGlowColor = Color.white;
+        public ColorInt ManuelGlowColor = new ColorInt(255, 255, 255, 0);
 
         public CompProperties_RefuelableGraphicAndGlow()
         {
@@ -61,11 +61,9 @@ namespace merissu
         }
     }
 
-    public class CompRefuelableGraphicAndGlow : ThingComp
+    public class CompRefuelableGraphicAndGlow : CompGlower
     {
         private CompRefuelable compRefuelable;
-        private CompGlower compGlower;
-        private bool lastFuelState = true;
 
         public CompProperties_RefuelableGraphicAndGlow Props => (CompProperties_RefuelableGraphicAndGlow)props;
 
@@ -73,97 +71,61 @@ namespace merissu
         {
             base.PostSpawnSetup(respawningAfterLoad);
             compRefuelable = parent.GetComp<CompRefuelable>();
-            compGlower = parent.GetComp<CompGlower>();
+        }
 
-            if (compRefuelable != null)
+        protected override bool ShouldBeLitNow
+        {
+            get
             {
-                lastFuelState = compRefuelable.HasFuel;
-            }
+                if (!base.ShouldBeLitNow) return false;
 
-            UpdateState(true);
-        }
-
-        public override void CompTick()
-        {
-            base.CompTick();
-            CheckFuelState();
-        }
-
-        public override void CompTickRare()
-        {
-            base.CompTickRare();
-            CheckFuelState();
-        }
-
-        private void CheckFuelState()
-        {
-            if (compRefuelable != null)
-            {
-                bool hasFuel = compRefuelable.HasFuel;
-                if (hasFuel != lastFuelState)
+                if (compRefuelable != null && !compRefuelable.HasFuel && !Props.glowWithoutFuel)
                 {
-                    lastFuelState = hasFuel;
-                    UpdateState(false);
+                    return false;
                 }
+                return true;
             }
         }
 
-        private void UpdateState(bool forceRefresh)
+        public override float GlowRadius
         {
-            if (compRefuelable == null) return;
+            get
+            {
+                if (compRefuelable != null && !compRefuelable.HasFuel)
+                {
+                    return Props.glowWithoutFuel ? Props.noFuelGlowRadius : 0f;
+                }
+                return base.GlowRadius;
+            }
+        }
 
-            bool hasFuel = compRefuelable.HasFuel;
+        public override ColorInt GlowColor
+        {
+            get
+            {
+                if (compRefuelable != null && !compRefuelable.HasFuel && Props.glowWithoutFuel)
+                {
+                    return Props.ManuelGlowColor;
+                }
+                return base.GlowColor;
+            }
+        }
 
-            if (!forceRefresh)
+        public override void ReceiveCompSignal(string signal)
+        {
+            base.ReceiveCompSignal(signal);
+
+            if (signal == "Refueled" || signal == "RanOutOfFuel")
             {
                 parent.Notify_ColorChanged();
-            }
 
-            if (compGlower != null)
-            {
-                var originalGlowerProps = parent.def.GetCompProperties<CompProperties_Glower>();
-
-                if (hasFuel)
+                if (parent.Spawned)
                 {
-                    if (originalGlowerProps != null)
-                    {
-                        compGlower.Props.glowRadius = originalGlowerProps.glowRadius;
-                        compGlower.Props.glowColor = originalGlowerProps.glowColor; 
-                    }
+                    parent.Map.glowGrid.DeRegisterGlower(this);
+                    parent.Map.glowGrid.RegisterGlower(this);
 
-                    if (parent.Spawned)
-                    {
-                        parent.Map.glowGrid.RegisterGlower(compGlower);
-                        parent.Map.glowGrid.DirtyCell(parent.Position);
-                    }
+                    parent.Map.mapDrawer.MapMeshDirty(parent.Position, MapMeshFlagDefOf.Things);
                 }
-                else
-                {
-                    if (Props.glowWithoutFuel)
-                    {
-                        compGlower.Props.glowRadius = Props.noFuelGlowRadius;
-                        compGlower.Props.glowColor = new ColorInt(Props.ManuelGlowColor);
-
-                        if (parent.Spawned)
-                        {
-                            parent.Map.glowGrid.RegisterGlower(compGlower);
-                            parent.Map.glowGrid.DirtyCell(parent.Position);
-                        }
-                    }
-                    else
-                    {
-                        if (parent.Spawned)
-                        {
-                            parent.Map.glowGrid.DeRegisterGlower(compGlower);
-                            parent.Map.glowGrid.DirtyCell(parent.Position);
-                        }
-                    }
-                }
-            }
-
-            if (parent.Spawned && !forceRefresh)
-            {
-                parent.Map.mapDrawer.MapMeshDirty(parent.Position, MapMeshFlagDefOf.Things);
             }
         }
     }
