@@ -14,29 +14,31 @@ namespace merissu
 
         public CompProperties_RefuelableGraphicAndGlow()
         {
-            this.compClass = typeof(CompRefuelableGraphicAndGlow);
+            compClass = typeof(CompRefuelableGraphicAndGlow);
         }
     }
 
     public class Building_RefuelableGraphicChange : Building
     {
         private Graphic noFuelGraphicInt;
-        private CompRefuelable compRefuelable;
         private CompRefuelableGraphicAndGlow customComp;
+
+        private CompRefuelable Refuelable => GetComp<CompRefuelable>();
 
         public override Graphic Graphic
         {
             get
             {
-                if (compRefuelable == null) compRefuelable = GetComp<CompRefuelable>();
-
-                if (compRefuelable != null && !compRefuelable.HasFuel)
+                if (Refuelable != null && !Refuelable.HasFuel)
                 {
                     if (noFuelGraphicInt == null)
                     {
-                        if (customComp == null) customComp = GetComp<CompRefuelableGraphicAndGlow>();
-
+                        if (customComp == null)
+                        {
+                            customComp = GetComp<CompRefuelableGraphicAndGlow>();
+                        }
                         string path = customComp?.Props?.noFuelTexPath;
+
                         if (!path.NullOrEmpty())
                         {
                             noFuelGraphicInt = GraphicDatabase.Get(
@@ -63,28 +65,32 @@ namespace merissu
 
     public class CompRefuelableGraphicAndGlow : CompGlower
     {
-        private CompRefuelable compRefuelable;
+        private bool needInitialRefresh = true;
 
-        public CompProperties_RefuelableGraphicAndGlow Props => (CompProperties_RefuelableGraphicAndGlow)props;
+        public CompProperties_RefuelableGraphicAndGlow Props =>
+            (CompProperties_RefuelableGraphicAndGlow)props;
 
-        public override void PostSpawnSetup(bool respawningAfterLoad)
-        {
-            base.PostSpawnSetup(respawningAfterLoad);
-            compRefuelable = parent.GetComp<CompRefuelable>();
-        }
+        private CompRefuelable Refuelable =>
+            parent.GetComp<CompRefuelable>();
 
         protected override bool ShouldBeLitNow
         {
             get
             {
-                if (!parent.Spawned) return false;
+                if (!parent.Spawned)
+                    return false;
 
-                if (!FlickUtility.WantsToBeOn(parent)) return false;
+                if (!FlickUtility.WantsToBeOn(parent))
+                    return false;
 
-                CompPowerTrader compPower = parent.TryGetComp<CompPowerTrader>();
-                if (compPower != null && !compPower.PowerOn) return false;
+                CompPowerTrader power = parent.TryGetComp<CompPowerTrader>();
 
-                if (compRefuelable != null && !compRefuelable.HasFuel && !Props.glowWithoutFuel)
+                if (power != null && !power.PowerOn)
+                    return false;
+
+                if (Refuelable != null &&
+                    !Refuelable.HasFuel &&
+                    !Props.glowWithoutFuel)
                 {
                     return false;
                 }
@@ -92,14 +98,18 @@ namespace merissu
                 return true;
             }
         }
+
         public override float GlowRadius
         {
             get
             {
-                if (compRefuelable != null && !compRefuelable.HasFuel)
+                if (Refuelable != null && !Refuelable.HasFuel)
                 {
-                    return Props.glowWithoutFuel ? Props.noFuelGlowRadius : 0f;
+                    return Props.glowWithoutFuel
+                        ? Props.noFuelGlowRadius
+                        : 0f;
                 }
+
                 return base.GlowRadius;
             }
         }
@@ -108,11 +118,36 @@ namespace merissu
         {
             get
             {
-                if (compRefuelable != null && !compRefuelable.HasFuel && Props.glowWithoutFuel)
+                if (Refuelable != null &&
+                    !Refuelable.HasFuel &&
+                    Props.glowWithoutFuel)
                 {
                     return Props.ManuelGlowColor;
                 }
+
                 return base.GlowColor;
+            }
+        }
+
+        public override void CompTick()
+        {
+            base.CompTick();
+
+            if (needInitialRefresh)
+            {
+                needInitialRefresh = false;
+
+                if (parent.Spawned)
+                {
+                    parent.Map.glowGrid.DeRegisterGlower(this);
+                    parent.Map.glowGrid.RegisterGlower(this);
+
+                    parent.Notify_ColorChanged();
+                    parent.Map.mapDrawer.MapMeshDirty(
+                        parent.Position,
+                        MapMeshFlagDefOf.Things
+                    );
+                }
             }
         }
 
@@ -120,17 +155,26 @@ namespace merissu
         {
             base.ReceiveCompSignal(signal);
 
-            if (signal == "Refueled" || signal == "RanOutOfFuel")
+            if (signal == "Refueled" ||
+                signal == "RanOutOfFuel")
             {
-                parent.Notify_ColorChanged();
+                RefreshGlow();
+            }
+        }
 
-                if (parent.Spawned)
-                {
-                    parent.Map.glowGrid.DeRegisterGlower(this);
-                    parent.Map.glowGrid.RegisterGlower(this);
+        private void RefreshGlow()
+        {
+            parent.Notify_ColorChanged();
 
-                    parent.Map.mapDrawer.MapMeshDirty(parent.Position, MapMeshFlagDefOf.Things);
-                }
+            if (parent.Spawned)
+            {
+                parent.Map.glowGrid.DeRegisterGlower(this);
+                parent.Map.glowGrid.RegisterGlower(this);
+
+                parent.Map.mapDrawer.MapMeshDirty(
+                    parent.Position,
+                    MapMeshFlagDefOf.Things
+                );
             }
         }
     }
