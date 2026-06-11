@@ -8,6 +8,7 @@
 		<graphicData>
 			<texPath>Material/Misc/SupernaturalBead</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<statBases>
 			<Mass>0.01</Mass>
