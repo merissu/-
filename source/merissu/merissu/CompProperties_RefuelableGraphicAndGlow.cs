@@ -77,16 +77,21 @@ namespace merissu
         {
             get
             {
-                if (!base.ShouldBeLitNow) return false;
+                if (!parent.Spawned) return false;
+
+                if (!FlickUtility.WantsToBeOn(parent)) return false;
+
+                CompPowerTrader compPower = parent.TryGetComp<CompPowerTrader>();
+                if (compPower != null && !compPower.PowerOn) return false;
 
                 if (compRefuelable != null && !compRefuelable.HasFuel && !Props.glowWithoutFuel)
                 {
                     return false;
                 }
+
                 return true;
             }
         }
-
         public override float GlowRadius
         {
             get
