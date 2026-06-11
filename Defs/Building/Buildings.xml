@@ -658,11 +658,14 @@
 			<li Class="U.N.Owen.EndAbout.CompProperties_ShrineBeacon">
 			</li>
 			<li Class="merissu.CompProperties_RefuelableGraphicAndGlow">
-                <noFuelTexPath>Building/ShrineBeaconoff</noFuelTexPath>
-                <glowWithoutFuel>false</glowWithoutFuel>
-                <noFuelGlowRadius>0</noFuelGlowRadius>
-				<ManuelGlowColor>(0, 0, 0)</ManuelGlowColor>
-            </li>
+				<noFuelTexPath>Building/ShrineBeaconoff</noFuelTexPath>
+				<glowWithoutFuel>false</glowWithoutFuel>
+				<noFuelGlowRadius>0</noFuelGlowRadius>
+				<ManuelGlowColor>(252,187,113)</ManuelGlowColor>
+				<overlightRadius>15.0</overlightRadius>
+				<glowRadius>15</glowRadius>
+				<glowColor>(252,187,113,0)</glowColor>
+			</li>
 			<li Class="CompProperties_Refuelable">
 				<fuelConsumptionRate>2.0</fuelConsumptionRate>
 				<fuelCapacity>30.0</fuelCapacity>
@@ -675,10 +678,6 @@
 				<initialFuelPercent>0</initialFuelPercent>
 				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
 				<functionsInVacuum>false</functionsInVacuum>
-			</li>
-			<li Class="CompProperties_Glower">
-				<glowRadius>15</glowRadius>
-				<glowColor>(252,187,113,0)</glowColor>
 			</li>
 			<li Class="CompProperties_HeatPusher">
 				<compClass>CompHeatPusherPowered</compClass>
