@@ -13,13 +13,17 @@ namespace merissu
         private const float CircleRadius = 1.5f;
 
         private Vector3 currentRealPos = Vector3.zero;
-        private Vector3 currentVelocity = Vector3.zero; 
+        private Vector3 currentVelocity = Vector3.zero;
+
+        private float currentTurnRate = 0.03f;
+        private const float TurnRateAcceleration = 0.001f; 
 
         public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventDrawing = false, Thing equipment = null, ThingDef thingDef = null)
         {
             base.Launch(launcher, origin, usedTarget, intendedTarget, hitFlags, preventDrawing, equipment, thingDef);
             this.currentRealPos = origin;
             this.currentVelocity = (intendedTarget.CenterVector3 - origin).normalized;
+            this.currentTurnRate = 0.03f; 
         }
 
         private int scanCooldown = 0;
@@ -28,27 +32,31 @@ namespace merissu
         {
             if (currentRealPos == Vector3.zero) currentRealPos = this.DrawPos;
 
-            Pawn targetPawn = this.intendedTarget.Thing as Pawn;
+            Thing targetThing = this.intendedTarget.Thing;
 
-            if (targetPawn == null || targetPawn.Dead || targetPawn.Destroyed || !targetPawn.Spawned)
+            bool isTargetInvalid = targetThing == null || targetThing.Destroyed || (targetThing is Pawn p && p.Dead);
+
+            if (isTargetInvalid)
             {
                 scanCooldown--;
                 if (scanCooldown <= 0)
                 {
-                    targetPawn = FindNearestEnemy();
-                    if (targetPawn != null) this.intendedTarget = new LocalTargetInfo(targetPawn);
+                    targetThing = FindNearestEnemyThing();
+                    if (targetThing != null) this.intendedTarget = new LocalTargetInfo(targetThing);
                     scanCooldown = 30;
+                    currentTurnRate = 0.03f; 
                 }
             }
 
             Vector3 targetVector;
-            float turnRate; 
 
-            if (targetPawn != null)
+            if (targetThing != null && !isTargetInvalid)
             {
                 circleTicks = 0;
-                targetVector = targetPawn.DrawPos;
-                turnRate = 0.07f; 
+                targetVector = targetThing.DrawPos;
+
+                currentTurnRate += TurnRateAcceleration;
+                if (currentTurnRate > 1f) currentTurnRate = 1f;
             }
             else
             {
@@ -56,24 +64,33 @@ namespace merissu
                 if (circleTicks >= MaxCircleTicks) { this.Destroy(); return; }
                 angle += 0.1f;
                 targetVector = currentRealPos + new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * CircleRadius;
-                turnRate = 0.03f; 
+                currentTurnRate = 0.03f; 
             }
 
             Vector3 desiredDir = (targetVector - currentRealPos).normalized;
-            currentVelocity = Vector3.Slerp(currentVelocity, desiredDir, turnRate).normalized;
+
+            currentVelocity = Vector3.Slerp(currentVelocity, desiredDir, currentTurnRate).normalized;
 
             float step = this.def.projectile.speed / 100f;
             currentRealPos += currentVelocity * step;
 
             this.Position = currentRealPos.ToIntVec3();
 
-            if (targetPawn != null)
+            if (targetThing != null && !isTargetInvalid)
             {
-                float contactDist = (targetPawn.RaceProps.baseBodySize * 0.5f) + 0.3f;
-
-                if (Vector3.Distance(currentRealPos, targetPawn.DrawPos) < contactDist)
+                float contactDist = 0.3f;
+                if (targetThing is Pawn targetPawn)
                 {
-                    this.Impact(targetPawn);
+                    contactDist += targetPawn.RaceProps.baseBodySize * 0.5f;
+                }
+                else if (targetThing.def != null)
+                {
+                    contactDist += Mathf.Max(targetThing.def.size.x, targetThing.def.size.z) * 0.5f;
+                }
+
+                if (Vector3.Distance(currentRealPos, targetThing.DrawPos) < contactDist)
+                {
+                    this.Impact(targetThing);
                     return;
                 }
             }
@@ -83,22 +100,30 @@ namespace merissu
 
         public override Quaternion ExactRotation => (currentVelocity == Vector3.zero) ? base.ExactRotation : Quaternion.LookRotation(currentVelocity);
 
-        private Pawn FindNearestEnemy()
+        private Thing FindNearestEnemyThing()
         {
             if (this.Map == null) return null;
-            return (Pawn)GenClosest.ClosestThingReachable(
+            return GenClosest.ClosestThingReachable(
                 this.Position,
                 this.Map,
-                ThingRequest.ForGroup(ThingRequestGroup.Pawn),
+                ThingRequest.ForGroup(ThingRequestGroup.AttackTarget), 
                 Verse.AI.PathEndMode.Touch,
-                TraverseParms.For(TraverseMode.ByPawn),
+                TraverseParms.For(TraverseMode.NoPassClosedDoors),
                 999f,
-                x => x is Pawn p && !p.Dead && p.HostileTo(this.launcher));
+                x => {
+                    if (x.Destroyed) return false;
+                    if (x is Pawn p && p.Dead) return false;
+                    if (x.Faction != null && this.launcher != null && this.launcher.Faction != null)
+                    {
+                        return x.Faction.HostileTo(this.launcher.Faction);
+                    }
+                    return false;
+                });
         }
 
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
-            if (hitThing == null && FindNearestEnemy() != null) return;
+            if (hitThing == null && FindNearestEnemyThing() != null) return;
             if (hitThing != null)
             {
                 float damageAmount = this.def.projectile.GetDamageAmount(this.launcher, null);

@@ -3,25 +3,6 @@
               <!-- 御币 -->
 
   <Operation Class="PatchOperationReplace">
-    <xpath>Defs/ThingDef[defName="Gohei"]/verbs</xpath>
-    <value>
-      <verbs>
-        <li Class="CombatExtended.VerbPropertiesCE">
-          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
-          <hasStandardCommand>true</hasStandardCommand>
-          <defaultProjectile>HakureiTalisman</defaultProjectile>
-          <warmupTime>0.01</warmupTime>
-          <range>30</range>
-          <soundCast>gohei</soundCast>
-          <muzzleFlashScale>0</muzzleFlashScale>
-          <burstShotCount>3</burstShotCount> 
-          <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
-        </li>
-      </verbs>
-    </value>
-  </Operation>
-
-  <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="Gohei"]/statBases</xpath>
     <value>
       <statBases>
@@ -39,13 +20,6 @@
         <ShotSpread>0.01</ShotSpread> 
         <SwayFactor>0.3</SwayFactor> 
       </statBases>
-    </value>
-  </Operation>
-
-  <Operation Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="HakureiTalisman"]</xpath>
-    <value>
-      <thingClass>CombatExtended.BulletCE</thingClass>
     </value>
   </Operation>
 
@@ -1165,4 +1139,28 @@
       <li>CE_OneHandedWeapon</li>
     </value>
   </Operation>
+
+              <!-- 七曜法典 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SevenElementalGrimoire"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>敲击</label>
+          <capacities>
+            <li>Blunt</li>
+  					<li>Poke</li>
+          </capacities>
+          <power>5</power>
+          <cooldownTime>1</cooldownTime>
+          <armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+          <armorPenetrationSharp>10</armorPenetrationSharp>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+
 </Patch>

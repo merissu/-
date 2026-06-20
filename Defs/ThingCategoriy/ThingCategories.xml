@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 <ThingCategoryDef>
+	<defName>TouhouMedicine</defName> 
+	<label>东方医药</label>           
+	<parent>Manufactured</parent>    
+	<iconPath>Medicine/Energizer</iconPath> 
+</ThingCategoryDef>
+<ThingCategoryDef>
+	<defName>touhoucard</defName>
+	<label>东方卡牌</label>
+	<parent>Root</parent>
+	<resourceReadoutRoot>false</resourceReadoutRoot>
+	<iconPath>Medicine/Blankcard</iconPath>
+</ThingCategoryDef>
+<ThingCategoryDef>
 	<defName>TouhouMaterial</defName>
 	<label>东方材料</label>
 	<parent>Root</parent>

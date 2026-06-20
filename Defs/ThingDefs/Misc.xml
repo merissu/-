@@ -3,7 +3,14 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>SupernaturalBead</defName>
 		<label>灵异珠</label>
-		<description>散发着奇妙能量的珠子，似乎会与博丽小结界产生某种共鸣，传闻集齐七颗能够实现愿望。</description>
+		<description>灵异珠是由灵异事件与地点凝聚的反常识力量结晶,带有着都市传说的情感与超常识力量
+
+当发生最强大的妖怪袭击时,反常识力量便会突破阈值凝聚成灵异珠</description>
+		<descriptionHyperlinks>
+            <ThingDef>YorigamiJyooncard</ThingDef> 
+			<ThingDef>LittleHakureiEnchantment</ThingDef> 
+			<ThingDef>ShrineBeaconWithoutSealing</ThingDef> 
+        </descriptionHyperlinks>
 		<tickerType>Normal</tickerType>
 		<graphicData>
 			<texPath>Material/Misc/SupernaturalBead</texPath>
@@ -15,7 +22,7 @@
 		</statBases>
 		<burnableByRecipe>false</burnableByRecipe>
 		<healthAffectsPrice>false</healthAffectsPrice>
-		<minRewardCount>30</minRewardCount>
+		<minRewardCount>1</minRewardCount>
 		<stuffProps>
 			<categories>
 				<li>TouhouMaterial</li>
@@ -29,9 +36,9 @@
 		</stuffProps>
 		<stackLimit>1</stackLimit>
 		<thingCategories>
-			<li>ItemsMisc</li>
+			<li>TouhouMaterial</li>
 		</thingCategories>
-		<allowedArchonexusCount>80</allowedArchonexusCount>
+		<allowedArchonexusCount>10</allowedArchonexusCount>
 		<comps>
 		</comps>
 	</ThingDef>

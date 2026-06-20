@@ -512,6 +512,9 @@
 
 替换手臂后击杀敌人可获取p点。</description>
 		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+        </descriptionHyperlinks>
+		<descriptionHyperlinks>
 			<RecipeDef>InstallKasenArm</RecipeDef>
 		</descriptionHyperlinks>
 		<graphicData>

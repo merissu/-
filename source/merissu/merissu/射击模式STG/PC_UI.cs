@@ -15,8 +15,7 @@ namespace merissu
             float deltaTime = Time.deltaTime;
             if (Find.TickManager.Paused) deltaTime = 0f;
 
-            Vector3 playerPos = physicsPosition ?? pawn.DrawPos;
-
+            Vector3 playerPos = pawn.DrawPos;
             for (int i = grazeParticles.Count - 1; i >= 0; i--)
             {
                 if (grazeParticles[i].Update(playerPos, deltaTime))
@@ -74,8 +73,7 @@ namespace merissu
                 hitboxRotation %= 360f;
 
                 float currentScale = 1.5f + 0.8f * Mathf.Exp(-hitboxAppearProgress * 15f);
-                Vector3 centerPos = physicsPosition ?? pawn.DrawPos;
-
+                Vector3 centerPos = pawn.DrawPos;
                 float baseEffectAltitude = Altitudes.AltitudeFor(AltitudeLayer.MoteOverhead);
 
                 float rotatingAlpha = hitboxCurrentAlpha;

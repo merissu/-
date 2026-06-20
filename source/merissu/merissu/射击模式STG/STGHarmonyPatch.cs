@@ -73,7 +73,7 @@ namespace merissu
 
             Vector3 oldPos = __state;
             Vector3 newPos = __instance.DrawPos;
-            Vector3 centerPos = State.PC.physicsPosition ?? State.PC.pawn.DrawPos;
+            Vector3 centerPos = State.PC.pawn.DrawPos;
 
             if (STG_HitManager.SegmentIntersectsHitbox(oldPos, newPos, centerPos, STG_HitManager.HitboxHalfWidth))
             {
@@ -179,7 +179,7 @@ namespace merissu
             }
             Vector3 oldPos = __state;
             Vector3 newPos = __instance.ExactPosition;
-            Vector3 centerPos = State.PC.physicsPosition ?? State.PC.pawn.DrawPos;
+            Vector3 centerPos = State.PC.pawn.DrawPos;
 
             if (STG_HitManager.SegmentIntersectsHitbox(oldPos, newPos, centerPos, STG_HitManager.HitboxHalfWidth))
             {
@@ -247,10 +247,9 @@ namespace merissu
             if (!State.IsActive || State.PC?.pawn == null || intendedTarget.Thing != State.PC.pawn)
                 return;
 
-            Vector3 preciseTarget = State.PC.physicsPosition ?? State.PC.pawn.DrawPos;
+            Vector3 preciseTarget = State.PC.pawn.DrawPos;
 
             Vector3 dir = (preciseTarget - origin).Yto0().normalized;
-
             if (dir.sqrMagnitude < 0.001f) return;
 
             Vector3 newDestination = origin + dir * 60f;

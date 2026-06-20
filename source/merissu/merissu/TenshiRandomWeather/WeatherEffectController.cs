@@ -7,8 +7,8 @@ namespace merissu
 {
     public class WeatherMusicExtension : DefModExtension
     {
-        public string clipPath;          
-        public string switchTexturePath; 
+        public string clipPath;
+        public string switchTexturePath;
         public float volume = 1f;
         public float fadeOutSeconds = 1.5f;
     }
@@ -33,6 +33,30 @@ namespace merissu
         private float musicFadeOutTimer = 0f;
         private float musicFadeStartVolume = 1f;
 
+        private const float DuckingFadeSpeed = 0.8f;
+        private AudioSource cachedVanillaAudioSource;
+        private bool hasCachedVanillaSource = false;
+
+        private bool IsVanillaMusicAudible()
+        {
+            if (Find.MusicManagerPlay == null) return false;
+
+            if (Find.MusicManagerPlay.DangerMusicMode) return true;
+
+            if (!hasCachedVanillaSource)
+            {
+                cachedVanillaAudioSource = typeof(MusicManagerPlay)
+                    .GetField("audioSource", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)?
+                    .GetValue(Find.MusicManagerPlay) as AudioSource;
+                hasCachedVanillaSource = true;
+            }
+            if (cachedVanillaAudioSource != null)
+            {
+                return cachedVanillaAudioSource.isPlaying && cachedVanillaAudioSource.volume > 0.01f;
+            }
+
+            return Find.MusicManagerPlay.IsPlaying;
+        }
         private Texture2D dayOverlayTex;
         private Material dayOverlayMat;
         private List<SunBeamInstance> beams = new List<SunBeamInstance>();
@@ -119,13 +143,14 @@ namespace merissu
             AudioClip clip = ContentFinder<AudioClip>.Get(ext.clipPath, false);
             if (clip == null) return;
 
-            Find.MusicManagerPlay?.ForceFadeoutAndSilenceFor(600f, 1.0f, true);
 
             currentMusicExt = ext;
             isMusicFadingOut = false;
 
             weatherMusicSource.clip = clip;
-            weatherMusicSource.volume = ext.volume * Prefs.VolumeMusic;
+
+            bool vanillaPlaying = IsVanillaMusicAudible();
+            weatherMusicSource.volume = vanillaPlaying ? 0f : (ext.volume * Prefs.VolumeMusic);
             weatherMusicSource.Play();
         }
 
@@ -137,7 +162,6 @@ namespace merissu
             {
                 weatherMusicSource.Stop();
                 isMusicFadingOut = false;
-                if (Find.MusicManagerPlay != null) Find.MusicManagerPlay.ScheduleNewSong();
             }
             else
             {
@@ -163,12 +187,21 @@ namespace merissu
                 {
                     weatherMusicSource.Stop();
                     isMusicFadingOut = false;
-                    if (Find.MusicManagerPlay != null) Find.MusicManagerPlay.ScheduleNewSong();
                 }
             }
             else if (currentMusicExt != null)
             {
-                weatherMusicSource.volume = currentMusicExt.volume * Prefs.VolumeMusic;
+                float targetVolume = currentMusicExt.volume * Prefs.VolumeMusic;
+
+                if (IsVanillaMusicAudible())
+                {
+                    targetVolume = 0f;
+                }
+                weatherMusicSource.volume = Mathf.MoveTowards(
+                    weatherMusicSource.volume,
+                    targetVolume,
+                    Time.unscaledDeltaTime * DuckingFadeSpeed
+                );
             }
         }
 

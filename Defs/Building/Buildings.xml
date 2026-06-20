@@ -23,94 +23,172 @@
 		</building>
 	</ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="BuildingBase">
 		<defName>NitoriGenerator</defName>
 		<label>荷取热机</label>
-		<description>这是我在山上发现的神奇的机械，好像比人类使用的科技更加先进，所以我就偷偷溜进河童们的工坊，把它的图纸带了回来。不过看起来莲子也不是很明白这个机械的原理的样子，嘛，我想那个世界的东西大概都是难以理解的吧。</description>
-	<thingClass>merissu.Building_RefuelableGraphicChange</thingClass>
-    <drawerType>MapMeshAndRealTime</drawerType>
-	  <graphicData>
-		  <texPath>Building/NitoriGenerator</texPath>
-		  <graphicClass>Graphic_Single</graphicClass>
-		  <drawSize>(4.5,4.5)</drawSize>
-		  <shadowData>
-			  <volume>(1.93,1,1.69)</volume>
-			  <offset>(-0.03,0,-0.1)</offset>
-		  </shadowData>
-	  </graphicData>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>Impassable</passability>
-    <blockWind>true</blockWind>
-    <scatterableOnMapGen>false</scatterableOnMapGen>
-    <fillPercent>1</fillPercent>
-    <blockLight>false</blockLight>
-    <canOverlapZones>false</canOverlapZones>
-	  <statBases>
-		  <MaxHitPoints>300</MaxHitPoints>
-		  <WorkToBuild>2500</WorkToBuild>
-		  <Flammability>1.0</Flammability>
-		  <Beauty>10</Beauty>
-	  </statBases>
-    <tickerType>Normal</tickerType>
-    <size>(4,4)</size>
-	  <costList>
-		  <Steel>200</Steel>
-		  <Crimsongold>30</Crimsongold>
-		  <FullPower>1</FullPower>
-		  <ComponentIndustrial>5</ComponentIndustrial>
-	  </costList>
-    <bringAlongOnGravship>false</bringAlongOnGravship>
-    <comps>
-		<li Class="CompProperties_Power">
-			<compClass>CompPowerPlant</compClass>
-			<basePowerConsumption>-5140</basePowerConsumption>
-			<transmitsPower>true</transmitsPower>
-			<soundAmbientProducingPower>ChemfuelFiredGenerator_Ambience</soundAmbientProducingPower>
+		<description>由河童们研发的最新款地热发电机,发电效率是传统发电机的200%,防水效率则是400%!
+
+尽管这个发电机是河童们仿照某种古老的装置设计的,但不知为何发电效率却不合常理的高
+
+内置有蒸馏器,可以方便的获取净水,干净的泉水可以用于酿酒</description>
+		<descriptionHyperlinks>
+			<ThingDef>HotSpringWater</ThingDef> 
+		</descriptionHyperlinks>
+		<thingClass>merissu.Building_RefuelableGraphicChange</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>Building/NitoriGenerator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(4.5,4.5)</drawSize>
+			<shadowData>
+				<volume>(1.93,1,1.69)</volume>
+				<offset>(-0.03,0,-0.1)</offset>
+			</shadowData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<scatterableOnMapGen>false</scatterableOnMapGen>
+		<fillPercent>1</fillPercent>
+		<blockLight>false</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>2500</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>10</Beauty>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(4,4)</size>
+		<costList>
+			<Steel>200</Steel>
+			<Crimsongold>30</Crimsongold>
+			<FullPower>1</FullPower>
+			<ComponentIndustrial>5</ComponentIndustrial>
+		</costList>
+		<bringAlongOnGravship>false</bringAlongOnGravship>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerPlant</compClass>
+				<basePowerConsumption>-5140</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+				<soundAmbientProducingPower>ChemfuelFiredGenerator_Ambience</soundAmbientProducingPower>
+			</li>
+			<li Class="merissu.CompProperties_GetHotSpringWater">
+				<waterThingDef>HotSpringWater</waterThingDef>
+				<waterAmount>5</waterAmount>
+				<workTicks>300</workTicks>
+			</li>
+			<li Class="CompProperties_Flickable" />
+			<li Class="merissu.CompProperties_RefuelableGraphicAndGlow">
+				<noFuelTexPath>Building/NitoriGenerator</noFuelTexPath>
+				<glowWithoutFuel>true</glowWithoutFuel>
+				<noFuelGlowRadius>6</noFuelGlowRadius>
+				<ManuelGlowColor>(204, 255, 153)</ManuelGlowColor>
+				<overlightRadius>12.0</overlightRadius>
+				<glowRadius>12</glowRadius>
+				<glowColor>(204, 255, 153,0)</glowColor>
+			</li>
+		<li Class="CompProperties_Breakdownable"/>
+		<li Class="CompProperties_AmbientSound">
+			<sound>GeothermalPlant_Ambience</sound>
+			<disabledOnUnpowered>true</disabledOnUnpowered>
 		</li>
-		<li Class="U.N.Owen.CompProperties_SpawnWater" />
-		<li Class="CompProperties_Flickable" />
-		<li Class="merissu.CompProperties_RefuelableGraphicAndGlow">
-			<noFuelTexPath>Building/NitoriGenerator</noFuelTexPath>
-			<glowWithoutFuel>true</glowWithoutFuel>
-			<noFuelGlowRadius>6</noFuelGlowRadius>
-			<ManuelGlowColor>(204, 255, 153)</ManuelGlowColor>
-			<overlightRadius>12.0</overlightRadius>
-			<glowRadius>12</glowRadius>
-			<glowColor>(204, 255, 153,0)</glowColor>
-		</li>
-      <li Class="CompProperties_Breakdownable"/>
-      <li Class="CompProperties_AmbientSound">
-        <sound>GeothermalPlant_Ambience</sound>
-        <disabledOnUnpowered>true</disabledOnUnpowered>
-      </li>
-    </comps>
-    <rotatable>false</rotatable>
-    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>Power</designationCategory>
-    <uiOrder>2110</uiOrder>
-    <placeWorkers>
-      <li>PlaceWorker_OnSteamGeyser</li>
-      <li>PlaceWorker_InvalidOverSubstructure</li>
-    </placeWorkers>
-    <building>
-      <ai_chillDestination>false</ai_chillDestination>
-      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
-    </building>
-    <constructEffect>ConstructMetal</constructEffect>
-    <designationHotKey>Misc6</designationHotKey>
-    <researchPrerequisites><li>PowerPoint</li></researchPrerequisites>
-    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
-  </ThingDef>
+		</comps>
+		<rotatable>false</rotatable>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<designationCategory>Power</designationCategory>
+		<uiOrder>2110</uiOrder>
+		<placeWorkers>
+		<li>PlaceWorker_OnSteamGeyser</li>
+		<li>PlaceWorker_InvalidOverSubstructure</li>
+		</placeWorkers>
+		<building>
+		<ai_chillDestination>false</ai_chillDestination>
+		<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+		</building>
+		<constructEffect>ConstructMetal</constructEffect>
+		<designationHotKey>Misc6</designationHotKey>
+		<researchPrerequisites><li>PowerPoint</li></researchPrerequisites>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+        <defName>HotSpringWater</defName>
+        <label>温泉水</label>
+        <description>用荷取热机净化的温热泉水,有淡淡的硫磺味,喝下去浑身暖暖的,会很舒服,适合用来酿造酒</description>
+        <graphicData>
+            <texPath>Medicine/GeyserWater</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Mote</shaderType>
+        </graphicData>
+        <thingClass>ThingWithComps</thingClass>
+        <stackLimit>75</stackLimit>
+        <statBases>
+            <MarketValue>8</MarketValue>
+            <Mass>0.2</Mass>
+        </statBases>
+        <category>Item</category>
+        <resourceReadoutPriority>Middle</resourceReadoutPriority>
+		<ingestible>
+            <ingestHoldUsesTable>false</ingestHoldUsesTable>
+            <ingestCommandString>喝{0}</ingestCommandString>
+            <ingestReportString>正在喝 {0}。</ingestReportString>
+            <ingestSound>Ingest_Drink</ingestSound>
+            <foodType>Fluid</foodType>
+            <preferability>NeverForNutrition</preferability> 
+			<baseIngestTicks>90</baseIngestTicks>
+			<joy>0.05</joy>
+            <joyKind>Chemical</joyKind>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>HotSpringWarmth</hediffDef>
+                    <severity>1.0</severity>
+                </li>
+            </outcomeDoers>
+		</ingestible>
+    </ThingDef>
+
+	<HediffDef>
+		<defName>HotSpringWarmth</defName>
+		<label>暖暖的</label>
+		<description>刚喝下热气腾腾的温热泉水,浑身暖洋洋的</description>
+		<hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(51,204,102)</defaultLabelColor>
+		<isBad>false</isBad> 
+		<maxSeverity>1.0</maxSeverity>
+		<stages>
+			<li/>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-24.0</severityPerDay>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath" />
+		</comps>
+	</HediffDef>
+	
+	<ThoughtDef>
+		<defName>DrankHotSpringWater</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>HotSpringWarmth</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>喝了温热的泉水</label>
+				<description>刚喝下热气腾腾的温热泉水,浑身暖洋洋的</description>
+				<baseMoodEffect>3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
 	<JobDef>
-		<defName>SpawnWater</defName>
-		<driverClass>U.N.Owen.JobDriver_SpawnWater</driverClass>
-		<reportString>取出温泉水。</reportString>
-		<suspendable>false</suspendable>
-		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+		<defName>CollectHotSpringWater</defName>
+		<driverClass>merissu.JobDriver_CollectHotSpringWater</driverClass>
+		<reportString>正在收集温泉水</reportString>
 	</JobDef>
-
-
-
+	
 	<ThingDef ParentName="BenchBase">
 		<defName>UtuhoNuclearFurnace</defName>
 		<label>核聚变堆芯</label>
@@ -123,6 +201,9 @@
 尽管核聚变能产生大量热量，但是如果灼热地狱遗址缺乏燃料，核聚变炉还是会停止运转。
 
 可以用尸体作为燃料,倒不如说尸体就是进行核聚变最好的燃料</description>
+		<descriptionHyperlinks>
+            <ThingDef>Corp</ThingDef> 
+        </descriptionHyperlinks>
 		<thingClass>merissu.Building_RefuelableGraphicChange</thingClass>
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<rotatable>false</rotatable>
@@ -356,9 +437,14 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>LittleHakureiEnchantment</defName>
 		<label>博丽小结界</label>
-		<description>按照博丽大结界做出的仿制品,由于没有贤者力量的加持,需要大量灵力维护。小结界半径有多少,每天就会消耗多少p点。
+		<description>按照博丽大结界做出的仿制品,由于没有贤者力量的加持,需要大量灵力维护。小结界半径有多少,每天就会消耗多少p点
 		
-有着各种各样的功能,可以拦截敌人子弹手雷爆炸物(拦截不了能量武器和火焰),让隐身敌对单位现身,使所有敌人幻想入(死亡后爆p点)。</description>
+有着各种各样的功能,可以拦截敌人子弹手雷爆炸物(拦截不了能量武器和火焰),让隐身敌对单位现身,使所有敌人死亡时产生p点
+
+封入灵异珠后,大结界会为范围内的殖民者提供灵力,每天可以提供1的灵力,初始最多能够将殖民者的灵力提升至1,每多封入一颗灵异珠,提供的灵力上限也会相应增加</description>
+		<descriptionHyperlinks>
+			<ThingDef>SupernaturalBead</ThingDef> 
+		</descriptionHyperlinks>
 		<size>(4,2)</size>
 		<thingClass>Building</thingClass>
 		<statBases>
@@ -382,6 +468,7 @@
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<placeWorkers>
 			<li>PlaceWorker_ShowProjectileInterceptorRadius</li>
+		    <li>merissu.PlaceWorker_LimitPerMap</li>
 		</placeWorkers>
 		<comps>
 			<li Class="CompProperties_ProjectileInterceptor">
@@ -391,10 +478,12 @@
 				<color>(0.9, 0.4, 0.4)</color>
 			</li>
 			<li Class="merissu.CompProperties_ShieldRadiusControl">
-                <minRadius>5</minRadius>
-                <maxRadius>60</maxRadius>
-                <step>5</step>
-            </li>
+				<minRadius>5</minRadius>
+				<maxRadius>60</maxRadius>
+				<step>5</step>
+				<beadDef>SupernaturalBead</beadDef>
+				<spiritualPowerDef>spiritualpower</spiritualPowerDef>
+			</li>
 			<li Class="CompProperties_Refuelable">
 				<fuelConsumptionRate>30</fuelConsumptionRate>
 				<fuelCapacity>1000</fuelCapacity>
@@ -410,46 +499,8 @@
 					<li>ShrineBeacon</li>
 				</linkableFacilities>
 			</li>
-			<li Class="U.N.Owen.EndAbout.CompProperties_EntryGenso">
-				<requiredLinkedFacilities>7</requiredLinkedFacilities>
-				<endingSong>Eastern_Heaven_of_Scarlet_Perception</endingSong>
-				<creditsSongStartDelay>2.5</creditsSongStartDelay>
-
-				<endingCgs>
-					<li>
-						<texturePath>CG/ED1</texturePath>
-						<displaySeconds>5</displaySeconds>
-						<preFadeToWhiteSeconds>1.0</preFadeToWhiteSeconds>
-						<preFadeFromWhiteSeconds>0.0</preFadeFromWhiteSeconds>
-						<postFadeToWhiteSeconds>0</postFadeToWhiteSeconds>
-						<postFadeFromWhiteSeconds>0</postFadeFromWhiteSeconds>
-					</li>
-					<li>
-						<texturePath>CG/ED2</texturePath>
-						<displaySeconds>5</displaySeconds>
-						<preFadeToWhiteSeconds>0.5</preFadeToWhiteSeconds>
-						<preFadeFromWhiteSeconds>0</preFadeFromWhiteSeconds>
-						<postFadeToWhiteSeconds>0</postFadeToWhiteSeconds>
-						<postFadeFromWhiteSeconds>0</postFadeFromWhiteSeconds>
-					</li>
-					<li>
-						<texturePath>CG/ED3</texturePath>
-						<displaySeconds>5</displaySeconds>
-						<preFadeToWhiteSeconds>0.5</preFadeToWhiteSeconds>
-						<preFadeFromWhiteSeconds>0</preFadeFromWhiteSeconds>
-						<postFadeToWhiteSeconds>0</postFadeToWhiteSeconds>
-						<postFadeFromWhiteSeconds>0</postFadeFromWhiteSeconds>
-					</li>
-					<li>
-						<texturePath>CG/ED4</texturePath>
-						<displaySeconds>5</displaySeconds>
-						<preFadeToWhiteSeconds>0.5</preFadeToWhiteSeconds>
-						<preFadeFromWhiteSeconds>0</preFadeFromWhiteSeconds>
-						<postFadeToWhiteSeconds>0</postFadeToWhiteSeconds>
-						<postFadeFromWhiteSeconds>0</postFadeFromWhiteSeconds>
-					</li>
-					<!-- 继续加 li 就是继续加图片 -->
-				</endingCgs>
+			<li Class="merissu.CompProperties_LimitPerMap">
+				<maxCount>1</maxCount>
 			</li>
 		</comps>
 		<designationCategory>Misc</designationCategory>
@@ -464,13 +515,7 @@
 			<li>PowerPoint</li>
 		</researchPrerequisites>
 	</ThingDef>
-	<JobDef>
-		<defName>OpenGensokyo</defName>
-		<driverClass>U.N.Owen.EndAbout.JobDriver_OpenGensokyo</driverClass>
-		<reportString>正在打开幻想乡的裂缝。</reportString>
-		<suspendable>false</suspendable>
-		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-	</JobDef>
+
 	<ThingDef ParentName="BuildingBase">
 		<defName>DoremySleepingPillow</defName>
 		<label>哆来咪安眠枕</label>
@@ -572,10 +617,11 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-		<ThingDef ParentName="BuildingBase">
+
+	<ThingDef ParentName="BuildingBase">
 		<defName>ShrineBeacon</defName>
 		<label>神社庭灯</label>
-		<description>神社用于照明的灯笼，也用于收纳奉纳的香火，里面封印了一枚灵异珠。</description>
+		<description>神社用于照明的灯笼,也用于收纳奉纳的香火,里面封印了一枚灵异珠为庭灯提供了无限的能源</description>
 		<graphicData>
 			<texPath>Building/ShrineBeacon</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -593,12 +639,10 @@
 			<destroySound>BuildingDestroyed_Metal_Big</destroySound>
 		</building>
 		<comps>
-			<li Class="CompProperties_Breakdownable"/>
-
-			<li Class="CompProperties_Facility">
-				<maxSimultaneous>7</maxSimultaneous>
-				<maxDistance>7000</maxDistance>
-				<mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerPlant</compClass>
+				<basePowerConsumption>-500</basePowerConsumption> 
+				<transmitsPower>true</transmitsPower>           
 			</li>
 			<li Class="CompProperties_Glower">
 				<glowRadius>15</glowRadius>
@@ -633,10 +677,14 @@
 			<SupernaturalBead>1</SupernaturalBead>
 		</costList>
 	</ThingDef>
+
 	<ThingDef ParentName="BuildingBase">
 		<defName>ShrineBeaconWithoutSealing</defName>
 		<label>神社庭灯</label>
-		<description>神社用于照明的灯笼，也用于收纳奉纳的香火，有时也可以封印什么东西。</description>
+		<description>神社用于照明的灯笼,也用于收纳奉纳的香火,封入灵异珠后,不再消耗燃料,并且可以提供500w电力</description>
+		<descriptionHyperlinks>
+			<ThingDef>SupernaturalBead</ThingDef> 
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Building/ShrineBeaconWithoutSealing</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -655,8 +703,6 @@
 		</building>
 		<comps>
 			<li Class="CompProperties_Breakdownable"/>
-			<li Class="U.N.Owen.EndAbout.CompProperties_ShrineBeacon">
-			</li>
 			<li Class="merissu.CompProperties_RefuelableGraphicAndGlow">
 				<noFuelTexPath>Building/ShrineBeaconoff</noFuelTexPath>
 				<glowWithoutFuel>false</glowWithoutFuel>
@@ -684,12 +730,17 @@
 				<heatPerSecond>3.5</heatPerSecond>
 				<heatPushMaxTemperature>23</heatPushMaxTemperature>
 			</li>
+			<li Class="merissu.CompProperties_Sealable">
+			    <targetDef>ShrineBeacon</targetDef>
+			    <costDef>SupernaturalBead</costDef>
+			    <costCount>1</costCount>
+			</li>
 		</comps>
 		<altitudeLayer>Building</altitudeLayer>
 		<statBases>
 			<MarketValue>6000</MarketValue>
 			<MaxHitPoints>200</MaxHitPoints>
-			<Flammability>1.0</Flammability>
+			<Flammability>0</Flammability>
 			<Beauty>25</Beauty>
 			<Mass>35</Mass>
 			<WorkToBuild>8000</WorkToBuild>
@@ -710,9 +761,9 @@
 		<tradeTags>
 			<li>ExoticBuilding</li>
 		</tradeTags>
-	  <costList>
-		  <Steel>80</Steel>
-	  </costList>
+		<costList>
+			<Steel>80</Steel>
+		</costList>
 		<placeWorkers>
 			<li>PlaceWorker_Heater</li>
 			<li>PlaceWorker_GlowRadius</li>
@@ -722,11 +773,5 @@
 		</researchPrerequisites>
 		<designationCategory>Misc</designationCategory>
 	</ThingDef>
-	<JobDef>
-		<defName>SealingSupernaturalBead</defName>
-		<driverClass>U.N.Owen.EndAbout.JobDriver_SealingSupernaturalBead</driverClass>
-		<reportString>正在封印灵异珠。</reportString>
-		<suspendable>false</suspendable>
-		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-	</JobDef>
+
 </Defs>

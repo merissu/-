@@ -1,16 +1,18 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace merissu
 {
     public static class MeshMaker_Fan
     {
-        private static readonly Dictionary<float, Mesh> cache =
-            new Dictionary<float, Mesh>();
+        private static readonly Dictionary<int, Mesh> Cache =
+            new Dictionary<int, Mesh>();
 
         public static Mesh GetFanMesh(float angle, int segments = 50)
         {
-            if (cache.TryGetValue(angle, out Mesh mesh))
+            int key = Mathf.RoundToInt(angle * 100f);
+
+            if (Cache.TryGetValue(key, out Mesh mesh))
                 return mesh;
 
             Vector3[] vertices = new Vector3[segments + 2];
@@ -18,18 +20,26 @@ namespace merissu
 
             vertices[0] = Vector3.zero;
 
+            float halfAngle = angle * 0.5f;
+
             for (int i = 0; i <= segments; i++)
             {
                 float a = Mathf.Lerp(
-                    -angle / 2f,
-                     angle / 2f,
-                     i / (float)segments);
+                    -halfAngle,
+                    halfAngle,
+                    i / (float)segments);
+
+                float rad = a * Mathf.Deg2Rad;
 
                 vertices[i + 1] =
-                    Quaternion.Euler(0, a, 0) * Vector3.forward;
+                    new Vector3(
+                        Mathf.Sin(rad),
+                        0f,
+                        Mathf.Cos(rad));
             }
 
             int t = 0;
+
             for (int i = 1; i <= segments; i++)
             {
                 triangles[t++] = 0;
@@ -43,10 +53,10 @@ namespace merissu
                 triangles = triangles
             };
 
-            mesh.RecalculateNormals();
             mesh.RecalculateBounds();
 
-            cache[angle] = mesh;
+            Cache[key] = mesh;
+
             return mesh;
         }
     }

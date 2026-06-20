@@ -37,4 +37,21 @@
 		</abilities>
     </HediffDef>
 
+    <HediffDef>
+        <defName>Hediff_SpiritualFlying</defName>
+        <label>灵力飞行</label>
+            <defaultLabelColor>(102,204,255)</defaultLabelColor>
+            <description>你正处于飞行状态,会持续消耗灵力</description>
+        <isBad>false</isBad>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <stages>
+            <li>
+                <statOffsets>
+                    <MaxFlightTime>9999</MaxFlightTime>
+                    <FlightCooldown>0</FlightCooldown>
+                </statOffsets>
+            </li>
+        </stages>
+    </HediffDef>
+
 </Defs>

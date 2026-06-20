@@ -7,7 +7,8 @@ namespace merissu
         public int minRadius = 5;
         public int maxRadius = 60;
         public int step = 5;
-
+        public ThingDef beadDef;
+        public HediffDef spiritualPowerDef;
         public CompProperties_ShieldRadiusControl()
         {
             compClass = typeof(Comp_ShieldRadiusControl);

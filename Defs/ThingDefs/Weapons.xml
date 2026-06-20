@@ -89,6 +89,7 @@
 	<ThingDef ParentName="BaseBullet">
 		<defName>HakureiTalisman</defName>
 		<label>博丽灵符</label>
+		<thingClass>merissu.Projectile_HomingTalisman</thingClass>
 		<graphicData>
 			<texPath>Weapons/Bullet/HakureiTalisman</texPath>
 			<drawSize>(0.8,0.8)</drawSize>
@@ -155,9 +156,14 @@
 	<ThingDef ParentName="TH_RangeWeapon">
 		<defName>Gohei</defName>
 		<label>御币</label>
-		<description>巫女的御币,可以以极快的速度发射博丽灵符,也可以拿来敲人,并且这根御币还可以带来飞行能力。被灵符射中的敌人会爆p点。
+		<description>巫女的御币,可以以极快的速度发射博丽灵符,也可以拿来敲人,并且使用御币无需消耗灵力便可以飞行。被灵符射中的敌人会爆p点。
 
-借助御币飞行时可以进行符卡宣言。</description>
+灵符会追踪敌人,借助御币飞行时可以进行符卡宣言。</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+        </descriptionHyperlinks>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/Gohei</texPath>
@@ -239,6 +245,11 @@
 		<defName>W_Gungnir</defName>
 		<label>冈格尼尔之枪</label>
 		<description>蕾米莉亚的冈格尼尔,此枪掷出时,会贯穿一切并必然击中目标。当成近战武器使用的话,会有极高的命中率修正,消耗符卡后便可以发动极其强大的能力</description>
+		<descriptionHyperlinks>
+			<ThingDef>PowerPoint</ThingDef> 
+			<ThingDef>FullPower</ThingDef> 
+			<ThingDef>spellcard</ThingDef> 
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Weapons/Gungnir</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -334,6 +345,11 @@
 		<defName>Laevatain</defName>
 		<label>莱瓦汀</label>
 		<description>芙兰朵露唤出的巨大火焰剑状的武器，可以消耗符卡发动强大的四重身。在家里挥舞着这样的剑真是危险。就算是吸血鬼，这剑还是太大了。</description>
+		<descriptionHyperlinks>
+			<ThingDef>PowerPoint</ThingDef> 
+			<ThingDef>FullPower</ThingDef> 
+			<ThingDef>spellcard</ThingDef> 
+		</descriptionHyperlinks>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/Laevatain</texPath>
@@ -430,6 +446,11 @@
 它由森近霖之助打造,霖之助将一种“把空气变洁净的道具”熔了进去,之后又被霖之助改造,往里掺入了绯绯色金。
 
 以灵力为燃料,普通射击模式为喷射火焰,消耗符卡后便可以发射激光和弹幕。</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+        </descriptionHyperlinks>
 		<graphicData>
 			<texPath>Weapons/Hakkero</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -474,7 +495,7 @@
 				<defaultProjectile>Projectile_HakkeroFlame</defaultProjectile>
 			    <warmupTime>0.5</warmupTime>
 				<range>20</range>
-				<burstShotCount>20</burstShotCount>
+				<burstShotCount>120</burstShotCount>
 				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
 				<soundCast>gohei</soundCast>
 				<targetParams>
@@ -525,6 +546,11 @@
 		<description>西行寺幽幽子的折扇，拥有引导死亡的能力，翩翩起舞的死蝶将带走被命中者的灵魂。
 
 这把扇子会直接击中敌人的灵魂,无法被任何防御手段抵挡,对敌人造成足够伤害后会直接使敌人死亡,消耗符卡后便可以发动极其强大的能力</description>
+		<descriptionHyperlinks>
+			<ThingDef>PowerPoint</ThingDef> 
+			<ThingDef>FullPower</ThingDef> 
+			<ThingDef>spellcard</ThingDef> 
+		</descriptionHyperlinks>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/DeathButterfliesFan</texPath>
@@ -919,6 +945,11 @@
 		<description>铃仙所使用的武器,可以发射影响人的精神的子弹,还可以操控各种波长。
 
 消耗符卡后可以使用较为强大的能力</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+        </descriptionHyperlinks>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/MoonRabbitWaveGun</texPath>
@@ -998,6 +1029,11 @@
 		<description>据传楼观剑是妖怪锻造的,太长不适合普通人类使用。一挥有杀伤十只幽灵的威力,据说斩不断的东西几乎不存在
 
 使用此剑不仅能对对手造成身体上的伤害,还能造成精神上的伤害,消耗符卡后的话便可以在一段时间内解锁各种剑伎</description>
+		<descriptionHyperlinks>
+			<ThingDef>PowerPoint</ThingDef> 
+			<ThingDef>FullPower</ThingDef> 
+			<ThingDef>spellcard</ThingDef> 
+		</descriptionHyperlinks>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/BailouSword</texPath>
@@ -1218,6 +1254,11 @@
 制御棒有着控制核能的能力,持有者可以用其中蕴含的巨大能量将一切烧成灰烬。
 
 普通射击模式为发射激光,射程无限,切换模式后可以释放大容量的核能烧尽前方一切,消耗符卡后便可以发动极其强大的能力</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+        </descriptionHyperlinks>
 		<tickerType>Normal</tickerType>
 		<techLevel>Spacer</techLevel>
 		<smeltable>true</smeltable>
@@ -1309,6 +1350,11 @@
 制御棒有着控制核能的能力,持有者可以用其中蕴含的巨大能量将一切烧成灰烬。
 
 普通射击模式为发射激光,射程无限,切换模式后可以释放大容量的核能烧尽前方一切,注入灵力后便可以发动极其强大的符卡</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+        </descriptionHyperlinks>
 		<tickerType>Normal</tickerType>
 		<techLevel>Spacer</techLevel>
 		<smeltable>true</smeltable>
@@ -1515,6 +1561,11 @@
 使用绯想之剑,能够准确无误地击中对手的弱点,这把剑首先会把对手的气质雾化,转化成任何人都能用肉眼辨视的形态。然后将把那种气质的弱点作为性质缠绕于剑身。
 
 消耗符卡后,便可以发动威力极其强大的能力</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+        </descriptionHyperlinks>
 		<tickerType>Normal</tickerType>
 		<smeltable>true</smeltable>
 		<costList>
@@ -1679,6 +1730,11 @@
 这把阳伞无法射出弹幕,但是可以通过隙间将敌人直接神隐
 
 消耗符卡后,便可以使用威力极其强大的能力</description>
+		<descriptionHyperlinks>
+			<ThingDef>PowerPoint</ThingDef> 
+			<ThingDef>FullPower</ThingDef> 
+			<ThingDef>spellcard</ThingDef> 
+		</descriptionHyperlinks>
 		<tickerType>Normal</tickerType>
 		<smeltable>true</smeltable>
 		<costList>
@@ -2086,10 +2142,10 @@
 				<drawMeshSize>(2,2)</drawMeshSize>
 				<drawY>15</drawY>
 				<rotationPerTick>30</rotationPerTick>
-			
-		</li>
+			</li>
 		</comps>
 	</ThingDef>
+
 	<ThingDef ParentName="EtherealThingBase">
 		<defName>TH_Comet</defName>
 		<label>彗星</label>
@@ -2133,10 +2189,10 @@
 				<drawMeshSize>(2,2)</drawMeshSize>
 				<drawY>15</drawY>
 				<rotationPerTick>30</rotationPerTick>
-			
-		</li>
+			</li>
 		</comps>
 	</ThingDef>
+
 	<ThingDef ParentName="EtherealThingBase">
 		<defName>TH_Meteor</defName>
 		<label>流星</label>
@@ -2269,6 +2325,11 @@
 		<description>寄宿着小槌魔力的仿制品,并没有能实现任何愿望的能力,只能做一些简单的事情,比如修补物品或者让装备升级
 
 通过使用符卡可以发挥更多功能</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+        </descriptionHyperlinks>
 		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/WanbaoHammer</texPath>
@@ -2325,364 +2386,117 @@
 			</li>
 		</comps>
 	</ThingDef>
-	<ThingDef ParentName="TH_MeleeWeapon">
-		<defName>IbukisGourd</defName>
-		<label>伊吹瓢</label>
-		<description>梅莉在那个世界发现的，鬼族的秘宝。不过这个只是它在现世的投影。这里边似乎有很大的空间，也许是是鬼操纵密度而引发空间翘曲产生的吧。</description>
+
+	<ThingDef ParentName="TH_RangeWeapon">
+		<defName>SevenElementalGrimoire</defName>
+		<label>七曜法典</label>
+		<description>帕秋莉的魔导书,只有充满智慧的人才能看懂。装备后每天会获得0.5灵力,当你的智慧大于9时,就可以使用魔法进行远程攻击,越聪明的人咏唱速度越快
+
+魔导书并不是普通的书,它内含魔法,是种魔法道具。里面并不只是写上使用方法,还有为了能使用魔法的秘密钥匙。
+
+虽说有了魔导书就能使用里面的魔法,但没有钥匙的人是完全看不懂书中的文字的。只有和书写者同等或更高熟练度的人才能看得见钥匙。</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+        </descriptionHyperlinks>
 		<possessionCount>1</possessionCount>
-		<tickerType>Normal</tickerType>
+		<techLevel>Industrial</techLevel>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<equippedStatOffsets>
+			<PsychicSensitivity>0.2</PsychicSensitivity>
+			<PsychicEntropyRecoveryRate>0.5</PsychicEntropyRecoveryRate>
+			<PsychicEntropyMax>0.2</PsychicEntropyMax>
+			<PsychicEntropyGain>-0.1</PsychicEntropyGain>
+			<ResearchSpeed>0.1</ResearchSpeed>
+			<GlobalLearningFactor>0.1</GlobalLearningFactor>
+		</equippedStatOffsets>
+		<costList>
+			<SpiritualWood>30</SpiritualWood>
+			<FullPower>2</FullPower>
+			<MakaiShinkiCloth>100</MakaiShinkiCloth>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+                <Crafting>12</Crafting>
+                <Intellectual>12</Intellectual>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Intellectual</workSkill>
+			<effectWorking>Cremate</effectWorking>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisites>
+				<li>NewMoonInWriting</li>
+			</researchPrerequisites>
+		</recipeMaker>
 		<graphicData>
-			<texPath>Weapons/IbukiGourd</texPath>
+			<texPath>Weapons/SevenElementalGrimoire</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
+			<drawSize>(0.7,0.7)</drawSize>
 			<shaderType>Mote</shaderType>
 		</graphicData>
-		<uiIconScale>0.8</uiIconScale>
-		<soundInteract>Interact_Revolver</soundInteract>
+		<tickerType>Normal</tickerType>
 		<statBases>
-			<WorkToMake>5000</WorkToMake>
-			<MarketValue>3000</MarketValue>
-			<SellPriceFactor>0.1</SellPriceFactor>
-			<Mass>1.0</Mass>
+			<WorkToMake>10000</WorkToMake>
+			<MarketValue>2460</MarketValue> 
+            <SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>0.5</Mass>
+			<MaxHitPoints>99999</MaxHitPoints>
+			<Flammability>0.4</Flammability>
+			<EquipDelay>2</EquipDelay>
+			<AccuracyTouch>5</AccuracyTouch>
+			<AccuracyShort>5</AccuracyShort>
+			<AccuracyMedium>5</AccuracyMedium>
+			<AccuracyLong>5</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
 		</statBases>
 		<weaponTags>
 			<li>Touhou</li>
 		</weaponTags>
 		<weaponClasses>
-			<li>Melee</li>
+			<li>RangedLight</li>
 		</weaponClasses>
-		<costList>
-			<SpiritualWood>80</SpiritualWood>
-			<FullPower>3</FullPower>
-			<Crimsongold>90</Crimsongold>
-		</costList>
-		<recipeMaker>
-			<skillRequirements>
-				<Crafting>12</Crafting>
-			</skillRequirements>
-			<displayPriority>400</displayPriority>
-			<recipeUsers>
-				<li>TableHifuuClub</li>
-			</recipeUsers>
-			<researchPrerequisite>PowerPoint</researchPrerequisite>
-		</recipeMaker>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<generateAllowChance>0.15</generateAllowChance>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<verbs>
+            <li>
+                <verbClass>merissu.Verb_RandomElementalShoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>HakureiTalisman</defaultProjectile>
+                <warmupTime>0.02</warmupTime>
+                <range>30</range>
+                <soundCast>gohei</soundCast>
+                <muzzleFlashScale>0</muzzleFlashScale>
+                <burstShotCount>3</burstShotCount>
+                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+            </li>
+        </verbs>
 		<tools>
 			<li>
-				<label>流醉拳</label>
+				<label>敲击</label>
 				<capacities>
-					<li>DrunkenPunch</li>
+					<li>Blunt</li>
+					<li>Poke</li>
 				</capacities>
-				<power>20</power>
-				<cooldownTime>0.5</cooldownTime>
-			</li>
-			<li>
-				<label>点辰</label>
-				<capacities>
-					<li>DianChenStrike</li>
-				</capacities>
-				<power>40</power>
-				<cooldownTime>2.5</cooldownTime>
-			</li>
-			<li>
-				<id>BaoHuiTool</id>
-				<label>爆回</label>
-				<capacities>
-					<li>BaoHui</li>
-				</capacities>
-				<power>20</power>
-				<cooldownTime>0.5</cooldownTime>
+				<power>5</power>
+				<cooldownTime>1</cooldownTime>
 			</li>
 		</tools>
 		<comps>
-			<li Class="merissu.CompProperties_EquippableMultiAbility">
-				<abilityDefs>
-					<li>Drinking</li>
-					<li>CompleteMassacreonMtOoe</li>
-				</abilityDefs>
-			</li>
-			<li Class="U.N.Owen.CompProperties_IbukisGourd">
-				<rawThings>
-					<li>GeyserWater</li>
-				</rawThings>
-				<productThings>
-					<li>OniKillingWine</li>
-				</productThings>
-			</li>
-		</comps>
-	</ThingDef>
-	<AbilityDef>
-		<defName>Drinking</defName>
-		<label>喝酒</label>
-		<description>伊吹瓢里有喝不完的酒。</description>
-		<iconPath>Abilities/TheLiberationOfTheId</iconPath>
-		<cooldownTicksRange>100</cooldownTicksRange>
-		<writeCombatLog>True</writeCombatLog>
-		<targetRequired>false</targetRequired>
-		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-		<verbProperties>
-			<verbClass>Verb_CastAbility</verbClass>
-			<drawAimPie>false</drawAimPie>
-			<requireLineOfSight>false</requireLineOfSight>
-			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
-			<warmupTime>1</warmupTime>
-			<range>51.4</range>
-			<soundCast>Id</soundCast>
-			<targetable>false</targetable>
-			<targetParams>
-				<canTargetSelf>True</canTargetSelf>
-			</targetParams>
-		</verbProperties>
-		<comps>
-			<li Class="U.N.Owen.CompProperties_AbilityEffect_Drinking">
-			</li>
-		</comps>
-	</AbilityDef>
-	<JobDef>
-		<defName>FillIbukisGourd</defName>
-		<driverClass>U.N.Owen.JobDriver_FillIbukisGourd</driverClass>
-		<reportString>正在填装。</reportString>
-		<suspendable>false</suspendable>
-		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-	</JobDef>
-	<JobDef>
-		<defName>SpawnWine</defName>
-		<driverClass>U.N.Owen.JobDriver_FillIbukisGourd</driverClass>
-		<reportString>正在填装。</reportString>
-		<suspendable>false</suspendable>
-		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-	</JobDef>
-	<ToolCapacityDef>
-		<defName>DrunkenPunch</defName>
-		<label>流醉拳</label>
-	</ToolCapacityDef>
-	<ManeuverDef>
-		<defName>DrunkenPunchManeuver</defName>
-		<requiredCapacity>DrunkenPunch</requiredCapacity>
-		<verb>
-			<verbClass>U.N.Owen.Verb_DrunkenPunch</verbClass>
-			<meleeDamageDef>Blunt</meleeDamageDef>
-		</verb>
-		<logEntryDef>MeleeAttack</logEntryDef>
-		<combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
-		<combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
-		<combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
-		<combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
-	</ManeuverDef>
-	<ToolCapacityDef>
-		<defName>DianChenStrike</defName>
-		<label>点辰</label>
-	</ToolCapacityDef>
-	<ManeuverDef>
-		<defName>DianChenManeuver</defName>
-		<requiredCapacity>DianChenStrike</requiredCapacity>
-		<verb>
-			<verbClass>U.N.Owen.Verb_DianChen</verbClass>
-			<meleeDamageDef>Blunt</meleeDamageDef>
-		</verb>
-		<logEntryDef>MeleeAttack</logEntryDef>
-		<combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
-		<combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
-		<combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
-		<combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
-	</ManeuverDef>
-	<ToolCapacityDef>
-		<defName>BaoHui</defName>
-		<label>爆回</label>
-	</ToolCapacityDef>
-	<ManeuverDef>
-		<defName>BaoHuiManeuver</defName>
-		<requiredCapacity>BaoHui</requiredCapacity>
-		<verb>
-			<verbClass>U.N.Owen.Verb_BaoHui</verbClass>
-			<meleeDamageDef>Blunt</meleeDamageDef>
-		</verb>
-
-		<logEntryDef>MeleeAttack</logEntryDef>
-		<combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
-		<combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
-		<combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
-		<combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
-	</ManeuverDef>
-	<AbilityDef>
-		<defName>CompleteMassacreonMtOoe</defName>
-		<label>鬼符「大江山悉皆杀」</label>
-		<description>抓住敌人将其多次扣击地面，并在最后以大爆发吹飞的投技。无法防御，但有效距离极短需要巧妙地接近敌人。</description>
-
-		<jobDef>CastAbilityOnThingMelee</jobDef>
-		<cooldownTicksRange>3600</cooldownTicksRange>
-		<showPsycastEffects>false</showPsycastEffects>
-		<hostile>true</hostile>
-		<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
-
-		<iconPath>Abilities/CompleteMassacreonMtOoe</iconPath>
-
-		<verbProperties>
-			<verbClass>Verb_CastAbilityTouch</verbClass>
-			<drawAimPie>false</drawAimPie>
-			<range>1.9</range>
-			<warmupTime>0.2</warmupTime>
-			<requireLineOfSight>false</requireLineOfSight>
-			<flyWithCarriedThing>true</flyWithCarriedThing>
-			<targetParams>
-				<canTargetSelf>false</canTargetSelf>
-				<canTargetBuildings>false</canTargetBuildings>
-				<canTargetPawns>true</canTargetPawns>
-			</targetParams>
-		</verbProperties>
-
-		<comps>
-			<li Class="U.N.Owen.CompProperties_OniMassacre">
-				<flyerStage1>PawnFlyer_OniMassacre_Stagea</flyerStage1>
-				<flyerStage2>PawnFlyer_OniMassacre_Stageb</flyerStage2>
-				<flyerStage3>PawnFlyer_OniMassacre_Stagec</flyerStage3>
-
-				<jumpDistanceStage1>2</jumpDistanceStage1>
-				<jumpDistanceStage2>3</jumpDistanceStage2>
-				<jumpDistanceStage3>4</jumpDistanceStage3>
-
-				<damageStage1>45</damageStage1>
-				<damageStage2>65</damageStage2>
-				<damageStage3>300</damageStage3>
-
-				<finalSpinTicks>36</finalSpinTicks>
-				<spinStepTicks>1</spinStepTicks>
-				<armorPenetration>0.25</armorPenetration>
-			</li>
-		</comps>
-	</AbilityDef>
-
-	<ThingDef ParentName="PawnFlyerBase">
-		<defName>PawnFlyer_OniMassacre_Stagea</defName>
-		<pawnFlyer Class="U.N.Owen.PawnFlyerProperties_FixedPeak">
-			<workerClass>U.N.Owen.PawnFlyerWorker_FixedPeak</workerClass>
-			<peakHeight>4</peakHeight>
-			<flightDurationMin>0.25</flightDurationMin>
-			<flightSpeed>18</flightSpeed>
-			<heightFactor>1</heightFactor>
-		</pawnFlyer>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>SevenElementalGrimoire_Worn</hediff>
+            </li>
+        </comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
 	</ThingDef>
 
-	<ThingDef ParentName="PawnFlyerBase">
-		<defName>PawnFlyer_OniMassacre_Stageb</defName>
-		<pawnFlyer Class="U.N.Owen.PawnFlyerProperties_FixedPeak">
-			<workerClass>U.N.Owen.PawnFlyerWorker_FixedPeak</workerClass>
-			<peakHeight>6</peakHeight>
-			<flightDurationMin>0.3</flightDurationMin>
-			<flightSpeed>20</flightSpeed>
-			<heightFactor>1</heightFactor>
-		</pawnFlyer>
-	</ThingDef>
-	<ThingDef ParentName="PawnFlyerBase">
-		<defName>PawnFlyer_OniMassacre_Stagec</defName>
-		<thingClass>U.N.Owen.PawnFlyer_SpinTargetSnapshot</thingClass>
-		<pawnFlyer Class="U.N.Owen.PawnFlyerProperties_FixedPeakc">
-			<workerClass>U.N.Owen.PawnFlyerWorker_FixedPeakc</workerClass>
-			<peakHeight>15</peakHeight>
-			<flightDurationMin>0.4</flightDurationMin>
-			<flightSpeed>20</flightSpeed>
-			<heightFactor>1</heightFactor>
-			<snapshotScale>1.1</snapshotScale>
-			<snapshotOutwardDistance>1.4</snapshotOutwardDistance>
-			<snapshotSpinTurns>2.5</snapshotSpinTurns>
-			<snapshotHeadAngleOffset>0</snapshotHeadAngleOffset>
-			<snapshotTextureSize>128</snapshotTextureSize>
-		</pawnFlyer>
-	</ThingDef>
-	<ThingDef ParentName="TH_MeleeWeapon">
-		<defName>HoshigumasCup</defName>
-		<label>星熊杯</label>
-		<description>哎呀，这里还有一个家伙拿着一个巨大的酒杯呢，看起来也是好东西啊，一起带回去给莲子看看吧。</description>
-		<possessionCount>1</possessionCount>
-		<tickerType>Normal</tickerType>
-		<graphicData>
-			<texPath>Weapons/HoshigumasCup</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.6,0.6)</drawSize>
-			<shaderType>Mote</shaderType>
-		</graphicData>
-		<uiIconScale>0.8</uiIconScale>
-		<soundInteract>Interact_Revolver</soundInteract>
-		<statBases>
-			<WorkToMake>5000</WorkToMake>
-			<MarketValue>3000</MarketValue>
-			<SellPriceFactor>0.1</SellPriceFactor>
-			<Mass>1.0</Mass>
-		</statBases>
-		<weaponTags>
-			<li>Touhou</li>
-		</weaponTags>
-		<weaponClasses>
-			<li>Melee</li>
-		</weaponClasses>
-		<costList>
-			<SpiritualWood>80</SpiritualWood>
-			<FullPower>3</FullPower>
-			<Crimsongold>90</Crimsongold>
-		</costList>
-		<recipeMaker>
-			<skillRequirements>
-				<Crafting>12</Crafting>
-			</skillRequirements>
-			<displayPriority>400</displayPriority>
-			<recipeUsers>
-				<li>TableHifuuClub</li>
-			</recipeUsers>
-			<researchPrerequisite>PowerPoint</researchPrerequisite>
-		</recipeMaker>
-		<tools>
-			<li>
-				<label>流醉拳</label>
-				<capacities>
-					<li>DrunkenPunch</li>
-				</capacities>
-				<power>20</power>
-				<cooldownTime>0.5</cooldownTime>
-			</li>
-			<li>
-				<label>点辰</label>
-				<capacities>
-					<li>DianChenStrike</li>
-				</capacities>
-				<power>40</power>
-				<cooldownTime>2.5</cooldownTime>
-			</li>
-			<li>
-				<id>BaoHuiTool</id>
-				<label>爆回</label>
-				<capacities>
-					<li>BaoHui</li>
-				</capacities>
-				<power>20</power>
-				<cooldownTime>0.5</cooldownTime>
-			</li>
-		</tools>
-		<comps>
-			<li Class="merissu.CompProperties_EquippableMultiAbility">
-				<abilityDefs>
-					<li>Drinking</li>
-				</abilityDefs>
-			</li>
-			<li Class="U.N.Owen.CompProperties_IbukisGourd">
-				<rawThings>
-					<li>WineBugWineMetal</li>
-					<li>WineBugWineWood</li>
-					<li>WineBugWineWater</li>
-					<li>WineBugWineFire</li>
-					<li>WineBugWineEarth</li>
-					<li>WineBugWineSun</li>
-					<li>WineBugWineLuna</li>
-				</rawThings>
-				<productThings>
-					<li>JunmaiDaiGinjoShu</li>
-					<li>JunmaiDaiGinjoShu</li>
-					<li>JunmaiDaiGinjoShu</li>
-					<li>JunmaiDaiGinjoShu</li>
-					<li>JunmaiDaiGinjoShu</li>
-					<li>JunmaiDaiGinjoShu</li>
-					<li>JunmaiDaiGinjoShu</li>
-				</productThings>
-				<wine></wine>
-			</li>
-		</comps>
-	</ThingDef>
 </Defs>

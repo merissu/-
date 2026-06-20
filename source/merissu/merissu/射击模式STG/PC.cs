@@ -46,9 +46,8 @@ namespace merissu
 
             SoundDef.Named("STG_Sound_Graze").PlayOneShot(SoundInfo.InMap(pawn));
 
-            Vector3 spawnPos = physicsPosition ?? pawn.DrawPos;
+            Vector3 spawnPos = pawn.DrawPos;
             grazeParticles.Add(new GrazeParticle(spawnPos));
-
             if (SpiritualPowerDef != null && pawn.health != null)
             {
                 Hediff spiritualHediff = pawn.health.hediffSet.GetFirstHediffOfDef(SpiritualPowerDef);

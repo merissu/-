@@ -321,7 +321,7 @@ namespace merissu
         {
             Pawn wearer = this.Wearer;
             if (wearer == null || !wearer.Spawned || wearer.story?.bodyType == null) return;
-
+            if (wearer.Downed) return;
             Rot4 rot = wearer.Rotation;
             Vector3 drawPos = wearer.DrawPos;
 
