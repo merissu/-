@@ -139,7 +139,7 @@
 		<tickerType>Rare</tickerType>
 		<ingestible>
 			<tasteThought>AteLavishMeal</tasteThought>
-			<preferability>DesperateOnly</preferability>
+			<preferability>RawTasty</preferability>
 			<foodType>VegetableOrFruit</foodType>
 			<baseIngestTicks>100</baseIngestTicks>
 			<chairSearchRadius>20</chairSearchRadius>

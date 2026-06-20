@@ -11,45 +11,6 @@ using Verse.AI.Group;
 
 namespace U.N.Owen
 {
-    public class JobDriver_SpawnWine : JobDriver
-    {
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
-        {
-            return true;
-        }
-        protected override IEnumerable<Toil> MakeNewToils()
-        {
-            Thing thing = this.job.GetTarget(TargetIndex.A).Thing;
-            this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-            this.AddFailCondition(() => !job.GetTarget(TargetIndex.A).HasThing);
-            Thing Wine = this.job.GetTarget(TargetIndex.B).Thing;
-            int k;
-            k = Wine.stackCount;
-            Toil reserveFuel = Toils_Reserve.Reserve(TargetIndex.B, 1, k, null, false);
-            yield return reserveFuel;
-            this.job.count = k;
-            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch, false).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
-            yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, true, false, true, false).FailOnDestroyedNullOrForbidden(TargetIndex.B);
-            yield return Toils_Haul.CheckForGetOpportunityDuplicate(reserveFuel, TargetIndex.B, TargetIndex.None, true, null);
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch, false);
-            yield return Toils_General.Wait(0.55f.SecondsToTicks(), TargetIndex.None);
-            Toil toil = Toils_General.Wait(1.5f.SecondsToTicks(), TargetIndex.None);
-            yield return toil;
-            yield return Toils_General.Do(delegate
-            {
-                Thing Candy = this.job.GetTarget(TargetIndex.B).Thing;
-                int x;
-                for (x = Candy.stackCount; x > 0; x--)
-                {
-                    GenSpawn.Spawn(ThingDefOf.JunmaiDaiGinjoShu, thing.Position, thing.Map);
-                }
-                Candy.Destroy();
-            });
-            yield return Toils_General.Wait(0.35f.SecondsToTicks(), TargetIndex.None);
-            yield break;
-        }
-        private const TargetIndex ChargerInd = TargetIndex.A;
-    }
     public class Gungnir_BreakHeart : Bullet
     {
         protected override void Impact(Thing hitThing, bool blockedByShield = false)

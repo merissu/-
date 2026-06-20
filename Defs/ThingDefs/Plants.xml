@@ -40,6 +40,9 @@
 		<defName>GrowablePlant_SpiritualFloweringBush</defName>
 		<label>栖灵花丛</label>
 		<description>通过某种术法主动招引幽灵，让幽灵附着在花上，使花开放，但是仍会快速枯萎，在花枯萎前将其砍伐能获取栖灵木。</description>
+		<descriptionHyperlinks>
+            <ThingDef>SpiritualWood</ThingDef> 
+        </descriptionHyperlinks>
 		<graphicData>
 			<texPath>Plants/Plant_SpiritualFloweringBush</texPath>
 			<graphicClass>Graphic_Random</graphicClass>
@@ -86,10 +89,6 @@
 		<graphicData>
 			<texPath>Plants/MakaiShinkiVine</texPath>
 			<graphicClass>Graphic_Random</graphicClass>
-			<shadowData>
-				<volume>(0.2, 0.6, 0.2)</volume>
-				<offset>(0,0,-0.50)</offset>
-			</shadowData>
 			<shaderType>merissu_Plant</shaderType>
 		</graphicData>
 		<selectable>true</selectable>
@@ -127,14 +126,10 @@
 如果是在广阔且地面不平坦的地方形成的竹林,歪斜的竹子和不断变换的景色就会让人失去方向感,即使本来打算直走也会在不觉间回到原处,迷途竹林的称号便是由此而来。
 
 虽然竹笋很美味,但是除了对竹林熟悉的采笋人以外，最好还是不要踏入较好。</description>
-		<graphicData>
-      <texPath>Plants/LoseBambooShoot_Plants</texPath>
-      <graphicClass>Graphic_Random</graphicClass>
-        <shadowData>
-          <volume>(0.15, 0.3, 0.15)</volume>
-          <offset>(0,0,-0.38)</offset>
-        </shadowData>
-    </graphicData>
+	<graphicData>
+		<texPath>Plants/LoseBambooShoot_Plants</texPath>
+		<graphicClass>Graphic_Random</graphicClass>
+	</graphicData>
     <selectable>true</selectable>
     <statBases>
       <Beauty>2</Beauty>
@@ -171,7 +166,7 @@
 		<shaderPath>merissu/RW_Plant_bioluminescence</shaderPath>
 	</ShaderTypeDef>	
 
-	<ThingDef ParentName="PlantBase">
+	<ThingDef ParentName="TreeBase">
 		<defName>ReimuSakura_Plants</defName>
 		<label>冥界樱花树</label>
 		<description>来自于冥界的樱花树,或许有樱之幽灵附在上面,可以收获灵樱花瓣。
@@ -179,6 +174,9 @@
 在冥界种植着难以计数的樱花树,盛开时会有众多的幽灵和妖怪们被其所吸引，聚集到樱花树下来,届时便会看到数目众多的幽灵再加上普莉兹姆利巴三姐妹的现场演出的热闹景象。
 
 冥界的一切都是死的,但在死后的世界里也可以过得如此愉快,正因如此所以人类们才会为了能够在冥界过上这种愉快的生活而不是被判入地狱,拼尽全力地生活吧。</description>
+		<descriptionHyperlinks>
+            <ThingDef>ReimuSakuraPetal</ThingDef> 
+        </descriptionHyperlinks>
 		<graphicData>
 			<texPath>Plants/ReimuSakura_Plants</texPath>
 			<graphicClass>Graphic_Random</graphicClass>
@@ -227,6 +225,7 @@
 			</li>
 		</comps>
 	</ThingDef>
+
 	<ThingDef ParentName="ResourceBase">
 		<defName>HeavenlyPeachSeed</defName>
 		<label>月都桃树种子</label>
@@ -269,7 +268,7 @@
 			</li>
 		</comps>
 	</ThingDef>
-	<ThingDef ParentName="PlantBase">
+	<ThingDef ParentName="TreeBase">
 		<defName>HeavenlyPeachTree</defName>
 		<label>月之都桃树</label>
 		<description>桃李不言,下自成蹊。在月之都的庭院中种植了许多这样的桃树,结出的果实十分鲜美,无论是月之民还是兔子都很喜欢。</description>

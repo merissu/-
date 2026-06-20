@@ -50,6 +50,29 @@ namespace merissu
                     Messages.Message("你已经被<color=#BF00FF>最强大的妖怪</color>注意到了，难度已达极限！",
                         MessageTypeDefOf.RejectInput);
                 }
+                if (manager.unlockedLevel >= 5)
+                {
+                    Thing bead = ThingMaker.MakeThing(ThingDef.Named("SupernaturalBead"));
+
+                    if (usedBy.inventory.innerContainer.TryAdd(bead))
+                    {
+                        Messages.Message(
+                            "超常识力量凝聚成灵异珠，已被获取！",
+                            MessageTypeDefOf.PositiveEvent);
+                    }
+                    else
+                    {
+                        GenPlace.TryPlaceThing(
+                            bead,
+                            usedBy.Position,
+                            map,
+                            ThingPlaceMode.Near);
+
+                        Messages.Message(
+                            "超常识力量凝聚成灵异珠，掉落在了地上！",
+                            MessageTypeDefOf.PositiveEvent);
+                    }
+                }
             }
             IncidentParms parms = StorytellerUtility.DefaultParmsNow(Props.incident.category, map);
             parms.target = map;

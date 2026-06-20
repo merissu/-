@@ -56,6 +56,8 @@
 		<maxSeverity>1.0</maxSeverity>
         <abilities>
 			<li>ElementalHarvester</li>
+			<li>JellyfishPrincess</li>
+            <li>Photosynthesis</li>
 			<li>NoachianDeluge</li>
 			<li>StElmoPillar</li>
 			<li>Ability_RoyalFlare</li>
@@ -71,6 +73,167 @@
             </li>
 		</comps>
     </HediffDef>
+
+    <AbilityDef>
+        <defName>JellyfishPrincess</defName>
+        <label>水符「水母公主」</label>
+        <description>装备上以水泡形成的防护壁。水泡可承受一定程度的攻击,且只要水泡存在,本体就是无敌的。
+           
+消耗一张符卡,为使用者形成水泡防护,在承受一定伤害后水泡会消失,水泡可以灭火</description>
+        <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
+        <cooldownTicksRange>1200</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/JellyfishPrincess</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>JellyfishPrincess</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+            <li Class="merissu.CompProperties_AbilityPlaySound">
+                <soundDef>JellyfishPrincess</soundDef>
+            </li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>JellyfishPrincess</defName>
+		<label>水符「水母公主」</label>
+        <defaultLabelColor>(51,0,204)</defaultLabelColor>
+		<description>装备上以水泡形成的防护壁。水泡可承受一定程度的攻击,且只要水泡存在,本体就是无敌的。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+            <li Class="merissu.HediffCompProperties_JellyfishPrincess">
+                <bubbleMoteDef>Mote_JellyfishBubble</bubbleMoteDef>
+                <maxHits>200</maxHits>
+                <extinguishRadius>2.0</extinguishRadius>
+            </li>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statFactors>
+					<IncomingDamageFactor>0</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>Mote_JellyfishBubble</defName>
+        <thingClass>merissu.Mote_JellyfishBubble</thingClass>
+        <altitudeLayer>MetaOverlays</altitudeLayer>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>Other/bulletKa000</texPath>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>2.5</drawSize> 
+        </graphicData>
+        <mote>
+            <fadeInTime>0.1</fadeInTime>
+            <solidTime>9999</solidTime>
+            <fadeOutTime>0.1</fadeOutTime>
+        </mote>
+    </ThingDef>
+
+    <AbilityDef>
+        <defName>Photosynthesis</defName>
+        <label>日木符「光合作用」</label>
+        <description>做出凝聚周围魔力的场地,只要处于其内部,各种恢复都会加快,在这个空间中可以毫无顾虑地射击。
+
+消耗一张符卡,制造一片可以恢复灵力与生命的场地,光会缓缓追随发动者移动</description>
+        <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
+        <cooldownTicksRange>12000</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>1</warmupTime>
+            <soundCast>spell</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/Photosynthesis</iconPath>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Photosynthesis</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<severity>1</severity>
+				<replaceExisting>True</replaceExisting>
+			</li>
+            <li Class="merissu.CompProperties_AbilityPlaySound">
+                <soundDef>Photosynthesis</soundDef>
+            </li>
+		</comps>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>Photosynthesis</defName>
+		<label>日木符「光合作用」</label>
+        <defaultLabelColor>(153,204,153)</defaultLabelColor>
+		<description>制造一片可以恢复灵力与生命的场地,光会缓缓追随发动者移动</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-12</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+            <li Class="merissu.HediffCompProperties_Photosynthesis">
+                <moteDef>Mote_PhotosynthesisPillar</moteDef>
+                <radius>1.9</radius> 
+                <healAmount>1.0</healAmount> 
+                <spiritualPowerGain>0.01</spiritualPowerGain>
+                <tickInterval>60</tickInterval>
+            </li>
+		</comps>
+	</HediffDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>Mote_PhotosynthesisPillar</defName>
+        <thingClass>merissu.Mote_PhotosynthesisPillar</thingClass>
+        <altitudeLayer>MetaOverlays</altitudeLayer> 
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>Other/objectBa000</texPath>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>(300, 300)</drawSize> 
+        </graphicData>
+        <mote>
+            <fadeInTime>0.5</fadeInTime> 
+            <solidTime>99999</solidTime> 
+            <fadeOutTime>0.5</fadeOutTime> 
+        </mote>
+    </ThingDef>
 
     <AbilityDef>
 		<defName>Ability_SagesStone</defName>
@@ -519,22 +682,17 @@
     </ThingDef>
 
     <ThingDef>
-        <defName>Mote_StElmoFireTrail</defName>
+        <defName>StElmoFireTrailParticle</defName>
         <label>火焰粒子</label>
-        <thingClass>MoteThrown</thingClass>
+        <thingClass>merissu.Thing_StElmoFireTrailParticle</thingClass> 
         <tickerType>Normal</tickerType>
+        <useHitPoints>false</useHitPoints>
         <graphicData>
-            <texPath>Other/StElmoFireTrail</texPath>
+            <texPath>Other/StElmoFireTrail/bulletJa000</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <shaderType>MoteGlow</shaderType>
-            <drawSize>(1,1)</drawSize>
         </graphicData>
         <altitudeLayer>MoteOverhead</altitudeLayer>
-        <mote>
-            <fadeInTime>0.05</fadeInTime>
-            <solidTime>0</solidTime>
-            <fadeOutTime>0.2</fadeOutTime>
-        </mote>
     </ThingDef>
 
     <ThingDef>
@@ -558,7 +716,7 @@
         <abilityClass>merissu.Ability_NoachianDeluge</abilityClass>
 		<description>土、水属性的合成符。将大量压缩的水向前方散射吹出。不仅消费量低,弹速跟密度也很好,对射时能发挥出很好的效果
 	
-散射的弹道适合清理正前方的杂兵,在近距离时会有极大的威力,使用需要消耗一张符卡。</description>
+散射的弹道适合清理正前方的杂兵,在近距离时会有极大的威力,而且水弹可以用于灭火,使用需要消耗一张符卡。</description>
 		<iconPath>Abilities/NoachianDeluge</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -567,7 +725,7 @@
 			<verbClass>Verb_CastAbility</verbClass>
 			<range>30</range>
 			<warmupTime>0.5</warmupTime>
-			<soundCast>NoachianDeluge</soundCast>
+			<soundCast>spell</soundCast>
 			<targetParams>
 				<canTargetBuildings>true</canTargetBuildings>
 				<canTargetAnimals>true</canTargetAnimals>
@@ -609,7 +767,16 @@
 			<texPath>Projectiles/bulletGa000</texPath>
 			<drawSize>(0.8,0.8)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
 		</graphicData>
+        <comps>
+            <li Class="merissu.CompProperties_DestroySpawnMote">
+                <moteDefName>Mote_BulletDestroy</moteDefName>
+            </li>
+            <li Class="merissu.CompProperties_ExtinguishFire">
+                <radius>1.0</radius> 
+            </li>
+        </comps>
 		<projectile>
 			<damageDef>Blunt</damageDef>
 			<damageAmountBase>4</damageAmountBase>
@@ -618,6 +785,17 @@
 		</projectile>
 	</ThingDef>
 
+    <ThingDef ParentName="MoteBase">
+        <defName>Mote_BulletDestroy</defName>
+        <thingClass>merissu.Mote_BulletDestroyFade</thingClass>
+        <tickerType>Normal</tickerType>
+        <useHitPoints>false</useHitPoints>
+        <graphicData>
+            <texPath>Other/bulletBb003</texPath>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+    </ThingDef>
+    
     <AbilityDef>
 		<defName>ElementalHarvester</defName>
 		<label>金木符「元素收获者」</label>

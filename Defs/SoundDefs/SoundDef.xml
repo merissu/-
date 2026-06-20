@@ -1288,6 +1288,69 @@
     </SoundDef>
 
     <SoundDef>
+        <defName>Waterbullet</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Waterbullet</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Photosynthesis</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>Photosynthesis</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>JellyfishPrincess</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>10</maxSimultaneous>
+		<maxVoices>10</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>JellyfishPrincess</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>1</min>
+				<max>1</max>
+			</pitchRange>
+			<volumeRange>100</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
+
+    <SoundDef>
         <defName>RoyalFlareShockwave</defName>
         <context>MapOnly</context>
 		<maxSimultaneous>10</maxSimultaneous>
@@ -1360,27 +1423,6 @@
 			<grains>
 			  <li Class="AudioGrain_Clip">
 				<clipPath>ElementalHarvester</clipPath>
-			  </li>
-			</grains>
-			<pitchRange>
-				<min>1</min>
-				<max>1</max>
-			</pitchRange>
-			<volumeRange>100</volumeRange>
-		  </li>
-		</subSounds>
-    </SoundDef>
-
-    <SoundDef>
-        <defName>NoachianDeluge</defName>
-        <context>MapOnly</context>
-		<maxSimultaneous>10</maxSimultaneous>
-		<maxVoices>10</maxVoices>
-		<subSounds>
-		  <li>
-			<grains>
-			  <li Class="AudioGrain_Clip">
-				<clipPath>NoachianDeluge</clipPath>
 			  </li>
 			</grains>
 			<pitchRange>

@@ -2573,7 +2573,7 @@
 	<WeatherDef>
 		<defName>scorchingsun</defName>
 		<label>烈日</label>
-		<description>烧尽一切程度的天气,处于室外时被灼烧
+		<description>烧尽一切程度的天气,长时间处于室外时会被灼烧
 
 (天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
 		<isBad>true</isBad>
@@ -2636,7 +2636,7 @@
 		<defName>scorchingsunCondition</defName>
 		<conditionClass>merissu.GameCondition_UniversalWeather</conditionClass>
 		<label>烈日</label>
-		<description>烧尽一切程度的天气,处于室外时被灼烧</description>
+		<description>烧尽一切程度的天气,长时间处于室外时会被灼烧</description>
 		<weatherDef>scorchingsun</weatherDef>
 		<temperatureOffset>15</temperatureOffset>
 		<canBePermanent>false</canBePermanent> 
@@ -2674,7 +2674,7 @@
         <defName>scorchingsun_Hediff</defName>
         <label>烈日</label>
         <defaultLabelColor>(102,153,153)</defaultLabelColor>
-        <description>烧尽一切程度的天气,处于室外时被灼烧</description>
+        <description>烧尽一切程度的天气,长时间处于室外时会被灼烧</description>
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>true</isBad>
         <tendable>false</tendable>
@@ -2687,4 +2687,19 @@
     	</comps>
     </HediffDef>
 
+	<HediffDef>
+		<defName>scorchingbuildup_Hediff</defName>
+		<label>灼热</label>
+		<defaultLabelColor>(255,102,0)</defaultLabelColor>
+		<description>因暴露在烈日下导致身体急剧受热,处于室内时会迅速消退,在室外呆太久会被直接点燃。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>true</isBad>
+		<tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+		<li Class="merissu.HediffCompProperties_ScorchingBuildUp" />
+		<li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-1.0</severityPerDay> </li>
+		</comps>
+	</HediffDef>
 </Defs>	

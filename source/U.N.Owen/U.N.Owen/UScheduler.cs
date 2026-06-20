@@ -46,22 +46,5 @@ namespace U.N.Owen
                 fireTick = fireTick
             });
         }
-
-        public override void MapComponentTick()
-        {
-            base.MapComponentTick();
-
-            int now = Find.TickManager.TicksGame;
-            for (int i = pendingShots.Count - 1; i >= 0; i--)
-            {
-                var shot = pendingShots[i];
-                if (shot.fireTick > now) continue;
-
-                Verb_SpawnDanmaku_Kedama.SpawnDanmaku(
-                    shot.root, shot.target, shot.pawn, map, 0f);
-
-                pendingShots.RemoveAt(i);
-            }
-        }
     }
 }

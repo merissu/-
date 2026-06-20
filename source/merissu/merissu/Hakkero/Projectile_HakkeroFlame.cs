@@ -1,6 +1,6 @@
-﻿using Verse;
+﻿using RimWorld;
 using UnityEngine;
-using RimWorld;
+using Verse;
 
 namespace merissu
 {
@@ -9,7 +9,16 @@ namespace merissu
         private Vector3 startPos;
         private bool initialized;
 
-        public float maxDistance = 20f;
+        private const float MaxDistance = 20f;
+        private const float MaxDistanceSq = MaxDistance * MaxDistance;
+
+        private const float DamageStartDist = 1.5f;
+        private const float DamageStartDistSq = DamageStartDist * DamageStartDist;
+
+        private int fireTickCounter;
+
+        private static readonly MaterialPropertyBlock MPB =
+            new MaterialPropertyBlock();
 
         protected override void Tick()
         {
@@ -21,47 +30,88 @@ namespace merissu
                 initialized = true;
             }
 
-            if (Map == null) return;
+            if (Map == null)
+                return;
 
-            IntVec3 curCell = Position;
+            Vector3 offset = ExactPosition - startPos;
 
-            float currentDist = Vector3.Distance(startPos, ExactPosition);
+            float distSq = offset.sqrMagnitude;
 
-            if (currentDist > 1.5f)
+            if (distSq > DamageStartDistSq)
             {
-                FireUtility.TryStartFireIn(curCell, Map, 1f, launcher);
-
-                Pawn p = curCell.GetFirstPawn(Map);
-                if (p != null && !p.Dead && p != launcher)
+                if (++fireTickCounter >= 3)
                 {
-                    DamageInfo dinfo = new DamageInfo(DamageDefOf.Flame, 1f, 0f, -1f, launcher);
-                    p.TakeDamage(dinfo);
+                    fireTickCounter = 0;
+
+                    IntVec3 cell = Position;
+
+                    FireUtility.TryStartFireIn(
+                        cell,
+                        Map,
+                        0.15f,
+                        launcher);
+
+                    Pawn pawn =
+                        cell.GetFirstPawn(Map);
+
+                    if (pawn != null &&
+                        pawn != launcher &&
+                        !pawn.Dead)
+                    {
+                        pawn.TakeDamage(
+                            new DamageInfo(
+                                DamageDefOf.Flame,
+                                1f,
+                                0f,
+                                -1f,
+                                launcher));
+                    }
                 }
             }
 
-            if (currentDist >= maxDistance)
+            if (distSq >= MaxDistanceSq)
             {
                 Destroy(DestroyMode.Vanish);
             }
         }
-        protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+
+        protected override void DrawAt(
+            Vector3 drawLoc,
+            bool flip = false)
         {
-            float dist = Vector3.Distance(startPos, ExactPosition);
-            float progress = Mathf.Clamp01(dist / maxDistance);
+            Vector3 offset = ExactPosition - startPos;
 
-            float alpha = 1f - Mathf.Pow(progress, 3);
+            float progress =
+                Mathf.Clamp01(
+                    offset.sqrMagnitude /
+                    MaxDistanceSq);
 
-            Material baseMat = Graphic.MatSingle;
+            float alpha =
+                1f - progress * progress * progress;
 
-            Material instanceMat = new Material(baseMat);
-            instanceMat.color = new Color(1f, 0.6f * alpha, 0.3f * alpha, alpha);
+            Material mat = Graphic.MatSingle;
+
+            MPB.Clear();
+
+            MPB.SetColor(
+                ShaderPropertyIDs.Color,
+                new Color(
+                    1f,
+                    0.6f * alpha,
+                    0.3f * alpha,
+                    alpha));
 
             Graphics.DrawMesh(
                 MeshPool.plane10,
-                drawLoc,
-                ExactRotation,
-                instanceMat,
-                0);
+                Matrix4x4.TRS(
+                    drawLoc,
+                    ExactRotation,
+                    Vector3.one),
+                mat,
+                0,
+                null,
+                0,
+                MPB);
         }
     }
 }

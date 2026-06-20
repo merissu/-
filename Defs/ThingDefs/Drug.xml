@@ -83,6 +83,9 @@
 			<MedicalQualityMax>1.20</MedicalQualityMax>
 			<DeteriorationRate>5</DeteriorationRate>
 		</statBases>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
     <costList>
 		<MedicineHerbal>1</MedicineHerbal>
 		<LoseBambooShoot>30</LoseBambooShoot>
@@ -107,46 +110,49 @@
 	</ThingDef>
 	
 	<ThingDef ParentName="MedicineBase">
-	<defName>MedicineOfTheLunarCapital</defName>
-	<label>月都医药</label>
-	<description>月之都为月之民和兔子们配给的医药,可以治好所有病,并且还能以此为基础开发各种不可思议的药物。</description>
-	<tradeability>Sellable</tradeability>
-	<possessionCount>4</possessionCount>
-	<graphicData>
-		<texPath>Medicine/MedicineOfTheLunarCapital</texPath>
-		<graphicClass>Graphic_StackCount</graphicClass>
-		<drawSize>0.85</drawSize>
-	</graphicData>
-	<techLevel>Ultra</techLevel>
-	<statBases>
-		<MarketValue>1200</MarketValue>
-		<Mass>0.35</Mass>
-		<Flammability>0</Flammability>
-		<MedicalPotency>10</MedicalPotency>
-		<MedicalQualityMax>10</MedicalQualityMax>
-		<DeteriorationRate>1</DeteriorationRate>
-	</statBases>
-    <costList>
-      <HeavenlyPeach>10</HeavenlyPeach>
-      <MedicineOfTheBambooForest>5</MedicineOfTheBambooForest>
-      <Cloth>10</Cloth>
-	  <PowerPoint>10</PowerPoint>
-    </costList>
-	<orderedTakeGroup>Medicine</orderedTakeGroup>
-    <recipeMaker>
-      <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
-      <workSkill>Intellectual</workSkill>
-	  <workAmount>3000</workAmount>
-      <recipeUsers>
-        <li>PenglaiPharmaceuticalTable</li>
-      </recipeUsers>
-      <researchPrerequisite>TheDarkSideOfTheMoon</researchPrerequisite>
-      <skillRequirements>
-        <Crafting>12</Crafting>
-        <Intellectual>12</Intellectual>
-      </skillRequirements>
-      <bulkRecipeCount>4</bulkRecipeCount>
-    </recipeMaker>
+		<defName>MedicineOfTheLunarCapital</defName>
+		<label>月都医药</label>
+		<description>月之都为月之民和兔子们配给的医药,可以治好所有病,并且还能以此为基础开发各种不可思议的药物。</description>
+		<tradeability>Sellable</tradeability>
+		<possessionCount>4</possessionCount>
+		<graphicData>
+			<texPath>Medicine/MedicineOfTheLunarCapital</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<techLevel>Ultra</techLevel>
+		<statBases>
+			<MarketValue>1200</MarketValue>
+			<Mass>0.35</Mass>
+			<Flammability>0</Flammability>
+			<MedicalPotency>10</MedicalPotency>
+			<MedicalQualityMax>10</MedicalQualityMax>
+			<DeteriorationRate>1</DeteriorationRate>
+		</statBases>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
+		<costList>
+			<HeavenlyPeach>10</HeavenlyPeach>
+			<MedicineOfTheBambooForest>5</MedicineOfTheBambooForest>
+			<Cloth>10</Cloth>
+			<PowerPoint>10</PowerPoint>
+		</costList>
+		<orderedTakeGroup>Medicine</orderedTakeGroup>
+		<recipeMaker>
+			<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+			<workSkill>Intellectual</workSkill>
+			<workAmount>3000</workAmount>
+			<recipeUsers>
+				<li>PenglaiPharmaceuticalTable</li>
+			</recipeUsers>
+			<researchPrerequisite>TheDarkSideOfTheMoon</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+				<Intellectual>12</Intellectual>
+			</skillRequirements>
+			<bulkRecipeCount>4</bulkRecipeCount>
+		</recipeMaker>
 		<allowedArchonexusCount>20</allowedArchonexusCount>
 	</ThingDef>
 
@@ -286,6 +292,12 @@
 		<description>即时消耗卡,可以让人在灵力稀薄的地方收集灵气的魔法道具,灵力可以强化身体素质,提高火力
 
 使用后会获得收集灵力程度的能力,可以收取全图的p点并转化为灵力</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+            <ThingDef>LifeCards</ThingDef> 
+        </descriptionHyperlinks>
 		<tradeTags>
 		    <li>ExoticMisc</li> 
 		</tradeTags>		
@@ -294,6 +306,9 @@
 			<Mass>0.01</Mass>
 		</statBases>
 		<techLevel>Industrial</techLevel>
+		<thingCategories>
+			<li>touhoucard</li>
+		</thingCategories>
 		<costList>
 			<Crimsongold>1</Crimsongold>
 			<SpiritualWood>5</SpiritualWood>
@@ -362,6 +377,9 @@
 			<MarketValue>100</MarketValue>
 			<Mass>0.01</Mass>
 		</statBases>
+		<thingCategories>
+			<li>touhoucard</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>1</FullPower>
@@ -487,6 +505,11 @@
                 <severityGain>0.1</severityGain> 
 			</li>
 			<li Class="merissu.HediffCompProperties_SpiritualPowerHeal" />
+			<li Class="merissu.HediffCompProperties_SpiritualFlightToggle">
+				<drainPerTick>0.0001</drainPerTick> 
+				<iconPathOn>UI/FlightOn</iconPathOn>   
+				<iconPathOff>UI/FlightOff</iconPathOff> 
+			</li>
 		</comps>
 	</HediffDef>
 
@@ -532,6 +555,9 @@
 			<MarketValue>100</MarketValue>
 			<Mass>0.01</Mass>
 		</statBases>
+		<thingCategories>
+			<li>touhoucard</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>1</FullPower>
@@ -602,6 +628,9 @@
 			<Mass>0.01</Mass>
 		</statBases>
 		<techLevel>Industrial</techLevel>
+		<thingCategories>
+			<li>touhoucard</li>
+		</thingCategories>
 		<costList>
 			<FullPower>1</FullPower>
 		</costList>
@@ -753,6 +782,9 @@
 			<MarketValue>50</MarketValue>
 			<Mass>0.01</Mass>
 		</statBases>
+		<thingCategories>
+			<li>touhoucard</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>1</FullPower>
@@ -811,6 +843,10 @@
 		<description>即时消耗卡,拥有使用后便能召唤莉莉霍瓦特的能力,她是个小富豪。
 
 不知为何她带着大量金钱和道具！打倒并夺走吧！但是要小心,她也会发射子弹。</description>
+		<descriptionHyperlinks>
+			<ThingDef>Merissu_CustomCoin</ThingDef> 
+			<ThingDef>ZayuLily</ThingDef>
+		</descriptionHyperlinks>
 		<tradeTags>
 		    <li>ExoticMisc</li> 
 		</tradeTags>		
@@ -818,6 +854,9 @@
 			<MarketValue>100</MarketValue>
 			<Mass>0.01</Mass>
 		</statBases>
+		<thingCategories>
+			<li>touhoucard</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>1</FullPower>
@@ -882,6 +921,9 @@
 			<MarketValue>100</MarketValue>
 			<Mass>0.01</Mass>
 		</statBases>
+		<thingCategories>
+			<li>touhoucard</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>4</FullPower>
@@ -942,6 +984,10 @@
 		<description>即时消耗卡,依神紫苑的能力,下一波次起难度变低,高级敌人变少,掉落袭击之证并召唤一次袭击(来袭的的敌人会掉落金钱)
 
 谁把这贫穷神招来的啊。拿到这张卡不就相当于拿不到金钱了吗。下次绝对不要再靠近她了。</description>
+		<descriptionHyperlinks>
+			<ThingDef>ProofHeroism</ThingDef> 
+			<ThingDef>Merissu_CustomCoin</ThingDef> 
+        </descriptionHyperlinks>
 		<tradeTags>
 		    <li>ExoticMisc</li> 
 		</tradeTags>		
@@ -949,6 +995,9 @@
 			<MarketValue>100</MarketValue>
 			<Mass>0.01</Mass>
 		</statBases>
+		<thingCategories>
+			<li>touhoucard</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>1</FullPower>
@@ -1010,7 +1059,13 @@
 		</graphicData>
 		<description>即时消耗卡,依神女苑的能力,下一波次起难度变高,袭击会召唤更加强大的敌人,掉落袭击之证并召唤一次袭击(来袭的的敌人会掉落金钱)
 
+当发生最强大的妖怪袭击时,反常识力量便会突破阈值凝聚成灵异珠
+
 谁把这疫病神招来的啊,拿到这张卡不就相当于要死了吗,下次绝对不要再靠近她了。</description>
+		<descriptionHyperlinks>
+            <ThingDef>SupernaturalBead</ThingDef> 
+			<ThingDef>ProofHeroism</ThingDef> 
+        </descriptionHyperlinks>
 		<tradeTags>
 		    <li>ExoticMisc</li> 
 		</tradeTags>		
@@ -1018,6 +1073,9 @@
 			<MarketValue>100</MarketValue>
 			<Mass>0.01</Mass>
 		</statBases>
+		<thingCategories>
+			<li>touhoucard</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>1</FullPower>
@@ -1089,6 +1147,9 @@
 			<MarketValue>250</MarketValue>
 			<Mass>0.1</Mass>
 		</statBases>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<tradeability>Sellable</tradeability>
 		<techLevel>Industrial</techLevel>
 		<costList>
@@ -1222,6 +1283,9 @@
 				<li>ReturningFromTheHell</li>
 			</researchPrerequisite>		
 		</recipeMaker>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<ingestible>
 			<baseIngestTicks>1</baseIngestTicks>
 			<chairSearchRadius>0</chairSearchRadius>
@@ -1305,6 +1369,9 @@
 				<li>ReturningFromTheHell</li>
 			</researchPrerequisite>		
 		</recipeMaker>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<ingestible>
 			<baseIngestTicks>1</baseIngestTicks>
 			<chairSearchRadius>0</chairSearchRadius>
@@ -1408,10 +1475,13 @@
 			<recipeUsers>
 				<li>PenglaiPharmaceuticalTable</li>
 			</recipeUsers>
-		<researchPrerequisite>
+			<researchPrerequisite>
 				<li>TheDarkSideOfTheMoon</li>
 			</researchPrerequisite>		
 		</recipeMaker>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<ingestible>
 			<baseIngestTicks>1</baseIngestTicks>
 			<chairSearchRadius>0</chairSearchRadius>
@@ -1495,9 +1565,9 @@
 			<li>ReturningFromTheHell</li>
 		</researchPrerequisite>		
 	</recipeMaker>
-    <thingCategories>
-      <li>ItemsMisc</li>
-    </thingCategories>
+	<thingCategories>
+		<li>TouhouMedicine</li>
+	</thingCategories>
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags>
       <li>RewardStandardMidFreq</li>
@@ -1538,6 +1608,9 @@
 			<MarketValue>150</MarketValue>
 			<Mass>0.1</Mass>
 		</statBases>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>1</FullPower>
@@ -1647,6 +1720,9 @@
 			<MarketValue>30</MarketValue>
 			<Mass>0.1</Mass>
 		</statBases>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<PowerPoint>10</PowerPoint>
@@ -1716,6 +1792,9 @@
 			<MarketValue>30</MarketValue>
 			<Mass>0.1</Mass>
 		</statBases>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<PowerPoint>10</PowerPoint>
@@ -1879,6 +1958,9 @@
 			<MarketValue>70</MarketValue>
 			<Mass>0.1</Mass>
 		</statBases>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<PowerPoint>10</PowerPoint>
@@ -2144,7 +2226,10 @@
 		<costList>
 			<PowerPoint>10</PowerPoint>
 			<MedicineOfTheBambooForest>1</MedicineOfTheBambooForest>
-	</costList>
+		</costList>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<recipeMaker>
 			<skillRequirements>
 				<Crafting>6</Crafting>
@@ -2155,9 +2240,10 @@
 			<recipeUsers>
 				<li>PenglaiPharmaceuticalTable</li>
 			</recipeUsers>
-<researchPrerequisite>
-			<li>DrunkAsILike</li>
-</researchPrerequisite>		</recipeMaker>
+			<researchPrerequisite>
+						<li>DrunkAsILike</li>
+			</researchPrerequisite>		
+		</recipeMaker>
 		<ingestible>
 			<joyKind>Chemical</joyKind>
 			<joy>0.20</joy>
@@ -2346,6 +2432,9 @@
 			<FullPower>1</FullPower>
 			<ReimuSakuraPetal>50</ReimuSakuraPetal>
 		</costList>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<recipeMaker>
 			<skillRequirements>
 				<Crafting>8</Crafting>
@@ -2426,6 +2515,9 @@
 			<FullPower>1</FullPower>
 			<ReimuSakuraPetal>50</ReimuSakuraPetal>
 		</costList>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<recipeMaker>
 			<skillRequirements>
 				<Crafting>8</Crafting>
@@ -2565,12 +2657,15 @@
 			<MarketValue>130</MarketValue>
 			<Mass>0.1</Mass>
 		</statBases>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<FullPower>1</FullPower>
 			<ButterflyDreamPill>1</ButterflyDreamPill>
 			<ReimuSakuraPetal>50</ReimuSakuraPetal>
-	</costList>
+		</costList>
 		<recipeMaker>
 			<skillRequirements>
 				<Crafting>8</Crafting>
@@ -2581,9 +2676,10 @@
 			<recipeUsers>
 				<li>PenglaiPharmaceuticalTable</li>
 			</recipeUsers>
-<researchPrerequisite>
-			<li>DrunkAsILike</li>
-</researchPrerequisite>		</recipeMaker>
+			<researchPrerequisite>
+						<li>DrunkAsILike</li>
+			</researchPrerequisite>		
+		</recipeMaker>
 		<ingestible>
 			<joyKind>Chemical</joyKind>
 			<joy>0.40</joy>
@@ -2656,6 +2752,7 @@
 			<li/>
 		</stages>
 	</HediffDef>
+	
 	<ThoughtDef>
 		<defName>Ogentic_Customer</defName>
 		<workerClass>ThoughtWorker_Hediff</workerClass>
@@ -2693,6 +2790,9 @@
 			<PowerPoint>10</PowerPoint>
 			<ReimuSakuraPetal>10</ReimuSakuraPetal>
 		</costList>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<recipeMaker>
 			<skillRequirements>
 				<Crafting>5</Crafting>
@@ -2809,6 +2909,9 @@
 				<li>EnergyDaybreak</li>
 			</researchPrerequisite>		
 		</recipeMaker>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<ingestible>
 			<baseIngestTicks>1</baseIngestTicks>
 			<chairSearchRadius>0</chairSearchRadius>
@@ -2920,6 +3023,9 @@
 			<PowerPoint>9</PowerPoint>
 			<LoseBambooShoot>9</LoseBambooShoot>
 		</costList>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<recipeMaker>
 			<skillRequirements>
 				<Crafting>9</Crafting>
@@ -2929,9 +3035,10 @@
 			<recipeUsers>
 				<li>PenglaiPharmaceuticalTable</li>
 			</recipeUsers>
-<researchPrerequisite>
-			<li>EnergyDaybreak</li>
-</researchPrerequisite>		</recipeMaker>
+			<researchPrerequisite>
+						<li>EnergyDaybreak</li>
+			</researchPrerequisite>		
+		</recipeMaker>
 		<ingestible>
 			<baseIngestTicks>1</baseIngestTicks>
 			<chairSearchRadius>0</chairSearchRadius>
@@ -3301,6 +3408,9 @@
 			<FullPower>1</FullPower>
 			<Energizer>9</Energizer>
 		</costList>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<recipeMaker>
 			<skillRequirements>
 				<Crafting>8</Crafting>
@@ -3311,9 +3421,10 @@
 			<recipeUsers>
 				<li>PenglaiPharmaceuticalTable</li>
 			</recipeUsers>
-<researchPrerequisite>
-			<li>EnergyDaybreak</li>
-</researchPrerequisite>		</recipeMaker>
+			<researchPrerequisite>
+						<li>EnergyDaybreak</li>
+			</researchPrerequisite>		
+		</recipeMaker>
 		<ingestible>
 			<baseIngestTicks>1</baseIngestTicks>
 			<chairSearchRadius>0</chairSearchRadius>
@@ -3412,6 +3523,9 @@
 			<UniversalInjection>1</UniversalInjection>
 			<E_LargeHiPotion>1</E_LargeHiPotion>
 		</costList>
+		<thingCategories>
+			<li>TouhouMedicine</li>
+		</thingCategories>
 		<tradeability>Sellable</tradeability> 
 		<tradeTags>
 			<li>ExoticMisc</li> 
@@ -3467,194 +3581,6 @@
     	</stages>
 	</HediffDef>
 
-	<ThingDef ParentName="DrugPillBase">
-		<defName>OniKillingWine</defName>
-		<label>鬼杀酒</label>
-		<description>传说一杯就能让酒量无底洞一般的鬼族醉生梦死的传说之酒......但我见到的是......鬼明明都当作凉白开来喝的？！传说一点都不靠谱啊。</description>
-		<descriptionHyperlinks>
-			<HediffDef>AlcoholHigh</HediffDef>
-			<HediffDef>AlcoholTolerance</HediffDef>
-			<HediffDef>Hangover</HediffDef>
-			<HediffDef>AlcoholAddiction</HediffDef>
-			<HediffDef>Cirrhosis</HediffDef>
-			<HediffDef>ChemicalDamageModerate</HediffDef>
-		</descriptionHyperlinks>
-		<possessionCount>6</possessionCount>
-		<graphicData>
-			<texPath>Medicine/onikoro</texPath>
-			<drawSize>(0.8,0.8)</drawSize>
-			<shaderType>Mote</shaderType>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<rotatable>false</rotatable>
-		<stackLimit>25</stackLimit>
-		<statBases>
-			<DeteriorationRate>0.5</DeteriorationRate>
-			<MarketValue>20</MarketValue>
-			<Mass>0.3</Mass>
-			<Flammability>0.5</Flammability>
-			<Nutrition>0.08</Nutrition>
-		</statBases>
-		<ingestible>
-			<foodType>Fluid, Processed, Liquor</foodType>
-			<joyKind>Chemical</joyKind>
-			<joy>0.6</joy>
-			<nurseable>true</nurseable>
-			<drugCategory>Social</drugCategory>
-			<ingestSound>Drinksth</ingestSound>
-			<ingestHoldOffsetStanding>
-				<northDefault>
-					<offset>(0.18,0,0)</offset>
-				</northDefault>
-			</ingestHoldOffsetStanding>
-			<ingestCommandString>Drink {0}</ingestCommandString>
-			<ingestReportString>Drinking {0}.</ingestReportString>
-			<chairSearchRadius>25</chairSearchRadius>
-			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
-			<tableDesired>false</tableDesired>
-			<outcomeDoers>
-				<li Class="IngestionOutcomeDoer_GiveHediff">
-					<hediffDef>AlcoholHigh</hediffDef>
-					<severity>0.75</severity>
-					<toleranceChemical>Alcohol</toleranceChemical>
-				</li>
-				<li Class="IngestionOutcomeDoer_GiveHediff">
-					<hediffDef>AlcoholTolerance</hediffDef>
-					<severity>0.04</severity>
-					<divideByBodySize>true</divideByBodySize>
-					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
-				</li>
-					<li Class="IngestionOutcomeDoer_GiveHediff">
-						<hediffDef>DrunkenMadnessIbukisGourd</hediffDef>
-						<severity>1</severity>
-					</li>
-			</outcomeDoers>
-		</ingestible>
-		<techLevel>Neolithic</techLevel>
-		<comps>
-			<li Class="CompProperties_Drug">
-				<chemical>Alcohol</chemical>
-				<addictiveness>0.030</addictiveness>
-				<minToleranceToAddict>0.25</minToleranceToAddict>
-				<existingAddictionSeverityOffset>0.80</existingAddictionSeverityOffset>
-				<needLevelOffset>0.9</needLevelOffset>
-				<listOrder>10</listOrder>
-			</li>
-		</comps>
-		<allowedArchonexusCount>50</allowedArchonexusCount>
-	</ThingDef>
-	<HediffDef>
-		<defName>DrunkenMadnessIbukisGourd</defName>
-		<label>酒疯</label>
-		<description>啊哈哈……梅莉……我感觉自己现在能一拳打碎一座山……zzz……</description>
-		<hediffClass>HediffWithComps</hediffClass>
-		<comps>
-			<li Class="U.N.Owen.HediffCompProperties_DamageBoost">
-			</li>
-		</comps>
-	</HediffDef>
-	<ThingDef  Name="WineBugWine" ParentName="DrugPillBase" Abstract="True">
-		<defName>WineBugWine</defName>
-		<label>酒虫酒</label>
-		<description>从伊吹瓢中收集的酒，似乎是由其中一种名为酒虫的生物酿造的，它们只需要一点水就能源源不断地生产出酒来，真是神奇啊。我和莲子稍微品尝了一点，结果完全不一样，每一口都有不同的滋味。喝太多了……现在头好痛，早知道不喝那么多了。</description>
-		<descriptionHyperlinks>
-			<HediffDef>AlcoholHigh</HediffDef>
-			<HediffDef>AlcoholTolerance</HediffDef>
-			<HediffDef>Hangover</HediffDef>
-			<HediffDef>AlcoholAddiction</HediffDef>
-			<HediffDef>Cirrhosis</HediffDef>
-			<HediffDef>ChemicalDamageModerate</HediffDef>
-		</descriptionHyperlinks>
-		<possessionCount>6</possessionCount>
-		<graphicData>
-			<texPath>Medicine/onikoro</texPath>
-			<drawSize>(0.8,0.8)</drawSize>
-			<shaderType>Mote</shaderType>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<rotatable>false</rotatable>
-		<stackLimit>25</stackLimit>
-		<statBases>
-			<DeteriorationRate>0.5</DeteriorationRate>
-			<MarketValue>20</MarketValue>
-			<Mass>0.3</Mass>
-			<Flammability>0.5</Flammability>
-			<Nutrition>0.08</Nutrition>
-		</statBases>
-		<ingestible>
-			<foodType>Fluid, Processed, Liquor</foodType>
-			<joyKind>Chemical</joyKind>
-			<joy>0.6</joy>
-			<nurseable>true</nurseable>
-			<drugCategory>Social</drugCategory>
-			<ingestSound>Drinksth</ingestSound>
-			<ingestHoldOffsetStanding>
-				<northDefault>
-					<offset>(0.18,0,0)</offset>
-				</northDefault>
-			</ingestHoldOffsetStanding>
-			<ingestCommandString>Drink {0}</ingestCommandString>
-			<ingestReportString>Drinking {0}.</ingestReportString>
-			<chairSearchRadius>25</chairSearchRadius>
-			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
-			<tableDesired>false</tableDesired>
-			<outcomeDoers>
-				<li Class="IngestionOutcomeDoer_GiveHediff">
-					<hediffDef>AlcoholHigh</hediffDef>
-					<severity>0.75</severity>
-					<toleranceChemical>Alcohol</toleranceChemical>
-				</li>
-				<li Class="IngestionOutcomeDoer_GiveHediff">
-					<hediffDef>AlcoholTolerance</hediffDef>
-					<severity>0.04</severity>
-					<divideByBodySize>true</divideByBodySize>
-					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
-				</li>
-			</outcomeDoers>
-		</ingestible>
-		<techLevel>Neolithic</techLevel>
-		<comps>
-			<li Class="CompProperties_Drug">
-				<chemical>Alcohol</chemical>
-				<addictiveness>0.030</addictiveness>
-				<minToleranceToAddict>0.25</minToleranceToAddict>
-				<existingAddictionSeverityOffset>0.80</existingAddictionSeverityOffset>
-				<needLevelOffset>0.9</needLevelOffset>
-				<listOrder>10</listOrder>
-			</li>
-			<li Class="U.N.Owen.CompProperties_OfferFillOnGround">
-			</li>
-		</comps>
-		<allowedArchonexusCount>50</allowedArchonexusCount>
-	</ThingDef>
-	<ThingDef ParentName="WineBugWine">
-		<defName>WineBugWineMetal</defName>
-		<label>酒虫酒(金)</label>
-	</ThingDef>
-	<ThingDef ParentName="WineBugWine">
-		<defName>WineBugWineWood</defName>
-		<label>酒虫酒(木)</label>
-	</ThingDef>
-	<ThingDef ParentName="WineBugWine">
-		<defName>WineBugWineWater</defName>
-		<label>酒虫酒(水)</label>
-	</ThingDef>
-	<ThingDef ParentName="WineBugWine">
-		<defName>WineBugWineFire</defName>
-		<label>酒虫酒(火)</label>
-	</ThingDef>
-	<ThingDef ParentName="WineBugWine">
-		<defName>WineBugWineEarth</defName>
-		<label>酒虫酒(土)</label>
-	</ThingDef>
-	<ThingDef ParentName="WineBugWine">
-		<defName>WineBugWineSun</defName>
-		<label>酒虫酒(日)</label>
-	</ThingDef>
-	<ThingDef ParentName="WineBugWine">
-		<defName>WineBugWineLuna</defName>
-		<label>酒虫酒(月)</label>
-	</ThingDef>
 	<ThingDef Name="GeyserWater" ParentName="ResourceBase" Abstract="True" >
 		<thingClass>ThingWithComps</thingClass>
 		<stackLimit>10</stackLimit>
@@ -3711,121 +3637,5 @@
 			</li>
 		</comps>
 	</ThingDef>
-	<ThingDef ParentName="GeyserWater">
-		<defName>GeyserWater</defName>
-		<label>温泉水</label>
-		<description>从梅莉带回来的机器里产出的温泉水，她告诉我这些水可以用来酿酒，可是一般来说温泉水含硫磺、氟化物和一些重金属，根本不适合饮用啊，而且闻起来就有一股硫磺味……</description>
-		<descriptionHyperlinks>
-			<ThingDef>OniKillingWine</ThingDef>
-		</descriptionHyperlinks>
-		<possessionCount>6</possessionCount>
-		<graphicData>
-			<texPath>Medicine/GeyserWater</texPath>
-			<drawSize>(0.8,0.8)</drawSize>
-			<shaderType>Mote</shaderType>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<rotatable>false</rotatable>
-		<stackLimit>25</stackLimit>
-		<statBases>
-			<DeteriorationRate>0.5</DeteriorationRate>
-			<MarketValue>20</MarketValue>
-			<Mass>0.3</Mass>
-			<Flammability>0.5</Flammability>
-			<Nutrition>0</Nutrition>
-		</statBases>
-		<ingestible>
-			<foodType>Fluid, Processed, Liquor</foodType>
-			<nurseable>true</nurseable>
-			<drugCategory>Social</drugCategory>
-			<ingestSound>Drinksth</ingestSound>
-			<ingestHoldOffsetStanding>
-				<northDefault>
-					<offset>(0.18,0,0)</offset>
-				</northDefault>
-			</ingestHoldOffsetStanding>
-			<ingestCommandString>Drink {0}</ingestCommandString>
-			<ingestReportString>Drinking {0}.</ingestReportString>
-			<chairSearchRadius>25</chairSearchRadius>
-			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
-			<tableDesired>false</tableDesired>
-		</ingestible>
-		<techLevel>Neolithic</techLevel>
-		<allowedArchonexusCount>50</allowedArchonexusCount>
-	</ThingDef>
-	<ThingDef ParentName="DrugPillBase">
-		<defName>JunmaiDaiGinjoShu</defName>
-		<label>大吟酿</label>
-		<description>大吟酿是最高等级的日本清酒，本来酿造工序繁琐，但这些是由星熊杯转化的。大吟酿很容易受日光的影响，在日光下直射3小时，其颜色会加深3～5倍，即使库内散光，长时间的照射影响也很大，需要尽快喝掉才行。</description>
-		<descriptionHyperlinks>
-			<HediffDef>AlcoholHigh</HediffDef>
-			<HediffDef>AlcoholTolerance</HediffDef>
-			<HediffDef>Hangover</HediffDef>
-			<HediffDef>AlcoholAddiction</HediffDef>
-			<HediffDef>Cirrhosis</HediffDef>
-			<HediffDef>ChemicalDamageModerate</HediffDef>
-		</descriptionHyperlinks>
-		<possessionCount>6</possessionCount>
-		<graphicData>
-			<texPath>Things/Item/Drug/Beer</texPath>
-			<graphicClass>Graphic_StackCount</graphicClass>
-		</graphicData>
-		<rotatable>false</rotatable>
-		<stackLimit>25</stackLimit>
-		<statBases>
-			<DeteriorationRate>0.5</DeteriorationRate>
-			<MarketValue>20</MarketValue>
-			<Mass>0.3</Mass>
-			<Flammability>0.5</Flammability>
-			<Nutrition>0.08</Nutrition>
-		</statBases>
-		<ingestible>
-			<foodType>Fluid, Processed, Liquor</foodType>
-			<joyKind>Chemical</joyKind>
-			<joy>0.6</joy>
-			<nurseable>true</nurseable>
-			<drugCategory>Social</drugCategory>
-			<ingestSound>Ingest_Beer</ingestSound>
-			<ingestHoldOffsetStanding>
-				<northDefault>
-					<offset>(0.18,0,0)</offset>
-				</northDefault>
-			</ingestHoldOffsetStanding>
-			<ingestCommandString>Drink {0}</ingestCommandString>
-			<ingestReportString>Drinking {0}.</ingestReportString>
-			<chairSearchRadius>25</chairSearchRadius>
-			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
-			<tableDesired>false</tableDesired>
-			<outcomeDoers>
-				<li Class="IngestionOutcomeDoer_GiveHediff">
-					<hediffDef>AlcoholHigh</hediffDef>
-					<severity>0.6</severity>
-					<toleranceChemical>Alcohol</toleranceChemical>
-				</li>
-				<li Class="IngestionOutcomeDoer_GiveHediff">
-					<hediffDef>AlcoholTolerance</hediffDef>
-					<severity>0.06</severity>
-					<divideByBodySize>true</divideByBodySize>
-					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
-				</li>
-			</outcomeDoers>
-		</ingestible>
-		<techLevel>Neolithic</techLevel>
-		<comps>
-			<li Class="CompProperties_Drug">
-				<chemical>Alcohol</chemical>
-				<addictiveness>0.010</addictiveness>
-				<minToleranceToAddict>0.25</minToleranceToAddict>
-				<existingAddictionSeverityOffset>0.60</existingAddictionSeverityOffset>
-				<needLevelOffset>0.9</needLevelOffset>
-				<listOrder>10</listOrder>
-			</li>
-			<li Class="CompProperties_Dissolution">
-				<dissolutionAfterDays>8</dissolutionAfterDays>
-				<dissolutinFactorIndoors>0.5</dissolutinFactorIndoors>
-				<dissolutionFactorRain>2</dissolutionFactorRain>
-			</li>
-		</comps>
-		<allowedArchonexusCount>50</allowedArchonexusCount>
-	</ThingDef>
+
 </Defs>

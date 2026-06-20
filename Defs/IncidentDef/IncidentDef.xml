@@ -28,6 +28,9 @@
     <description>在月虹市场流通的特殊货币,可以通过不可抗拒的朱莉安娜羽扇和烟熏的团扇召唤敌人,并且打败敌人获得,能用来交换特殊的商品。
 
 在月虹市场购买卡牌比直接制作能省一半钱,所以不要吝啬金钱,大手大脚的花出去吧</description>
+		<descriptionHyperlinks>
+			<ThingDef>Blankcard</ThingDef> 
+		</descriptionHyperlinks>
     <graphicData>
 			<texPath>Accessory/card/Merissu_CustomCoin</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

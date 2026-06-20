@@ -1,7 +1,6 @@
 ﻿using RimWorld;
-using Verse;
 using UnityEngine;
-using System.Collections.Generic;
+using Verse;
 
 namespace merissu
 {
@@ -11,9 +10,11 @@ namespace merissu
         private const float ArcAngle = 45f;
         private const int BulletsPerWave = 5;
 
-        private static ThingDef CachedProjectileDef;
+        private static readonly ThingDef ProjectileDef =
+            ThingDef.Named("Projectile_HakkeroFlame");
 
         private static Material arcMat;
+
         private static Material ArcMat
         {
             get
@@ -22,34 +23,46 @@ namespace merissu
                 {
                     arcMat = new Material(ShaderDatabase.Transparent)
                     {
-                        color = new Color(1f, 0.4f, 0.1f, 0.25f)
+                        color = new Color(
+                            1f,
+                            0.4f,
+                            0.1f,
+                            0.25f)
                     };
                 }
+
                 return arcMat;
             }
         }
-
-        public override void DrawHighlight(LocalTargetInfo target)
+        public override void DrawHighlight(
+            LocalTargetInfo target)
         {
             base.DrawHighlight(target);
+
             Pawn pawn = CasterPawn;
-            if (pawn == null || !target.IsValid) return;
+
+            if (pawn == null || !target.IsValid)
+                return;
 
             Vector3 center = pawn.DrawPos;
-            Vector3 tpos = target.CenterVector3;
-            float radius = Vector3.Distance(center, tpos);
+            Vector3 targetPos = target.CenterVector3;
 
-            float maxRange = this.verbProps.range;
-            if (radius > maxRange) radius = maxRange;
-            if (radius < 0.5f) return;
+            float radius =
+                Mathf.Min(
+                    Vector3.Distance(center, targetPos),
+                    verbProps.range);
 
-            float baseAngle = (tpos - center).AngleFlat();
+            if (radius < 0.5f)
+                return;
 
-            Matrix4x4 matrix = Matrix4x4.TRS(
-                center,
-                Quaternion.Euler(0f, baseAngle, 0f),
-                new Vector3(radius, 1f, radius)
-            );
+            float baseAngle =
+                (targetPos - center).AngleFlat();
+
+            Matrix4x4 matrix =
+                Matrix4x4.TRS(
+                    center,
+                    Quaternion.Euler(0f, baseAngle, 0f),
+                    new Vector3(radius, 1f, radius));
 
             Graphics.DrawMesh(
                 MeshMaker_Fan.GetFanMesh(ArcAngle),
@@ -61,36 +74,62 @@ namespace merissu
         protected override bool TryCastShot()
         {
             Pawn pawn = CasterPawn;
-            if (pawn?.Map == null) return false;
 
-            if (CachedProjectileDef == null)
-            {
-                CachedProjectileDef = ThingDef.Named("Projectile_HakkeroFlame");
-            }
+            if (pawn?.Map == null)
+                return false;
+
+            Map map = pawn.Map;
 
             Vector3 center = pawn.DrawPos;
             Vector3 targetPos = currentTarget.CenterVector3;
-            float radius = Vector3.Distance(center, targetPos);
-            float baseAngle = (targetPos - center).AngleFlat();
 
-            Map map = pawn.Map;
+            float radius =
+                Vector3.Distance(center, targetPos);
+
+            float baseAngle =
+                (targetPos - center).AngleFlat();
+
             IntVec3 casterPos = pawn.Position;
 
             for (int i = 0; i < BulletsPerWave; i++)
             {
-                float ang = baseAngle + Rand.Range(-ArcAngle / 2f, ArcAngle / 2f);
-                Vector3 dir = Quaternion.Euler(0f, ang, 0f) * Vector3.forward;
+                float angle =
+                    baseAngle +
+                    Rand.Range(
+                        -ArcAngle * 0.5f,
+                         ArcAngle * 0.5f);
 
-                Vector3 destVec = center + dir * radius;
-                IntVec3 destCell = destVec.ToIntVec3();
+                Vector3 dir =
+                    Quaternion.Euler(
+                        0f,
+                        angle,
+                        0f) *
+                    Vector3.forward;
 
-                if (!destCell.InBounds(map)) continue;
+                IntVec3 dest =
+                    (center + dir * radius)
+                    .ToIntVec3();
 
-                LocalTargetInfo targetInfo = new LocalTargetInfo(destCell);
+                if (!dest.InBounds(map))
+                    continue;
 
-                Projectile proj = (Projectile)GenSpawn.Spawn(CachedProjectileDef, casterPos, map);
+                Projectile projectile =
+                    (Projectile)GenSpawn.Spawn(
+                        ProjectileDef,
+                        casterPos,
+                        map);
 
-                proj.Launch(pawn, center, targetInfo, targetInfo, ProjectileHitFlags.All, false, EquipmentSource);
+                LocalTargetInfo targetInfo =
+                    new LocalTargetInfo(dest);
+
+                projectile.Launch(
+                    pawn,
+                    center,
+                    targetInfo,
+                    targetInfo,
+                    ProjectileHitFlags.All,
+                    false,
+                    EquipmentSource);
             }
 
             return true;

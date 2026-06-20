@@ -6,7 +6,7 @@ namespace merissu
 {
     public class CompProperties_AbilityTransmuteToSilver : CompProperties_AbilityEffect
     {
-        public int fallbackSilver = 9; 
+        public int fallbackSilver = 9;
 
         public CompProperties_AbilityTransmuteToSilver()
         {
@@ -22,11 +22,31 @@ namespace merissu
         public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
         {
             Thing t = target.Thing;
-            return t != null && t.MapHeld != null;
+            if (t == null || t.MapHeld == null) return false;
+
+            if (t is Pawn pawn)
+            {
+                if (pawn.Faction != null && !pawn.Faction.IsPlayer)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
         {
+            Thing t = target.Thing;
+            if (t != null && t is Pawn pawn && pawn.Faction != null && !pawn.Faction.IsPlayer)
+            {
+                if (throwMessages)
+                {
+                    Messages.Message("不能对非玩家阵营的生物使用该技能。", MessageTypeDefOf.RejectInput, false);
+                }
+                return false;
+            }
+
             if (!CanApplyOn(target, LocalTargetInfo.Invalid))
             {
                 if (throwMessages)
@@ -49,7 +69,7 @@ namespace merissu
             float perUnitValue = 0f;
             try
             {
-                perUnitValue = t.MarketValue; 
+                perUnitValue = t.MarketValue;
             }
             catch
             {

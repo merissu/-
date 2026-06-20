@@ -8,6 +8,11 @@
 阳伞收起时可以用伞尖戳人,也可以用伞放出飞散并且会分裂的花弹,消耗五张符卡可以用阳伞放出魔炮
 
 阳伞撑开后,可以作为缓冲减少受到的伤害,还可以解锁新的能力,但是移动速度会大大降低</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+        </descriptionHyperlinks>
 		<tickerType>Normal</tickerType>
 		<smeltable>true</smeltable>
 		<costList>
@@ -80,6 +85,11 @@
 阳伞收起时可以用伞尖戳人,也可以用伞放出飞散并且会分裂的花弹,消耗五张符卡可以用阳伞放出魔炮
 
 阳伞撑开后,可以作为缓冲减少受到的伤害,还可以解锁新的能力,但是移动速度会大大降低</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+        </descriptionHyperlinks>
 		<tickerType>Normal</tickerType>
 		<smeltable>true</smeltable>
 		<costList>
@@ -142,6 +152,11 @@
 阳伞收起时可以用伞尖戳人,也可以用伞放出飞散并且会分裂的花弹,消耗五张符卡可以用阳伞放出魔炮
 
 阳伞撑开后,可以作为缓冲减少受到的伤害,还可以解锁新的能力,但是移动速度会大大降低</description>
+		<descriptionHyperlinks>
+            <ThingDef>PowerPoint</ThingDef> 
+            <ThingDef>FullPower</ThingDef> 
+            <ThingDef>spellcard</ThingDef> 
+        </descriptionHyperlinks>
 		<tickerType>Normal</tickerType>
 		<smeltable>true</smeltable>
 		<costList>

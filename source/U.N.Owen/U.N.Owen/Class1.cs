@@ -16,18 +16,6 @@ using static UnityEngine.GraphicsBuffer;
 namespace U.N.Owen
 {
     [DefOf]
-    public static class EffecterDefOf
-    {
-        // Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
-        static EffecterDefOf()
-        {
-            DefOfHelper.EnsureInitializedInCtor(typeof(EffecterDefOf));
-        }
-
-        // Token: 0x04000001 RID: 1
-        public static EffecterDef Mamizou;
-    }
-    [DefOf]
     public static class HediffDefOf
     {
         // Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
@@ -68,8 +56,6 @@ namespace U.N.Owen
             DefOfHelper.EnsureInitializedInCtor(typeof(ThingDefOf));
         }
         public static ThingDef PowerPoint;
-        public static ThingDef SmallShoot;
-        public static ThingDef JunmaiDaiGinjoShu;
         public static ThingDef TH_Meteorolite;
         public static ThingDef TH_Meteor;
         public static ThingDef TH_Comet;
@@ -450,103 +436,6 @@ namespace U.N.Owen
             Empty = 0,
             Spread3 = 1,
             Precise4 = 2
-        }
-
-        protected override bool TryCastShot()
-        {
-            // 基础合法性检查
-            if (currentTarget.HasThing && currentTarget.Thing.Map != caster.Map)
-                return false;
-
-            if (!TryFindShootLineFromTo(caster.Position, currentTarget, out ShootLine shootLine, false) &&
-                verbProps.stopBurstWithoutLos)
-                return false;
-
-            NotifyEquipmentUsed();
-            lastShotTick = Find.TickManager.TicksGame;
-
-            Pawn shooterPawn = GetRealShooterPawn();
-            IntVec3 root = caster.Position;
-            IntVec3 target = currentTarget.Cell;
-
-            // 每次开火都重新随机
-            ShootMode mode = (ShootMode)Rand.RangeInclusive(0, 2);
-
-            switch (mode)
-            {
-                case ShootMode.Empty:
-                    // 空发：消耗这次开火，但不生成弹幕
-                    return true;
-
-                case ShootMode.Spread3:
-                    SpawnSpread3(root, target, shooterPawn, caster.Map);
-                    return true;
-
-                case ShootMode.Precise4:
-                    SchedulePrecise4(root, target, shooterPawn, caster.Map);
-                    return true;
-            }
-
-            return true;
-        }
-
-        private void NotifyEquipmentUsed()
-        {
-            if (EquipmentSource == null) return;
-
-            EquipmentSource.GetComp<CompChangeableProjectile>()?.Notify_ProjectileLaunched();
-            EquipmentSource.GetComp<CompApparelVerbOwner_Charged>()?.UsedOnce();
-        }
-
-        private Pawn GetRealShooterPawn()
-        {
-            Thing shooter = caster;
-            CompMannable mannable = caster.TryGetComp<CompMannable>();
-            if (mannable?.ManningPawn != null)
-                shooter = mannable.ManningPawn;
-
-            return shooter as Pawn;
-        }
-
-        private void SpawnSpread3(IntVec3 root, IntVec3 target, Pawn pawn, Map map)
-        {
-            // 相邻间隔 30° => -30, 0, +30
-            SpawnDanmaku(root, target, pawn, map, -SpreadStepAngle);
-            SpawnDanmaku(root, target, pawn, map, 0f);
-            SpawnDanmaku(root, target, pawn, map, +SpreadStepAngle);
-        }
-
-        private void SchedulePrecise4(IntVec3 root, IntVec3 target, Pawn pawn, Map map)
-        {
-            var scheduler = map.GetComponent<MapComponent_DanmakuScheduler>();
-            if (scheduler == null)
-            {
-                // 兜底：调度器拿不到就立即打4发，避免丢失功能
-                for (int i = 0; i < PreciseShotCount; i++)
-                    SpawnDanmaku(root, target, pawn, map, 0f);
-                return;
-            }
-
-            int now = Find.TickManager.TicksGame;
-            for (int i = 0; i < PreciseShotCount; i++)
-            {
-                scheduler.Schedule(root, target, pawn, now + i * PreciseIntervalTicks);
-            }
-        }
-
-        public static void SpawnDanmaku(IntVec3 root, IntVec3 target, Pawn pawn, Map map, float angleOffset)
-        {
-            Thing danmaku = ThingMaker.MakeThing(ThingDefOf.SmallShoot);
-            var comp = danmaku.TryGetComp<CompDanmakuSource>();
-            if (comp != null)
-            {
-                comp.core = target;
-                comp.root = root;
-                comp.angle = -root.ToVector2().AngleTo(target.ToVector2()) + angleOffset;
-                comp.pawn = pawn;
-            }
-
-            GenSpawn.Spawn(danmaku, root, map);
         }
     }
 }

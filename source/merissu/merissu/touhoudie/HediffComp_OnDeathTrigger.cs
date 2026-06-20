@@ -26,12 +26,10 @@ namespace merissu
 
             if (map == null) return;
 
-            // 播放音效
             Props.soundDef?.PlayOneShot(
                 new TargetInfo(pos, map)
             );
 
-            // 掉落物品
             if (Props.thingDefs != null)
             {
                 foreach (ThingDef def in Props.thingDefs)
