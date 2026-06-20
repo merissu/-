@@ -92,6 +92,8 @@
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
     <Compile Include="ce兼容\CE_MaoyuDashCompat.cs" />
     <Compile Include="CompProperties_RefuelableGraphicAndGlow.cs" />
+    <Compile Include="七曜法典攻击相关\FireballGraphics.cs" />
+    <Compile Include="七曜法典攻击相关\Projectile_WaterJadePiercing.cs" />
     <Compile Include="七曜法典攻击相关\Verb_RandomElementalShoot.cs" />
     <Compile Include="月虹市场\Apparel_Doorbehind.cs" />
     <Compile Include="射击模式STG\hitbox.cs" />
