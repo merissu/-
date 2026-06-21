@@ -17,6 +17,8 @@ namespace merissu
         public abstract int TicksBetweenShots { get; }
         public abstract float WarmupTime { get; }
 
+        public virtual bool PlaySoundOnEveryShot => true;
+
         private ThingDef cachedProjectile;
         public ThingDef ProjectileDef
         {
@@ -50,11 +52,11 @@ namespace merissu
     {
         public override string ModeName => "Waterbullet";
         protected override string ProjectileDefName => "Projectile_NoachianDeluge";
-        protected override string SoundDefName => "Waterbullet"; 
+        protected override string SoundDefName => "Waterbullet";
 
         public override int BurstCount => 10;
-        public override int TicksBetweenShots => 2; 
-        public override float WarmupTime => 1.2f;    
+        public override int TicksBetweenShots => 2;
+        public override float WarmupTime => 1.2f;
     }
 
     public class AttackMode_Fireball : GrimoireAttackMode
@@ -106,11 +108,12 @@ namespace merissu
             return true;
         }
     }
+
     public class AttackMode_WaterJade : GrimoireAttackMode
     {
         public override string ModeName => "WaterJade";
         protected override string ProjectileDefName => "Projectile_WaterJadePiercing";
-        protected override string SoundDefName => "WaterJadePiercing"; 
+        protected override string SoundDefName => "WaterJadePiercing";
 
         public override int BurstCount => 1;
         public override int TicksBetweenShots => 0;
@@ -149,15 +152,16 @@ namespace merissu
             return true;
         }
     }
+
     public class AttackMode_GiantFireball : GrimoireAttackMode
     {
         public override string ModeName => "GiantFireball";
         protected override string ProjectileDefName => "Projectile_GiantFireball";
-        protected override string SoundDefName => "BigFireball"; 
+        protected override string SoundDefName => "BigFireball";
 
         public override int BurstCount => 1;
         public override int TicksBetweenShots => 0;
-        public override float WarmupTime => 1.5f; 
+        public override float WarmupTime => 1.5f;
 
         public override bool OverrideCastShot(Verb_RandomElementalShoot verb, LocalTargetInfo target)
         {
@@ -188,6 +192,55 @@ namespace merissu
         }
     }
 
+    public class AttackMode_FireMistSpray : GrimoireAttackMode
+    {
+        public override string ModeName => "FireMistSpray";
+        protected override string ProjectileDefName => "Projectile_FireMistSpray";
+        protected override string SoundDefName => "Fireball";
+
+        public override int BurstCount => 90;
+        public override int TicksBetweenShots => 2;
+        public override float WarmupTime => 1.0f;
+
+        public override bool PlaySoundOnEveryShot => false;
+
+        public override bool OverrideCastShot(Verb_RandomElementalShoot verb, LocalTargetInfo target)
+        {
+            Pawn caster = verb.CasterPawn;
+            Map map = caster.Map;
+            if (map == null) return false;
+
+            if (verb.burstShotsLeft == verb.verbProps.burstShotCount)
+            {
+                CastSound?.PlayOneShot(new TargetInfo(caster.Position, map));
+            }
+
+            Vector3 casterPos = caster.DrawPos;
+            Vector3 targetPos = target.Cell.ToVector3Shifted();
+            if (target.Thing != null) targetPos = target.Thing.DrawPos;
+
+            Vector3 dir = (targetPos - casterPos).normalized;
+            Vector3 spawnPos = casterPos + dir * 1f;
+            IntVec3 spawnCell = spawnPos.ToIntVec3();
+
+            float progress = 1f - ((float)verb.burstShotsLeft / BurstCount);
+            float angleOffset = Mathf.Sin(progress * Mathf.PI * 16f) * 35f;
+
+            float baseAngle = dir.AngleFlat() - 90f;
+            float finalAngle = baseAngle + angleOffset;
+            Vector3 projDir = Vector3Utility.FromAngleFlat(finalAngle);
+
+            Vector3 projTargetPos = spawnPos + projDir * 20f;
+            LocalTargetInfo projTargetInfo = new LocalTargetInfo(projTargetPos.ToIntVec3());
+
+            Projectile proj = (Projectile)GenSpawn.Spawn(ProjectileDef, spawnCell, map);
+
+            proj.Launch(caster, spawnPos, projTargetInfo, projTargetInfo, ProjectileHitFlags.None, false, null, null);
+
+            return true;
+        }
+    }
+
     public class Verb_RandomElementalShoot : Verb_Shoot
     {
         private static List<GrimoireAttackMode> availableModes;
@@ -196,8 +249,9 @@ namespace merissu
         private static FieldInfo cachedTicksField = typeof(Verb).GetField("cachedTicksBetweenBurstShots", BindingFlags.NonPublic | BindingFlags.Instance);
 
         private GrimoireAttackMode currentMode;
-        private int lastModeIndex = -1;
         private bool isVerbPropsCloned = false;
+
+        private List<GrimoireAttackMode> drawPile = new List<GrimoireAttackMode>();
 
         private void InitializeModesIfNeed()
         {
@@ -208,8 +262,8 @@ namespace merissu
                     new AttackMode_Waterbullet(),
                     new AttackMode_Fireball(),
                     new AttackMode_WaterJade(),
-                    new AttackMode_GiantFireball()
-                    //新攻击在这里new
+                    new AttackMode_GiantFireball(),
+                    new AttackMode_FireMistSpray()
                 };
             }
         }
@@ -249,29 +303,39 @@ namespace merissu
             InitializeModesIfNeed();
             CloneVerbPropsIfNeed();
 
-            if (availableModes.Count > 1)
+            if (availableModes.Count > 0)
             {
-                int nextIndex;
-                do
+                if (drawPile.Count == 0)
                 {
-                    nextIndex = Rand.Range(0, availableModes.Count);
-                }
-                while (nextIndex == lastModeIndex);
+                    drawPile.AddRange(availableModes);
 
-                lastModeIndex = nextIndex;
-                currentMode = availableModes[nextIndex];
-            }
-            else if (availableModes.Count == 1)
-            {
-                currentMode = availableModes[0];
+                    for (int i = 0; i < drawPile.Count; i++)
+                    {
+                        int swapIndex = Rand.Range(i, drawPile.Count);
+                        var temp = drawPile[i];
+                        drawPile[i] = drawPile[swapIndex];
+                        drawPile[swapIndex] = temp;
+                    }
+
+                    if (drawPile.Count > 1 && currentMode != null && drawPile[0] == currentMode)
+                    {
+                        var temp = drawPile[0];
+                        drawPile[0] = drawPile[1];
+                        drawPile[1] = temp;
+                    }
+                }
+
+                currentMode = drawPile[0];
+                drawPile.RemoveAt(0);
             }
 
             if (currentMode != null)
             {
                 verbProps.warmupTime = currentMode.WarmupTime;
-                verbProps.soundCast = currentMode.CastSound;
                 verbProps.burstShotCount = currentMode.BurstCount;
                 verbProps.ticksBetweenBurstShots = currentMode.TicksBetweenShots;
+
+                verbProps.soundCast = currentMode.PlaySoundOnEveryShot ? currentMode.CastSound : null;
 
                 cachedBurstField?.SetValue(this, null);
                 cachedTicksField?.SetValue(this, null);
@@ -290,7 +354,7 @@ namespace merissu
         {
             if (currentMode != null && currentMode.OverrideCastShot(this, this.currentTarget))
             {
-                currentMode.OnCastShot(this, this.currentTarget); 
+                currentMode.OnCastShot(this, this.currentTarget);
                 return true;
             }
 

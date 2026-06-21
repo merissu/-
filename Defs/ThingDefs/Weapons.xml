@@ -2618,4 +2618,22 @@
             <shaderType>MoteGlow</shaderType>
         </graphicData>
     </ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Projectile_FireMistSpray</defName>
+		<label>火雾</label>
+		<thingClass>merissu.Projectile_FireMistSpray</thingClass>
+		<graphicData>
+			<texPath>Other/bulletBb002</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>(3, 3)</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<armorPenetrationBase>1</armorPenetrationBase>
+			<damageAmountBase>9</damageAmountBase>
+			<speed>25</speed>
+		</projectile>
+	</ThingDef>
 </Defs>
