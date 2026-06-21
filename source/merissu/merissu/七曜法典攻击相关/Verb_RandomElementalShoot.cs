@@ -16,7 +16,7 @@ namespace merissu
         public abstract int BurstCount { get; }
         public abstract int TicksBetweenShots { get; }
         public abstract float WarmupTime { get; }
-
+        public virtual void OnWarmupStart(Verb_RandomElementalShoot verb, LocalTargetInfo target) { }
         public virtual bool PlaySoundOnEveryShot => true;
 
         private ThingDef cachedProjectile;
@@ -240,7 +240,80 @@ namespace merissu
             return true;
         }
     }
+    public class AttackMode_WindBullet : GrimoireAttackMode
+    {
+        public override string ModeName => "WindBullet";
+        protected override string ProjectileDefName => "Projectile_WindBullet";
+        protected override string SoundDefName => "WindBullet";
 
+        public override int BurstCount => 1;
+        public override int TicksBetweenShots => 0;
+        public override float WarmupTime => 1.5f;
+
+        private Thing currentChargeMote;
+
+        public override void OnWarmupStart(Verb_RandomElementalShoot verb, LocalTargetInfo target)
+        {
+            Pawn caster = verb.CasterPawn;
+            Map map = caster.Map;
+            if (map == null) return;
+
+            SoundDef.Named("WindBulletCharging")?.PlayOneShot(new TargetInfo(caster.Position, map));
+
+            currentChargeMote = ThingMaker.MakeThing(ThingDef.Named("Mote_WindBulletCharge"));
+            GenSpawn.Spawn(currentChargeMote, caster.Position, map);
+            if (currentChargeMote is Thing_WindBulletCharge chargeObj)
+            {
+                chargeObj.AttachTo(caster);
+            }
+        }
+
+        public override bool OverrideCastShot(Verb_RandomElementalShoot verb, LocalTargetInfo target)
+        {
+            Pawn caster = verb.CasterPawn;
+            Map map = caster.Map;
+            if (map == null) return false;
+
+            if (currentChargeMote != null && !currentChargeMote.Destroyed)
+            {
+                currentChargeMote.Destroy();
+                currentChargeMote = null;
+            }
+
+            Vector3 casterPos = caster.DrawPos;
+            Vector3 targetPos = target.Cell.ToVector3Shifted();
+            if (target.Thing != null) targetPos = target.Thing.DrawPos;
+
+            Vector3 dir = (targetPos - casterPos).normalized;
+            Vector3 spawnPos = casterPos + dir * 1f;
+            IntVec3 spawnCell = spawnPos.ToIntVec3();
+
+            Thing ringAnim = ThingMaker.MakeThing(ThingDef.Named("Mote_WindRingShockwave"));
+            GenSpawn.Spawn(ringAnim, spawnCell, map);
+            if (ringAnim is Thing_WindRingShockwave ring)
+            {
+                ring.exactPosition = spawnPos;
+                ring.forwardDir = dir;
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                Thing scatter = ThingMaker.MakeThing(ThingDef.Named("Mote_WindScatter"));
+                GenSpawn.Spawn(scatter, spawnCell, map);
+                if (scatter is Thing_WindScatter s)
+                {
+                    s.exactPosition = spawnPos;
+                    float randomAngle = dir.AngleFlat() + Rand.Range(-45f, 45f);
+                    s.velocity = Vector3Utility.FromAngleFlat(randomAngle) * Rand.Range(0.05f, 0.15f);
+                }
+            }
+
+            Projectile proj = (Projectile)GenSpawn.Spawn(ProjectileDef, spawnCell, map);
+            proj.Launch(caster, spawnPos, target, target, ProjectileHitFlags.All, false, null, null);
+
+            return true;
+        }
+    }
     public class Verb_RandomElementalShoot : Verb_Shoot
     {
         private static List<GrimoireAttackMode> availableModes;
@@ -263,8 +336,9 @@ namespace merissu
                     new AttackMode_Fireball(),
                     new AttackMode_WaterJade(),
                     new AttackMode_GiantFireball(),
-                    new AttackMode_FireMistSpray()
-                };
+                    new AttackMode_FireMistSpray(),
+                    new AttackMode_WindBullet()
+                };//攻击在这里new
             }
         }
 
@@ -339,6 +413,7 @@ namespace merissu
 
                 cachedBurstField?.SetValue(this, null);
                 cachedTicksField?.SetValue(this, null);
+                currentMode.OnWarmupStart(this, castTarg);
             }
 
             return base.TryStartCastOn(

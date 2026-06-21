@@ -2636,4 +2636,88 @@
 			<speed>25</speed>
 		</projectile>
 	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+        <defName>Projectile_WindBullet</defName>
+        <label>风弹</label>
+        <thingClass>merissu.Projectile_WindBullet</thingClass>
+        <graphicData>
+            <texPath>Projectiles/WindBullet/spellBulletAd000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <projectile>
+            <damageDef>Blunt</damageDef>
+            <damageAmountBase>10</damageAmountBase> 
+			<stoppingPower>1</stoppingPower>
+            <speed>120</speed>
+        </projectile>
+        <comps>
+            <li Class="merissu.CompProperties_ProjectileTrail">
+                <texPath>Projectiles/WindBullet/spellBulletAf000</texPath>
+                <trailLifespan>10</trailLifespan>
+                <spawnInterval>1</spawnInterval>
+                <drawSize>(0.15, 1.5)</drawSize> 
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="PawnFlyerBase">
+        <defName>WindKnockbackFlyer</defName>
+        <thingClass>merissu.PawnFlyer_WindKnockback</thingClass>
+        <pawnFlyer>
+            <flightDurationMin>0.2</flightDurationMin>
+            <flightSpeed>25</flightSpeed>
+        </pawnFlyer>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_WindBulletCharge</defName>
+        <label>风弹蓄力</label>
+        <thingClass>merissu.Thing_WindBulletCharge</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <useHitPoints>false</useHitPoints>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_WindRingShockwave</defName>
+        <label>风弹冲击波</label>
+        <thingClass>merissu.Thing_WindRingShockwave</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <useHitPoints>false</useHitPoints>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_WindScatter</defName>
+        <label>散风特效</label>
+        <thingClass>merissu.Thing_WindScatter</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <useHitPoints>false</useHitPoints>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_WindPathTrail</defName>
+        <label>风弹轨迹特效</label>
+        <thingClass>merissu.Thing_WindPathTrail</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <useHitPoints>false</useHitPoints>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_WindImpact</defName>
+        <label>风弹受击特效</label>
+        <thingClass>merissu.Thing_WindImpact</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <useHitPoints>false</useHitPoints>
+    </ThingDef>
 </Defs>
