@@ -102,7 +102,34 @@
 			<stoppingPower>0.2</stoppingPower>
 			<speed>30</speed>
 		</projectile>
+		<comps>
+            <li Class="merissu.CompProperties_ProjectileTrail">
+                <texPath>Weapons/Bullet/reimu_tenseiFuda</texPath>
+                <trailLifespan>2</trailLifespan>
+                <spawnInterval>1</spawnInterval>
+                <drawSize>(1, 1)</drawSize>
+            </li>
+			<li Class="merissu.CompProperties_ImpactShockwave">
+				<shockwaveDef>Gate_Shockwave</shockwaveDef>
+			</li>
+        </comps>
 	</ThingDef>
+
+	<ThingDef>
+		<defName>Gate_Shockwave</defName>
+		<label>冲击波特效</label>
+		<thingClass>merissu.Thing_GateShockwave</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Weapons/Bullet/spellBulletA000</texPath> 
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
 	<DamageDef Name="Hakurei">
 		<defName>hakurei</defName>
 		<label>灵符击中</label>

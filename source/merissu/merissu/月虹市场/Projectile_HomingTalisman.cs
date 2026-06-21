@@ -30,6 +30,7 @@ namespace merissu
 
         protected override void Tick()
         {
+            base.Tick(); 
             if (currentRealPos == Vector3.zero) currentRealPos = this.DrawPos;
 
             Thing targetThing = this.intendedTarget.Thing;
@@ -81,13 +82,13 @@ namespace merissu
                 float contactDist = 0.3f;
                 if (targetThing is Pawn targetPawn)
                 {
-                    contactDist += targetPawn.RaceProps.baseBodySize * 0.5f;
+                    float bodySizeBonus = Mathf.Min(targetPawn.RaceProps.baseBodySize * 0.15f, 0.4f);
+                    contactDist += bodySizeBonus;
                 }
                 else if (targetThing.def != null)
                 {
                     contactDist += Mathf.Max(targetThing.def.size.x, targetThing.def.size.z) * 0.5f;
                 }
-
                 if (Vector3.Distance(currentRealPos, targetThing.DrawPos) < contactDist)
                 {
                     this.Impact(targetThing);
