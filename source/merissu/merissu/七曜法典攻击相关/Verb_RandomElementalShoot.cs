@@ -153,7 +153,7 @@ namespace merissu
     {
         public override string ModeName => "GiantFireball";
         protected override string ProjectileDefName => "Projectile_GiantFireball";
-        protected override string SoundDefName => "Fireball"; 
+        protected override string SoundDefName => "BigFireball"; 
 
         public override int BurstCount => 1;
         public override int TicksBetweenShots => 0;

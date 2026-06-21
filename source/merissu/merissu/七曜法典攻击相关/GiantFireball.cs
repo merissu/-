@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace merissu
 {
@@ -150,6 +151,8 @@ namespace merissu
 
             if (map != null)
             {
+                SoundDef.Named("FireballDestruction").PlayOneShot(new TargetInfo(this.Position, map));
+
                 Thing shockwave = ThingMaker.MakeThing(ThingDef.Named("GiantFireball_Shockwave"));
                 GenSpawn.Spawn(shockwave, pos.ToIntVec3(), map);
 
