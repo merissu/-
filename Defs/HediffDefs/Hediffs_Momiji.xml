@@ -18,7 +18,8 @@
         </capMods>
         <!-- 使用 statOffsets 调整属性 -->
         <statOffsets>
-          <ShootingAccuracyPawn>0.25</ShootingAccuracyPawn>
+          <MeleeHitChance>10</MeleeHitChance>
+		  <ShootingAccuracyPawn>3.0</ShootingAccuracyPawn>
         </statOffsets>
       </li>
     </stages>
