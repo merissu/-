@@ -2572,4 +2572,50 @@
             <flyOverhead>true</flyOverhead> 
 		</projectile>
     </ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+        <defName>Projectile_GiantFireball</defName>
+        <label>巨型火球</label>
+        <thingClass>merissu.Projectile_GiantFireball</thingClass>
+        <graphicData>
+            <texPath>Projectiles/fireball/BulletBa000</texPath> 
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+        <projectile>
+            <damageDef>Flame</damageDef>
+            <damageAmountBase>40</damageAmountBase> 
+			<armorPenetrationBase>0.5</armorPenetrationBase>
+            <speed>12</speed> 
+		</projectile>
+    </ThingDef>
+
+	<ThingDef>
+		<defName>GiantFireball_Shockwave</defName>
+		<label>巨型冲击波</label>
+		<thingClass>merissu.Thing_GiantFireballShockwave</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<graphicData>
+			<texPath>Projectiles/fireball/bulletLb004</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+    <ThingDef>
+        <defName>Mote_DirectionalFireBlast</defName>
+        <label>喷射火焰</label>
+        <thingClass>merissu.Thing_DirectionalFireBlast</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <graphicData>
+            <texPath>Projectiles/fireball/BulletBc000</texPath> 
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+    </ThingDef>
 </Defs>

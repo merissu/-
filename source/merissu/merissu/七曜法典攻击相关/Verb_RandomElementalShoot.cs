@@ -149,6 +149,45 @@ namespace merissu
             return true;
         }
     }
+    public class AttackMode_GiantFireball : GrimoireAttackMode
+    {
+        public override string ModeName => "GiantFireball";
+        protected override string ProjectileDefName => "Projectile_GiantFireball";
+        protected override string SoundDefName => "Fireball"; 
+
+        public override int BurstCount => 1;
+        public override int TicksBetweenShots => 0;
+        public override float WarmupTime => 1.5f; 
+
+        public override bool OverrideCastShot(Verb_RandomElementalShoot verb, LocalTargetInfo target)
+        {
+            Pawn caster = verb.CasterPawn;
+            Map map = caster.Map;
+            if (map == null) return false;
+
+            Vector3 casterPos = caster.DrawPos;
+            Vector3 targetPos = target.Cell.ToVector3Shifted();
+            if (target.Thing != null) targetPos = target.Thing.DrawPos;
+
+            Vector3 dir = (targetPos - casterPos).normalized;
+            Vector3 spawnPos = casterPos + dir * 1f;
+            IntVec3 spawnCell = spawnPos.ToIntVec3();
+
+            Thing blastAnim = ThingMaker.MakeThing(ThingDef.Named("Mote_DirectionalFireBlast"));
+            GenSpawn.Spawn(blastAnim, spawnCell, map);
+            if (blastAnim is Thing_DirectionalFireBlast anim)
+            {
+                anim.exactPosition = spawnPos;
+                anim.exactRotation = dir.AngleFlat();
+            }
+
+            Projectile proj = (Projectile)GenSpawn.Spawn(ProjectileDef, spawnCell, map);
+            proj.Launch(caster, spawnPos, target, target, ProjectileHitFlags.All, false, null, null);
+
+            return true;
+        }
+    }
+
     public class Verb_RandomElementalShoot : Verb_Shoot
     {
         private static List<GrimoireAttackMode> availableModes;
@@ -168,7 +207,8 @@ namespace merissu
                 {
                     new AttackMode_Waterbullet(),
                     new AttackMode_Fireball(),
-                    new AttackMode_WaterJade() 
+                    new AttackMode_WaterJade(),
+                    new AttackMode_GiantFireball()
                     //新攻击在这里new
                 };
             }
