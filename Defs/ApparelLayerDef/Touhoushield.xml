@@ -3,6 +3,6 @@
   <ApparelLayerDef>
     <defName>Touhou_AccessoryOuter</defName>
     <label>东方盾牌</label>
-    <drawOrder>600</drawOrder>  <!-- 绘制顺序-->
+    <drawOrder>1000</drawOrder>  <!-- 绘制顺序-->
   </ApparelLayerDef>
 </Defs>
