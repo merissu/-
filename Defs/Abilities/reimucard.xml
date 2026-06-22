@@ -131,7 +131,7 @@ Character Editorやその他のMODを使用して东方秘星异闻の能力を�
         <selectable>false</selectable>
         <neverMultiSelect>true</neverMultiSelect>
         <graphicData>
-            <texPath>Projectiles/YinYangOrbBig</texPath>
+            <texPath>Projectiles/YinYangFlyingBirdWell/YinYangOrbMain</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(1.5,1.5)</drawSize>
         </graphicData>
@@ -304,20 +304,40 @@ Character Editorやその他のMODを使用して东方秘星异闻の能力を�
         <tickerType>Normal</tickerType>
         <graphicData>
             <graphicClass>Graphic_Single</graphicClass>
-            <texPath>Projectiles/YinYangOrbBig</texPath>
+            <texPath>Projectiles/YinYangFlyingBirdWell/YinYangOrbMain</texPath>
             <drawSize>(8,8)</drawSize>
-            <shaderType>TransparentPostLight</shaderType>
+            <shaderType>MoteGlow</shaderType>
         </graphicData>
         <comps>
-        <li Class="merissu.CompProperties_YinYangOrb">
-            <moveSpeed>0.04</moveSpeed>
-            <damagePerTick>2</damagePerTick>
-            <radius>4.2</radius>
-            <lingerTicks>120</lingerTicks>
-            <explosionRadius>4</explosionRadius>
-            <explosionDamage>10</explosionDamage>
-        </li>
+            <li Class="merissu.CompProperties_YinYangOrb">
+                <moveSpeed>0.04</moveSpeed>
+                <damagePerTick>2</damagePerTick>
+                <radius>4.2</radius>
+                <lingerTicks>120</lingerTicks>
+                <explosionRadius>4</explosionRadius>
+                <explosionDamage>10</explosionDamage>
+            </li>
         </comps>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_YinYangOrbEffectA</defName>
+        <label>阴阳玉特效A</label>
+        <thingClass>merissu.Mote_OrbEffectA</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MetaOverlays</altitudeLayer>
+        <useHitPoints>false</useHitPoints>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_YinYangOrbEffectB</defName>
+        <label>阴阳玉特效B</label>
+        <thingClass>merissu.Mote_OrbEffectB</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MetaOverlays</altitudeLayer>
+        <useHitPoints>false</useHitPoints>
     </ThingDef>
 
     <HediffDef>
