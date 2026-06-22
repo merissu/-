@@ -8,9 +8,7 @@ namespace merissu
         public Ability_EightDragonSlayerArray() : base() { }
 
         public Ability_EightDragonSlayerArray(Pawn pawn, AbilityDef def)
-            : base(pawn, def)
-        {
-        }
+            : base(pawn, def) { }
 
         public override bool Activate(LocalTargetInfo target, LocalTargetInfo dest)
         {
@@ -22,24 +20,19 @@ namespace merissu
             {
                 Hediff cardHediff = pawn.health.hediffSet.GetFirstHediffOfDef(cardDef);
                 if (cardHediff != null)
-                {
                     pawn.health.RemoveHediff(cardHediff);
-                }
             }
 
-            if (!pawn.health.hediffSet.HasHediff(HediffDef.Named("EightDragonCasterLock")))
+            HediffDef casterLockDef = HediffDef.Named("EightDragonCasterLock");
+            if (!pawn.health.hediffSet.HasHediff(casterLockDef))
             {
-                pawn.health.AddHediff(HediffDef.Named("EightDragonCasterLock"));
+                pawn.health.AddHediff(casterLockDef);
             }
 
-            Thing thing = ThingMaker.MakeThing(ThingDef.Named("EightDragonSlayerArray"));
-
-            GenSpawn.Spawn(thing, pawn.Position, pawn.Map);
-
-            if (thing is merissu.Thing_FlowingArray flowingArray)
-            {
-                flowingArray.Init(pawn);
-            }
+            ThingDef animDef = ThingDef.Named("EightDragonSlayerArrayAnimation");
+            var anim = (Thing_EightDragonSlayerArrayAnimation)ThingMaker.MakeThing(animDef);
+            anim.Init(pawn);
+            GenSpawn.Spawn(anim, pawn.Position, pawn.Map);
 
             return true;
         }

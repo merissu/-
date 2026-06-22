@@ -119,7 +119,27 @@ Character Editorやその他のMODを使用して东方秘星异闻の能力を�
 			<stoppingPower>1</stoppingPower>
 			<speed>40</speed>
 		</projectile>
+        <comps>
+            <li Class="merissu.CompProperties_ImpactShockwave">
+                <shockwaveDef>BulletGate_Shockwave</shockwaveDef>
+            </li>
+        </comps>
 	</ThingDef>
+
+    <ThingDef>
+        <defName>BulletGate_Shockwave</defName>
+        <label>梦想天生冲击波</label>
+        <thingClass>merissu.Thing_BulletGateShockwave</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <graphicData>
+            <texPath>Other/bulletGateFlash</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
 
     <ThingDef>
         <defName>SmallYinYangOrb</defName>
@@ -249,14 +269,14 @@ Character Editorやその他のMODを使用して东方秘星异闻の能力を�
         </comps>
     </HediffDef>
 
-	<ThingDef>
-        <defName>EightDragonSlayerArray</defName>
-		<label>八方鬼缚阵控制</label>
-        <thingClass>merissu.Thing_FlowingArray</thingClass>
-        <category>Item</category>
+    <ThingDef>
+        <defName>EightDragonSlayerArrayAnimation</defName>
+        <label>八方鬼缚阵动画</label>
+        <thingClass>merissu.Thing_EightDragonSlayerArrayAnimation</thingClass>
+        <category>None</category>
         <tickerType>Normal</tickerType>
         <drawOffscreen>true</drawOffscreen>
-		<graphicData>
+        <graphicData>
             <texPath>Other/null</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(0,0)</drawSize>

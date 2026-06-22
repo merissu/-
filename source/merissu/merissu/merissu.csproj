@@ -103,6 +103,7 @@
     <Compile Include="七曜法典攻击相关\WindBulletGraphics.cs" />
     <Compile Include="子弹特效补全\CompProperties_ProjectileTrail.cs" />
     <Compile Include="子弹特效补全\Comp_GateShockwave.cs" />
+    <Compile Include="子弹特效补全\Thing_BulletGateShockwave .cs" />
     <Compile Include="月虹市场\Apparel_Doorbehind.cs" />
     <Compile Include="射击模式STG\hitbox.cs" />
     <Compile Include="射击模式STG\STGHarmonyPatch.cs" />
@@ -365,9 +366,9 @@
     <Compile Include="符卡系列\DreamHeavenly\Ability_DreamHeavenly.cs" />
     <Compile Include="符卡系列\DreamHeavenly\DanmakuBullet.cs" />
     <Compile Include="符卡系列\DreamHeavenly\DreamHeavenlyEmitter.cs" />
-    <Compile Include="EightDragonSlayerArray\Ability_EightDragonSlayerArray.cs" />
-    <Compile Include="EightDragonSlayerArray\HediffComp_DisableMove.cs" />
-    <Compile Include="EightDragonSlayerArray\Thing_EightDragonSlayerArray.cs" />
+    <Compile Include="符卡系列\EightDragonSlayerArray\Ability_EightDragonSlayerArray.cs" />
+    <Compile Include="符卡系列\EightDragonSlayerArray\HediffComp_DisableMove.cs" />
+    <Compile Include="符卡系列\EightDragonSlayerArray\Thing_EightDragonSlayerArray.cs" />
     <Compile Include="符卡系列\DreamHeavenly\RingShockwave.cs" />
     <Compile Include="符卡系列\SevenElementalMagic\HediffCompProperties_AddSeverityToOther .cs" />
     <Compile Include="符卡系列\SevenElementalMagic\HediffComp_AddSeverityToOther .cs" />
