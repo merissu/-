@@ -2803,4 +2803,51 @@
         <altitudeLayer>Projectile</altitudeLayer>
         <useHitPoints>false</useHitPoints>
     </ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Projectile_FallSlasher</defName>
+		<label>秋季杀手</label>
+		<thingClass>merissu.Projectile_FallSlasher</thingClass>
+		<graphicData>
+			<texPath>Projectiles/FallSlasher/bulletHa000</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Cut</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<speed>60</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_FallSlasherShockwave</defName>
+		<label>秋季杀手冲击波</label>
+		<thingClass>merissu.Thing_FallSlasherShockwave</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_FallSlasherTrail</defName>
+		<label>秋季杀手残影</label>
+		<thingClass>merissu.Thing_FallSlasherTrail</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_FallSlasherCharge</defName>
+		<label>秋季杀手阵列管理器</label>
+		<thingClass>merissu.Thing_FallSlasherCharge</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
 </Defs>
