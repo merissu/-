@@ -85,7 +85,8 @@ namespace merissu
                     new AttackMode_GiantFireball(),
                     new AttackMode_FireMistSpray(),
                     new AttackMode_WindBullet(),
-                    new AttackMode_AutumnEdge()
+                    new AttackMode_AutumnEdge(),
+                    new AttackMode_AutumnBlade()
                 };//攻击在这里new
             }
         }

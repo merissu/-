@@ -2766,4 +2766,41 @@
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<useHitPoints>false</useHitPoints>
 	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+        <defName>Projectile_AutumnBlade</defName>
+        <label>秋刃</label>
+        <thingClass>merissu.Projectile_AutumnBlade</thingClass>
+        <graphicData>
+            <texPath>Projectiles/AutumnBlades/spellBulletBa000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Mote</shaderType>
+            <drawSize>(3, 3)</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>Cut</damageDef> 
+            <damageAmountBase>6</damageAmountBase>
+            <speed>10</speed> 
+		</projectile>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_AutumnBladeTrail</defName>
+        <label>秋刃轨迹</label>
+        <thingClass>merissu.Thing_AutumnBladeTrail</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <useHitPoints>false</useHitPoints>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_AutumnBladeShrink</defName>
+        <label>秋刃缩小消失</label>
+        <thingClass>merissu.Thing_AutumnBladeShrink</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <useHitPoints>false</useHitPoints>
+    </ThingDef>
 </Defs>

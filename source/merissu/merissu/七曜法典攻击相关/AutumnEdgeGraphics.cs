@@ -196,7 +196,6 @@ namespace merissu
 
             if (this.Destroyed) return;
 
-            // 轨迹特效生成
             if (this.Spawned && Find.TickManager.TicksGame % 1 == 0)
             {
                 Thing_AutumnEdgeEffectShrink trail = (Thing_AutumnEdgeEffectShrink)ThingMaker.MakeThing(ThingDef.Named("Mote_AutumnEdgeTrail"));
