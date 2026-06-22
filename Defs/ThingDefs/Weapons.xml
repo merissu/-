@@ -2575,7 +2575,7 @@
 
 	<ThingDef ParentName="BaseBullet">
         <defName>Projectile_GiantFireball</defName>
-        <label>巨型火球</label>
+        <label>夏红</label>
         <thingClass>merissu.Projectile_GiantFireball</thingClass>
         <graphicData>
             <texPath>Projectiles/fireball/BulletBa000</texPath> 
@@ -2621,7 +2621,7 @@
 
 	<ThingDef ParentName="BaseBullet">
 		<defName>Projectile_FireMistSpray</defName>
-		<label>火雾</label>
+		<label>夏日之火</label>
 		<thingClass>merissu.Projectile_FireMistSpray</thingClass>
 		<graphicData>
 			<texPath>Other/bulletBb002</texPath>
@@ -2632,14 +2632,14 @@
 		<projectile>
 			<damageDef>Flame</damageDef>
 			<armorPenetrationBase>1</armorPenetrationBase>
-			<damageAmountBase>9</damageAmountBase>
+			<damageAmountBase>15</damageAmountBase>
 			<speed>25</speed>
 		</projectile>
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBullet">
         <defName>Projectile_WindBullet</defName>
-        <label>风弹</label>
+        <label>春风</label>
         <thingClass>merissu.Projectile_WindBullet</thingClass>
         <graphicData>
             <texPath>Projectiles/WindBullet/spellBulletAd000</texPath>
@@ -2650,7 +2650,7 @@
             <damageDef>Blunt</damageDef>
             <damageAmountBase>10</damageAmountBase> 
 			<stoppingPower>1</stoppingPower>
-            <speed>120</speed>
+            <speed>150</speed>
         </projectile>
         <comps>
             <li Class="merissu.CompProperties_ProjectileTrail">
@@ -2720,4 +2720,50 @@
         <altitudeLayer>MoteOverhead</altitudeLayer>
         <useHitPoints>false</useHitPoints>
     </ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Projectile_AutumnEdge</defName>
+		<label>秋之锋刃</label>
+		<thingClass>merissu.Projectile_AutumnEdge</thingClass>
+		<graphicData>
+		<texPath>Projectiles/AUTUMNEDGE/bulletMa000</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<shaderType>Mote</shaderType>
+		<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile>
+		<damageDef>Cut</damageDef> <damageAmountBase>10</damageAmountBase>
+		<speed>45</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_AutumnEdgeGlowFade</defName>
+		<label>秋之锋刃辉光淡出</label>
+		<thingClass>merissu.Thing_AutumnEdgeEffectFade</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_AutumnEdgeTrail</defName>
+		<label>秋之锋刃轨迹</label>
+		<thingClass>merissu.Thing_AutumnEdgeEffectShrink</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
+	
+	<ThingDef>
+		<defName>Mote_AutumnEdgeCharge</defName>
+		<label>秋之锋刃蓄力管理器</label>
+		<thingClass>merissu.Thing_AutumnEdgeCharge</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
 </Defs>

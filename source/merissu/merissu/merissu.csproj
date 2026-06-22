@@ -92,6 +92,7 @@
     <Compile Include="9music\HediffComp_LightballOnDance.cs" />
     <Compile Include="ce兼容\CE_MaoyuDashCompat.cs" />
     <Compile Include="CompProperties_RefuelableGraphicAndGlow.cs" />
+    <Compile Include="七曜法典攻击相关\AutumnEdgeGraphics.cs" />
     <Compile Include="七曜法典攻击相关\FireballGraphics.cs" />
     <Compile Include="七曜法典攻击相关\GiantFireball.cs" />
     <Compile Include="七曜法典攻击相关\Projectile_FireMistSpray.cs" />

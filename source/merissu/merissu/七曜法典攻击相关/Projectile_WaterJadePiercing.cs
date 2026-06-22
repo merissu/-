@@ -6,13 +6,55 @@ using static UnityEngine.UI.Image;
 
 namespace merissu
 {
+    public class AttackMode_WaterJade : GrimoireAttackMode
+    {
+        public override string ModeName => "WaterJade";
+        protected override string ProjectileDefName => "Projectile_WaterJadePiercing";
+        protected override string SoundDefName => "WaterJadePiercing";
+
+        public override int BurstCount => 1;
+        public override int TicksBetweenShots => 0;
+        public override float WarmupTime => 1.5f;
+
+        public override bool OverrideCastShot(Verb_RandomElementalShoot verb, LocalTargetInfo target)
+        {
+            Pawn caster = verb.CasterPawn;
+            Map map = caster.Map;
+            if (map == null) return false;
+
+            Vector3 casterPos = caster.DrawPos;
+            Vector3 targetPos = target.Cell.ToVector3Shifted();
+            if (target.Thing != null) targetPos = target.Thing.DrawPos;
+
+            Vector3 dir = (targetPos - casterPos).normalized;
+            Vector3 spawnPos = casterPos + dir * 1f;
+            IntVec3 spawnCell = spawnPos.ToIntVec3();
+
+            float baseAngle = dir.AngleFlat() - 90f;
+            float[] spreadAngles = new float[] { -45f, -30f, -15f, 0f, 15f, 30f, 45f };
+
+            foreach (float angleOffset in spreadAngles)
+            {
+                float finalAngle = baseAngle + angleOffset;
+                Vector3 projDir = Vector3Utility.FromAngleFlat(finalAngle);
+
+                Vector3 projTargetPos = spawnPos + projDir * 25f;
+                LocalTargetInfo projTargetInfo = new LocalTargetInfo(projTargetPos.ToIntVec3());
+
+                Projectile proj = (Projectile)GenSpawn.Spawn(ProjectileDef, spawnCell, map);
+
+                proj.Launch(caster, spawnPos, projTargetInfo, projTargetInfo, ProjectileHitFlags.None, false, null, null);
+            }
+
+            return true;
+        }
+    }
+
+
     public class Projectile_WaterJadePiercing : Projectile
     {
         private float angle0 = 0f;
         private float angle1 = 0f;
-
-        private HashSet<Thing> damagedPawns = new HashSet<Thing>();
-
         private static Material mat0;
         private static Material mat1;
         private static MaterialPropertyBlock matPropertyBlock = new MaterialPropertyBlock();
@@ -47,10 +89,15 @@ namespace merissu
             {
                 if (t is Pawn p && !p.Dead)
                 {
-                    if (p.Faction != null && p.HostileTo(launcher?.Faction) && !damagedPawns.Contains(p))
+                    if (p.Faction != null && p.HostileTo(launcher?.Faction))
                     {
-                        damagedPawns.Add(p);
-                        DamageInfo dinfo = new DamageInfo(this.def.projectile.damageDef, this.def.projectile.damageAmountBase, this.def.projectile.armorPenetrationBase, this.ExactRotation.eulerAngles.y, launcher);
+                        DamageInfo dinfo = new DamageInfo(
+                            this.def.projectile.damageDef,
+                            2f,
+                            this.def.projectile.armorPenetrationBase,
+                            this.ExactRotation.eulerAngles.y,
+                            launcher);
+
                         p.TakeDamage(dinfo);
                     }
                 }

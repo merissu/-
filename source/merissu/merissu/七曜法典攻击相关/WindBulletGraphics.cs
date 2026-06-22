@@ -1,8 +1,9 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
-using RimWorld;
+using Verse.Sound;
 
 namespace merissu
 {
@@ -15,6 +16,81 @@ namespace merissu
         public static readonly Material PathTrailMat = MaterialPool.MatFrom("Projectiles/WindBullet/spellBulletAd000", ShaderDatabase.MoteGlow);
         public static readonly Material ImpactMat = MaterialPool.MatFrom("Projectiles/WindBullet/spellBulletAe000", ShaderDatabase.MoteGlow);
     }
+    public class AttackMode_WindBullet : GrimoireAttackMode
+    {
+        public override string ModeName => "WindBullet";
+        protected override string ProjectileDefName => "Projectile_WindBullet";
+        protected override string SoundDefName => "WindBullet";
+
+        public override int BurstCount => 1;
+        public override int TicksBetweenShots => 0;
+        public override float WarmupTime => 1.5f;
+
+        private Thing currentChargeMote;
+
+        public override void OnWarmupStart(Verb_RandomElementalShoot verb, LocalTargetInfo target)
+        {
+            Pawn caster = verb.CasterPawn;
+            Map map = caster.Map;
+            if (map == null) return;
+
+            SoundDef.Named("WindBulletCharging")?.PlayOneShot(new TargetInfo(caster.Position, map));
+
+            currentChargeMote = ThingMaker.MakeThing(ThingDef.Named("Mote_WindBulletCharge"));
+            GenSpawn.Spawn(currentChargeMote, caster.Position, map);
+            if (currentChargeMote is Thing_WindBulletCharge chargeObj)
+            {
+                chargeObj.AttachTo(caster);
+            }
+        }
+
+        public override bool OverrideCastShot(Verb_RandomElementalShoot verb, LocalTargetInfo target)
+        {
+            Pawn caster = verb.CasterPawn;
+            Map map = caster.Map;
+            if (map == null) return false;
+
+            if (currentChargeMote != null && !currentChargeMote.Destroyed)
+            {
+                currentChargeMote.Destroy();
+                currentChargeMote = null;
+            }
+
+            Vector3 casterPos = caster.DrawPos;
+            Vector3 targetPos = target.Cell.ToVector3Shifted();
+            if (target.Thing != null) targetPos = target.Thing.DrawPos;
+
+            Vector3 dir = (targetPos - casterPos).normalized;
+            Vector3 spawnPos = casterPos + dir * 1f;
+            IntVec3 spawnCell = spawnPos.ToIntVec3();
+
+            Thing ringAnim = ThingMaker.MakeThing(ThingDef.Named("Mote_WindRingShockwave"));
+            GenSpawn.Spawn(ringAnim, spawnCell, map);
+            if (ringAnim is Thing_WindRingShockwave ring)
+            {
+                ring.exactPosition = spawnPos;
+                ring.forwardDir = dir;
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                Thing scatter = ThingMaker.MakeThing(ThingDef.Named("Mote_WindScatter"));
+                GenSpawn.Spawn(scatter, spawnCell, map);
+                if (scatter is Thing_WindScatter s)
+                {
+                    s.exactPosition = spawnPos;
+                    float randomAngle = dir.AngleFlat() + Rand.Range(-45f, 45f);
+                    s.velocity = Vector3Utility.FromAngleFlat(randomAngle) * Rand.Range(0.05f, 0.15f);
+                }
+            }
+
+            Projectile proj = (Projectile)GenSpawn.Spawn(ProjectileDef, spawnCell, map);
+            proj.Launch(caster, spawnPos, target, target, ProjectileHitFlags.All, false, null, null);
+
+            return true;
+        }
+    }
+
     public class Thing_WindBulletCharge : Thing
     {
         private Pawn caster;
@@ -225,11 +301,25 @@ namespace merissu
                     Vector3 direction = (victim.Position.ToVector3() - this.launcher.Position.ToVector3()).normalized;
                     if (direction == Vector3.zero) direction = Vector3.forward;
 
-                    IntVec3 targetCell = (victim.Position.ToVector3() + direction * 30f).ToIntVec3();
+                    IntVec3 startCell = victim.Position;
+                    IntVec3 targetCell = startCell;
+                    float maxDistance = 30f; 
 
-                    if (!targetCell.InBounds(map) || !targetCell.Walkable(map))
+                    for (float distance = 0.5f; distance <= maxDistance; distance += 0.5f)
                     {
-                        CellFinder.TryFindRandomCellNear(targetCell, map, 3, c => c.Walkable(map) && c.InBounds(map), out targetCell);
+                        IntVec3 checkCell = (startCell.ToVector3() + direction * distance).ToIntVec3();
+
+                        if (!checkCell.InBounds(map))
+                        {
+                            break;
+                        }
+
+                        if (!checkCell.Walkable(map) || checkCell.Impassable(map))
+                        {
+                            break;
+                        }
+
+                        targetCell = checkCell;
                     }
 
                     if (targetCell.InBounds(map) && targetCell != victim.Position)
@@ -240,7 +330,7 @@ namespace merissu
                         if (flyer != null)
                         {
                             flyer.instigator = caster;
-                            GenSpawn.Spawn(flyer, targetCell, map);
+                            GenSpawn.Spawn(flyer, startCell, map); 
                         }
                     }
                 }
@@ -261,18 +351,15 @@ namespace merissu
             Pawn pawn = FlyingPawn;
             Pawn inst = instigator;
 
-            LongEventHandler.ExecuteWhenFinished(() =>
+            if (!pawn.Dead)
             {
-                if (pawn != null && !pawn.Dead)
-                {
-                    pawn.TakeDamage(new DamageInfo(
-                        DamageDefOf.Blunt,
-                        20f,
-                        0f,
-                        -1f,
-                        inst));
-                }
-            });
+                pawn.TakeDamage(new DamageInfo(
+                    DamageDefOf.Blunt,
+                    20f,
+                    0f,
+                    -1f,
+                    inst));
+            }
         }
     }
 }

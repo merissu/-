@@ -2,9 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace merissu
 {
+    public class AttackMode_FireMistSpray : GrimoireAttackMode
+    {
+        public override string ModeName => "FireMistSpray";
+        protected override string ProjectileDefName => "Projectile_FireMistSpray";
+        protected override string SoundDefName => "Fireball";
+
+        public override int BurstCount => 90;
+        public override int TicksBetweenShots => 2;
+        public override float WarmupTime => 1.0f;
+
+        public override bool PlaySoundOnEveryShot => false;
+
+        public override bool OverrideCastShot(Verb_RandomElementalShoot verb, LocalTargetInfo target)
+        {
+            Pawn caster = verb.CasterPawn;
+            Map map = caster.Map;
+            if (map == null) return false;
+
+            if (verb.burstShotsLeft == verb.verbProps.burstShotCount)
+            {
+                CastSound?.PlayOneShot(new TargetInfo(caster.Position, map));
+            }
+
+            Vector3 casterPos = caster.DrawPos;
+            Vector3 targetPos = target.Cell.ToVector3Shifted();
+            if (target.Thing != null) targetPos = target.Thing.DrawPos;
+
+            Vector3 dir = (targetPos - casterPos).normalized;
+            Vector3 spawnPos = casterPos + dir * 1f;
+            IntVec3 spawnCell = spawnPos.ToIntVec3();
+
+            float progress = 1f - ((float)verb.burstShotsLeft / BurstCount);
+            float angleOffset = Mathf.Sin(progress * Mathf.PI * 16f) * 35f;
+
+            float baseAngle = dir.AngleFlat() - 90f;
+            float finalAngle = baseAngle + angleOffset;
+            Vector3 projDir = Vector3Utility.FromAngleFlat(finalAngle);
+
+            Vector3 projTargetPos = spawnPos + projDir * 20f;
+            LocalTargetInfo projTargetInfo = new LocalTargetInfo(projTargetPos.ToIntVec3());
+
+            Projectile proj = (Projectile)GenSpawn.Spawn(ProjectileDef, spawnCell, map);
+
+            proj.Launch(caster, spawnPos, projTargetInfo, projTargetInfo, ProjectileHitFlags.None, false, null, null);
+
+            return true;
+        }
+    }
+
     public class Projectile_FireMistSpray : Projectile
     {
         private Vector3 startPos;
@@ -40,21 +90,24 @@ namespace merissu
                 if (++fireTickCounter >= 4)
                 {
                     fireTickCounter = 0;
-                    IntVec3 cell = Position;
+                    IntVec3 center = Position;
 
-                    if (cell.InBounds(Map))
+                    foreach (IntVec3 c in GenRadial.RadialCellsAround(center, 1.5f, true))
                     {
-                        FireUtility.TryStartFireIn(cell, Map, 0.15f, launcher);
+                        if (!c.InBounds(Map)) continue;
 
-                        List<Thing> thingList = cell.GetThingList(Map);
+                        FireUtility.TryStartFireIn(c, Map, 0.15f, launcher);
+
+                        List<Thing> thingList = c.GetThingList(Map);
                         for (int i = 0; i < thingList.Count; i++)
                         {
                             Thing t = thingList[i];
+
                             if (t is Pawn pawn && pawn != launcher && !pawn.Dead)
                             {
                                 pawn.TakeDamage(new DamageInfo(
                                     DamageDefOf.Flame,
-                                    1f,
+                                    4f,
                                     0f,
                                     -1f,
                                     launcher));

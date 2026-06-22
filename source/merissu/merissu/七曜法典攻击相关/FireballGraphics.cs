@@ -23,6 +23,55 @@ namespace merissu
             CenterMat = MaterialPool.MatFrom("Projectiles/fireball/BulletBb001", ShaderDatabase.MoteGlow);
         }
     }
+    public class AttackMode_Fireball : GrimoireAttackMode
+    {
+        public override string ModeName => "Fireball";
+        protected override string ProjectileDefName => "Projectile_Fireball";
+        protected override string SoundDefName => "Fireball";
+
+        public override int BurstCount => 1;
+        public override int TicksBetweenShots => 0;
+        public override float WarmupTime => 1f;
+
+        public override bool OverrideCastShot(Verb_RandomElementalShoot verb, LocalTargetInfo target)
+        {
+            Pawn caster = verb.CasterPawn;
+            Map map = caster.Map;
+            if (map == null) return false;
+
+            Vector3 casterPos = caster.DrawPos;
+            Vector3 targetPos = target.Cell.ToVector3Shifted();
+            if (target.Thing != null) targetPos = target.Thing.DrawPos;
+
+            Vector3 dir = (targetPos - casterPos).normalized;
+            Vector3 spawnPos = casterPos + dir * 1f;
+            IntVec3 spawnCell = spawnPos.ToIntVec3();
+
+            Thing shockwave = ThingMaker.MakeThing(ThingDef.Named("Fireball_Shockwave"));
+            GenSpawn.Spawn(shockwave, spawnCell, map);
+            if (shockwave is Thing_FireballShockwave sw) sw.exactPosition = spawnPos;
+
+            float baseAngle = caster.Rotation.AsAngle;
+            float[] spreadAngles = new float[] { 0f, 72f, 144f, -72f, -144f };
+
+            foreach (float angleOffset in spreadAngles)
+            {
+                float finalAngle = baseAngle + angleOffset;
+                Vector3 projDir = Vector3Utility.FromAngleFlat(finalAngle);
+
+                Vector3 projTargetPos = spawnPos + projDir * 20f;
+                LocalTargetInfo projTargetInfo = new LocalTargetInfo(projTargetPos.ToIntVec3());
+
+                Projectile proj = (Projectile)GenSpawn.Spawn(ProjectileDef, spawnCell, map);
+
+                LocalTargetInfo hitTarget = (angleOffset == 0f) ? target : projTargetInfo;
+
+                proj.Launch(caster, spawnPos, projTargetInfo, hitTarget, ProjectileHitFlags.All, false, null, null);
+            }
+
+            return true;
+        }
+    }
 
     public class Projectile_Fireball_Custom : Projectile
     {
