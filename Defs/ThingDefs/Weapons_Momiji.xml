@@ -13,11 +13,13 @@
     <soundInteract>Interact_MonoSword</soundInteract>
     <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
     <statBases>
-      <MarketValue>500</MarketValue>
+			<MarketValue>800</MarketValue> 
+      <SellPriceFactor>0.1</SellPriceFactor>
       <Mass>1.0</Mass>
       <MaxHitPoints>150</MaxHitPoints>
       <Flammability>0.5</Flammability>
     </statBases>
+    <techLevel>Medieval</techLevel>
     <weaponClasses>
       <li>Melee</li>
     </weaponClasses>
@@ -42,21 +44,23 @@
     <costList>
       <Crimsongold>50</Crimsongold>
     </costList>
-    <recipeMaker>
-      <skillRequirements>
-        <Crafting>8</Crafting>
-      </skillRequirements>
-      <workAmount>2500</workAmount>
-      <recipeUsers>
-        <li>TableHifuuClub</li>
-      </recipeUsers>
-    </recipeMaker>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>PowerPoint</researchPrerequisite>
+		</recipeMaker>
     <smeltable>true</smeltable>
     <smeltProducts>
       <Crimsongold>10</Crimsongold>
     </smeltProducts>
     <thingSetMakerTags>
-      <li>RewardStandard</li>
+			<li>RewardStandardQualitySuper</li>
+			<li>TouhouWeapons</li>
     </thingSetMakerTags>
     <tradeTags>
       <li>ExoticMisc</li>
