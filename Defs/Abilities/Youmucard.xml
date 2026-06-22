@@ -375,7 +375,7 @@
         <defName>youmulastspell</defName>
         <label>人鬼「未来永劫斩」</label>
         <abilityClass>merissu.Ability_youmulastspell</abilityClass>
-        <description>踏向前方冲刺斩击并自动进行追击,在地面战中十分强力。威力极高且拥有无敌时间,可谓是攻防一体的完美Spell
+        <description>踏向前方冲刺斩击并自动进行追击,在地面战中十分强力。威力极高,几乎没有斩不断的东西,可谓是攻防一体的完美Spell
 
 使用需要消耗五张符卡,发动后在一段时间内可释放突刺斩击的现世斩,对着敌人释放则变成自动追击的未来永劫斩。</description>
         <cooldownTicksRange>0</cooldownTicksRange>
@@ -428,9 +428,6 @@
 		<stages>
 			<li>
 				<painFactor>0</painFactor>
-				<statFactors>
-					<IncomingDamageFactor>0</IncomingDamageFactor>
-				</statFactors>
 			</li>
 		</stages>
 	</HediffDef>

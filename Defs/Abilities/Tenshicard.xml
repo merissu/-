@@ -103,10 +103,59 @@
 		</projectile>
 	</ThingDef>
 
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_RockDebris_A</defName>
+		<label>巨石碎片</label>
+		<thingClass>merissu.Mote_RockDebris</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Projectiles/UniverseQuake/bulletCa000</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_RockDebris_B</defName>
+		<label>碎石片</label>
+		<thingClass>merissu.Mote_RockDebris</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Projectiles/UniverseQuake/bulletCb002</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_RockDebris_C</defName>
+		<label>碎石片</label>
+		<thingClass>merissu.Mote_RockDebris</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Projectiles/UniverseQuake/bulletCb000</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_RockDebris_D</defName>
+		<label>碎石屑</label>
+		<thingClass>merissu.Mote_RockDebris</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Projectiles/UniverseQuake/bulletCb001</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
     <ThingDef Name="TenshiStone" ParentName="SkyfallerBase">
         <defName>TenshiStone</defName>
         <label>要石</label>
         <size>(1, 1)</size>
+	    <thingClass>merissu.Skyfaller_TenshiStone</thingClass>
         <graphicData>
             <texPath>Projectiles/TenshiStone</texPath>
             <graphicClass>Graphic_Single</graphicClass>

@@ -366,8 +366,8 @@ namespace merissu
 
                         p.TakeDamage(new DamageInfo(
                             DamageDefOf.Cut,
-                            1000f,
-                            0f,
+                            100f,
+                            999f,
                             -1f,
                             caster
                         ));

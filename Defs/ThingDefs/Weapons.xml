@@ -878,7 +878,7 @@
 		<graphicData>
 			<texPath>Weapons/Bullet/GunBullet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.8,0.8)</drawSize>
+			<drawSize>(1.5,1.5)</drawSize>
 			<shaderType>Mote</shaderType>
 		</graphicData>
 		<projectile>
