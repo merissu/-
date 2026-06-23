@@ -664,6 +664,11 @@
 			<stoppingPower>0</stoppingPower>
 			<speed>20</speed>
 		</projectile>
+		<comps>
+			<li Class="merissu.CompProperties_ButterflyDeathBurst">
+				<petalMoteDef>Mote_ButterflyPetalA</petalMoteDef>
+			</li>
+		</comps>
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBullet">
@@ -682,6 +687,11 @@
 			<stoppingPower>0</stoppingPower>
 			<speed>20</speed>
 		</projectile>
+		<comps>
+			<li Class="merissu.CompProperties_ButterflyDeathBurst">
+				<petalMoteDef>Mote_ButterflyPetalB</petalMoteDef>
+			</li>
+		</comps>
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBullet">
@@ -700,6 +710,11 @@
 			<stoppingPower>0</stoppingPower>
 			<speed>20</speed>
 		</projectile>
+		<comps>
+			<li Class="merissu.CompProperties_ButterflyDeathBurst">
+				<petalMoteDef>Mote_ButterflyPetalC</petalMoteDef>
+			</li>
+		</comps>
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBullet">
@@ -718,6 +733,55 @@
 			<stoppingPower>0</stoppingPower>
 			<speed>20</speed>
 		</projectile>
+		<comps>
+			<li Class="merissu.CompProperties_ButterflyDeathBurst">
+				<petalMoteDef>Mote_ButterflyPetalD</petalMoteDef>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ButterflyPetalA</defName>
+		<thingClass>merissu.Mote_ButterflyPetal</thingClass>
+		<graphicData>
+			<texPath>Projectiles/yuyukoBullet/bulletAd000</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ButterflyPetalB</defName>
+		<thingClass>merissu.Mote_ButterflyPetal</thingClass>
+		<graphicData>
+			<texPath>Projectiles/yuyukoBullet/bulletAd001</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ButterflyPetalC</defName>
+		<thingClass>merissu.Mote_ButterflyPetal</thingClass>
+		<graphicData>
+			<texPath>Projectiles/yuyukoBullet/bulletAd002</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ButterflyPetalD</defName>
+		<thingClass>merissu.Mote_ButterflyPetal</thingClass>
+		<graphicData>
+			<texPath>Projectiles/yuyukoBullet/bulletAd003</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
 	</ThingDef>
 
 	<DamageDef>
@@ -741,8 +805,7 @@
 		<additionalHediffs>
 			<li>
 				<hediff>EternalSleepInFantasy</hediff>
-				<severityPerDamageDealt>0.05</severityPerDamageDealt>
-				<victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+				<severityFixed>0.05</severityFixed>
 			</li>
 		</additionalHediffs>
 	</DamageDef>

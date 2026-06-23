@@ -203,6 +203,11 @@
 			<texPath>Projectiles/yuyukoBullet/ButterflyBulletA</texPath>
 			<drawSize>(1,1)</drawSize>
 		</graphicData>
+		<comps>
+			<li Class="merissu.CompProperties_ButterflyDeathBurst">
+				<petalMoteDef>Mote_ButterflyPetalA</petalMoteDef>
+			</li>
+		</comps>
 	</ThingDef>
 
 	<ThingDef>
@@ -219,6 +224,11 @@
 			<texPath>Projectiles/yuyukoBullet/ButterflyBulletC</texPath>
 			<drawSize>(1,1)</drawSize>
 		</graphicData>
+		<comps>
+			<li Class="merissu.CompProperties_ButterflyDeathBurst">
+				<petalMoteDef>Mote_ButterflyPetalC</petalMoteDef>
+			</li>
+		</comps>
 	</ThingDef>
 
 	<ThingDef>

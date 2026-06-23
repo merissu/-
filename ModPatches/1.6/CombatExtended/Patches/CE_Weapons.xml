@@ -716,13 +716,6 @@
     </value>
   </Operation>
 
-  <Operation Class="PatchOperationReplace">
-    <xpath>Defs/DamageDef[defName="DeathButterflyFloatingMoon"]/additionalHediffs/li[hediff="EternalSleepInFantasy"]/severityPerDamageDealt</xpath>
-    <value>
-      <severityPerDamageDealt>1.0</severityPerDamageDealt>
-    </value>
-  </Operation>
-
 <Operation Class="PatchOperationReplace">
   <xpath>Defs/ThingDef[defName="DeathButterfliesFan"]/tools</xpath>
   <value>

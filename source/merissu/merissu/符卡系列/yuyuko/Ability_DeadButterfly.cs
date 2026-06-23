@@ -210,7 +210,7 @@ namespace merissu
     }
 
     [StaticConstructorOnStartup]
-    public class Thing_DeadButterflyBullet : Thing
+    public class Thing_DeadButterflyBullet : ThingWithComps
     {
         public Vector3 direction;
         public Pawn caster;
