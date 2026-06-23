@@ -87,7 +87,8 @@ namespace merissu
                     new AttackMode_WindBullet(),
                     new AttackMode_AutumnEdge(),
                     new AttackMode_AutumnBlade(),
-                    new AttackMode_FallSlasher()
+                    new AttackMode_FallSlasher(),
+                    new AttackMode_DoyouSpear()
                 };//攻击在这里new
             }
         }

@@ -2913,4 +2913,63 @@
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<useHitPoints>false</useHitPoints>
 	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_DoyouSpearManager</defName>
+		<label>土用枪管理器</label>
+		<thingClass>merissu.Thing_DoyouSpearManager</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+            <texPath>Other/null</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_DoyouSpearProjectile</defName>
+		<label>土用枪</label>
+		<thingClass>merissu.Thing_DoyouSpearProjectile</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_DoyouSpearFog</defName>
+		<label>土用枪雾气</label>
+		<thingClass>merissu.Thing_DoyouSpearFog</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_DoyouSpearTrail</defName>
+		<label>土用枪轨迹</label>
+		<thingClass>merissu.Thing_DoyouSpearTrail</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_DoyouSpearImpactAnim</defName>
+		<label>土用枪破碎动画</label>
+		<thingClass>merissu.Thing_DoyouSpearImpactAnim</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_DoyouSpearDebris</defName>
+		<label>土用枪碎石</label>
+		<thingClass>merissu.Thing_DoyouSpearDebris</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
 </Defs>
