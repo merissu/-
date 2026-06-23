@@ -157,25 +157,41 @@ namespace merissu
         {
             Map map = this.Map;
             IntVec3 pos = this.Position;
+            Faction casterFaction = caster?.Faction;
 
-            GenExplosion.DoExplosion(
-                pos,
-                map,
-                2f,
-                DamageDefOf.Bomb,
-                caster,
-                35,
-                doSoundEffects: false,      
-                screenShakeFactor: 0f,      
-                doVisualEffects: false      
-            );
+            float radius = 2f;
+            int damAmount = 35;
+            float armorPen = damAmount * 0.015f;
+
+            foreach (IntVec3 cell in GenRadial.RadialCellsAround(pos, radius, true))
+            {
+                if (!cell.InBounds(map)) continue;
+
+                List<Thing> things = cell.GetThingList(map);
+                for (int i = things.Count - 1; i >= 0; i--)
+                {
+                    if (things[i] is Pawn pawn && pawn.HostileTo(casterFaction))
+                    {
+                        float dist = pawn.Position.DistanceTo(pos);
+                        float falloff = 1f - dist / radius;
+                        int finalDamage = Mathf.Max(1, (int)(damAmount * falloff));
+
+                        pawn.TakeDamage(new DamageInfo(
+                            DamageDefOf.Bomb,
+                            finalDamage,
+                            armorPen,
+                            angle: -1f,
+                            instigator: caster
+                        ));
+                    }
+                }
+            }
 
             SoundDef.Named("DoyouSpearhit")?.PlayOneShot(new TargetInfo(pos, map));
 
             Thing_DoyouSpearImpactAnim anim =
                 (Thing_DoyouSpearImpactAnim)ThingMaker.MakeThing(
                     ThingDef.Named("Mote_DoyouSpearImpactAnim"));
-
             anim.exactPosition = pos.ToVector3Shifted();
             GenSpawn.Spawn(anim, pos, map);
 
@@ -184,13 +200,13 @@ namespace merissu
                 Thing_DoyouSpearDebris debris =
                     (Thing_DoyouSpearDebris)ThingMaker.MakeThing(
                         ThingDef.Named("Mote_DoyouSpearDebris"));
-
                 debris.Initialize(pos.ToVector3Shifted());
                 GenSpawn.Spawn(debris, pos, map);
             }
 
             this.Destroy();
         }
+
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
             Vector3 visualPos = drawLoc;

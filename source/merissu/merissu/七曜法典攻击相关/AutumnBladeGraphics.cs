@@ -277,7 +277,6 @@ namespace merissu
         {
             float progress = (float)age / MaxAge;
 
-            // 迅速缩小
             float scale = Mathf.Lerp(1.5f, 0f, progress);
 
             Vector3 pos = exactPosition;

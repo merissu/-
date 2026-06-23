@@ -2972,4 +2972,65 @@
 		<tickerType>Normal</tickerType>
 		<useHitPoints>false</useHitPoints>
 	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+        <defName>Mote_WaterMistScattering</defName>
+        <thingClass>MoteThrown</thingClass>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0.1</fadeInTime>
+            <solidTime>0.2</solidTime>
+            <fadeOutTime>1.5</fadeOutTime> </mote>
+        <graphicData>
+            <texPath>Other/bulletBb003</texPath>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>2.0</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Projectile_CondensedBubble_Large</defName>
+        <label>冷凝气泡</label>
+        <thingClass>merissu.Projectile_CondensedBubble</thingClass>
+        <graphicData>
+            <texPath>Other/bulletKa000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>4.0</drawSize> </graphicData>
+        <projectile>
+            <damageDef>Bomb</damageDef>
+            <speed>8</speed> </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Projectile_CondensedBubble_Medium</defName>
+        <label>冷凝气泡</label>
+        <thingClass>merissu.Projectile_CondensedBubble</thingClass>
+        <graphicData>
+            <texPath>Other/bulletKa000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>2.0</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>Bomb</damageDef>
+            <speed>10</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Projectile_CondensedBubble_Small</defName>
+        <label>冷凝气泡</label>
+        <thingClass>merissu.Projectile_CondensedBubble</thingClass>
+        <graphicData>
+            <texPath>Other/bulletKa000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>1.0</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>Bomb</damageDef>
+            <speed>12</speed>
+        </projectile>
+    </ThingDef>
 </Defs>

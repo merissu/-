@@ -79,16 +79,8 @@ namespace merissu
             {
                 availableModes = new List<GrimoireAttackMode>
                 {
-                    new AttackMode_Waterbullet(),
-                    new AttackMode_Fireball(),
-                    new AttackMode_WaterJade(),
-                    new AttackMode_GiantFireball(),
-                    new AttackMode_FireMistSpray(),
-                    new AttackMode_WindBullet(),
-                    new AttackMode_AutumnEdge(),
-                    new AttackMode_AutumnBlade(),
-                    new AttackMode_FallSlasher(),
-                    new AttackMode_DoyouSpear()
+                    new AttackMode_DoyouSpear(),
+                    new AttackMode_CondensedBubble()
                 };//攻击在这里new
             }
         }
