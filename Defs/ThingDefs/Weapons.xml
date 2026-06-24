@@ -215,8 +215,6 @@
 			<li>Touhou</li>
 		</weaponTags>
 		<equippedStatOffsets>
-			<MaxFlightTime>9999</MaxFlightTime>
-            <FlightCooldown>0</FlightCooldown>
 			<ShootingAccuracyPawn>5</ShootingAccuracyPawn>
 		</equippedStatOffsets>
 		<weaponClasses>

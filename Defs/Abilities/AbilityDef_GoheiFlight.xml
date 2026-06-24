@@ -35,6 +35,14 @@
 			<li>reimucard</li>
 			<li>DreamHeavenly</li>
 		</abilities>
+        <stages>
+            <li>
+                <statOffsets>
+                    <MaxFlightTime>9999</MaxFlightTime>
+                    <FlightCooldown>0</FlightCooldown>
+                </statOffsets>
+            </li>
+        </stages>
     </HediffDef>
 
     <HediffDef>

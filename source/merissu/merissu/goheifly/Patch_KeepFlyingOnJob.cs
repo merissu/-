@@ -12,7 +12,7 @@ namespace merissu
         static void Postfix(Pawn ___pawn, ref bool __result)
         {
             if (__result)
-                return;
+                return; 
 
             if (FlightCompatUtility.IsAnyFlightEnabled(___pawn))
             {
@@ -33,23 +33,21 @@ namespace merissu
             if (pawn == null) return true;
 
             bool isFlightEnabled = FlightCompatUtility.IsAnyFlightEnabled(pawn);
+            bool canEverFly = __instance.CanEverFly; 
 
             if (!isFlightEnabled)
             {
-                if (!__instance.Flying)
-                {
-                    return false;
-                }
+                if (canEverFly)
+                    return true;
 
-                return true;
+                if (!__instance.Flying)
+                    return false;  
+                return true;       
             }
 
             if (__instance.Flying)
             {
-                if (job != null)
-                {
-                    job.flying = true; 
-                }
+                if (job != null) job.flying = true;
                 return false;
             }
 

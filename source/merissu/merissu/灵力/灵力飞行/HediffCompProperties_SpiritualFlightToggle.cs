@@ -63,7 +63,6 @@ namespace merissu
             if (pawn == null || pawn.health == null) return;
 
             Hediff flyingHediff = pawn.health.hediffSet.GetFirstHediffOfDef(SpiritualFlyingHediffDef);
-
             var tracker = FlightCompatUtility.EnsureFlightTracker(pawn);
 
             if (flightEnabled)
@@ -83,11 +82,19 @@ namespace merissu
             }
             else
             {
-                if (flyingHediff != null) pawn.health.RemoveHediff(flyingHediff);
+                if (flyingHediff != null)
+                    pawn.health.RemoveHediff(flyingHediff);
 
-                if (tracker != null && !FlightCompatUtility.IsAnyFlightEnabled(pawn))
+                if (tracker != null && tracker.Flying)
                 {
-                    AccessTools.Method(typeof(Pawn_FlightTracker), "ForceLand").Invoke(tracker, null);
+                    bool hasOtherFlight = FlightCompatUtility.IsAnyFlightEnabled(pawn)
+                                          || tracker.CanEverFly; 
+
+                    if (!hasOtherFlight)
+                    {
+                        AccessTools.Method(typeof(Pawn_FlightTracker), "ForceLand")
+                            .Invoke(tracker, null);
+                    }
                 }
             }
         }
