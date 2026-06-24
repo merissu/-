@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <HediffDef>
+        <defName>TanukiPipe_Worn</defName>
+        <label>烟斗装备中</label>
+        <defaultLabelColor>(204,102,102)</defaultLabelColor>
+        <description>装备着烟斗,可以使用变化能力</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <tendable>false</tendable>
+		<maxSeverity>1.0</maxSeverity>
+        <abilities>
+			<li>TanukiPipeSanctions</li>
+		</abilities>
+    </HediffDef>
+
+	<AbilityDef>
+		<defName>TanukiPipeSanctions</defName>
+		<label>变化「二岩家的制裁」</label>
+        <abilityClass>merissu.Ability_MamizouSanctions</abilityClass>
+		<description>令对手化为无力的形态,在此期间可以单方面进行攻击,被化身的对手只能四处逃窜
+	
+消耗一张符卡吹出烟雾,将被烟雾包围的对手变为随机动物,在此期间可以随意对敌人进行欺凌,能力结束或者死亡时对手会恢复原状</description>
+		<iconPath>Abilities/MamizouSanctions</iconPath>
+		<cooldownTicksRange>800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>15</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+        <defName>MamizouSmokeProjectile</defName>
+        <label>二岩家的制裁烟雾</label>
+        <thingClass>merissu.MamizouSmokeProjectile</thingClass>
+        <category>Projectile</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <useHitPoints>False</useHitPoints>
+        <neverMultiSelect>True</neverMultiSelect>
+        <graphicData>
+            <texPath>Things/Mote/Transparent</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef Name="MamizouHitSmokeBase" Abstract="True">
+        <category>Mote</category>
+        <thingClass>merissu.Mote_MamizouHitSmoke</thingClass>
+        <altitudeLayer>MetaOverlays</altitudeLayer>
+        <tickerType>Normal</tickerType>
+        <useHitPoints>false</useHitPoints>
+    </ThingDef>
+
+    <ThingDef ParentName="MamizouHitSmokeBase">
+        <defName>Mote_MamizouHitSmokeA</defName>
+        <label>变身烟雾A</label>
+        <graphicData>
+            <texPath>Other/MamizouSanctions/Asmoke</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Mote</shaderType>
+        </graphicData>
+    </ThingDef>
+    
+    <ThingDef ParentName="MamizouHitSmokeBase">
+        <defName>Mote_MamizouHitSmokeB</defName>
+        <label>变身烟雾B</label>
+        <graphicData>
+            <texPath>Other/MamizouSanctions/Bsmoke</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Mote</shaderType>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="MamizouHitSmokeBase">
+        <defName>Mote_MamizouHitSmokeC</defName>
+        <label>变身烟雾C</label>
+        <graphicData>
+            <texPath>Other/MamizouSanctions/Csmoke</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Mote</shaderType>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="MamizouHitSmokeBase">
+        <defName>Mote_MamizouHitSmokeD</defName>
+        <label>变身烟雾D</label>
+        <graphicData>
+            <texPath>Other/MamizouSanctions/Dsmoke</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Mote</shaderType>
+        </graphicData>
+    </ThingDef>
+</Defs>	

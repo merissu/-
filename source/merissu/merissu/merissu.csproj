@@ -126,6 +126,9 @@
     <Compile Include="灵力\灵力飞行\HediffCompProperties_SpiritualFlightToggle.cs" />
     <Compile Include="符卡系列\JellyfishPrincess\CE_Compat_Jellyfish.cs" />
     <Compile Include="符卡系列\JellyfishPrincess\HediffCompProperties_JellyfishPrincess.cs" />
+    <Compile Include="符卡系列\MamizouSanctions\Ability_MamizouSanctions.cs" />
+    <Compile Include="符卡系列\MamizouSanctions\MamizouSmokeProjectile.cs" />
+    <Compile Include="符卡系列\MamizouSanctions\MamizouTransformData.cs" />
     <Compile Include="符卡系列\NoachianDeluge\CompDestroySpawnMote.cs" />
     <Compile Include="符卡系列\NoachianDeluge\CompProperties_ExtinguishFire.cs" />
     <Compile Include="符卡系列\NoachianDeluge\Mote_BulletDestroyFade.cs" />

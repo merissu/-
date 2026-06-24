@@ -4074,6 +4074,11 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 			<li>Clothing</li>
 		</tradeTags>
 		<allowedArchonexusCount>1</allowedArchonexusCount>
+		<comps>
+            <li Class="merissu.CompProperties_WearerHediff">
+                <hediff>TanukiPipe_Worn</hediff>
+            </li>
+        </comps>
 	</ThingDef>
 
 </Defs>
