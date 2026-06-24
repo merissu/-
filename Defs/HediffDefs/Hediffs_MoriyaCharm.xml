@@ -3,7 +3,7 @@
   <HediffDef>
     <defName>MiracleOngoing</defName>
     <label>奇迹进行时</label>
-    <description>守矢神社护符的常驻祝福，各项能力小幅提升。同时可通过消耗灵力激活更强大的奇迹之力。</description>
+    <description>守矢神社护符的常驻祝福，各项能力小幅提升，同时每天可以获得0.4灵力。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>false</isBad>
     <maxSeverity>1.0</maxSeverity>
@@ -16,7 +16,7 @@
         </statOffsets>
         <statFactors>
           <MoveSpeed>1.25</MoveSpeed>
-          <MeleeHitChance>1.25</MeleeHitChance>
+          <MeleeHitChance>1.5</MeleeHitChance>
           <WorkSpeedGlobal>1.5</WorkSpeedGlobal>
 		  <AimingDelayFactor>0.75</AimingDelayFactor>
           <RangedCooldownFactor>0.75</RangedCooldownFactor>
@@ -32,5 +32,11 @@
       <li>Miracle_Sky</li>
       <li>Miracle_Wind</li>
     </abilities>
+        <comps>
+            <li Class="merissu.HediffCompProperties_AddSeverityToOther">
+                <targetHediff>spiritualpower</targetHediff>
+                <severityPerDay>0.4</severityPerDay>
+            </li>
+        </comps>
   </HediffDef>
 </Defs>
