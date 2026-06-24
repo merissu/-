@@ -3,6 +3,8 @@ using Verse;
 
 namespace merissu
 {
+    [StaticConstructorOnStartup]
+
     public class Mote_ButterflyPetal : Thing
     {
         private int age;

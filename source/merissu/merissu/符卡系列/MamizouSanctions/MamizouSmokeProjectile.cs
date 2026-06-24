@@ -7,6 +7,8 @@ using Verse.Sound;
 
 namespace merissu
 {
+    [StaticConstructorOnStartup]
+
     public class MamizouSmokeProjectile : Thing
     {
         private Vector3 exactPosition;

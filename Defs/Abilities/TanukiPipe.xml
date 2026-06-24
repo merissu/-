@@ -11,8 +11,58 @@
 		<maxSeverity>1.0</maxSeverity>
         <abilities>
 			<li>TanukiPipeSanctions</li>
+			<li>GateDemonRealm</li>
 		</abilities>
     </HediffDef>
+
+	<AbilityDef>
+		<defName>GateDemonRealm</defName>
+		<label>变化「百鬼妖界之门」</label>
+        <abilityClass>merissu.Ability_GateDemonRealm</abilityClass>
+		<description>召唤百妖,从变化出的鸟居中杀将出来。如果不小心挡了路,不管对手是大是小都会被弄得破破烂烂
+	
+消耗一张符卡放置鸟居,鸟居会召唤出各种妖怪对敌人进行攻击,一段时间后消失</description>
+		<iconPath>Abilities/GateDemonRealm</iconPath>
+		<cooldownTicksRange>800</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>100</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>spell</soundCast>
+            <requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetAnimals>False</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>False</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>False</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <ThingDef>
+        <defName>MamizouTorii</defName>
+        <label>鸟居</label>
+        <thingClass>merissu.MamizouTorii</thingClass>
+        <category>Building</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Building</altitudeLayer>
+        <useHitPoints>False</useHitPoints>
+        <clearBuildingArea>False</clearBuildingArea>
+        <neverMultiSelect>True</neverMultiSelect>
+        <passability>Standable</passability>
+        <graphicData>
+            <texPath>Other/MamizouSanctions/torii</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Mote</shaderType>
+            <drawSize>(4,4)</drawSize>
+        </graphicData>
+    </ThingDef>
 
 	<AbilityDef>
 		<defName>TanukiPipeSanctions</defName>

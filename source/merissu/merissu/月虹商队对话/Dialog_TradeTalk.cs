@@ -6,6 +6,8 @@ using RimWorld;
 
 namespace merissu
 {
+    [StaticConstructorOnStartup]
+
     public class Dialog_TradeTalk : Window
     {
         public Pawn buyer;

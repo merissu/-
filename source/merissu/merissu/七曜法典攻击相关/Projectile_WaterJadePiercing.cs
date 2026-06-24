@@ -50,7 +50,7 @@ namespace merissu
         }
     }
 
-
+    [StaticConstructorOnStartup]
     public class Projectile_WaterJadePiercing : Projectile
     {
         private float angle0 = 0f;

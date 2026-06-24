@@ -8,6 +8,8 @@ using Verse.Sound;
 
 namespace merissu
 {
+    [StaticConstructorOnStartup]
+
     public class Dialog_MoonbowMarket : Window
     {
         private Pawn buyer;

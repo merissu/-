@@ -174,6 +174,7 @@ namespace merissu
             return false;
         }
     }
+    [StaticConstructorOnStartup]
 
     public class TimeStopVisual : Thing
     {

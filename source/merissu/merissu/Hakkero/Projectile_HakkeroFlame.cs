@@ -4,6 +4,8 @@ using Verse;
 
 namespace merissu
 {
+    [StaticConstructorOnStartup]
+
     public class Projectile_HakkeroFlame : Projectile
     {
         private Vector3 startPos;

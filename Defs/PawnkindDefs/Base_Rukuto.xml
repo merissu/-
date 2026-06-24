@@ -21,7 +21,7 @@
       <baseHealthScale>5.0</baseHealthScale>
       <body>Mech_Light</body>
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
-      <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
       <mechWeightClass>Light</mechWeightClass>          <!-- 轻型，理论上用普通充电站，但既然不耗能，充电站无用 -->
     </race>

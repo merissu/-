@@ -193,7 +193,7 @@ namespace merissu
                 effectA.Destroy();
         }
     }
-
+    [StaticConstructorOnStartup]
     public class Mote_OrbEffectA : Thing
     {
         private Comp_YinYangOrb orbComp;
@@ -269,6 +269,7 @@ namespace merissu
             Graphics.DrawMesh(MeshPool.plane10, matrix, mat, 0);
         }
     }
+    [StaticConstructorOnStartup]
     public class Mote_OrbEffectB : Thing
     {
         private Vector3 position;

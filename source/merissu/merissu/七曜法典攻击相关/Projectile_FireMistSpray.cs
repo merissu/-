@@ -54,7 +54,7 @@ namespace merissu
             return true;
         }
     }
-
+    [StaticConstructorOnStartup]
     public class Projectile_FireMistSpray : Projectile
     {
         private Vector3 startPos;

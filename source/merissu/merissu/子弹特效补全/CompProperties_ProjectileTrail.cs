@@ -5,6 +5,7 @@ using Verse;
 
 namespace merissu
 {
+
     public class CompProperties_ProjectileTrail : CompProperties
     {
         public string texPath;
@@ -24,6 +25,7 @@ namespace merissu
         public float rotation;
         public int age;
     }
+    [StaticConstructorOnStartup]
 
     public class Comp_ProjectileTrail : ThingComp
     {
