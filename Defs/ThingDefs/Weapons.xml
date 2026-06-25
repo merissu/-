@@ -375,7 +375,6 @@
 			<ThingDef>FullPower</ThingDef> 
 			<ThingDef>spellcard</ThingDef> 
 		</descriptionHyperlinks>
-		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/Laevatain</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -576,7 +575,6 @@
 			<ThingDef>FullPower</ThingDef> 
 			<ThingDef>spellcard</ThingDef> 
 		</descriptionHyperlinks>
-		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/DeathButterfliesFan</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1038,7 +1036,6 @@
             <ThingDef>FullPower</ThingDef> 
             <ThingDef>spellcard</ThingDef> 
         </descriptionHyperlinks>
-		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/MoonRabbitWaveGun</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1122,7 +1119,6 @@
 			<ThingDef>FullPower</ThingDef> 
 			<ThingDef>spellcard</ThingDef> 
 		</descriptionHyperlinks>
-		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/BailouSword</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1942,7 +1938,6 @@
 		<defName>LunaRabbitGun</defName>
 		<label>月兔制式步枪</label>
 		<description>月之都底层月兔士兵们列装的步枪，不过月兔们几乎没有使用的机会。</description>
-		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/LunaRabbitBullet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -2418,7 +2413,6 @@
             <ThingDef>FullPower</ThingDef> 
             <ThingDef>spellcard</ThingDef> 
         </descriptionHyperlinks>
-		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/WanbaoHammer</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -2488,7 +2482,6 @@
             <ThingDef>FullPower</ThingDef> 
             <ThingDef>spellcard</ThingDef> 
         </descriptionHyperlinks>
-		<possessionCount>1</possessionCount>
 		<techLevel>Industrial</techLevel>
 		<soundInteract>Interact_Revolver</soundInteract>
 		<equippedStatOffsets>

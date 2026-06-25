@@ -81,7 +81,6 @@
 		<defName>LaevatainF</defName>
 		<label>四重身·莱瓦汀</label>
 		<description>芙兰朵露的四重身们所持的莱瓦汀虚影。</description>
-		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/PhantomLaevatain</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

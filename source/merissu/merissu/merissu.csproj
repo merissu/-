@@ -103,6 +103,8 @@
     <Compile Include="七曜法典攻击相关\Projectile_WaterJadePiercing.cs" />
     <Compile Include="七曜法典攻击相关\Verb_RandomElementalShoot.cs" />
     <Compile Include="七曜法典攻击相关\WindBulletGraphics.cs" />
+    <Compile Include="伊吹瓢\Ability_superalcohol.cs" />
+    <Compile Include="伊吹瓢\CompProperties_SuikaGourd.cs" />
     <Compile Include="子弹特效补全\CompButterflyDeathBurst.cs" />
     <Compile Include="子弹特效补全\CompProperties_ProjectileTrail.cs" />
     <Compile Include="子弹特效补全\Comp_GateShockwave.cs" />

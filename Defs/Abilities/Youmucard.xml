@@ -186,7 +186,6 @@
 		<defName>PhantomBailouSword</defName>
 		<label>幻影·楼观剑</label>
 		<description>由妖梦的幻影分身所持的楼观剑虚像。</description>
-		<possessionCount>1</possessionCount>
 		<graphicData>
 			<texPath>Weapons/PhantomBailouSword</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

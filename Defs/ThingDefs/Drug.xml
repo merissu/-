@@ -114,7 +114,6 @@
 		<label>月都医药</label>
 		<description>月之都为月之民和兔子们配给的医药,可以治好所有病,并且还能以此为基础开发各种不可思议的药物。</description>
 		<tradeability>Sellable</tradeability>
-		<possessionCount>4</possessionCount>
 		<graphicData>
 			<texPath>Medicine/MedicineOfTheLunarCapital</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
@@ -197,7 +196,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>powerup</ingestSound>
@@ -332,7 +331,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>se_ok00</ingestSound>
@@ -403,7 +402,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>Merissu_E_HiPotion</ingestSound>
@@ -580,7 +579,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>powerup</ingestSound>
@@ -652,7 +651,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>up</ingestSound>
@@ -807,7 +806,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>Merissu_E_HiPotion</ingestSound>
@@ -879,7 +878,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>Merissu_E_HiPotion</ingestSound>
@@ -946,7 +945,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>Merissu_E_HiPotion</ingestSound>
@@ -1020,7 +1019,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>se_notice</ingestSound>
@@ -1098,7 +1097,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>se_fault</ingestSound>
@@ -1291,7 +1290,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Medical</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>喝下{0}</ingestCommandString>
 			<ingestReportString>喝下{0}</ingestReportString>
 		    <ingestSound>up</ingestSound>
@@ -1627,9 +1626,10 @@
 			<recipeUsers>
 				<li>PenglaiPharmaceuticalTable</li>
 			</recipeUsers>
-<researchPrerequisite>
-			<li>SpiritualDomination</li>
-</researchPrerequisite>		</recipeMaker>
+				<researchPrerequisite>
+					<li>SpiritualDomination</li>
+				</researchPrerequisite>		
+			</recipeMaker>
 		<ingestible>
 			<baseIngestTicks>1</baseIngestTicks>
 			<chairSearchRadius>0</chairSearchRadius>
@@ -1703,6 +1703,7 @@
             </li>
         </comps>
     </HediffDef>
+
 	<ThingDef ParentName="THDrugBase">
 		<defName>MagicKnockback</defName>
 		<label>灵击札</label>
@@ -1747,7 +1748,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>None</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>MagicKnockback</ingestSound>
@@ -1819,7 +1820,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>None</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>TenguFan</ingestSound>
@@ -2251,7 +2252,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>服用{0}</ingestCommandString>
 			<ingestReportString>服用{0}</ingestReportString>
 		    <ingestSound>MR_ButterflyDreamPill</ingestSound>
@@ -2454,7 +2455,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>None</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>TenguFan</ingestSound>
@@ -2537,7 +2538,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>None</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Processed</foodType>
 			<ingestCommandString>使用{0}</ingestCommandString>
 			<ingestReportString>使用{0}</ingestReportString>
 		    <ingestSound>TenguFan</ingestSound>
@@ -2677,7 +2678,7 @@
 				<li>PenglaiPharmaceuticalTable</li>
 			</recipeUsers>
 			<researchPrerequisite>
-						<li>DrunkAsILike</li>
+				<li>DrunkAsILike</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<ingestible>
@@ -3036,7 +3037,7 @@
 				<li>PenglaiPharmaceuticalTable</li>
 			</recipeUsers>
 			<researchPrerequisite>
-						<li>EnergyDaybreak</li>
+				<li>EnergyDaybreak</li>
 			</researchPrerequisite>		
 		</recipeMaker>
 		<ingestible>
@@ -3430,7 +3431,7 @@
 			<chairSearchRadius>0</chairSearchRadius>
 			<drugCategory>Social</drugCategory>
 			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
+			<foodType>Fluid,Liquor</foodType>
 			<ingestCommandString>喝下{0}</ingestCommandString>
 			<ingestReportString>喝下{0}</ingestReportString>
 		    <ingestSound>gowork</ingestSound>
@@ -3637,5 +3638,346 @@
 			</li>
 		</comps>
 	</ThingDef>
+
+	<ThingDef ParentName="DrugBase">
+		<defName>suikagourd</defName>
+		<label>伊吹瓢</label>
+		<description>伊吹萃香一直带着的酒葫芦,里面装有一种名为“酒虫”的一种鬼,可以将少量的水变为酒。其内部结构类似于酒窖。
+
+伊吹瓢能涌出源源不断的鬼杀酒,鬼以外的种族喝了会产生幻觉,可以满足所有的成瘾品需求
+
+为了预防翻倒,伊吹瓢一次只能出一葫芦的量。这个时候把塞子塞上摇一摇……</description>
+		<descriptionHyperlinks>
+			<HediffDef>superalcohol</HediffDef>
+			<HediffDef>AlcoholTolerance</HediffDef>
+			<HediffDef>Hangover</HediffDef>
+			<HediffDef>AlcoholAddiction</HediffDef>
+			<HediffDef>Cirrhosis</HediffDef>
+			<HediffDef>ChemicalDamageModerate</HediffDef>
+		</descriptionHyperlinks>
+	    <equippedAngleOffset>-150</equippedAngleOffset>
+		<graphicData>
+			<texPath>Medicine/suikagourd</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<DeteriorationRate>0</DeteriorationRate>
+			<MarketValue>1200</MarketValue>
+			<Mass>0.2</Mass>
+			<Flammability>0</Flammability>
+			<Nutrition>0.8</Nutrition>
+		</statBases>
+		<ingestible>
+			<foodType>Fluid, Processed, Liquor</foodType>
+			<joyKind>Chemical</joyKind>
+			<joy>0.35</joy>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>Ingest_Beer</ingestSound>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+				<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<ingestCommandString>喝{0}</ingestCommandString>
+			<ingestReportString>喝{0}.</ingestReportString>
+			<chairSearchRadius>25</chairSearchRadius>
+			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+			<tableDesired>false</tableDesired>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>superalcohol</hediffDef>
+					<severity>0.5</severity>
+					<toleranceChemical>Alcohol</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholTolerance</hediffDef>
+					<toleranceChemical>Alcohol</toleranceChemical>
+					<severity>0.02</severity>
+					<divideByBodySize>true</divideByBodySize>
+					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+				</li>
+				<li Class="merissu.IngestionOutcomeDoer_RecreateGourd" />
+			</outcomeDoers>
+		</ingestible>
+		<equipmentType>Primary</equipmentType>
+		<techLevel>Industrial</techLevel>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>Alcohol</chemical>
+				<addictiveness>0.9</addictiveness>
+				<minToleranceToAddict>0.1</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+				<needLevelOffset>0.9</needLevelOffset>
+				<listOrder>10</listOrder>
+			</li>
+			<li Class="merissu.CompProperties_SuikaEquippable" />
+			<li Class="merissu.CompProperties_SuikaGourd">
+                <pourIconPath>Medicine/SUIKA</pourIconPath> 
+            </li>		
+		</comps>
+		<weaponClasses>
+			<li>Melee</li>
+			<li>MeleeBlunt</li>
+		</weaponClasses>
+		<tools>
+		<li>
+			<label>敲</label>
+			<capacities>
+				<li>Blunt</li>
+			</capacities>
+			<power>9</power>
+			<cooldownTime>2</cooldownTime>
+		</li>
+		<li>
+			<label>戳</label>
+			<capacities>
+				<li>Poke</li>
+			</capacities>
+			<power>9</power>
+			<cooldownTime>2</cooldownTime>
+		</li>
+		</tools>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+	<JobDef>
+        <defName>Job_PourSuikaSake</defName>
+        <driverClass>merissu.JobDriver_PourSuikaSake</driverClass>
+        <reportString>正在倒出鬼杀酒。</reportString>
+        <joyDuration>60</joyDuration>
+    </JobDef>
+
+	<ThingDef ParentName="DrugBase">
+		<defName>OniKillerSake</defName>
+		<label>鬼杀酒</label>
+		<description>鬼杀酒可以让鬼也喝醉,似乎能给鬼之外的种族造成幻觉甚至影响记忆
+
+鬼杀酒可以在成瘾发作时用于缓解,但是更容易酒精成瘾</description>
+		<descriptionHyperlinks>
+			<HediffDef>superalcohol</HediffDef>
+			<HediffDef>AlcoholTolerance</HediffDef>
+			<HediffDef>Hangover</HediffDef>
+			<HediffDef>AlcoholAddiction</HediffDef>
+			<HediffDef>Cirrhosis</HediffDef>
+			<HediffDef>ChemicalDamageModerate</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Medicine/onikoro</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<DeteriorationRate>0</DeteriorationRate>
+			<MarketValue>120</MarketValue>
+			<Mass>0.2</Mass>
+			<Flammability>0</Flammability>
+			<Nutrition>0.8</Nutrition>
+		</statBases>
+		<ingestible>
+			<foodType>Fluid, Processed, Liquor</foodType>
+			<joyKind>Chemical</joyKind>
+			<joy>0.35</joy>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>Ingest_Beer</ingestSound>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+				<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<ingestCommandString>喝{0}</ingestCommandString>
+			<ingestReportString>喝{0}.</ingestReportString>
+			<chairSearchRadius>25</chairSearchRadius>
+			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+			<tableDesired>false</tableDesired>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>superalcohol</hediffDef>
+					<severity>0.5</severity>
+					<toleranceChemical>Alcohol</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholTolerance</hediffDef>
+					<toleranceChemical>Alcohol</toleranceChemical>
+					<severity>0.02</severity>
+					<divideByBodySize>true</divideByBodySize>
+					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+				</li>
+				<li Class="merissu.IngestionOutcomeDoer_SatisfyAllChemicals" />
+			</outcomeDoers>
+		</ingestible>
+		<equipmentType>None</equipmentType>
+		<techLevel>Industrial</techLevel>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>Alcohol</chemical>
+				<addictiveness>0.9</addictiveness>
+				<minToleranceToAddict>0.1</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+				<needLevelOffset>0.9</needLevelOffset>
+				<listOrder>10</listOrder>
+			</li>
+		</comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>superalcohol</defName>
+		<label>醉酒</label>
+		<labelNoun>醉酒状态</labelNoun>
+		<description>喝下了鬼杀酒,流淌在血液里的酒精,使人快乐,但又让人神志不清</description>
+		<hediffClass>Hediff_Alcohol</hediffClass>
+		<defaultLabelColor>(204,51,0)</defaultLabelColor>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+		<abilities>
+			<li>superalcohol</li>
+        </abilities>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>Drunk</stateEffecter>
+				<severityIndices>3~5</severityIndices>
+			</li>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.5</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>微醺</label>
+				<painFactor>0.8</painFactor>
+				<socialFightChanceFactor>1.5</socialFightChanceFactor>
+				<statFactors>
+					<IncomingDamageFactor>0.9</IncomingDamageFactor>
+				    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.05</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.25</minSeverity>
+				<label>微醺</label>
+				<painFactor>0.7</painFactor>
+				<socialFightChanceFactor>2.5</socialFightChanceFactor>
+				<statFactors>
+					<IncomingDamageFactor>0.8</IncomingDamageFactor>
+				    <MeleeDamageFactor>1.8</MeleeDamageFactor>
+				</statFactors>
+				<capMods>
+				<li>
+					<capacity>Consciousness</capacity>
+					<postFactor>0.8</postFactor>
+				</li>
+				<li>
+					<capacity>Moving</capacity>
+					<offset>-0.1</offset>
+				</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.4</minSeverity>
+				<label>醉酒</label>
+				<painFactor>0.3</painFactor>
+				<socialFightChanceFactor>4.0</socialFightChanceFactor>
+				<vomitMtbDays>0.75</vomitMtbDays>
+				<tale>Drunk</tale>
+				<statFactors>
+					<IncomingDamageFactor>0.7</IncomingDamageFactor>
+				    <MeleeDamageFactor>2.1</MeleeDamageFactor>
+				</statFactors>
+				<capMods>
+				<li>
+					<capacity>Consciousness</capacity>
+					<postFactor>0.65</postFactor>
+				</li>
+				<li>
+					<capacity>Moving</capacity>
+					<offset>-0.10</offset>
+				</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.7</minSeverity>
+				<label>烂醉</label>
+				<painFactor>0</painFactor>
+				<socialFightChanceFactor>5.0</socialFightChanceFactor>
+				<vomitMtbDays>0.2</vomitMtbDays>
+				<painOffset>0.05</painOffset>
+				<statFactors>
+					<IncomingDamageFactor>0.6</IncomingDamageFactor>
+				    <MeleeDamageFactor>2.4</MeleeDamageFactor>
+				</statFactors>
+				<capMods>
+				<li>
+					<capacity>Consciousness</capacity>
+					<postFactor>0.5</postFactor>
+				</li>
+				<li>
+					<capacity>Moving</capacity>
+					<offset>-0.10</offset>
+				</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.9</minSeverity>
+				<label>断片</label>
+				<painFactor>0</painFactor>
+				<capMods>
+					<li>
+					<capacity>Consciousness</capacity>
+					<setMax>0.1</setMax>
+					</li>
+				</capMods>
+				<hediffGivers>
+					<li Class="HediffGiver_Random">
+					<hediff>ChemicalDamageModerate</hediff>
+					<mtbDays>10</mtbDays>
+					<partsToAffect>
+						<li>Brain</li>
+					</partsToAffect>
+					</li>
+				</hediffGivers>
+			</li>
+		</stages>
+	</HediffDef>
+
+    <AbilityDef>
+		<defName>superalcohol</defName>
+		<label>地狱「炼狱气息」</label>
+        <abilityClass>merissu.Ability_superalcohol</abilityClass>
+		<description>喝下鬼杀酒后,吐出灼热的酒气,也许是因为酒在体内灼烧吧</description>
+		<iconPath>Abilities/OniKillerSake</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>30</range>
+			<warmupTime>0.5</warmupTime>
+			<requireLineOfSight>false</requireLineOfSight>
+			<soundCast>BigFireball</soundCast>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>true</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
 
 </Defs>

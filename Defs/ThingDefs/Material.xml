@@ -331,7 +331,6 @@
 		<defName>ProofHeroism</defName>
 		<label>袭击之证</label>
 		<description>袭击的证物,用于合成空白卡牌,通过使用烟熏的团扇或者不可抗拒的朱莉安娜羽扇掉落</description>
-		<possessionCount>20</possessionCount>
 		<tickerType>Normal</tickerType>
 		<graphicData>
 			<texPath>Material/cdbg04a</texPath>

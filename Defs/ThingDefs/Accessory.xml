@@ -4001,9 +4001,7 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 	<ThingDef ParentName="ApparelBase">
 		<defName>TanukiPipe</defName>
 		<label>妖怪狸的烟斗</label>
-		<description>很受狸猫喜爱的烟斗,有一定变化能力的烟斗,可以对他人或物品施展变化之术,也可以对自己使用
-
-可以将他人变成毫无反抗之力的动物,也可以将物品变化成另一种样貌,但是只会改变外观,不会改变其性质</description>
+		<description>很受狸猫喜爱的烟斗,有一定变化能力的烟斗,可以对他人施展变化之术,将他人变成毫无反抗之力的动物</description>
 		<descriptionHyperlinks>
             <ThingDef>PowerPoint</ThingDef> 
             <ThingDef>FullPower</ThingDef> 
