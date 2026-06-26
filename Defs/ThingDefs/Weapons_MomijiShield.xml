@@ -31,7 +31,7 @@
     <statBases>
       <MarketValue>500</MarketValue>
       <Mass>1.0</Mass>
-      <MaxHitPoints>1000</MaxHitPoints>
+      <MaxHitPoints>10000</MaxHitPoints>
       <Flammability>0.2</Flammability>
 
       <ArmorRating_Sharp>1.0</ArmorRating_Sharp>
