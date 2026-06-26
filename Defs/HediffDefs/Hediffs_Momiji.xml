@@ -82,27 +82,34 @@
       </targetingParameters>
       <hediff>ExpelleesCanaan_Buff</hediff>
     </li>
+		<li Class="TouhouExpansion.CompProperties_GiveHediffsToEnemiesInRange">
+		<range>25</range>
+		<hediff>ExpelleesCanaan_Debuff</hediff>
+		<tickInterval>60</tickInterval>
+		<onlyTargetPawns>true</onlyTargetPawns>
+		</li>
   </comps>
   <stages>
     <li>
         <statOffsets>
-          <ArmorRating_Sharp>0.75</ArmorRating_Sharp>       <!-- 锐器护甲+75% -->
-          <ArmorRating_Blunt>0.75</ArmorRating_Blunt>       <!-- 钝器护甲+75% -->
           <ArmorRating_Heat>2.00</ArmorRating_Heat>       <!-- 热能护甲+200% -->
         </statOffsets>
         <statFactors>
           <MeleeHitChance>1.5</MeleeHitChance>       <!-- 近战命中×150% -->
           <MeleeDamageFactor>1.5</MeleeDamageFactor>    <!-- 近战伤害×150% -->
           <InjuryHealingFactor>5.0</InjuryHealingFactor>   <!-- 自愈速度×5 -->
+		  <MoveSpeed>1.5</MoveSpeed>  <!-- 移动速度×150% -->
+		  <IncomingDamageFactor>0.75</IncomingDamageFactor>  <!-- 承伤系数×75% -->
         </statFactors>
     </li>
+
   </stages>
 </HediffDef>
 
   <!-- 队友获得的子Hediff -->
 <HediffDef>
   <defName>ExpelleesCanaan_Buff</defName>
-  <label>约定之地</label>
+  <label>约定之地（祝福）</label>
   <description>受到约定的祝福。</description>
   <hediffClass>HediffWithComps</hediffClass>
   <isBad>false</isBad>
@@ -116,15 +123,42 @@
   <stages>
     <li>
         <statOffsets>
-          <ArmorRating_Sharp>0.75</ArmorRating_Sharp>       <!-- 锐器护甲+75% -->
-          <ArmorRating_Blunt>0.75</ArmorRating_Blunt>       <!-- 钝器护甲+75% -->
           <ArmorRating_Heat>2.00</ArmorRating_Heat>       <!-- 热能护甲+200% -->
         </statOffsets>
         <statFactors>
           <MeleeHitChance>1.5</MeleeHitChance>       <!-- 近战命中×150% -->
           <MeleeDamageFactor>1.5</MeleeDamageFactor>    <!-- 近战伤害×150% -->
           <InjuryHealingFactor>5.0</InjuryHealingFactor>   <!-- 自愈速度×5 -->
+		  <MoveSpeed>1.5</MoveSpeed>  <!-- 移动速度×150% -->
+		  <IncomingDamageFactor>0.75</IncomingDamageFactor>  <!-- 承伤系数×75% -->
         </statFactors>
+    </li>
+  </stages>
+</HediffDef>
+
+<HediffDef>
+  <defName>ExpelleesCanaan_Debuff</defName>
+  <label>约定之地（诅咒）</label>
+  <description>受到约定的诅咒，战斗变得极其困难，</description>
+  <hediffClass>HediffWithComps</hediffClass>
+  <isBad>true</isBad>
+  <maxSeverity>1.0</maxSeverity>
+  <comps>
+    <li Class="HediffCompProperties_Disappears">
+      <disappearsAfterTicks>300</disappearsAfterTicks>   <!-- 5秒刷新，光环持续则持续存在 -->
+    </li>
+  </comps>
+  <stages>
+    <li>
+      <statFactors>
+        <AimingDelayFactor>5.0</AimingDelayFactor>
+		<MeleeCooldownFactor>2.0</MeleeCooldownFactor>
+		<MoveSpeed>0.75</MoveSpeed>
+      </statFactors>
+      <capMods>
+        <li><capacity>Sight</capacity><offset>-0.25</offset></li>
+        <li><capacity>Manipulation</capacity><offset>-0.5</offset></li>
+      </capMods>
     </li>
   </stages>
 </HediffDef>
