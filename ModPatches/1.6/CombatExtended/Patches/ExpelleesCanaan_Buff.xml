@@ -19,8 +19,6 @@
           <xpath>Defs/HediffDef[defName="ExpelleesCanaan_Buff"]/stages/li[1]/statOffsets</xpath>
           <value>
             <statOffsets>
-              <ArmorRating_Sharp>7.5000</ArmorRating_Sharp>
-              <ArmorRating_Blunt>7.5000</ArmorRating_Blunt>
               <ArmorRating_Heat>2.0000</ArmorRating_Heat>
             </statOffsets>
           </value>
@@ -38,9 +36,11 @@
           <xpath>Defs/HediffDef[defName="ExpelleesCanaan_Buff"]/stages/li[1]/statFactors</xpath>
           <value>
             <statFactors>
-              <MeleeHitChance>1.5000</MeleeHitChance>
-              <MeleeDamageFactor>1.5000</MeleeDamageFactor>
-              <InjuryHealingFactor>5.0000</InjuryHealingFactor>
+          <MeleeHitChance>1.5</MeleeHitChance>
+          <MeleeDamageFactor>1.5</MeleeDamageFactor>
+          <InjuryHealingFactor>5.0</InjuryHealingFactor>
+		      <MoveSpeed>1.5</MoveSpeed>
+		      <IncomingDamageFactor>0.75</IncomingDamageFactor>
             </statFactors>
           </value>
         </li>
