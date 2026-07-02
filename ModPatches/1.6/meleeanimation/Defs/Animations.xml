@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <AM.AnimDef Name="AnimExecutionBase" Abstract="True">
+    <type>Execution</type>
+    <pawnCount>2</pawnCount>
+    <jobString>Executing [OTHER].</jobString>
+    <cellData>
+      <li>
+        <type>PawnStart</type>
+        <position>(0, 0)</position>
+        <pawnIndex>0</pawnIndex>
+      </li>
+      <li>
+        <type>PawnStart</type>
+        <position>(1, 0)</position>
+        <pawnIndex>1</pawnIndex>
+      </li>
+    </cellData>
+  </AM.AnimDef>
+
+  <AM.AnimDef Name="AnimFlavour" Abstract="True">
+    <type>Idle</type>
+    <pawnCount>1</pawnCount>
+    <idleType>Flavour</idleType>
+  </AM.AnimDef>
+  <AM.AnimDef Name="AnimAttackHorizontal" Abstract="True">
+    <type>Idle</type>
+    <pawnCount>1</pawnCount>
+    <idleType>AttackHorizontal</idleType>
+  </AM.AnimDef>
+  <AM.AnimDef Name="AnimAttackSouth" Abstract="True">
+    <type>Idle</type>
+    <pawnCount>1</pawnCount>
+    <idleType>AttackSouth</idleType>
+  </AM.AnimDef>
+  <AM.AnimDef Name="AnimAttackNorth" Abstract="True">
+    <type>Idle</type>
+    <pawnCount>1</pawnCount>
+    <idleType>AttackNorth</idleType>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimFlavour">
+    <defName>OPT_Idle_SuikaGourd</defName>
+    <type>Idle</type>
+    <data>Suikagourd_Waiting.json</data> 
+        <weaponFilter Class="AM.Reqs.SpecificWeapon">
+      <weapon>suikagourd</weapon> 
+    </weaponFilter>
+  </AM.AnimDef>
+
+<AM.AnimDef ParentName="AnimAttackHorizontal">
+    <defName>OPT_AttackHorizontal_SuikaGourd_A</defName>
+    <data>Suika_attack_A_Westward.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+</AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackNorth">
+    <defName>OPT_AttackNorth_SuikaGourd_A</defName>
+    <data>Suika_attack_A_North.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackSouth">
+    <defName>OPT_AttackSouth_SuikaGourd_A</defName>
+    <data>Suika_attack_A_South.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackHorizontal">
+    <defName>OPT_AttackHorizontal_SuikaGourd_B</defName>
+    <data>Suika_attack_B_Westward.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackNorth">
+    <defName>OPT_AttackNorth_SuikaGourd_B</defName>
+    <data>Suika_attack_B_North.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackSouth">
+    <defName>OPT_AttackSouth_SuikaGourd_B</defName>
+    <data>Suika_attack_B_South.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackHorizontal">
+    <defName>OPT_AttackHorizontal_SuikaGourd_C</defName>
+    <data>Suika_attack_C_Westward.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackNorth">
+    <defName>OPT_AttackNorth_SuikaGourd_C</defName>
+    <data>Suika_attack_C_North.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackSouth">
+    <defName>OPT_AttackSouth_SuikaGourd_C</defName>
+    <data>Suika_attack_C_South.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackHorizontal">
+    <defName>OPT_AttackHorizontal_SuikaGourd_D</defName>
+    <data>Suika_attack_D_Westward.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackNorth">
+    <defName>OPT_AttackNorth_SuikaGourd_D</defName>
+    <data>Suika_attack_D_North.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackSouth">
+    <defName>OPT_AttackSouth_SuikaGourd_D</defName>
+    <data>Suika_attack_D_South.json</data>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+  </AM.AnimDef>
+
+<AM.AnimDef ParentName="AnimExecutionBase">
+    <defName>SUIKA_execute_A</defName>
+    <label>翠香抱摔</label>
+    <data>SUIKA_execute_A.json</data>
+    <relativeProbability>10</relativeProbability>
+    <weaponFilter Class="AM.Reqs.And">
+      <subs>
+        <li Class="AM.Reqs.SpecificWeapon">
+          <weapon>suikagourd</weapon>
+        </li>
+      </subs>
+    </weaponFilter>
+</AM.AnimDef>
+
+</Defs>

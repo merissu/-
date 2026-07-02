@@ -3705,6 +3705,21 @@
 		</ingestible>
 		<equipmentType>Primary</equipmentType>
 		<techLevel>Industrial</techLevel>
+		<costList>
+			<SpiritualWood>50</SpiritualWood>
+			<FullPower>2</FullPower>
+			<Crimsongold>60</Crimsongold>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>ForgettingInTheForge</researchPrerequisite>
+		</recipeMaker>
 		<comps>
 			<li Class="CompProperties_Drug">
 				<chemical>Alcohol</chemical>
@@ -3718,31 +3733,289 @@
 			<li Class="merissu.CompProperties_SuikaGourd">
                 <pourIconPath>Medicine/SUIKA</pourIconPath> 
             </li>		
+			<li Class="merissu.CompProperties_ComboMelee">
+				<comboList>
+					<li>
+						<attacks>
+							<li>砸拳</li>
+							<li>直拳</li>
+							<li>上勾拳</li>
+						</attacks>
+					</li>
+					<li>
+						<attacks>
+							<li>吐火</li>
+						</attacks>
+					</li>
+				</comboList>
+				<resetTicks>120</resetTicks>
+			</li>
 		</comps>
 		<weaponClasses>
 			<li>Melee</li>
 			<li>MeleeBlunt</li>
 		</weaponClasses>
 		<tools>
-		<li>
-			<label>敲</label>
-			<capacities>
-				<li>Blunt</li>
-			</capacities>
-			<power>9</power>
-			<cooldownTime>2</cooldownTime>
-		</li>
-		<li>
-			<label>戳</label>
-			<capacities>
-				<li>Poke</li>
-			</capacities>
-			<power>9</power>
-			<cooldownTime>2</cooldownTime>
-		</li>
+			<li>
+				<label>砸拳</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>0.6</cooldownTime>
+				<armorPenetration>0.7</armorPenetration>
+				<chanceFactor>1</chanceFactor>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+				<soundMeleeHit>hitA</soundMeleeHit>
+				<soundMeleeMiss>MissedA</soundMeleeMiss>
+			</li>
+			<li>
+				<label>直拳</label>
+				<capacities>
+					<li>suikaA</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>0.6</cooldownTime>
+				<armorPenetration>0.7</armorPenetration>
+				<chanceFactor>1</chanceFactor>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+				<soundMeleeHit>hitB</soundMeleeHit>
+				<soundMeleeMiss>MissedB</soundMeleeMiss>
+			</li>
+			<li>
+				<label>上勾拳</label>
+				<capacities>
+					<li>suikaB</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>0.6</cooldownTime>
+				<armorPenetration>0.7</armorPenetration>
+				<chanceFactor>1</chanceFactor>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+				<soundMeleeHit>hitC</soundMeleeHit>
+				<soundMeleeMiss>MissedC</soundMeleeMiss>
+			</li>
+			<li>
+				<label>吐火</label>
+				<capacities>
+					<li>suikaC</li>
+				</capacities>
+				<power>18</power>
+				<cooldownTime>1.6</cooldownTime>
+				<armorPenetration>0.7</armorPenetration>
+				<chanceFactor>1</chanceFactor>
+				<alwaysTreatAsWeapon>false</alwaysTreatAsWeapon>
+				<soundMeleeHit>MissedC</soundMeleeHit>
+				<soundMeleeMiss>MissedC</soundMeleeMiss>
+			</li>
 		</tools>
 		<allowedArchonexusCount>1</allowedArchonexusCount>
 	</ThingDef>
+
+	<ToolCapacityDef>
+		<defName>suikaA</defName>
+		<label>钝击</label>
+	</ToolCapacityDef>
+
+	<ToolCapacityDef>
+		<defName>suikaB</defName>
+		<label>钝击</label>
+	</ToolCapacityDef>
+
+	<ToolCapacityDef>
+		<defName>suikaC</defName>
+		<label>灼烧</label>
+	</ToolCapacityDef>
+
+	<ManeuverDef>
+		<defName>suikaA_A</defName>
+		<requiredCapacity>suikaA</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>suikaA_A</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<ManeuverDef>
+		<defName>suikaB_B</defName>
+		<requiredCapacity>suikaB</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>suikaB_B</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<ManeuverDef>
+		<defName>suikaC_C</defName>
+		<requiredCapacity>suikaC</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>suikaC_C</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>suikaC_Flame_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>suikaC_Flame_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>suikaC_Flame_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>suikaC_Flame_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<RulePackDef>
+	<defName>suikaC_Flame_MeleeHit</defName>
+	<include>
+		<li>Damage_Flame</li>
+		<li>Combat_Hit</li>
+	</include>
+	</RulePackDef>
+
+	<RulePackDef>
+	<defName>suikaC_Flame_MeleeDeflect</defName>
+	<include>
+		<li>Damage_Flame</li>
+		<li>Combat_Deflect</li>
+	</include>
+	</RulePackDef>
+
+	<RulePackDef>
+	<defName>suikaC_Flame_MeleeMiss</defName>
+	<include>
+		<li>Damage_Flame</li>
+		<li>Combat_Miss</li>
+	</include>
+	</RulePackDef>
+
+	<RulePackDef>
+	<defName>suikaC_Flame_MeleeDodge</defName>
+	<include>
+		<li>Damage_Flame</li>
+		<li>Combat_Dodge</li>
+	</include>
+	</RulePackDef>
+
+	<DamageDef>
+		<defName>suikaC_C</defName>
+		<label>烧伤</label>
+		<workerClass>DamageWorker_AddInjury</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被烧毁</deathMessage>
+		<hediff>Burn</hediff>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<armorCategory>Heat</armorCategory>
+		<overkillPctToDestroyPart>0~0.5</overkillPctToDestroyPart>
+	</DamageDef>
+
+	<DamageDef>
+		<defName>suikaB_B</defName>
+		<label>瘀伤</label>
+		<workerClass>DamageWorker_Blunt</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被击碎</deathMessage>
+		<hediff>suikaB_B</hediff>
+		<hediffSkin>suikaB_B</hediffSkin>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Blunt</impactSoundType>
+		<armorCategory>Blunt</armorCategory>
+		<overkillPctToDestroyPart>0~0.5</overkillPctToDestroyPart>
+		<cutExtraTargetsCurve>
+			<points>
+				<li>0, 0</li>
+				<li>0.6, 1</li>
+				<li>0.9, 2</li>
+				<li>1, 3</li>
+			</points>
+		</cutExtraTargetsCurve>
+		<cutCleaveBonus>0.8</cutCleaveBonus>
+	</DamageDef>
+
+	<DamageDef>
+		<defName>suikaA_A</defName>
+		<label>瘀伤</label>
+		<workerClass>DamageWorker_Blunt</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0}被击碎</deathMessage>
+		<hediff>suikaA_A</hediff>
+		<hediffSkin>suikaA_A</hediffSkin>
+		<hediffSolid>Crack</hediffSolid>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Blunt</impactSoundType>
+		<armorCategory>Blunt</armorCategory>
+		<overkillPctToDestroyPart>0~0.5</overkillPctToDestroyPart>
+		<cutExtraTargetsCurve>
+			<points>
+				<li>0, 0</li>
+				<li>0.6, 1</li>
+				<li>0.9, 2</li>
+				<li>1, 3</li>
+			</points>
+		</cutExtraTargetsCurve>
+		<cutCleaveBonus>0.8</cutCleaveBonus>
+	</DamageDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>suikaB_B</defName>
+		<label>瘀伤</label>
+		<labelNoun>瘀伤</labelNoun>
+		<description>被打了一拳</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>瘀伤疤痕</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.0125</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+			<bleedRate>0.0</bleedRate>
+			<canMerge>false</canMerge>
+			<destroyedLabel>击碎</destroyedLabel>
+			<destroyedOutLabel>击碎</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>suikaA_A</defName>
+		<label>瘀伤</label>
+		<labelNoun>瘀伤</labelNoun>
+		<description>被打了一拳</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>已包扎</labelTendedWell>
+				<labelTendedWellInner>已缝合</labelTendedWellInner>
+				<labelSolidTendedWell>已固定</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>瘀伤疤痕</permanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.0125</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+			<bleedRate>0.0</bleedRate>
+			<canMerge>false</canMerge>
+			<destroyedLabel>击碎</destroyedLabel>
+			<destroyedOutLabel>击碎</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
 
 	<JobDef>
         <defName>Job_PourSuikaSake</defName>
@@ -3754,7 +4027,7 @@
 	<ThingDef ParentName="DrugBase">
 		<defName>OniKillerSake</defName>
 		<label>鬼杀酒</label>
-		<description>鬼杀酒可以让鬼也喝醉,似乎能给鬼之外的种族造成幻觉甚至影响记忆
+		<description>鬼杀酒可以让鬼也喝醉,似乎能给鬼之外的种族造成幻觉甚至影响记忆,喝下之后甚至可以口吐火焰
 
 鬼杀酒可以在成瘾发作时用于缓解,但是更容易酒精成瘾</description>
 		<descriptionHyperlinks>

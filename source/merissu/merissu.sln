@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "merissu", "merissu\merissu.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cepatches", "cepatches\cepatches.csproj", "{EEA7EFBF-D301-40BD-97C7-8826A76920FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mapatch", "mapatch\mapatch.csproj", "{49830BB2-4C85-4C6C-94B8-6406CDDE5616}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EEA7EFBF-D301-40BD-97C7-8826A76920FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEA7EFBF-D301-40BD-97C7-8826A76920FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEA7EFBF-D301-40BD-97C7-8826A76920FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49830BB2-4C85-4C6C-94B8-6406CDDE5616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49830BB2-4C85-4C6C-94B8-6406CDDE5616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49830BB2-4C85-4C6C-94B8-6406CDDE5616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49830BB2-4C85-4C6C-94B8-6406CDDE5616}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

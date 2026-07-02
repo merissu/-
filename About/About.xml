@@ -16,6 +16,7 @@
 	</modDependencies>
 	<loadAfter>
 		<li>zal.musicmanager</li>
+    <li>co.uk.epicguru.meleeanimation</li>
 	</loadAfter>
   <description>添加了来自东方Project的建筑,材料,药物,武器和装备,并且添加了全新的灵力系统和符卡系统,大大扩展了战斗内容,总体上偏正义
 

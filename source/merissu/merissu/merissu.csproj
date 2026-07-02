@@ -147,6 +147,7 @@
     <Compile Include="袭击毛玉\JobGiver_MaoyuHitAndRun.cs" />
     <Compile Include="袭击毛玉\CompAbilityEffect_MaoyuDashHit .cs" />
     <Compile Include="月虹市场事件和袭击ai\Merissu_AI_System.cs" />
+    <Compile Include="近战系统\CompProperties_ComboMelee.cs" />
     <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicPurple.cs" />
     <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicblue.cs" />
     <Compile Include="阴阳玉敌人\CompProperties_YinYangRotatingGraphicgreen.cs" />

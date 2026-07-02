@@ -1155,5 +1155,78 @@
     </value>
   </Operation>
 
+              <!-- 伊吹瓢 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="suikagourd"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>砸拳</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>5</power>
+          <cooldownTime>0.6</cooldownTime>
+          <armorPenetration>0.7</armorPenetration>
+          <chanceFactor>1</chanceFactor>
+          <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          <soundMeleeHit>hitA</soundMeleeHit>
+          <soundMeleeMiss>MissedA</soundMeleeMiss>
+          <armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+          <armorPenetrationSharp>10</armorPenetrationSharp>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <label>直拳</label>
+          <capacities>
+            <li>suikaA</li>
+          </capacities>
+          <power>5</power>
+          <cooldownTime>0.6</cooldownTime>
+          <armorPenetration>0.7</armorPenetration>
+          <chanceFactor>1</chanceFactor>
+          <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          <soundMeleeHit>hitB</soundMeleeHit>
+          <soundMeleeMiss>MissedB</soundMeleeMiss>
+          <armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+          <armorPenetrationSharp>10</armorPenetrationSharp>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <label>上勾拳</label>
+          <capacities>
+            <li>suikaB</li>
+          </capacities>
+          <power>5</power>
+          <cooldownTime>0.6</cooldownTime>
+          <armorPenetration>0.7</armorPenetration>
+          <chanceFactor>1</chanceFactor>
+          <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          <soundMeleeHit>hitC</soundMeleeHit>
+          <soundMeleeMiss>MissedC</soundMeleeMiss>
+          <armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+          <armorPenetrationSharp>10</armorPenetrationSharp>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <label>吐火</label>
+          <capacities>
+            <li>suikaC</li>
+          </capacities>
+          <power>18</power>
+          <cooldownTime>1.6</cooldownTime>
+          <armorPenetration>0.7</armorPenetration>
+          <chanceFactor>1</chanceFactor>
+          <alwaysTreatAsWeapon>false</alwaysTreatAsWeapon>
+          <soundMeleeHit>MissedC</soundMeleeHit>
+          <soundMeleeMiss>MissedC</soundMeleeMiss>
+          <armorPenetrationBlunt>10</armorPenetrationBlunt>
+          <armorPenetrationSharp>20</armorPenetrationSharp>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
 
 </Patch>
