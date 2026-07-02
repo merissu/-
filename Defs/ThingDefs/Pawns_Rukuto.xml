@@ -34,7 +34,7 @@
       </li>
     </tools>
     <race>
-	  <mechFixedSkillLevel>15</mechFixedSkillLevel>
+	  <mechFixedSkillLevel>16</mechFixedSkillLevel>
       <baseHealthScale>10.0</baseHealthScale>
       <body>Mech_Light</body>
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>

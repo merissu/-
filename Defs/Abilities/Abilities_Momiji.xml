@@ -31,7 +31,7 @@
    <AbilityDef>
     <defName>ExpelleesCanaan</defName>
     <label>山窝「遭放逐者的约定之地」</label>
-    <description>消耗1层符卡，以自身为中心产生祝福光环，提升自身以周围友军的近战能力、自愈速度和防御力，持续一段时间。</description>
+    <description>消耗1层符卡，以自身为中心产生祝福光环，给自身和周围友军施加祝福的同时给周围敌军施加诅咒，持续一段时间。</description>
     <abilityClass>TouhouExpansion.Ability_ExpelleesCanaan</abilityClass>   <!-- 自定义消耗类 -->
     <cooldownTicksRange>12000</cooldownTicksRange>   <!-- 30秒冷却 -->
     <targetRequired>false</targetRequired>
