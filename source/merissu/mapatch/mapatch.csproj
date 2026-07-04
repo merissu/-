@@ -75,8 +75,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CamShakeWorker.cs" />
+    <Compile Include="CustomDamageEvent.cs" />
+    <Compile Include="CustomDamageWorker.cs" />
+    <Compile Include="MerissuAnimOverride.cs" />
     <Compile Include="MerissuMeleeAnimStartup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleSettingsBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

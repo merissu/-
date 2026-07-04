@@ -1,0 +1,9 @@
+{
+  "TextureModID": "touhou.merissu",
+  "ItemDefName": "Gohei",
+  "ItemType": "ThingDef",
+  "ItemTypeNamespace": "Verse",
+  "ScaleX": 1.65,
+  "ScaleY": 1.65,
+  "MeleeWeaponType": 6
+}

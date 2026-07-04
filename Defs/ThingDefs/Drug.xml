@@ -3644,7 +3644,7 @@
 		<label>伊吹瓢</label>
 		<description>伊吹萃香一直带着的酒葫芦,里面装有一种名为“酒虫”的一种鬼,可以将少量的水变为酒。其内部结构类似于酒窖。
 
-伊吹瓢能涌出源源不断的鬼杀酒,鬼以外的种族喝了会产生幻觉,可以满足所有的成瘾品需求
+伊吹瓢能涌出源源不断的鬼杀酒,鬼以外的种族喝了会产生幻觉.虽然可以满足所有的成瘾品需求,但是只要喝了就会变成酒鬼
 
 为了预防翻倒,伊吹瓢一次只能出一葫芦的量。这个时候把塞子塞上摇一摇……</description>
 		<descriptionHyperlinks>
@@ -3723,8 +3723,8 @@
 		<comps>
 			<li Class="CompProperties_Drug">
 				<chemical>Alcohol</chemical>
-				<addictiveness>0.9</addictiveness>
-				<minToleranceToAddict>0.1</minToleranceToAddict>
+				<addictiveness>10</addictiveness>
+				<minToleranceToAddict>0</minToleranceToAddict>
 				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
 				<needLevelOffset>0.9</needLevelOffset>
 				<listOrder>10</listOrder>
@@ -4029,7 +4029,7 @@
 		<label>鬼杀酒</label>
 		<description>鬼杀酒可以让鬼也喝醉,似乎能给鬼之外的种族造成幻觉甚至影响记忆,喝下之后甚至可以口吐火焰
 
-鬼杀酒可以在成瘾发作时用于缓解,但是更容易酒精成瘾</description>
+鬼杀酒可以在任意成瘾发作时用于缓解,但是会让你变成酒鬼</description>
 		<descriptionHyperlinks>
 			<HediffDef>superalcohol</HediffDef>
 			<HediffDef>AlcoholTolerance</HediffDef>
@@ -4090,8 +4090,8 @@
 		<comps>
 			<li Class="CompProperties_Drug">
 				<chemical>Alcohol</chemical>
-				<addictiveness>0.9</addictiveness>
-				<minToleranceToAddict>0.1</minToleranceToAddict>
+				<addictiveness>10</addictiveness>
+				<minToleranceToAddict>0</minToleranceToAddict>
 				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
 				<needLevelOffset>0.9</needLevelOffset>
 				<listOrder>10</listOrder>

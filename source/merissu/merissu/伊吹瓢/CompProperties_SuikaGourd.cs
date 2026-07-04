@@ -16,11 +16,12 @@ namespace merissu
             {
                 if (need is Need_Chemical chemNeed)
                 {
-                    chemNeed.CurLevel = chemNeed.MaxLevel; 
+                    chemNeed.CurLevel = chemNeed.MaxLevel;
                 }
             }
         }
     }
+
     public class CompProperties_SuikaEquippable : CompProperties
     {
         public CompProperties_SuikaEquippable()
@@ -35,7 +36,7 @@ namespace merissu
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            this.FailOnDestroyedOrNull(TargetIndex.A); 
+            this.FailOnDestroyedOrNull(TargetIndex.A);
 
             Toil waitToil = Toils_General.Wait(60);
             waitToil.WithProgressBarToilDelay(TargetIndex.A);
@@ -75,64 +76,6 @@ namespace merissu
     {
         public CompProperties_SuikaGourd Props => (CompProperties_SuikaGourd)this.props;
 
-        public override void CompTickRare()
-        {
-            base.CompTickRare();
-
-            Pawn pawn = null;
-            bool isEquipped = false;
-
-            if (this.parent.ParentHolder is Pawn_InventoryTracker inv) pawn = inv.pawn;
-            else if (this.parent.ParentHolder is Pawn_EquipmentTracker eq) { pawn = eq.pawn; isEquipped = true; }
-
-            if (pawn != null && pawn.Spawned && !pawn.Downed && !pawn.Dead && !pawn.Drafted)
-            {
-                bool needsDrink = false;
-                foreach (Need need in pawn.needs.AllNeeds)
-                {
-                    if (need is Need_Chemical chemNeed && chemNeed.CurLevelPercentage < 0.25f)
-                    {
-                        needsDrink = true;
-                        break;
-                    }
-                }
-
-                if (needsDrink)
-                {
-                    if (isEquipped) ApplyDrinkEffects(pawn);
-                    else if (pawn.CurJobDef != RimWorld.JobDefOf.Ingest)
-                    {
-                        Job drinkJob = JobMaker.MakeJob(RimWorld.JobDefOf.Ingest, this.parent);
-                        drinkJob.count = 1;
-                        pawn.jobs.TryTakeOrderedJob(drinkJob, JobTag.Misc);
-                    }
-                }
-            }
-        }
-
-        private void ApplyDrinkEffects(Pawn pawn)
-        {
-            Hediff alcoholHediff = HediffMaker.MakeHediff(HediffDef.Named("superalcohol"), pawn);
-            alcoholHediff.Severity = 0.5f;
-            pawn.health.AddHediff(alcoholHediff);
-
-            Hediff tolerance = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("AlcoholTolerance"));
-            if (tolerance != null) tolerance.Severity += 0.02f;
-            else
-            {
-                tolerance = HediffMaker.MakeHediff(HediffDef.Named("AlcoholTolerance"), pawn);
-                tolerance.Severity = 0.02f;
-                pawn.health.AddHediff(tolerance);
-            }
-
-            foreach (Need need in pawn.needs.AllNeeds)
-            {
-                if (need is Need_Chemical chemNeed) chemNeed.CurLevel = chemNeed.MaxLevel;
-            }
-
-            DefDatabase<SoundDef>.GetNamed("Ingest_Beer").PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
-            Messages.Message($"{pawn.LabelShort}由于成瘾品戒断，主动喝了一口{this.parent.Label}中的鬼杀酒。", pawn, MessageTypeDefOf.PositiveEvent);
-        }
 
         public class CompSuikaEquippable : CompEquippable
         {
@@ -143,7 +86,7 @@ namespace merissu
                 CompSuikaGourd gourdComp = parent.GetComp<CompSuikaGourd>();
                 if (gourdComp == null) yield break;
 
-                Pawn pawn = Holder; 
+                Pawn pawn = Holder;
                 if (pawn != null && pawn.Faction == Faction.OfPlayer)
                 {
                     Texture2D buttonIcon = parent.def.uiIcon;
@@ -165,6 +108,7 @@ namespace merissu
             }
         }
     }
+
     public class IngestionOutcomeDoer_RecreateGourd : IngestionOutcomeDoer
     {
         protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)

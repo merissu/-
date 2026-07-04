@@ -196,7 +196,7 @@
     <defName>SUIKA_execute_A</defName>
     <label>翠香抱摔</label>
     <data>SUIKA_execute_A.json</data>
-    <relativeProbability>10</relativeProbability>
+    <relativeProbability>100</relativeProbability>
     <weaponFilter Class="AM.Reqs.And">
       <subs>
         <li Class="AM.Reqs.SpecificWeapon">

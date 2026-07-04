@@ -2472,7 +2472,7 @@
 	<ThingDef ParentName="TH_RangeWeapon">
 		<defName>SevenElementalGrimoire</defName>
 		<label>七曜法典</label>
-		<description>帕秋莉的魔导书,只有充满智慧的人才能看懂。装备后每天会获得0.5灵力,当你的智慧大于9时,就可以使用多样的魔法进行远程攻击,越聪明的人咏唱速度越快
+		<description>帕秋莉的魔导书,只有充满智慧的人才能看懂。装备后每天会获得0.5灵力,并且可以咏唱多样的魔法进行攻击
 
 魔导书并不是普通的书,它内含魔法,是种魔法道具。里面并不只是写上使用方法,还有为了能使用魔法的秘密钥匙。
 

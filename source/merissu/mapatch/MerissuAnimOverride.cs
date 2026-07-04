@@ -46,8 +46,16 @@ namespace merissu
     {
         private static Dictionary<string, MerissuAnimConfig> _configs;
 
-        private static string FilePath =>
-            Path.Combine(GenFilePaths.ConfigFolderPath, "MerissuAnimOverrides.xml");
+        private static string FilePath
+        {
+            get
+            {
+                var mod = LoadedModManager.RunningModsListForReading
+                    .FirstOrDefault(m => m.PackageId == "touhou.merissu");
+                if (mod == null) return null;
+                return Path.Combine(mod.RootDir, "AnimOverrides", "MerissuAnimOverrides.xml");
+            }
+        }
 
         public static Dictionary<string, MerissuAnimConfig> Configs
         {
@@ -72,16 +80,23 @@ namespace merissu
         {
             try
             {
+                string path = FilePath;
+                if (path == null)
+                {
+                    Log.Error("[Merissu] Cannot save: Mod not found.");
+                    return;
+                }
+
                 var wrapper = new MerissuAnimConfigsWrapper
                 {
                     configs = Configs.Values.ToList()
                 };
 
-                var dir = Path.GetDirectoryName(FilePath);
+                var dir = Path.GetDirectoryName(path);
                 if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
                     Directory.CreateDirectory(dir);
 
-                Scribe.saver.InitSaving(FilePath, "root");
+                Scribe.saver.InitSaving(path, "root");
                 wrapper.ExposeData();
                 Scribe.saver.FinalizeSaving();
             }
@@ -95,13 +110,14 @@ namespace merissu
         {
             _configs = new Dictionary<string, MerissuAnimConfig>();
 
-            if (!File.Exists(FilePath))
+            string path = FilePath;
+            if (path == null || !File.Exists(path))
                 return;
 
             try
             {
                 var wrapper = new MerissuAnimConfigsWrapper();
-                Scribe.loader.InitLoading(FilePath);
+                Scribe.loader.InitLoading(path);
                 wrapper.ExposeData();
                 Scribe.loader.FinalizeLoading();
 
