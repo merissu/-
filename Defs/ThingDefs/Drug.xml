@@ -3648,6 +3648,7 @@
 
 为了预防翻倒,伊吹瓢一次只能出一葫芦的量。这个时候把塞子塞上摇一摇……</description>
 		<descriptionHyperlinks>
+			<ThingDef>OniKillerSake</ThingDef>
 			<HediffDef>superalcohol</HediffDef>
 			<HediffDef>AlcoholTolerance</HediffDef>
 			<HediffDef>Hangover</HediffDef>
@@ -4252,5 +4253,270 @@
 			</targetParams>
 		</verbProperties>
 	</AbilityDef>
+
+	<ThingDef ParentName="TH_MeleeWeapon">
+		<defName>YugiCup</defName>
+		<label>星熊杯</label>
+		<description>勇仪手上所持的杯叫做星熊杯,能让注入里头的酒品级上升,是鬼的名品。跟伊吹萃香所持有的伊吹瓢非常合得来。
+
+小人装备星熊杯并且携带酒时,会自动取一件酒倒入碟中饮用,一碟酒能喝四小时,酒也可以直接转化成大吟酿存放
+
+酒注入的瞬间便会变成纯米大吟酿,但会随时间流逝而迅速劣化。虽说是不赶快喝掉就会很吃亏的杯……但那可是能载上一升酒的大杯</description>
+		<descriptionHyperlinks>
+			<ThingDef>Daiginjo</ThingDef>
+			<HediffDef>Daiginjoalcohol</HediffDef>
+			<HediffDef>AlcoholTolerance</HediffDef>
+			<HediffDef>Hangover</HediffDef>
+			<HediffDef>AlcoholAddiction</HediffDef>
+			<HediffDef>Cirrhosis</HediffDef>
+			<HediffDef>ChemicalDamageModerate</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Medicine/YugiCup</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<DeteriorationRate>0</DeteriorationRate>
+			<MarketValue>1200</MarketValue>
+			<Mass>0.2</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<equipmentType>Primary</equipmentType>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<SpiritualWood>50</SpiritualWood>
+			<FullPower>2</FullPower>
+			<Crimsongold>60</Crimsongold>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<displayPriority>400</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>ForgettingInTheForge</researchPrerequisite>
+		</recipeMaker>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+		<comps>
+			<li Class="merissu.CompProperties_YugiCup">
+				<alcoholCapacity>1</alcoholCapacity>
+				<alcoholConsumptionPerTick>0.0001</alcoholConsumptionPerTick>
+				<intoxicationHediff>Daiginjoalcohol</intoxicationHediff>
+				<severityPerConsumption>1</severityPerConsumption>
+			</li>
+		</comps>
+		<weaponClasses>
+			<li>Melee</li>
+			<li>MeleeBlunt</li>
+		</weaponClasses>
+		<tools>
+			<li>
+				<label>拳击</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>0.6</cooldownTime>
+				<armorPenetration>0.7</armorPenetration>
+				<chanceFactor>1</chanceFactor>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+				<soundMeleeHit>hitA</soundMeleeHit>
+				<soundMeleeMiss>MissedA</soundMeleeMiss>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<JobDef>
+		<defName>Job_TransformToDaiginjo</defName>
+		<label>转化大吟酿</label>
+		<driverClass>merissu.JobDriver_TransformToDaiginjo</driverClass>
+		<reportString>正在将酒转化为大吟酿。</reportString>
+		<suspendable>true</suspendable>
+		<casualInterruptible>true</casualInterruptible>
+		<isIdle>false</isIdle>
+	</JobDef>
+
+	<ThingDef ParentName="DrugBase">
+		<defName>Daiginjo</defName>
+		<label>纯米大吟酿</label>
+		<description>最上层的极品清酒,口感极佳,喝下它,你就会忘却一切烦恼
+
+纯米大吟酿口感极佳,保质期也很短,可以让人戒除其他的成瘾,但是会让你立马染上酒瘾
+
+虽然大吟酿不会导致断片和宿醉,但是请勿过量饮酒</description>
+		<descriptionHyperlinks>
+			<HediffDef>Daiginjoalcohol</HediffDef>
+			<HediffDef>AlcoholTolerance</HediffDef>
+			<HediffDef>Hangover</HediffDef>
+			<HediffDef>AlcoholAddiction</HediffDef>
+			<HediffDef>Cirrhosis</HediffDef>
+			<HediffDef>ChemicalDamageModerate</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Medicine/Daiginjo</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<DeteriorationRate>200</DeteriorationRate>
+			<MarketValue>3000</MarketValue>
+			<Mass>0.2</Mass>
+			<Flammability>0</Flammability>
+			<Nutrition>1</Nutrition>
+		</statBases>
+		<ingestible>
+			<foodType>Fluid, Processed, Liquor</foodType>
+			<joyKind>Chemical</joyKind>
+			<joy>0.8</joy>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>Ingest_Beer</ingestSound>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+				<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<ingestCommandString>喝{0}</ingestCommandString>
+			<ingestReportString>喝{0}.</ingestReportString>
+			<chairSearchRadius>25</chairSearchRadius>
+			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+			<tableDesired>false</tableDesired>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>Daiginjoalcohol</hediffDef>
+					<severity>0.3</severity>
+					<toleranceChemical>Alcohol</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholTolerance</hediffDef>
+					<toleranceChemical>Alcohol</toleranceChemical>
+					<severity>0.04</severity>
+					<divideByBodySize>true</divideByBodySize>
+					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<equipmentType>None</equipmentType>
+		<techLevel>Industrial</techLevel>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>Alcohol</chemical>
+				<addictiveness>10</addictiveness>
+				<minToleranceToAddict>0</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+				<needLevelOffset>0.5</needLevelOffset>
+				<listOrder>10</listOrder>
+			</li>
+		</comps>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>Daiginjoalcohol</defName>
+		<label>醉酒</label>
+		<labelNoun>醉酒状态</labelNoun>
+		<description>喝下了大吟酿,流淌在血液里的酒精,使人快乐,忘却了一切烦恼</description>
+		<hediffClass>Hediff_Alcohol</hediffClass>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>Drunk</stateEffecter>
+				<severityIndices>3~5</severityIndices>
+			</li>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.5</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+			<li Class="merissu.HediffCompProperties_DaiginjoController" />
+		</comps>
+		<stages>
+			<li>
+				<label>微醺</label>
+				<painFactor>0.8</painFactor>
+				<overrideMoodBase>0.6</overrideMoodBase>
+				<statFactors>
+					<IncomingDamageFactor>0.9</IncomingDamageFactor>
+				    <MeleeDamageFactor>1.1</MeleeDamageFactor>
+				</statFactors>
+			</li>
+			<li>
+				<minSeverity>0.25</minSeverity>
+				<label>微醺</label>
+				<painFactor>0.7</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0.8</IncomingDamageFactor>
+				    <MeleeDamageFactor>1.3</MeleeDamageFactor>
+				</statFactors>
+			</li>
+			<li>
+				<minSeverity>0.4</minSeverity>
+				<label>醉酒</label>
+				<painFactor>0.5</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0.7</IncomingDamageFactor>
+				    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<postFactor>0.8</postFactor>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.7</minSeverity>
+				<label>烂醉</label>
+				<painFactor>0.5</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0.6</IncomingDamageFactor>
+				    <MeleeDamageFactor>1.8</MeleeDamageFactor>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<postFactor>0.7</postFactor>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.9</minSeverity>
+				<label>醉生梦死</label>
+				<painFactor>0</painFactor>
+				<statFactors>
+					<IncomingDamageFactor>0.6</IncomingDamageFactor>
+				    <MeleeDamageFactor>2</MeleeDamageFactor>
+				</statFactors>
+				<capMods>
+					<li>
+					<capacity>Consciousness</capacity>
+					<setMax>0.6</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThoughtDef>
+		<defName>Daiginjoalcohol</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>Daiginjoalcohol</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>大吟酿!</label>
+				<description>喝了纯米大吟酿,这才是真正的酒!不好的事情统统忘光光!</description>
+				<baseMoodEffect>30</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
 
 </Defs>

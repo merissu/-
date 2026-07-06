@@ -1,0 +1,13 @@
+{
+  "TextureModID": "touhou.merissu",
+  "ItemDefName": "YugiCup",
+  "ItemType": "ThingDef",
+  "ItemTypeNamespace": "Verse",
+  "OffY": 0.09262258,
+  "ScaleX": 0.5,
+  "ScaleY": 0.5,
+  "HandsMode": 1,
+  "BladeStart": -0.247711226,
+  "BladeEnd": 0.25632754,
+  "MeleeWeaponType": 8
+}

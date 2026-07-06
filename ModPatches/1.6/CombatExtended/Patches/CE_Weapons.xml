@@ -1229,4 +1229,32 @@
     </value>
   </Operation>
 
+
+              <!-- 伊吹瓢 -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="YugiCup"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>拳击</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>5</power>
+          <cooldownTime>0.6</cooldownTime>
+          <armorPenetration>0.7</armorPenetration>
+          <chanceFactor>1</chanceFactor>
+          <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          <soundMeleeHit>hitA</soundMeleeHit>
+          <soundMeleeMiss>MissedA</soundMeleeMiss>
+          <armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+          <armorPenetrationSharp>10</armorPenetrationSharp>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+
 </Patch>

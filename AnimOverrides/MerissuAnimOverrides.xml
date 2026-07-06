@@ -81,5 +81,26 @@
 				</li>
 			</toolBindings>
 		</li>
+		<li>
+			<defName>YugiCup</defName>
+			<forcedAnimDefNames>
+				<li>AM_Duel_WinFriendlyDuel</li>
+				<li>AM_Duel_WinFriendlyDuel_Reject</li>
+				<li>AM_DuelBow_Medium</li>
+				<li>AM_Execution_Bash</li>
+				<li>AM_Execution_UpSlash</li>
+				<li>AM_Idle_TinyFlavour1</li>
+				<li>AM_Idle_TinyFlavour2</li>
+				<li>AM_Idle_TinyFlavour3</li>
+				<li>AM_Idle_TinyIdle</li>
+				<li>YugiCup_Movezontal</li>
+				<li>AM_Execution_PocketSand</li>
+				<li>AM_Execution_Fail</li>
+				<li>AM_Execution_HeadRemoval</li>
+				<li>AM_Idle_TinyMoveHor</li>
+				<li>AM_Idle_TinyMoveVert</li>
+			</forcedAnimDefNames>
+			<toolBindings />
+		</li>
 	</configs>
 </root>

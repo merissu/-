@@ -111,6 +111,9 @@
     <Compile Include="子弹特效补全\Comp_GateShockwave.cs" />
     <Compile Include="子弹特效补全\Mote_ButterflyPetal.cs" />
     <Compile Include="子弹特效补全\Thing_BulletGateShockwave .cs" />
+    <Compile Include="星熊杯\CompProperties_YugiCup.cs" />
+    <Compile Include="星熊杯\CompYugiCup.cs" />
+    <Compile Include="星熊杯\HediffCompProperties_DaiginjoController .cs" />
     <Compile Include="月虹市场\Apparel_Doorbehind.cs" />
     <Compile Include="射击模式STG\hitbox.cs" />
     <Compile Include="射击模式STG\STGHarmonyPatch.cs" />
