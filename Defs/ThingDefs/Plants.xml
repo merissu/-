@@ -28,6 +28,7 @@
 			<wildClusterWeight>100</wildClusterWeight>
 		</plant>
 		<comps>
+			<li Class="merissu.CompProperties_PlantWindSway" />
 			<li Class="CompProperties_Glower">
 				<glowRadius>2</glowRadius> 
 				<glowColor>(204,408,408,0)</glowColor> 
@@ -70,6 +71,7 @@
 			<wildClusterWeight>100</wildClusterWeight>
 		</plant>
 		<comps>
+			<li Class="merissu.CompProperties_PlantWindSway" />
 			<li Class="CompProperties_Glower">
 				<glowRadius>2</glowRadius> 
 				<glowColor>(204,408,408,0)</glowColor> 
@@ -109,6 +111,7 @@
 			<wildOrder>2</wildOrder>
 		</plant>
 		<comps>
+			<li Class="merissu.CompProperties_PlantWindSway" />
 			<li Class="CompProperties_Glower">
 				<glowRadius>2</glowRadius> 
 				<glowColor>(510,100,100,0)</glowColor> 
@@ -218,6 +221,7 @@
 			<harvestFailable>false</harvestFailable>
 		</plant>
 		<comps>
+			<li Class="merissu.CompProperties_PlantWindSway" />
 			<li Class="CompProperties_Glower">
 				<glowRadius>5</glowRadius> 
 				<glowColor>(510,100,100,0)</glowColor> 
@@ -306,6 +310,7 @@
 			<harvestFailable>false</harvestFailable>
 		</plant>
 		<comps>
+			<li Class="merissu.CompProperties_PlantWindSway" />
 			<li Class="SpawnPlant.CompProperties_Spawner">
 				<requiresPower>false</requiresPower>
 				<thingToSpawn>HeavenlyPeach</thingToSpawn>
@@ -361,6 +366,7 @@
 			<harvestFailable>false</harvestFailable>
 		</plant>
 		<comps>
+			<li Class="merissu.CompProperties_PlantWindSway" />
 			<li Class="CompProperties_Glower">
 				<glowRadius>5</glowRadius> 
 				<glowColor>(255,255,255,0)</glowColor> 

@@ -1,19 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Verse;
-using HarmonyLib;
 
 namespace merissu
 {
-    [HarmonyPatch(typeof(MaterialPool), "MatFrom", new Type[] { typeof(MaterialRequest) })]
-    public static class Patch_MaterialPool_WindFix
+    public class CompProperties_PlantWindSway : CompProperties
     {
-        public static void Postfix(Material __result, MaterialRequest req)
+        public CompProperties_PlantWindSway()
         {
-            if (__result != null && req.shader != null && req.shader.name == "merissu/RW_Plant_bioluminescence")
+            compClass = typeof(CompPlantWindSway);
+        }
+    }
+
+    public class CompPlantWindSway : ThingComp
+    {
+        private Material cachedMat;
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+            cachedMat = parent.Graphic?.MatAt(parent.Rotation, parent);
+
+            if (cachedMat != null)
             {
-                WindManager.Notify_PlantMaterialCreated(__result);
+                WindManager.Notify_PlantMaterialCreated(cachedMat);
             }
         }
     }
