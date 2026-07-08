@@ -37,6 +37,22 @@
     </value>
   </Operation>
 
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="REIMU_SpinningTalisman"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>hakurei</damageDef>
+        <damageAmountBase>4</damageAmountBase>
+        <speed>30</speed>
+  			<stoppingPower>0.2</stoppingPower>
+        <armorPenetrationSharp>6</armorPenetrationSharp> 
+        <armorPenetrationBlunt>21</armorPenetrationBlunt>
+      </projectile>
+    </value>
+  </Operation>
+
+
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="Gohei"]/tools</xpath>
     <value>

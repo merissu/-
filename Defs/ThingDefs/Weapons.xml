@@ -237,7 +237,7 @@
 		</recipeMaker>
 		<verbs>
 			<li>
-				<verbClass>Verb_Shoot</verbClass>
+				<verbClass>merissu.Verb_GoheiRandomShoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>HakureiTalisman</defaultProjectile>
 				<warmupTime>0.02</warmupTime>
@@ -265,6 +265,53 @@
             </li>
         </comps>
 	</ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>REIMU_SpinningTalisman</defName>
+        <label>博丽灵符</label>
+        <thingClass>merissu.Projectile_SpinningTalisman</thingClass>
+        <graphicData>
+            <texPath>Projectiles/REIMU/Talisman/bulletB000</texPath>
+            <drawSize>(1,1)</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+        <projectile>
+            <damageDef>hakurei</damageDef>
+            <damageAmountBase>4</damageAmountBase>
+            <stoppingPower>0.2</stoppingPower>
+            <speed>30</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_REIMU_TalismanTrail</defName>
+        <label>灵符拖尾</label>
+        <thingClass>merissu.Mote_REIMU_TalismanTrail</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+    </ThingDef>
+
+	<ThingDef>
+		<defName>Mote_REIMU_DelayedTalisman</defName>
+		<label>灵符</label>
+		<thingClass>merissu.Mote_REIMU_DelayedTalisman</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Projectiles/REIMU/Talisman/bulletB000</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
 	<!--冈格尼尔-->
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>W_Gungnir</defName>
