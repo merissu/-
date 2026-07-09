@@ -22,7 +22,8 @@ namespace merissu
                 availableModes = new List<GoheiAttackMode>
                 {
                     new AttackMode_GoheiSpread(),
-                    new AttackMode_GoheiDelayedOrbit()   // 加入新模式
+                    new AttackMode_GoheiDelayedOrbit(),
+                    new AttackMode_GoheiDelayedOrbitSpread()   
                 };
             }
         }

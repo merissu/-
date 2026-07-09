@@ -278,7 +278,7 @@
         </graphicData>
         <projectile>
             <damageDef>hakurei</damageDef>
-            <damageAmountBase>4</damageAmountBase>
+            <damageAmountBase>2</damageAmountBase>
             <stoppingPower>0.2</stoppingPower>
             <speed>30</speed>
         </projectile>
@@ -312,6 +312,57 @@
 		</graphicData>
 	</ThingDef>
 
+    <ThingDef ParentName="BaseBullet">
+        <defName>REIMU_SpreadTalisman</defName>
+        <label>扩散灵符</label>
+        <thingClass>merissu.Projectile_SpreadTalisman</thingClass>
+        <graphicData>
+            <texPath>Projectiles/REIMU/Talisman/bulletBb000</texPath>
+            <drawSize>(0.5,0.5)</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+        <projectile>
+            <damageDef>hakurei</damageDef>
+            <damageAmountBase>10</damageAmountBase>
+            <stoppingPower>0.2</stoppingPower>
+            <speed>30</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Mote_REIMU_SpreadTalismanTrail</defName>
+        <label>扩散灵符拖尾</label>
+        <thingClass>merissu.Mote_REIMU_SpreadTalismanTrail</thingClass>
+        <category>Mote</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <graphicData>
+            <texPath>Projectiles/REIMU/Talisman/bulletBb001</texPath>
+            <drawSize>(0.5,0.5)</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+    </ThingDef>
+
+	<ThingDef>
+		<defName>Mote_REIMU_DelayedSpreadTalisman</defName>
+		<label>延迟扩散灵符</label>
+		<thingClass>merissu.Mote_REIMU_DelayedSpreadTalisman</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Projectiles/REIMU/Talisman/bulletBb000</texPath>
+			<drawSize>(1,1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
 	<!--冈格尼尔-->
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>W_Gungnir</defName>
