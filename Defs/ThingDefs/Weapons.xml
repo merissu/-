@@ -363,6 +363,41 @@
 			<shaderType>MoteGlow</shaderType>
 		</graphicData>
 	</ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>REIMU_PenetratingBullet</defName>
+        <label>贯穿灵符</label>
+        <thingClass>merissu.Projectile_PenetratingFrameDamage</thingClass>
+        <graphicData>
+            <texPath>Projectiles/REIMU/Talisman/bulletEa000</texPath>
+            <drawSize>(2,2)</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+        <projectile>
+            <damageDef>hakurei</damageDef>
+            <damageAmountBase>10</damageAmountBase>
+            <stoppingPower>0.6</stoppingPower>
+            <speed>25</speed>
+        </projectile>
+    </ThingDef>
+
+	<ThingDef>
+		<defName>Mote_PenetratingTrail</defName>
+		<label>贯穿弹幕拖尾</label>
+		<thingClass>merissu.Mote_PenetratingTrail</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Projectiles/REIMU/Talisman/tailAa003</texPath>
+			<drawSize>(2,2)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
 	<!--冈格尼尔-->
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>W_Gungnir</defName>

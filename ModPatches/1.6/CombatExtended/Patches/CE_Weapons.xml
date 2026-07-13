@@ -66,6 +66,19 @@
     </value>
   </Operation>
 
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="REIMU_PenetratingBullet"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>hakurei</damageDef>
+        <damageAmountBase>10</damageAmountBase>
+        <speed>25</speed>
+  			<stoppingPower>0.6</stoppingPower>
+        <armorPenetrationSharp>6</armorPenetrationSharp> 
+        <armorPenetrationBlunt>21</armorPenetrationBlunt>
+      </projectile>
+    </value>
+  </Operation>
 
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="Gohei"]/tools</xpath>

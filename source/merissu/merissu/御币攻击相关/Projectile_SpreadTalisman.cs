@@ -1,7 +1,8 @@
-﻿using System;
+﻿using RimWorld;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
-using RimWorld;
 
 namespace merissu
 {
@@ -21,6 +22,8 @@ namespace merissu
 
         private int trailSpawnCD = 0;
         private const int TrailInterval = 3;
+
+        private Vector3 lastPos;
 
         public override Vector3 DrawPos => currentRealPos;
 
@@ -45,6 +48,7 @@ namespace merissu
             currentRealPos = origin;
             currentVelocity = (intendedTarget.CenterVector3 - origin).normalized;
             spinAngle = 0f;
+            lastPos = origin;
         }
 
         protected override void Tick()
@@ -55,36 +59,84 @@ namespace merissu
                 currentRealPos = DrawPos;
 
             float step = def.projectile.speed / 100f;
-            currentRealPos += currentVelocity * step;
+            Vector3 newPos = currentRealPos + currentVelocity * step;
+
+            if (CheckCollisionBetween(currentRealPos, newPos))
+                return;
+
+            currentRealPos = newPos;
             Position = currentRealPos.ToIntVec3();
 
             spinAngle += SpinSpeed;
             SpawnTrailMote();
 
-            Thing hitThing = CheckCollision();
-            if (hitThing != null)
-            {
-                DealDamageTo(hitThing);
-                Destroy();   
-                return;
-            }
-
             if (!currentRealPos.InBounds(Map))
                 Destroy();
         }
 
-        private Thing CheckCollision()
+        private bool CheckCollisionBetween(Vector3 from, Vector3 to)
         {
-            if (Map == null) return null;
-            IntVec3 nextCell = (currentRealPos + currentVelocity * (def.projectile.speed / 100f)).ToIntVec3();
-            if (!nextCell.InBounds(Map)) return null;
-            foreach (Thing t in Map.thingGrid.ThingsAt(nextCell))
+            if (Map == null) return false;
+            if (from == to) return false;
+
+            IntVec3 startCell = from.ToIntVec3();
+            IntVec3 endCell = to.ToIntVec3();
+
+            if (endCell == startCell || endCell.AdjacentToCardinal(startCell))
+                return CheckCellForCollision(endCell);
+
+            Vector3 dir = (to - from).normalized * 0.2f;
+            int maxSteps = Mathf.CeilToInt((to - from).MagnitudeHorizontal() / 0.2f);
+            Vector3 cur = from;
+
+            for (int i = 0; i < maxSteps; i++)
             {
-                if (t is Pawn p && !p.Dead && p.Faction != null && launcher != null && launcher.Faction != null
-                    && p.Faction.HostileTo(launcher.Faction))
-                    return p;
+                cur += dir;
+                IntVec3 cell = cur.ToIntVec3();
+                if (!cell.InBounds(Map)) break;
+                if (cell == endCell) break;
+
+                if (CheckCellForCollision(cell))
+                    return true;
             }
-            return null;
+
+            return CheckCellForCollision(endCell);
+        }
+
+        private bool CheckCellForCollision(IntVec3 cell)
+        {
+            if (!cell.InBounds(Map)) return false;
+
+            List<Thing> things = cell.GetThingList(Map);
+            for (int i = 0; i < things.Count; i++)
+            {
+                Thing thing = things[i];
+                if (thing == launcher) continue;
+
+                if (thing.def.Fillage == FillCategory.Full)
+                {
+                    Building_Door door = thing as Building_Door;
+                    if (door == null || !door.Open)
+                    {
+                        Impact(thing);
+                        return true;
+                    }
+                }
+                if (thing is Pawn p && !p.Dead && p.Faction != null && launcher?.Faction != null
+                    && p.Faction.HostileTo(launcher.Faction))
+                {
+                    float hitChance = 0.4f * Mathf.Clamp(p.BodySize, 0.1f, 2f);
+                    if (p.GetPosture() != PawnPosture.Standing)
+                        hitChance *= 0.1f;
+
+                    if (Rand.Chance(hitChance))
+                    {
+                        Impact(thing);
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         private void DealDamageTo(Thing target)
@@ -115,6 +167,9 @@ namespace merissu
 
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
+            if (hitThing != null)
+                DealDamageTo(hitThing);
+            base.Impact(hitThing, blockedByShield);
         }
     }
 
