@@ -398,6 +398,68 @@
 			<shaderType>MoteGlow</shaderType>
 		</graphicData>
 	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_VigilanceOrb</defName>
+		<label>警醒灵符</label>
+		<thingClass>merissu.Mote_VigilanceOrb</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+		<texPath>Projectiles/REIMU/VigilanceFormation/bulletA000</texPath>
+		<drawSize>(1,1)</drawSize>
+		<graphicClass>Graphic_Single</graphicClass>
+		<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_VigilanceShockwave</defName>
+		<label>警醒冲击波</label>
+		<thingClass>merissu.Mote_VigilanceShockwave</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+		<texPath>Projectiles/REIMU/VigilanceFormation/bulletA002</texPath>
+		<drawSize>(2,1)</drawSize>
+		<graphicClass>Graphic_Single</graphicClass>
+		<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>VigilanceFormation</defName>
+		<label>警醒阵</label>
+		<thingClass>merissu.Thing_VigilanceFormation</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>DelayedFormationSpawner</defName>
+		<label>延迟生成器</label>
+		<thingClass>merissu.DelayedFormationSpawner</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Projectiles/REIMU/VigilanceFormation/bulletA000</texPath>
+			<drawSize>(0,0)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
 	<!--冈格尼尔-->
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>W_Gungnir</defName>
