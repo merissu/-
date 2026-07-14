@@ -109,7 +109,6 @@ namespace merissu
             if (IsHittingBuilding())
                 Destroy();
         }
-
         private void DealFrameDamageToAllInCell()
         {
             if (Map == null || launcher == null) return;
@@ -126,10 +125,33 @@ namespace merissu
                     DamageInfo dinfo = new DamageInfo(dd, dmg, pen, ExactRotation.eulerAngles.y,
                         launcher, null, equipmentDef, DamageInfo.SourceCategory.ThingOrUnknown, intendedTarget.Thing);
                     pawn.TakeDamage(dinfo);
+
+                    DoKnockback(pawn);
                 }
             }
         }
 
+        private void DoKnockback(Pawn pawn)
+        {
+            Vector3 dir3 = velocity.normalized;
+            float knockbackDist = 5f;
+            IntVec3 dest = (pawn.Position.ToVector3Shifted() + dir3 * knockbackDist).ToIntVec3();
+            dest = CellFinder.RandomClosewalkCellNear(dest, Map, 1); 
+
+            if (!dest.IsValid || !dest.InBounds(Map))
+                return;
+
+            PawnFlyer flyer = PawnFlyer.MakeFlyer(
+                ThingDefOf.PawnFlyer_Stun,   
+                pawn,
+                dest,
+                null,   
+                null    
+            );
+
+            if (flyer != null)
+                GenSpawn.Spawn(flyer, dest, Map);
+        }
         private bool IsHittingBuilding()
         {
             if (Map == null) return false;

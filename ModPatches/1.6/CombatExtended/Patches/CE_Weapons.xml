@@ -71,7 +71,7 @@
     <value>
       <projectile Class="CombatExtended.ProjectilePropertiesCE">
         <damageDef>hakurei</damageDef>
-        <damageAmountBase>10</damageAmountBase>
+        <damageAmountBase>20</damageAmountBase>
         <speed>25</speed>
   			<stoppingPower>0.6</stoppingPower>
         <armorPenetrationSharp>6</armorPenetrationSharp> 

@@ -376,7 +376,7 @@
         </graphicData>
         <projectile>
             <damageDef>hakurei</damageDef>
-            <damageAmountBase>10</damageAmountBase>
+            <damageAmountBase>20</damageAmountBase>
             <stoppingPower>0.6</stoppingPower>
             <speed>25</speed>
         </projectile>
