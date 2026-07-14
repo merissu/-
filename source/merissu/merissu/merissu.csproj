@@ -111,12 +111,14 @@
     <Compile Include="子弹特效补全\Comp_GateShockwave.cs" />
     <Compile Include="子弹特效补全\Mote_ButterflyPetal.cs" />
     <Compile Include="子弹特效补全\Thing_BulletGateShockwave .cs" />
+    <Compile Include="御币攻击相关\AttackMode_BindingFormation.cs" />
     <Compile Include="御币攻击相关\AttackMode_GoheiDelayedOrbit.cs" />
     <Compile Include="御币攻击相关\AttackMode_GoheiDelayedOrbitSpread.cs" />
     <Compile Include="御币攻击相关\AttackMode_GoheiPenetratingSpread.cs" />
     <Compile Include="御币攻击相关\AttackMode_VigilanceFormation .cs" />
     <Compile Include="御币攻击相关\DelayedFormationSpawner .cs" />
     <Compile Include="御币攻击相关\GoheiAttackModes.cs" />
+    <Compile Include="御币攻击相关\Mote_OneShotFade.cs" />
     <Compile Include="御币攻击相关\Mote_PenetratingTrail.cs" />
     <Compile Include="御币攻击相关\Mote_REIMU_DelayedSpreadTalisman .cs" />
     <Compile Include="御币攻击相关\Mote_REIMU_DelayedTalisman.cs" />
@@ -125,6 +127,8 @@
     <Compile Include="御币攻击相关\Projectile_PenetratingFrameDamage.cs" />
     <Compile Include="御币攻击相关\Projectile_SpinningTalisman.cs" />
     <Compile Include="御币攻击相关\Projectile_SpreadTalisman.cs" />
+    <Compile Include="御币攻击相关\Thing_BindingFormationController.cs" />
+    <Compile Include="御币攻击相关\Thing_BindingFormationNode.cs" />
     <Compile Include="御币攻击相关\Verb_GoheiRandomShoot.cs" />
     <Compile Include="御币攻击相关\VigilanceFormationGraphics.cs" />
     <Compile Include="星熊杯\CompProperties_YugiCup.cs" />

@@ -460,6 +460,66 @@
 		</graphicData>
 	</ThingDef>
 
+	<ThingDef>
+		<defName>BindingFormationController</defName>
+		<label>束缚阵控制器</label>
+		<thingClass>merissu.Thing_BindingFormationController</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Other/null</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0,0)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>BindingFormationNode</defName>
+		<label>束缚阵节点</label>
+		<thingClass>merissu.Thing_BindingFormationNode</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_BindingStartFX</defName>
+		<label>束缚开始特效</label>
+		<thingClass>merissu.Mote_OneShotFade</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Projectiles/REIMU/VigilanceFormation/bulletDb001</texPath>
+			<drawSize>(4,2)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>Mote_BindingEndFX</defName>
+		<label>束缚结束特效</label>
+		<thingClass>merissu.Mote_OneShotFade</thingClass>
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Projectiles/REIMU/VigilanceFormation/bulletDb000</texPath>
+			<drawSize>(4,2)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
 	<!--冈格尼尔-->
 	<ThingDef ParentName="TH_MeleeWeapon">
 		<defName>W_Gungnir</defName>

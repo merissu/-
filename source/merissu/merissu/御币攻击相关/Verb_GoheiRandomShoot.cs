@@ -25,7 +25,8 @@ namespace merissu
                     new AttackMode_GoheiDelayedOrbit(),
                     new AttackMode_GoheiDelayedOrbitSpread(),
                     new AttackMode_GoheiPenetratingSpread(),
-                    new AttackMode_VigilanceFormation()
+                    new AttackMode_VigilanceFormation(),
+                    new AttackMode_BindingFormation()
                 };
             }
         }

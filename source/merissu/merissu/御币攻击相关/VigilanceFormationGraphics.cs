@@ -23,7 +23,7 @@ namespace merissu
 
     public class Thing_VigilanceFormation : Thing
     {
-        private static Type ceProjectileType = null;
+        public static Type ceProjectileType = null;
 
         static Thing_VigilanceFormation()
         {
@@ -111,7 +111,7 @@ namespace merissu
             }
         }
 
-        private static Thing GetCasterFromCEProjectile(Thing ceProj)
+        public static Thing GetCasterFromCEProjectile(Thing ceProj)
         {
             try
             {
