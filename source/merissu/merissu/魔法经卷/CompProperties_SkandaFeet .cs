@@ -24,9 +24,13 @@ namespace merissu
             IntVec3 start = caster.Position;
             IntVec3 end = target.Cell;
 
-            Hediff speedBuff = caster.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("ShinkiBuff_MoveSpeed"));
-            if (speedBuff != null)
-                caster.health.RemoveHediff(speedBuff);
+            HediffDef hijiriDef = DefDatabase<HediffDef>.GetNamedSilentFail("hijiriShinkiRecitation");
+            if (hijiriDef == null || caster.health.hediffSet.GetFirstHediffOfDef(hijiriDef) == null)
+            {
+                Hediff speedBuff = caster.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("ShinkiBuff_MoveSpeed"));
+                if (speedBuff != null)
+                    caster.health.RemoveHediff(speedBuff);
+            }
 
             Mote_SkandaTrail trail = (Mote_SkandaTrail)ThingMaker.MakeThing(ThingDef.Named("Mote_SkandaTrail"));
             trail.SetStartEnd(start, end, caster);
@@ -35,7 +39,6 @@ namespace merissu
             caster.Position = end;
             caster.Notify_Teleported(false, false);
         }
-
         public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
         {
             return target.Cell.IsValid && base.CanApplyOn(target, dest);

@@ -322,7 +322,7 @@
 	<AbilityDef>
 		<defName>ShinkiRecitation</defName>
 		<label>大魔法「魔神复诵」</label>
-		<description>通过诵读魔人经卷上的经文来施加肉体强化魔法。</description>
+		<description>通过诵读魔人经卷上的经文来施加五种强化魔法并带来一次性的能力,集齐五种强化魔法后再次诵经可短暂的无限制使用技能</description>
 		<iconPath>Abilities/ShinkiRecitation</iconPath>
 		<cooldownTicksRange>180</cooldownTicksRange>
 		<hostile>false</hostile>
@@ -412,7 +412,7 @@
             <verbClass>Verb_CastAbility</verbClass>
 			<drawAimPie>false</drawAimPie>
 			<requireLineOfSight>true</requireLineOfSight>
-            <warmupTime>0.1</warmupTime>
+            <warmupTime>0</warmupTime>
             <soundCast>SkandaFeet</soundCast>
 			<range>30</range>
             <targetParams>
@@ -448,6 +448,9 @@
 		<defaultLabelColor>(255,204,102)</defaultLabelColor>
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
+        <abilities>
+			<li>Ability_GuangmuTianEye</li>
+        </abilities>
 		<stages>
 			<li>
 				<statFactors>
@@ -461,6 +464,78 @@
 			</li>
 		</comps>
 	</HediffDef>
+
+	<AbilityDef>
+		<defName>Ability_GuangmuTianEye</defName>
+		<label>广目天之眼</label>
+		<abilityClass>merissu.Ability_GuangmuTianEye</abilityClass>
+		<description>以圣放出的气势将周边的敌人压倒,一边令射击无效化,一边单方面地消除,对手的大范围内的弹幕
+
+消除周围弹幕并将敌人吹飞,使用后消除防御能力强化</description>
+		<iconPath>Abilities/GuangmuTianEye</iconPath>
+		<cooldownTicksRange>180</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<soundCast>GuangmuTianEye</soundCast>
+			<range>20</range>
+			<warmupTime>0</warmupTime>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>GuangmuTianEyeRingA</defName>
+		<label>广目天之眼环A</label>
+		<thingClass>merissu.Thing_GuangmuTianEyeRing</thingClass>
+		<category>Ethereal</category>
+		<tickerType>Normal</tickerType>
+		<selectable>false</selectable>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/skillB1</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>GuangmuTianEyeRingB</defName>
+		<label>广目天之眼环B</label>
+		<thingClass>merissu.Thing_GuangmuTianEyeRing</thingClass>
+		<category>Ethereal</category>
+		<tickerType>Normal</tickerType>
+		<selectable>false</selectable>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/skillB</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+			<drawSize>(2,1)</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>GuangmuTianEyeRingC</defName>
+		<label>广目天之眼环C</label>
+		<thingClass>merissu.Thing_GuangmuTianEyeRing</thingClass>
+		<category>Ethereal</category>
+		<tickerType>Normal</tickerType>
+		<selectable>false</selectable>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/skillB2</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+			<drawSize>(1,2)</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+	</ThingDef>
 
 	<HediffDef>
 		<defName>ShinkiBuff_Attack</defName>
@@ -605,9 +680,12 @@
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
 		<comps>
-			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-48</severityPerDay>
-				<showHoursToRecover>true</showHoursToRecover>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>
+					<min>1080</min>
+					<max>1080</max>
+				</disappearsAfterTicks>
+				<showRemainingTime>true</showRemainingTime>
 			</li>
             <li Class="merissu.HediffCompProperties_PlayMusicOnce">
                 <songDef>hijiri2</songDef>
