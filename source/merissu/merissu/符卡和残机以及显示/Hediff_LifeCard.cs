@@ -43,8 +43,7 @@ namespace merissu
         public static bool Prefix(Pawn_HealthTracker __instance, DamageInfo dinfo, out bool absorbed)
         {
             absorbed = false;
-
-            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
+            Pawn pawn = __instance.pawn;  
             if (pawn == null || !pawn.Spawned) return true;
 
             if (pawn.health.hediffSet.HasHediff(HediffDef.Named("InvincibleTime")))
@@ -52,13 +51,22 @@ namespace merissu
                 return true;
             }
 
-            var lifeHediff = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("up")) as Hediff_LifeCard;
+            Hediff durga = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("DurgaSoul"));
+            if (durga != null)
+            {
+                HediffComp_DurgaSoul comp = durga.TryGetComp<HediffComp_DurgaSoul>();
+                if (comp != null && comp.remainingCharges > 0)
+                {
+                    return true; 
+                }
+            }
 
+            var lifeHediff = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("up")) as Hediff_LifeCard;
             if (lifeHediff != null && lifeHediff.Severity >= 1f && dinfo.Def.harmsHealth)
             {
                 lifeHediff.UseOneLife();
-                absorbed = true; 
-                return false;    
+                absorbed = true;
+                return false;
             }
 
             return true;

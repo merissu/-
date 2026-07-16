@@ -449,7 +449,7 @@
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
         <abilities>
-			<li>Ability_GuangmuTianEye</li>
+			<li>DurgaSoul</li>
         </abilities>
 		<stages>
 			<li>
@@ -465,13 +465,167 @@
 		</comps>
 	</HediffDef>
 
+    <AbilityDef>
+        <defName>DurgaSoul</defName>
+        <label>难近母之魂</label>
+		<abilityClass>merissu.Ability_DurgaSoul</abilityClass>
+        <description>身体硬化魔法的防御,能够抵消多次敌人的攻击并且不会受到硬直
+           
+使用后消除防御能力强化,给自身施加身体硬化魔法,不再会产生硬直,可以抵挡五次敌人的攻击</description>
+        <cooldownTicksRange>0</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>0</warmupTime>
+            <soundCast>DurgaSoul</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/DurgaSoul</iconPath>
+    </AbilityDef>
+
+	<HediffDef>
+		<defName>DurgaSoul</defName>
+		<label>难近母之魂</label>
+        <defaultLabelColor>(255,204,102)</defaultLabelColor>
+		<description>身体硬化魔法,不再会产生硬直,抵消五次敌人的攻击后结束效果</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<statOffsets>
+					<StaggerDurationFactor>-1.0</StaggerDurationFactor>
+				</statOffsets>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>999</offset>
+						<setMax>1.0</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<comps>
+			<li Class="merissu.HediffCompProperties_NoHitStagger"/>
+			<li Class="merissu.HediffCompProperties_DurgaSoul">
+				<maxCharges>5</maxCharges>
+				<invincibleTimeTicks>60</invincibleTimeTicks>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<ThingDef Name="Mote_DurgaAuraBase" Abstract="True">
+		<thingClass>MoteAttached</thingClass> 
+		<category>Mote</category>
+		<tickerType>Normal</tickerType>
+		<selectable>false</selectable>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+		<fadeInTime>0.1</fadeInTime>
+		<solidTime>0.2</solidTime>
+		<fadeOutTime>0.4</fadeOutTime>
+		<growthRate>10</growthRate>    
+		</mote>
+	</ThingDef>
+
+	<ThingDef ParentName="Mote_DurgaAuraBase">
+		<defName>Mote_DurgaAuraA</defName>
+		<label>难近母之魂光环A</label>
+		<graphicData>
+		<texPath>Other/ShinkiRecitation/skillG_Aura</texPath>
+		<graphicClass>Graphic_Mote</graphicClass> 
+		<shaderType>MoteGlow</shaderType>  
+		<drawSize>(1,1)</drawSize>     
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="Mote_DurgaAuraBase">
+		<defName>Mote_DurgaAuraB</defName>
+		<label>难近母之魂光环B</label>
+		<graphicData>
+		<texPath>Other/ShinkiRecitation/skillG_Aura</texPath> 
+		<graphicClass>Graphic_Mote</graphicClass>
+		<shaderType>MoteGlow</shaderType>
+		<drawSize>(1,1)</drawSize>
+		</graphicData>
+	</ThingDef>
+  
+	<HediffDef>
+		<defName>ShinkiBuff_Attack</defName>
+		<label>攻击能力强化</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>攻击能力强化</description>
+		<defaultLabelColor>(255,0,0)</defaultLabelColor>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<statFactors>
+					<MeleeHitChance>3</MeleeHitChance>
+					<MeleeDodgeChance>3</MeleeDodgeChance>
+				    <MeleeDamageFactor>3</MeleeDamageFactor>
+    				<MeleeCooldownFactor>0.7</MeleeCooldownFactor> 
+					<AimingDelayFactor>0.5</AimingDelayFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-2.4</severityPerDay>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>ShinkiBuff_Regen</defName>
+		<label>自愈速度上升</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>持续治愈伤口</description>
+		<defaultLabelColor>(0,255,102)</defaultLabelColor>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="merissu.HediffCompProperties_ShinkiRegen" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-2.4</severityPerDay>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>ShinkiBuff_SpiritualRegen</defName>
+		<label>灵力回复增加</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>灵力源源不断涌出</description>
+		<defaultLabelColor>(153,204,255)</defaultLabelColor>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+        <abilities>
+			<li>Ability_GuangmuTianEye</li>
+        </abilities>
+		<comps>
+			<li Class="merissu.HediffCompProperties_ShinkiSpiritualRegen" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-2.4</severityPerDay>
+			</li>
+		</comps>
+	</HediffDef>
+
 	<AbilityDef>
 		<defName>Ability_GuangmuTianEye</defName>
 		<label>广目天之眼</label>
 		<abilityClass>merissu.Ability_GuangmuTianEye</abilityClass>
 		<description>以圣放出的气势将周边的敌人压倒,一边令射击无效化,一边单方面地消除,对手的大范围内的弹幕
 
-消除周围弹幕并将敌人吹飞,使用后消除防御能力强化</description>
+消除周围弹幕并将敌人吹飞,使用后消除灵力回复增加</description>
 		<iconPath>Abilities/GuangmuTianEye</iconPath>
 		<cooldownTicksRange>180</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -537,64 +691,6 @@
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 	</ThingDef>
 
-	<HediffDef>
-		<defName>ShinkiBuff_Attack</defName>
-		<label>攻击能力强化</label>
-		<hediffClass>HediffWithComps</hediffClass>
-		<description>攻击能力强化</description>
-		<defaultLabelColor>(255,0,0)</defaultLabelColor>
-		<maxSeverity>1.0</maxSeverity>
-		<isBad>false</isBad>
-		<stages>
-			<li>
-				<statFactors>
-					<MeleeHitChance>3</MeleeHitChance>
-					<MeleeDodgeChance>3</MeleeDodgeChance>
-				    <MeleeDamageFactor>3</MeleeDamageFactor>
-    				<MeleeCooldownFactor>0.7</MeleeCooldownFactor> 
-					<AimingDelayFactor>0.5</AimingDelayFactor>
-				</statFactors>
-			</li>
-		</stages>
-		<comps>
-			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-2.4</severityPerDay>
-			</li>
-		</comps>
-	</HediffDef>
-
-	<HediffDef>
-		<defName>ShinkiBuff_Regen</defName>
-		<label>自愈速度上升</label>
-		<hediffClass>HediffWithComps</hediffClass>
-		<description>持续治愈伤口</description>
-		<defaultLabelColor>(0,255,102)</defaultLabelColor>
-		<maxSeverity>1.0</maxSeverity>
-		<isBad>false</isBad>
-		<comps>
-			<li Class="merissu.HediffCompProperties_ShinkiRegen" />
-			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-2.4</severityPerDay>
-			</li>
-		</comps>
-	</HediffDef>
-
-	<HediffDef>
-		<defName>ShinkiBuff_SpiritualRegen</defName>
-		<label>灵力回复增加</label>
-		<hediffClass>HediffWithComps</hediffClass>
-		<description>灵力源源不断涌出</description>
-		<defaultLabelColor>(153,204,255)</defaultLabelColor>
-		<maxSeverity>1.0</maxSeverity>
-		<isBad>false</isBad>
-		<comps>
-			<li Class="merissu.HediffCompProperties_ShinkiSpiritualRegen" />
-			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-2.4</severityPerDay>
-			</li>
-		</comps>
-	</HediffDef>
-	
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_ShinkiBuff_A</defName>
 		<graphicData>

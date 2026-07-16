@@ -42,7 +42,7 @@ namespace merissu
             SpawnRing(ThingDef.Named("GuangmuTianEyeRingB"));
             SpawnRing(ThingDef.Named("GuangmuTianEyeRingC"));
 
-            HediffDef buffDef = DefDatabase<HediffDef>.GetNamedSilentFail("ShinkiBuff_Defense");
+            HediffDef buffDef = DefDatabase<HediffDef>.GetNamedSilentFail("ShinkiBuff_SpiritualRegen");
             if (buffDef != null)
             {
                 Hediff defenseBuff = pawn.health.hediffSet.GetFirstHediffOfDef(buffDef);
