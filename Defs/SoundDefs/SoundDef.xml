@@ -1560,6 +1560,26 @@
 		</subSounds>
     </SoundDef>
 
+	<SoundDef>
+        <defName>SkandaFeet</defName>
+        <context>MapOnly</context>
+		<maxSimultaneous>20</maxSimultaneous>
+		<maxVoices>20</maxVoices>
+		<subSounds>
+		  <li>
+			<grains>
+			  <li Class="AudioGrain_Clip">
+				<clipPath>SkandaFeet</clipPath>
+			  </li>
+			</grains>
+			<pitchRange>
+				<min>0.9</min>
+				<max>1.1</max>
+			</pitchRange>
+			<volumeRange>60</volumeRange>
+		  </li>
+		</subSounds>
+    </SoundDef>
 
 	<SoundDef>
         <defName>VigilanceFormation</defName>

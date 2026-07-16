@@ -66,7 +66,7 @@
       <li>Map_PlayerHome</li>
     </targetTags>
     <workerClass>merissu.IncidentWorker_CustomMonsterRaid</workerClass>
-    <baseChance>0.05</baseChance>
+    <baseChance>0</baseChance>
     <pointsScaleable>true</pointsScaleable>
     <tale>Raid</tale>
     <letterLabel>敌袭</letterLabel>

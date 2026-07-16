@@ -119,7 +119,7 @@
 		<label>魔人经卷</label>
 		<description>圣白莲手中所持的卷轴（被称为是魔人经卷）,是为了施放能力而撰写的经书。虽然说是撰写,但其实这个卷轴并非是纸质的,是纯粹由咒文所组成的。
 
-装备后,只要诵读卷轴上面的经文,就能使用肉体强化魔法,拳头就能变得如同钢铁一样坚硬,五感变得十分敏锐,就算身在八卦炉中也能做到肉体的完好无损。
+装备后,只要诵读卷轴上面的经文,就能使用多种的强化魔法,拳头就能变得如同钢铁一样坚硬,五感变得十分敏锐,就算身在八卦炉中也能做到肉体的完好无损。
 
 诵经不需要消耗灵力,而且可以锻炼心智,所以请怀着虔诚之心修习佛法吧。</description>
 		<descriptionHyperlinks>
@@ -184,7 +184,6 @@
 			<scoreOffset>4</scoreOffset>
 			<careIfWornByCorpse>false</careIfWornByCorpse>
 			<careIfDamaged>false</careIfDamaged>
-			<wornGraphicPath>Accessory/MagicianRollofSutras</wornGraphicPath> 
 			<useWornGraphicMask>false</useWornGraphicMask>
 			<wearPerDay>0</wearPerDay>
 			<bodyPartGroups>
@@ -251,6 +250,10 @@
 				<onlyApplyToSelf>True</onlyApplyToSelf>
 				<severity>1</severity>
 				<replaceExisting>True</replaceExisting>
+			</li>
+			<li Class="merissu.CompProperties_SpawnOneShotMote">
+				<compClass>merissu.CompAbilityEffect_SpawnOneShotMote</compClass>
+				<moteDef>Mote_ShinkiRecitation</moteDef>
 			</li>
 		</comps>
 	</AbilityDef>
@@ -321,7 +324,7 @@
 		<label>大魔法「魔神复诵」</label>
 		<description>通过诵读魔人经卷上的经文来施加肉体强化魔法。</description>
 		<iconPath>Abilities/ShinkiRecitation</iconPath>
-		<cooldownTicksRange>900</cooldownTicksRange>
+		<cooldownTicksRange>180</cooldownTicksRange>
 		<hostile>false</hostile>
 		<groupAbility>true</groupAbility>
 		<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
@@ -342,240 +345,256 @@
 			</targetParams>
 		</verbProperties>
 		<comps>
-			<li Class="CompProperties_AbilityGiveHediff">
-				<compClass>CompAbilityEffect_GiveHediff</compClass>
-				<hediffDef>SupermansBloodline</hediffDef>
-				<onlyApplyToSelf>True</onlyApplyToSelf>
-				<severity>1</severity>
-				<replaceExisting>false</replaceExisting>
+			<li Class="merissu.CompProperties_ShinkiRandomBuff">
+				<compClass>merissu.CompAbilityEffect_ShinkiRandomBuff</compClass>
+			</li>
+			<li Class="merissu.CompProperties_SpawnOneShotMote">
+				<compClass>merissu.CompAbilityEffect_SpawnOneShotMote</compClass>
+				<moteDef>Mote_ShinkiRecitation</moteDef>
 			</li>
 		</comps>
 	</AbilityDef>
 
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ShinkiRecitation</defName>
+		<thingClass>merissu.Mote_ShinkiRecitation</thingClass>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/A0</texPath>
+			<graphicClass>merissu.Graphic_ShinkiRecitation</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>3</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<fadeInTime>0</fadeInTime>
+			<solidTime>999</solidTime>
+			<fadeOutTime>0</fadeOutTime>
+		</mote>
+	</ThingDef>
+
 	<HediffDef>
-		<defName>SupermansBloodline</defName>
+		<defName>ShinkiBuff_MoveSpeed</defName>
+		<label>移动速度上升</label>
 		<hediffClass>HediffWithComps</hediffClass>
-		<label>超人之血统</label>
-		<defaultLabelColor>(153,102,153)</defaultLabelColor>
-		<description>通过咏唱强化身体,身体素质大大提升了。</description>
+		<description>移动速度上升</description>
+		<defaultLabelColor>(204,153,102)</defaultLabelColor>
+		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
-		<maxSeverity>5</maxSeverity>
-		<comps>
-			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-12</severityPerDay>
-				<showHoursToRecover>true</showHoursToRecover>
-			</li>
-		</comps>
+        <abilities>
+			<li>SkandaFeet</li>
+        </abilities>
 		<stages>
 			<li>
-				<label>妖精</label>
-				<minSeverity>0.01</minSeverity>
-				<painFactor>0.8</painFactor>
 				<statFactors>
-					<IncomingDamageFactor>0.8</IncomingDamageFactor>
-					<AimingDelayFactor>0.8</AimingDelayFactor>
-					<ShootingAccuracyPawn>1.5</ShootingAccuracyPawn>
-					<MeleeHitChance>1.5</MeleeHitChance>
-					<MeleeDodgeChance>1.5</MeleeDodgeChance>
-				    <MeleeDamageFactor>1.5</MeleeDamageFactor>
-    				<MeleeCooldownFactor>0.9</MeleeCooldownFactor> 
+					<MoveSpeed>3</MoveSpeed>
 				</statFactors>
-				<capMods>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>0.5</offset>
-					</li>
-					<li>
-						<capacity>Manipulation</capacity>
-						<offset>0.5</offset>
-					</li>
-					<li>
-						<capacity>Breathing</capacity>
-						<offset>0.5</offset>
-					</li>
-					<li>
-						<capacity>BloodPumping</capacity>
-						<offset>0.5</offset>
-					</li>
-					<li>
-						<capacity>Sight</capacity>
-						<offset>0.5</offset>
-					</li>
-					<li>
-						<capacity>Hearing</capacity>
-						<offset>0.5</offset>
-					</li>
-				</capMods>
 			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-2.4</severityPerDay>
+			</li>
+		</comps>
+	</HediffDef>
+
+    <AbilityDef>
+        <defName>SkandaFeet</defName>
+        <label>韦驮天之脚</label>
+        <description>将身体强化向一点特化,瞬间贴近对手施加连续攻击,其速度甚至比冲击的传达还要迅捷,对手只能在圣的背后被打得手舞足蹈
+
+向前方告诉冲刺并撞飞沿途所有敌人,使用后消除移动速度上升</description>
+        <cooldownTicksRange>0</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>true</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>true</requireLineOfSight>
+            <warmupTime>0.1</warmupTime>
+            <soundCast>SkandaFeet</soundCast>
+			<range>30</range>
+            <targetParams>
+                <canTargetSelf>false</canTargetSelf>
+             	<canTargetAnimals>true</canTargetAnimals>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetLocations>true</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/SkandaFeet</iconPath>
+		<comps>
+			<li Class="merissu.CompProperties_SkandaFeet"/>
+		</comps>
+    </AbilityDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_SkandaTrail</defName>
+		<thingClass>merissu.Mote_SkandaTrail</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/assultTrailA0000</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>ShinkiBuff_Defense</defName>
+		<label>防御能力强化</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>受到的所有伤害减半。</description>
+		<defaultLabelColor>(255,204,102)</defaultLabelColor>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
 			<li>
-				<label>现世人</label>
-				<minSeverity>1</minSeverity>
-				<painFactor>0.6</painFactor>
 				<statFactors>
-					<IncomingDamageFactor>0.6</IncomingDamageFactor>
-					<AimingDelayFactor>0.6</AimingDelayFactor>
-					<ShootingAccuracyPawn>2</ShootingAccuracyPawn>
-					<MeleeHitChance>2</MeleeHitChance>
-					<MeleeDodgeChance>2</MeleeDodgeChance>
-				    <MeleeDamageFactor>2</MeleeDamageFactor>
-    				<MeleeCooldownFactor>0.8</MeleeCooldownFactor> 
+					<IncomingDamageFactor>0.5</IncomingDamageFactor>
 				</statFactors>
-				<capMods>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>1</offset>
-					</li>
-					<li>
-						<capacity>Manipulation</capacity>
-						<offset>1</offset>
-					</li>
-					<li>
-						<capacity>Breathing</capacity>
-						<offset>1</offset>
-					</li>
-					<li>
-						<capacity>BloodPumping</capacity>
-						<offset>1</offset>
-					</li>
-					<li>
-						<capacity>Sight</capacity>
-						<offset>1</offset>
-					</li>
-					<li>
-						<capacity>Hearing</capacity>
-						<offset>1</offset>
-					</li>
-				</capMods>
 			</li>
-			<li>
-				<label>付丧神</label>
-				<minSeverity>2</minSeverity>
-				<painFactor>0.4</painFactor>
-				<statFactors>
-					<IncomingDamageFactor>0.4</IncomingDamageFactor>
-					<AimingDelayFactor>0.4</AimingDelayFactor>
-					<ShootingAccuracyPawn>2.5</ShootingAccuracyPawn>
-					<MeleeHitChance>2.5</MeleeHitChance>
-					<MeleeDodgeChance>2.5</MeleeDodgeChance>
-    				<MeleeCooldownFactor>0.7</MeleeCooldownFactor> 
-				    <MeleeDamageFactor>2.5</MeleeDamageFactor>
-				</statFactors>
-				<capMods>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>1.5</offset>
-					</li>
-					<li>
-						<capacity>Manipulation</capacity>
-						<offset>1.5</offset>
-					</li>
-					<li>
-						<capacity>Breathing</capacity>
-						<offset>1.5</offset>
-					</li>
-					<li>
-						<capacity>BloodPumping</capacity>
-						<offset>1.5</offset>
-					</li>
-					<li>
-						<capacity>Sight</capacity>
-						<offset>1.5</offset>
-					</li>
-					<li>
-						<capacity>Hearing</capacity>
-						<offset>1.5</offset>
-					</li>
-				</capMods>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-2.4</severityPerDay>
 			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>ShinkiBuff_Attack</defName>
+		<label>攻击能力强化</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>攻击能力强化</description>
+		<defaultLabelColor>(255,0,0)</defaultLabelColor>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
 			<li>
-				<label>妖怪</label>
-				<minSeverity>3</minSeverity>
-				<painFactor>0.2</painFactor>
 				<statFactors>
-					<IncomingDamageFactor>0.2</IncomingDamageFactor>
-					<AimingDelayFactor>0.2</AimingDelayFactor>
-					<ShootingAccuracyPawn>3</ShootingAccuracyPawn>
 					<MeleeHitChance>3</MeleeHitChance>
 					<MeleeDodgeChance>3</MeleeDodgeChance>
 				    <MeleeDamageFactor>3</MeleeDamageFactor>
-    				<MeleeCooldownFactor>0.6</MeleeCooldownFactor> 
+    				<MeleeCooldownFactor>0.7</MeleeCooldownFactor> 
+					<AimingDelayFactor>0.5</AimingDelayFactor>
 				</statFactors>
-				<capMods>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>2</offset>
-					</li>
-					<li>
-						<capacity>Manipulation</capacity>
-						<offset>2</offset>
-					</li>
-					<li>
-						<capacity>Breathing</capacity>
-						<offset>2</offset>
-					</li>
-					<li>
-						<capacity>BloodPumping</capacity>
-						<offset>2</offset>
-					</li>
-					<li>
-						<capacity>Sight</capacity>
-						<offset>2</offset>
-					</li>
-					<li>
-						<capacity>Hearing</capacity>
-						<offset>2</offset>
-					</li>
-				</capMods>
-			</li>
-			<li>
-				<label>魔神</label>
-				<minSeverity>4.8</minSeverity>
-				<painFactor>0</painFactor>
-				<statFactors>
-					<IncomingDamageFactor>0</IncomingDamageFactor>
-					<AimingDelayFactor>0</AimingDelayFactor>
-					<ShootingAccuracyPawn>3.5</ShootingAccuracyPawn>
-					<MeleeHitChance>3.5</MeleeHitChance>
-				    <MeleeDamageFactor>3.5</MeleeDamageFactor>
-					<MeleeDodgeChance>3.5</MeleeDodgeChance>
-    				<MeleeCooldownFactor>0.5</MeleeCooldownFactor> 
-				</statFactors>
-				<capMods>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>2.5</offset>
-					</li>
-					<li>
-						<capacity>Manipulation</capacity>
-						<offset>2.5</offset>
-					</li>
-					<li>
-						<capacity>Breathing</capacity>
-						<offset>2.5</offset>
-					</li>
-					<li>
-						<capacity>BloodPumping</capacity>
-						<offset>2.5</offset>
-					</li>
-					<li>
-						<capacity>Sight</capacity>
-						<offset>2.5</offset>
-					</li>
-					<li>
-						<capacity>Hearing</capacity>
-						<offset>2.5</offset>
-					</li>
-				</capMods>
-				<hediffGivers>
-					<li Class="HediffGiver_Random">
-						<hediff>hijiriShinkiRecitation</hediff>
-						<mtbDays>0</mtbDays>
-					</li>
-				</hediffGivers>
 			</li>
 		</stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-2.4</severityPerDay>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>ShinkiBuff_Regen</defName>
+		<label>自愈速度上升</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>持续治愈伤口</description>
+		<defaultLabelColor>(0,255,102)</defaultLabelColor>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="merissu.HediffCompProperties_ShinkiRegen" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-2.4</severityPerDay>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>ShinkiBuff_SpiritualRegen</defName>
+		<label>灵力回复增加</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>灵力源源不断涌出</description>
+		<defaultLabelColor>(153,204,255)</defaultLabelColor>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="merissu.HediffCompProperties_ShinkiSpiritualRegen" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-2.4</severityPerDay>
+			</li>
+		</comps>
 	</HediffDef>
 	
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ShinkiBuff_A</defName>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/hijirimojiA</texPath>
+			<shaderType>Mote</shaderType>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<fadeInTime>0.05</fadeInTime>
+			<solidTime>0.6</solidTime>
+			<fadeOutTime>0.3</fadeOutTime>
+		</mote>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ShinkiBuff_B</defName>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/hijirimojiB</texPath>
+			<shaderType>Mote</shaderType>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<fadeInTime>0.05</fadeInTime>
+			<solidTime>0.6</solidTime>
+			<fadeOutTime>0.3</fadeOutTime>
+		</mote>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ShinkiBuff_C</defName>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/hijirimojiC</texPath>
+			<shaderType>Mote</shaderType>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<fadeInTime>0.05</fadeInTime>
+			<solidTime>0.6</solidTime>
+			<fadeOutTime>0.3</fadeOutTime>
+		</mote>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ShinkiBuff_D</defName>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/hijirimojiD</texPath>
+			<shaderType>Mote</shaderType>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<fadeInTime>0.05</fadeInTime>
+			<solidTime>0.6</solidTime>
+			<fadeOutTime>0.3</fadeOutTime>
+		</mote>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ShinkiBuff_E</defName>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/hijirimojiE</texPath>
+			<shaderType>Mote</shaderType>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<fadeInTime>0.05</fadeInTime>
+			<solidTime>0.6</solidTime>
+			<fadeOutTime>0.3</fadeOutTime>
+		</mote>
+	</ThingDef>
+
 	<HediffDef>
 		<defName>hijiriShinkiRecitation</defName>
 		<label>大魔法「魔神复诵」</label>

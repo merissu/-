@@ -496,6 +496,13 @@
     <Compile Include="符卡系列\yuyuko\yuyukobullets.cs" />
     <Compile Include="符卡系列\yuyuko\yuyukocard.cs" />
     <Compile Include="限制建筑数量的插件\CompProperties_LimitPerMap.cs" />
+    <Compile Include="魔法经卷\CompAbilityEffect_ShinkiRandomBuff.cs" />
+    <Compile Include="魔法经卷\CompAbilityEffect_SpawnOneShotMote.cs" />
+    <Compile Include="魔法经卷\CompProperties_SkandaFeet .cs" />
+    <Compile Include="魔法经卷\Graphic_ShinkiRecitation.cs" />
+    <Compile Include="魔法经卷\HediffComp_ShinkiRegen.cs" />
+    <Compile Include="魔法经卷\HediffComp_ShinkiSpiritualRegen.cs" />
+    <Compile Include="魔法经卷\Mote_ShinkiRecitation.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
