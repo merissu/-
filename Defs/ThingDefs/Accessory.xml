@@ -566,6 +566,9 @@
 		<defaultLabelColor>(255,0,0)</defaultLabelColor>
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
+        <abilities>
+			<li>virudhakaSword</li>
+        </abilities>
 		<stages>
 			<li>
 				<statFactors>
@@ -584,6 +587,78 @@
 		</comps>
 	</HediffDef>
 
+    <AbilityDef>
+		<defName>virudhakaSword</defName>
+		<label>毗瑠璃之剑</label>
+		<abilityClass>merissu.Ability_VirudhakaSword</abilityClass>
+		<description>以独钴杵作为巨大的枪,并全力投掷出去,是能将对手贯穿的重要的远距离攻击
+	
+投出巨大的枪,贯穿沿途的所有敌人,直到撞到建筑物才会停下,使用后移除攻击能力强化</description>
+		<iconPath>Abilities/virudhakaSword</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>999</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>virudhakaSword</soundCast>
+			<requireLineOfSight>false</requireLineOfSight>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+        <defName>Thing_VirudhakaProjectile</defName>
+        <label>毗瑠璃之剑</label>
+        <thingClass>merissu.Thing_VirudhakaProjectile</thingClass>
+        <tickerType>Normal</tickerType>
+        <useHitPoints>false</useHitPoints>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/ShinkiRecitation/bladeA0000</texPath>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Thing_VirudhakaShockwave</defName>
+        <label>毗瑠璃之剑冲击波</label>
+        <thingClass>merissu.Thing_VirudhakaShockwave</thingClass>
+        <tickerType>Normal</tickerType>
+        <useHitPoints>false</useHitPoints>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/ShinkiRecitation/spellCharge</texPath>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Thing_VirudhakaTrail</defName>
+        <label>毗瑠璃之剑轨迹</label>
+        <thingClass>merissu.Thing_VirudhakaTrail</thingClass>
+        <tickerType>Normal</tickerType>
+        <useHitPoints>false</useHitPoints>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/ShinkiRecitation/climaxLaserCore</texPath>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+    </ThingDef>
+
 	<HediffDef>
 		<defName>ShinkiBuff_Regen</defName>
 		<label>自愈速度上升</label>
@@ -592,27 +667,11 @@
 		<defaultLabelColor>(0,255,102)</defaultLabelColor>
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
-		<comps>
-			<li Class="merissu.HediffCompProperties_ShinkiRegen" />
-			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-2.4</severityPerDay>
-			</li>
-		</comps>
-	</HediffDef>
-
-	<HediffDef>
-		<defName>ShinkiBuff_SpiritualRegen</defName>
-		<label>灵力回复增加</label>
-		<hediffClass>HediffWithComps</hediffClass>
-		<description>灵力源源不断涌出</description>
-		<defaultLabelColor>(153,204,255)</defaultLabelColor>
-		<maxSeverity>1.0</maxSeverity>
-		<isBad>false</isBad>
         <abilities>
 			<li>Ability_GuangmuTianEye</li>
         </abilities>
 		<comps>
-			<li Class="merissu.HediffCompProperties_ShinkiSpiritualRegen" />
+			<li Class="merissu.HediffCompProperties_ShinkiRegen" />
 			<li Class="HediffCompProperties_SeverityPerDay">
 				<severityPerDay>-2.4</severityPerDay>
 			</li>
@@ -690,6 +749,22 @@
 		</graphicData>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 	</ThingDef>
+
+	<HediffDef>
+		<defName>ShinkiBuff_SpiritualRegen</defName>
+		<label>灵力回复增加</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>灵力源源不断涌出</description>
+		<defaultLabelColor>(153,204,255)</defaultLabelColor>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="merissu.HediffCompProperties_ShinkiSpiritualRegen" />
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-2.4</severityPerDay>
+			</li>
+		</comps>
+	</HediffDef>
 
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_ShinkiBuff_A</defName>
