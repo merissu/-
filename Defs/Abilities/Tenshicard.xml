@@ -523,7 +523,7 @@
 		<label>快晴</label>
 		<description>在空中飞行程度的天气,使殖民者和等同数量的敌人获得飞行状态
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Good</favorability>
 		<perceivePriority>1</perceivePriority>
@@ -638,7 +638,7 @@
 		<label>雾雨</label>
 		<description>弹幕就是火力程度的天气,射击精度上升,射击速度变得极快。
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -767,7 +767,7 @@
 		<label>云天</label>
 		<description>灵活地使用符卡程度的天气,每次消耗大于一张符卡时都会返还一张符卡
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -880,7 +880,7 @@
 		<label>苍天</label>
 		<description>连续技变得锐利程度的天气,近战攻击速度翻倍
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -998,7 +998,7 @@
     <label>雹</label>
     <description>灵力强化程度的天气,将你的灵力翻倍,如果没有灵力则获得一层
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
     <isBad>false</isBad>
     <favorability>Neutral</favorability>
     <perceivePriority>2</perceivePriority>
@@ -1146,7 +1146,7 @@
 		<label>花云</label>
 		<description>能回避打击程度的天气,射击精度减少,近战闪避率翻倍
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1266,7 +1266,7 @@
 		<label>浓雾</label>
 		<description>变得像吸血鬼程度的天气,获得回血以及体质提升
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1404,7 +1404,7 @@
 		<label>雪</label>
 		<description>变得像幽灵程度的天气,符卡会自动消耗用于治疗任何负面状态,每小时一次,消耗一张符卡清空身上的负面状态
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1523,7 +1523,7 @@
 		<label>太阳雨</label>
 		<description>防御变得诡异程度的天气,承伤系数翻倍,每小时获得0.5灵力
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1655,7 +1655,7 @@
 		<label>疏雨</label>
 		<description>必杀技全开程度的天气,近战攻击伤害翻倍
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1781,7 +1781,7 @@
 		<label>风雨</label>
 		<description>借助风之力程度的天气,移动速度翻倍
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -1910,7 +1910,7 @@
 		<label>晴岚</label>
 		<description>手卡不可见程度的天气,将你的灵力变成1~4之间的随机数值
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -2025,7 +2025,7 @@
 		<label>川雾</label>
 		<description>距离变得诡异程度的天气,位置会在一定范围内随机变化
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -2145,7 +2145,7 @@
 		<label>台风</label>
 		<description>胜负变得疯狂程度的天气,强制进入霸体状态
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -2273,7 +2273,7 @@
 		<label>无风</label>
 		<description>治愈伤痛程度的天气,有灵力时会自动治疗伤口
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -2386,7 +2386,7 @@
 		<label>钻石尘</label>
 		<description>睡着了就会死程度的天气,倒地时,对四肢造成50伤害
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -2502,7 +2502,7 @@
 		<label>黄沙</label>
 		<description>反击攻击程度的天气,被击中时需要的恢复时间翻倍
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>false</isBad>
 		<favorability>Neutral</favorability>
 		<perceivePriority>2</perceivePriority>
@@ -2624,7 +2624,7 @@
 		<label>烈日</label>
 		<description>烧尽一切程度的天气,长时间处于室外时会被灼烧
 
-(天气贴图尺寸不匹配或出现色块请在设置界面进行调整)</description>
+(天气贴图尺寸不匹配或出现色块请在设置界面进行调整,天气可用绯想之剑强制结束)</description>
 		<isBad>true</isBad>
 		<favorability>Good</favorability>
 		<perceivePriority>1</perceivePriority>
@@ -2751,4 +2751,27 @@
 			<severityPerDay>-1.0</severityPerDay> </li>
 		</comps>
 	</HediffDef>
+
+    <AbilityDef>
+		<defName>TenshiRandomWeatheroff</defName>
+		<label>结束天气</label>
+		<description>立马结束当前的天气</description>
+        <cooldownTicksRange>2000</cooldownTicksRange>
+		<iconPath>Abilities/TenshiRandomWeather</iconPath>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<warmupTime>1</warmupTime>
+			<soundCast>spell</soundCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="merissu.CompProperties_AbilityEndWeather" />
+		</comps>
+	</AbilityDef>
+
 </Defs>	

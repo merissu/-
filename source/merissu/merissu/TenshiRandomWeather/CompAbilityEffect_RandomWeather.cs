@@ -162,4 +162,35 @@ namespace merissu
             Messages.Message("天候改变为: " + chosenDef.label, MessageTypeDefOf.PositiveEvent);
         }
     }
+    public class CompProperties_AbilityEndWeather : CompProperties_AbilityEffect
+    {
+        public CompProperties_AbilityEndWeather()
+        {
+            compClass = typeof(CompAbilityEffect_EndWeather);
+        }
+    }
+
+    public class CompAbilityEffect_EndWeather : CompAbilityEffect
+    {
+        public new CompProperties_AbilityEndWeather Props => (CompProperties_AbilityEndWeather)props;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            Map map = parent?.pawn?.Map;
+            if (map == null) return;
+
+            var activeConditions = map.gameConditionManager.ActiveConditions;
+            for (int i = activeConditions.Count - 1; i >= 0; i--)
+            {
+                if (activeConditions[i] is GameCondition_ForceWeather)
+                {
+                    activeConditions[i].End();
+                }
+            }
+
+            Messages.Message("天气强制结束，已恢复晴朗。", MessageTypeDefOf.PositiveEvent);
+        }
+    }
+
 }

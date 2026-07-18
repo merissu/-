@@ -1957,6 +1957,7 @@
 				<abilityDefs>
 					<li>Tenshicard</li>
 					<li>TenshiRandomWeather</li>
+					<li>TenshiRandomWeatheroff</li>
 				</abilityDefs>
 			</li>
         </comps>

@@ -13,7 +13,7 @@ namespace merissu
 
         private const float ScrollSpeed = 0.08f;
 
-        private static readonly Color SandTintColor = new Color(0.85f, 0.7f, 0.4f, 0.9f);
+        private static readonly Color SandTintColor = new Color(0.85f, 0.7f, 0.4f, 0.6f);
 
         public YellowsandEffectController(Game game) : base() { }
 
@@ -42,7 +42,7 @@ namespace merissu
             float uvOffsetSecond = (RealTime.LastRealTime * (ScrollSpeed * 0.5f)) % 1f;
             Rect uvRectSecond = new Rect(uvOffsetSecond, edgeFix, 1f, 1f - (edgeFix * 2));
 
-            GUI.color = SandTintColor * 0.5f;
+            GUI.color = SandTintColor * 0.8f;
             GUI.DrawTextureWithTexCoords(new Rect(0, screenY, drawWidth, drawHeight), SandMat.mainTexture, uvRectSecond);
 
             GUI.color = Color.white;
