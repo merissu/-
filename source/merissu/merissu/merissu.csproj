@@ -499,14 +499,20 @@
     <Compile Include="魔法经卷\Ability_DurgaSoul.cs" />
     <Compile Include="魔法经卷\Ability_GuangmuTianEye.cs" />
     <Compile Include="魔法经卷\Ability_IndraThunderbolt.cs" />
+    <Compile Include="魔法经卷\Ability_superVirudhakaSword .cs" />
     <Compile Include="魔法经卷\Ability_VirudhakaSword.cs" />
     <Compile Include="魔法经卷\CompAbilityEffect_ShinkiRandomBuff.cs" />
     <Compile Include="魔法经卷\CompAbilityEffect_SpawnOneShotMote.cs" />
     <Compile Include="魔法经卷\CompProperties_SkandaFeet .cs" />
     <Compile Include="魔法经卷\Graphic_ShinkiRecitation.cs" />
+    <Compile Include="魔法经卷\HediffComp_ConditionalGiveAbility.cs" />
     <Compile Include="魔法经卷\HediffComp_ShinkiRegen.cs" />
     <Compile Include="魔法经卷\HediffComp_ShinkiSpiritualRegen.cs" />
     <Compile Include="魔法经卷\Mote_ShinkiRecitation.cs" />
+    <Compile Include="魔法经卷\superAbility_GuangmuTianEye .cs" />
+    <Compile Include="魔法经卷\superAbility_IndraThunderbolt .cs" />
+    <Compile Include="魔法经卷\SuperDurgaSoul.cs" />
+    <Compile Include="魔法经卷\SuperSkandaFeet.cs" />
     <Compile Include="魔法经卷\Thing_GuangmuTianEyeRing.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -110,6 +110,7 @@
 			<li>
 				<statFactors>
 					<IncomingDamageFactor>0</IncomingDamageFactor>
+					<Flammability>0</Flammability>
 				</statFactors>
 			</li>
 		</stages>

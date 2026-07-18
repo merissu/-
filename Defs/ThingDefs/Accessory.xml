@@ -277,11 +277,19 @@
                 <songDef>hijiri1</songDef>
             </li>
 		</comps>
+        <abilities>
+			<li>superSkandaFeet</li>
+			<li>superDurgaSoul</li>
+			<li>supervirudhakaSword</li>
+			<li>superAbility_GuangmuTianEye</li>
+			<li>superIndraThunderbolt</li>
+		</abilities>
 		<stages>
 			<li>
 				<painFactor>0</painFactor>
 				<statFactors>
 					<IncomingDamageFactor>0</IncomingDamageFactor>
+					<Flammability>0</Flammability>
 					<AimingDelayFactor>0</AimingDelayFactor>
 					<ShootingAccuracyPawn>10</ShootingAccuracyPawn>
 					<MeleeHitChance>10</MeleeHitChance>
@@ -318,6 +326,224 @@
 			</li>
 		</stages>
 	</HediffDef>
+
+    <AbilityDef>
+        <defName>superSkandaFeet</defName>
+        <label>韦驮天之脚</label>
+        <description>将身体强化向一点特化,瞬间贴近对手施加连续攻击,其速度甚至比冲击的传达还要迅捷,对手只能在圣的背后被打得手舞足蹈
+
+向前方高速冲刺并撞飞沿途所有敌人,可撞碎建筑物</description>
+        <cooldownTicksRange>0</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>true</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>0</warmupTime>
+            <soundCast>SkandaFeet</soundCast>
+			<range>60</range>
+            <targetParams>
+                <canTargetSelf>false</canTargetSelf>
+             	<canTargetAnimals>true</canTargetAnimals>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetLocations>true</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/SkandaFeet</iconPath>
+		<comps>
+			<li Class="merissu.CompProperties_superSkandaFeet"/>
+		</comps>
+    </AbilityDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_SuperSkandaTrail</defName>
+        <label>超韦驮天之脚轨迹</label>
+		<thingClass>merissu.Mote_SuperSkandaTrail</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/assultTrailA0000</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+    <AbilityDef>
+        <defName>superDurgaSoul</defName>
+        <label>难近母之魂</label>
+		<abilityClass>merissu.Ability_superDurgaSoul</abilityClass>
+        <description>身体硬化魔法的防御,能够抵消多次敌人的攻击并且不会受到硬直
+           
+给自身施加身体硬化魔法,不再会产生硬直,持续一小时,身体可以反弹子弹</description>
+        <cooldownTicksRange>0</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+        <aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+            <warmupTime>0</warmupTime>
+            <soundCast>DurgaSoul</soundCast>
+			<targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <iconPath>Abilities/DurgaSoul</iconPath>
+    </AbilityDef>
+
+	<HediffDef>
+        <defName>superDurgaSoul</defName>
+        <label>难近母之魂</label>
+        <defaultLabelColor>(255,215,0)</defaultLabelColor>
+        <description>强化身体硬化魔法,不会产生任何硬直,持续一小时。期间可以抵挡所有近战伤害,并弹反一切远程弹幕。</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <maxSeverity>1.0</maxSeverity>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <statOffsets>
+                    <StaggerDurationFactor>-1.0</StaggerDurationFactor>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>999</offset>
+                        <setMax>1.0</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+        <comps>
+            <li Class="merissu.HediffCompProperties_NoHitStagger"/>
+            <li Class="merissu.HediffCompProperties_SuperDurgaSoul">
+                <invincibleTimeTicks>10</invincibleTimeTicks>
+            </li>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>3600</disappearsAfterTicks>
+                <showRemainingTime>true</showRemainingTime>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <AbilityDef>
+		<defName>supervirudhakaSword</defName>
+		<label>毗瑠璃之剑</label>
+		<abilityClass>merissu.Ability_superVirudhakaSword</abilityClass>
+		<description>以独钴杵作为巨大的枪,并全力投掷出去,是能将对手贯穿的重要的远距离攻击
+	
+投出巨大的枪,贯穿沿途的所有敌人,会贯穿沿途的建筑物</description>
+		<iconPath>Abilities/virudhakaSword</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>999</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>virudhakaSword</soundCast>
+			<requireLineOfSight>false</requireLineOfSight>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>Thing_VirudhakaSuperProjectile</defName>
+		<label>毗瑠璃之剑（贯穿）</label>
+		<thingClass>merissu.Thing_VirudhakaSuperProjectile</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Other/ShinkiRecitation/bladeA0000</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<AbilityDef>
+		<defName>superAbility_GuangmuTianEye</defName>
+		<label>广目天之眼</label>
+		<abilityClass>merissu.superAbility_GuangmuTianEye</abilityClass>
+		<description>以圣放出的气势将周边的敌人压倒,一边令射击无效化,一边单方面地消除,对手的大范围内的弹幕
+
+消除周围弹幕并将敌人吹飞,气浪会将火焰也吹灭</description>
+		<iconPath>Abilities/GuangmuTianEye</iconPath>
+		<cooldownTicksRange>60</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<targetRequired>false</targetRequired>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<soundCast>GuangmuTianEye</soundCast>
+			<range>30</range>
+			<warmupTime>0</warmupTime>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+    <AbilityDef>
+		<defName>superIndraThunderbolt</defName>
+		<label>因陀罗之雷</label>
+		<abilityClass>merissu.superAbility_IndraThunderbolt</abilityClass>
+		<description>散出灌注魔力的念珠,引发落雷,念珠会像被吸引一样飞出,能准确地捕捉到对手
+
+散出念珠捕捉敌人并且引发三次大范围落雷</description>
+		<iconPath>Abilities/IndraThunderbolt</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>40</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>IndraThunderbolt</soundCast>
+			<requireLineOfSight>false</requireLineOfSight>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+		<defName>Thing_SuperIndraBeadCluster</defName>
+		<label>超级念珠</label>
+		<thingClass>merissu.Thing_SuperIndraBeadCluster</thingClass>
+		<category>Ethereal</category>
+		<tickerType>Normal</tickerType>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<texPath>Other/ShinkiRecitation/stoneA0000</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+	</ThingDef>
 
 	<AbilityDef>
 		<defName>ShinkiRecitation</defName>
@@ -380,9 +606,6 @@
 		<defaultLabelColor>(204,153,102)</defaultLabelColor>
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
-        <abilities>
-			<li>SkandaFeet</li>
-        </abilities>
 		<stages>
 			<li>
 				<statFactors>
@@ -394,6 +617,10 @@
 			<li Class="HediffCompProperties_SeverityPerDay">
 				<severityPerDay>-2.4</severityPerDay>
 			</li>
+			<li Class="merissu.HediffCompProperties_ConditionalGiveAbility">
+				<abilityDef>SkandaFeet</abilityDef>
+				<blockingHediffDef>SuperHiziri</blockingHediffDef>
+			</li>
 		</comps>
 	</HediffDef>
 
@@ -402,7 +629,7 @@
         <label>韦驮天之脚</label>
         <description>将身体强化向一点特化,瞬间贴近对手施加连续攻击,其速度甚至比冲击的传达还要迅捷,对手只能在圣的背后被打得手舞足蹈
 
-向前方告诉冲刺并撞飞沿途所有敌人,使用后消除移动速度上升</description>
+向前方高速冲刺并撞飞沿途所有敌人,使用后消除移动速度上升</description>
         <cooldownTicksRange>0</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
         <aiCanUse>false</aiCanUse>
@@ -448,9 +675,6 @@
 		<defaultLabelColor>(255,204,102)</defaultLabelColor>
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
-        <abilities>
-			<li>DurgaSoul</li>
-        </abilities>
 		<stages>
 			<li>
 				<statFactors>
@@ -459,6 +683,10 @@
 			</li>
 		</stages>
 		<comps>
+			<li Class="merissu.HediffCompProperties_ConditionalGiveAbility">
+				<abilityDef>DurgaSoul</abilityDef>
+				<blockingHediffDef>SuperHiziri</blockingHediffDef>
+			</li>
 			<li Class="HediffCompProperties_SeverityPerDay">
 				<severityPerDay>-2.4</severityPerDay>
 			</li>
@@ -471,7 +699,7 @@
 		<abilityClass>merissu.Ability_DurgaSoul</abilityClass>
         <description>身体硬化魔法的防御,能够抵消多次敌人的攻击并且不会受到硬直
            
-使用后消除防御能力强化,给自身施加身体硬化魔法,不再会产生硬直,可以抵挡五次敌人的攻击</description>
+使用后移除防御能力强化,给自身施加身体硬化魔法,不再会产生硬直,可以抵挡五次敌人的攻击</description>
         <cooldownTicksRange>0</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
         <aiCanUse>false</aiCanUse>
@@ -504,6 +732,9 @@
 				<statOffsets>
 					<StaggerDurationFactor>-1.0</StaggerDurationFactor>
 				</statOffsets>
+				<statFactors>
+					<Flammability>0</Flammability>
+				</statFactors>
 				<capMods>
 					<li>
 						<capacity>Consciousness</capacity>
@@ -566,9 +797,6 @@
 		<defaultLabelColor>(255,0,0)</defaultLabelColor>
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
-        <abilities>
-			<li>virudhakaSword</li>
-        </abilities>
 		<stages>
 			<li>
 				<statFactors>
@@ -581,6 +809,10 @@
 			</li>
 		</stages>
 		<comps>
+			<li Class="merissu.HediffCompProperties_ConditionalGiveAbility">
+				<abilityDef>virudhakaSword</abilityDef>
+				<blockingHediffDef>SuperHiziri</blockingHediffDef>
+			</li>
 			<li Class="HediffCompProperties_SeverityPerDay">
 				<severityPerDay>-2.4</severityPerDay>
 			</li>
@@ -667,10 +899,11 @@
 		<defaultLabelColor>(0,255,102)</defaultLabelColor>
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
-        <abilities>
-			<li>Ability_GuangmuTianEye</li>
-        </abilities>
 		<comps>
+			<li Class="merissu.HediffCompProperties_ConditionalGiveAbility">
+				<abilityDef>Ability_GuangmuTianEye</abilityDef>
+				<blockingHediffDef>SuperHiziri</blockingHediffDef>
+			</li>
 			<li Class="merissu.HediffCompProperties_ShinkiRegen" />
 			<li Class="HediffCompProperties_SeverityPerDay">
 				<severityPerDay>-2.4</severityPerDay>
@@ -684,7 +917,7 @@
 		<abilityClass>merissu.Ability_GuangmuTianEye</abilityClass>
 		<description>以圣放出的气势将周边的敌人压倒,一边令射击无效化,一边单方面地消除,对手的大范围内的弹幕
 
-消除周围弹幕并将敌人吹飞,使用后消除灵力回复增加</description>
+消除周围弹幕并将敌人吹飞,使用后消除自愈速度上升</description>
 		<iconPath>Abilities/GuangmuTianEye</iconPath>
 		<cooldownTicksRange>180</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -758,10 +991,11 @@
 		<defaultLabelColor>(153,204,255)</defaultLabelColor>
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
-        <abilities>
-			<li>IndraThunderbolt</li>
-        </abilities>
 		<comps>
+			<li Class="merissu.HediffCompProperties_ConditionalGiveAbility">
+				<abilityDef>IndraThunderbolt</abilityDef>
+				<blockingHediffDef>SuperHiziri</blockingHediffDef>
+			</li>
 			<li Class="merissu.HediffCompProperties_ShinkiSpiritualRegen" />
 			<li Class="HediffCompProperties_SeverityPerDay">
 				<severityPerDay>-2.4</severityPerDay>
@@ -775,7 +1009,7 @@
 		<abilityClass>merissu.Ability_IndraThunderbolt</abilityClass>
 		<description>散出灌注魔力的念珠,引发落雷,念珠会像被吸引一样飞出,能准确地捕捉到对手
 
-散出念珠捕捉敌人并且引发三次落雷,使用后移除灵力回复增加</description>
+散出念珠捕捉敌人并且引发大范围落雷,使用后移除灵力回复增加</description>
 		<iconPath>Abilities/IndraThunderbolt</iconPath>
 		<cooldownTicksRange>600</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
