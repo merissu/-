@@ -498,6 +498,7 @@
     <Compile Include="限制建筑数量的插件\CompProperties_LimitPerMap.cs" />
     <Compile Include="魔法经卷\Ability_DurgaSoul.cs" />
     <Compile Include="魔法经卷\Ability_GuangmuTianEye.cs" />
+    <Compile Include="魔法经卷\Ability_IndraThunderbolt.cs" />
     <Compile Include="魔法经卷\Ability_VirudhakaSword.cs" />
     <Compile Include="魔法经卷\CompAbilityEffect_ShinkiRandomBuff.cs" />
     <Compile Include="魔法经卷\CompAbilityEffect_SpawnOneShotMote.cs" />

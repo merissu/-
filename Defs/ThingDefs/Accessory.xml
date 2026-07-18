@@ -758,6 +758,9 @@
 		<defaultLabelColor>(153,204,255)</defaultLabelColor>
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
+        <abilities>
+			<li>IndraThunderbolt</li>
+        </abilities>
 		<comps>
 			<li Class="merissu.HediffCompProperties_ShinkiSpiritualRegen" />
 			<li Class="HediffCompProperties_SeverityPerDay">
@@ -765,6 +768,68 @@
 			</li>
 		</comps>
 	</HediffDef>
+
+    <AbilityDef>
+		<defName>IndraThunderbolt</defName>
+		<label>因陀罗之雷</label>
+		<abilityClass>merissu.Ability_IndraThunderbolt</abilityClass>
+		<description>散出灌注魔力的念珠,引发落雷,念珠会像被吸引一样飞出,能准确地捕捉到对手
+
+散出念珠捕捉敌人并且引发三次落雷,使用后移除灵力回复增加</description>
+		<iconPath>Abilities/IndraThunderbolt</iconPath>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<displayOrder>200</displayOrder>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>40</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>IndraThunderbolt</soundCast>
+			<requireLineOfSight>false</requireLineOfSight>
+			<targetParams>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetItems>False</canTargetItems>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
+	<ThingDef>
+        <defName>Thing_IndraBeadCluster</defName>
+        <label>念珠集群</label>
+        <thingClass>merissu.Thing_IndraBeadCluster</thingClass>
+        <category>Ethereal</category>
+        <tickerType>Normal</tickerType>
+        <selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <graphicData>
+            <texPath>Other/ShinkiRecitation/stoneA0000</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Transparent</shaderType>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>Thing_IndraImpactFlash</defName>
+        <label>雷击闪光</label>
+        <thingClass>merissu.Thing_IndraImpactFlash</thingClass>
+        <category>Ethereal</category>
+        <tickerType>Normal</tickerType>
+        <selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <graphicData>
+            <texPath>Other/ShinkiRecitation/climaxLaserCoreB</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Transparent</shaderType>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+    </ThingDef>
 
 	<ThingDef ParentName="MoteBase">
 		<defName>Mote_ShinkiBuff_A</defName>
