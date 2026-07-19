@@ -59,27 +59,49 @@ namespace merissu
             DamageInfo dinfo = new DamageInfo(
                 customDmgDef,
                 damageAmount,
-                9999f, 
+                9999f,
                 -1f,
                 this.launcher,
                 null,
                 this.def
             );
-
             dinfo.SetIgnoreArmor(true);
             dinfo.SetIgnoreInstantKillProtection(true);
 
-            DamageWorker.DamageResult result = victim.TakeDamage(dinfo);
-
-            if (result.totalDamageDealt <= 0.01f && !victim.Dead)
+            if (!victim.Dead)
             {
-                BodyPartRecord part = victim.health.hediffSet.GetNotMissingParts().RandomElement();
-                Hediff_Injury injury = (Hediff_Injury)HediffMaker.MakeHediff(HediffDef.Named("DeathReturns"), victim, part);
-                injury.Severity = damageAmount;
-                victim.health.AddHediff(injury, part, dinfo);
+                if (victim.health.hediffSet.GetNotMissingParts().TryRandomElement(out BodyPartRecord part))
+                {
+                    Hediff_Injury injury = (Hediff_Injury)HediffMaker.MakeHediff(HediffDef.Named("DeathReturns"), victim, part);
+                    injury.Severity = damageAmount;
+                    victim.health.AddHediff(injury, part, dinfo);
+                }
 
-                float extraSeverity = damageAmount * 0.2f;
-                HealthUtility.AdjustSeverity(victim, HediffDef.Named("EternalSleepInFantasy"), extraSeverity);
+                victim.Drawer?.Notify_DamageApplied(dinfo);
+
+                if (dinfo.Def.impactSoundType != null)
+                {
+                    ImpactSoundUtility.PlayImpactSound(victim, dinfo.Def.impactSoundType, victim.Map);
+                }
+
+                victim.mindState?.Notify_DamageTaken(dinfo);
+                if (victim.Faction != null && launcher != null && launcher.Faction != null)
+                {
+                    victim.Faction.Notify_MemberTookDamage(victim, dinfo);
+                }
+
+                if (victim.stances != null)
+                {
+                    if (victim.stances.stunner != null)
+                    {
+                        victim.stances.stunner.StunFor(95, this.launcher);
+                    }
+
+                    if (victim.stances.curStance is Stance_Busy)
+                    {
+                        victim.stances.SetStance(new Stance_Mobile());
+                    }
+                }
             }
         }
     }

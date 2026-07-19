@@ -824,7 +824,7 @@
 		<label>蝶舞幽冥扇</label>
 		<description>西行寺幽幽子的折扇，拥有引导死亡的能力，翩翩起舞的死蝶将带走被命中者的灵魂。
 
-这把扇子会直接击中敌人的灵魂,无法被任何防御手段抵挡,对敌人造成足够伤害后会直接使敌人死亡,消耗符卡后便可以发动极其强大的能力</description>
+这把扇子会直接击中敌人的灵魂,无视承伤且必定造成硬直,消耗符卡后便可以发动极其强大的能力</description>
 		<descriptionHyperlinks>
 			<ThingDef>PowerPoint</ThingDef> 
 			<ThingDef>FullPower</ThingDef> 
@@ -911,7 +911,7 @@
 		</graphicData>
 		<projectile>
 			<damageDef>DeathButterflyFloatingMoon</damageDef>
-			<damageAmountBase>1</damageAmountBase>
+			<damageAmountBase>5</damageAmountBase>
 			<stoppingPower>0</stoppingPower>
 			<speed>20</speed>
 		</projectile>
@@ -934,7 +934,7 @@
 		</graphicData>
 		<projectile>
 			<damageDef>DeathButterflyFloatingMoon</damageDef>
-			<damageAmountBase>1</damageAmountBase>
+			<damageAmountBase>5</damageAmountBase>
 			<stoppingPower>0</stoppingPower>
 			<speed>20</speed>
 		</projectile>
@@ -957,7 +957,7 @@
 		</graphicData>
 		<projectile>
 			<damageDef>DeathButterflyFloatingMoon</damageDef>
-			<damageAmountBase>1</damageAmountBase>
+			<damageAmountBase>5</damageAmountBase>
 			<stoppingPower>0</stoppingPower>
 			<speed>20</speed>
 		</projectile>
@@ -980,7 +980,7 @@
 		</graphicData>
 		<projectile>
 			<damageDef>DeathButterflyFloatingMoon</damageDef>
-			<damageAmountBase>1</damageAmountBase>
+			<damageAmountBase>5</damageAmountBase>
 			<stoppingPower>0</stoppingPower>
 			<speed>20</speed>
 		</projectile>
@@ -1053,12 +1053,6 @@
 		<defaultArmorPenetration>2</defaultArmorPenetration>
 		<buildingDamageFactorImpassable>1</buildingDamageFactorImpassable>
 		<buildingDamageFactorPassable>1</buildingDamageFactorPassable>
-		<additionalHediffs>
-			<li>
-				<hediff>EternalSleepInFantasy</hediff>
-				<severityFixed>0.05</severityFixed>
-			</li>
-		</additionalHediffs>
 	</DamageDef>
 
 	<HediffDef ParentName="InjuryBase">
@@ -1091,96 +1085,7 @@
 			<destroyedLabel>12</destroyedLabel>
 			<destroyedOutLabel>部位缺失</destroyedOutLabel>
 		</injuryProps>
-	</HediffDef>
-
-	<HediffDef>
-		<defName>EternalSleepInFantasy</defName>
-		<label>生者必灭之理</label>
-		<hediffClass>HediffWithComps</hediffClass>
-		<defaultLabelColor>(255,153,204)</defaultLabelColor>
-		<description>受到了来自那个世界的邀请</description>
-		<maxSeverity>1.0</maxSeverity>
-      	<stages>
-			<li>
-				<label>眩惑</label>
-				<minSeverity>0.2</minSeverity>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<setMax>0.8</setMax>
-					</li>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>-0.2</offset> 
-					</li>
-				</capMods>
-			</li>
-			<li>
-				<label>死蝶</label>
-				<minSeverity>0.4</minSeverity>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<setMax>0.6</setMax>
-					</li>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>-0.4</offset> 
-					</li>
-				</capMods>
-			</li>
-			<li>
-				<label>毒蛾</label>
-				<minSeverity>0.6</minSeverity>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<setMax>0.4</setMax>
-					</li>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>-0.6</offset> 
-					</li>
-				</capMods>
-			</li>
-			<li>
-				<label>魔境</label>
-				<minSeverity>0.8</minSeverity>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<setMax>0.2</setMax>
-					</li>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>-0.8</offset> 
-					</li>
-				</capMods>
-			</li>
-			<li>
-				<label>通往黄泉的不归路</label>
-				<minSeverity>0.9</minSeverity>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<setMax>0</setMax>
-					</li>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>-1</offset> 
-					</li>
-				</capMods>
-			</li>
-        </stages>
-		<comps>
-			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-0.1</severityPerDay>
-				<showHoursToRecover>true</showHoursToRecover>
-			</li>
-		</comps>
-	</HediffDef>
-	
-	
+	</HediffDef>	
 	
 	<!--铃仙-->
 	
