@@ -1089,8 +1089,6 @@
 	
 	<!--铃仙-->
 	
-	
-	
 	<ThingDef ParentName="BaseBullet">
 		<defName>MindStarMine</defName>
 		<label>月之波纹</label>
@@ -1103,6 +1101,7 @@
 		<projectile>
 			<damageDef>LunaticRedEyes</damageDef>
 			<damageAmountBase>5</damageAmountBase>
+			<armorPenetrationBase>999</armorPenetrationBase>
 			<stoppingPower>1</stoppingPower>
 			<speed>65</speed>
 		</projectile>
@@ -1143,13 +1142,16 @@
 		<hediffClass>HediffWithComps</hediffClass>
 		<maxSeverity>1.0</maxSeverity>
 		<comps>
-			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-6</severityPerDay>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>360</disappearsAfterTicks>
+                <showRemainingTime>true</showRemainingTime>
+            </li>
+			<li Class="merissu.HediffCompProperties_RemoveMentalState">
+				<mentalState>Berserk</mentalState>
 			</li>
 		</comps>
 		<stages>
 			<li>
-				<label>赤眼催眠</label>
 				<mentalStateGivers>
 					<li>
 						<mentalState>Berserk</mentalState>
@@ -1180,17 +1182,17 @@
 		<additionalHediffs>
 			<li>
 				<hediff>MindShaker</hediff>
-				<severityPerDamageDealt>1</severityPerDamageDealt>
-				<victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+				<severityFixed>1</severityFixed>
 			</li>
 		</additionalHediffs>
 	</DamageDef>
+
 	<ThingDef ParentName="TH_RangeWeapon">
 		<defName>MoonRabbitWaveGun</defName>
 		<label>月兔波动枪</label>
 		<description>铃仙所使用的武器,可以发射影响人的精神的子弹,还可以操控各种波长。
 
-消耗符卡后可以使用较为强大的能力</description>
+子弹会短暂使人陷入狂暴,消耗符卡后可以使用较为强大的能力</description>
 		<descriptionHyperlinks>
             <ThingDef>PowerPoint</ThingDef> 
             <ThingDef>FullPower</ThingDef> 

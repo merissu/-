@@ -334,6 +334,13 @@
 		</stages>
 	</HediffDef>
 
+	<PathGridDef>
+		<defName>GhostFlyingGrid</defName>
+		<fencePassable>true</fencePassable>
+		<flying>true</flying>
+		<workerType>merissu.GhostPathGrid</workerType>
+	</PathGridDef>
+
     <AbilityDef>
 		<defName>ResurrectionButterfly</defName>
 		<label>「西行寺无余涅槃」</label>
