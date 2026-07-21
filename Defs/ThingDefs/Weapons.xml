@@ -1105,8 +1105,34 @@
 			<stoppingPower>1</stoppingPower>
 			<speed>65</speed>
 		</projectile>
+		<comps>
+		<li Class="merissu.CompProperties_UdongeDeathBurst">
+				<particleMoteDef>Mote_UdongeParticle</particleMoteDef>
+				<particleCount>10</particleCount>
+				<minSpeed>5</minSpeed>
+				<maxSpeed>6</maxSpeed>
+				<minScale>0.01</minScale>
+				<maxScale>0.1</maxScale>
+			</li>		
+		</comps>
 	</ThingDef>
 	
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_UdongeParticle</defName>
+		<thingClass>MoteThrown</thingClass>
+		<graphicData>
+			<texPath>Projectiles/udonge/bulletAa002</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.1,0.1)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<mote>
+			<fadeInTime>0</fadeInTime>
+			<solidTime>0.1</solidTime>
+			<fadeOutTime>0.1</fadeOutTime>
+		</mote>
+	</ThingDef>
+
 	<HediffDef ParentName="InjuryBase">
 		<defName>CrazyMoonWave</defName>
 		<label>中弹</label>
@@ -1241,12 +1267,10 @@
 		</recipeMaker>
 		<verbs>
 			<li>
-				<verbClass>Verb_Shoot</verbClass>
+				<verbClass>merissu.Verb_WaveGunRandomShoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>MindStarMine</defaultProjectile>
 				<warmupTime>0.5</warmupTime>
-				<burstShotCount>1</burstShotCount>
-				<ticksBetweenBurstShots>30</ticksBetweenBurstShots>
 				<range>20</range>
 				<soundCast>udongegun</soundCast>
 				<soundCastTail>GunTail_Light</soundCastTail>
