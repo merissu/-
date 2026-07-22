@@ -336,29 +336,6 @@
       <li>CE_OneHandedWeapon</li>
     </weaponTags>
   </Operation>
-
-  <Operation Class="PatchOperationAdd">
-    <xpath>Defs</xpath>
-    <value>
-      <ThingDef ParentName="BaseBulletCE">
-        <defName>MindStarMine</defName>
-        <label>月之波纹</label>
-        <graphicData>
-          <texPath>Weapons/Bullet/GunBullet</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(1.5,1.5)</drawSize>
-        </graphicData>
-        <projectile Class="CombatExtended.ProjectilePropertiesCE">
-          <damageDef>LunaticRedEyes</damageDef>
-          <damageAmountBase>8</damageAmountBase> 
-          <armorPenetrationSharp>999</armorPenetrationSharp> 
-          <armorPenetrationBlunt>0</armorPenetrationBlunt>
-          <speed>50</speed>
-        </projectile>
-      </ThingDef>
-    </value>
-  </Operation>            
-
               <!-- 绯想之剑 -->
 
   <Operation Class="PatchOperationReplace">

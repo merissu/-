@@ -52,7 +52,8 @@ namespace merissu
             {
                 availableModes = new List<WaveGunAttackMode>
                 {
-                    new AttackMode_WaveGunBurst5() //这里添加模式
+                    new AttackMode_WaveGunBurst5(),
+                    new AttackMode_WaveGunChargeExplode()//这里添加模式
                 };
             }
         }

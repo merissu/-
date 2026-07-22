@@ -134,6 +134,7 @@
     <Compile Include="星熊杯\CompProperties_YugiCup.cs" />
     <Compile Include="星熊杯\CompYugiCup.cs" />
     <Compile Include="星熊杯\HediffCompProperties_DaiginjoController .cs" />
+    <Compile Include="月兔波动枪\AttackMode_WaveGunCharged.cs" />
     <Compile Include="月兔波动枪\HediffCompProperties_RemoveMentalState.cs" />
     <Compile Include="月兔波动枪\AttackMode_MoonRabbitBurstSpread.cs" />
     <Compile Include="月兔波动枪\Verb_MoonRabbitRandomShoot.cs" />
