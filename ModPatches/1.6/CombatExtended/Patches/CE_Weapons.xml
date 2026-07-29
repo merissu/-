@@ -246,6 +246,24 @@
 	</Operation>
 
 	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="HakkeroLaser"]/tools</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>八卦炉</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>6</power> 
+          <cooldownTime>1</cooldownTime>
+					<armorPenetrationBlunt>4.5</armorPenetrationBlunt> 
+          <linkedBodyPartsGroup>Base</linkedBodyPartsGroup>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/ThingDef[defName="Projectile_HakkeroFlame"]</xpath>
 		<value>
 			<ThingDef ParentName="BaseBulletCE"> 

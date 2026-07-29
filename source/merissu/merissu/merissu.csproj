@@ -106,6 +106,9 @@
     <Compile Include="伊吹瓢\Ability_superalcohol.cs" />
     <Compile Include="伊吹瓢\CompProperties_SuikaGourd.cs" />
     <Compile Include="伊吹瓢\Patch_SatisfyChemicalNeed_DrugValidator.cs" />
+    <Compile Include="八卦炉攻击类\CompProperties_ToggleHakkeroMode .cs" />
+    <Compile Include="八卦炉攻击类\HakkeroCode.cs" />
+    <Compile Include="八卦炉攻击类\Verb_HakkeroRandomShoot.cs" />
     <Compile Include="子弹特效补全\CompButterflyDeathBurst.cs" />
     <Compile Include="子弹特效补全\CompProperties_ProjectileTrail.cs" />
     <Compile Include="子弹特效补全\Comp_GateShockwave.cs" />

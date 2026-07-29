@@ -22,7 +22,8 @@ namespace merissu
         {
             public static void Postfix(Thing __instance, ref Graphic __result)
             {
-                if (__instance.def.defName == "Hakkero" && __instance.ParentHolder is Pawn_EquipmentTracker eq)
+                if ((__instance.def.defName == "Hakkero" || __instance.def.defName == "HakkeroLaser")
+                    && __instance.ParentHolder is Pawn_EquipmentTracker eq)
                 {
                     Pawn pawn = eq.pawn;
                     if (pawn == null) return;
@@ -31,7 +32,11 @@ namespace merissu
                         pawn.health.hediffSet.HasHediff(HediffDef.Named("FinalMasterSpark")))
                     {
                         if (graphicFiring == null)
-                            graphicFiring = GraphicDatabase.Get<Graphic_Single>("Weapons/firingHakkero", __instance.def.graphic.Shader, __instance.def.graphic.drawSize, __instance.def.graphic.Color);
+                            graphicFiring = GraphicDatabase.Get<Graphic_Single>(
+                                "Weapons/firingHakkero",
+                                __instance.def.graphic.Shader,
+                                __instance.def.graphic.drawSize,
+                                __instance.def.graphic.Color);
                         __result = graphicFiring;
                         return;
                     }
@@ -39,7 +44,11 @@ namespace merissu
                     if (pawn.health.hediffSet.HasHediff(HediffDef.Named("MarisaCardDeclared")))
                     {
                         if (graphicReady == null)
-                            graphicReady = GraphicDatabase.Get<Graphic_Single>("Weapons/readyHakkero", __instance.def.graphic.Shader, __instance.def.graphic.drawSize, __instance.def.graphic.Color);
+                            graphicReady = GraphicDatabase.Get<Graphic_Single>(
+                                "Weapons/readyHakkero",
+                                __instance.def.graphic.Shader,
+                                __instance.def.graphic.drawSize,
+                                __instance.def.graphic.Color);
                         __result = graphicReady;
                         return;
                     }
