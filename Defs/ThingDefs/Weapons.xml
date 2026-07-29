@@ -882,16 +882,16 @@
 			<Crimsongold>60</Crimsongold>
 		</costList>
 		<verbs>
-		<li>
-			<verbClass>merissu.Verb_HakkeroRandomShoot</verbClass>
-			<label>弹幕模式</label>
-			<hasStandardCommand>true</hasStandardCommand>
-			<range>40</range>
-			<defaultProjectile>Bullet_MarisaShotA</defaultProjectile>
-			<targetParams>
-			<canTargetLocations>false</canTargetLocations>
-			</targetParams>
-		</li>
+			<li>
+				<verbClass>merissu.Verb_HakkeroRandomShoot</verbClass>
+				<label>弹幕模式</label>
+				<hasStandardCommand>true</hasStandardCommand>
+				<range>40</range>
+				<defaultProjectile>Bullet_MarisaShotA</defaultProjectile>
+				<targetParams>
+				<canTargetLocations>false</canTargetLocations>
+				</targetParams>
+			</li>
 		</verbs>
 		<tools>
 			<li>
@@ -950,6 +950,113 @@
 		<tickerType>Normal</tickerType>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<selectable>false</selectable>
+	</ThingDef>
+
+	<ThingDef ParentName="TH_RangeWeapon">
+		<defName>Hakkerobiglaser</defName>
+		<label>八卦炉</label>
+		<description>雾雨魔理沙的武器。一个以魔力为燃料的小型八卦炉,外观呈八棱柱形。
+
+它由森近霖之助打造,霖之助将一种“把空气变洁净的道具”熔了进去,之后又被霖之助改造,往里掺入了绯绯色金。
+
+能够发射激光和弹幕,也可以喷射火焰,消耗符卡后可以发动强大的能力</description>
+		<descriptionHyperlinks>
+			<ThingDef>PowerPoint</ThingDef> 
+			<ThingDef>FullPower</ThingDef> 
+			<ThingDef>spellcard</ThingDef> 
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Weapons/firingHakkero</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.85,0.85)</drawSize>
+		</graphicData>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<relicChance>3</relicChance>
+		<statBases>
+			<WorkToMake>10000</WorkToMake>
+			<MarketValue>3700</MarketValue>
+			<SellPriceFactor>0.1</SellPriceFactor>
+			<Mass>1</Mass>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.9</AccuracyShort>
+			<AccuracyMedium>0.9</AccuracyMedium>
+			<AccuracyLong>0.9</AccuracyLong>
+			<Flammability>0</Flammability>
+			<RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>Touhou</li>
+		</weaponTags>
+		<costList>
+			<SpiritualWood>50</SpiritualWood>
+			<FullPower>2</FullPower>
+			<Crimsongold>60</Crimsongold>
+		</costList>
+		<verbs>
+			<li>
+				<verbClass>merissu.Verb_ShootHakkeroLaser</verbClass>
+				<label>激光模式</label>
+				<hasStandardCommand>true</hasStandardCommand>
+				<warmupTime>1.5</warmupTime>
+				<range>999</range>
+				<minRange>7</minRange>
+				<burstShotCount>1</burstShotCount>
+				<defaultProjectile>HakureiTalisman</defaultProjectile>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>八卦炉</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>1</cooldownTime>
+			</li>
+		</tools>
+			<comps>
+				<li Class="merissu.CompProperties_EquippableMultiAbility">
+					<abilityDefs>
+						<li>Hakkerocard</li>
+						<li>ToggleHakkeroMode</li>
+					</abilityDefs>
+				</li>
+			</comps>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>HakkeroLaserBeam</defName>
+		<label>激光</label>
+		<thingClass>merissu.Thing_HakkeroLaserBeam</thingClass>
+		<category>Mote</category>
+		<altitudeLayer>Weather</altitudeLayer>
+		<drawOffscreen>true</drawOffscreen>
+		<selectable>false</selectable>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Other/null</texPath>
+			<drawSize>(250,250)</drawSize>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>HakkeroLaserWave</defName>
+		<label>激光波纹</label>
+		<thingClass>merissu.Thing_HakkeroLaserWave</thingClass>
+		<category>Mote</category>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<selectable>false</selectable>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Projectiles/MARISA/shotA/bulletAb003</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
 	</ThingDef>
 	<!--uuz-->
 	<ThingDef ParentName="TH_RangeWeapon">

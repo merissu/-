@@ -109,6 +109,7 @@
     <Compile Include="八卦炉攻击类\CompProperties_ToggleHakkeroMode .cs" />
     <Compile Include="八卦炉攻击类\HakkeroCode.cs" />
     <Compile Include="八卦炉攻击类\Verb_HakkeroRandomShoot.cs" />
+    <Compile Include="八卦炉攻击类\Verb_ShootHakkeroLaser.cs" />
     <Compile Include="子弹特效补全\CompButterflyDeathBurst.cs" />
     <Compile Include="子弹特效补全\CompProperties_ProjectileTrail.cs" />
     <Compile Include="子弹特效补全\Comp_GateShockwave.cs" />

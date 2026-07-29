@@ -27,14 +27,26 @@ namespace merissu
             if (oldWeapon == null) return;
 
             ThingDef newDef = null;
+            string message = null;
+            MessageTypeDef messageType = MessageTypeDefOf.NeutralEvent;
 
             if (oldWeapon.def.defName == "Hakkero")
             {
                 newDef = DefDatabase<ThingDef>.GetNamed("HakkeroLaser");
+                message = "切换为弹幕模式";
+                messageType = MessageTypeDefOf.CautionInput;
             }
             else if (oldWeapon.def.defName == "HakkeroLaser")
             {
+                newDef = DefDatabase<ThingDef>.GetNamed("Hakkerobiglaser");
+                message = "切换为激光模式";
+                messageType = MessageTypeDefOf.CautionInput;
+            }
+            else if (oldWeapon.def.defName == "Hakkerobiglaser")
+            {
                 newDef = DefDatabase<ThingDef>.GetNamed("Hakkero");
+                message = "八卦炉切换为火焰喷射模式";
+                messageType = MessageTypeDefOf.NeutralEvent;
             }
             else
             {
@@ -51,18 +63,13 @@ namespace merissu
                 newQuality.SetQuality(oldQuality.Quality, ArtGenerationContext.Colony);
             }
 
-
             equipment.Remove(oldWeapon);
             oldWeapon.Destroy();
             equipment.AddEquipment(newWeapon);
 
-            if (newDef.defName == "HakkeroLaser")
+            if (!message.NullOrEmpty())
             {
-                Messages.Message("切换为弹幕模式", MessageTypeDefOf.CautionInput);
-            }
-            else
-            {
-                Messages.Message("八卦炉切换为火焰喷射模式", MessageTypeDefOf.NeutralEvent);
+                Messages.Message(message, messageType);
             }
         }
     }
