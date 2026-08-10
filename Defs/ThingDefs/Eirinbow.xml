@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 永琳的弓箭本体 -->
+  <ThingDef ParentName="TH_RangeWeapon">
+    <defName>EirinBow</defName>
+    <label>蓬莱弓</label>
+    <description>八意永琳使用的长弓，射出的箭矢带有蓬莱之毒。</description>
+    <graphicData>
+      <texPath>Items/eirinbow</texPath>   <!-- 弓箭贴图路径 -->
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+	<soundInteract>Bow_Large</soundInteract>
+    <equippedAngleOffset>45</equippedAngleOffset>
+    <uiIconScale>1.0</uiIconScale>
+    <soundInteract>Interact_Bow</soundInteract>
+    <statBases>
+      <WorkToMake>4000</WorkToMake>
+	  <MarketValue>800</MarketValue> 
+      <Mass>1</Mass>
+      <AccuracyTouch>1.0</AccuracyTouch>
+      <AccuracyShort>0.95</AccuracyShort>
+      <AccuracyMedium>0.9</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+    </statBases>
+    <techLevel>Medieval</techLevel>
+    <weaponTags>
+      <li>Touhou</li>
+      <li>Bow</li>
+    </weaponTags>
+		<equippedStatOffsets>
+			<ShootingAccuracyPawn>10</ShootingAccuracyPawn>
+		</equippedStatOffsets>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+    <costList>
+      <SpiritualWood>60</SpiritualWood>
+      <MakaiShinkiCloth>20</MakaiShinkiCloth>
+    </costList>
+    <recipeMaker>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <displayPriority>400</displayPriority>
+      <recipeUsers>
+        <li>TableHifuuClub</li>
+      </recipeUsers>
+      <researchPrerequisite>PowerPoint</researchPrerequisite>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>EirinArrow</defaultProjectile>
+        <warmupTime>1.5</warmupTime>
+        <range>40</range>
+        <soundCast>Shot_Bow</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>6</muzzleFlashScale>
+		<soundCast>Bow_Large</soundCast>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>弓臂敲击</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.0</cooldownTime>
+      </li>
+    </tools>
+	<comps>
+		<li Class="merissu.CompProperties_WearerHediff">
+			<hediff>EirinBow_Equipped</hediff>
+		</li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>EirinArrow</defName>
+    <label>蓬莱箭</label>
+    <graphicData>
+      <texPath>Items/eirinarrow</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.2,1.2)</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>EirinPoison</damageDef>   <!-- 使用自定义伤害类型 -->
+      <speed>50</speed>
+      <damageAmountBase>20</damageAmountBase>
+      <stoppingPower>1</stoppingPower>
+    </projectile>
+  </ThingDef>
+  
+  <HediffDef>
+    <defName>EirinPoisonHediff</defName>
+    <label>蓬莱之毒</label>
+    <description>被蓬莱之毒侵蚀着，一旦在体内积累满5层就会瞬间死亡。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>1.0</maxSeverity>   <!-- 满层 = 1.0 -->
+    <comps>
+      <!-- 自动衰减：每天减少0.2严重度（1天掉1层） -->
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.2</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+      <!-- 自定义组件：满层触发斩杀 -->
+      <li Class="TouhouExpansion.HediffCompProperties_EirinPoisonKill" />
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>一层</label>
+      </li>
+      <li>
+        <minSeverity>0.2</minSeverity>
+        <label>二层</label>
+      </li>
+      <li>
+        <minSeverity>0.4</minSeverity>
+        <label>三层</label>
+      </li>
+      <li>
+        <minSeverity>0.6</minSeverity>
+        <label>四层</label>
+      </li>
+      <li>
+        <minSeverity>0.8</minSeverity>
+        <label>五层</label>
+      </li>
+    </stages>
+  </HediffDef>
+  
+<DamageDef ParentName="Arrow">
+  <defName>EirinPoison</defName>
+  <label>蓬莱之毒</label>
+  <workerClass>DamageWorker_AddInjury</workerClass>
+  <externalViolence>true</externalViolence>
+  <deathMessage>{0} 被月之毒侵蚀殆尽。</deathMessage>
+  <!-- 移除 impactSoundType 和 armorCategory -->
+  <additionalHediffs>
+    <li>
+      <hediff>EirinPoisonHediff</hediff>
+      <severityPerDamageDealt>0.01</severityPerDamageDealt>
+      <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+    </li>
+  </additionalHediffs>
+</DamageDef>
+
+<AbilityDef>
+  <defName>Eirin_Heal</defName>
+  <label>蓬莱急救术</label>
+  <description>消耗1层灵力，瞬间治愈目标所有负面状态。</description>
+  <abilityClass>TouhouExpansion.Ability_EirinHeal</abilityClass>
+  <cooldownTicksRange>600</cooldownTicksRange>
+  <targetRequired>true</targetRequired>
+  <verbProperties>
+    <verbClass>Verb_CastAbility</verbClass>
+    <range>40</range>
+    <warmupTime>0.5</warmupTime>
+    <targetParams>
+      <canTargetSelf>true</canTargetSelf>
+      <canTargetAnimals>true</canTargetAnimals>
+      <canTargetPawns>true</canTargetPawns>
+    </targetParams>
+  </verbProperties>
+  <iconPath>Items/eirinheal</iconPath>
+</AbilityDef>
+
+<AbilityDef>
+  <defName>Eirin_MillionArrows</defName>
+  <label>蓬莱箭雨</label>
+  <description>消耗1层灵力，向前方扇形区域射出大量箭矢。</description>
+  <abilityClass>TouhouExpansion.Ability_EirinMillionArrows</abilityClass>
+  <cooldownTicksRange>600</cooldownTicksRange>   <!-- 10秒冷却 -->
+  <targetRequired>true</targetRequired>
+  <verbProperties>
+    <verbClass>Verb_CastAbility</verbClass>
+    <range>40</range>
+    <warmupTime>0.5</warmupTime>
+	<soundCast>spell</soundCast>
+    <targetParams>
+  <canTargetSelf>true</canTargetSelf>
+  <canTargetAnimals>true</canTargetAnimals>
+  <canTargetPawns>true</canTargetPawns>
+    </targetParams>
+  </verbProperties>
+  <iconPath>Items/eirinarrowrain</iconPath>
+</AbilityDef>
+
+<HediffDef>
+  <defName>EirinBow_Equipped</defName>
+  <label>蓬莱弓装备中</label>
+  <description>装备了八意永琳的蓬莱弓。</description>
+  <hediffClass>HediffWithComps</hediffClass>
+  <isBad>false</isBad>
+  <maxSeverity>1.0</maxSeverity>
+  <abilities>
+    <li>Eirin_Heal</li>
+	<li>Eirin_MillionArrows</li>
+  </abilities>
+</HediffDef>
+
+<ThingDef>
+  <defName>EirinMillionArrowsEmitter</defName>
+  <label>蓬莱箭雨发射器</label>
+  <thingClass>TouhouExpansion.Thing_EirinMillionArrowsEmitter</thingClass>
+  <category>Ethereal</category>
+  <selectable>false</selectable>
+  <drawGUIOverlay>false</drawGUIOverlay>
+  <tickerType>Normal</tickerType>
+  <altitudeLayer>MoteOverhead</altitudeLayer>
+  <useHitPoints>false</useHitPoints>
+ <graphicData>
+  <texPath>Items/kongbai</texPath>
+  <graphicClass>Graphic_Single</graphicClass>
+</graphicData>
+</ThingDef>
+</Defs>
