@@ -3,6 +3,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Reflection.Emit;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -17,8 +18,9 @@ namespace merissu
         public SakuyaMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<SakuyaSettings>();
-        }
 
+            YayoAnimation_Compat_Patch.Initialize();
+        }
         public override string SettingsCategory() => "咲夜的世界";
 
         public override void DoSettingsWindowContents(Rect inRect)
@@ -31,7 +33,266 @@ namespace merissu
             Settings.Write();
         }
     }
+    [StaticConstructorOnStartup]
 
+    public static class YayoAnimation_Compat_Patch
+    {
+        private static bool initialized;
+
+        private static int slowStartTick;
+        public static IEnumerable<CodeInstruction> Transpiler_AniMovement(
+    IEnumerable<CodeInstruction> instructions)
+        {
+            MethodInfo ticksGameGetter =
+                AccessTools.PropertyGetter(
+                    typeof(TickManager),
+                    nameof(TickManager.TicksGame));
+
+            MethodInfo replacement =
+                AccessTools.Method(
+                    typeof(YayoAnimation_Compat_Patch),
+                    nameof(GetYayoTicksGame),
+                    new[] { typeof(TickManager) });
+
+            if (ticksGameGetter == null ||
+                replacement == null)
+            {
+                foreach (CodeInstruction instruction in instructions)
+                {
+                    yield return instruction;
+                }
+
+                yield break;
+            }
+
+            foreach (CodeInstruction instruction in instructions)
+            {
+                if (instruction.Calls(ticksGameGetter))
+                {
+                    yield return new CodeInstruction(
+                        OpCodes.Call,
+                        replacement);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
+        }
+        public static void Initialize()
+        {
+            if (initialized)
+                return;
+
+            initialized = true;
+
+            Log.Message("[Merissu] 正在检查 Yayo Animation...");
+
+            try
+            {
+                Type animationCoreType =
+                    FindType("YayoAnimation.AnimationCore");
+
+                if (animationCoreType == null)
+                {
+                    Log.Message(
+                        "[Merissu] 未找到 YayoAnimation.AnimationCore，" +
+                        "跳过 Yayo 兼容补丁。");
+                    return;
+                }
+
+                Log.Message(
+                    "[Merissu] 找到 YayoAnimation.AnimationCore，" +
+                    "准备 Patch CheckAni。");
+
+                MethodInfo checkAniMethod =
+                    AccessTools.Method(
+                        animationCoreType,
+                        "CheckAni");
+
+                if (checkAniMethod == null)
+                {
+                    Log.Warning(
+                        "[Merissu] 找到 AnimationCore，" +
+                        "但没有找到 CheckAni。");
+                    return;
+                }
+
+                Harmony harmony =
+                    new Harmony("merissu.yayoanimation.compat");
+
+                harmony.Patch(
+                    checkAniMethod,
+                    prefix: new HarmonyMethod(
+                        typeof(YayoAnimation_Compat_Patch),
+                        nameof(Prefix_CheckAni)));
+
+                MethodInfo aniMovementMethod =
+                    AccessTools.Method(
+                        animationCoreType,
+                        "AniMovement");
+
+                if (aniMovementMethod != null)
+                {
+                    harmony.Patch(
+                        aniMovementMethod,
+                        transpiler: new HarmonyMethod(
+                            typeof(YayoAnimation_Compat_Patch),
+                            nameof(Transpiler_AniMovement)));
+
+                    Log.Message(
+                        "[Merissu] Yayo AniMovement 时缓兼容补丁加载成功！");
+                }
+                Log.Message(
+                    "[Merissu] Yayo Animation 时停 / 时缓兼容补丁加载成功！");
+            }
+            catch (Exception e)
+            {
+                Log.Error(
+                    "[Merissu] Yayo Animation 兼容补丁加载失败:\n" +
+                    e);
+            }
+        }
+
+        private static Type FindType(string fullName)
+        {
+            Type type = Type.GetType(fullName);
+
+            if (type != null)
+                return type;
+
+            Assembly[] assemblies =
+                AppDomain.CurrentDomain.GetAssemblies();
+
+            foreach (Assembly assembly in assemblies)
+            {
+                try
+                {
+                    type = assembly.GetType(
+                        fullName,
+                        false);
+
+                    if (type != null)
+                        return type;
+                }
+                catch
+                {
+                }
+            }
+
+            return null;
+        }
+
+
+        public static bool Prefix_CheckAni(Pawn pawn)
+        {
+            if (!TimeStopManager.IsTimeStopped)
+                return true;
+
+            if (SakuyaMod.Settings == null ||
+                !SakuyaMod.Settings.pauseAnimations)
+            {
+                return true;
+            }
+
+            if (pawn == null)
+                return true;
+
+            if (pawn == TimeStopManager.TimeStopOwner)
+                return true;
+
+            if (TimeStopManager.IsProtected(pawn))
+                return true;
+
+            return false;
+        }
+
+
+        public static IEnumerable<CodeInstruction> Transpiler_CheckAni(
+            IEnumerable<CodeInstruction> instructions)
+        {
+            MethodInfo ticksGameGetter =
+                AccessTools.PropertyGetter(
+                    typeof(TickManager),
+                    nameof(TickManager.TicksGame));
+
+            MethodInfo replacement =
+                AccessTools.Method(
+                    typeof(YayoAnimation_Compat_Patch),
+                    nameof(GetYayoTicksGame),
+                    new[] { typeof(TickManager) });
+
+            if (ticksGameGetter == null ||
+                replacement == null)
+            {
+                Log.Warning(
+                    "[Merissu] Yayo Animation Transpiler 找不到 TicksGame getter 或替换方法。");
+
+                foreach (CodeInstruction instruction in instructions)
+                {
+                    yield return instruction;
+                }
+
+                yield break;
+            }
+
+            foreach (CodeInstruction instruction in instructions)
+            {
+                if (instruction.Calls(ticksGameGetter))
+                {
+                    yield return new CodeInstruction(
+                        OpCodes.Call,
+                        replacement);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
+        }
+        public static int GetYayoTicksGame(TickManager _)
+        {
+            if (TimeStopManager.IsTimeStopped)
+            {
+                return TimeStopManager.FrozenTick;
+            }
+
+            if (!PrivateSquareManager.IsActive)
+            {
+                return Find.TickManager.TicksGame;
+            }
+
+            int elapsed =
+                Find.TickManager.TicksGame -
+                slowStartTick;
+
+            if (elapsed <= 0)
+            {
+                return slowStartTick;
+            }
+
+            return
+                slowStartTick +
+                elapsed / 5;
+        }
+
+        public static void StartSlowTime()
+        {
+            slowStartTick =
+                Find.TickManager.TicksGame;
+
+            Log.Message(
+                $"[Merissu] Yayo 时缓开始，基准 Tick = {slowStartTick}");
+        }
+
+        public static void StopSlowTime()
+        {
+            slowStartTick = 0;
+
+            Log.Message(
+                "[Merissu] Yayo 时缓结束。");
+        }
+    }
     public class SakuyaSettings : ModSettings
     {
         public bool pauseProjectiles = true;

@@ -51,6 +51,9 @@ namespace merissu
         public static void Activate(Pawn pawn, int duration)
         {
             IsActive = true;
+
+            YayoAnimation_Compat_Patch.StartSlowTime();
+
             Caster = pawn;
             DurationTicks = duration;
             VisualTimeCounter = Time.timeSinceLevelLoad;
@@ -89,6 +92,8 @@ namespace merissu
         public static void Deactivate()
         {
             if (!IsActive) return;
+
+            YayoAnimation_Compat_Patch.StopSlowTime();
 
             if (Caster != null && Caster.health != null)
             {
