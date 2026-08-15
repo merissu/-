@@ -56,6 +56,12 @@ namespace merissu
 
                     p.mindState?.mentalStateHandler?
                         .TryStartMentalState(MentalStateDefOf.Berserk);
+
+                    HediffDef hediff = DefDatabase<HediffDef>.GetNamedSilentFail("LunaticRedEyeshit");
+                    if (hediff != null)
+                    {
+                        HealthUtility.AdjustSeverity(p, hediff, 0.001f);
+                    }
                 }
             }
         }
