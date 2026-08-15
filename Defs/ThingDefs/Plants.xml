@@ -311,7 +311,7 @@
 		</plant>
 		<comps>
 			<li Class="merissu.CompProperties_PlantWindSway" />
-			<li Class="SpawnPlant.CompProperties_Spawner">
+			<li Class="RimWorld.CompProperties_Spawner">
 				<requiresPower>false</requiresPower>
 				<thingToSpawn>HeavenlyPeach</thingToSpawn>
 				<spawnCount>2</spawnCount>
