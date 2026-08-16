@@ -21,7 +21,17 @@ namespace merissu
     [HarmonyPatch(typeof(BulletCE), "Impact", new Type[] { typeof(Thing) })]
     public static class BulletCE_YoumuParry_Patch
     {
-        public static bool Prefix(Thing hitThing, BulletCE __instance, ref Thing ___launcher, ref Thing ___intendedTarget, ref Ray ___shotLine, ref float ___shotRotation, ref Vector2 ___origin, ref bool ___landed)
+        public static bool Prefix(
+            Thing hitThing,
+            BulletCE __instance,
+            ref Thing ___launcher,
+            ref Thing ___intendedTarget,
+            ref Ray ___shotLine,
+            ref float ___shotRotation,
+            ref float ___shotAngle, 
+            ref Vector2 ___origin,
+            ref bool ___landed,
+            ref float ___shotSpeed)
         {
             if (!(hitThing is Pawn pawn) || pawn.Map == null) return true;
 
@@ -49,19 +59,24 @@ namespace merissu
 
                 ___shotRotation = (___shotRotation + 180f) % 360f;
 
-                ___shotLine = new Ray(___shotLine.origin, -___shotLine.direction);
+                Vector3 flatDirection = -___shotLine.direction;
+                flatDirection.y = 0f;
+                ___shotLine = new Ray(___shotLine.origin, flatDirection.normalized);
+
+                ___shotAngle = 0f;
+
+                ___shotSpeed *= 15f;
 
                 ___launcher = pawn;
 
                 ___landed = false;
-
             }
             else
             {
                 __instance.Destroy(DestroyMode.Vanish);
             }
 
-            return false; 
+            return false;
         }
     }
 }
