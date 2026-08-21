@@ -156,7 +156,7 @@
         <label>「咲夜的世界」</label>
         <description>操作时间的顶峰Spell之一。令周围的时间完全停止,从而进行单方面攻击的犯规级Spell。
 
-使用需要消耗五张符卡,直到再次使用能力前不会解除时停,需要注意的是时停期间子弹也不会移动,所以远程攻击是无效的</description>
+使用需要消耗五张符卡,直到再次使用能力前不会解除时停</description>
         <abilityClass>merissu.SakuyaTheWorld</abilityClass>
         <jobDef>CastAbilityOnThing</jobDef>
         <targetRequired>False</targetRequired>
