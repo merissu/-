@@ -22,7 +22,7 @@
       <AccuracyShort>1.0</AccuracyShort>
       <AccuracyMedium>1.0</AccuracyMedium>
       <AccuracyLong>1.0</AccuracyLong>
-      <RangedWeapon_Cooldown>0.4</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
     </statBases>
     <techLevel>Medieval</techLevel>
     <weaponTags>
@@ -54,7 +54,7 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>EirinArrow</defaultProjectile>
-        <warmupTime>1.6</warmupTime>
+        <warmupTime>1.5</warmupTime>
         <range>40</range>
         <soundCast>Shot_Bow</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
