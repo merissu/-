@@ -58,7 +58,7 @@ namespace merissu
 
             centerTex = ContentFinder<Texture2D>.Get("Other/AbyssNova1");
             sideTex = ContentFinder<Texture2D>.Get("Other/AbyssNova2");
-            raidBannerTex = sideTex; 
+            raidBannerTex = sideTex;
             particleMat = MaterialPool.MatFrom("Other/bulletFd002", ShaderDatabase.MoteGlow);
             particleMat.renderQueue = 4000;
             particles.Clear();
@@ -226,18 +226,77 @@ namespace merissu
                 radius: 79f,
                 damType: DamageDefOf.Bomb,
                 instigator: targetCaster,
-                damAmount: 5000,
+                damAmount: 20000,   // 冲击波伤害大幅上调
                 armorPenetration: 10f,
                 explosionSound: SoundDef.Named("AbyssNova2"),
                 ignoredThings: ignoredList,
                 damageFalloff: false
             );
 
-            foreach (IntVec3 c in GenRadial.RadialCellsAround(center, 79f, true))
+            // 点燃全图：遍历地图所有格子，尝试点火（如果不需要可以删除此段）
+            foreach (IntVec3 c in map.AllCells)
             {
-                if (c.InBounds(map) && Rand.Value < 0.2f)
+                if (c.InBounds(map))
                 {
                     FireUtility.TryStartFireIn(c, map, Rand.Range(0.1f, 0.9f), targetCaster);
+                }
+            }
+
+            // 生成弹坑：每个格子 50% 概率
+            SpawnCraters(map, center, 79f);
+        }
+
+        private static void SpawnCraters(Map map, IntVec3 center, float radius)
+        {
+            // 最大生成数量，可根据性能调整（2000 个弹坑一般仍可承受）
+            int maxCraters = 2000;
+            int spawned = 0;
+
+            foreach (IntVec3 cell in GenRadial.RadialCellsAround(center, radius, true))
+            {
+                if (spawned >= maxCraters)
+                    break;
+
+                if (!cell.InBounds(map))
+                    continue;
+
+                // 50% 概率生成弹坑
+                if (Rand.Value > 0.5f)
+                    continue;
+
+                // 不能生成在已有建筑上（包括原有 Crater）
+                if (cell.GetFirstBuilding(map) != null)
+                    continue;
+
+                // 避免生成到人身上
+                if (cell.GetFirstPawn(map) != null)
+                    continue;
+
+                // 最好只在可行走的地面上生成
+                if (!cell.Walkable(map))
+                    continue;
+
+                // 如果格子上有植物，先清掉，否则可能挡住建筑生成
+                Plant plant = cell.GetPlant(map);
+                if (plant != null)
+                    plant.Destroy(DestroyMode.Vanish);
+
+                // 随机选择弹坑类型，小坑概率最高
+                ThingDef craterDef;
+                float rand = Rand.Value;
+                if (rand < 0.7f)
+                    craterDef = ThingDef.Named("CraterSmall");
+                else if (rand < 0.9f)
+                    craterDef = ThingDef.Named("CraterMedium");
+                else
+                    craterDef = ThingDef.Named("CraterLarge");
+
+                Thing crater = ThingMaker.MakeThing(craterDef);
+                if (crater != null)
+                {
+                    Thing spawnedThing = GenSpawn.Spawn(crater, cell, map, Rot4.North);
+                    if (spawnedThing != null)
+                        spawned++;
                 }
             }
         }
@@ -377,6 +436,7 @@ namespace merissu
             Text.Font = oldFont;
             GUI.color = originalColor;
         }
+
         private static void DrawScrolling(Rect rect, Texture2D tex, float offset, bool leftToRight, float gap)
         {
             if (tex == null) return;
