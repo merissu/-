@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using Verse;
 using Verse.Sound; 
@@ -245,6 +246,46 @@ namespace merissu
                 {
                     PrivateSquareManager.Deactivate();
                 }
+            }
+        }
+    }
+    [StaticConstructorOnStartup]
+    public static class Patch_LoadGame_ClearPrivateSquare
+    {
+        static Patch_LoadGame_ClearPrivateSquare()
+        {
+            Harmony harmony = new Harmony(
+                "merissu.clear.privatesquare.afterload"
+            );
+
+            MethodInfo method = AccessTools.Method(
+                typeof(Game),
+                "FinalizeInit"
+            );
+
+            if (method != null)
+            {
+                harmony.Patch(
+                    method,
+                    postfix:
+                    new HarmonyMethod(
+                        typeof(Patch_LoadGame_ClearPrivateSquare),
+                        nameof(Postfix)
+                    )
+                );
+            }
+        }
+
+
+        public static void Postfix()
+        {
+            if (PrivateSquareManager.IsActive)
+            {
+                Log.Warning(
+                    "读档解除时缓。"
+                );
+
+                PrivateSquareManager.Deactivate();
             }
         }
     }
