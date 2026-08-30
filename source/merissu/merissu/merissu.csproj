@@ -170,6 +170,7 @@
     <Compile Include="符卡系列\NoachianDeluge\Mote_BulletDestroyFade.cs" />
     <Compile Include="符卡系列\Photosynthesis\HediffCompProperties_Photosynthesis.cs" />
     <Compile Include="符卡系列\tenshicard\Skyfaller_TenshiStone .cs" />
+    <Compile Include="符卡系列\udongecard\HediffCompProperties_InfraredMoonEffect.cs" />
     <Compile Include="符卡系列\youmucard\YoumuHarmonyInit.cs" />
     <Compile Include="符卡系列\youmucard\YoumuRapidSlashVisualState.cs" />
     <Compile Include="告春精\IncidentWorker_ZayuLily.cs" />

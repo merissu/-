@@ -57,7 +57,7 @@
         <label>长视「赤月下」</label>
         <description>大幅解放疯狂视线的能力,变为四处散发混乱波长的状态,暂时无法为周围所认知。
 
-需要消耗一张符卡,使用后使用者会处于一段时间的隐形,并且无法被攻击到。
+需要消耗一张符卡,使用后使用者会处于一段时间的隐形
 
 似乎是铃仙并不怎么想和他人接触的缘故，日常生活中也偶尔会用到。</description>
         <abilityClass>merissu.Ability_InfraredMoon</abilityClass>
@@ -98,6 +98,7 @@
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
 		<comps>
+			<li Class="merissu.HediffCompProperties_InfraredMoonEffect"/>
 			<li Class="HediffCompProperties_Invisibility">
 				<visibleToPlayer>true</visibleToPlayer>
 			</li>
@@ -109,12 +110,26 @@
 		<stages>
 			<li>
 				<statFactors>
-					<IncomingDamageFactor>0</IncomingDamageFactor>
 					<Flammability>0</Flammability>
 				</statFactors>
 			</li>
 		</stages>
 	</HediffDef>
+
+	<ThingDef>
+		<defName>InfraredMoonEffect</defName>
+		<label>红外线之月效果</label>
+		<thingClass>merissu.Thing_InfraredMoonEffect</thingClass>
+		<category>Ethereal</category>
+		<tickerType>Normal</tickerType>
+		<selectable>false</selectable>
+		<graphicData>
+			<texPath>Projectiles/bulletAb000</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Mote</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+	</ThingDef>
 
     <AbilityDef>
 		<defName>Ability_XWave</defName>
