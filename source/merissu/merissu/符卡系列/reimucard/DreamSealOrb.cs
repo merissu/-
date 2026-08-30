@@ -10,16 +10,37 @@ namespace merissu
         public Thing target;
 
         public float angleOffset;
-        public int fireDelayTicks;
+        public int spawnDelay;
 
-        private int age;
+        private int currentAge;
+        private const int AppearDuration = 30;
         private const int OrbitDuration = 120;
         private const float OrbitRadius = 1.8f;
         private static readonly Material GlowMat = MaterialPool.MatFrom("Other/Glow", ShaderDatabase.MoteGlow);
 
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_References.Look(ref caster, "caster");
+            Scribe_References.Look(ref target, "target");
+            Scribe_Values.Look(ref angleOffset, "angleOffset");
+            Scribe_Values.Look(ref spawnDelay, "spawnDelay");
+            Scribe_Values.Look(ref currentAge, "currentAge");
+        }
+
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            base.DrawAt(drawLoc, flip);
+            if (currentAge < spawnDelay) return;
+
+            float progress = Mathf.Clamp01((currentAge - spawnDelay) / (float)AppearDuration);
+            float scale = 3f * progress;
+
+            if (Graphic != null)
+            {
+                Matrix4x4 baseMatrix = default;
+                baseMatrix.SetTRS(drawLoc, Quaternion.identity, new Vector3(scale, 1f, scale));
+                Graphics.DrawMesh(MeshPool.plane10, baseMatrix, Graphic.MatSingle, 0);
+            }
 
             Color glowColor = Color.white;
             if (def.defName.Contains("Red")) glowColor = new Color(1f, 0.2f, 0.2f, 0.6f);
@@ -28,16 +49,14 @@ namespace merissu
 
             Material coloredGlowMat = MaterialPool.MatFrom((Texture2D)GlowMat.mainTexture, GlowMat.shader, glowColor);
 
-            float scale = 3f;
-            Matrix4x4 matrix = default;
-            matrix.SetTRS(drawLoc + new Vector3(0f, -0.01f, 0f), Quaternion.identity, new Vector3(scale, 1f, scale));
-
-            Graphics.DrawMesh(MeshPool.plane10, matrix, coloredGlowMat, 0);
+            Matrix4x4 glowMatrix = default;
+            glowMatrix.SetTRS(drawLoc + new Vector3(0f, -0.01f, 0f), Quaternion.identity, new Vector3(scale, 1f, scale));
+            Graphics.DrawMesh(MeshPool.plane10, glowMatrix, coloredGlowMat, 0);
         }
+
         protected override void Tick()
         {
             base.Tick();
-            age++;
 
             if (caster == null || caster.Destroyed)
             {
@@ -45,7 +64,9 @@ namespace merissu
                 return;
             }
 
-            if (age == OrbitDuration + fireDelayTicks)
+            currentAge++;
+
+            if (currentAge >= spawnDelay + AppearDuration + OrbitDuration)
             {
                 Fire();
             }
@@ -57,10 +78,14 @@ namespace merissu
             {
                 if (caster == null) return base.DrawPos;
 
-                float angle = (age * 4f + angleOffset) % 360f;
-                Vector3 offset =
-                    Quaternion.Euler(0f, angle, 0f) *
-                    Vector3.forward * OrbitRadius;
+                if (currentAge < spawnDelay) return caster.DrawPos;
+
+                float progress = Mathf.Clamp01((currentAge - spawnDelay) / (float)AppearDuration);
+                float currentRadius = OrbitRadius * progress;
+
+                float angle = (currentAge * 4f + angleOffset) % 360f;
+
+                Vector3 offset = Quaternion.Euler(0f, angle, 0f) * Vector3.forward * currentRadius;
 
                 return caster.DrawPos + offset;
             }

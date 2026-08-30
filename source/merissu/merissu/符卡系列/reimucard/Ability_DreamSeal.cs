@@ -39,7 +39,7 @@ namespace merissu
             }
 
             Map map = caster.Map;
-            int orbCount = 8; 
+            int orbCount = 8;
 
             System.Collections.Generic.List<string> orbList = new System.Collections.Generic.List<string>();
 
@@ -71,7 +71,7 @@ namespace merissu
                 orb.target = target.Thing;
 
                 orb.angleOffset = i * (360f / orbCount);
-                orb.fireDelayTicks = i * 15;
+                orb.spawnDelay = i * 15;
             }
 
             return base.Activate(target, dest);
