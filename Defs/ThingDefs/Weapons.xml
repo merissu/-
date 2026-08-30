@@ -2413,7 +2413,37 @@
 			</li>
 		</comps>
 	</AbilityDef>
-	
+
+	<ThingDef>
+		<defName>GapTeleporter</defName>
+		<label>隙间传送</label>
+		<thingClass>merissu.Thing_GapTeleporter</thingClass>
+		<category>Ethereal</category>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<destroyable>true</destroyable>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<passability>Standable</passability>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<drawOffscreen>true</drawOffscreen>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>GapKiller</defName>
+		<thingClass>merissu.Thing_GapKiller</thingClass>
+		<label>神隐</label>
+		<category>Ethereal</category>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<destroyable>true</destroyable>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<passability>Standable</passability>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<drawOffscreen>true</drawOffscreen>
+	</ThingDef>
+
 	<ThingDef ParentName="BaseBullet">
 		<defName>LunaRabbitBullet</defName>
 		<label>月兔制式子弹</label>
