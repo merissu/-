@@ -195,7 +195,7 @@
 		<graphicData>
 			<texPath>Weapons/Gohei</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.65,1.65)</drawSize>
+			<drawSize>(1.9,1.9)</drawSize>
 			<shaderType>Mote</shaderType>
 		</graphicData>
 		<uiIconScale>0.8</uiIconScale>
