@@ -19,9 +19,10 @@
           <texPath>Items/Rukoto</texPath>
           <shaderType>CutoutWithOverlay</shaderType>
           <graphicClass>Graphic_Multi</graphicClass>
-          <drawSize>1.5</drawSize>
+          <drawSize>(1.5,1.9)</drawSize>
           <shadowData>
-            <volume>(0.4, 0.8, 0.4)</volume>
+            <volume>(0.1, 0.8, 0.4)</volume>
+            <offset>(0,0,-0.6)</offset>
           </shadowData>
         </bodyGraphicData>
       </li>
@@ -31,9 +32,10 @@
           <texPath>Items/Rukoto</texPath>
           <shaderType>CutoutWithOverlay</shaderType>
           <graphicClass>Graphic_Multi</graphicClass>
-          <drawSize>1.5</drawSize>
+          <drawSize>(1.5,1.9)</drawSize>
           <shadowData>
-            <volume>(0.4, 0.8, 0.4)</volume>
+            <volume>(0.1, 0.8, 0.4)</volume>
+            <offset>(0,0,-0.6)</offset>
           </shadowData>
         </bodyGraphicData>
       </li>
