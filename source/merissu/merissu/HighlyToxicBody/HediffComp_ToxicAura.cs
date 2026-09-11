@@ -1,18 +1,36 @@
 ﻿using RimWorld;
 using Verse;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace merissu
 {
+    public class HediffCompProperties_ToxicAura : HediffCompProperties
+    {
+        public float radius = 2f;
+        public int applyIntervalTicks = 60;
+        public HediffDef toxicHediff;
+        public float toxicSeverity = 0.02f;
+        public bool causeBerserk;
+        public SongDef songDef;
+        public FleckDef gasFleck;
+        public int fxIntervalTicks = 10;
+
+        public HediffCompProperties_ToxicAura()
+        {
+            compClass = typeof(HediffComp_ToxicAura);
+        }
+    }
+
     public class HediffComp_ToxicAura : HediffComp
     {
         private int tickCounter;
+        private int fxCounter;
 
-        // 已触发狂暴的敌人
         private HashSet<Pawn> berserkTriggered = new HashSet<Pawn>();
+        private List<Pawn> berserkTriggeredList;
 
-        // ★ 是否已经播放过音乐
         private bool musicPlayed = false;
 
         public HediffCompProperties_ToxicAura Props =>
@@ -25,7 +43,6 @@ namespace merissu
             Pawn pawn = Pawn;
             if (pawn == null || pawn.Map == null) return;
 
-            // ★ 进入 Hediff 时立刻播放音乐（只播一次）
             if (Props.songDef != null && !musicPlayed)
             {
                 Find.MusicManagerPlay.ForcePlaySong(Props.songDef, false);
@@ -35,27 +52,22 @@ namespace merissu
 
         public override void CompPostTick(ref float severityAdjustment)
         {
+            fxCounter++;
+            if (fxCounter >= Props.fxIntervalTicks)
+            {
+                fxCounter = 0;
+                SpawnToxicFogPuffs();
+            }
+
             tickCounter++;
             if (tickCounter < Props.applyIntervalTicks) return;
             tickCounter = 0;
-
-            // 生成毒雾 Fleck 特效
-            if (Pawn != null && Pawn.Map != null)
-            {
-                FleckMaker.Static(
-                    Pawn.Position,
-                    Pawn.Map,
-                    DefDatabase<FleckDef>.GetNamed("Merissu_ToxicFog"),
-                    1.2f
-                );
-            }
 
             Pawn owner = Pawn;
             if (owner == null || owner.Map == null) return;
 
             IntVec3 center = owner.Position;
 
-            // 对 Pawn 列表做快照
             List<Pawn> pawnsSnapshot =
                 owner.Map.mapPawns.AllPawnsSpawned.ToList();
 
@@ -66,19 +78,16 @@ namespace merissu
                 if (pawn.Dead || pawn.Downed) continue;
                 if (!pawn.HostileTo(owner)) continue;
 
-                // 方形范围
                 IntVec3 pos = pawn.Position;
                 if (System.Math.Abs(pos.x - center.x) > Props.radius) continue;
                 if (System.Math.Abs(pos.z - center.z) > Props.radius) continue;
 
-                // 持续施加毒素
                 if (Props.toxicHediff != null)
                 {
                     Hediff poison = pawn.health.GetOrAddHediff(Props.toxicHediff);
                     poison.Severity += Props.toxicSeverity;
                 }
 
-                // 狂暴（只一次）
                 if (Props.causeBerserk
                     && !berserkTriggered.Contains(pawn)
                     && pawn.mindState?.mentalStateHandler != null)
@@ -90,13 +99,53 @@ namespace merissu
             }
         }
 
+        private void SpawnToxicFogPuffs()
+        {
+            Pawn owner = Pawn;
+            if (owner == null || !owner.Spawned) return;
+            if (Props.gasFleck == null) return;
+
+            Map map = owner.Map;
+            IntVec3 center = owner.Position;
+            int r = Mathf.Max(1, Mathf.RoundToInt(Props.radius));
+
+            int puffs = Rand.RangeInclusive(3, 5);
+            for (int i = 0; i < puffs; i++)
+            {
+                IntVec3 cell = center + new IntVec3(
+                    Rand.RangeInclusive(-r, r + 1),
+                    0,
+                    Rand.RangeInclusive(-r, r + 1));
+
+                if (!cell.InBounds(map)) continue;
+                if (!cell.ShouldSpawnMotesAt(map)) continue;
+
+                FleckCreationData data = FleckMaker.GetDataStatic(
+                    cell.ToVector3Shifted()
+                        + new Vector3(Rand.Range(-0.6f, 0.6f), 0f, Rand.Range(-0.6f, 0.6f)),
+                    map,
+                    Props.gasFleck,
+                    Rand.Range(1.4f, 2.2f));
+
+                data.rotation = Rand.Range(0f, 360f);
+                data.rotationRate = Rand.Range(-10f, 10f);
+                data.velocityAngle = Rand.Range(0f, 360f);
+                data.velocitySpeed = Rand.Range(0.1f, 0.35f);
+                data.solidTimeOverride = Rand.Range(1.2f, 2.2f);
+
+                float v = Rand.Range(0.8f, 1f);
+                data.instanceColor = new Color(v, v, v, Rand.Range(0.5f, 1f));
+
+                map.flecks.CreateFleck(data);
+            }
+        }
+
         public override void CompPostPostRemoved()
         {
             base.CompPostPostRemoved();
 
             berserkTriggered.Clear();
 
-            // ★ Hediff 移除 → 停止强制音乐
             if (musicPlayed)
             {
                 Find.MusicManagerPlay.ForcePlaySong(null, false);
@@ -107,7 +156,21 @@ namespace merissu
         public override void CompExposeData()
         {
             Scribe_Values.Look(ref tickCounter, "tickCounter", 0);
+            Scribe_Values.Look(ref fxCounter, "fxCounter", 0);
             Scribe_Values.Look(ref musicPlayed, "musicPlayed", false);
+
+            if (Scribe.mode == LoadSaveMode.Saving)
+            {
+                berserkTriggeredList = berserkTriggered.ToList();
+            }
+            Scribe_Collections.Look(ref berserkTriggeredList, "berserkTriggered", LookMode.Reference);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                berserkTriggered = berserkTriggeredList != null
+                    ? new HashSet<Pawn>(berserkTriggeredList)
+                    : new HashSet<Pawn>();
+                berserkTriggeredList = null;
+            }
         }
     }
 }

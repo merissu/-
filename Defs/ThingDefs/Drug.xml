@@ -1593,116 +1593,135 @@
 		<defName>HighlyToxicBody</defName>
 		<label>剧毒身躯</label>
 		<graphicData>
-			<texPath>Medicine/HighlyToxicBody</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.8,0.8)</drawSize>
-			<shaderType>Mote</shaderType>
+		<texPath>Medicine/HighlyToxicBody</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<drawSize>(0.8,0.8)</drawSize>
+		<shaderType>Mote</shaderType>
 		</graphicData>
 		<description>服下这种药可以暂时获得操纵毒素程度的能力,让自身周围产生只会被敌人吸入的毒气,这种毒气吸入一点便会让敌人皮肤溃烂陷入疯狂,中了铃兰之毒的敌人肯定会十分痛苦地死去。</description>
 		<tradeTags>
-  			<li>ExoticMisc</li> 
-			<li>Medicine</li>   
+		<li>ExoticMisc</li>
+		<li>Medicine</li>
 		</tradeTags>
 		<statBases>
-			<MarketValue>150</MarketValue>
-			<Mass>0.1</Mass>
+		<MarketValue>150</MarketValue>
+		<Mass>0.1</Mass>
 		</statBases>
 		<thingCategories>
-			<li>TouhouMedicine</li>
+		<li>TouhouMedicine</li>
 		</thingCategories>
 		<techLevel>Industrial</techLevel>
 		<costList>
-			<FullPower>1</FullPower>
-			<MightierThanThousands>1</MightierThanThousands>
-			<LoseBambooShoot>50</LoseBambooShoot>
+		<FullPower>1</FullPower>
+		<MightierThanThousands>1</MightierThanThousands>
+		<LoseBambooShoot>50</LoseBambooShoot>
 		</costList>
 		<recipeMaker>
-			<skillRequirements>
-				<Crafting>8</Crafting>
-				<Intellectual>8</Intellectual>
-			</skillRequirements>
-			<workAmount>4500</workAmount>
-			<displayPriority>400</displayPriority>
-			<recipeUsers>
-				<li>PenglaiPharmaceuticalTable</li>
-			</recipeUsers>
-				<researchPrerequisite>
-					<li>SpiritualDomination</li>
-				</researchPrerequisite>		
-			</recipeMaker>
+		<skillRequirements>
+			<Crafting>8</Crafting>
+			<Intellectual>8</Intellectual>
+		</skillRequirements>
+		<workAmount>4500</workAmount>
+		<displayPriority>400</displayPriority>
+		<recipeUsers>
+			<li>PenglaiPharmaceuticalTable</li>
+		</recipeUsers>
+		<researchPrerequisite>
+			<li>SpiritualDomination</li>
+		</researchPrerequisite>
+		</recipeMaker>
 		<ingestible>
-			<baseIngestTicks>1</baseIngestTicks>
-			<chairSearchRadius>0</chairSearchRadius>
-			<drugCategory>Medical</drugCategory>
-			<useEatingSpeedStat>false</useEatingSpeedStat>
-			<foodType>Fluid</foodType>
-			<ingestCommandString>使用{0}</ingestCommandString>
-			<ingestReportString>使用{0}</ingestReportString>
-		    <ingestSound>Merissu_DrinkHighlyToxicBody</ingestSound>
-			<outcomeDoers>
-				<li Class="IngestionOutcomeDoer_GiveHediff">
-					<hediffDef>HighlyToxicBody</hediffDef>
-					<severity>1</severity>
-				</li>
-			</outcomeDoers>
+		<baseIngestTicks>1</baseIngestTicks>
+		<chairSearchRadius>0</chairSearchRadius>
+		<drugCategory>Medical</drugCategory>
+		<useEatingSpeedStat>false</useEatingSpeedStat>
+		<foodType>Fluid</foodType>
+		<ingestCommandString>使用{0}</ingestCommandString>
+		<ingestReportString>使用{0}</ingestReportString>
+		<ingestSound>Merissu_DrinkHighlyToxicBody</ingestSound>
+		<outcomeDoers>
+			<li Class="IngestionOutcomeDoer_GiveHediff">
+			<hediffDef>HighlyToxicBody</hediffDef>
+			<severity>1</severity>
+			</li>
+		</outcomeDoers>
 		</ingestible>
 		<comps Inherit="False">
-			<li Class="CompProperties_Drug">
-				<listOrder>200</listOrder>
-				<teetotalerCanConsume>true</teetotalerCanConsume>
-			</li>
-			<li Class="CompProperties_Usable">
-				<useLabel>使用{0_label}</useLabel>
-				<useJob>Ingest</useJob>
-				<showUseGizmo>true</showUseGizmo>
-				<allowedMutants>
-					<li>Ghoul</li>
-				</allowedMutants>
-			</li>
+		<li Class="CompProperties_Drug">
+			<listOrder>200</listOrder>
+			<teetotalerCanConsume>true</teetotalerCanConsume>
+		</li>
+		<li Class="CompProperties_Usable">
+			<useLabel>使用{0_label}</useLabel>
+			<useJob>Ingest</useJob>
+			<showUseGizmo>true</showUseGizmo>
+			<allowedMutants>
+			<li>Ghoul</li>
+			</allowedMutants>
+		</li>
 		</comps>
 	</ThingDef>
-	
+
 	<HediffDef>
-        <defName>HighlyToxicBody</defName>
-        <label> 雾符「毒气花园」</label>
+		<defName>HighlyToxicBody</defName>
+		<label> 雾符「毒气花园」</label>
 		<hediffClass>Hediff_High</hediffClass>
 		<defaultLabelColor>(153,102,204)</defaultLabelColor>
-        <labelNoun>剧毒身躯</labelNoun>
-        <description>这个人的身体持续向周围扩散神经毒素,敌人只要待在他身边就会吸入毒气,引发精神错乱。这种状态只会持续6小时。</description>
-        <isBad>false</isBad>
-        <maxSeverity>1.0</maxSeverity>
+		<labelNoun>剧毒身躯</labelNoun>
+		<description>这个人的身体持续向周围扩散神经毒素,敌人只要待在他身边就会吸入毒气,引发精神错乱。这种状态只会持续6小时。</description>
+		<isBad>false</isBad>
+		<maxSeverity>1.0</maxSeverity>
 		<stages>
-			<li>
-				<label>甜蜜之毒</label>
-				<minSeverity>0.01</minSeverity>
-			</li>
-			<li>
-				<label>神经之毒</label>
-				<minSeverity>0.25</minSeverity>
-			</li>
-			<li>
-				<label>忧郁之毒</label>
-				<minSeverity>0.5</minSeverity>
-			</li>
-			<li>
-				<label>猛毒气息</label>
-				<minSeverity>0.75</minSeverity>
-			</li>
+		<li>
+			<label>甜蜜之毒</label>
+			<minSeverity>0.01</minSeverity>
+		</li>
+		<li>
+			<label>神经之毒</label>
+			<minSeverity>0.25</minSeverity>
+		</li>
+		<li>
+			<label>忧郁之毒</label>
+			<minSeverity>0.5</minSeverity>
+		</li>
+		<li>
+			<label>猛毒气息</label>
+			<minSeverity>0.75</minSeverity>
+		</li>
 		</stages>
-        <comps>
-            <li Class="merissu.HediffCompProperties_ToxicAura">
-                <radius>2</radius>
-                <applyIntervalTicks>60</applyIntervalTicks>
-                <toxicHediff>ToxicBuildup</toxicHediff>
-                <toxicSeverity>0.02</toxicSeverity>
-                <causeBerserk>true</causeBerserk>
-	            <songDef>HighlyToxicBody_Music</songDef>
-            </li>
-			<li Class="HediffCompProperties_SeverityPerDay">
-                <severityPerDay>-4.0</severityPerDay>
-            </li>
-        </comps>
-    </HediffDef>
+		<comps>
+		<li Class="merissu.HediffCompProperties_ToxicAura">
+			<radius>4</radius>
+			<applyIntervalTicks>60</applyIntervalTicks>
+			<toxicHediff>ToxicBuildup</toxicHediff>
+			<toxicSeverity>0.02</toxicSeverity>
+			<causeBerserk>true</causeBerserk>
+			<songDef>HighlyToxicBody_Music</songDef>
+			<gasFleck>Merissu_ToxicFogPurple</gasFleck>
+			<fxIntervalTicks>60</fxIntervalTicks>
+		</li>
+		<li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-4.0</severityPerDay>
+		</li>
+		</comps>
+	</HediffDef>
+
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>Merissu_ToxicFogPurple</defName>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.6</fadeInTime>
+		<solidTime>1.5</solidTime>
+		<fadeOutTime>1.2</fadeOutTime>
+		<growthRate>0.45</growthRate>
+		<speedPerTime>0.05~0.15</speedPerTime>
+		<graphicData>
+		<texPath>Things/Gas/GasCloudThickA</texPath>
+		<graphicClass>Graphic_Fleck</graphicClass>
+		<shaderType>TransparentPostLight</shaderType>
+		<color>(170, 90, 210, 90)</color>
+		<drawSize>(2.5,2.5)</drawSize>
+		</graphicData>
+	</FleckDef>
 
 	<ThingDef ParentName="THDrugBase">
 		<defName>MagicKnockback</defName>

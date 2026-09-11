@@ -81,7 +81,6 @@
 			<scoreOffset>4</scoreOffset>
 			<careIfWornByCorpse>false</careIfWornByCorpse>
 			<careIfDamaged>false</careIfDamaged>
-			<wornGraphicPath>Accessory/HakureiAmulet</wornGraphicPath> 
 			<useWornGraphicMask>false</useWornGraphicMask>
 			<wearPerDay>0</wearPerDay>
 			<bodyPartGroups>
@@ -1234,7 +1233,6 @@
 			<scoreOffset>4</scoreOffset>
 			<careIfWornByCorpse>false</careIfWornByCorpse>
 			<careIfDamaged>false</careIfDamaged>
-			<wornGraphicPath>Accessory/LunaDial</wornGraphicPath> 
 			<useWornGraphicMask>false</useWornGraphicMask>
 			<wearPerDay>0</wearPerDay>
 			<bodyPartGroups>
