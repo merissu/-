@@ -97,11 +97,20 @@
   </injuryProps>
 </HediffDef>
 
-  <!-- ========== 自定义伤害类型（高穿甲） ========== -->
-<DamageDef ParentName="CutBase">
+  <!-- ========== 自定义伤害类型 ========== -->
+<DamageDef>
   <defName>Momiji_GreatswordCut</defName>
   <label>大剑斩击</label>
+  <workerClass>DamageWorker_Cut</workerClass>
+  <externalViolence>true</externalViolence>
+  <deathMessage>{0}被大剑斩断。</deathMessage>
   <hediff>Momiji_GreatswordCutWound</hediff>
+  <hediffSkin>Momiji_GreatswordCutWound</hediffSkin>
+  <hediffSolid>Momiji_GreatswordCutWound</hediffSolid>
+  <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+  <impactSoundType>Slice</impactSoundType>
+  <armorCategory>Sharp</armorCategory>
+  <overkillPctToDestroyPart>0~0.1</overkillPctToDestroyPart>
 </DamageDef>
   
   <!-- 自定义攻击能力 -->
@@ -129,7 +138,7 @@
   <HediffDef>
     <defName>Momiji_Greatsword_Charge</defName>
     <label>天狗大剑</label>
-    <description>天狗大剑的蓄力状态，蓄满后下一次斩击威力剧增。</description>
+    <description>天狗大剑的蓄力状态，蓄满后下一次攻击威力剧增。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>false</isBad>
     <maxSeverity>1.0</maxSeverity>
