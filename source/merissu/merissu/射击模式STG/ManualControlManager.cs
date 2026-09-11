@@ -13,7 +13,6 @@ namespace merissu
         public static readonly Material HitboxMat = MaterialPool.MatFrom("UI/STG/Hitbox", ShaderDatabase.MoteGlow);
         public static readonly Texture2D IconOn = ContentFinder<Texture2D>.Get("UI/STG/Control_On", false) ?? BaseContent.BadTex;
         public static readonly Texture2D zoom = ContentFinder<Texture2D>.Get("UI/STG/zoom", false) ?? BaseContent.BadTex;
-
     }
 
     public static class ManualControlManager
@@ -32,9 +31,9 @@ namespace merissu
             if (!pawn.Drafted)
             {
                 Messages.Message(
-                  "必须进入征召状态才能开启自机模式",
-                  pawn,
-                  MessageTypeDefOf.RejectInput
+                    "必须进入征召状态才能开启自机模式",
+                    pawn,
+                    MessageTypeDefOf.RejectInput
                 );
                 return;
             }
@@ -50,10 +49,12 @@ namespace merissu
             controlledPawn = pawn;
 
             State.SetPC(pawn, false);
+
             if (Find.CameraDriver != null)
             {
                 Find.CameraDriver.config = new STGCamera();
             }
+
             if (old != pawn)
             {
                 if (old != null)
@@ -100,6 +101,7 @@ namespace merissu
                 ClearControl(controlledPawn);
             }
         }
+
         public static void ForceReset()
         {
             enabled = false;
@@ -136,16 +138,15 @@ namespace merissu
             {
                 defaultLabel = "自机模式",
                 defaultDesc = "进入自机模式,方向键移动,shift进行低速移动",
-
                 icon = currentIcon,
-                hotKey = STGKeyDefOf.ToggleManualControl, 
-
+                hotKey = STGKeyDefOf.ToggleManualControl,
                 isActive = () => isCurrentControlled,
                 toggleAction = () =>
                 {
                     ManualControlManager.SetControl(__instance);
                 }
             };
+
             if (isCurrentControlled)
             {
                 yield return new Command_Action
@@ -153,9 +154,7 @@ namespace merissu
                     defaultLabel = "切换视角",
                     defaultDesc = "循环切换视角",
                     icon = ManualControlTextures.zoom,
-
                     hotKey = STGKeyDefOf.ToggleCameraZoom,
-
                     action = () =>
                     {
                         if (Find.CameraDriver.config is STGCamera)
@@ -177,6 +176,18 @@ namespace merissu
             {
                 ManualControlManager.Tick();
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(Pawn), nameof(Pawn.DrawExtraSelectionOverlays))]
+    public static class Patch_Pawn_DrawExtraSelectionOverlays_ManualControl
+    {
+        public static bool Prefix(Pawn __instance)
+        {
+            if (__instance == null)
+                return true;
+
+            return !ManualControlManager.IsControlled(__instance);
         }
     }
 

@@ -107,13 +107,6 @@
 				<showHoursToRecover>true</showHoursToRecover>
 			</li>
 		</comps>
-		<stages>
-			<li>
-				<statFactors>
-					<Flammability>0</Flammability>
-				</statFactors>
-			</li>
-		</stages>
 	</HediffDef>
 
 	<ThingDef>

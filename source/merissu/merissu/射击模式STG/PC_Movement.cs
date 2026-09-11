@@ -18,6 +18,7 @@ namespace merissu
         private Vector3 _leanVelocity = Vector3.zero;
         private const float jobInterruptDelay = 0.35f;
         private const float maxPhysicsDesyncDistSq = 2.25f;
+
         public void UpdatePhysics()
         {
             if (pawn.Map == null || pawn.Map != Find.CurrentMap)
@@ -47,14 +48,13 @@ namespace merissu
                 moveInput = Vector3.zero;
                 if (wasMovingLastFrame)
                 {
-                    if (pawn.pather?.curPath != null)
+                    if (pawn.pather != null && pawn.pather.curPath != null)
                         pawn.pather.StopDead();
                     wasMovingLastFrame = false;
                 }
                 physicsPosition = null;
                 return;
             }
-
 
             bool inCombatStance =
                 pawn.stances.curStance is Stance_Warmup ||
@@ -98,6 +98,7 @@ namespace merissu
 
             ProcessMovement();
         }
+
         public void UpdateCamera()
         {
             if (pawn == null) return;
@@ -142,6 +143,7 @@ namespace merissu
                 cam.orthographicSize = driver.RootSize;
             }
         }
+
         private void UpdateInput()
         {
             moveInput = Vector3.zero;
@@ -156,6 +158,7 @@ namespace merissu
 
             isSneaking = STGKeyDefOf.PS_Sneak.IsDown;
         }
+
         private void ProcessMovement()
         {
             if (!pawn.Drafted && pawn.IsUnderAIControl())
@@ -169,11 +172,11 @@ namespace merissu
                 moveInputDuration = 0f;
                 if (wasMovingLastFrame)
                 {
-                    if (pawn.pather.curPath != null) pawn.pather.StopDead();
+                    if (pawn.pather != null && pawn.pather.curPath != null) pawn.pather.StopDead();
                     wasMovingLastFrame = false;
                 }
 
-                if (pawn.pather.curPath != null)
+                if (pawn.pather != null && pawn.pather.curPath != null)
                 {
                     physicsPosition = null;
                 }
@@ -299,7 +302,10 @@ namespace merissu
                     endCurrentJob: false,
                     resetTweenedPos: false);
 
-                pawn.pather.nextCell = nextCell;
+                if (pawn.pather != null)
+                {
+                    pawn.pather.nextCell = nextCell;
+                }
             }
 
             if (pawn.Drawer?.leaner != null && !(pawn.stances.curStance is Stance_Busy))
@@ -320,6 +326,7 @@ namespace merissu
                 }
             }
         }
+
         private void UpdateRotation(Vector3 dir)
         {
             if (dir.x < -0.1f && dir.z > 0.1f) pawn.Rotation = Rot4.West;
@@ -339,7 +346,6 @@ namespace merissu
             while (a >= 360f) a -= 360f;
             return a;
         }
-
 
         private bool IsWalkableWithMargin(Vector3 pos)
         {
@@ -373,6 +379,7 @@ namespace merissu
 
             return true;
         }
+
         private void UpdateVehiclePhysics(Pawn vehicle, bool isDriver)
         {
             if (isDriver)

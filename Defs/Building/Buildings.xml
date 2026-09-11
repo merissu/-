@@ -225,7 +225,7 @@
 		<statBases>
 			<WorkToBuild>3000</WorkToBuild>
 			<MaxHitPoints>600</MaxHitPoints>
-			<Flammability>0.5</Flammability>
+			<Flammability>0</Flammability>
 			<Cleanliness>-2</Cleanliness>
 		</statBases>
 		<size>(8,8)</size>
@@ -239,12 +239,6 @@
 		<constructionSkillPrerequisite>14</constructionSkillPrerequisite>
 		<tickerType>Normal</tickerType>
 		<comps>
-			<li Class="CompProperties_Explosive">
-				<wickTicks>2400</wickTicks>
-				<explosiveRadius>36</explosiveRadius>
-				<explosiveDamageType>SubterraneanSun</explosiveDamageType>
-				<chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
-			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerPlant</compClass>
 				<basePowerConsumption>-75000</basePowerConsumption>

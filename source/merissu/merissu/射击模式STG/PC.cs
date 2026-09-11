@@ -24,9 +24,9 @@ namespace merissu
         private bool wasSneakingLastFrame;
         private float hitboxAppearProgress = 0f;
         private float hitboxRotation = 0f;
-        private float hitboxCurrentAlpha = 0f;     
-        private const float MaxHitboxAlpha = 0.5f; 
-        private const float FadeSpeed = 5f;        
+        private float hitboxCurrentAlpha = 0f;
+        private const float MaxHitboxAlpha = 0.5f;
+        private const float FadeSpeed = 5f;
 
         private static readonly MaterialPropertyBlock _staticPropBlock = new MaterialPropertyBlock();
         private static readonly MaterialPropertyBlock _rotatingPropBlock = new MaterialPropertyBlock();
@@ -35,9 +35,11 @@ namespace merissu
         public List<GrazeParticle> grazeParticles = new List<GrazeParticle>();
         private static readonly HediffDef SpiritualPowerDef = HediffDef.Named("spiritualpower");
         private static readonly Material GrazeParticleMat = MaterialPool.MatFrom("UI/STG/GrazeItem", ShaderDatabase.TransparentPostLight);
+
         public PC()
         {
         }
+
         public void TryTriggerGraze(Thing proj)
         {
             if (grazedProjectileIds.Contains(proj.thingIDNumber)) return;
@@ -55,9 +57,7 @@ namespace merissu
                 if (spiritualHediff == null)
                 {
                     spiritualHediff = HediffMaker.MakeHediff(SpiritualPowerDef, pawn);
-
                     spiritualHediff.Severity = 0.011f;
-
                     pawn.health.AddHediff(spiritualHediff);
                 }
                 else
@@ -66,6 +66,7 @@ namespace merissu
                 }
             }
         }
+
         public PC(Pawn pawn)
         {
             this.pawn = pawn;
@@ -83,31 +84,13 @@ namespace merissu
             }
 
             PreventJobExpiry();
-            HandlePather();
-        }
 
-        private void HandlePather()
-        {
-            if (IsMoving && pawn.pather != null)
+            if (pawn.pather != null)
             {
-                pawn.pather.lastMovedTick = Find.TickManager.TicksGame;
-
-                float moveSpeed;
-                if (isSneaking)
-                {
-                    moveSpeed = 2.3f;
-                }
-                else
-                {
-                    moveSpeed = pawn.GetStatValue(StatDefOf.MoveSpeed) * 0.7f;
-                }
-
-                pawn.pather.nextCellCostTotal =
-                    Mathf.Max(
-                        60f / Mathf.Max(moveSpeed, 0.1f),
-                        1f);
+                pawn.pather.StopDead();
             }
         }
+
         private void PreventJobExpiry()
         {
             if (pawn.jobs?.curJob != null &&
