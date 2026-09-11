@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 天狗大剑武器本体 ========== -->
+  <ThingDef ParentName="TH_MeleeWeapon">
+    <defName>Momiji_Greatsword</defName>
+    <label>天狗大剑</label>
+    <description>白狼天狗使用的重型大剑，每蓄力10秒可以释放一次暴击伤害。</description>
+    <graphicData>
+      <texPath>Items/Momiji_Plank_Cleaver</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.2,1.2)</drawSize>
+      <shaderType>Mote</shaderType>
+    </graphicData>
+    <soundInteract>Interact_MonoSword</soundInteract>
+    <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <SellPriceFactor>0.1</SellPriceFactor>
+      <Mass>3.0</Mass>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <techLevel>Medieval</techLevel>
+    <weaponClasses>
+      <li>Melee</li>
+    </weaponClasses>
+    <weaponTags>
+      <li>Touhou</li>
+    </weaponTags>
+    <tools>
+      <li>
+        <label>大剑斩击</label>
+        <capacities>
+          <li>Momiji_GreatswordCutCapacity</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>1.25</cooldownTime>
+        <armorPenetration>1.0</armorPenetration>
+      </li>
+    </tools>
+    <comps>
+      <li Class="merissu.CompProperties_WearerHediff">
+        <hediff>Momiji_Greatsword_Charge</hediff>
+      </li>
+    </comps>
+    <costList>
+      <Crimsongold>50</Crimsongold>
+    </costList>
+    <recipeMaker>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <displayPriority>400</displayPriority>
+      <recipeUsers>
+        <li>TableHifuuClub</li>
+      </recipeUsers>
+      <researchPrerequisite>PowerPoint</researchPrerequisite>
+    </recipeMaker>
+    <smeltable>true</smeltable>
+    <smeltProducts>
+      <Crimsongold>10</Crimsongold>
+    </smeltProducts>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+      <li>TouhouWeapons</li>
+    </thingSetMakerTags>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+  </ThingDef>
+  
+<HediffDef ParentName="InjuryBase">
+  <defName>Momiji_GreatswordCutWound</defName>
+  <label>大剑砍伤</label>
+  <labelNoun>大剑砍伤</labelNoun>
+  <description>被天狗大剑所伤，伤口深可见骨。</description>
+  <comps>
+    <li Class="HediffCompProperties_TendDuration">
+      <labelTendedWell>已包扎</labelTendedWell>
+      <labelTendedWellInner>已缝合</labelTendedWellInner>
+      <labelSolidTendedWell>已固定</labelSolidTendedWell>
+    </li>
+    <li Class="HediffCompProperties_Infecter">
+      <infectionChance>0.15</infectionChance>
+    </li>
+    <li Class="HediffCompProperties_GetsPermanent">
+      <permanentLabel>大剑斩痕</permanentLabel>
+    </li>
+  </comps>
+  <injuryProps>
+    <painPerSeverity>0.0125</painPerSeverity>
+    <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+    <bleedRate>0.06</bleedRate>
+    <canMerge>false</canMerge>
+    <destroyedLabel>斩断</destroyedLabel>
+    <destroyedOutLabel>斩断</destroyedOutLabel>
+  </injuryProps>
+</HediffDef>
+
+  <!-- ========== 自定义伤害类型（高穿甲） ========== -->
+<DamageDef ParentName="CutBase">
+  <defName>Momiji_GreatswordCut</defName>
+  <label>大剑斩击</label>
+  <hediff>Momiji_GreatswordCutWound</hediff>
+</DamageDef>
+  
+  <!-- 自定义攻击能力 -->
+<ToolCapacityDef>
+  <defName>Momiji_GreatswordCutCapacity</defName>
+  <label>大剑斩击</label>
+</ToolCapacityDef>
+
+<!-- 自定义招式，绑定伤害类型 -->
+<ManeuverDef>
+  <defName>Momiji_GreatswordCutManeuver</defName>
+  <requiredCapacity>Momiji_GreatswordCutCapacity</requiredCapacity>
+  <verb>
+    <verbClass>Verb_MeleeAttackDamage</verbClass>
+    <meleeDamageDef>Momiji_GreatswordCut</meleeDamageDef>
+  </verb>
+  <logEntryDef>MeleeAttack</logEntryDef>
+  <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+  <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+  <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+  <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+</ManeuverDef>
+
+  <!-- ========== 蓄力 Hediff（兼具技能载体） ========== -->
+  <HediffDef>
+    <defName>Momiji_Greatsword_Charge</defName>
+    <label>天狗大剑</label>
+    <description>天狗大剑的蓄力状态，蓄满后下一次斩击威力剧增。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <!-- 自动增长 -->
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>100</severityPerDay>
+      </li>
+    </comps>
+    <stages>
+      <!-- 蓄力中（无效果） -->
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>蓄力中</label>
+      </li>
+      <!-- 蓄力完成（5倍近战伤害） -->
+      <li>
+        <minSeverity>0.9</minSeverity>
+        <label>蓄力完成</label>
+        <statFactors>
+          <MeleeDamageFactor>5.0</MeleeDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+    <!-- 主动技能：不动如山 -->
+    <abilities>
+      <li>Momiji_Greatsword_Stance</li>
+    </abilities>
+  </HediffDef>
+
+  <!-- ========== 主动技能：山窝「不动如山」 ========== -->
+  <AbilityDef>
+    <defName>Momiji_Greatsword_Stance</defName>
+    <label>山窝「不动如山」</label>
+    <description>消耗1层符卡，牺牲移动能力换取极致防御与攻击速度，持续1小时。</description>
+    <abilityClass>TouhouExpansion.Ability_MomijiStance</abilityClass>
+    <cooldownTicksRange>3600</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1.0</warmupTime>
+      <soundCast>spell</soundCast>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <iconPath>Abilities/MomijiStance</iconPath>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>Momiji_Greatsword_StanceEffect</hediffDef>
+        <onlyApplyToSelf>True</onlyApplyToSelf>
+        <severity>1.0</severity>
+        <replaceExisting>True</replaceExisting>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- ========== 不动如山效果 Hediff ========== -->
+  <HediffDef>
+    <defName>Momiji_Greatsword_StanceEffect</defName>
+    <label>不动如山</label>
+    <description>就地开启防御模式，牺牲移动能力换取极致的防御与攻击速度。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <!-- 持续 1 小时-->
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-24</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+		<stages>
+			<li>
+				<painFactor>0</painFactor><!-- 痛苦 ×0% -->
+				<statFactors>
+					<MoveSpeed>0.25</MoveSpeed>              <!-- 移动速度 ×25% -->
+					<IncomingDamageFactor>0</IncomingDamageFactor> <!-- 承伤 ×0% -->
+					<MeleeHitChance>5.0</MeleeHitChance>   <!-- 近战命中率 ×500% -->
+					<MeleeCooldownFactor>0.4</MeleeCooldownFactor>  <!-- 近战攻速 ×250% -->
+				</statFactors>
+			</li>
+		</stages>
+  </HediffDef>
+</Defs>
