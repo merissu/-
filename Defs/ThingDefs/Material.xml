@@ -223,11 +223,11 @@
 			<MaxHitPoints>200</MaxHitPoints>
 			<MarketValue>20</MarketValue>
 			<Mass>0.032</Mass>
-			<Flammability>0.4</Flammability>
+			<Flammability>0.2</Flammability>
 			<DeteriorationRate>3</DeteriorationRate>
 			<StuffPower_Armor_Sharp>1.20</StuffPower_Armor_Sharp>
 			<StuffPower_Armor_Blunt>0.72</StuffPower_Armor_Blunt>
-			<StuffPower_Armor_Heat>1.00</StuffPower_Armor_Heat>
+			<StuffPower_Armor_Heat>2.00</StuffPower_Armor_Heat>
 			<StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
 			<StuffPower_Insulation_Heat>20</StuffPower_Insulation_Heat>
 		</statBases>
@@ -286,7 +286,7 @@
             </li>
         </ingredients>
         <products>
-                <MakaiShinkiCloth>5</MakaiShinkiCloth>
+			<MakaiShinkiCloth>10</MakaiShinkiCloth>
         </products>
         <skillRequirements>
             <Crafting>10</Crafting>

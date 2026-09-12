@@ -432,8 +432,10 @@
 		<defName>LittleHakureiEnchantment</defName>
 		<label>博丽小结界</label>
 		<description>按照博丽大结界做出的仿制品,由于没有贤者力量的加持,需要大量灵力维护。小结界半径有多少,每天就会消耗多少p点
+
+结界可以保护范围内所有属于你的建筑物不受到任何的远程伤害
 		
-有着各种各样的功能,可以拦截敌人子弹手雷爆炸物(拦截不了能量武器和火焰),让隐身敌对单位现身,使所有敌人死亡时产生p点
+有着各种各样的功能,可以拦截敌人子弹手雷爆炸物,让隐身敌对单位现身,使所有敌人死亡时产生p点
 
 封入灵异珠后,大结界会为范围内的殖民者提供灵力,每天可以提供1的灵力,初始最多能够将殖民者的灵力提升至1,每多封入一颗灵异珠,提供的灵力上限也会相应增加</description>
 		<descriptionHyperlinks>
@@ -493,10 +495,12 @@
 					<li>ShrineBeacon</li>
 				</linkableFacilities>
 			</li>
-			<li Class="merissu.CompProperties_LimitPerMap">
+		</comps>
+		  <modExtensions>
+			<li Class="merissu.DefModExtension_LimitPerMap">
 				<maxCount>1</maxCount>
 			</li>
-		</comps>
+		</modExtensions>
 		<designationCategory>Misc</designationCategory>
 		<costList>
 			<SpiritualWood>200</SpiritualWood>
@@ -506,7 +510,7 @@
 		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
 		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
 		<researchPrerequisites>
-			<li>PowerPoint</li>
+			<li>InsightLimbo</li>
 		</researchPrerequisites>
 	</ThingDef>
 

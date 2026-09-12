@@ -1,6 +1,8 @@
-﻿using RimWorld;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -44,7 +46,7 @@ namespace merissu
             }
 
             UpdateFuelConsumption();
-            UpdateInterceptorState(true); 
+            UpdateInterceptorState(true);
         }
 
         public override void PostExposeData()
@@ -111,7 +113,7 @@ namespace merissu
                         if (IsStealthHediff(h.def))
                         {
                             hediffs.RemoveAt(j);
-                            pawn.health.Notify_HediffChanged(h); 
+                            pawn.health.Notify_HediffChanged(h);
                         }
                     }
                 }
@@ -125,6 +127,7 @@ namespace merissu
                 }
             }
         }
+
         private bool IsStealthHediff(HediffDef def)
         {
             ushort id = def.shortHash;
@@ -217,7 +220,7 @@ namespace merissu
 
             yield return new Command_Toggle
             {
-                defaultLabel = "必灭结界",
+                defaultLabel = "压制结界",
                 defaultDesc = "使结界范围内所有敌对单位获得幻想入\n每日额外消耗：10 灵力",
                 icon = ContentFinder<Texture2D>.Get("Other/onmyoBall"),
                 isActive = () => touhouDieEnabled,
@@ -304,6 +307,7 @@ namespace merissu
             if (touhouDieEnabled) consumption += 10f;
             refuelable.Props.fuelConsumptionRate = consumption;
         }
+
         private void UpdateInterceptorState(bool forceRefresh)
         {
             if (interceptor == null || refuelable == null) return;
@@ -319,6 +323,72 @@ namespace merissu
                 lastGroundState = targetGround;
                 lastAirState = targetAir;
             }
+        }
+
+        public bool ProtectsBuildingAt(IntVec3 cell)
+        {
+            if (refuelable != null && !refuelable.HasFuel) return false;
+
+            float radius = interceptor != null ? interceptor.Props.radius : 30f;
+            return cell.InHorDistOf(parent.Position, radius);
+        }
+
+        public static bool AnyShieldProtectsBuilding(Thing building)
+        {
+            if (building == null || !building.Spawned) return false;
+
+            Map map = building.Map;
+            if (map == null) return false;
+
+            List<Thing> shields = map.listerThings.ThingsInGroup(ThingRequestGroup.ProjectileInterceptor);
+            for (int i = 0; i < shields.Count; i++)
+            {
+                Comp_ShieldRadiusControl comp = shields[i].TryGetComp<Comp_ShieldRadiusControl>();
+                if (comp != null && comp.ProtectsBuildingAt(building.Position))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(Thing), nameof(Thing.TakeDamage), new Type[] { typeof(DamageInfo) })]
+    public static class Patch_ShieldBuildingImmunity
+    {
+        public static bool Prefix(Thing __instance, DamageInfo dinfo, ref DamageWorker.DamageResult __result)
+        {
+            if (!(__instance is Building) || __instance.Faction != Faction.OfPlayer) return true;
+
+            if (IsMeleeAttack(dinfo))
+            {
+                return true;
+            }
+
+            if (!Comp_ShieldRadiusControl.AnyShieldProtectsBuilding(__instance))
+            {
+                return true;
+            }
+
+            __result = new DamageWorker.DamageResult();
+            return false;
+        }
+
+        private static bool IsMeleeAttack(DamageInfo dinfo)
+        {
+            if (dinfo.Tool != null) return true;
+            if (dinfo.WeaponBodyPartGroup != null) return true;
+            if (dinfo.Weapon != null && dinfo.Weapon.IsMeleeWeapon) return true;
+            return false;
+        }
+    }
+
+    [StaticConstructorOnStartup]
+    public static class MerissuHarmony
+    {
+        static MerissuHarmony()
+        {
+            new Harmony("merissu.shieldbuildingimmunity").PatchAll();
         }
     }
 }
