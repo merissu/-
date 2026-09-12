@@ -152,9 +152,21 @@ namespace merissu
     {
         public static void Postfix(Projectile __instance, Thing thing, ref bool __result)
         {
-            if (__result && State.IsActive && State.PC?.pawn != null && thing == State.PC.pawn)
+            if (!__result || thing == null) return;
+
+            if (State.IsActive && State.PC?.pawn != null && thing == State.PC.pawn)
             {
                 __result = false;
+                return; 
+            }
+
+            if (TimeStopManager.ProjectilesToIgnore.TryGetValue(__instance.thingIDNumber, out var ignoredPawns))
+            {
+                if (ignoredPawns.Contains(thing.thingIDNumber))
+                {
+                    __result = false;
+                    return;
+                }
             }
         }
     }

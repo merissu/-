@@ -228,7 +228,7 @@ namespace merissu
         public static Dictionary<int, FrozenGunState> FrozenGuns = new Dictionary<int, FrozenGunState>();
         public static readonly HashSet<int> SpawnedDuringTimeStop = new HashSet<int>();
         public static FrozenWorldState EnvState;
-
+        public static Dictionary<int, HashSet<int>> ProjectilesToIgnore = new Dictionary<int, HashSet<int>>();
         public static Dictionary<int, float> ProjTickAccumulators = new Dictionary<int, float>();
         public static Dictionary<int, Vector3> ProjectileOriginPositions = new Dictionary<int, Vector3>();
         public static Thing CurrentTickingThing = null;
@@ -278,6 +278,17 @@ namespace merissu
             SpawnedDuringTimeStop.Clear();
             ProjTickAccumulators.Clear();
             ProjectileOriginPositions.Clear();
+            if (caster.Map != null)
+            {
+                foreach (Thing t in caster.Map.listerThings.ThingsInGroup(ThingRequestGroup.Projectile))
+                {
+                    if (!ProjectilesToIgnore.ContainsKey(t.thingIDNumber))
+                    {
+                        ProjectilesToIgnore[t.thingIDNumber] = new HashSet<int>();
+                    }
+                    ProjectilesToIgnore[t.thingIDNumber].Add(caster.thingIDNumber);
+                }
+            }
             if (caster.Map != null) GenSpawn.Spawn(SakuyaThingDefOf.Sakuya_TimeStopVisual, caster.Map.Center, caster.Map);
             SoundDef theWorldSound = SoundDef.Named("theworld");
             if (theWorldSound != null) theWorldSound.PlayOneShot(new TargetInfo(caster.Position, caster.Map));
@@ -567,7 +578,20 @@ namespace merissu
             if (TimeStopManager.IsTimeStopped) __result = 0f;
         }
     }
-
+    [HarmonyPatch(typeof(Projectile), "Impact")]
+    public static class Patch_Projectile_Impact
+    {
+        public static void Prefix(Projectile __instance, ref Thing hitThing)
+        {
+            if (hitThing != null && TimeStopManager.ProjectilesToIgnore.TryGetValue(__instance.thingIDNumber, out var ignoredPawns))
+            {
+                if (ignoredPawns.Contains(hitThing.thingIDNumber))
+                {
+                    hitThing = null;
+                }
+            }
+        }
+    }
     [HarmonyPatch(typeof(Projectile), "Tick")]
     public static class Patch_Proj_Tick
     {
@@ -580,6 +604,7 @@ namespace merissu
             {
                 TimeStopManager.ProjectileOriginPositions.Remove(__instance.thingIDNumber);
                 TimeStopManager.ProjTickAccumulators.Remove(__instance.thingIDNumber);
+                TimeStopManager.ProjectilesToIgnore.Remove(__instance.thingIDNumber);
                 return true;
             }
 
