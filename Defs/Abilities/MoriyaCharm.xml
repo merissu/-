@@ -24,7 +24,7 @@
       </statOffsets>
       <statFactors>
         <MeleeHitChance>5.0</MeleeHitChance>
-        <MeleeCooldownFactor>0.5</MeleeCooldownFactor>    <!-- 近战冷却时间 -50% -->
+        <MeleeCooldownFactor>0.25</MeleeCooldownFactor>    <!-- 近战冷却时间 -75% -->
       </statFactors>
     </li>
   </stages>
