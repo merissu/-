@@ -3,7 +3,7 @@
   <ThingDef ParentName="Rukoto_MechanoidBase">
     <defName>Rukoto</defName>
     <label>留琴</label>
-    <description>冈崎梦美制造的万能核动力机械女仆，可以从事几乎所有类型的劳动,并且不需要充电。</description>
+    <description>冈崎梦美制造的万能核动力机械女仆，可以从事几乎所有类型的劳动,并且不需要充电。（你可以在mod设置中更改留琴贴图大小）</description>
     <statBases>
       <ArmorRating_Blunt>1.25</ArmorRating_Blunt>
       <ArmorRating_Sharp>1.50</ArmorRating_Sharp>
