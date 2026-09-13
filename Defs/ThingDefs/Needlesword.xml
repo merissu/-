@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>Shrunk</defName>
+    <label>缩小</label>
+    <description>被辉针剑的力量缩小了，暂时无法使用正常大小的武器。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <li Class="TouhouExpansion.HediffCompProperties_Shrunk">
+        <scaleFactor>0.5</scaleFactor>
+      </li>
+    <li Class="HediffCompProperties_SeverityPerDay">
+      <severityPerDay>-8</severityPerDay>
+      <showHoursToRecover>true</showHoursToRecover>
+    </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <IncomingDamageFactor>5.0</IncomingDamageFactor>
+          <MeleeDamageFactor>0.2</MeleeDamageFactor>
+          <MeleeCooldownFactor>2.5</MeleeCooldownFactor>
+        </statFactors>
+        <capMods>
+          <li><capacity>Moving</capacity><offset>-0.5</offset></li>
+          <li><capacity>Manipulation</capacity><offset>-0.5</offset></li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+<ThingDef ParentName="TH_MeleeWeapon">
+    <defName>Shinmyoumaru_NeedleSword</defName>
+    <label>辉针剑</label>
+    <description>少名针妙丸使用的辉针剑，据说能改变物体的大小。</description>
+    <graphicData>
+      <texPath>Items/Needle_Sword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.2,1.2)</drawSize>
+      <shaderType>Mote</shaderType>
+    </graphicData>
+    <soundInteract>Interact_MonoSword</soundInteract>
+    <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <SellPriceFactor>0.1</SellPriceFactor>
+      <Mass>1.0</Mass>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <techLevel>Medieval</techLevel>
+    <weaponClasses>
+      <li>Melee</li>
+    </weaponClasses>
+    <weaponTags>
+      <li>Touhou</li>
+    </weaponTags>
+    <tools>
+      <li>
+        <label>辉针突刺</label>
+        <capacities>
+          <li>Shinmyoumaru_NeedleSwordCapacity</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>0.2</cooldownTime>
+        <armorPenetration>1.0</armorPenetration>
+      </li>
+    </tools>
+    <comps>
+      <li Class="merissu.CompProperties_WearerHediff">
+        <hediff>Shinmyoumaru_NeedleSword_Equipped</hediff>
+      </li>
+    </comps>
+    <costList>
+      <Crimsongold>50</Crimsongold>
+    </costList>
+    <recipeMaker>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <displayPriority>400</displayPriority>
+      <recipeUsers>
+        <li>TableHifuuClub</li>
+      </recipeUsers>
+      <researchPrerequisite>PowerPoint</researchPrerequisite>
+    </recipeMaker>
+    <smeltable>true</smeltable>
+    <smeltProducts>
+      <Crimsongold>10</Crimsongold>
+    </smeltProducts>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+      <li>TouhouWeapons</li>
+    </thingSetMakerTags>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- ========== 自定义穿刺伤害类型 ========== -->
+<DamageDef>
+  <defName>Shinmyoumaru_Pierce</defName>
+  <label>辉针突刺</label>
+  <workerClass>DamageWorker_Cut</workerClass>
+  <externalViolence>true</externalViolence>
+  <deathMessage>{0}被辉针贯穿。</deathMessage>
+  <hediff>Shinmyoumaru_PierceWound</hediff>
+  <hediffSkin>Shinmyoumaru_PierceWound</hediffSkin>
+  <hediffSolid>Shinmyoumaru_PierceWound</hediffSolid>
+  <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+  <impactSoundType>Slice</impactSoundType>
+  <armorCategory>Sharp</armorCategory>
+  <overkillPctToDestroyPart>0~0.1</overkillPctToDestroyPart>
+</DamageDef>
+
+<!-- ========== 自定义伤口 ========== -->
+<HediffDef ParentName="InjuryBase">
+  <defName>Shinmyoumaru_PierceWound</defName>
+  <label>辉针穿刺</label>
+  <labelNoun>辉针穿刺</labelNoun>
+  <description>被辉针剑刺穿，伤口细小但深入。</description>
+  <comps>
+    <li Class="HediffCompProperties_TendDuration">
+      <labelTendedWell>已包扎</labelTendedWell>
+      <labelTendedWellInner>已缝合</labelTendedWellInner>
+      <labelSolidTendedWell>已固定</labelSolidTendedWell>
+    </li>
+    <li Class="HediffCompProperties_Infecter">
+      <infectionChance>0.15</infectionChance>
+    </li>
+    <li Class="HediffCompProperties_GetsPermanent">
+      <permanentLabel>穿刺疤痕</permanentLabel>
+    </li>
+  </comps>
+  <injuryProps>
+    <painPerSeverity>0.0125</painPerSeverity>
+    <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+    <bleedRate>0.06</bleedRate>
+    <canMerge>false</canMerge>
+    <destroyedLabel>刺穿</destroyedLabel>
+    <destroyedOutLabel>刺穿</destroyedOutLabel>
+  </injuryProps>
+</HediffDef>
+
+  <!-- ========== 自定义攻击能力 ========== -->
+  <ToolCapacityDef>
+    <defName>Shinmyoumaru_NeedleSwordCapacity</defName>
+    <label>辉针突刺</label>
+  </ToolCapacityDef>
+
+  <!-- ========== 自定义招式（绑定伤害类型） ========== -->
+  <ManeuverDef>
+    <defName>Shinmyoumaru_NeedleSwordManeuver</defName>
+    <requiredCapacity>Shinmyoumaru_NeedleSwordCapacity</requiredCapacity>
+    <verb>
+      <verbClass>Verb_MeleeAttackDamage</verbClass>
+      <meleeDamageDef>Shinmyoumaru_Pierce</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+  </ManeuverDef>
+
+  <!-- ========== 装备Hediff（提供技能） ========== -->
+  <HediffDef>
+    <defName>Shinmyoumaru_NeedleSword_Equipped</defName>
+    <label>辉针剑装备中</label>
+    <description>可以使用辉针剑的缩小能力。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <abilities>
+      <li>Shinmyoumaru_SingleShrink</li>
+      <li>Shinmyoumaru_GroupShrink</li>
+    </abilities>
+  </HediffDef>
+
+  <!-- ========== 单体缩小技能 ========== -->
+  <AbilityDef>
+    <defName>Shinmyoumaru_SingleShrink</defName>
+    <label>小弹「小人的道路」</label>
+    <description>把单个目标缩小一段时间。缩小期间无法装备武器，且更容易受到伤害。</description>
+    <abilityClass>TouhouExpansion.Ability_Shinmyoumaru_SingleShrink</abilityClass>
+    <cooldownTicksRange>600</cooldownTicksRange>
+    <targetRequired>true</targetRequired>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>40</range>
+      <warmupTime>0.5</warmupTime>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetSelf>false</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <iconPath>Abilities/Shinmyoumaru_SingleShrink</iconPath>
+  </AbilityDef>
+
+  <!-- ========== 群体缩小技能 ========== -->
+<AbilityDef>
+  <defName>Shinmyoumaru_GroupShrink</defName>
+  <label>大弹「大宇宙」</label>
+  <description>消耗1张符卡，把目标区域内所有敌人缩小一段时间。只影响敌对目标。</description>
+  <abilityClass>TouhouExpansion.Ability_Shinmyoumaru_GroupShrink</abilityClass>
+  <cooldownTicksRange>1800</cooldownTicksRange>
+  <targetRequired>true</targetRequired>
+  <verbProperties>
+    <verbClass>TouhouExpansion.Verb_Shinmyoumaru_GroupShrink</verbClass>  <!-- 自定义 Verb -->
+    <range>40</range>
+    <warmupTime>1.0</warmupTime>
+    <targetParams>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetPawns>true</canTargetPawns>
+    </targetParams>
+  </verbProperties>
+  <iconPath>Abilities/Shinmyoumaru_GroupShrink</iconPath>
+</AbilityDef>
+</Defs>
