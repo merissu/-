@@ -7,8 +7,8 @@ namespace merissu
 {
     public static class FlightCompatUtility
     {
-        private static readonly FieldInfo FlightTrackerField =
-            AccessTools.Field(typeof(Pawn), "flightTracker");
+        private static readonly FieldInfo FlightField =
+            AccessTools.Field(typeof(Pawn), "flight");
 
         private static readonly HediffDef SpiritualPowerDef =
             HediffDef.Named("spiritualpower");
@@ -18,14 +18,11 @@ namespace merissu
             if (pawn == null)
                 return null;
 
-            var tracker = PawnFlightUtility.GetFlightTracker(pawn);
+            if (pawn.flight != null)
+                return pawn.flight;
 
-            if (tracker == null)
-            {
-                tracker = new Pawn_FlightTracker(pawn);
-                FlightTrackerField?.SetValue(pawn, tracker);
-            }
-
+            var tracker = new Pawn_FlightTracker(pawn);
+            FlightField?.SetValue(pawn, tracker);
             return tracker;
         }
 

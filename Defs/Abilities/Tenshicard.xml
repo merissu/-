@@ -349,39 +349,53 @@
 		</comps>
     </AbilityDef>
 
-	<HediffDef>
-		<defName>Hediff_TenshiLastSpell</defName>
-		<label>「全人类的绯想天」</label>
+    <HediffDef>
+        <defName>Hediff_TenshiLastSpell</defName>
+        <label>「全人类的绯想天」</label>
         <defaultLabelColor>(255,0,0)</defaultLabelColor>
-		<description>以天制大地
+        <description>以天制大地
 以地除要枢
 照映出人绯色之内心</description>
-		<hediffClass>HediffWithComps</hediffClass>
-		<maxSeverity>1.0</maxSeverity>
+        <hediffClass>HediffWithComps</hediffClass>
+        <maxSeverity>1.0</maxSeverity>
         <abilities>
-			<li>Hisouten</li>
+            <li>Hisouten</li>
         </abilities>
-		<isBad>false</isBad>
-		<comps>
-			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-8.33</severityPerDay>
-				<showHoursToRecover>true</showHoursToRecover>
-			</li>
+        <isBad>false</isBad>
+        <blocksSleeping>true</blocksSleeping>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-8.33</severityPerDay>
+                <showHoursToRecover>true</showHoursToRecover>
+            </li>
             <li Class="merissu.HediffCompProperties_PlayMusicOnce">
                 <songDef>Tenshi2</songDef>
             </li>
-		</comps>
-		<stages>
-			<li>
-             	<painFactor>0</painFactor>
-				<statFactors>
-					<IncomingDamageFactor>0</IncomingDamageFactor>
-				</statFactors>
+			<li Class="merissu.HediffCompProperties_TenshiFlight">
+				<flyingHediffDef>Hediff_SpiritualFlying</flyingHediffDef>
+				<flightHeightFactor>3</flightHeightFactor>
 			</li>
-		</stages>
-	</HediffDef>
+        </comps>
+        <stages>
+            <li>
+                <painFactor>0</painFactor>
+                <statFactors>
+                    <IncomingDamageFactor>0</IncomingDamageFactor>
+                    <Flammability>0</Flammability>
+                </statFactors>
+                <statOffsets>
+                    <MaxFlightTime>99999</MaxFlightTime>
+                </statOffsets>
+            </li>
+        </stages>
+		<renderNodeProperties>
+			<li Class="merissu.PawnRenderNodeProperties_TenshiSword">
+				<texPath>Weapons/ScarletRhapsodySword</texPath>
+			</li>
+		</renderNodeProperties>
+    </HediffDef>
 
-    <AbilityDef>
+	<AbilityDef>
 		<defName>Hisouten</defName>
 		<label>「全人类的绯想天」</label>
         <abilityClass>merissu.Ability_Hisouten</abilityClass>

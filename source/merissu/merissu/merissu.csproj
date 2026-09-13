@@ -169,7 +169,12 @@
     <Compile Include="符卡系列\NoachianDeluge\CompProperties_ExtinguishFire.cs" />
     <Compile Include="符卡系列\NoachianDeluge\Mote_BulletDestroyFade.cs" />
     <Compile Include="符卡系列\Photosynthesis\HediffCompProperties_Photosynthesis.cs" />
+    <Compile Include="符卡系列\tenshicard\FlightHeightPatches.cs" />
+    <Compile Include="符卡系列\tenshicard\HarmonyPatch_HideHeldWeapon.cs" />
+    <Compile Include="符卡系列\tenshicard\HediffComp_TenshiFlight.cs" />
     <Compile Include="符卡系列\tenshicard\Skyfaller_TenshiStone .cs" />
+    <Compile Include="符卡系列\tenshicard\TenshiFlightPatches.cs" />
+    <Compile Include="符卡系列\tenshicard\TenshiSwordNode.cs" />
     <Compile Include="符卡系列\udongecard\HediffCompProperties_InfraredMoonEffect.cs" />
     <Compile Include="符卡系列\youmucard\YoumuHarmonyInit.cs" />
     <Compile Include="符卡系列\youmucard\YoumuRapidSlashVisualState.cs" />
