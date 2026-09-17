@@ -6,13 +6,13 @@
     <description>被辉针剑的力量缩小了，暂时无法使用正常大小的武器。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>true</isBad>
-    <maxSeverity>1.0</maxSeverity>
+    <maxSeverity>0.5</maxSeverity>
     <comps>
       <li Class="TouhouExpansion.HediffCompProperties_Shrunk">
         <scaleFactor>0.5</scaleFactor>
       </li>
     <li Class="HediffCompProperties_SeverityPerDay">
-      <severityPerDay>-8</severityPerDay>
+      <severityPerDay>-4</severityPerDay>
       <showHoursToRecover>true</showHoursToRecover>
     </li>
     </comps>
@@ -22,6 +22,7 @@
           <IncomingDamageFactor>5.0</IncomingDamageFactor>
           <MeleeDamageFactor>0.2</MeleeDamageFactor>
           <MeleeCooldownFactor>2.5</MeleeCooldownFactor>
+		  <MeleeHitChance>0.25</MeleeHitChance>
         </statFactors>
         <capMods>
           <li><capacity>Moving</capacity><offset>-0.5</offset></li>
@@ -64,7 +65,7 @@
         </capacities>
         <power>6</power>
         <cooldownTime>0.2</cooldownTime>
-        <armorPenetration>1.0</armorPenetration>
+        <armorPenetration>0.5</armorPenetration>
       </li>
     </tools>
     <comps>
