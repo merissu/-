@@ -5,22 +5,32 @@
 		<label>罪袋</label>
 		<description>套在头上的白色袋子，似乎会产生一种神秘力量抑制佩戴者的反抗意识。</description>
 		<graphicData>
-			<texPath>Apparel/ZuiBag/ZuiBag</texPath>
+			<texPath>Apparel/ZuiBag/ZuiBag_Item</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>0.8</drawSize>
 		</graphicData>
-		<costStuffCount>50</costStuffCount>
-		<stuffCategories>
-			<li>Fabric</li>
-			<li>Leathery</li>
-		</stuffCategories>
+		<costList>
+        <MakaiShinkiCloth>5</MakaiShinkiCloth>
+    	</costList>
+		<recipeMaker>
+			<displayPriority>175</displayPriority>
+			<recipeUsers>
+				<li>TableHifuuClub</li>
+			</recipeUsers>
+			<researchPrerequisite>PowerPoint</researchPrerequisite>
+		</recipeMaker>
+    <smeltable>true</smeltable>
+    <smeltProducts>
+      <MakaiShinkiCloth>3</MakaiShinkiCloth>
+    </smeltProducts>
 		<statBases>
-			<MaxHitPoints>80</MaxHitPoints>
+			<MaxHitPoints>800</MaxHitPoints>
 			<WorkToMake>1800</WorkToMake>
 			<Mass>0.14</Mass>
-			<StuffEffectMultiplierArmor>0.10</StuffEffectMultiplierArmor>
-			<StuffEffectMultiplierInsulation_Cold>0.20</StuffEffectMultiplierInsulation_Cold>
-			<StuffEffectMultiplierInsulation_Heat>0.20</StuffEffectMultiplierInsulation_Heat>
+			<ArmorRating_Blunt>0.12</ArmorRating_Blunt>
+      		<ArmorRating_Sharp>0.12</ArmorRating_Sharp>
+      		<ArmorRating_Heat>0.1</ArmorRating_Heat>
+      		<Insulation_Cold>10</Insulation_Cold>
+      		<Insulation_Heat>10</Insulation_Heat>
 			<EquipDelay>1.5</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
@@ -57,9 +67,5 @@
 				</dataNorth>
 			</drawData>
 		</apparel>
-		<colorGenerator Class="ColorGenerator_StandardApparel" />
-		<recipeMaker>
-			<displayPriority>175</displayPriority>
-		</recipeMaker>
 	</ThingDef>
 </Defs>
