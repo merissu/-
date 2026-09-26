@@ -3680,7 +3680,8 @@
 		<graphicData>
 			<texPath>Medicine/suikagourd</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.5,0.5)</drawSize>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<rotatable>false</rotatable>
 		<stackLimit>25</stackLimit>
@@ -4062,7 +4063,8 @@
 		<graphicData>
 			<texPath>Medicine/onikoro</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.5,0.5)</drawSize>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<rotatable>false</rotatable>
 		<stackLimit>25</stackLimit>
@@ -4079,7 +4081,7 @@
 			<joy>0.35</joy>
 			<nurseable>true</nurseable>
 			<drugCategory>Social</drugCategory>
-			<ingestSound>Ingest_Beer</ingestSound>
+			<ingestSound>Drinksth</ingestSound>
 			<ingestHoldOffsetStanding>
 				<northDefault>
 				<offset>(0.18,0,0)</offset>
@@ -4294,7 +4296,8 @@
 		<graphicData>
 			<texPath>Medicine/YugiCup</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(0.5,0.5)</drawSize>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<rotatable>false</rotatable>
 		<stackLimit>25</stackLimit>
@@ -4380,7 +4383,8 @@
 		<graphicData>
 			<texPath>Medicine/Daiginjo</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1,1)</drawSize>
+			<drawSize>(0.8,0.8)</drawSize>
+			<shaderType>Mote</shaderType>
 		</graphicData>
 		<rotatable>false</rotatable>
 		<stackLimit>25</stackLimit>
@@ -4397,7 +4401,7 @@
 			<joy>0.8</joy>
 			<nurseable>true</nurseable>
 			<drugCategory>Social</drugCategory>
-			<ingestSound>Ingest_Beer</ingestSound>
+			<ingestSound>Drinksth</ingestSound>
 			<ingestHoldOffsetStanding>
 				<northDefault>
 				<offset>(0.18,0,0)</offset>
