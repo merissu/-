@@ -621,81 +621,91 @@
 	</ThingDef>
 	<!--莱瓦汀-->
 
-	<ThingDef ParentName="TH_MeleeWeapon">
-		<defName>Laevatain</defName>
-		<label>莱瓦汀</label>
-		<description>芙兰朵露唤出的巨大火焰剑状的武器，可以消耗符卡发动强大的四重身。在家里挥舞着这样的剑真是危险。就算是吸血鬼，这剑还是太大了。</description>
-		<descriptionHyperlinks>
-			<ThingDef>PowerPoint</ThingDef> 
-			<ThingDef>FullPower</ThingDef> 
-			<ThingDef>spellcard</ThingDef> 
-		</descriptionHyperlinks>
-		<graphicData>
-			<texPath>Weapons/Laevatain</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(2,2)</drawSize>
-			<shaderType>merissu_Laevatain</shaderType>
-		</graphicData>
-		<thingSetMakerTags>
-			<li>RewardStandardQualitySuper</li>
-			<li>TouhouWeapons</li>
-		</thingSetMakerTags>
-		<statBases>
-			<WorkToMake>30000</WorkToMake>
-			<MarketValue>5000</MarketValue> 
-			<SellPriceFactor>0.1</SellPriceFactor>
-			<Mass>3</Mass>
-			<Flammability>0</Flammability>
-		</statBases>
-		<weaponTags>
-			<li>Touhou</li>
-		</weaponTags>
-		<relicChance>17</relicChance>
-		<equippedAngleOffset>-65</equippedAngleOffset>
-		<tools>
-			<li>
-				<label>莱瓦汀</label>
-				<capacities>
-					<li>KagomeKagome</li>
-				</capacities>
-				<power>495</power>
-				<cooldownTime>2</cooldownTime>
-			</li>
-		</tools>
-		<costList>
-			<FullPower>10</FullPower>
-			<Crimsongold>160</Crimsongold>
-		</costList>
-		<recipeMaker>
-			<skillRequirements>
-				<Crafting>18</Crafting>
-			</skillRequirements>
-			<displayPriority>400</displayPriority>
-			<recipeUsers>
-				<li>TableHifuuClub</li>
-			</recipeUsers>
-			<researchPrerequisite>BloodyCatastrophe</researchPrerequisite>
-		</recipeMaker>
-		<comps>
-			<li Class="merissu.CompProperties_EquippableMultiAbility">
-				<abilityDefs>
-					<li>FourOfAKind</li>
-					<li>BloodyCatastrophe</li>
-				</abilityDefs>
-			</li>
-			<li Class="CompProperties_Glower">
-				<glowRadius>5</glowRadius> 
-				<glowColor>(255,255,255,0)</glowColor> 
-				<overlightRadius>10</overlightRadius>
-			</li>
-		</comps>
-	</ThingDef>
+  <ThingDef ParentName="TH_MeleeWeapon">
+    <defName>Laevatain</defName>
+    <label>莱瓦汀</label>
+    <description>芙兰朵露唤出的巨大火焰剑状的武器,能够进行大范围的近战攻击,剑锋所到之处会遍布火焰弹,还可以消耗符卡发动强大的四重身。
+		
+在家里挥舞着这样的剑真是危险。就算是吸血鬼，这剑还是太大了。</description>
+    <descriptionHyperlinks>
+      <ThingDef>PowerPoint</ThingDef>
+      <ThingDef>FullPower</ThingDef>
+      <ThingDef>spellcard</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Weapons/Laevatain</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <shaderType>merissu_Laevatain</shaderType>
+    </graphicData>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+      <li>TouhouWeapons</li>
+    </thingSetMakerTags>
+    <statBases>
+      <WorkToMake>30000</WorkToMake>
+      <MarketValue>5000</MarketValue>
+      <SellPriceFactor>0.1</SellPriceFactor>
+      <Mass>3</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <weaponTags>
+      <li>Touhou</li>
+    </weaponTags>
+    <relicChance>17</relicChance>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <tools>
+      <li>
+        <label>莱瓦汀</label>
+        <capacities>
+          <li>KagomeKagome</li>
+        </capacities>
+        <power>495</power>
+        <cooldownTime>2</cooldownTime>
+		<soundMeleeHit>flandre_fire_sword</soundMeleeHit>
+		<soundMeleeMiss>MissedG</soundMeleeMiss>
+      </li>
+    </tools>
+    <costList>
+      <FullPower>10</FullPower>
+      <Crimsongold>160</Crimsongold>
+    </costList>
+    <recipeMaker>
+      <skillRequirements>
+        <Crafting>18</Crafting>
+      </skillRequirements>
+      <displayPriority>400</displayPriority>
+      <recipeUsers>
+        <li>TableHifuuClub</li>
+      </recipeUsers>
+      <researchPrerequisite>BloodyCatastrophe</researchPrerequisite>
+    </recipeMaker>
+    <comps>
+      <li Class="merissu.CompProperties_EquippableMultiAbility">
+        <abilityDefs>
+          <li>FourOfAKind</li>
+          <li>BloodyCatastrophe</li>
+        </abilityDefs>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(255,255,255,0)</glowColor>
+        <overlightRadius>10</overlightRadius>
+      </li>
+    </comps>
+  </ThingDef>
 
 	<ShaderTypeDef>
 		<defName>merissu_Laevatain</defName>
 		<shaderPath>merissu/RW_Laevatain_CoreGlow</shaderPath>
-	</ShaderTypeDef>	
+	</ShaderTypeDef>
 
+    <JobDef>
+        <defName>Merissu_GreatswordSweep</defName>
+        <driverClass>merissu.JobDriver_GreatswordSweep</driverClass>
+        <reportString>attacking TargetA.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+    </JobDef>
 
 	<ToolCapacityDef>
 		<defName>KagomeKagome</defName>
@@ -708,6 +718,9 @@
 		<verb>
 			<verbClass>merissu.Verb_Catadioptric</verbClass>
 			<meleeDamageDef>EternalMoments</meleeDamageDef>
+			<range>5</range>
+			<minRange>0</minRange>
+			<requireLineOfSight>true</requireLineOfSight>
 		</verb>
 		<logEntryDef>MeleeAttack</logEntryDef>
 		<combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
@@ -716,6 +729,62 @@
 		<combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
 	</ManeuverDef>
 
+	<ThingDef>
+		<defName>LaevatainSwingEffect</defName>
+		<label>莱瓦汀斩击特效</label>
+		<thingClass>merissu.Thing_LaevatainSwingEffect</thingClass>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<destroyable>true</destroyable>
+		<category>Ethereal</category>
+		<neverMultiSelect>true</neverMultiSelect>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<tickerType>Normal</tickerType>
+		<passability>Standable</passability>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Weapons/Laevatain/fire_rod000</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>LaevatainSweepController</defName>
+		<label>莱瓦汀横扫控制器</label>
+		<thingClass>merissu.Thing_LaevatainSweepController</thingClass>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<destroyable>true</destroyable>
+		<category>Ethereal</category>
+		<neverMultiSelect>true</neverMultiSelect>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<tickerType>Normal</tickerType>
+		<passability>Standable</passability>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Weapons/Laevatain/expload_mini_000</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>LaevatainMiniEffect</defName>
+		<label>莱瓦汀迷你爆炸</label>
+		<thingClass>merissu.Thing_LaevatainMiniEffect</thingClass>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<destroyable>true</destroyable>
+		<category>Ethereal</category>
+		<neverMultiSelect>true</neverMultiSelect>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<tickerType>Normal</tickerType>
+		<passability>Standable</passability>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<graphicData>
+			<texPath>Weapons/Laevatain/expload_mini_000</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
 	<!--八卦炉-->
 	<ThingDef ParentName="TH_RangeWeapon">
 		<defName>Hakkero</defName>
