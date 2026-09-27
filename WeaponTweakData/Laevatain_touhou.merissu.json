@@ -6,9 +6,9 @@
   "OffX": 0.8117731,
   "OffY": 0.009582645,
   "Rotation": 48.0,
-  "ScaleX": 2.0,
-  "ScaleY": 2.0,
-  "BladeStart": 0.0698151961,
+  "ScaleX": 2.1,
+  "ScaleY": 2.1,
+  "BladeStart": 0.23850593,
   "BladeEnd": 2.0,
   "MeleeWeaponType": 6,
   "TrailTint": {

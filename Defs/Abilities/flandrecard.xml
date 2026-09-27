@@ -84,7 +84,7 @@
 		<graphicData>
 			<texPath>Weapons/PhantomLaevatain</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(2,2)</drawSize>
+			<drawSize>(2.1,2.1)</drawSize>
 			<shaderType>merissu_Laevatain</shaderType>
 		</graphicData>
 		<thingSetMakerTags>
