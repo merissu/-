@@ -98,12 +98,12 @@
   <HediffDef>
     <defName>EirinPoisonHediff</defName>
     <label>蓬莱之毒</label>
-    <description>被蓬莱之毒侵蚀着，一旦在体内积累满5层就会瞬间死亡。</description>
+    <description>被蓬莱之毒侵蚀着，一旦在体内积累满100%就会瞬间死亡。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>true</isBad>
     <maxSeverity>1.0</maxSeverity>   <!-- 满层 = 1.0 -->
     <comps>
-      <!-- 自动衰减：每天减少0.2严重度（1天掉1层） -->
+      <!-- 自动衰减：每天减少0.2严重度（1天掉20%） -->
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-0.2</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
@@ -113,24 +113,20 @@
     </comps>
     <stages>
       <li>
-        <minSeverity>0.0</minSeverity>
-        <label>一层</label>
-      </li>
-      <li>
-        <minSeverity>0.2</minSeverity>
-        <label>二层</label>
+        <minSeverity>0</minSeverity>
+        <label>20%</label>
       </li>
       <li>
         <minSeverity>0.4</minSeverity>
-        <label>三层</label>
+        <label>40%</label>
       </li>
       <li>
         <minSeverity>0.6</minSeverity>
-        <label>四层</label>
+        <label>60%</label>
       </li>
       <li>
         <minSeverity>0.8</minSeverity>
-        <label>五层</label>
+        <label>80%</label>
       </li>
     </stages>
   </HediffDef>
@@ -145,7 +141,7 @@
   <additionalHediffs>
     <li>
       <hediff>EirinPoisonHediff</hediff>
-      <severityPerDamageDealt>0.01</severityPerDamageDealt>
+      <severityPerDamageDealt>0.0125</severityPerDamageDealt>
       <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
     </li>
   </additionalHediffs>
