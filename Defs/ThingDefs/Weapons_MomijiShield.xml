@@ -61,6 +61,15 @@
         <dataNorth>
           <layer>-1</layer>
         </dataNorth>
+        <dataSouth>
+          <layer>80</layer>
+        </dataSouth>
+        <dataEast>
+          <layer>80</layer>
+        </dataEast>
+        <dataWest>
+          <layer>80</layer>
+        </dataWest>
       </drawData>
       <wornGraphicPath>Items/Momiji_Shield</wornGraphicPath>
       <tags>
