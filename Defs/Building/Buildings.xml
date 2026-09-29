@@ -119,7 +119,8 @@
         <description>用荷取热机净化的温热泉水,有淡淡的硫磺味,喝下去浑身暖暖的,会很舒服,适合用来酿造酒</description>
         <graphicData>
             <texPath>Medicine/GeyserWater</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
+            <graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>(0.8,0.8)</drawSize>
             <shaderType>Mote</shaderType>
         </graphicData>
         <thingClass>ThingWithComps</thingClass>
@@ -128,6 +129,9 @@
             <MarketValue>8</MarketValue>
             <Mass>0.2</Mass>
         </statBases>
+		<thingCategories>
+			<li>Drugs</li>
+		</thingCategories>
         <category>Item</category>
         <resourceReadoutPriority>Middle</resourceReadoutPriority>
 		<ingestible>
