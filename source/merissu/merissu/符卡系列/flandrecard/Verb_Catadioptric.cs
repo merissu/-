@@ -201,7 +201,7 @@ namespace merissu
     public class Thing_LaevatainSwingEffect : Thing
     {
         public const int TotalFrames = 5;
-        public const int TicksPerFrame = 2;
+        public const int TicksPerFrame = 6;
         public const int LifeTicks = TotalFrames * TicksPerFrame;
 
         public float size = 3f;
@@ -282,11 +282,13 @@ namespace merissu
 
         static Thing_LaevatainSweepController()
         {
+            /* 小爆炸
             for (int i = 0; i < MiniTotalFrames; i++)
                 MiniMats[i] = MaterialPool.MatFrom(
                     $"Weapons/Laevatain/expload_mini_{i:D3}",
                     ShaderDatabase.MoteGlow
                 );
+            */
         }
 
         private int age;
@@ -310,7 +312,8 @@ namespace merissu
                 return;
             }
 
-            if (age >= Duration + MiniLifeTicks)
+            // 小爆炸
+            if (age >= Duration /* + MiniLifeTicks */)
             {
                 Destroy();
                 return;
@@ -376,6 +379,7 @@ namespace merissu
 
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
+            /* 小爆炸
             if (caster == null || !caster.Spawned) return;
 
             float alt = AltitudeLayer.MoteOverhead.AltitudeFor();
@@ -393,10 +397,12 @@ namespace merissu
             {
                 DrawOneRow(Duration - 1, origin, alt);
             }
+            */
         }
 
         private void DrawOneRow(int b, Vector3 origin, float alt)
         {
+            /* 小爆炸
             int miniAge = age - b;
             if (miniAge < 0 || miniAge >= MiniLifeTicks) return;
 
@@ -424,6 +430,7 @@ namespace merissu
                     0
                 );
             }
+            */
         }
     }
 
@@ -439,8 +446,10 @@ namespace merissu
 
         static Thing_LaevatainMiniEffect()
         {
+            /* 小爆炸
             for (int i = 0; i < TotalFrames; i++)
                 Mats[i] = MaterialPool.MatFrom($"Weapons/Laevatain/expload_mini_{i:D3}", ShaderDatabase.MoteGlow);
+            */
         }
 
         public override void ExposeData()
@@ -458,6 +467,7 @@ namespace merissu
 
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
+            /* 小爆炸
             int frame = age / TicksPerFrame;
             if (frame < 0 || frame >= TotalFrames) return;
 
@@ -471,6 +481,7 @@ namespace merissu
             );
 
             Graphics.DrawMesh(MeshPool.plane10, matrix, Mats[frame], 0);
+            */
         }
     }
 
@@ -484,7 +495,7 @@ namespace merissu
     }
 
     [HarmonyPatch(typeof(Pawn_JobTracker), nameof(Pawn_JobTracker.StartJob))]
-    public static class Patch_Pawn_JobTracker_StartJob
+    public class Patch_Pawn_JobTracker_StartJob
     {
         [HarmonyPrefix]
         public static void Prefix(Pawn ___pawn, Job newJob)
