@@ -17,16 +17,17 @@
       <Crimsongold>35</Crimsongold>
     </costList>
 
-    <recipeMaker>
-      <skillRequirements>
-        <Crafting>8</Crafting>
-      </skillRequirements>
-      <workAmount>2500</workAmount>
-      <recipeUsers>
-        <li>TableHifuuClub</li>
-      </recipeUsers>
-	   <researchPrerequisite>PowerPoint</researchPrerequisite>
-    </recipeMaker>
+	<recipeMaker>
+	<skillRequirements>
+		<Crafting>8</Crafting>
+	</skillRequirements>
+	<workSkill>Crafting</workSkill>
+	<displayPriority>400</displayPriority>
+	<recipeUsers>
+		<li>TableHifuuClub</li>
+	</recipeUsers>
+	<researchPrerequisite>PowerPoint</researchPrerequisite>
+	</recipeMaker>
 
     <statBases>
       <MarketValue>500</MarketValue>
@@ -39,7 +40,11 @@
 	  <ArmorRating_Heat>0.4</ArmorRating_Heat>
     </statBases>
     <techLevel>Medieval</techLevel>
-
+	
+	<thingCategories>
+	  <li>ApparelUtility</li>
+	</thingCategories>
+	
     <equippedStatOffsets>
 	  <MentalBreakThreshold>-0.15</MentalBreakThreshold>
     </equippedStatOffsets>
