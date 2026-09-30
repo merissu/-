@@ -125,6 +125,7 @@
 			</skillRequirements>
 			<displayPriority>400</displayPriority>
 		</recipeMaker>
+		<tradeability>None</tradeability>
 		<comps>
 			<li Class="CompProperties_Glower">
 				<glowRadius>5</glowRadius> 

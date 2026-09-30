@@ -390,7 +390,7 @@
         </stages>
 		<renderNodeProperties>
 			<li Class="merissu.PawnRenderNodeProperties_TenshiSword">
-				<texPath>Weapons/ScarletRhapsodySword</texPath>
+				<texPath>Weapons/powerScarletRhapsodySword</texPath>
 			</li>
 		</renderNodeProperties>
     </HediffDef>

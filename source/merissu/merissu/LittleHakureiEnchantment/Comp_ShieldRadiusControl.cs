@@ -24,6 +24,8 @@ namespace merissu
         private int sealedBeadCount = 0;
         private int lastSealTick = -999;
 
+        private float currentRadius = -1f;
+
         private const int MaxBeadsLimit = 7;
 
         private bool? lastGroundState = null;
@@ -31,6 +33,8 @@ namespace merissu
 
         private static readonly HashSet<ushort> KnownStealthHediffShortIDs = new HashSet<ushort>();
         private static readonly HashSet<ushort> KnownNormalHediffShortIDs = new HashSet<ushort>();
+
+        public float CurrentRadius => currentRadius > 0f ? currentRadius : (interceptor != null ? interceptor.Props.radius : 30f);
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -43,6 +47,15 @@ namespace merissu
             {
                 allowGround = interceptor.Props.interceptGroundProjectiles;
                 allowAir = interceptor.Props.interceptAirProjectiles;
+
+                if (currentRadius > 0f)
+                {
+                    interceptor.Props.radius = currentRadius;
+                }
+                else
+                {
+                    currentRadius = interceptor.Props.radius;
+                }
             }
 
             UpdateFuelConsumption();
@@ -56,6 +69,8 @@ namespace merissu
             Scribe_Values.Look(ref touhouDieEnabled, "touhouDieEnabled", false);
             Scribe_Values.Look(ref sealedBeadCount, "sealedBeadCount", 0);
             Scribe_Values.Look(ref lastSealTick, "lastSealTick", -999);
+
+            Scribe_Values.Look(ref currentRadius, "currentRadius", -1f);
         }
 
         public override void CompTick()
@@ -86,7 +101,7 @@ namespace merissu
 
         private void ProcessEnemiesInRadius(Map map)
         {
-            float radius = interceptor != null ? interceptor.Props.radius : 30f;
+            float radius = CurrentRadius;
             IntVec3 center = parent.Position;
             Faction parentFaction = parent.Faction;
 
@@ -149,7 +164,7 @@ namespace merissu
         {
             if (sealedBeadCount <= 0) return;
 
-            float radius = interceptor != null ? interceptor.Props.radius : 30f;
+            float radius = CurrentRadius;
             IntVec3 center = parent.Position;
 
             float maxSeverityLimit = 1.0f + (sealedBeadCount - 1) * 0.5f;
@@ -187,7 +202,7 @@ namespace merissu
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             if (interceptor == null) yield break;
-            float radius = interceptor.Props.radius;
+            float radius = CurrentRadius;
 
             yield return new Command_Action
             {
@@ -291,9 +306,11 @@ namespace merissu
         private void ChangeRadius(float delta)
         {
             if (interceptor == null) return;
-            float current = interceptor.Props.radius;
+            float current = CurrentRadius;
             float newRadius = Mathf.Clamp(current + delta, Props.minRadius, Props.maxRadius);
             if (Mathf.Approximately(newRadius, current)) return;
+
+            currentRadius = newRadius;
             interceptor.Props.radius = newRadius;
             UpdateFuelConsumption();
             UpdateInterceptorState(false);
@@ -302,7 +319,7 @@ namespace merissu
         private void UpdateFuelConsumption()
         {
             if (refuelable == null || interceptor == null) return;
-            float consumption = interceptor.Props.radius;
+            float consumption = CurrentRadius;
             if (revealStealthEnabled) consumption += 10f;
             if (touhouDieEnabled) consumption += 10f;
             refuelable.Props.fuelConsumptionRate = consumption;
@@ -329,7 +346,7 @@ namespace merissu
         {
             if (refuelable != null && !refuelable.HasFuel) return false;
 
-            float radius = interceptor != null ? interceptor.Props.radius : 30f;
+            float radius = CurrentRadius;
             return cell.InHorDistOf(parent.Position, radius);
         }
 
