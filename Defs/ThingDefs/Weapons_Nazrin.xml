@@ -11,7 +11,8 @@
       <shaderType>Mote</shaderType>
     </graphicData>
     <statBases>
-			<MarketValue>800</MarketValue> 
+	  <WorkToMake>2500</WorkToMake>
+	  <MarketValue>800</MarketValue> 
       <SellPriceFactor>0.1</SellPriceFactor>
       <Mass>1.0</Mass>
       <MaxHitPoints>150</MaxHitPoints>

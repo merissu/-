@@ -30,6 +30,7 @@
 	</recipeMaker>
 
     <statBases>
+	  <WorkToMake>2500</WorkToMake>
       <MarketValue>500</MarketValue>
       <Mass>1.0</Mass>
       <MaxHitPoints>10000</MaxHitPoints>
