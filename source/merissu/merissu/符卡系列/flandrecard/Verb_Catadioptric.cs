@@ -201,7 +201,7 @@ namespace merissu
     public class Thing_LaevatainSwingEffect : Thing
     {
         public const int TotalFrames = 5;
-        public const int TicksPerFrame = 6;
+        public const int TicksPerFrame = 8;
         public const int LifeTicks = TotalFrames * TicksPerFrame;
 
         public float size = 3f;

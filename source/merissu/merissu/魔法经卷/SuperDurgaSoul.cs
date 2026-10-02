@@ -10,6 +10,8 @@ namespace merissu
     public class Ability_superDurgaSoul : Ability
     {
         public Ability_superDurgaSoul() : base() { }
+        public Ability_superDurgaSoul(Pawn pawn) : base(pawn) { }
+
         public Ability_superDurgaSoul(Pawn pawn, AbilityDef def) : base(pawn, def) { }
 
         public override bool Activate(LocalTargetInfo target, LocalTargetInfo dest)

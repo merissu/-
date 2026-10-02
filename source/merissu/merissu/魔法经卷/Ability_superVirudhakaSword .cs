@@ -9,6 +9,9 @@ namespace merissu
     public class Ability_superVirudhakaSword : Ability
     {
         public Ability_superVirudhakaSword() : base() { }
+
+        public Ability_superVirudhakaSword(Pawn pawn) : base(pawn) { }
+
         public Ability_superVirudhakaSword(Pawn pawn, AbilityDef def) : base(pawn, def) { }
 
         public override AcceptanceReport CanCast => base.CanCast;
@@ -17,7 +20,6 @@ namespace merissu
         {
             if (!target.IsValid || pawn.Map == null)
                 return false;
-
 
             if (def.verbProperties.soundCast != null)
             {
@@ -64,8 +66,8 @@ namespace merissu
         private const float CollisionRadius = 1.3f;
         private HashSet<Thing> alreadyHit = new HashSet<Thing>();
 
-        private const int DamageAmountPawn = 20;    
-        private const int DamageAmountOther = 80;   
+        private const int DamageAmountPawn = 20;
+        private const int DamageAmountOther = 80;
         private const int BuildingHitPointsThreshold = 850;
 
         public void Initialize(Pawn launcher, Vector3 dir)

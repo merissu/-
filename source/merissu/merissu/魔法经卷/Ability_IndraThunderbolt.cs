@@ -9,6 +9,9 @@ namespace merissu
     public class Ability_IndraThunderbolt : Ability
     {
         public Ability_IndraThunderbolt() : base() { }
+
+        public Ability_IndraThunderbolt(Pawn pawn) : base(pawn) { }
+
         public Ability_IndraThunderbolt(Pawn pawn, AbilityDef def) : base(pawn, def) { }
 
         public override bool Activate(LocalTargetInfo target, LocalTargetInfo dest)

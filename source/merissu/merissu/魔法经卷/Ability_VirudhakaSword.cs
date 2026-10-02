@@ -10,6 +10,8 @@ namespace merissu
     {
         public Ability_VirudhakaSword() : base() { }
 
+        public Ability_VirudhakaSword(Pawn pawn) : base(pawn) { }
+
         public Ability_VirudhakaSword(Pawn pawn, AbilityDef def)
             : base(pawn, def) { }
 

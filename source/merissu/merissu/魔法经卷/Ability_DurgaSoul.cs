@@ -9,6 +9,9 @@ namespace merissu
     public class Ability_DurgaSoul : Ability
     {
         public Ability_DurgaSoul() : base() { }
+
+        public Ability_DurgaSoul(Pawn pawn) : base(pawn) { }
+
         public Ability_DurgaSoul(Pawn pawn, AbilityDef def) : base(pawn, def) { }
 
         public override bool Activate(LocalTargetInfo target, LocalTargetInfo dest)
@@ -49,7 +52,7 @@ namespace merissu
     public class HediffCompProperties_DurgaSoul : HediffCompProperties
     {
         public int maxCharges = 5;
-        public int invincibleTimeTicks = 60; 
+        public int invincibleTimeTicks = 60;
 
         public HediffCompProperties_DurgaSoul()
         {
@@ -81,7 +84,7 @@ namespace merissu
         public void ResetCharges()
         {
             remainingCharges = Props.maxCharges;
-            invincibleTicksLeft = 0; 
+            invincibleTicksLeft = 0;
         }
 
         public override void CompPostTick(ref float severityAdjustment)
@@ -93,7 +96,7 @@ namespace merissu
                 invincibleTicksLeft--;
 
             auraTickCounter++;
-            if (auraTickCounter >= 30) 
+            if (auraTickCounter >= 30)
             {
                 auraTickCounter = 0;
                 SpawnAura();

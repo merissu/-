@@ -12,6 +12,7 @@ namespace merissu
         private static readonly Type ProjectileCEType = AccessTools.TypeByName("CombatExtended.ProjectileCE");
 
         public superAbility_GuangmuTianEye() : base() { }
+        public superAbility_GuangmuTianEye(Pawn pawn) : base(pawn) { }
         public superAbility_GuangmuTianEye(Pawn pawn, AbilityDef def) : base(pawn, def) { }
 
         public override AcceptanceReport CanCast => true;
