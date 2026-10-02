@@ -3,3 +3,10 @@
 **/[Oo]bj/
 *.user
 *.suo
+
+# RimSearcher environment (keep DB out of VCS; preserve README)
+.rimsearcher/*
+!.rimsearcher/README.md
+
+# Cline project skills (contains binaries)
+.cline/

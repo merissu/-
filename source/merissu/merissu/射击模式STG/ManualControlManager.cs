@@ -122,6 +122,8 @@ namespace merissu
     [HarmonyPatch(typeof(Pawn), nameof(Pawn.GetGizmos))]
     public static class Patch_Pawn_GetGizmos_ManualControl
     {
+        private static int lastGizmoAddedFrame = -1;
+
         public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> __result, Pawn __instance)
         {
             foreach (var g in __result)
@@ -129,6 +131,10 @@ namespace merissu
 
             if (__instance == null || __instance.Dead || !__instance.Drafted)
                 yield break;
+
+            if (Time.frameCount == lastGizmoAddedFrame)
+                yield break;
+            lastGizmoAddedFrame = Time.frameCount;
 
             bool isCurrentControlled = ManualControlManager.IsControlled(__instance);
 
