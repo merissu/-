@@ -50,7 +50,7 @@ namespace merissu
                 defaultDesc = "指定一名殖民者收集温泉水",
 
                 icon = ContentFinder<Texture2D>.Get(
-                    "Medicine/GeyserWater",
+                    "Medicine/GeyserWater/GeyserWater_a",
                     false),
 
                 action = delegate

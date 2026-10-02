@@ -126,6 +126,7 @@
 			<displayPriority>400</displayPriority>
 		</recipeMaker>
 		<tradeability>None</tradeability>
+		<destroyOnDrop>true</destroyOnDrop>
 		<comps>
 			<li Class="CompProperties_Glower">
 				<glowRadius>5</glowRadius> 
