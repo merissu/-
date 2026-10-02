@@ -44,6 +44,7 @@
     <soundInteract>Interact_MonoSword</soundInteract>
     <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
     <statBases>
+	  <WorkToMake>2500</WorkToMake>
       <MarketValue>800</MarketValue>
       <SellPriceFactor>0.1</SellPriceFactor>
       <Mass>1.0</Mass>
