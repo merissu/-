@@ -2,6 +2,8 @@
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI;
+using Verse.Sound;
 
 namespace merissu
 {
@@ -25,11 +27,105 @@ namespace merissu
     public class CompLilyDanmakuTracker : ThingComp
     {
         public int shotCount = 0;
+        public int teleportCount = 0;
+        private int lastMeleeTeleportTick = -9999;
 
         public override void PostExposeData()
         {
             base.PostExposeData();
             Scribe_Values.Look(ref shotCount, "shotCount", 0);
+            Scribe_Values.Look(ref teleportCount, "teleportCount", 0);
+            Scribe_Values.Look(ref lastMeleeTeleportTick, "lastMeleeTeleportTick", -9999);
+        }
+
+        public override void CompTick()
+        {
+            base.CompTick();
+            if (!parent.Spawned || parent.Map == null) return;
+            if (!parent.IsHashIntervalTick(30)) return;
+
+            Pawn lily = parent as Pawn;
+            if (lily == null || lily.Dead || lily.Downed) return;
+
+            if (Find.TickManager.TicksGame - lastMeleeTeleportTick > 90 &&
+                LilyTeleportHelper.HasMeleeEnemyNearby(lily))
+            {
+                if (LilyTeleportHelper.TryTeleport(lily))
+                {
+                    lastMeleeTeleportTick = Find.TickManager.TicksGame;
+                }
+            }
+        }
+
+        public void NotifyShotFired()
+        {
+            teleportCount++;
+            if (teleportCount >= 3)
+            {
+                teleportCount = 0;
+                if (parent is Pawn lily)
+                {
+                    LilyTeleportHelper.TryTeleport(lily);
+                }
+            }
+        }
+    }
+
+    public static class LilyTeleportHelper
+    {
+        private const float MinDistance = 10f;
+
+        public static bool TryTeleport(Pawn lily)
+        {
+            if (lily == null || !lily.Spawned || lily.Map == null || lily.Dead || lily.Downed) return false;
+            Map map = lily.Map;
+
+            Pawn enemy = FindNearestEnemy(lily);
+            if (enemy == null) return false;
+
+            IntVec3 dest;
+            if (!CellFinder.TryFindRandomCellNear(enemy.Position, map, 22,
+                c => c.InBounds(map) && c.Walkable(map) && !c.Fogged(map) && c.DistanceTo(enemy.Position) >= MinDistance,
+                out dest))
+            {
+                return false;
+            }
+
+            SoundDef.Named("se_power1").PlayOneShot(new TargetInfo(lily.Position, map));
+
+            FleckMaker.Static(lily.Position.ToVector3Shifted(), map, FleckDefOf.PsycastSkipFlashEntry);
+            lily.Position = dest;
+            lily.Notify_Teleported();
+            FleckMaker.Static(dest.ToVector3Shifted(), map, FleckDefOf.PsycastSkipInnerExit);
+            FleckMaker.Static(dest.ToVector3Shifted(), map, FleckDefOf.PsycastSkipOuterRingExit);
+            lily.rotationTracker.FaceTarget(enemy);
+
+            return true;
+        }
+
+        private static Pawn FindNearestEnemy(Pawn lily)
+        {
+            return (Pawn)GenClosest.ClosestThingReachable(
+                lily.Position, lily.Map,
+                ThingRequest.ForGroup(ThingRequestGroup.Pawn),
+                PathEndMode.OnCell,
+                TraverseParms.For(lily),
+                9999f,
+                x => x is Pawn p && p.HostileTo(lily) && !p.Dead && !p.Downed
+            );
+        }
+
+        public static bool HasMeleeEnemyNearby(Pawn lily, float maxDist = 2.5f)
+        {
+            if (lily == null || !lily.Spawned || lily.Map == null) return false;
+            return GenClosest.ClosestThingReachable(
+                lily.Position, lily.Map,
+                ThingRequest.ForGroup(ThingRequestGroup.Pawn),
+                PathEndMode.OnCell,
+                TraverseParms.For(lily),
+                maxDist + 1f,
+                x => x is Pawn p && p.HostileTo(lily) && !p.Dead && !p.Downed && p.Position.DistanceTo(lily.Position) <= maxDist
+            ) != null;
         }
     }
 
@@ -109,6 +205,7 @@ namespace merissu
                 {
                     FireUltimate(ext);
                     tracker.shotCount = 0;
+                    tracker.NotifyShotFired();
                     return true; 
                 }
                 else
@@ -166,6 +263,7 @@ namespace merissu
                     GenSpawn.Spawn(mover, startPos.ToIntVec3(), caster.Map);
                 }
             }
+            tracker?.NotifyShotFired();
             return true;
         }
 

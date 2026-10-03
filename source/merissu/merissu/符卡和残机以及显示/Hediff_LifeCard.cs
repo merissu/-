@@ -46,6 +46,19 @@ namespace merissu
             Pawn pawn = __instance.pawn;  
             if (pawn == null || !pawn.Spawned) return true;
 
+            if (pawn.def.defName == "ZayuLily" && dinfo.Def.harmsHealth && dinfo.Instigator != null && dinfo.Instigator != pawn)
+            {
+                LilyRageHelper.TryEnrage(pawn);
+            }
+
+            if (pawn.def.defName == "ZayuLily" && dinfo.Def.harmsHealth && !pawn.health.hediffSet.HasHediff(HediffDef.Named("up")))
+            {
+                Hediff lifeCard = HediffMaker.MakeHediff(HediffDef.Named("up"), pawn);
+                lifeCard.Severity = 2f;
+                pawn.health.AddHediff(lifeCard);
+                return true;
+            }
+
             if (pawn.health.hediffSet.HasHediff(HediffDef.Named("InvincibleTime")))
             {
                 return true;
@@ -70,6 +83,37 @@ namespace merissu
             }
 
             return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(Verb_Shoot), "TryCastShot")]
+    public static class Patch_Verb_TryCastShot_LilyRage
+    {
+        public static void Postfix(Verb_Shoot __instance)
+        {
+            LilyRageHelper.TryEnrage(__instance.currentTarget.Pawn);
+        }
+    }
+
+    [HarmonyPatch(typeof(Verb_MeleeAttack), "TryCastShot")]
+    public static class Patch_Verb_MeleeAttack_TryCastShot_LilyRage
+    {
+        public static void Postfix(Verb_MeleeAttack __instance)
+        {
+            LilyRageHelper.TryEnrage(__instance.currentTarget.Pawn);
+        }
+    }
+
+    public static class LilyRageHelper
+    {
+        public static void TryEnrage(Pawn pawn)
+        {
+            if (pawn == null || pawn.def.defName != "ZayuLily" || pawn.Dead) return;
+
+            if (pawn.mindState != null && pawn.mindState.mentalStateHandler != null && !pawn.mindState.mentalStateHandler.InMentalState)
+            {
+                pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.ManhunterPermanent, null, true);
+            }
         }
     }
 }
