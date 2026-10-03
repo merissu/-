@@ -51,8 +51,10 @@ namespace merissu
                 LilyRageHelper.TryEnrage(pawn);
             }
 
-            if (pawn.def.defName == "ZayuLily" && dinfo.Def.harmsHealth && !pawn.health.hediffSet.HasHediff(HediffDef.Named("up")))
+            CompLilyDanmakuTracker tracker = pawn.TryGetComp<CompLilyDanmakuTracker>();
+            if (pawn.def.defName == "ZayuLily" && dinfo.Def.harmsHealth && tracker != null && !tracker.livesGranted)
             {
+                tracker.livesGranted = true;
                 Hediff lifeCard = HediffMaker.MakeHediff(HediffDef.Named("up"), pawn);
                 lifeCard.Severity = 2f;
                 pawn.health.AddHediff(lifeCard);

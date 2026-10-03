@@ -28,6 +28,7 @@ namespace merissu
     {
         public int shotCount = 0;
         public int teleportCount = 0;
+        public bool livesGranted = false;
         private int lastMeleeTeleportTick = -9999;
 
         public override void PostExposeData()
@@ -35,6 +36,7 @@ namespace merissu
             base.PostExposeData();
             Scribe_Values.Look(ref shotCount, "shotCount", 0);
             Scribe_Values.Look(ref teleportCount, "teleportCount", 0);
+            Scribe_Values.Look(ref livesGranted, "livesGranted", false);
             Scribe_Values.Look(ref lastMeleeTeleportTick, "lastMeleeTeleportTick", -9999);
         }
 
