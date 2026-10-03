@@ -56,7 +56,7 @@ namespace merissu
             {
                 tracker.livesGranted = true;
                 Hediff lifeCard = HediffMaker.MakeHediff(HediffDef.Named("up"), pawn);
-                lifeCard.Severity = 2f;
+                lifeCard.Severity = 5f;
                 pawn.health.AddHediff(lifeCard);
                 return true;
             }
