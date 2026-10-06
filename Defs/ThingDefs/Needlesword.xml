@@ -212,6 +212,7 @@
     <verbClass>TouhouExpansion.Verb_Shinmyoumaru_GroupShrink</verbClass>  <!-- 自定义 Verb -->
     <range>40</range>
     <warmupTime>1.0</warmupTime>
+	<soundCast>spell</soundCast>
     <targetParams>
       <canTargetLocations>true</canTargetLocations>
       <canTargetPawns>true</canTargetPawns>

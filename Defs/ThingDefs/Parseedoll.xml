@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 诅咒人偶（挂件） ========== -->
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <defName>Parsee_CurseDoll</defName>
+    <label>帕露西的诅咒人偶</label>
+    <description>水桥帕露西的诅咒人偶。可以用来诅咒他人，并将自身受到的伤害转嫁到他人身上。</description>
+    <techLevel>Industrial</techLevel>
+    <comps>
+      <li Class="merissu.CompProperties_WearerHediff">
+        <hediff>Parsee_CurseDoll_Equipped</hediff>
+      </li>
+    </comps>
+    <costList>
+			<MakaiShinkiCloth>50</MakaiShinkiCloth>
+			<FullPower>2</FullPower>
+			<Crimsongold>60</Crimsongold>
+    </costList>
+    <recipeMaker>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedApparel_TH</unfinishedThingDef>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Tailor</effectWorking>
+      <displayPriority>400</displayPriority>
+      <recipeUsers>
+        <li>TableHifuuClub</li>
+      </recipeUsers>
+      <researchPrerequisites>
+        <li>NewMoonInWriting</li>
+      </researchPrerequisites>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Items/ParseeDoll</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToMake>10000</WorkToMake>
+      <MarketValue>1600</MarketValue>
+      <SellPriceFactor>0.1</SellPriceFactor>
+      <Mass>0.2</Mass>
+      <Flammability>0.4</Flammability>
+      <MaxHitPoints>99999</MaxHitPoints>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <generateAllowChance>0.15</generateAllowChance>
+	<apparel>
+	 <countsAsClothingForNudity>false</countsAsClothingForNudity>
+	 <scoreOffset>4</scoreOffset>
+	 <careIfWornByCorpse>false</careIfWornByCorpse>
+	 <careIfDamaged>false</careIfDamaged>
+	 <useWornGraphicMask>false</useWornGraphicMask>
+	 <wearPerDay>0</wearPerDay>
+	 <bodyPartGroups>
+    <li>Waist</li>
+	 </bodyPartGroups>
+	 <layers>
+    <li>Parsee_CurseDollLayer</li>
+	 </layers>
+	 <tags>
+		 <li>BeltDefensePop</li>
+	 </tags>
+	 </apparel>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- ========== 诅咒人偶装备中 Hediff（提供技能 + 伤害转移标记） ========== -->
+  <HediffDef>
+    <defName>Parsee_CurseDoll_Equipped</defName>
+    <label>诅咒人偶装备中</label>
+    <description>只要场上存在存活的诅咒对象，所收到的伤害就会被转嫁出去。若场上存在多个诅咒对象，伤害会被共同分摊，但每个诅咒对象受到的伤害不会小于总额的10%。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <abilities>
+      <li>Parsee_UshiNoMairi</li>
+      <li>Parsee_UshiNoMairiSeventhDay</li>
+      <li>Parsee_NailStrike</li>
+    </abilities>
+  </HediffDef>
+
+  <!-- ========== 诅咒对象 Hediff（6 小时自动消失） ========== -->
+  <HediffDef>
+    <defName>Parsee_CursedTarget</defName>
+    <label>诅咒对象</label>
+    <description>当诅咒人偶的持有者受到伤害时，伤害会被转移到诅咒对象身上。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>0.5</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-2</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- ========== 五寸钉穿刺伤害（自定义，避免被楼观剑污染） ========== -->
+  <DamageDef>
+    <defName>Parsee_NailPierce</defName>
+    <label>五寸钉穿刺</label>
+    <workerClass>DamageWorker_Cut</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0}的心脏被五寸钉刺穿。</deathMessage>
+    <hediff>Parsee_NailWound</hediff>
+    <hediffSkin>Parsee_NailWound</hediffSkin>
+    <hediffSolid>Parsee_NailWound</hediffSolid>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Slice</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+    <overkillPctToDestroyPart>0~0.1</overkillPctToDestroyPart>
+  </DamageDef>
+
+  <HediffDef ParentName="InjuryBase">
+    <defName>Parsee_NailWound</defName>
+    <label>钉刺伤</label>
+    <labelNoun>钉刺伤</labelNoun>
+    <description>被五寸钉刺穿，伤口深达心脏。</description>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>已包扎</labelTendedWell>
+        <labelTendedWellInner>已缝合</labelTendedWellInner>
+        <labelSolidTendedWell>已固定</labelSolidTendedWell>
+      </li>
+      <li Class="HediffCompProperties_Infecter">
+        <infectionChance>0.15</infectionChance>
+      </li>
+      <li Class="HediffCompProperties_GetsPermanent">
+        <permanentLabel>钉伤疤痕</permanentLabel>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.0125</painPerSeverity>
+      <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+      <bleedRate>0.06</bleedRate>
+      <canMerge>false</canMerge>
+      <destroyedLabel>刺穿</destroyedLabel>
+      <destroyedOutLabel>刺穿</destroyedOutLabel>
+    </injuryProps>
+  </HediffDef>
+
+  <!-- ========== 技能 1：恨符「丑时参拜」（单体诅咒，10 秒冷却） ========== -->
+  <AbilityDef>
+    <defName>Parsee_UshiNoMairi</defName>
+    <label>恨符「丑时参拜」</label>
+    <description>诅咒单个敌人，使其成为伤害转移的目标，持续6小时。</description>
+    <abilityClass>TouhouExpansion.Ability_Parsee_UshiNoMairi</abilityClass>
+    <cooldownTicksRange>2500</cooldownTicksRange>
+    <targetRequired>true</targetRequired>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>30</range>
+      <warmupTime>0.5</warmupTime>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetSelf>false</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <iconPath>Abilities/Parsee_UshiNoMairi</iconPath>
+  </AbilityDef>
+
+  <!-- ========== 技能 2：恨符「丑时参拜第七日」（群体诅咒，消耗1符卡） ========== -->
+  <AbilityDef>
+    <defName>Parsee_UshiNoMairiSeventhDay</defName>
+    <label>恨符「丑时参拜第七日」</label>
+    <description>消耗1张符卡，诅咒目标区域内所有敌人，持续6小时。</description>
+    <abilityClass>TouhouExpansion.Ability_Parsee_UshiNoMairiSeventhDay</abilityClass>
+    <cooldownTicksRange>7500</cooldownTicksRange>
+    <targetRequired>true</targetRequired>
+    <verbProperties>
+      <verbClass>TouhouExpansion.Verb_Parsee_SeventhDay</verbClass>
+      <range>40</range>
+      <warmupTime>1.0</warmupTime>
+	  <soundCast>spell</soundCast>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetPawns>true</canTargetPawns>
+      </targetParams>
+    </verbProperties>
+    <iconPath>Abilities/Parsee_UshiNoMairiSeventhDay</iconPath>
+  </AbilityDef>
+
+  <!-- ========== 技能 3：敲下五寸钉 ========== -->
+  <AbilityDef>
+    <defName>Parsee_NailStrike</defName>
+    <label>敲下五寸钉</label>
+    <description>把你帕露帕露掉！</description>
+    <abilityClass>TouhouExpansion.Ability_Parsee_NailStrike</abilityClass>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+      <warmupTime>0.25</warmupTime>
+    </verbProperties>
+    <iconPath>Abilities/Parsee_NailStrike</iconPath>
+  </AbilityDef>
+</Defs>
