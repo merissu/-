@@ -5,4 +5,9 @@
     <label>东方盾牌</label>
     <drawOrder>1000</drawOrder>  <!-- 绘制顺序-->
   </ApparelLayerDef>
+  <ApparelLayerDef>
+  <defName>Parsee_CurseDollLayer</defName>
+  <label>诅咒人偶</label>
+  <drawOrder>550</drawOrder>
+</ApparelLayerDef>
 </Defs>
