@@ -4,7 +4,7 @@
   <ThingDef ParentName="TH_MeleeWeapon">
     <defName>Momiji_Greatsword</defName>
     <label>天狗大剑</label>
-    <description>白狼天狗使用的重型大剑，每蓄力10秒可以释放一次暴击伤害。</description>
+    <description>白狼天狗使用的重型大剑，攻击时可以对目标范围一格内的敌人造成连带伤害，同时每蓄力10秒可以释放一次暴击伤害。</description>
     <graphicData>
       <texPath>Items/Momiji_Plank_Cleaver</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -113,7 +113,21 @@
   <armorCategory>Sharp</armorCategory>
   <overkillPctToDestroyPart>0~0.1</overkillPctToDestroyPart>
 </DamageDef>
-  
+<DamageDef>
+  <defName>Momiji_GreatswordAoe</defName>
+  <label>大剑余波</label>
+  <workerClass>DamageWorker_Cut</workerClass>
+  <externalViolence>true</externalViolence>
+  <deathMessage>{0}被大剑余波所伤。</deathMessage>
+  <hediff>Momiji_GreatswordCutWound</hediff>
+  <hediffSkin>Momiji_GreatswordCutWound</hediffSkin>
+  <hediffSolid>Momiji_GreatswordCutWound</hediffSolid>
+  <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+  <impactSoundType>Slice</impactSoundType>
+  <armorCategory>Sharp</armorCategory>
+  <overkillPctToDestroyPart>0~0.1</overkillPctToDestroyPart>
+</DamageDef>
+
   <!-- 自定义攻击能力 -->
 <ToolCapacityDef>
   <defName>Momiji_GreatswordCutCapacity</defName>

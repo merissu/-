@@ -4,7 +4,7 @@
   <ThingDef ParentName="TH_RangeWeapon">
     <defName>EirinBow</defName>
     <label>蓬莱弓</label>
-    <description>八意永琳使用的长弓，射出的箭矢带有蓬莱之毒。</description>
+    <description>八意永琳使用的长弓，射出的箭矢带有五种颜色的蓬莱之毒。当目标已经拥有物种毒素的效果后，最后一箭可以将其直接击杀，</description>
     <graphicData>
       <texPath>Items/eirinbow</texPath>   <!-- 弓箭贴图路径 -->
       <graphicClass>Graphic_Single</graphicClass>
@@ -16,7 +16,7 @@
     <soundInteract>Interact_Bow</soundInteract>
     <statBases>
       <WorkToMake>4000</WorkToMake>
-	  <MarketValue>800</MarketValue> 
+	  <MarketValue>1200</MarketValue> 
       <Mass>1</Mass>
       <AccuracyTouch>1.0</AccuracyTouch>
       <AccuracyShort>1.0</AccuracyShort>
@@ -36,8 +36,9 @@
       <li>RangedLight</li>
     </weaponClasses>
     <costList>
-      <SpiritualWood>60</SpiritualWood>
+      <SpiritualWood>70</SpiritualWood>
       <MakaiShinkiCloth>30</MakaiShinkiCloth>
+	  <FullPower>1</FullPower>
     </costList>
     <recipeMaker>
       <skillRequirements>
@@ -95,38 +96,132 @@
     </projectile>
   </ThingDef>
   
-  <HediffDef>
-    <defName>EirinPoisonHediff</defName>
-    <label>蓬莱之毒</label>
-    <description>被蓬莱之毒侵蚀着，一旦在体内积累满100%就会瞬间死亡。</description>
+<HediffDef>
+    <defName>EirinPoisonRed</defName>
+	<defaultLabelColor>(220,50,50)</defaultLabelColor>
+    <label>蓬莱之毒·红</label>
+    <description>血液沸腾，易燃且持续灼烧。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>true</isBad>
-    <maxSeverity>1.0</maxSeverity>   <!-- 满层 = 1.0 -->
+    <maxSeverity>0.5</maxSeverity>
+<comps>
+  <li Class="HediffCompProperties_SeverityPerDay">
+    <severityPerDay>-4</severityPerDay>
+    <showHoursToRecover>true</showHoursToRecover>
+  </li>
+  <li Class="TouhouExpansion.HediffCompProperties_PoisonDamage">
+    <damagePerSecond>2</damagePerSecond>
+    <damageDef>Flame</damageDef>
+  </li>
+</comps>
+    <stages>
+      <li>
+        <statFactors>
+          <Flammability>3.0</Flammability>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- ========== 蓬莱之毒·蓝 ========== -->
+  <HediffDef>
+    <defName>EirinPoisonBlue</defName>
+	<defaultLabelColor>(50,120,220)</defaultLabelColor>
+    <label>蓬莱之毒·蓝</label>
+    <description>血液冻结，行动迟缓且持续冻伤。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>0.5</maxSeverity>
+<comps>
+  <li Class="HediffCompProperties_SeverityPerDay">
+    <severityPerDay>-4</severityPerDay>
+    <showHoursToRecover>true</showHoursToRecover>
+  </li>
+  <li Class="TouhouExpansion.HediffCompProperties_PoisonDamage">
+    <damagePerSecond>2</damagePerSecond>
+    <damageDef>Frostbite</damageDef>
+  </li>
+</comps>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- ========== 蓬莱之毒·黄 ========== -->
+  <HediffDef>
+    <defName>EirinPoisonYellow</defName>
+	<defaultLabelColor>(220,200,50)</defaultLabelColor>
+    <label>蓬莱之毒·黄</label>
+    <description>肌肉僵化，近战攻击速度大幅下降。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>0.5</maxSeverity>
     <comps>
-      <!-- 自动衰减：每天减少0.2严重度（1天掉20%） -->
       <li Class="HediffCompProperties_SeverityPerDay">
-        <severityPerDay>-0.2</severityPerDay>
+        <severityPerDay>-4</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
       </li>
-      <!-- 自定义组件：满层触发斩杀 -->
-      <li Class="TouhouExpansion.HediffCompProperties_EirinPoisonKill" />
     </comps>
     <stages>
       <li>
-        <minSeverity>0</minSeverity>
-        <label>20%</label>
+        <statFactors>
+          <MeleeCooldownFactor>2.0</MeleeCooldownFactor>
+        </statFactors>
       </li>
-      <li>
-        <minSeverity>0.4</minSeverity>
-        <label>40%</label>
+    </stages>
+  </HediffDef>
+
+  <!-- ========== 蓬莱之毒·绿 ========== -->
+  <HediffDef>
+    <defName>EirinPoisonGreen</defName>
+	<defaultLabelColor>(50,200,80)</defaultLabelColor>
+    <label>蓬莱之毒·绿</label>
+    <description>肉体腐朽，受到的所有伤害翻倍。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>0.5</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-4</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
       </li>
+    </comps>
+    <stages>
       <li>
-        <minSeverity>0.6</minSeverity>
-        <label>60%</label>
+        <statFactors>
+          <IncomingDamageFactor>2.0</IncomingDamageFactor>
+        </statFactors>
       </li>
+    </stages>
+  </HediffDef>
+
+  <!-- ========== 蓬莱之毒·紫 ========== -->
+  <HediffDef>
+    <defName>EirinPoisonPurple</defName>
+	<defaultLabelColor>(160,50,200)</defaultLabelColor>
+    <label>蓬莱之毒·紫</label>
+    <description>视觉神经受损，完全失明。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>0.5</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-4</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
       <li>
-        <minSeverity>0.8</minSeverity>
-        <label>80%</label>
+        <capMods>
+          <li>
+            <capacity>Sight</capacity>
+            <setMax>0</setMax>
+          </li>
+        </capMods>
       </li>
     </stages>
   </HediffDef>
@@ -134,17 +229,10 @@
 <DamageDef ParentName="Arrow">
   <defName>EirinPoison</defName>
   <label>蓬莱之毒</label>
-  <workerClass>DamageWorker_AddInjury</workerClass>
+  <workerClass>TouhouExpansion.DamageWorker_EirinPoison</workerClass>   <!-- 改用自定义 Worker -->
   <externalViolence>true</externalViolence>
   <deathMessage>{0} 被月之毒侵蚀殆尽。</deathMessage>
-  <!-- 移除 impactSoundType 和 armorCategory -->
-  <additionalHediffs>
-    <li>
-      <hediff>EirinPoisonHediff</hediff>
-      <severityPerDamageDealt>0.0125</severityPerDamageDealt>
-      <victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
-    </li>
-  </additionalHediffs>
+  <armorCategory>Sharp</armorCategory>
 </DamageDef>
 
 <AbilityDef>
