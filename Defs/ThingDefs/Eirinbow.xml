@@ -4,7 +4,7 @@
   <ThingDef ParentName="TH_RangeWeapon">
     <defName>EirinBow</defName>
     <label>蓬莱弓</label>
-    <description>八意永琳使用的长弓，射出的箭矢带有五种颜色的蓬莱之毒。当目标已经拥有物种毒素的效果后，最后一箭可以将其直接击杀，</description>
+    <description>八意永琳使用的长弓，射出的箭矢带有五种颜色的蓬莱之毒。当目标背负上五种毒素的效果后，最后一箭可以将其直接击杀，</description>
     <graphicData>
       <texPath>Items/eirinbow</texPath>   <!-- 弓箭贴图路径 -->
       <graphicClass>Graphic_Single</graphicClass>
