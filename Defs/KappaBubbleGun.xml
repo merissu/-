@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef ParentName="InjuryBase">
+    <defName>Kappa_BubbleInjury</defName>
+    <label>泡泡灼伤</label>
+    <labelNoun>泡泡灼伤</labelNoun>
+    <description>高压水泡爆裂时溅射出的腐蚀性液体造成的化学烧伤，伤口边缘有溶解的痕迹。</description>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>已中和</labelTendedWell>
+        <labelTendedWellInner>已清洗</labelTendedWellInner>
+        <labelSolidTendedWell>已固化</labelSolidTendedWell>
+      </li>
+      <li Class="HediffCompProperties_Infecter">
+        <infectionChance>0.25</infectionChance> <!-- 感染率稍微高一点，因为泡液有腐蚀性 -->
+      </li>
+      <li Class="HediffCompProperties_GetsPermanent">
+        <permanentLabel>腐蚀疤痕</permanentLabel>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.015</painPerSeverity> <!-- 比普通灼伤稍微疼一点 -->
+      <averagePainPerSeverityPermanent>0.0075</averagePainPerSeverityPermanent>
+      <bleedRate>0.04</bleedRate> <!-- 腐蚀伤口流血较少，但不易愈合 -->
+      <canMerge>false</canMerge>
+      <destroyedLabel>溶解</destroyedLabel>
+      <destroyedOutLabel>溶解</destroyedOutLabel>
+    </injuryProps>
+  </HediffDef>
+  <!-- ========== 自定义伤害类型（钝器 + 灼伤） ========== -->
+  <DamageDef>
+    <defName>Kappa_BubbleDamage</defName>
+    <label>高压水泡</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <armorCategory>Blunt</armorCategory>
+    <deathMessage>{0}被高压水泡灼烧致死。</deathMessage>
+    <hediff>Kappa_BubbleInjury</hediff> 
+    <hediffSolid>Kappa_BubbleInjury</hediffSolid> 
+  </DamageDef>
+  <!-- ========== 河童泡泡枪 ========== -->
+  <ThingDef ParentName="TH_RangeWeapon">
+    <defName>Kappa_BubbleGun</defName>
+    <label>河童泡泡枪</label>
+    <description>河城荷取制造的泡泡枪，发射带有腐蚀性的高压压缩泡泡。射速慢但威力惊人。</description>
+    <graphicData>
+      <texPath>Items/KappaBubbleGun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.2,1.2)</drawSize>
+    </graphicData>
+    <equippedAngleOffset>45</equippedAngleOffset>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>6000</WorkToMake>
+	  <MarketValue>800</MarketValue> 
+      <Mass>1.0</Mass>
+      <AccuracyTouch>1.0</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.7</AccuracyLong>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>Touhou</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+    <costList>
+      <Steel>100</Steel>
+      <Crimsongold>15</Crimsongold>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <displayPriority>400</displayPriority>
+      <recipeUsers>
+        <li>TableHifuuClub</li>
+      </recipeUsers>
+      <researchPrerequisite>PowerPoint</researchPrerequisite>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Kappa_BubbleShot</defaultProjectile>
+        <warmupTime>2.0</warmupTime>
+        <range>40</range>
+        <soundCast>Shot_Revolver</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>6</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>握把</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.0</cooldownTime>
+      </li>
+    </tools>
+    <comps>
+      <li Class="merissu.CompProperties_WearerHediff">
+        <hediff>Kappa_BubbleGun_Equipped</hediff>
+      </li>
+    </comps>
+    <thingSetMakerTags>
+      <li>TouhouWeapons</li>
+    </thingSetMakerTags>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- ========== 普通泡泡弹药 ========== -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Kappa_BubbleShot</defName>
+    <label>压缩泡泡</label>
+    <graphicData>
+      <texPath>Items/KappaBubble</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.2,1.2)</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Kappa_BubbleDamage</damageDef>
+      <speed>40</speed>
+      <damageAmountBase>30</damageAmountBase>
+      <stoppingPower>1.5</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+  <!-- ========== 大泡泡弹药 ========== -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Kappa_BigBubbleShot</defName>
+    <label>巨型泡泡</label>
+    <thingClass>TouhouExpansion.Projectile_BigBubble</thingClass>
+    <graphicData>
+      <texPath>Items/KappaBubble</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2.5,2.5)</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Kappa_BubbleDamage</damageDef>
+      <speed>35</speed>
+      <damageAmountBase>60</damageAmountBase>
+      <stoppingPower>2</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+  <!-- ========== 分裂小泡泡弹药 ========== -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Kappa_SplitBubble</defName>
+    <label>分裂泡泡</label>
+    <thingClass>TouhouExpansion.Projectile_SplitBubble</thingClass>
+    <graphicData>
+      <texPath>Items/KappaBubble</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.8,0.8)</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Kappa_BubbleDamage</damageDef>
+      <speed>45</speed>
+      <damageAmountBase>15</damageAmountBase>
+      <stoppingPower>0.5</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+  <!-- ========== 装备 Hediff（提供技能） ========== -->
+  <HediffDef>
+    <defName>Kappa_BubbleGun_Equipped</defName>
+    <label>泡泡枪装备中</label>
+    <description>可以使用泡泡枪的符卡技能。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <abilities>
+      <li>Kappa_BubbleBarrage</li>
+    </abilities>
+  </HediffDef>
+
+  <!-- ========== 符卡技能：泡符「射击吧！泡泡龙」 ========== -->
+  <AbilityDef>
+    <defName>Kappa_BubbleBarrage</defName>
+    <label>泡符「射击吧！泡泡龙」</label>
+    <description>消耗1张符卡，发射一颗巨型泡泡。命中后爆炸并分裂成一圈小泡泡。</description>
+    <abilityClass>TouhouExpansion.Ability_Kappa_BubbleBarrage</abilityClass>
+    <cooldownTicksRange>300</cooldownTicksRange>
+    <targetRequired>true</targetRequired>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>40</range>
+      <warmupTime>0.8</warmupTime>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <iconPath>Abilities/KappaBubbleCard</iconPath>
+  </AbilityDef>
+</Defs>
