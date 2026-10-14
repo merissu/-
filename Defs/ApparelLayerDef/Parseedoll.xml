@@ -3,6 +3,6 @@
   <ApparelLayerDef>
     <defName>Parsee_CurseDollLayer</defName>
     <label>诅咒人偶</label>
-    <drawOrder>600</drawOrder>  <!-- 绘制顺序-->
+    <drawOrder>550</drawOrder>  <!-- 绘制顺序-->
   </ApparelLayerDef>
 </Defs>
