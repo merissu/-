@@ -62,7 +62,7 @@
   <ThingDef ParentName="TH_RangeWeapon">
     <defName>Kappa_BubbleGun</defName>
     <label>河童泡泡枪</label>
-    <description>河城荷取制造的泡泡枪，发射带有腐蚀性液体的高压压缩泡泡。</description>
+    <description>河城荷取制造的泡泡枪，发射带有腐蚀性液体的高压压缩泡泡。泡泡破裂后可以对半径2格内的敌人造成50%的溅射伤害。</description>
     <graphicData>
       <texPath>Items/KappaBubbleGun</texPath>
       <graphicClass>Graphic_Single</graphicClass>
