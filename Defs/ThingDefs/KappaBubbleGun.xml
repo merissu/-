@@ -38,11 +38,31 @@
     <hediff>Kappa_BubbleInjury</hediff> 
     <hediffSolid>Kappa_BubbleInjury</hediffSolid> 
   </DamageDef>
+  <DamageDef>
+  <defName>Kappa_BubbleSplash</defName>
+  <label>高压水泡（溅射）</label>
+  <workerClass>DamageWorker_AddInjury</workerClass>
+  <externalViolence>true</externalViolence>
+  <armorCategory>Blunt</armorCategory>
+  <deathMessage>{0}被爆开的泡泡液体溅了一脸。</deathMessage>
+  <hediff>Kappa_BubbleInjury</hediff>
+  <hediffSolid>Kappa_BubbleInjury</hediffSolid>
+</DamageDef>
+  <DamageDef>
+    <defName>Kappa_BubbleBlast</defName>
+    <label>高压水泡（冲击波）</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <armorCategory>Blunt</armorCategory>
+    <deathMessage>{0}被高压水泡炸得粉身碎骨。</deathMessage>
+    <hediff>Kappa_BubbleInjury</hediff>
+    <hediffSolid>Kappa_BubbleInjury</hediffSolid>
+  </DamageDef>
   <!-- ========== 河童泡泡枪 ========== -->
   <ThingDef ParentName="TH_RangeWeapon">
     <defName>Kappa_BubbleGun</defName>
     <label>河童泡泡枪</label>
-    <description>河城荷取制造的泡泡枪，发射带有腐蚀性的高压压缩泡泡。射速慢但威力惊人。</description>
+    <description>河城荷取制造的泡泡枪，发射带有腐蚀性液体的高压压缩泡泡。</description>
     <graphicData>
       <texPath>Items/KappaBubbleGun</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -56,9 +76,9 @@
       <Mass>1.0</Mass>
       <AccuracyTouch>1.0</AccuracyTouch>
       <AccuracyShort>0.85</AccuracyShort>
-      <AccuracyMedium>0.75</AccuracyMedium>
-      <AccuracyLong>0.7</AccuracyLong>
-      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+      <AccuracyMedium>0.8</AccuracyMedium>
+      <AccuracyLong>0.75</AccuracyLong>
+      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>Touhou</li>
@@ -86,7 +106,7 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>Kappa_BubbleShot</defaultProjectile>
-        <warmupTime>2.0</warmupTime>
+        <warmupTime>1.5</warmupTime>
         <range>40</range>
         <soundCast>Shot_Revolver</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
@@ -120,6 +140,7 @@
   <ThingDef ParentName="BaseBullet">
     <defName>Kappa_BubbleShot</defName>
     <label>压缩泡泡</label>
+	<thingClass>TouhouExpansion.Projectile_BubbleShot</thingClass>
     <graphicData>
       <texPath>Items/KappaBubble</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -191,7 +212,7 @@
     <cooldownTicksRange>300</cooldownTicksRange>
     <targetRequired>true</targetRequired>
     <verbProperties>
-      <verbClass>Verb_CastAbility</verbClass>
+      <verbClass>TouhouExpansion.Verb_Kappa_BubbleBarrage</verbClass>
       <range>40</range>
       <warmupTime>0.8</warmupTime>
       <targetParams>
