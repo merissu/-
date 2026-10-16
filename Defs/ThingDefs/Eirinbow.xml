@@ -4,7 +4,7 @@
   <ThingDef ParentName="TH_RangeWeapon">
     <defName>EirinBow</defName>
     <label>蓬莱弓</label>
-    <description>八意永琳使用的长弓，射出的箭矢带有五种颜色的蓬莱之毒。当目标背负上五种毒素的效果后，最后一箭可以将其直接击杀，</description>
+    <description>八意永琳使用的长弓，射出的箭矢带有五种颜色的蓬莱之毒。当目标身上集齐五种毒之后，最后一箭可以将其直接击杀，</description>
     <graphicData>
       <texPath>Items/eirinbow</texPath>   <!-- 弓箭贴图路径 -->
       <graphicClass>Graphic_Single</graphicClass>
@@ -13,7 +13,6 @@
 	<soundInteract>Bow_Large</soundInteract>
     <equippedAngleOffset>45</equippedAngleOffset>
     <uiIconScale>1.0</uiIconScale>
-    <soundInteract>Interact_Bow</soundInteract>
     <statBases>
       <WorkToMake>4000</WorkToMake>
 	  <MarketValue>1200</MarketValue> 
@@ -57,10 +56,9 @@
         <defaultProjectile>EirinArrow</defaultProjectile>
         <warmupTime>1.5</warmupTime>
         <range>40</range>
-        <soundCast>Shot_Bow</soundCast>
+        <soundCast>Bow_Large</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>6</muzzleFlashScale>
-		<soundCast>Bow_Large</soundCast>
       </li>
     </verbs>
     <tools>
@@ -100,7 +98,7 @@
     <defName>EirinPoisonRed</defName>
 	<defaultLabelColor>(220,50,50)</defaultLabelColor>
     <label>蓬莱之毒·红</label>
-    <description>血液沸腾，易燃且持续灼烧。</description>
+    <description>易燃性增加且持续造成灼伤。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>true</isBad>
     <maxSeverity>0.5</maxSeverity>
@@ -128,7 +126,7 @@
     <defName>EirinPoisonBlue</defName>
 	<defaultLabelColor>(50,120,220)</defaultLabelColor>
     <label>蓬莱之毒·蓝</label>
-    <description>血液冻结，行动迟缓且持续冻伤。</description>
+    <description>减速并持续造成冻伤。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>true</isBad>
     <maxSeverity>0.5</maxSeverity>
@@ -156,7 +154,7 @@
     <defName>EirinPoisonYellow</defName>
 	<defaultLabelColor>(220,200,50)</defaultLabelColor>
     <label>蓬莱之毒·黄</label>
-    <description>肌肉僵化，近战攻击速度大幅下降。</description>
+    <description>近战攻击速度大幅下降。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>true</isBad>
     <maxSeverity>0.5</maxSeverity>
@@ -180,7 +178,7 @@
     <defName>EirinPoisonGreen</defName>
 	<defaultLabelColor>(50,200,80)</defaultLabelColor>
     <label>蓬莱之毒·绿</label>
-    <description>肉体腐朽，受到的所有伤害翻倍。</description>
+    <description>受到的伤害翻倍。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>true</isBad>
     <maxSeverity>0.5</maxSeverity>
@@ -204,7 +202,7 @@
     <defName>EirinPoisonPurple</defName>
 	<defaultLabelColor>(160,50,200)</defaultLabelColor>
     <label>蓬莱之毒·紫</label>
-    <description>视觉神经受损，完全失明。</description>
+    <description>失明。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>true</isBad>
     <maxSeverity>0.5</maxSeverity>
