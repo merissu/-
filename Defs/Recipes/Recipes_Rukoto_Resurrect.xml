@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--
+    复活留琴
+  -->
+  <RecipeDef ParentName="BaseMechanoidResurrectionRecipe" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>Recipe_RukotoResurrect</defName>
+    <label>复活留琴</label>
+    <description>把留琴的机体重新激活。</description>
+
+    <ingredients>
+      <!-- 尸体 ×1，具体由 fixedIngredientFilter 限定为留琴 -->
+      <li>
+        <filter>
+          <categories>
+            <li>Corpses</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>50</count>
+      </li>
+    </ingredients>
+
+    <!-- 只允许放留琴的尸体 -->
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Corpse_Rukoto</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+
+    <recipeUsers>
+      <li>MechGestator</li>
+    </recipeUsers>
+  </RecipeDef>
+</Defs>
