@@ -318,10 +318,11 @@
 				<visibleToPlayer>true</visibleToPlayer>
 			</li>
 			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-24</severityPerDay>
+				<severityPerDay>-36</severityPerDay>
 				<showHoursToRecover>true</showHoursToRecover>
 			</li>
 		    <li Class="merissu.HediffCompProperties_GhostSafety"/>
+			<li Class="merissu.HediffCompProperties_GhostButterflyVisuals"/>
 		</comps>
 		<stages>
 			<li>
@@ -333,6 +334,35 @@
 			</li>
 		</stages>
 	</HediffDef>
+
+	<ThingDef>
+		<defName>GhostButterflyOrbitController</defName>
+		<label>亡灵蝶特效控制器</label>
+		<thingClass>merissu.Thing_GhostButterflyOrbitController</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawOffscreen>true</drawOffscreen>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Other/null</texPath>
+			<drawSize>(0.1,0.1)</drawSize>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_GhostButterflyOrbit</defName>
+		<label>亡灵蝶环绕粒子</label>
+		<thingClass>merissu.Mote_GhostButterflyOrbit</thingClass>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Other/null</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+	</ThingDef>
 
 	<PathGridDef>
 		<defName>GhostFlyingGrid</defName>

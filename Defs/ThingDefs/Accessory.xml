@@ -3193,6 +3193,13 @@ P道具是没什么用的东西对吧?让你为了那玩意儿东奔西走,这�
 				</statFactors>
 			</li>
 		</stages>
+		<comps>
+			<li Class="merissu.HediffCompProperties_GhostButterflyVisuals">
+				<butterflyCount>6</butterflyCount>
+				<speedMultiplier>0.5</speedMultiplier>
+				<requiredHediffDefName>ghostsbarrage</requiredHediffDefName>
+			</li>
+		</comps>
     </HediffDef>
 
 	<ThingDef ParentName="ApparelNoQualityBase">
