@@ -75,9 +75,9 @@
 	  <MarketValue>800</MarketValue> 
       <Mass>1.0</Mass>
       <AccuracyTouch>1.0</AccuracyTouch>
-      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyShort>0.9</AccuracyShort>
       <AccuracyMedium>0.8</AccuracyMedium>
-      <AccuracyLong>0.75</AccuracyLong>
+      <AccuracyLong>0.70</AccuracyLong>
       <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
@@ -88,7 +88,7 @@
     </weaponClasses>
     <costList>
       <Steel>100</Steel>
-      <Crimsongold>15</Crimsongold>
+      <Crimsongold>10</Crimsongold>
       <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
     <recipeMaker>
