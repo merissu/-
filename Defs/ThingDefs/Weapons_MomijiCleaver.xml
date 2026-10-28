@@ -239,6 +239,7 @@
 					<IncomingDamageFactor>0</IncomingDamageFactor> <!-- 承伤 ×0% -->
 					<MeleeHitChance>5.0</MeleeHitChance>   <!-- 近战命中率 ×500% -->
 					<MeleeCooldownFactor>0.4</MeleeCooldownFactor>  <!-- 近战攻速 ×250% -->
+					<StaggerDurationFactor>0</StaggerDurationFactor> <!-- 免疫硬直/击退 -->
 				</statFactors>
 			</li>
 		</stages>
