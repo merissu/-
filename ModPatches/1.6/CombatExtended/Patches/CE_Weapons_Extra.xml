@@ -168,8 +168,8 @@
         <projectile Class="CombatExtended.ProjectilePropertiesCE">
           <damageDef>EirinPoison</damageDef>
           <damageAmountBase>20</damageAmountBase>
-          <armorPenetrationSharp>10</armorPenetrationSharp>
-          <armorPenetrationBlunt>4</armorPenetrationBlunt>
+          <armorPenetrationSharp>8</armorPenetrationSharp>
+          <armorPenetrationBlunt>24</armorPenetrationBlunt>
           <speed>50</speed>
         </projectile>
       </ThingDef>
@@ -247,8 +247,8 @@
         <projectile Class="CombatExtended.ProjectilePropertiesCE">
           <damageDef>Kappa_BubbleDamage</damageDef>
           <damageAmountBase>30</damageAmountBase>
-          <armorPenetrationSharp>2</armorPenetrationSharp>
-          <armorPenetrationBlunt>8</armorPenetrationBlunt>
+          <armorPenetrationSharp>6</armorPenetrationSharp>
+          <armorPenetrationBlunt>36</armorPenetrationBlunt>
           <speed>40</speed>
         </projectile>
       </ThingDef>
