@@ -65,7 +65,7 @@
           <li>Shinmyoumaru_NeedleSwordCapacity</li>
         </capacities>
         <power>6</power>
-        <cooldownTime>0.2</cooldownTime>
+        <cooldownTime>0.25</cooldownTime>
         <armorPenetration>0.5</armorPenetration>
       </li>
     </tools>
@@ -206,7 +206,7 @@
   <label>大弹「大宇宙」</label>
   <description>消耗1张符卡，把目标区域内所有敌人缩小一段时间。只影响敌对目标。</description>
   <abilityClass>TouhouExpansion.Ability_Shinmyoumaru_GroupShrink</abilityClass>
-  <cooldownTicksRange>1800</cooldownTicksRange>
+  <cooldownTicksRange>600</cooldownTicksRange>
   <targetRequired>true</targetRequired>
   <verbProperties>
     <verbClass>TouhouExpansion.Verb_Shinmyoumaru_GroupShrink</verbClass>  <!-- 自定义 Verb -->
