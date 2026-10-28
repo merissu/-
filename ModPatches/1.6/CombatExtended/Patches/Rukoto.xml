@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <Operation Class="PatchOperationFindMod">
     <mods>
@@ -40,8 +40,8 @@
               <SmokeSensitivity>0</SmokeSensitivity>
               <NightVisionEfficiency>0.8</NightVisionEfficiency>
               <MoveSpeed>10</MoveSpeed>
-              <ArmorRating_Blunt>12.5</ArmorRating_Blunt>
-              <ArmorRating_Sharp>15</ArmorRating_Sharp>
+              <ArmorRating_Blunt>45</ArmorRating_Blunt>
+              <ArmorRating_Sharp>75</ArmorRating_Sharp>
               <CarryWeight>50</CarryWeight>
               <CarryBulk>20</CarryBulk>
               <AimingAccuracy>1.7</AimingAccuracy>
@@ -57,7 +57,21 @@
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="Rukoto"]/tools</xpath>
           <value>
-            <tools Inherit="False" />
+            <tools Inherit="False">
+              <li Class="CombatExtended.ToolCE">
+                <label>核动力铁拳</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>45</power>
+                <cooldownTime>0.5</cooldownTime>
+                <armorPenetrationSharp>15</armorPenetrationSharp>
+                <armorPenetrationBlunt>45</armorPenetrationBlunt>
+                <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+                <chanceFactor>1.0</chanceFactor>
+              </li>
+            </tools>
           </value>
         </li>
         <li Class="PatchOperationAddModExtension">
@@ -66,7 +80,7 @@
             <li Class="CombatExtended.PartialArmorExt">
               <stats>
                 <li>
-                  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+                  <ArmorRating_Sharp>1.0</ArmorRating_Sharp>
                   <parts>
                     <li>SightSensor</li>
                     <li>HearingSensor</li>
@@ -74,7 +88,7 @@
                   </parts>
                 </li>
                 <li>
-                  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+                  <ArmorRating_Blunt>1.0</ArmorRating_Blunt>
                   <parts>
                     <li>SightSensor</li>
                     <li>HearingSensor</li>

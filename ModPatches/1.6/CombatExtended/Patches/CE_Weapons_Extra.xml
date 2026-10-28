@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!--
+    ============================================================
+    新武器 CE 适配：天狗大剑 / 辉针剑 / 蓬莱弓 / 河童泡泡枪
+    ============================================================
+  -->
+
+  <!-- ==================== 天狗大剑（近战） ==================== -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Momiji_Greatsword"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>大剑斩击</label>
+          <capacities>
+            <li>Momiji_GreatswordCutCapacity</li>
+          </capacities>
+          <power>30</power>
+          <cooldownTime>1.0</cooldownTime>
+          <armorPenetrationSharp>36</armorPenetrationSharp>
+          <armorPenetrationBlunt>24</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Momiji_Greatsword"]/statBases</xpath>
+    <value>
+      <Bulk>7.0</Bulk>
+      <MeleeCounterParryBonus>0.25</MeleeCounterParryBonus>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Momiji_Greatsword"]</xpath>
+    <value>
+      <equippedStatOffsets>
+        <MeleeCritChance>0.25</MeleeCritChance>
+        <MeleeParryChance>0.30</MeleeParryChance>
+        <MeleeDodgeChance>0.05</MeleeDodgeChance>
+      </equippedStatOffsets>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Momiji_Greatsword"]/weaponTags</xpath>
+    <value>
+      <li>CE_Sidearm_Melee</li>
+    </value>
+  </Operation>
+
+  <!-- ==================== 辉针剑（近战） ==================== -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Shinmyoumaru_NeedleSword"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>辉针突刺</label>
+          <capacities>
+            <li>Shinmyoumaru_NeedleSwordCapacity</li>
+          </capacities>
+          <power>6</power>
+          <cooldownTime>0.25</cooldownTime>
+          <armorPenetrationSharp>16</armorPenetrationSharp>
+          <armorPenetrationBlunt>4</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Shinmyoumaru_NeedleSword"]/statBases</xpath>
+    <value>
+      <Bulk>2.5</Bulk>
+      <MeleeCounterParryBonus>0.20</MeleeCounterParryBonus>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Shinmyoumaru_NeedleSword"]</xpath>
+    <value>
+      <equippedStatOffsets>
+        <MeleeCritChance>0.15</MeleeCritChance>
+        <MeleeParryChance>0.20</MeleeParryChance>
+        <MeleeDodgeChance>0.15</MeleeDodgeChance>
+      </equippedStatOffsets>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Shinmyoumaru_NeedleSword"]/weaponTags</xpath>
+    <value>
+      <li>CE_Sidearm_Melee</li>
+      <li>CE_OneHandedWeapon</li>
+    </value>
+  </Operation>
+
+  <!-- ==================== 蓬莱弓（远程 · 无限弹药） ==================== -->
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>EirinBow</defName>
+    <statBases>
+      <WorkToMake>4000</WorkToMake>
+      <MarketValue>1200</MarketValue>
+      <Mass>1.0</Mass>
+      <AccuracyTouch>1.0</AccuracyTouch>
+      <AccuracyShort>1.0</AccuracyShort>
+      <AccuracyMedium>1.0</AccuracyMedium>
+      <AccuracyLong>1.0</AccuracyLong>
+      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+      <SightsEfficiency>1.0</SightsEfficiency>
+      <ShotSpread>0.01</ShotSpread>
+      <SwayFactor>1.0</SwayFactor>
+      <Bulk>2.0</Bulk>
+    </statBases>
+    <Properties>
+      <recoilAmount>0.3</recoilAmount>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>EirinArrow</defaultProjectile>
+      <warmupTime>1.5</warmupTime>
+      <range>40</range>
+      <soundCast>Bow_Large</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>6</muzzleFlashScale>
+    </Properties>
+    <FireModes>
+      <aiAimMode>AimedShot</aiAimMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_AI_Rifle</li>
+    </weaponTags>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="EirinBow"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>弓臂敲击</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>8</power>
+          <cooldownTime>1.0</cooldownTime>
+          <armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Base</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <!-- 蓬莱箭原本没有自定义 thingClass，可安全换成 CE 弹丸 -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="EirinArrow"]</xpath>
+    <value>
+      <ThingDef ParentName="BaseBulletCE">
+        <defName>EirinArrow</defName>
+        <label>蓬莱箭（无限）</label>
+        <graphicData>
+          <texPath>Items/eirinarrow</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(1.2,1.2)</drawSize>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+          <damageDef>EirinPoison</damageDef>
+          <damageAmountBase>20</damageAmountBase>
+          <armorPenetrationSharp>10</armorPenetrationSharp>
+          <armorPenetrationBlunt>4</armorPenetrationBlunt>
+          <speed>50</speed>
+        </projectile>
+      </ThingDef>
+    </value>
+  </Operation>
+
+  <!-- ==================== 河童泡泡枪（远程 · 无限弹药） ==================== -->
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Kappa_BubbleGun</defName>
+    <statBases>
+      <WorkToMake>6000</WorkToMake>
+      <MarketValue>800</MarketValue>
+      <Mass>1.0</Mass>
+      <AccuracyTouch>1.0</AccuracyTouch>
+      <AccuracyShort>0.9</AccuracyShort>
+      <AccuracyMedium>0.8</AccuracyMedium>
+      <AccuracyLong>0.7</AccuracyLong>
+      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+      <SightsEfficiency>1.0</SightsEfficiency>
+      <ShotSpread>0.03</ShotSpread>
+      <SwayFactor>1.0</SwayFactor>
+      <Bulk>1.5</Bulk>
+    </statBases>
+    <Properties>
+      <recoilAmount>0.5</recoilAmount>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Kappa_BubbleShot</defaultProjectile>
+      <warmupTime>1.5</warmupTime>
+      <range>40</range>
+      <soundCast>Shot_Revolver</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>6</muzzleFlashScale>
+    </Properties>
+    <FireModes>
+      <aiAimMode>AimedShot</aiAimMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_AI_Rifle</li>
+    </weaponTags>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Kappa_BubbleGun"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>握把</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>8</power>
+          <cooldownTime>1.0</cooldownTime>
+          <armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Base</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <!--
+    普通泡泡
+  -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Kappa_BubbleShot"]</xpath>
+    <value>
+      <ThingDef ParentName="BaseBulletCE">
+        <defName>Kappa_BubbleShot</defName>
+        <label>压缩泡泡（无限）</label>
+        <graphicData>
+          <texPath>Items/KappaBubble</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(1.2,1.2)</drawSize>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+          <damageDef>Kappa_BubbleDamage</damageDef>
+          <damageAmountBase>30</damageAmountBase>
+          <armorPenetrationSharp>2</armorPenetrationSharp>
+          <armorPenetrationBlunt>8</armorPenetrationBlunt>
+          <speed>40</speed>
+        </projectile>
+      </ThingDef>
+    </value>
+  </Operation>
+
+</Patch>
