@@ -65,7 +65,7 @@
                 </capacities>
                 <power>45</power>
                 <cooldownTime>0.5</cooldownTime>
-                <armorPenetrationSharp>15</armorPenetrationSharp>
+                <armorPenetrationSharp>25</armorPenetrationSharp>
                 <armorPenetrationBlunt>45</armorPenetrationBlunt>
                 <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
                 <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
