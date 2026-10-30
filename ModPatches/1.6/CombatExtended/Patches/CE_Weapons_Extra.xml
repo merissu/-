@@ -120,7 +120,7 @@
       <recoilAmount>0.3</recoilAmount>
       <verbClass>CombatExtended.Verb_ShootCE</verbClass>
       <hasStandardCommand>true</hasStandardCommand>
-      <defaultProjectile>EirinArrow</defaultProjectile>
+      <defaultProjectile>EirinArrowCE</defaultProjectile>
       <warmupTime>1.5</warmupTime>
       <range>40</range>
       <soundCast>Bow_Large</soundCast>
@@ -153,11 +153,11 @@
     </value>
   </Operation>
 
-  <!-- 蓬莱箭原本没有自定义 thingClass，可安全换成 CE 弹丸 -->
+  <!-- 蓬莱箭（技能箭雨用） -->
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="EirinArrow"]</xpath>
     <value>
-      <ThingDef ParentName="BaseBulletCE">
+      <ThingDef ParentName="BaseBullet">
         <defName>EirinArrow</defName>
         <label>蓬莱箭（无限）</label>
         <graphicData>
@@ -168,7 +168,30 @@
         <projectile Class="CombatExtended.ProjectilePropertiesCE">
           <damageDef>EirinPoison</damageDef>
           <damageAmountBase>20</damageAmountBase>
-          <armorPenetrationSharp>8</armorPenetrationSharp>
+          <armorPenetrationSharp>16</armorPenetrationSharp>
+          <armorPenetrationBlunt>24</armorPenetrationBlunt>
+          <speed>50</speed>
+        </projectile>
+      </ThingDef>
+    </value>
+  </Operation>
+
+  <!-- 蓬莱弓普通射击用的 CE 弹丸 -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs</xpath>
+    <value>
+      <ThingDef ParentName="BaseBulletCE">
+        <defName>EirinArrowCE</defName>
+        <label>蓬莱箭（无限）</label>
+        <graphicData>
+          <texPath>Items/eirinarrow</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(1.2,1.2)</drawSize>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+          <damageDef>EirinPoison</damageDef>
+          <damageAmountBase>20</damageAmountBase>
+          <armorPenetrationSharp>16</armorPenetrationSharp>
           <armorPenetrationBlunt>24</armorPenetrationBlunt>
           <speed>50</speed>
         </projectile>
@@ -247,8 +270,8 @@
         <projectile Class="CombatExtended.ProjectilePropertiesCE">
           <damageDef>Kappa_BubbleDamage</damageDef>
           <damageAmountBase>30</damageAmountBase>
-          <armorPenetrationSharp>6</armorPenetrationSharp>
-          <armorPenetrationBlunt>36</armorPenetrationBlunt>
+          <armorPenetrationSharp>8</armorPenetrationSharp>
+          <armorPenetrationBlunt>48</armorPenetrationBlunt>
           <speed>40</speed>
         </projectile>
       </ThingDef>
