@@ -160,7 +160,7 @@
     <targetRequired>true</targetRequired>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
-      <range>30</range>
+      <range>75</range>
       <warmupTime>0.5</warmupTime>
       <targetParams>
         <canTargetPawns>true</canTargetPawns>
@@ -176,11 +176,11 @@
     <label>恨符「丑时参拜第七日」</label>
     <description>消耗1张符卡，诅咒目标区域内所有敌人，持续6小时。</description>
     <abilityClass>TouhouExpansion.Ability_Parsee_UshiNoMairiSeventhDay</abilityClass>
-    <cooldownTicksRange>7500</cooldownTicksRange>
+    <cooldownTicksRange>2500</cooldownTicksRange>
     <targetRequired>true</targetRequired>
     <verbProperties>
       <verbClass>TouhouExpansion.Verb_Parsee_SeventhDay</verbClass>
-      <range>40</range>
+      <range>75</range>
       <warmupTime>1.0</warmupTime>
 	  <soundCast>spell</soundCast>
       <targetParams>
