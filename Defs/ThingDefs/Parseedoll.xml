@@ -160,7 +160,7 @@
     <targetRequired>true</targetRequired>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
-      <range>75</range>
+      <range>60</range>
       <warmupTime>0.5</warmupTime>
       <targetParams>
         <canTargetPawns>true</canTargetPawns>
@@ -180,7 +180,7 @@
     <targetRequired>true</targetRequired>
     <verbProperties>
       <verbClass>TouhouExpansion.Verb_Parsee_SeventhDay</verbClass>
-      <range>75</range>
+      <range>60</range>
       <warmupTime>1.0</warmupTime>
 	  <soundCast>spell</soundCast>
       <targetParams>
