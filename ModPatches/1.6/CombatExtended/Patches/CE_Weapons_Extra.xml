@@ -146,7 +146,7 @@
           </capacities>
           <power>8</power>
           <cooldownTime>1.0</cooldownTime>
-          <armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+          <armorPenetrationBlunt>5</armorPenetrationBlunt>
           <linkedBodyPartsGroup>Base</linkedBodyPartsGroup>
         </li>
       </tools>
@@ -168,8 +168,8 @@
         <projectile Class="CombatExtended.ProjectilePropertiesCE">
           <damageDef>EirinPoison</damageDef>
           <damageAmountBase>20</damageAmountBase>
-          <armorPenetrationSharp>16</armorPenetrationSharp>
-          <armorPenetrationBlunt>24</armorPenetrationBlunt>
+          <armorPenetrationSharp>24</armorPenetrationSharp>
+          <armorPenetrationBlunt>16</armorPenetrationBlunt>
           <speed>50</speed>
         </projectile>
       </ThingDef>
@@ -191,8 +191,8 @@
         <projectile Class="CombatExtended.ProjectilePropertiesCE">
           <damageDef>EirinPoison</damageDef>
           <damageAmountBase>20</damageAmountBase>
-          <armorPenetrationSharp>16</armorPenetrationSharp>
-          <armorPenetrationBlunt>24</armorPenetrationBlunt>
+          <armorPenetrationSharp>24</armorPenetrationSharp>
+          <armorPenetrationBlunt>16</armorPenetrationBlunt>
           <speed>50</speed>
         </projectile>
       </ThingDef>
@@ -246,7 +246,7 @@
           </capacities>
           <power>8</power>
           <cooldownTime>1.0</cooldownTime>
-          <armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+          <armorPenetrationBlunt>5</armorPenetrationBlunt>
           <linkedBodyPartsGroup>Base</linkedBodyPartsGroup>
         </li>
       </tools>
