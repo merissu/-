@@ -1,0 +1,66 @@
+
+<Patch>
+
+  <Operation Class="PatchOperationSequence">
+    <operations>
+
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="LaevatainF"]/graphicData/shaderType</xpath>
+        <value>
+          <shaderType>Cutout</shaderType>
+        </value>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="ScarletRhapsodySword"]/graphicData/shaderType</xpath>
+        <value>
+          <shaderType>Cutout</shaderType>
+        </value>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="Plant_SpiritualFloweringBush"]/graphicData/shaderType</xpath>
+        <value>
+          <shaderType>CutoutPlant</shaderType>
+        </value>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="GrowablePlant_SpiritualFloweringBush"]/graphicData/shaderType</xpath>
+        <value>
+          <shaderType>CutoutPlant</shaderType>
+        </value>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="MakaiShinkiVine"]/graphicData/shaderType</xpath>
+        <value>
+          <shaderType>CutoutPlant</shaderType>
+        </value>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="ReimuSakura_Plants"]/graphicData/shaderType</xpath>
+        <value>
+          <shaderType>CutoutPlant</shaderType>
+        </value>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="HeavenlyPeachTree"]/graphicData/shaderType</xpath>
+        <value>
+          <shaderType>CutoutPlant</shaderType>
+        </value>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="JadeBranch_Plants"]/graphicData/shaderType</xpath>
+        <value>
+          <shaderType>CutoutPlant</shaderType>
+        </value>
+      </li>
+
+    </operations>
+  </Operation>
+
+</Patch>
