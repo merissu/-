@@ -88,41 +88,31 @@
   <!-- 山之奇迹效果 -->
   <HediffDef>
     <defName>Miracle_Mountain_Effect</defName>
-    <label>山之奇迹</label>
-    <description>坚如磐石，超速再生。</description>
+    <label>山之奇迹(护盾)</label>
+    <description>磐石之守：吸收来袭伤害的护盾，护盾破碎或持续 24 小时后消失。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>false</isBad>
     <maxSeverity>1.0</maxSeverity>
     <comps>
-        <li Class="HediffCompProperties_SeverityPerDay">
-            <severityPerDay>-1.0</severityPerDay>
-            <showHoursToRecover>true</showHoursToRecover>
+        <!-- 护盾数值 -->
+        <li Class="TouhouExpansion.HediffCompProperties_MiracleShield">
+            <shieldCapacity>2400</shieldCapacity>
+            <durationHours>24</durationHours>
         </li>
     </comps>
-    <stages>
-      <li>
-        <statFactors>
-          <IncomingDamageFactor>0.05</IncomingDamageFactor>   <!-- 承伤-95% -->
-          <InjuryHealingFactor>10.0</InjuryHealingFactor>     <!-- 自愈×1000% -->
-        </statFactors>
-        <capMods>
-          <li><capacity>Consciousness</capacity><offset>1.0</offset></li> <!-- 意识×200% -->
-        </capMods>
-      </li>
-    </stages>
   </HediffDef>
 
   <!-- 海之奇迹效果（清除负面 + 死亡回避） -->
   <HediffDef>
     <defName>Miracle_Sea_Effect</defName>
     <label>海之奇迹</label>
-    <description>净化一切污秽，并赋予一次死亡回避。</description>
+    <description>净化一切污秽。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>false</isBad>
     <maxSeverity>1.0</maxSeverity>
     <comps>
         <li Class="HediffCompProperties_SeverityPerDay">
-            <severityPerDay>-100.0</severityPerDay>
+            <severityPerDay>-50.0</severityPerDay>
             <showHoursToRecover>true</showHoursToRecover>
         </li>
       <!-- 清除负面状态 -->
@@ -278,10 +268,10 @@
   <AbilityDef>
     <defName>Miracle_Mountain</defName>
     <label>奇迹「山岳」</label>
-    <description>消耗1层符卡，承伤-95%，意识×200%，自愈×1000%，持续24小时。</description>
+    <description>消耗1层符卡，获得一个可吸收 2400 点伤害的护盾，护盾破碎或持续24小时后消失，重复释放会重置护盾。</description>
 	<iconPath>Abilities/Miracle_Mountain</iconPath>
     <abilityClass>TouhouExpansion.Ability_Miracle_Mountain</abilityClass>
-    <cooldownTicksRange>60000</cooldownTicksRange>
+    <cooldownTicksRange>2500</cooldownTicksRange>
     <targetRequired>false</targetRequired>
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
@@ -309,10 +299,10 @@
   <AbilityDef>
     <defName>Miracle_Sea</defName>
     <label>奇迹「海潮」</label>
-    <description>消耗1层符卡，清除所有负面状态和损伤，并获得一次死亡回避，持续24小时。</description>
+    <description>消耗1层符卡，清除所有负面状态和损伤，并获得一次死亡回避，持续1小时。</description>
 	<iconPath>Abilities/Miracle_Sea</iconPath>
     <abilityClass>TouhouExpansion.Ability_Miracle_Sea</abilityClass>
-    <cooldownTicksRange>600</cooldownTicksRange>
+    <cooldownTicksRange>1200</cooldownTicksRange>
     <targetRequired>false</targetRequired>
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
