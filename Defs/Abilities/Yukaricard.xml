@@ -207,10 +207,10 @@
 
     <AbilityDef>
         <defName>Turnenemiesintofriends</defName>
-        <label>结界「光明与黑暗的网目」</label>
-        <description>使用操纵界线程度的能力消除敌我的界线,使地图上所有单位重新加入随机的阵营的符卡
+        <label>魔眼「拉普拉斯之魔」</label>
+        <description>在周围出现大量凝视对手的诡异眼睛。眼睛将监视敌人当其出现破绽时便会展开反击。紫似乎也在用同样的手段监视幻想乡全体的动向。
 
-消耗五张符卡,发动后,让地图上所有单位(不包括玩家阵营)对你的态度随机变为敌对/中立/同盟</description>
+消耗五张符卡,发动后使敌人的所有攻击手段对自身无效化,并自动反击发起进攻的敌人</description>
         <abilityClass>merissu.Ability_Turnenemiesintofriends</abilityClass>
         <cooldownTicksRange>2400</cooldownTicksRange>
 		<displayOrder>200</displayOrder>
@@ -242,9 +242,9 @@
 
 	<HediffDef>
 		<defName>Turnenemiesintofriends</defName>
-		<label>「光明与黑暗的网目」</label>
+		<label>「拉普拉斯之魔」</label>
 		<defaultLabelColor>(204,102,204)</defaultLabelColor>
-		<description>这项能力是逻辑的创造与破坏的能力。从本质上创造新的存在,从本质上否定已有的存在,因而与神之力相匹敌,是妖怪的能力中最危险的能力之一。</description>
+		<description>在周围出现大量凝视对手的诡异眼睛。眼睛将监视敌人当其出现破绽时便会展开反击。紫似乎也在用同样的手段监视幻想乡全体的动向。</description>
 		<hediffClass>HediffWithComps</hediffClass>
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
@@ -259,4 +259,51 @@
 		</comps>
 	</HediffDef>
 
+    <ThingDef>
+        <defName>GapBulletPortal</defName>
+        <label>反击隙间</label>
+        <thingClass>merissu.Thing_GapBulletPortal</thingClass>
+        <category>Ethereal</category>
+        <selectable>false</selectable>
+        <useHitPoints>false</useHitPoints>
+        <destroyable>true</destroyable>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <passability>Standable</passability>
+    </ThingDef>
+
+	<ThingDef>
+		<defName>GapAuraController</defName>
+		<label>隙间控制器</label>
+		<thingClass>merissu.Thing_GapAuraController</thingClass>
+		<category>Ethereal</category>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<destroyable>true</destroyable>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<passability>Standable</passability>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+            <texPath>Other/null</texPath>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>GapAura</defName>
+		<label>隙间</label>
+		<thingClass>merissu.Thing_GapAura</thingClass>
+		<category>Ethereal</category>
+		<selectable>false</selectable>
+		<useHitPoints>false</useHitPoints>
+		<destroyable>true</destroyable>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<passability>Standable</passability>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<drawOffscreen>true</drawOffscreen>
+	</ThingDef>
 </Defs>	

@@ -321,7 +321,7 @@ namespace merissu
         public ClamorDef destClamorType;
         public float destClamorRadius;
         public bool isPawn;
-
+        public bool randomSafeDestination;
         private Material cachedThingMat;
         private Vector2 thingDrawSize = Vector2.one;
         private RenderTexture cachedRT;
@@ -345,6 +345,7 @@ namespace merissu
             Scribe_Values.Look(ref destClamorRadius, "destClamorRadius");
             Scribe_Values.Look(ref isPawn, "isPawn");
             Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
+            Scribe_Values.Look(ref randomSafeDestination,"randomSafeDestination",false);
         }
 
         public ThingOwner GetDirectlyHeldThings() => innerContainer;
@@ -450,9 +451,43 @@ namespace merissu
             {
                 Thing t = innerContainer[0];
 
-                innerContainer.TryDrop(t, destCell, this.Map, ThingPlaceMode.Direct, out Thing resultingThing);
+                if (randomSafeDestination && t is Pawn arrivingPawn)
+                {
+                    if (!GapEmergencyTeleportUtility.IsSafeArrivalCell(
+                        arrivingPawn,
+                        this.Map,
+                        destCell,
+                        8f))
+                    {
+                        IntVec3 newDestination;
 
-                if (t is Pawn transportedPawn)
+                        if (GapEmergencyTeleportUtility.TryFindSafeCell(
+                            arrivingPawn,
+                            this.Map,
+                            12f,
+                            out newDestination))
+                        {
+                            destCell = newDestination;
+                        }
+                        else if (GapEmergencyTeleportUtility.TryFindSafeCell(
+                            arrivingPawn,
+                            this.Map,
+                            0f,
+                            out newDestination))
+                        {
+                            destCell = newDestination;
+                        }
+                    }
+                }
+
+                innerContainer.TryDrop(
+                    t,
+                    destCell,
+                    this.Map,
+                    ThingPlaceMode.Direct,
+                    out Thing resultingThing
+                ); if (t is Pawn transportedPawn)
+
                 {
                     if ((transportedPawn.Faction == Faction.OfPlayer || transportedPawn.IsPlayerControlled) && transportedPawn.Position.Fogged(this.Map))
                     {

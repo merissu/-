@@ -183,6 +183,8 @@
     <Compile Include="告春精\CompProperties_FlowerTrail .cs" />
     <Compile Include="告春精\DanmakuExtension.cs" />
     <Compile Include="灵异珠系列\CompProperties_Sealable.cs" />
+    <Compile Include="符卡系列\Yukari\GapEmergencyTeleport.cs" />
+    <Compile Include="符卡系列\Yukari\GapTeleportInvulnerability.cs" />
     <Compile Include="符卡系列\yuyuko\GhostButterfly_FX.cs" />
     <Compile Include="能力后加音效的通用组件\CompProperties_AbilityPlaySound.cs" />
     <Compile Include="袭击毛玉\JobGiver_MaoyuHitAndRun.cs" />

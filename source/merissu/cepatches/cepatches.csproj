@@ -47,6 +47,10 @@
       <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2009463077\1.6\Assemblies\HarmonyMod.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="merissu">
+      <HintPath>..\..\..\Assemblies\merissu.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -66,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DurgaSoulCEStartup.cs" />
+    <Compile Include="GapBulletPortalCE.cs" />
     <Compile Include="YoumuParryCEPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
