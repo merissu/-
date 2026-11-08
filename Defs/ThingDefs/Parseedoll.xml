@@ -103,6 +103,7 @@
         <severityPerDay>-2</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
       </li>
+      <li Class="TouhouExpansion.HediffCompProperties_ParseeNoCurseWithDoll" />
     </comps>
   </HediffDef>
 
@@ -156,12 +157,12 @@
     <label>恨符「丑时参拜」</label>
     <description>诅咒单个敌人，使其成为伤害转移的目标，持续6小时。</description>
     <abilityClass>TouhouExpansion.Ability_Parsee_UshiNoMairi</abilityClass>
-    <cooldownTicksRange>2500</cooldownTicksRange>
+    <cooldownTicksRange>1200</cooldownTicksRange>
     <targetRequired>true</targetRequired>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
-      <range>60</range>
-      <warmupTime>0.5</warmupTime>
+      <range>75</range>
+      <warmupTime>0.25</warmupTime>
       <targetParams>
         <canTargetPawns>true</canTargetPawns>
         <canTargetSelf>false</canTargetSelf>
@@ -180,8 +181,8 @@
     <targetRequired>true</targetRequired>
     <verbProperties>
       <verbClass>TouhouExpansion.Verb_Parsee_SeventhDay</verbClass>
-      <range>60</range>
-      <warmupTime>1.0</warmupTime>
+      <range>75</range>
+      <warmupTime>0.25</warmupTime>
 	  <soundCast>spell</soundCast>
       <targetParams>
         <canTargetLocations>true</canTargetLocations>
@@ -197,7 +198,7 @@
     <label>敲下五寸钉</label>
     <description>把你帕露帕露掉！</description>
     <abilityClass>TouhouExpansion.Ability_Parsee_NailStrike</abilityClass>
-    <cooldownTicksRange>60</cooldownTicksRange>
+    <cooldownTicksRange>45</cooldownTicksRange>
     <targetRequired>false</targetRequired>
     <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
     <verbProperties>
