@@ -9,5 +9,7 @@
 	<v1.7>
 		<li>/</li>
 		<li>1.7</li>
+		<li IfModActive="CETeam.CombatExtended">ModPatches/1.6/CombatExtended</li>
+		<li IfModActive="co.uk.epicguru.meleeanimation">ModPatches/1.6/meleeanimation</li>
 	</v1.7>
 </loadFolders>
