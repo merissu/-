@@ -78,7 +78,7 @@
       <AccuracyShort>0.9</AccuracyShort>
       <AccuracyMedium>0.8</AccuracyMedium>
       <AccuracyLong>0.70</AccuracyLong>
-      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>Touhou</li>
@@ -106,7 +106,7 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>Kappa_BubbleShot</defaultProjectile>
-        <warmupTime>1.5</warmupTime>
+        <warmupTime>1.0</warmupTime>
         <range>40</range>
         <soundCast>Shot_Revolver</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
@@ -209,7 +209,7 @@
     <label>泡符「射击吧！泡泡龙」</label>
     <description>消耗1张符卡，发射一颗巨型泡泡。命中后爆炸并分裂成一圈小泡泡。</description>
     <abilityClass>TouhouExpansion.Ability_Kappa_BubbleBarrage</abilityClass>
-    <cooldownTicksRange>300</cooldownTicksRange>
+    <cooldownTicksRange>60</cooldownTicksRange>
     <targetRequired>true</targetRequired>
     <verbProperties>
       <verbClass>TouhouExpansion.Verb_Kappa_BubbleBarrage</verbClass>
