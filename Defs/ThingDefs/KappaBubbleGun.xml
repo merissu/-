@@ -214,7 +214,7 @@
     <verbProperties>
       <verbClass>TouhouExpansion.Verb_Kappa_BubbleBarrage</verbClass>
       <range>40</range>
-      <warmupTime>0.8</warmupTime>
+      <warmupTime>0.25</warmupTime>
       <targetParams>
         <canTargetPawns>true</canTargetPawns>
         <canTargetLocations>true</canTargetLocations>
