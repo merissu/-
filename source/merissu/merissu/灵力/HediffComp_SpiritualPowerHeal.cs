@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.Sound;
 
@@ -16,28 +17,38 @@ namespace merissu
 
     public class HediffComp_SpiritualPowerHeal : HediffComp
     {
-        public HediffCompProperties_SpiritualPowerHeal Props => (HediffCompProperties_SpiritualPowerHeal)props;
+        public HediffCompProperties_SpiritualPowerHeal Props =>
+            (HediffCompProperties_SpiritualPowerHeal)props;
 
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
             base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
+            if (Pawn == null || Pawn.Dead || !Pawn.Downed)
+                return;
 
-            if (Pawn.Downed)
-            {
-                TriggerHealOnDowned();
-            }
+            if (!Pawn.Spawned || Pawn.Map == null)
+                return;
+
+            TriggerHealOnDowned();
         }
 
         private void TriggerHealOnDowned()
         {
+            if (Pawn == null || !Pawn.Spawned || Pawn.Map == null)
+                return;
+
+            Map map = Pawn.Map;
+
             float currentSeverity = parent.Severity;
 
             if (currentSeverity > 0.5f)
             {
                 float totalHealAmount = currentSeverity * 20f;
+
                 ApplyHealing(totalHealAmount);
 
                 HediffDef knockbackDef = HediffDef.Named("MagicKnockback");
+
                 if (knockbackDef != null)
                 {
                     Pawn.health.AddHediff(knockbackDef);
@@ -45,11 +56,18 @@ namespace merissu
 
                 parent.Severity = 0.01f;
 
-                MoteMaker.ThrowText(Pawn.DrawPos, Pawn.Map, "满目疮痍 " + totalHealAmount.ToString("F1"));
+                MoteMaker.ThrowText(
+                    Pawn.DrawPos,
+                    map,
+                    "满目疮痍 " + totalHealAmount.ToString("F1")
+                );
 
-                SoundDef.Named("MagicKnockback").PlayOneShot(new TargetInfo(Pawn.Position, Pawn.Map));
+                SoundDef.Named("MagicKnockback").PlayOneShot(
+                    new TargetInfo(Pawn.Position, map)
+                );
             }
         }
+
         private void ApplyHealing(float amount)
         {
             IEnumerable<Hediff_Injury> injuries = Pawn.health.hediffSet.hediffs
@@ -60,10 +78,13 @@ namespace merissu
 
             foreach (Hediff_Injury injury in injuries)
             {
-                if (remainingHeal <= 0) break;
+                if (remainingHeal <= 0f)
+                    break;
 
-                float healStep = UnityEngine.Mathf.Min(injury.Severity, remainingHeal);
+                float healStep = Mathf.Min(injury.Severity, remainingHeal);
+
                 injury.Heal(healStep);
+
                 remainingHeal -= healStep;
             }
         }

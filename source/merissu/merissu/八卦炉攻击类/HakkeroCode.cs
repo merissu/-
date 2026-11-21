@@ -126,40 +126,73 @@ namespace merissu
             Map map = this.Map;
             Vector3 exactPos = this.ExactPosition;
 
-            if (hitThing != null)
+            if (hitThing != null && !blockedByShield)
             {
-                float damageAmount = this.def.projectile.GetDamageAmount(this.launcher, null);
-                float armorPenetration = this.def.projectile.GetArmorPenetration(this.launcher, null);
-                DamageDef damageDef = this.def.projectile.damageDef ?? DamageDefOf.Scratch;
-                DamageInfo dinfo = new DamageInfo(damageDef, damageAmount, armorPenetration,
-                    this.ExactRotation.eulerAngles.y, this.launcher, null, this.equipmentDef,
-                    DamageInfo.SourceCategory.ThingOrUnknown, this.intendedTarget.Thing);
+                float damageAmount = this.def.projectile.GetDamageAmount(
+                    this.launcher, null);
+
+                float armorPenetration = this.def.projectile.GetArmorPenetration(
+                    this.launcher, null);
+
+                DamageDef damageDef =
+                    this.def.projectile.damageDef ?? DamageDefOf.Scratch;
+
+                DamageInfo dinfo = new DamageInfo(
+                    damageDef,
+                    damageAmount,
+                    armorPenetration,
+                    this.ExactRotation.eulerAngles.y,
+                    this.launcher,
+                    null,
+                    this.equipmentDef,
+                    DamageInfo.SourceCategory.ThingOrUnknown,
+                    this.intendedTarget.Thing
+                );
+
                 hitThing.TakeDamage(dinfo);
             }
 
             base.Impact(hitThing, blockedByShield);
 
-            if (map == null) return;
+            if (map == null)
+                return;
 
-            SoundDef.Named("marisashotB")?.PlayOneShot(new TargetInfo(this.Position, map));
+            IntVec3 effectCell = exactPos.ToIntVec3();
 
-            Thing burstA = ThingMaker.MakeThing(ThingDef.Named("MarisaShotA_BurstA"));
-            GenSpawn.Spawn(burstA, exactPos.ToIntVec3(), map);
+            SoundDef.Named("marisashotB")?.PlayOneShot(
+                new TargetInfo(effectCell, map));
+
+            Thing burstA = ThingMaker.MakeThing(
+                ThingDef.Named("MarisaShotA_BurstA"));
+
+            GenSpawn.Spawn(burstA, effectCell, map);
+
             if (burstA is Thing_MarisaShotABurstA a)
+            {
                 a.exactPosition = exactPos;
+            }
 
             int particleCount = Rand.Range(8, 13);
+
             for (int i = 0; i < particleCount; i++)
             {
-                Thing splash = ThingMaker.MakeThing(ThingDef.Named("MarisaShotA_Splash"));
-                GenSpawn.Spawn(splash, exactPos.ToIntVec3(), map);
+                Thing splash = ThingMaker.MakeThing(
+                    ThingDef.Named("MarisaShotA_Splash"));
+
+                GenSpawn.Spawn(splash, effectCell, map);
+
                 if (splash is Thing_MarisaShotASplash sp)
                 {
                     sp.exactPosition = exactPos;
 
                     float angle = Rand.Range(0f, 360f);
                     float speed = Rand.Range(0.15f, 0.35f);
-                    Vector3 dir = new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad), 0f, Mathf.Cos(angle * Mathf.Deg2Rad));
+
+                    Vector3 dir = new Vector3(
+                        Mathf.Sin(angle * Mathf.Deg2Rad),
+                        0f,
+                        Mathf.Cos(angle * Mathf.Deg2Rad));
+
                     sp.velocity = dir * speed;
                     sp.startScale = Rand.Range(0.3f, 0.6f);
                     sp.rotation = Rand.Range(0f, 360f);
